@@ -1,14 +1,14 @@
 {
  "project": "fomc-markets",
- "generated_at": "2026-09-16T06:01:31+00:00",
+ "generated_at": "2026-09-16T06:09:07+00:00",
  "first_snapshot_ts": "2026-09-16T02:27:56+00:00",
  "last_snapshot_ts": "2026-09-16T02:35:26+00:00",
  "n_snapshots": 3,
  "n_days": 1,
  "history_from": "2025-10-01",
  "markets_tracked": {
-  "polymarket": 287,
-  "kalshi": 400
+  "kalshi": 400,
+  "polymarket": 287
  },
  "decision_markets": 80,
  "next_meeting": {
