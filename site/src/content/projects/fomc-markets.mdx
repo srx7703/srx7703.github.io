@@ -17,6 +17,8 @@ import SourceStamp from '@components/SourceStamp.astro';
 import PipelineStatus from '@components/PipelineStatus.astro';
 import Section from '@components/Section.astro';
 import DataQuality from '@components/DataQuality.astro';
+import Sidenote from '@components/Sidenote.astro';
+import Appendix from '@components/Appendix.astro';
 import { evaluationPlan } from '@lib/prereg';
 import DownloadCsv from '@components/DownloadCsv.astro';
 import { fomcHistorySpec } from '@charts/fomc/history';
@@ -34,8 +36,8 @@ export const plan = evaluationPlan();
 export const pathTitle = facts.meetings.filter((m) => m.agree).map((m) => `${sideName[m.platforms.polymarket.modal_side]} on ${dayUtc(m.decision_date)}`);
 
 <div class="lede">
-  {next ? (next.agree ? `For the ${dayUtc(next.decision_date)} decision, both platforms make ${sideName[pm.modal_side]} the modal outcome: ${pct(pm.modal_prob, 1)} on Polymarket and ${pct(kx.modal_prob, 1)} on Kalshi. The probability-weighted expected move is ${pm.expected_bps} bps on Polymarket and ${kx.expected_bps} bps on Kalshi.` : `For the ${dayUtc(next.decision_date)} decision the platforms disagree on the modal outcome: Polymarket has ${sideName[pm.modal_side]} at ${pct(pm.modal_prob, 1)}, Kalshi has ${sideName[kx.modal_side]} at ${pct(kx.modal_prob, 1)}. The probability-weighted expected move is ${pm.expected_bps} bps on Polymarket and ${kx.expected_bps} bps on Kalshi.`) : 'No upcoming meeting is currently listed on both platforms.'}
-  {' '}History runs from {dayUtc(facts.history_from)} via each platform's own price history, and both platforms are snapshotted twice a day from here on.
+  <p>{next ? (next.agree ? `For the ${dayUtc(next.decision_date)} decision, both platforms make ${sideName[pm.modal_side]} the modal outcome: ${pct(pm.modal_prob, 1)} on Polymarket and ${pct(kx.modal_prob, 1)} on Kalshi. The probability-weighted expected move is ${pm.expected_bps} bps on Polymarket and ${kx.expected_bps} bps on Kalshi.` : `For the ${dayUtc(next.decision_date)} decision the platforms disagree on the modal outcome: Polymarket has ${sideName[pm.modal_side]} at ${pct(pm.modal_prob, 1)}, Kalshi has ${sideName[kx.modal_side]} at ${pct(kx.modal_prob, 1)}. The probability-weighted expected move is ${pm.expected_bps} bps on Polymarket and ${kx.expected_bps} bps on Kalshi.`) : 'No upcoming meeting is currently listed on both platforms.'}<Sidenote>The modal outcome is the bucket with the highest quoted probability. Both platforms list five buckets per meeting (cut 50+, cut 25, hold, hike 25, hike 50+); the charts roll them up to cut, hold and hike.</Sidenote><Sidenote>Expected move = Σ probability × basis points, with cut 50+ = −50, cut 25 = −25, hold = 0, hike 25 = +25 and hike 50+ = +50. Bucket probabilities are used as quoted, not renormalised.</Sidenote></p>
+  <p>History runs from {dayUtc(facts.history_from)} via each platform's own price history, and both platforms are snapshotted twice a day from here on.<Sidenote>Before {dayUtc(facts.first_snapshot_ts)} the series comes from Polymarket's price-history endpoint and Kalshi's candlesticks; from then on the snapshot pipeline adds two observations a day, with order books.</Sidenote></p>
 </div>
 
 <PipelineStatus lastSnapshot={facts.last_snapshot_ts} firstSnapshot={facts.first_snapshot_ts} nSnapshots={facts.n_snapshots} nDays={facts.n_days} workflow="snapshot-predmarkets.yml" cadence="twice daily" />
@@ -49,7 +51,7 @@ export const pathTitle = facts.meetings.filter((m) => m.agree).map((m) => `${sid
 )}
 
 {next && (
-  <ChartCard title={next.agree ? `Both platforms have converged on ${sideName[pm.modal_side]} for ${dayUtc(next.decision_date)}` : `The platforms disagree on ${dayUtc(next.decision_date)}: ${sideName[pm.modal_side]} on Polymarket, ${sideName[kx.modal_side]} on Kalshi`} subtitle={`Daily probability of a cut, no change or a hike at the next meeting, by platform, since ${dayUtc(facts.history_from)}; dashed line = decision day; last value labelled`}>
+  <ChartCard size="full" title={next.agree ? `Both platforms have converged on ${sideName[pm.modal_side]} for ${dayUtc(next.decision_date)}` : `The platforms disagree on ${dayUtc(next.decision_date)}: ${sideName[pm.modal_side]} on Polymarket, ${sideName[kx.modal_side]} on Kalshi`} subtitle={`Daily probability of a cut, no change or a hike at the next meeting, by platform, since ${dayUtc(facts.history_from)}; dashed line = decision day; last value labelled`}>
     <div class="grid-2">
       <VegaChart id="fomc-pm" spec={fomcHistorySpec(next.meeting, 'polymarket', true, next.decision_date)} ariaLabel="Line chart of cut, hold and hike probabilities on Polymarket over time" />
       <VegaChart id="fomc-kx" spec={fomcHistorySpec(next.meeting, 'kalshi', true, next.decision_date)} ariaLabel="Line chart of cut, hold and hike probabilities on Kalshi over time" />
@@ -109,6 +111,8 @@ export const pathTitle = facts.meetings.filter((m) => m.agree).map((m) => `${sid
   </div>
 </Section>
 
+<Appendix>
+
 <Section id="method" title="Method">
   <div class="prose">
     <p><strong>Question.</strong> How far ahead, and how accurately, do prediction markets price Federal Reserve decisions, and do the two venues disagree?</p>
@@ -145,3 +149,5 @@ export const pathTitle = facts.meetings.filter((m) => m.agree).map((m) => `${sid
     <li><strong>2026-09-16</strong> — page v0: history backfill, next-meeting probabilities, implied path, scorecard scaffold.</li>
   </ul>
 </Section>
+
+</Appendix>

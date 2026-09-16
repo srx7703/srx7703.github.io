@@ -45,8 +45,8 @@ const { target, selects = [], placeholder = 'Search…' } = Astro.props;
   });
 </script>
 <style>
-  .filterbar { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-3); align-items: center; margin: 0 0 var(--s-2); font-size: var(--fs-sm); }
-  .filterbar__search, .filterbar select { font: inherit; font-size: var(--fs-sm); color: var(--ink); background: var(--surface); border: 1px solid var(--border-strong); border-radius: 6px; padding: 0.3em 0.6em; }
+  .filterbar { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-3); align-items: center; margin: 0 0 var(--s-2); font-family: var(--font-sans); font-size: var(--fs-sm); }
+  .filterbar__search, .filterbar select { font: inherit; font-size: var(--fs-sm); color: var(--ink); background: transparent; border: 1px dashed var(--border-strong); border-radius: 0; padding: 0.3em 0.6em; }
   .filterbar__select { display: inline-flex; gap: var(--s-1); align-items: center; color: var(--ink-2); }
   .filterbar__count { color: var(--ink-3); margin-left: auto; font-variant-numeric: tabular-nums; }
 </style>

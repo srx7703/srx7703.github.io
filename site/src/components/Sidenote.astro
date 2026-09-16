@@ -1,0 +1,8 @@
+---
+/**
+ * Tufte-style numbered sidenote. Use inline, inside a paragraph, right after the phrase it annotates:
+ *   ... the modal outcome<Sidenote>The bucket with the highest quoted probability.</Sidenote> is ...
+ * Wide screens float it into the right margin; narrow screens show it inline under the paragraph.
+ */
+---
+<span class="sidenote-number" aria-hidden="true"></span><span class="sidenote" role="note"><slot /></span>

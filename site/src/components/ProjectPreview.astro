@@ -1,0 +1,25 @@
+---
+/** One project row: title, a status line, the summary, and the latest headline number (from facts via cardKpis). */
+interface Props {
+  href: string;
+  title: string;
+  summary: string;
+  status: 'live' | 'case-study' | 'in-progress';
+  domain: string[];
+  started: string;
+  kpi?: { label: string; value: string };
+  headingLevel?: 'h2' | 'h3';
+}
+const { href, title, summary, status, domain, started, kpi, headingLevel = 'h3' } = Astro.props;
+const Title = headingLevel;
+const statusLabel = { live: 'Live, auto-refreshed', 'case-study': 'Case study', 'in-progress': 'In progress' }[status];
+---
+<a class="preview" href={href} data-status={status} data-domain={domain.join('|')}>
+  <div>
+    <Title class="preview__title">{title}</Title>
+    <p class="preview__meta"><span class={`badge badge--${status}`}>{statusLabel}</span><span class="small-caps"> · {domain.join(', ')} · since {started}</span></p>
+    <p class="preview__summary">{summary}</p>
+    {kpi && <p class="preview__latest">Latest: <strong>{kpi.value}</strong> {kpi.label}</p>}
+  </div>
+  <span class="preview__cta" aria-hidden="true">View project →</span>
+</a>

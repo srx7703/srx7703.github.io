@@ -1,29 +1,38 @@
-/* Design tokens. Chart chrome values follow the validated reference palette (docs/CHART_RULES.md). */
+/*
+ * Design tokens. Skin: paper ground, serif text, dashed rules (after the Dante theme's look, re-implemented here).
+ * Skeleton: Tufte-style main column with a right margin for sidenotes, Distill-style article header and appendix.
+ * Chart series colours were re-validated on both surfaces with the dataviz palette validator (docs/CHART_RULES.md).
+ */
+@import '@fontsource-variable/newsreader/opsz.css';
+@import '@fontsource-variable/newsreader/opsz-italic.css';
+@import '@fontsource-variable/ibm-plex-sans';
+
 :root {
   color-scheme: light;
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-serif: 'Newsreader Variable', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-sans: 'IBM Plex Sans Variable', 'Helvetica Neue', Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  --bg: #f9f9f7;
-  --surface: #fcfcfb;
-  --ink: #0b0b0b;
-  --ink-2: #52514e;
-  --ink-3: #6f6d67;
-  --grid: #e1e0d9;
-  --border: #e1e0d9;
-  --border-strong: #c3c2b7;
-  --accent: #1c5cab; /* link/accent: 6.3:1 on the light plane */
-  --positive: #006300;
-  --negative: #d03b3b;
+  --bg: #f2f1ec;
+  --surface: #eae9e1;
+  --ink: #171717;
+  --ink-2: #454440;
+  --ink-3: #6b6a63;
+  --grid: #dcdad0;
+  --border: #d3d1c6;
+  --border-strong: #171717;
+  --accent: #171717; /* links are ink, underlined; there is no brand colour */
+  --positive: #1e6b3a;
+  --negative: #b8332f;
 
-  /* categorical series, fixed order: platforms then parties */
+  /* categorical series, fixed order: platforms then parties (validated on #f2f1ec) */
   --series-polymarket: #4a3aa7;
-  --series-kalshi: #1baf7a;
+  --series-kalshi: #15966a;
   --series-dem: #2a78d6;
   --series-rep: #e34948;
   --series-a: #2a78d6;
-  --series-b: #eb6834;
-  --series-c: #1baf7a;
+  --series-b: #e0602a;
+  --series-c: #15966a;
   --series-cut: #2a78d6;
   --series-hold: #898781;
   --series-hike: #e34948;
@@ -31,11 +40,11 @@
 
   --fs-xs: 0.75rem;
   --fs-sm: 0.875rem;
-  --fs-md: 1rem;
-  --fs-lg: 1.125rem;
+  --fs-md: 1.0625rem;
+  --fs-lg: 1.25rem;
   --fs-xl: 1.5rem;
   --fs-2xl: 2rem;
-  --fs-3xl: 2.75rem;
+  --fs-3xl: 2.6rem;
 
   --s-1: 0.25rem;
   --s-2: 0.5rem;
@@ -43,24 +52,29 @@
   --s-4: 1.25rem;
   --s-5: 2rem;
   --s-6: 3rem;
-  --radius: 10px;
-  --container: 68rem;
+  --radius: 0;
+
+  /* Tufte layout: text column + gutter + margin for sidenotes */
+  --col: 41rem;
+  --gutter: 2.5rem;
+  --margin: 15rem;
+  --container: calc(var(--col) + var(--gutter) + var(--margin));
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #0d0d0d;
-    --surface: #1a1a19;
-    --ink: #f2f2ef;
-    --ink-2: #c3c2b7;
-    --ink-3: #898781;
-    --grid: #2c2c2a;
-    --border: #2c2c2a;
-    --border-strong: #383835;
-    --accent: #3987e5;
-    --positive: #0ca30c;
-    --negative: #e66767;
+    --bg: #171717;
+    --surface: #232320;
+    --ink: #f2f1ec;
+    --ink-2: #c8c6bc;
+    --ink-3: #9d9b92;
+    --grid: #2e2e2b;
+    --border: #35342f;
+    --border-strong: #f2f1ec;
+    --accent: #f2f1ec;
+    --positive: #5fc48a;
+    --negative: #ef7a72;
     --series-polymarket: #9085e9;
     --series-kalshi: #199e70;
     --series-dem: #3987e5;
@@ -76,17 +90,17 @@
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0d0d0d;
-  --surface: #1a1a19;
-  --ink: #f2f2ef;
-  --ink-2: #c3c2b7;
-  --ink-3: #898781;
-  --grid: #2c2c2a;
-  --border: #2c2c2a;
-  --border-strong: #383835;
-  --accent: #3987e5;
-  --positive: #0ca30c;
-  --negative: #e66767;
+  --bg: #171717;
+  --surface: #232320;
+  --ink: #f2f1ec;
+  --ink-2: #c8c6bc;
+  --ink-3: #9d9b92;
+  --grid: #2e2e2b;
+  --border: #35342f;
+  --border-strong: #f2f1ec;
+  --accent: #f2f1ec;
+  --positive: #5fc48a;
+  --negative: #ef7a72;
   --series-polymarket: #9085e9;
   --series-kalshi: #199e70;
   --series-dem: #3987e5;

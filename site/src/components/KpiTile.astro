@@ -1,4 +1,5 @@
 ---
+/** One key figure in a ruled row (KpiRow): label, value, and a qualifying line. */
 interface Props {
   label: string;
   value: string;
@@ -7,16 +8,8 @@ interface Props {
 }
 const { label, value, sub, tone = 'neutral' } = Astro.props;
 ---
-<div class={`kpi kpi--${tone}`} role="group" aria-label={label}>
-  <div class="kpi__label">{label}</div>
-  <div class="kpi__value">{value}</div>
-  {sub && <div class="kpi__sub">{sub}</div>}
+<div class={`kf kf--${tone}`}>
+  <dt class="kf__label">{label}</dt>
+  <dd class="kf__value">{value}</dd>
+  {sub && <dd class="kf__sub">{sub}</dd>}
 </div>
-<style>
-  .kpi { border: 1px solid var(--border); border-radius: var(--radius); padding: var(--s-3) var(--s-4); background: var(--surface); min-width: 0; }
-  .kpi__label { font-size: var(--fs-sm); color: var(--ink-2); margin-bottom: var(--s-1); }
-  .kpi__value { font-size: var(--fs-2xl); font-weight: 600; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; color: var(--ink); line-height: 1.1; }
-  .kpi__sub { font-size: var(--fs-sm); color: var(--ink-3); margin-top: var(--s-1); font-variant-numeric: tabular-nums; }
-  .kpi--positive .kpi__value { color: var(--positive); }
-  .kpi--negative .kpi__value { color: var(--negative); }
-</style>

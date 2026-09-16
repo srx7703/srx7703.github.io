@@ -1,6 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '@layouts/Base.astro';
+import { evaluationPlan } from '@lib/prereg';
+import { dayUtc } from '@lib/fmt';
 
 export async function getStaticPaths() {
   const entries = await getCollection('projects');
@@ -8,19 +10,29 @@ export async function getStaticPaths() {
 }
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const statusLabel = { live: 'Live · auto-refreshed', 'case-study': 'Case study', 'in-progress': 'In progress' }[entry.data.status];
+const statusLabel = { live: 'Live project, auto-refreshed', 'case-study': 'Case study', 'in-progress': 'In progress' }[entry.data.status];
+const plan = entry.data.status === 'live' ? evaluationPlan() : null;
+const url = `https://srx7703.github.io/projects/${entry.id}/`;
+const year = entry.data.started.slice(0, 4);
 ---
 <Base title={entry.data.title} description={entry.data.summary}>
   <article>
-    <header class="project-header">
+    <header class="d-title">
+      <p class="small-caps">{statusLabel} · {entry.data.domain.join(', ')}</p>
       <h1>{entry.data.title}</h1>
-      <div class="meta">
-        <span class={`badge badge--${entry.data.status}`}>{statusLabel}</span>
-        <span>{entry.data.domain.join(' · ')}</span>
-        <span>· {entry.data.tools.join(', ')}</span>
-        <span>· started {entry.data.started}</span>
-      </div>
+      <p class="dek">{entry.data.summary}</p>
     </header>
+    <dl class="byline">
+      <div><dt>Author</dt><dd>Ruoxuan Song</dd></div>
+      <div><dt>Started</dt><dd>{dayUtc(entry.data.started)}</dd></div>
+      <div><dt>Built with</dt><dd>{entry.data.tools.join(', ')}</dd></div>
+      {plan && <div><dt>Evaluation plan</dt><dd><a href={plan.url} title="docs/EVALUATION_PLAN.md, pre-registered">blob {plan.short}</a></dd></div>}
+    </dl>
     <Content />
+    <footer class="appendix">
+      <p class="appendix__label">Citation</p>
+      <p>Song, Ruoxuan. “{entry.data.title}.” <em>srx7703.github.io</em>, {year}. <a href={url}>{url}</a></p>
+      <p>Code and data: <a href="https://github.com/srx7703/srx7703.github.io">github.com/srx7703/srx7703.github.io</a></p>
+    </footer>
   </article>
 </Base>

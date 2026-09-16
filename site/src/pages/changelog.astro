@@ -1,14 +1,9 @@
 ---
 import Base from '@layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { changelog } from '@lib/changelog';
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
-const entries = [
-  { date: '2026-09-16', text: 'Acceptance-review fixes: data-quality tables on every page, pre-registered evaluation plan with git hash, honest chart titles templated from facts, deploy after data refreshes, lazy-loaded chart library.' },
-  { date: '2026-09-16', text: 'Financial LLM case study; sortable benchmark table with filters and CSV downloads; changelog page; prose-numbers guardrail test.' },
-  { date: '2026-09-16', text: 'SaaS benchmark from SEC XBRL, FOMC decision-market page with backfilled history and scorecard, stat-arb case study; weekly refresh workflow.' },
-  { date: '2026-09-16', text: 'Site v0 live on GitHub Pages: midterms tracker page, design tokens, Vega-Lite chart system.' },
-  { date: '2026-09-15', text: 'Prediction-market snapshot pipeline (Polymarket + Kalshi) running twice daily on GitHub Actions.' },
-];
+const entries = changelog;
 ---
 <Base title="Changelog">
   <h1>Changelog</h1>
@@ -29,8 +24,3 @@ const entries = [
     {projects.map((p) => (<li><a href={`/projects/${p.id}/`}>{p.data.title}</a> <span class="muted">· {p.data.status} · started {p.data.started}</span></li>))}
   </ul>
 </Base>
-<style>
-  .log { list-style: none; padding: 0; margin: var(--s-4) 0; }
-  .log li { display: grid; grid-template-columns: 7.5rem 1fr; gap: var(--s-3); padding: var(--s-2) 0; border-bottom: 1px solid var(--border); }
-  .log time { color: var(--ink-3); font-variant-numeric: tabular-nums; }
-</style>

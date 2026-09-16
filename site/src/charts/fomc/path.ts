@@ -13,7 +13,7 @@ export function fomcPathSpec() {
     data: { values: rows },
     height: 200,
     encoding: {
-      x: { field: 'meeting', type: 'ordinal', title: 'Decision date', axis: { labelAngle: 0, labelExpr: "timeFormat(toDate(datum.value), '%b %d, %Y')" } },
+      x: { field: 'meeting', type: 'ordinal', title: 'Decision date', axis: { labelAngle: 0, labelExpr: "utcFormat(toDate(datum.value), '%b %d, %Y')" } },
       y: { field: 'bps', type: 'quantitative', title: 'Expected change (bps)', axis: { tickCount: 5 } },
       xOffset: { field: 'platform', type: 'nominal', scale: { domain: PLATFORM_DOMAIN } },
       color: {
@@ -29,7 +29,8 @@ export function fomcPathSpec() {
     layer: [
       { mark: { type: 'bar', size: 20, cornerRadiusEnd: 4 } },
       { mark: { type: 'text', dy: -6, fontSize: 11, color: tok('ink-2') }, encoding: { text: { field: 'bps', type: 'quantitative', format: '.0f' } } },
-      { data: { values: [{ y: 0 }] }, mark: { type: 'rule', color: tok('border-strong') }, encoding: { y: { field: 'y', type: 'quantitative' } } },
+      // the zero rule drops the inherited x/xOffset/color channels so it adds no 'null' category to the x scale
+      { data: { values: [{ y: 0 }] }, mark: { type: 'rule', color: tok('border-strong') }, encoding: { x: null, xOffset: null, color: null, tooltip: null, y: { field: 'y', type: 'quantitative' } } },
     ],
   };
 }

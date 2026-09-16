@@ -15,6 +15,7 @@ const nav = [
   { href: '/changelog/', label: 'Changelog' },
 ];
 const path = Astro.url.pathname;
+const isHome = path === '/';
 ---
 <!doctype html>
 <html lang="en">
@@ -36,24 +37,27 @@ const path = Astro.url.pathname;
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
-    <header class="site-header">
-      <div class="container row">
-        <a class="brand" href="/">Ruoxuan Song</a>
-        <nav aria-label="Primary">
-          {nav.map((n) => (
-            <a href={n.href} aria-current={path === n.href || (n.href !== '/' && path.startsWith(n.href)) ? 'page' : undefined}>{n.label}</a>
-          ))}
-        </nav>
+    <header class="page">
+      <nav class="site-nav" aria-label="Primary">
+        {nav.map((n) => (
+          <a href={n.href} aria-current={path === n.href || (n.href !== '/' && path.startsWith(n.href)) ? 'page' : undefined}>{n.label}</a>
+        ))}
         <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle light / dark">
           <span class="theme-icon" aria-hidden="true"></span>
         </button>
+      </nav>
+      <div class="masthead">
+        <p class="masthead__name">{isHome ? 'Ruoxuan Song' : <a href="/">Ruoxuan Song</a>}</p>
+        <p class="masthead__sub">Data analysis, dashboards, and the pipelines behind them</p>
       </div>
     </header>
-    <main id="main" class="container">
-      <slot />
+    <main id="main" class="page">
+      <div class="tufte">
+        <slot />
+      </div>
     </main>
     <footer class="site-footer">
-      <div class="container">
+      <div class="page">
         <span>© {new Date().getUTCFullYear()} Ruoxuan Song · </span>
         <a href="https://github.com/srx7703/srx7703.github.io">Source on GitHub</a>
         <span> · Built with Claude Code, Astro and Vega-Lite. Data refreshed by GitHub Actions.</span>

@@ -11,7 +11,3 @@ const { sources, asOf, note } = Astro.props;
   <span> · Data as of {asOf}</span>
   {note && <span> · {note}</span>}
 </p>
-<style>
-  .stamp { font-size: var(--fs-xs); color: var(--ink-3); margin: var(--s-2) 0 0; }
-  .stamp a { color: inherit; }
-</style>
