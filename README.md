@@ -9,9 +9,11 @@ static site that turns them into dashboards with written methodology and evaluat
 
 | Path | What |
 |---|---|
-| `pipelines/predmarkets/` | Twice-daily snapshots of Polymarket and Kalshi quotes and order books for the 2026 US midterms and FOMC decision markets |
+| `pipelines/predmarkets/` | Twice-daily snapshots of Polymarket and Kalshi quotes and order books for the 2026 US midterms and FOMC decision markets; history backfill; FOMC outcome grid + scorecard |
+| `pipelines/sec/` | Weekly SEC XBRL companyfacts ingest for 29 SaaS companies, year-to-date differencing into clean quarters, TTM benchmark (Rule of 40) |
+| `pipelines/statarb/` | Port of a finished stat-arb backtest (ISE 537) from frozen result tables |
 | `data/` | Raw responses, normalized parquet snapshots, derived marts, KPI facts |
-| `site/` | Astro site (coming) |
+| `site/` | Astro 7 + Vega-Lite static site, deployed to GitHub Pages on every push |
 | `docs/` | Data model, evaluation plans, design rules |
 
 ## Run locally
@@ -22,4 +24,7 @@ uv run pytest
 uv run python -m pipelines.predmarkets.snapshot --set midterms
 ```
 
-Everything uses free, keyless public endpoints (Polymarket Gamma/CLOB, Kalshi public API).
+Prediction-market endpoints are keyless. The SEC API needs a descriptive `User-Agent` with a contact
+address: set `SEC_USER_AGENT="your-app (you@example.com)"` locally and as a repository secret for Actions.
+
+Site: https://srx7703.github.io

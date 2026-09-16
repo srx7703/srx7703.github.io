@@ -1,0 +1,87 @@
+---
+title: "Statistical arbitrage on US large caps, 2019–2020: an honest backtest"
+summary: "OLS, PCA and LASSO multi-stock mean-reversion strategies on 85 large caps, trained on 2019 and tested through the 2020 crash. None beats buy-and-hold after costs; the value is in the controls: look-ahead audit, bootstrap intervals, regime split, cost sensitivity."
+status: case-study
+domain: ["quant finance", "backtesting"]
+tools: ["Python", "statsmodels", "scikit-learn", "yfinance", "Vega-Lite"]
+featured: false
+order: 10
+started: "2026-05-04"
+---
+import facts from '@data/facts/statarb.json';
+import KpiRow from '@components/KpiRow.astro';
+import KpiTile from '@components/KpiTile.astro';
+import ChartCard from '@components/ChartCard.astro';
+import VegaChart from '@components/VegaChart.astro';
+import SourceStamp from '@components/SourceStamp.astro';
+import Section from '@components/Section.astro';
+import { tcSpec } from '@charts/statarb/tc';
+import { ciSpec } from '@charts/statarb/ci';
+import { regimeSpec } from '@charts/statarb/regime';
+import { pct } from '@lib/fmt';
+
+export const best = facts.best_statarb;
+export const bh = facts.buy_and_hold;
+export const asOf = 'May 2026 (frozen results)';
+
+<div class="lede">
+  Under static fitting and {facts.tc_bps} bps one-way costs, none of the three stat-arb models is profitable in 2020 out of sample: the best, {best.strategy}, has a Sharpe of {best.sharpe.toFixed(2)} and an annual return of {pct(best.ann_return, 1)}, against {bh.sharpe.toFixed(2)} and {pct(bh.ann_return, 1)} for buy-and-hold. The interesting results are the controls: train-to-test Sharpe gaps of 3.5 to 5.0 show how much a 2019 fit overfits, bootstrap intervals are wide enough to contain zero for every strategy, and a rolling six-month refit turns the sign positive.
+</div>
+
+<KpiRow>
+  <KpiTile label={`Best stat-arb Sharpe (${best.strategy}, 2020, ${facts.tc_bps} bps)`} value={best.sharpe.toFixed(2)} sub={`annual return ${pct(best.ann_return, 1)} · max drawdown ${pct(best.max_dd, 1)}`} tone="negative" />
+  <KpiTile label="Buy-and-hold, same universe" value={bh.sharpe.toFixed(2)} sub={`annual return ${pct(bh.ann_return, 1)} · max drawdown ${pct(bh.max_dd, 1)}`} />
+  <KpiTile label="Look-ahead audit" value={`${facts.lookahead_audit.passed} / ${facts.lookahead_audit.checks}`} sub="checks passed (lag test, oracle test, contamination test, anomaly bound)" tone="positive" />
+</KpiRow>
+
+<ChartCard title="Costs decide the sign: at zero cost LASSO is roughly flat, at 20 bps every model loses" subtitle="Out-of-sample Sharpe ratio (2020) as a function of one-way transaction cost, by model">
+  <VegaChart id="statarb-tc" spec={tcSpec()} height={260} ariaLabel="Line chart of Sharpe ratio versus transaction cost for OLS, PCA and LASSO" />
+  <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
+</ChartCard>
+
+<ChartCard title="No strategy's Sharpe is distinguishable from zero on one year of data" subtitle="Point estimate and bootstrap 95% interval of the annualised Sharpe ratio, 2020 out of sample, 5 bps one-way cost">
+  <VegaChart id="statarb-ci" spec={ciSpec()} height={210} ariaLabel="Dot and interval chart of Sharpe ratios with bootstrap confidence intervals" />
+  <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
+</ChartCard>
+
+<ChartCard title="Mean reversion was punished hardest before and during the crash, and merely flat in the recovery" subtitle="Annualised Sharpe by COVID regime; the pre-crash and crash windows are 33 and 23 trading days, so their Sharpe ratios are noisy">
+  <VegaChart id="statarb-regime" spec={regimeSpec()} height={230} ariaLabel="Small-multiple bar charts of Sharpe ratio by strategy for three market regimes" />
+  <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
+</ChartCard>
+
+<figure class="chart-card">
+  <figcaption><h3 class="chart-card__title">Cumulative P&amp;L, 2020 out of sample (figure from the original project)</h3></figcaption>
+  <img src="/case-studies/statarb/cumulative_pnl.png" alt="Cumulative profit and loss of the OLS, PCA, LASSO, pairs and buy-and-hold strategies through 2020" loading="lazy" width="1400" height="800" />
+</figure>
+
+<Section id="method" title="Method">
+  <div class="prose">
+    <p><strong>Universe and data.</strong> Top-100 companies by market capitalisation (snapshot 2026-05-04), daily adjusted closes from Yahoo Finance, December 2018 to December 2020. Fifteen names are dropped for missing history or non-NYSE trading calendars, leaving 85 tickers over 523 NYSE trading days. Log returns are winsorised at 1% and 99% per ticker. Survivorship bias from using today's ranking is acknowledged, not corrected.</p>
+    <p><strong>Models.</strong> For each target stock, the return is regressed on the other 84 (OLS), on the first {facts.pca.k} principal components explaining {pct(facts.pca.cum_var, 1)} of variance (PCA; PC1 correlates {facts.pca.corr_pc1_market.toFixed(3)} with an equal-weight market proxy), or on the other stocks with an L1 penalty (LASSO, on average {facts.lasso_hedges_mean} non-zero hedges per target). Fits use 2019 only.</p>
+    <p><strong>Signal and backtest.</strong> Residuals are z-scored over a 60-day rolling window; enter at |z| = 2, exit at 0.5. Positions are dollar-neutral: $1 in the target against $1 in the hedge basket. Ornstein–Uhlenbeck half-lives of the residuals are 20–27 days on average. Benchmarks: Engle–Granger pairs trading (five lowest p-value pairs from the training year) and equal-weight buy-and-hold.</p>
+  </div>
+</Section>
+
+<Section id="evaluation" title="Evaluation">
+  <div class="prose">
+    <ul>
+      <li><strong>Overfitting:</strong> train Sharpe 3.8–4.4 versus test −0.6 to +0.3; {facts.smallest_gap} has the smallest gap, as the L1 penalty predicts.</li>
+      <li><strong>Significance:</strong> bootstrap 95% intervals for every Sharpe include zero; Memmel tests of LASSO against OLS, PCA and pairs do not reject equal Sharpe (p from {Math.min(...facts.memmel.map((m) => m.p)).toFixed(2)} to {Math.max(...facts.memmel.map((m) => m.p)).toFixed(2)}).</li>
+      <li><strong>Look-ahead audit:</strong> {facts.lookahead_audit.passed} of {facts.lookahead_audit.checks} checks pass, including a deliberately leaky variant that should and does blow up the Sharpe, and a perfect-foresight oracle as an upper bound.</li>
+      <li><strong>Robustness:</strong> a six-month rolling refit lifts OLS from {facts.rolling[0].static} to {facts.rolling[0].rolling} and LASSO from {facts.rolling[1].static} to {facts.rolling[1].rolling} (no-cost Sharpe), which locates the loss in stale betas rather than in the signal.</li>
+    </ul>
+    <p>Limitations: one test year, one crisis, five-pair benchmark, no borrow costs or market impact, and a universe chosen with hindsight.</p>
+  </div>
+</Section>
+
+<Section id="build-notes" title="Build notes">
+  <div class="prose">
+    <p>Coursework for ISE 537 at USC (spring 2026), completed with Claude Code as the implementer and the author as reviewer at three checkpoints. This page ports the frozen result tables; nothing was recomputed. The charts are rebuilt in the site's chart system from those tables; the cumulative P&amp;L figure is reproduced from the original notebook. Code for the original project is not public.</p>
+  </div>
+</Section>
+
+<Section id="changelog" title="Changelog">
+  <ul class="prose">
+    <li><strong>2026-09-16</strong> — case-study page from the May 2026 results.</li>
+  </ul>
+</Section>

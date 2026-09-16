@@ -6,7 +6,11 @@
     "build": "astro check && astro build",
     "build:fast": "astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "sync-data": "node scripts/sync-data.mjs",
+    "predev": "node scripts/sync-data.mjs",
+    "prebuild": "node scripts/sync-data.mjs",
+    "prebuild:fast": "node scripts/sync-data.mjs"
   },
   "type": "module",
   "dependencies": {

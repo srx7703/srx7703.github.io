@@ -1,0 +1,4 @@
+Model,N stocks fitted,Mean half-life (days),Median half-life (days),P25,P75
+OLS,85,26.62,24.87,16.19,36.36
+PCA,85,22.43,19.74,13.53,32.40
+LASSO,85,24.32,21.50,15.67,31.43

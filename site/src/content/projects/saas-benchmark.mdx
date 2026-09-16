@@ -1,0 +1,102 @@
+---
+title: "Public SaaS benchmark from SEC filings: growth, margins and the Rule of 40"
+summary: "A weekly-refreshed benchmark of 29 US-listed software companies built only from SEC XBRL data: trailing-twelve-month growth, gross, operating and free-cash-flow margins, stock compensation, and a Rule-of-40 scoreboard."
+status: live
+domain: ["finance", "FP&A"]
+tools: ["Python", "Polars", "SEC EDGAR XBRL API", "pandera", "Vega-Lite", "GitHub Actions"]
+featured: true
+order: 3
+started: "2026-09-16"
+---
+import facts from '@data/facts/saas.json';
+import latest from '@data/marts/sec/saas_latest.json';
+import coverage from '@data/marts/sec/saas_coverage.json';
+import KpiRow from '@components/KpiRow.astro';
+import KpiTile from '@components/KpiTile.astro';
+import ChartCard from '@components/ChartCard.astro';
+import VegaChart from '@components/VegaChart.astro';
+import SourceStamp from '@components/SourceStamp.astro';
+import PipelineStatus from '@components/PipelineStatus.astro';
+import Section from '@components/Section.astro';
+import { saasScatterSpec } from '@charts/saas/scatter';
+import { saasRankedSpec } from '@charts/saas/ranked';
+import { pct, num, usd, dateUtc, dayUtc } from '@lib/fmt';
+
+export const asOf = dateUtc(facts.generated_at);
+export const top = facts.leaders[0];
+export const tagCounts = Object.values(coverage).reduce((acc, c) => { const k = (c.tags.revenue || []).join(' + '); acc[k] = (acc[k] || 0) + 1; return acc; }, {});
+
+<div class="lede">
+  Across {facts.companies} companies with quarters ending {dayUtc(facts.latest_quarter_end_min)} to {dayUtc(facts.latest_quarter_end_max)}, the median software company grows revenue {pct(facts.median_rev_growth, 1)} a year with a {pct(facts.median_fcf_margin, 1)} free-cash-flow margin, and {facts.rule_of_40_pass} of {facts.companies_scored} clear the Rule of 40. {top.name} leads with a score of {top.rule_of_40} ({pct(top.rev_growth, 1)} growth, {pct(top.fcf_margin, 1)} FCF margin). Median stock-based compensation is {pct(facts.median_sbc_pct, 1)} of revenue.
+</div>
+
+<PipelineStatus lastSnapshot={facts.generated_at} firstSnapshot="2026-09-16T05:53:33+00:00" nSnapshots={1} nDays={1} workflow="refresh-weekly.yml" cadence="weekly (Mondays)" />
+
+<KpiRow>
+  <KpiTile label="Median revenue growth (TTM, YoY)" value={pct(facts.median_rev_growth, 1)} sub={`${facts.companies_scored} companies scored`} />
+  <KpiTile label="Median FCF margin (TTM)" value={pct(facts.median_fcf_margin, 1)} sub={`gross margin ${pct(facts.median_gross_margin, 1)} · operating margin ${pct(facts.median_op_margin, 1)}`} />
+  <KpiTile label="Rule of 40" value={`${facts.rule_of_40_pass} / ${facts.companies_scored}`} sub="companies at or above 40" />
+</KpiRow>
+
+<ChartCard title={`${facts.rule_of_40_pass} of ${facts.companies_scored} companies sit above the Rule-of-40 line; the outliers are on growth, not margin`} subtitle="Trailing-twelve-month revenue growth vs free-cash-flow margin, latest reported quarter per company; FCF = operating cash flow − capex − capitalised software">
+  <VegaChart id="saas-scatter" spec={saasScatterSpec()} height={400} ariaLabel="Scatter plot of revenue growth versus free-cash-flow margin for 29 software companies with a Rule-of-40 reference line" />
+  <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
+</ChartCard>
+
+<ChartCard title={`${top.ticker} is the only company above 100; most of the group clusters between 30 and 60`} subtitle="Rule-of-40 score = revenue growth (%) + FCF margin (%), trailing twelve months, latest quarter">
+  <VegaChart id="saas-ranked" spec={saasRankedSpec()} height={latest.length * 22 + 60} ariaLabel="Horizontal bar chart ranking companies by Rule-of-40 score" />
+  <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
+</ChartCard>
+
+<Section id="table" title="Benchmark table">
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Company</th><th>Quarter end</th><th class="num">Revenue TTM</th><th class="num">Growth</th><th class="num">Gross margin</th><th class="num">Op. margin</th><th class="num">FCF margin</th><th class="num">SBC / revenue</th><th class="num">Rule of 40</th></tr></thead>
+      <tbody>
+        {latest.map((r) => (
+          <tr>
+            <td><strong>{r.ticker}</strong> <span class="muted">{r.name}</span></td>
+            <td>{r.quarter_end}</td>
+            <td class="num">{usd(r.revenue)}</td>
+            <td class="num">{pct(r.rev_growth, 1)}</td>
+            <td class="num">{pct(r.gross_margin, 1)}</td>
+            <td class="num">{pct(r.op_margin, 1)}</td>
+            <td class="num">{pct(r.fcf_margin, 1)}</td>
+            <td class="num">{pct(r.sbc_pct, 1)}</td>
+            <td class="num">{r.rule_of_40 == null ? '—' : r.rule_of_40.toFixed(1)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</Section>
+
+<Section id="method" title="Method">
+  <div class="prose">
+    <p><strong>Question.</strong> Using nothing but audited filings, how do public software companies compare on growth, profitability and the Rule of 40, and how much of the "clean" benchmark you see on investor sites survives contact with raw XBRL?</p>
+    <p><strong>Data.</strong> The SEC's XBRL companyfacts API for each company (10-K and 10-Q only). Every fact carries a period start, end, value, fiscal year, form and filing date. Facts are deduplicated on their period with the latest filing winning, so restatements flow through automatically.</p>
+    <p><strong>Tag mapping.</strong> Companies tag the same line item differently. Revenue alone appears under {Object.keys(tagCounts).length} tag combinations in this universe ({Object.entries(tagCounts).map(([k, v]) => `${v} × ${k}`).join('; ')}). Each metric has an ordered fallback list; facts from every tag are merged and the higher-priority tag wins on identical periods, which keeps full history for companies that switched tags.</p>
+    <p><strong>Quarterly values.</strong> A fact spanning one fiscal quarter (80–100 days) is used directly. Otherwise consecutive year-to-date spans with the same start are differenced: 6M − 3M gives Q2, 9M − 6M gives Q3, FY − 9M gives Q4. That is how cash-flow items, which filers report year-to-date only, become quarterly, and how Q4 is recovered from the 10-K. Weighted-average share counts are averages, not flows, and are never differenced.</p>
+    <p><strong>Metrics.</strong> All ratios use trailing-twelve-month sums of four consecutive quarters. Growth compares the TTM to the TTM one year earlier. FCF = operating cash flow − purchases of PP&amp;E − capitalised software. Rule of 40 = revenue growth (%) + FCF margin (%).</p>
+  </div>
+</Section>
+
+<Section id="evaluation" title="Evaluation and data quality">
+  <div class="prose">
+    <p><strong>Reconciliation.</strong> Where a quarter is reported directly and can also be derived by differencing, the two are compared: {num(facts.reconciliation.agree)} of {num(facts.reconciliation.pairs)} pairs agree within 0.5% ({pct(facts.reconciliation.rate, 1)}). Disagreements are almost all quarters restated in a later filing, where the derived value comes from the restated year-to-date figure and the direct value from the original 10-Q; the direct value is kept and the pair is flagged.</p>
+    <p><strong>Coverage.</strong> {facts.quarters_total} company-quarters of revenue. {Object.keys(facts.missing_metrics).length === 0 ? 'Every company has revenue, gross profit, operating income, operating cash flow, capex and stock compensation.' : `Missing core metrics: ${Object.entries(facts.missing_metrics).map(([t, ms]) => `${t} (${ms.join(', ')})`).join('; ')}.`}</p>
+    <p><strong>Limitations.</strong> Companies with a fiscal year ending in January (many enterprise-software names) report a quarter later than calendar-year filers, so "latest quarter" differs by up to two months across the table. Capitalised software is netted from FCF only where the company tags it. Foreign private issuers filing 20-F under IFRS are excluded, which is why Shopify is the only non-US name and monday.com is absent.</p>
+  </div>
+</Section>
+
+<Section id="build-notes" title="Build notes">
+  <div class="prose">
+    <p>Built end to end with Claude Code: the SEC client, the tag-fallback map, the year-to-date differencing, the unit tests on the differencing rules and the page template. The author chose the universe, the metric definitions, the reconciliation tolerance and how to present the gaps. Source: <a href="https://github.com/srx7703/srx7703.github.io">github.com/srx7703/srx7703.github.io</a>.</p>
+  </div>
+</Section>
+
+<Section id="changelog" title="Changelog">
+  <ul class="prose">
+    <li><strong>2026-09-16</strong> — page v0: 29 companies, scatter and ranking, benchmark table, reconciliation stats.</li>
+  </ul>
+</Section>

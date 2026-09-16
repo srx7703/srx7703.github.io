@@ -24,12 +24,12 @@ export const h = facts.headline;
 export const asOf = dateUtc(facts.last_snapshot_ts);
 export const daysLeft = daysUntil(facts.election_day, facts.last_snapshot_ts);
 
-<p class="lede">
+<div class="lede">
   With {daysLeft} days to election day, both platforms price a Democratic House as very likely
   ({pct(h.house_dem.polymarket, 1)} on Polymarket, {pct(h.house_dem.kalshi, 1)} on Kalshi) and the
   Senate as a near coin flip that leans Democratic ({pct(h.senate_dem.polymarket, 1)} vs {pct(h.senate_dem.kalshi, 1)}).
   The cross-platform gap is {pts(h.senate_dem.spread)} on the Senate and {pts(h.house_dem.spread)} on the House.
-</p>
+</div>
 
 <PipelineStatus lastSnapshot={facts.last_snapshot_ts} firstSnapshot={facts.first_snapshot_ts} nSnapshots={facts.n_snapshots} nDays={facts.n_days} workflow="snapshot-predmarkets.yml" cadence="twice daily" />
 

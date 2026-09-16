@@ -1,11 +1,216 @@
 {
  "project": "fomc-markets",
- "generated_at": "2026-09-16T02:39:11+00:00",
+ "generated_at": "2026-09-16T06:01:31+00:00",
  "first_snapshot_ts": "2026-09-16T02:27:56+00:00",
  "last_snapshot_ts": "2026-09-16T02:35:26+00:00",
  "n_snapshots": 3,
+ "n_days": 1,
+ "history_from": "2025-10-01",
  "markets_tracked": {
-  "kalshi": 400,
-  "polymarket": 287
- }
+  "polymarket": 287,
+  "kalshi": 400
+ },
+ "decision_markets": 80,
+ "next_meeting": {
+  "meeting": "2026-09",
+  "decision_date": "2026-09-16",
+  "platforms": {
+   "polymarket": {
+    "buckets": {
+     "cut50": 0.0005,
+     "cut25": 0.0015,
+     "hold": 0.115,
+     "hike25": 0.875,
+     "hike50": 0.0085
+    },
+    "expected_bps": 22.2,
+    "rollup": {
+     "cut": 0.002,
+     "hold": 0.115,
+     "hike": 0.8835
+    }
+   },
+   "kalshi": {
+    "buckets": {
+     "cut50": 0.005,
+     "cut25": 0.005,
+     "hold": 0.125,
+     "hike25": 0.87,
+     "hike50": 0.005
+    },
+    "expected_bps": 21.6,
+    "rollup": {
+     "cut": 0.01,
+     "hold": 0.125,
+     "hike": 0.875
+    }
+   }
+  },
+  "gap_hike_pt": 0.8
+ },
+ "meetings": [
+  {
+   "meeting": "2026-09",
+   "decision_date": "2026-09-16",
+   "platforms": {
+    "polymarket": {
+     "buckets": {
+      "cut50": 0.0005,
+      "cut25": 0.0015,
+      "hold": 0.115,
+      "hike25": 0.875,
+      "hike50": 0.0085
+     },
+     "expected_bps": 22.2,
+     "rollup": {
+      "cut": 0.002,
+      "hold": 0.115,
+      "hike": 0.8835
+     }
+    },
+    "kalshi": {
+     "buckets": {
+      "cut50": 0.005,
+      "cut25": 0.005,
+      "hold": 0.125,
+      "hike25": 0.87,
+      "hike50": 0.005
+     },
+     "expected_bps": 21.6,
+     "rollup": {
+      "cut": 0.01,
+      "hold": 0.125,
+      "hike": 0.875
+     }
+    }
+   },
+   "gap_hike_pt": 0.8
+  },
+  {
+   "meeting": "2026-10",
+   "decision_date": "2026-10-28",
+   "platforms": {
+    "polymarket": {
+     "buckets": {
+      "cut50": 0.0055,
+      "cut25": 0.0195,
+      "hold": 0.605,
+      "hike25": 0.38,
+      "hike50": 0.009
+     },
+     "expected_bps": 9.2,
+     "rollup": {
+      "cut": 0.025,
+      "hold": 0.605,
+      "hike": 0.389
+     }
+    },
+    "kalshi": {
+     "buckets": {
+      "cut50": 0.005,
+      "cut25": 0.025,
+      "hold": 0.625,
+      "hike25": 0.375,
+      "hike50": 0.015
+     },
+     "expected_bps": 9.2,
+     "rollup": {
+      "cut": 0.03,
+      "hold": 0.625,
+      "hike": 0.39
+     }
+    }
+   },
+   "gap_hike_pt": -0.1
+  },
+  {
+   "meeting": "2026-12",
+   "decision_date": "2026-12-09",
+   "platforms": {
+    "polymarket": {
+     "buckets": {
+      "cut50": 0.0075,
+      "cut25": 0.036,
+      "hold": 0.365,
+      "hike25": 0.605,
+      "hike50": 0.02
+     },
+     "expected_bps": 14.8,
+     "rollup": {
+      "cut": 0.0435,
+      "hold": 0.365,
+      "hike": 0.625
+     }
+    },
+    "kalshi": {
+     "buckets": {
+      "cut50": 0.005,
+      "cut25": 0.015,
+      "hold": 0.355,
+      "hike25": 0.63,
+      "hike50": 0.015
+     },
+     "expected_bps": 15.9,
+     "rollup": {
+      "cut": 0.02,
+      "hold": 0.355,
+      "hike": 0.645
+     }
+    }
+   },
+   "gap_hike_pt": -2.0
+  },
+  {
+   "meeting": "2027-01",
+   "decision_date": "2027-01-27",
+   "platforms": {
+    "polymarket": {
+     "buckets": {
+      "cut50": 0.046,
+      "cut25": 0.11,
+      "hold": 0.58,
+      "hike25": 0.235,
+      "hike50": 0.0225
+     },
+     "expected_bps": 2.0,
+     "rollup": {
+      "cut": 0.156,
+      "hold": 0.58,
+      "hike": 0.2575
+     }
+    },
+    "kalshi": {
+     "buckets": {
+      "cut50": 0.035,
+      "cut25": 0.13,
+      "hold": 0.53,
+      "hike25": 0.215,
+      "hike50": 0.06
+     },
+     "expected_bps": 3.4,
+     "rollup": {
+      "cut": 0.165,
+      "hold": 0.53,
+      "hike": 0.275
+     }
+    }
+   },
+   "gap_hike_pt": -1.8
+  }
+ ],
+ "scorecard": [],
+ "sources": [
+  {
+   "name": "Polymarket Gamma + CLOB APIs",
+   "url": "https://docs.polymarket.com/"
+  },
+  {
+   "name": "Kalshi public trade API v2",
+   "url": "https://docs.kalshi.com/"
+  },
+  {
+   "name": "FOMC meeting calendar",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+  }
+ ]
 }

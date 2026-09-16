@@ -1,0 +1,16 @@
+Strategy,Regime,Sharpe,Total Return,Max DD,N days
+OLS,pre_crash,-6.0627,-0.0206,-0.0209,33
+OLS,crash,-3.4699,-0.0227,-0.0339,23
+OLS,recovery,-0.0910,-0.0042,-0.0706,197
+PCA,pre_crash,-3.6502,-0.0147,-0.0135,33
+PCA,crash,-3.9133,-0.0326,-0.0491,23
+PCA,recovery,-0.1122,-0.0053,-0.0776,197
+LASSO,pre_crash,-5.8889,-0.0212,-0.0202,33
+LASSO,crash,-3.3333,-0.0166,-0.0298,23
+LASSO,recovery,0.3501,0.0156,-0.0529,197
+Pairs,pre_crash,1.3932,0.0439,-0.0626,33
+Pairs,crash,0.8064,0.0476,-0.1711,23
+Pairs,recovery,-0.5668,-0.1517,-0.5105,197
+B&H,pre_crash,3.0378,0.0503,-0.0392,33
+B&H,crash,-5.9175,-0.2891,-0.2824,23
+B&H,recovery,2.4999,0.4278,-0.0819,197

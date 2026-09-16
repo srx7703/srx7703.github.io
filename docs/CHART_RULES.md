@@ -14,3 +14,7 @@
    (`scripts/validate_palette.js` from the dataviz skill, 2026-09-16); the blue–violet pair is too close
    for an all-pairs form. Kalshi aqua is below 3:1 on the light surface, so every chart using it ships
    a legend and a table view.
+10. Non-semantic series use the generic slots `--series-a/b/c` (reference palette slots 1–3, validated
+    all-pairs in both modes). FOMC direction uses the diverging pair cut = blue, hike = red with the
+    neutral grey as the hold midpoint; the five bps buckets are rolled up to three sides on charts
+    because two steps of one hue cannot clear the dark-mode floor.

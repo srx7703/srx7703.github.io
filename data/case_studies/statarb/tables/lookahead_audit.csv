@@ -1,0 +1,13 @@
+model,name,description,base_sharpe,passed,comment,leaky_sharpe,abs_delta,oracle_sharpe,contam_sharpe,delta
+OLS,A. anomaly_check,|base Sharpe| ≤ 3.0,-1.1255,True,ok,,,,,
+OLS,B. zscore_lag_check,|leaky Sharpe| ≥ |base Sharpe| + 0.5  (lag is material),-1.1255,True,ok,-5.9415,4.8159,,,
+OLS,C. perfect_foresight_oracle,oracle Sharpe (sign of same-day return) ≥ 10,,True,ok,,,26.3586,,
+OLS,D. train_only_fit_guard,contam Sharpe ≥ base Sharpe (within noise),-1.1255,True,ok,,,,1.6960,2.8216
+LASSO,A. anomaly_check,|base Sharpe| ≤ 3.0,-0.5214,True,ok,,,,,
+LASSO,B. zscore_lag_check,|leaky Sharpe| ≥ |base Sharpe| + 0.5  (lag is material),-0.5214,True,ok,-5.1138,4.5924,,,
+LASSO,C. perfect_foresight_oracle,oracle Sharpe (sign of same-day return) ≥ 10,,True,ok,,,26.3586,,
+LASSO,D. train_only_fit_guard,contam Sharpe ≥ base Sharpe (within noise),-0.5214,True,ok,,,,1.9425,2.4639
+PCA,A. anomaly_check,|base Sharpe| ≤ 3.0,-0.0378,True,ok,,,,,
+PCA,B. zscore_lag_check,|leaky Sharpe| ≥ |base Sharpe| + 0.5  (lag is material),-0.0378,True,ok,-6.0290,5.9912,,,
+PCA,C. perfect_foresight_oracle,oracle Sharpe (sign of same-day return) ≥ 10,,True,ok,,,26.3586,,
+PCA,D. train_only_fit_guard,contam Sharpe ≥ base Sharpe (within noise),-0.0378,True,ok,,,,4.4649,4.5027

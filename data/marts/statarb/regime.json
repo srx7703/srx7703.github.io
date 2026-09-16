@@ -1,0 +1,122 @@
+[
+ {
+  "strategy": "OLS",
+  "regime": "pre_crash",
+  "sharpe": -6.0627,
+  "total_return": -0.0206,
+  "max_dd": -0.0209,
+  "n_days": 33.0
+ },
+ {
+  "strategy": "OLS",
+  "regime": "crash",
+  "sharpe": -3.4699,
+  "total_return": -0.0227,
+  "max_dd": -0.0339,
+  "n_days": 23.0
+ },
+ {
+  "strategy": "OLS",
+  "regime": "recovery",
+  "sharpe": -0.091,
+  "total_return": -0.0042,
+  "max_dd": -0.0706,
+  "n_days": 197.0
+ },
+ {
+  "strategy": "PCA",
+  "regime": "pre_crash",
+  "sharpe": -3.6502,
+  "total_return": -0.0147,
+  "max_dd": -0.0135,
+  "n_days": 33.0
+ },
+ {
+  "strategy": "PCA",
+  "regime": "crash",
+  "sharpe": -3.9133,
+  "total_return": -0.0326,
+  "max_dd": -0.0491,
+  "n_days": 23.0
+ },
+ {
+  "strategy": "PCA",
+  "regime": "recovery",
+  "sharpe": -0.1122,
+  "total_return": -0.0053,
+  "max_dd": -0.0776,
+  "n_days": 197.0
+ },
+ {
+  "strategy": "LASSO",
+  "regime": "pre_crash",
+  "sharpe": -5.8889,
+  "total_return": -0.0212,
+  "max_dd": -0.0202,
+  "n_days": 33.0
+ },
+ {
+  "strategy": "LASSO",
+  "regime": "crash",
+  "sharpe": -3.3333,
+  "total_return": -0.0166,
+  "max_dd": -0.0298,
+  "n_days": 23.0
+ },
+ {
+  "strategy": "LASSO",
+  "regime": "recovery",
+  "sharpe": 0.3501,
+  "total_return": 0.0156,
+  "max_dd": -0.0529,
+  "n_days": 197.0
+ },
+ {
+  "strategy": "Pairs",
+  "regime": "pre_crash",
+  "sharpe": 1.3932,
+  "total_return": 0.0439,
+  "max_dd": -0.0626,
+  "n_days": 33.0
+ },
+ {
+  "strategy": "Pairs",
+  "regime": "crash",
+  "sharpe": 0.8064,
+  "total_return": 0.0476,
+  "max_dd": -0.1711,
+  "n_days": 23.0
+ },
+ {
+  "strategy": "Pairs",
+  "regime": "recovery",
+  "sharpe": -0.5668,
+  "total_return": -0.1517,
+  "max_dd": -0.5105,
+  "n_days": 197.0
+ },
+ {
+  "strategy": "B&H",
+  "regime": "pre_crash",
+  "sharpe": 3.0378,
+  "total_return": 0.0503,
+  "max_dd": -0.0392,
+  "n_days": 33.0
+ },
+ {
+  "strategy": "B&H",
+  "regime": "crash",
+  "sharpe": -5.9175,
+  "total_return": -0.2891,
+  "max_dd": -0.2824,
+  "n_days": 23.0
+ },
+ {
+  "strategy": "B&H",
+  "regime": "recovery",
+  "sharpe": 2.4999,
+  "total_return": 0.4278,
+  "max_dd": -0.0819,
+  "n_days": 197.0
+ }
+]

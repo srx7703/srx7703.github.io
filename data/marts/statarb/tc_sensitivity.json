@@ -1,0 +1,92 @@
+[
+ {
+  "strategy": "OLS",
+  "tc_bps": 0.0,
+  "sharpe": -0.4727,
+  "ann_return": -0.0271
+ },
+ {
+  "strategy": "OLS",
+  "tc_bps": 5.0,
+  "sharpe": -0.8249,
+  "ann_return": -0.0473
+ },
+ {
+  "strategy": "OLS",
+  "tc_bps": 10.0,
+  "sharpe": -1.1767,
+  "ann_return": -0.0674
+ },
+ {
+  "strategy": "OLS",
+  "tc_bps": 20.0,
+  "sharpe": -1.8775,
+  "ann_return": -0.1078
+ },
+ {
+  "strategy": "OLS",
+  "tc_bps": 50.0,
+  "sharpe": -3.9368,
+  "ann_return": -0.2289
+ },
+ {
+  "strategy": "PCA",
+  "tc_bps": 0.0,
+  "sharpe": -0.5254,
+  "ann_return": -0.0322
+ },
+ {
+  "strategy": "PCA",
+  "tc_bps": 5.0,
+  "sharpe": -0.8566,
+  "ann_return": -0.0524
+ },
+ {
+  "strategy": "PCA",
+  "tc_bps": 10.0,
+  "sharpe": -1.1882,
+  "ann_return": -0.0726
+ },
+ {
+  "strategy": "PCA",
+  "tc_bps": 20.0,
+  "sharpe": -1.8513,
+  "ann_return": -0.1131
+ },
+ {
+  "strategy": "PCA",
+  "tc_bps": 50.0,
+  "sharpe": -3.8266,
+  "ann_return": -0.2345
+ },
+ {
+  "strategy": "LASSO",
+  "tc_bps": 0.0,
+  "sharpe": -0.0378,
+  "ann_return": -0.002
+ },
+ {
+  "strategy": "LASSO",
+  "tc_bps": 5.0,
+  "sharpe": -0.4098,
+  "ann_return": -0.0221
+ },
+ {
+  "strategy": "LASSO",
+  "tc_bps": 10.0,
+  "sharpe": -0.7819,
+  "ann_return": -0.0422
+ },
+ {
+  "strategy": "LASSO",
+  "tc_bps": 20.0,
+  "sharpe": -1.5251,
+  "ann_return": -0.0823
+ },
+ {
+  "strategy": "LASSO",
+  "tc_bps": 50.0,
+  "sharpe": -3.725,
+  "ann_return": -0.2027
+ }
+]

@@ -65,3 +65,32 @@ fetched that run (json.gz), for reproducibility.
 - Order books are only captured for markets priced in [0.02, 0.98] at run time.
 - Polymarket universe raw JSON is not archived (≈60 MB per run); quotes parquet is the record.
 - Kalshi field names follow the 2026 API (`*_dollars`, `*_fp` strings); older `yes_bid` ints are gone.
+
+
+# Data model — SEC XBRL SaaS benchmark
+
+Pipeline: `pipelines/sec/ingest.py` + `transform.py`, weekly (`refresh-weekly.yml`, Mondays 07:17 UTC).
+
+- `data/snapshots/sec/facts/<TICKER>.parquet` — duration facts for the mapped tags (10-K/10-Q only),
+  deduplicated on (metric, tag, start, end) with the latest filing winning. Overwritten weekly; git
+  history keeps prior versions. `companies.json` records CIK, name, fetch time and coverage.
+- `data/marts/sec/saas_quarterly.parquet` — ticker x quarter_end x metric with `quarterly` and `ttm`.
+- `data/marts/sec/saas_ttm.json` / `saas_latest.json` — TTM metrics and ratios (growth, margins, SBC %, Rule of 40).
+- `data/marts/sec/saas_coverage.json` — tags used per metric, quarter counts, direct-vs-derived reconciliation.
+- Quarterly derivation: one-quarter spans (80–100 days) used directly; otherwise consecutive spans
+  with the same start are differenced (6M−3M, 9M−6M, FY−9M). Weighted-average share counts are
+  averages (never differenced; TTM = mean of four quarters).
+
+# Data model — FOMC decision markets
+
+- `data/snapshots/predmarkets/fomc/history/<platform>.parquet` — daily backfilled prices
+  (Polymarket `prices-history`, Kalshi candlesticks), refreshed weekly.
+- `pipelines/predmarkets/fomc.py` maps both platforms to one meeting/outcome grid
+  (cut50, cut25, hold, hike25, hike50), rolls up to cut/hold/hike for charts, and scores resolved
+  meetings with the multi-outcome Brier score of the last observation before 17:30 UTC on decision day.
+- Outputs: `data/marts/predmarkets/fomc_history.json`, `fomc_meetings.json`, `data/facts/fomc.json`.
+
+# Case study — stat-arb 2019–2020
+
+Frozen result tables from the original project live in `data/case_studies/statarb/tables`;
+`pipelines/statarb/publish.py` turns them into `data/facts/statarb.json` and chart marts. Nothing is recomputed.

@@ -1,0 +1,32 @@
+[
+ {
+  "strategy": "OLS",
+  "sharpe": -0.8249,
+  "lo": -2.4408,
+  "hi": 0.7156
+ },
+ {
+  "strategy": "PCA",
+  "sharpe": -0.8566,
+  "lo": -2.35,
+  "hi": 0.5559
+ },
+ {
+  "strategy": "LASSO",
+  "sharpe": -0.4098,
+  "lo": -2.1788,
+  "hi": 1.2301
+ },
+ {
+  "strategy": "Pairs",
+  "sharpe": -0.1632,
+  "lo": -2.514,
+  "hi": 1.6039
+ },
+ {
+  "strategy": "B&H",
+  "sharpe": 0.7177,
+  "lo": -0.9807,
+  "hi": 2.8834
+ }
+]

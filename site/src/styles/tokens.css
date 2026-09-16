@@ -21,6 +21,12 @@
   --series-kalshi: #1baf7a;
   --series-dem: #2a78d6;
   --series-rep: #e34948;
+  --series-a: #2a78d6;
+  --series-b: #eb6834;
+  --series-c: #1baf7a;
+  --series-cut: #2a78d6;
+  --series-hold: #898781;
+  --series-hike: #e34948;
   --series-neutral: #898781;
 
   --fs-xs: 0.75rem;
@@ -59,6 +65,12 @@
     --series-kalshi: #199e70;
     --series-dem: #3987e5;
     --series-rep: #e66767;
+    --series-a: #3987e5;
+    --series-b: #d95926;
+    --series-c: #199e70;
+    --series-cut: #3987e5;
+    --series-hold: #898781;
+    --series-hike: #e66767;
   }
 }
 :root[data-theme="dark"] {
@@ -78,4 +90,10 @@
   --series-kalshi: #199e70;
   --series-dem: #3987e5;
   --series-rep: #e66767;
+  --series-a: #3987e5;
+  --series-b: #d95926;
+  --series-c: #199e70;
+  --series-cut: #3987e5;
+  --series-hold: #898781;
+  --series-hike: #e66767;
 }

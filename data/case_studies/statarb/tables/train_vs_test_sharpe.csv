@@ -1,0 +1,4 @@
+Strategy,Train Sharpe (2019),Test Sharpe (2020),Gap
+OLS,3.835,-0.519,4.353
+PCA,4.418,-0.595,5.013
+LASSO,3.855,0.333,3.523

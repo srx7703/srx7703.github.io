@@ -1,0 +1,197 @@
+{
+ "project": "statarb-2019-2020",
+ "generated_at": "2026-09-16T06:00:25+00:00",
+ "universe": {
+  "tickers": 85,
+  "candidates": 100,
+  "dropped": 15,
+  "days": 523,
+  "train": "2019",
+  "test": "2020"
+ },
+ "tc_bps": 5,
+ "main_results": [
+  {
+   "strategy": "OLS",
+   "ann_return": -0.0473,
+   "ann_vol": 0.0573,
+   "sharpe": -0.8249,
+   "max_dd": -0.0837,
+   "hit_rate": 0.4743,
+   "trades": 860.0
+  },
+  {
+   "strategy": "PCA",
+   "ann_return": -0.0524,
+   "ann_vol": 0.0612,
+   "sharpe": -0.8566,
+   "max_dd": -0.0847,
+   "hit_rate": 0.4545,
+   "trades": 810.0
+  },
+  {
+   "strategy": "LASSO",
+   "ann_return": -0.0221,
+   "ann_vol": 0.0539,
+   "sharpe": -0.4098,
+   "max_dd": -0.0539,
+   "hit_rate": 0.4625,
+   "trades": 802.0
+  },
+  {
+   "strategy": "Pairs",
+   "ann_return": -0.06,
+   "ann_vol": 0.3678,
+   "sharpe": -0.1632,
+   "max_dd": -0.5105,
+   "hit_rate": 0.4743,
+   "trades": 0.0
+  },
+  {
+   "strategy": "B&H",
+   "ann_return": 0.1883,
+   "ann_vol": 0.2623,
+   "sharpe": 0.7177,
+   "max_dd": -0.2891,
+   "hit_rate": 0.5455,
+   "trades": 0.0
+  }
+ ],
+ "best_statarb": {
+  "strategy": "LASSO",
+  "sharpe": -0.4098,
+  "ann_return": -0.0221,
+  "max_dd": -0.0539
+ },
+ "buy_and_hold": {
+  "sharpe": 0.7177,
+  "ann_return": 0.1883,
+  "max_dd": -0.2891
+ },
+ "train_test": [
+  {
+   "strategy": "OLS",
+   "train": 3.835,
+   "test": -0.519,
+   "gap": 4.353
+  },
+  {
+   "strategy": "PCA",
+   "train": 4.418,
+   "test": -0.595,
+   "gap": 5.013
+  },
+  {
+   "strategy": "LASSO",
+   "train": 3.855,
+   "test": 0.333,
+   "gap": 3.523
+  }
+ ],
+ "smallest_gap": "LASSO",
+ "pca": {
+  "k": 22,
+  "cum_var": 0.8044509364033133,
+  "corr_pc1_market": 0.9859532346540835
+ },
+ "half_life": [
+  {
+   "model": "OLS",
+   "mean_days": 26.62,
+   "median_days": 24.87
+  },
+  {
+   "model": "PCA",
+   "mean_days": 22.43,
+   "median_days": 19.74
+  },
+  {
+   "model": "LASSO",
+   "mean_days": 24.32,
+   "median_days": 21.5
+  }
+ ],
+ "rolling": [
+  {
+   "variant": "OLS",
+   "static": -0.249,
+   "rolling": 0.126,
+   "improvement": 0.374
+  },
+  {
+   "variant": "LASSO",
+   "static": -0.264,
+   "rolling": 0.162,
+   "improvement": 0.426
+  }
+ ],
+ "sharpe_ci": [
+  {
+   "strategy": "OLS",
+   "sharpe": -0.8249,
+   "lo": -2.4408,
+   "hi": 0.7156
+  },
+  {
+   "strategy": "PCA",
+   "sharpe": -0.8566,
+   "lo": -2.35,
+   "hi": 0.5559
+  },
+  {
+   "strategy": "LASSO",
+   "sharpe": -0.4098,
+   "lo": -2.1788,
+   "hi": 1.2301
+  },
+  {
+   "strategy": "Pairs",
+   "sharpe": -0.1632,
+   "lo": -2.514,
+   "hi": 1.6039
+  },
+  {
+   "strategy": "B&H",
+   "sharpe": 0.7177,
+   "lo": -0.9807,
+   "hi": 2.8834
+  }
+ ],
+ "memmel": [
+  {
+   "test": "LASSO vs OLS",
+   "z": 0.5211,
+   "p": 0.6023
+  },
+  {
+   "test": "LASSO vs PCA",
+   "z": 0.6147,
+   "p": 0.5388
+  },
+  {
+   "test": "LASSO vs Pairs",
+   "z": -0.2233,
+   "p": 0.8233
+  },
+  {
+   "test": "LASSO vs B&H",
+   "z": -0.8827,
+   "p": 0.3774
+  }
+ ],
+ "lookahead_audit": {
+  "checks": 12,
+  "passed": 12
+ },
+ "lasso_hedges_mean": 11.9,
+ "sources": [
+  {
+   "name": "Yahoo Finance daily adjusted closes via yfinance",
+   "url": "https://github.com/ranaroussi/yfinance"
+  },
+  {
+   "name": "Avellaneda & Lee (2010), Statistical arbitrage in the US equities market",
+   "url": "https://doi.org/10.1080/14697680903124632"
+  }
+ ]
+}

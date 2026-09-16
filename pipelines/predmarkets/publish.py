@@ -184,22 +184,9 @@ def build_midterms() -> dict:
 
 
 def build_fomc() -> dict:
-    q = _prob(read.quotes("fomc")).collect()
-    snapshots = sorted(q["snapshot_ts"].unique().to_list())
-    latest = q.filter(pl.col("snapshot_ts") == snapshots[-1])
-    facts = {
-        "project": "fomc-markets",
-        "generated_at": utc_now().isoformat(timespec="seconds"),
-        "first_snapshot_ts": snapshots[0],
-        "last_snapshot_ts": snapshots[-1],
-        "n_snapshots": len(snapshots),
-        "markets_tracked": {
-            r["platform"]: r["n"]
-            for r in latest.group_by("platform").agg(pl.len().alias("n")).iter_rows(named=True)
-        },
-    }
-    write_json(facts, FACTS_DIR / "fomc.json")
-    return facts
+    from pipelines.predmarkets.fomc import build
+
+    return build()
 
 
 def main() -> int:
@@ -212,7 +199,12 @@ def main() -> int:
         m["headline"].get("house_dem"),
     )
     f = build_fomc()
-    log.info("fomc facts: snapshots=%s markets=%s", f["n_snapshots"], f["markets_tracked"])
+    log.info(
+        "fomc facts: snapshots=%s next=%s scorecard=%s",
+        f["n_snapshots"],
+        (f.get("next_meeting") or {}).get("meeting"),
+        [(r["meeting"], r["outcome"]) for r in f["scorecard"]],
+    )
     return 0
 
 

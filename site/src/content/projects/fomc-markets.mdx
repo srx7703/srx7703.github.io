@@ -1,0 +1,127 @@
+---
+title: "FOMC decisions: what Polymarket and Kalshi expect, and how they score"
+summary: "Daily odds for every upcoming Federal Reserve rate decision on both platforms, the implied rate path, and a running scorecard once each meeting resolves."
+status: live
+domain: ["macro", "prediction markets"]
+tools: ["Python", "Polars", "Polymarket API", "Kalshi API", "Vega-Lite", "GitHub Actions"]
+featured: true
+order: 2
+started: "2026-09-16"
+---
+import facts from '@data/facts/fomc.json';
+import KpiRow from '@components/KpiRow.astro';
+import KpiTile from '@components/KpiTile.astro';
+import ChartCard from '@components/ChartCard.astro';
+import VegaChart from '@components/VegaChart.astro';
+import SourceStamp from '@components/SourceStamp.astro';
+import PipelineStatus from '@components/PipelineStatus.astro';
+import Section from '@components/Section.astro';
+import { fomcHistorySpec } from '@charts/fomc/history';
+import { fomcPathSpec } from '@charts/fomc/path';
+import { pct, pts, num, dateUtc, dayUtc, daysUntil } from '@lib/fmt';
+
+export const next = facts.next_meeting;
+export const pm = next?.platforms?.polymarket;
+export const kx = next?.platforms?.kalshi;
+export const asOf = dateUtc(facts.last_snapshot_ts);
+export const sideLabel = (r) => r.hike >= r.cut && r.hike >= r.hold ? 'a hike' : r.cut >= r.hold ? 'a cut' : 'no change';
+
+<div class="lede">
+  {next ? `For the ${dayUtc(next.decision_date)} decision, Polymarket prices ${sideLabel(pm.rollup)} at ${pct(pm.rollup.hike >= pm.rollup.cut ? pm.rollup.hike : pm.rollup.cut, 1)} and Kalshi at ${pct(kx.rollup.hike >= kx.rollup.cut ? kx.rollup.hike : kx.rollup.cut, 1)}; the probability-weighted expected move is ${pm.expected_bps} bps on Polymarket and ${kx.expected_bps} bps on Kalshi.` : 'No upcoming meeting is currently listed on both platforms.'}
+  {' '}History runs from {dayUtc(facts.history_from)} via each platform's own price history, and both platforms are snapshotted twice a day from here on.
+</div>
+
+<PipelineStatus lastSnapshot={facts.last_snapshot_ts} firstSnapshot={facts.first_snapshot_ts} nSnapshots={facts.n_snapshots} nDays={facts.n_days} workflow="snapshot-predmarkets.yml" cadence="twice daily" />
+
+{next && (
+  <KpiRow>
+    <KpiTile label="Next decision" value={dayUtc(next.decision_date)} sub={`${daysUntil(next.decision_date, facts.last_snapshot_ts)} days from the latest snapshot`} />
+    <KpiTile label="Probability of a hike" value={pct(pm.rollup.hike, 1)} sub={`Polymarket · Kalshi ${pct(kx.rollup.hike, 1)} · gap ${pts(pm.rollup.hike - kx.rollup.hike)}`} />
+    <KpiTile label="Expected move" value={`${pm.expected_bps > 0 ? '+' : ''}${pm.expected_bps} bps`} sub={`Polymarket · Kalshi ${kx.expected_bps > 0 ? '+' : ''}${kx.expected_bps} bps · probability-weighted`} />
+  </KpiRow>
+)}
+
+{next && (
+  <ChartCard title={`Both platforms have converged on ${sideLabel(pm.rollup)} for ${dayUtc(next.decision_date)}`} subtitle="Daily probability of a cut, no change or a hike at the next meeting, by platform; last value labelled">
+    <div class="grid-2">
+      <VegaChart id="fomc-pm" spec={fomcHistorySpec(next.meeting, 'polymarket')} ariaLabel="Line chart of cut, hold and hike probabilities on Polymarket over time" />
+      <VegaChart id="fomc-kx" spec={fomcHistorySpec(next.meeting, 'kalshi', false)} ariaLabel="Line chart of cut, hold and hike probabilities on Kalshi over time" />
+    </div>
+    <details>
+      <summary>Table view (all five outcome buckets, latest snapshot)</summary>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Outcome</th><th class="num">Polymarket</th><th class="num">Kalshi</th></tr></thead>
+          <tbody>
+            {['cut50', 'cut25', 'hold', 'hike25', 'hike50'].map((b) => (
+              <tr><td>{({cut50: 'Cut 50 bps or more', cut25: 'Cut 25 bps', hold: 'No change', hike25: 'Hike 25 bps', hike50: 'Hike 50 bps or more'})[b]}</td><td class="num">{pct(pm.buckets[b], 1)}</td><td class="num">{pct(kx.buckets[b], 1)}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <SourceStamp slot="stamp" sources={facts.sources.slice(0, 2)} asOf={asOf} />
+  </ChartCard>
+)}
+
+<ChartCard title="The implied path: expected change in the target rate at each upcoming meeting" subtitle="Probability-weighted expected change in basis points (cut 50+ = −50, cut 25 = −25, hold = 0, hike 25 = +25, hike 50+ = +50), latest snapshot">
+  <VegaChart id="fomc-path" spec={fomcPathSpec()} height={220} ariaLabel="Grouped bar chart of expected rate change per meeting by platform" />
+  <SourceStamp slot="stamp" sources={facts.sources.slice(0, 2)} asOf={asOf} />
+</ChartCard>
+
+<Section id="scorecard" title="Scorecard">
+  <div class="prose">
+    {facts.scorecard.length === 0 ? (
+      <p>No meeting has resolved since tracking began. The first meeting to be scored is {next ? dayUtc(next.decision_date) : 'the next one'}; the final pre-decision distribution is the last observation before 17:30 UTC on decision day.</p>
+    ) : (
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Decision</th><th>Outcome</th><th class="num">P(outcome) Polymarket</th><th class="num">P(outcome) Kalshi</th><th class="num">Brier Polymarket</th><th class="num">Brier Kalshi</th></tr></thead>
+          <tbody>
+            {facts.scorecard.map((r) => (
+              <tr><td>{dayUtc(r.decision_date)}</td><td>{r.outcome}</td><td class="num">{pct(r.platforms.polymarket?.p_outcome, 1)}</td><td class="num">{pct(r.platforms.kalshi?.p_outcome, 1)}</td><td class="num">{r.platforms.polymarket?.brier ?? '—'}</td><td class="num">{r.platforms.kalshi?.brier ?? '—'}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )}
+  </div>
+</Section>
+
+<Section id="method" title="Method">
+  <div class="prose">
+    <p><strong>Question.</strong> How far ahead, and how accurately, do prediction markets price Federal Reserve decisions, and do the two venues disagree?</p>
+    <p><strong>Data.</strong> Every "Fed decision in &lt;month&gt;" event on Polymarket and every <code>KXFEDDECISION</code> event on Kalshi ({num(facts.decision_markets)} markets), plus the rate-level, hike-count and dot-plot markets on both. Daily history is backfilled from Polymarket's price-history endpoint and Kalshi's candlesticks; from September 16, 2026 the snapshot pipeline adds two observations a day including order books.</p>
+    <p><strong>Definitions.</strong> Both platforms list the same five outcomes per meeting; they are mapped to one grid (cut 50+, cut 25, hold, hike 25, hike 50+) and rolled up to cut / hold / hike for charts. Probability = order-book mid where quoted, else the displayed price. Expected move = Σ probability × bps. Decision dates follow the Fed's published calendar; 2027 dates are provisional.</p>
+  </div>
+</Section>
+
+<Section id="evaluation" title="Evaluation (pre-registered)">
+  <div class="prose">
+    <ul>
+      <li><strong>Per meeting:</strong> multi-outcome Brier score of each platform's final pre-decision distribution (last observation before 17:30 UTC on decision day), and the probability assigned to the realised outcome.</li>
+      <li><strong>Lead time:</strong> the number of days before the decision when the realised outcome first became and stayed the modal outcome on each platform.</li>
+      <li><strong>Baselines:</strong> "no change" every meeting, and "same as last meeting", scored the same way.</li>
+      <li><strong>Cross-platform:</strong> the daily gap in P(hike) and whether it closes into the meeting.</li>
+    </ul>
+    <p>Market reaction (Treasury yields and equity moves on decision day versus the surprise) is planned once a market-data key is configured; it is not part of this page yet.</p>
+  </div>
+</Section>
+
+<Section id="data-quality" title="Data quality">
+  <div class="prose">
+    <p>{facts.n_snapshots} snapshots over {facts.n_days} {facts.n_days === 1 ? 'day' : 'days'}; latest {asOf}. Backfilled history and live snapshots are merged by market and date, with the snapshot winning on the same day. Each platform is ingested independently; schema, range and uniqueness checks gate every write.</p>
+  </div>
+</Section>
+
+<Section id="build-notes" title="Build notes">
+  <div class="prose">
+    <p>Built end to end with Claude Code on the same pipeline as the midterms tracker; the outcome-mapping module and the scorecard logic were added for this page. The author chose the outcome grid, the bps weights, the scoring cutoff and the baselines. Source: <a href="https://github.com/srx7703/srx7703.github.io">github.com/srx7703/srx7703.github.io</a>.</p>
+  </div>
+</Section>
+
+<Section id="changelog" title="Changelog">
+  <ul class="prose">
+    <li><strong>2026-09-16</strong> — page v0: history backfill, next-meeting probabilities, implied path, scorecard scaffold.</li>
+  </ul>
+</Section>

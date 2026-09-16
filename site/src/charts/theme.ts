@@ -11,7 +11,17 @@ export const series = {
   dem: tok('series-dem'),
   rep: tok('series-rep'),
   neutral: tok('series-neutral'),
+  a: tok('series-a'),
+  b: tok('series-b'),
+  c: tok('series-c'),
+  cut: tok('series-cut'),
+  hold: tok('series-hold'),
+  hike: tok('series-hike'),
 };
+
+export const SIDE_DOMAIN = ['cut', 'hold', 'hike'];
+export const SIDE_RANGE = [series.cut, series.hold, series.hike];
+export const SIDE_LABEL_EXPR = "datum.label == 'cut' ? 'Cut' : datum.label == 'hike' ? 'Hike' : 'Hold'";
 
 export const PLATFORM_DOMAIN = ['polymarket', 'kalshi'];
 export const PLATFORM_RANGE = [series.polymarket, series.kalshi];

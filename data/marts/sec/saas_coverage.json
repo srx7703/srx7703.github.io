@@ -1,0 +1,2848 @@
+{
+ "ADBE": {
+  "name": "ADOBE INC.",
+  "tags": {
+   "revenue": [
+    "Revenues"
+   ],
+   "cogs": [
+    "CostOfRevenue"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 73,
+   "cogs": 73,
+   "gross_profit": 73,
+   "op_income": 73,
+   "net_income": 73,
+   "ocf": 71,
+   "capex": 71,
+   "sbc": 71,
+   "snm": 73,
+   "gna": 73,
+   "diluted_shares": 55
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 47,
+    "agree": 47
+   },
+   "cogs": {
+    "pairs": 36,
+    "agree": 36
+   },
+   "gross_profit": {
+    "pairs": 47,
+    "agree": 47
+   },
+   "op_income": {
+    "pairs": 35,
+    "agree": 35
+   },
+   "net_income": {
+    "pairs": 47,
+    "agree": 47
+   },
+   "sbc": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "snm": {
+    "pairs": 35,
+    "agree": 35
+   },
+   "gna": {
+    "pairs": 35,
+    "agree": 35
+   }
+  }
+ },
+ "APPF": {
+  "name": "AppFolio, Inc.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "SalesRevenueNet"
+   ],
+   "cogs": [
+    "CostOfGoodsAndServicesSold"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "cap_software": [
+    "PaymentsToDevelopSoftware"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ],
+   "gross_profit": [
+    "derived: revenue - cogs"
+   ]
+  },
+  "quarters": {
+   "revenue": 49,
+   "cogs": 31,
+   "op_income": 49,
+   "net_income": 49,
+   "ocf": 48,
+   "capex": 48,
+   "cap_software": 48,
+   "sbc": 48,
+   "rnd": 49,
+   "snm": 49,
+   "gna": 49,
+   "diluted_shares": 32,
+   "gross_profit": 31
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 24,
+    "agree": 24
+   },
+   "cogs": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "op_income": {
+    "pairs": 24,
+    "agree": 24
+   },
+   "net_income": {
+    "pairs": 24,
+    "agree": 24
+   },
+   "sbc": {
+    "pairs": 11,
+    "agree": 5
+   },
+   "rnd": {
+    "pairs": 24,
+    "agree": 24
+   },
+   "snm": {
+    "pairs": 24,
+    "agree": 24
+   },
+   "gna": {
+    "pairs": 24,
+    "agree": 24
+   }
+  }
+ },
+ "BILL": {
+  "name": "BILL Holdings, Inc.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfGoodsAndServicesSold"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "cap_software": [
+    "PaymentsToDevelopSoftware"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 32,
+   "cogs": 32,
+   "gross_profit": 32,
+   "op_income": 32,
+   "net_income": 32,
+   "ocf": 30,
+   "capex": 30,
+   "cap_software": 30,
+   "sbc": 31,
+   "rnd": 32,
+   "snm": 32,
+   "gna": 32,
+   "diluted_shares": 15
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 18,
+    "agree": 18
+   },
+   "cogs": {
+    "pairs": 18,
+    "agree": 18
+   },
+   "gross_profit": {
+    "pairs": 18,
+    "agree": 18
+   },
+   "op_income": {
+    "pairs": 18,
+    "agree": 17
+   },
+   "net_income": {
+    "pairs": 18,
+    "agree": 18
+   },
+   "sbc": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "rnd": {
+    "pairs": 18,
+    "agree": 17
+   },
+   "snm": {
+    "pairs": 18,
+    "agree": 17
+   },
+   "gna": {
+    "pairs": 18,
+    "agree": 17
+   }
+  }
+ },
+ "CRM": {
+  "name": "Salesforce, Inc.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "Revenues"
+   ],
+   "cogs": [
+    "CostOfRevenue",
+    "CostOfGoodsAndServicesSold",
+    "CostOfServices"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment",
+    "PaymentsToAcquireProductiveAssets"
+   ],
+   "sbc": [
+    "ShareBasedCompensation"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 73,
+   "cogs": 73,
+   "gross_profit": 73,
+   "op_income": 73,
+   "net_income": 73,
+   "ocf": 73,
+   "capex": 73,
+   "sbc": 73,
+   "rnd": 73,
+   "snm": 73,
+   "gna": 73,
+   "diluted_shares": 55
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 41,
+    "agree": 41
+   },
+   "cogs": {
+    "pairs": 36,
+    "agree": 36
+   },
+   "gross_profit": {
+    "pairs": 47,
+    "agree": 46
+   },
+   "op_income": {
+    "pairs": 47,
+    "agree": 46
+   },
+   "net_income": {
+    "pairs": 47,
+    "agree": 46
+   },
+   "ocf": {
+    "pairs": 36,
+    "agree": 36
+   },
+   "capex": {
+    "pairs": 36,
+    "agree": 36
+   },
+   "sbc": {
+    "pairs": 36,
+    "agree": 36
+   },
+   "rnd": {
+    "pairs": 36,
+    "agree": 36
+   },
+   "snm": {
+    "pairs": 36,
+    "agree": 36
+   },
+   "gna": {
+    "pairs": 36,
+    "agree": 36
+   }
+  }
+ },
+ "CRWD": {
+  "name": "CrowdStrike Holdings, Inc.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerIncludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfGoodsAndServicesSold"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "cap_software": [
+    "PaymentsToDevelopSoftware"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 34,
+   "cogs": 34,
+   "gross_profit": 34,
+   "op_income": 34,
+   "net_income": 34,
+   "ocf": 34,
+   "capex": 34,
+   "cap_software": 34,
+   "sbc": 34,
+   "rnd": 34,
+   "snm": 34,
+   "gna": 34,
+   "diluted_shares": 20
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 17,
+    "agree": 17
+   },
+   "cogs": {
+    "pairs": 17,
+    "agree": 16
+   },
+   "gross_profit": {
+    "pairs": 17,
+    "agree": 17
+   },
+   "op_income": {
+    "pairs": 17,
+    "agree": 16
+   },
+   "net_income": {
+    "pairs": 17,
+    "agree": 16
+   },
+   "sbc": {
+    "pairs": 17,
+    "agree": 16
+   },
+   "rnd": {
+    "pairs": 17,
+    "agree": 16
+   },
+   "snm": {
+    "pairs": 17,
+    "agree": 17
+   },
+   "gna": {
+    "pairs": 17,
+    "agree": 16
+   }
+  }
+ },
+ "DDOG": {
+  "name": "Datadog, Inc.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfGoodsAndServicesSold"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "cap_software": [
+    "PaymentsToDevelopSoftware"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 32,
+   "cogs": 32,
+   "gross_profit": 32,
+   "op_income": 32,
+   "net_income": 32,
+   "ocf": 31,
+   "capex": 31,
+   "cap_software": 31,
+   "sbc": 32,
+   "rnd": 32,
+   "snm": 32,
+   "gna": 32,
+   "diluted_shares": 23
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "cogs": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "gross_profit": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "op_income": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "net_income": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "sbc": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "rnd": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "snm": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "gna": {
+    "pairs": 15,
+    "agree": 15
+   }
+  }
+ },
+ "DOCU": {
+  "name": "DOCUSIGN, INC.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfGoodsAndServicesSold"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "sbc": [
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 38,
+   "cogs": 38,
+   "gross_profit": 38,
+   "op_income": 38,
+   "net_income": 38,
+   "ocf": 38,
+   "capex": 38,
+   "sbc": 38,
+   "rnd": 38,
+   "snm": 38,
+   "gna": 38,
+   "diluted_shares": 20
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 19,
+    "agree": 19
+   },
+   "cogs": {
+    "pairs": 19,
+    "agree": 19
+   },
+   "gross_profit": {
+    "pairs": 19,
+    "agree": 19
+   },
+   "op_income": {
+    "pairs": 19,
+    "agree": 19
+   },
+   "net_income": {
+    "pairs": 19,
+    "agree": 19
+   },
+   "rnd": {
+    "pairs": 19,
+    "agree": 19
+   },
+   "snm": {
+    "pairs": 19,
+    "agree": 19
+   },
+   "gna": {
+    "pairs": 19,
+    "agree": 19
+   }
+  }
+ },
+ "DT": {
+  "name": "Dynatrace, Inc.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfGoodsAndServicesSold"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "cap_software": [
+    "PaymentsForSoftware"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 33,
+   "cogs": 33,
+   "gross_profit": 33,
+   "op_income": 33,
+   "net_income": 33,
+   "ocf": 33,
+   "capex": 33,
+   "cap_software": 27,
+   "sbc": 33,
+   "rnd": 33,
+   "snm": 33,
+   "gna": 33,
+   "diluted_shares": 22
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 16,
+    "agree": 16
+   },
+   "cogs": {
+    "pairs": 16,
+    "agree": 16
+   },
+   "gross_profit": {
+    "pairs": 16,
+    "agree": 16
+   },
+   "op_income": {
+    "pairs": 16,
+    "agree": 16
+   },
+   "net_income": {
+    "pairs": 16,
+    "agree": 16
+   },
+   "sbc": {
+    "pairs": 16,
+    "agree": 16
+   },
+   "rnd": {
+    "pairs": 16,
+    "agree": 16
+   },
+   "snm": {
+    "pairs": 16,
+    "agree": 16
+   },
+   "gna": {
+    "pairs": 16,
+    "agree": 16
+   }
+  }
+ },
+ "ESTC": {
+  "name": "ELASTIC N.V.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfGoodsAndServicesSold"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "cap_software": [
+    "PaymentsToDevelopSoftware",
+    "PaymentsForSoftware"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 36,
+   "cogs": 36,
+   "gross_profit": 36,
+   "op_income": 36,
+   "net_income": 36,
+   "ocf": 35,
+   "capex": 35,
+   "cap_software": 10,
+   "sbc": 36,
+   "rnd": 36,
+   "snm": 36,
+   "gna": 36,
+   "diluted_shares": 13
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 17,
+    "agree": 17
+   },
+   "cogs": {
+    "pairs": 17,
+    "agree": 17
+   },
+   "gross_profit": {
+    "pairs": 17,
+    "agree": 17
+   },
+   "op_income": {
+    "pairs": 17,
+    "agree": 17
+   },
+   "net_income": {
+    "pairs": 17,
+    "agree": 17
+   },
+   "sbc": {
+    "pairs": 17,
+    "agree": 15
+   },
+   "rnd": {
+    "pairs": 17,
+    "agree": 17
+   },
+   "snm": {
+    "pairs": 17,
+    "agree": 17
+   },
+   "gna": {
+    "pairs": 17,
+    "agree": 17
+   }
+  }
+ },
+ "GTLB": {
+  "name": "GITLAB INC.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfRevenue"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 24,
+   "cogs": 24,
+   "gross_profit": 24,
+   "op_income": 24,
+   "net_income": 24,
+   "ocf": 23,
+   "capex": 22,
+   "sbc": 24,
+   "rnd": 24,
+   "snm": 24,
+   "gna": 24,
+   "diluted_shares": 18
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 11,
+    "agree": 11
+   },
+   "cogs": {
+    "pairs": 11,
+    "agree": 11
+   },
+   "gross_profit": {
+    "pairs": 11,
+    "agree": 11
+   },
+   "op_income": {
+    "pairs": 11,
+    "agree": 11
+   },
+   "net_income": {
+    "pairs": 11,
+    "agree": 11
+   },
+   "sbc": {
+    "pairs": 11,
+    "agree": 11
+   },
+   "rnd": {
+    "pairs": 11,
+    "agree": 11
+   },
+   "snm": {
+    "pairs": 11,
+    "agree": 11
+   },
+   "gna": {
+    "pairs": 11,
+    "agree": 11
+   }
+  }
+ },
+ "HUBS": {
+  "name": "HubSpot, Inc.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "Revenues"
+   ],
+   "cogs": [
+    "CostOfRevenue",
+    "CostOfGoodsAndServicesSold"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities",
+    "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "cap_software": [
+    "PaymentsToDevelopSoftware"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 54,
+   "cogs": 54,
+   "gross_profit": 54,
+   "op_income": 50,
+   "net_income": 54,
+   "ocf": 51,
+   "capex": 51,
+   "cap_software": 51,
+   "sbc": 52,
+   "rnd": 52,
+   "snm": 52,
+   "gna": 52,
+   "diluted_shares": 39
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 33,
+    "agree": 33
+   },
+   "cogs": {
+    "pairs": 33,
+    "agree": 32
+   },
+   "gross_profit": {
+    "pairs": 33,
+    "agree": 32
+   },
+   "op_income": {
+    "pairs": 25,
+    "agree": 25
+   },
+   "net_income": {
+    "pairs": 33,
+    "agree": 33
+   },
+   "sbc": {
+    "pairs": 25,
+    "agree": 25
+   },
+   "rnd": {
+    "pairs": 25,
+    "agree": 25
+   },
+   "snm": {
+    "pairs": 25,
+    "agree": 25
+   },
+   "gna": {
+    "pairs": 25,
+    "agree": 25
+   }
+  }
+ },
+ "INTU": {
+  "name": "INTUIT INC.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "Revenues",
+    "SalesRevenueNet"
+   ],
+   "cogs": [
+    "CostOfGoodsAndServicesSold",
+    "CostOfServices"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "cap_software": [
+    "PaymentsToDevelopSoftware"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ],
+   "gross_profit": [
+    "derived: revenue - cogs"
+   ]
+  },
+  "quarters": {
+   "revenue": 72,
+   "cogs": 48,
+   "op_income": 72,
+   "net_income": 72,
+   "ocf": 72,
+   "capex": 72,
+   "cap_software": 0,
+   "sbc": 72,
+   "rnd": 72,
+   "snm": 72,
+   "gna": 72,
+   "diluted_shares": 54,
+   "gross_profit": 48
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 48,
+    "agree": 35
+   },
+   "cogs": {
+    "pairs": 29,
+    "agree": 0
+   },
+   "op_income": {
+    "pairs": 48,
+    "agree": 35
+   },
+   "net_income": {
+    "pairs": 48,
+    "agree": 41
+   },
+   "ocf": {
+    "pairs": 10,
+    "agree": 10
+   },
+   "capex": {
+    "pairs": 10,
+    "agree": 10
+   },
+   "sbc": {
+    "pairs": 36,
+    "agree": 32
+   },
+   "rnd": {
+    "pairs": 36,
+    "agree": 35
+   },
+   "snm": {
+    "pairs": 36,
+    "agree": 35
+   },
+   "gna": {
+    "pairs": 36,
+    "agree": 35
+   }
+  }
+ },
+ "MDB": {
+  "name": "MONGODB, INC.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "Revenues",
+    "SalesRevenueNet"
+   ],
+   "cogs": [
+    "CostOfGoodsAndServicesSold"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 40,
+   "cogs": 40,
+   "gross_profit": 40,
+   "op_income": 40,
+   "net_income": 40,
+   "ocf": 39,
+   "capex": 39,
+   "sbc": 40,
+   "rnd": 40,
+   "snm": 40,
+   "gna": 40,
+   "diluted_shares": 4
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 19,
+    "agree": 19
+   },
+   "cogs": {
+    "pairs": 19,
+    "agree": 19
+   },
+   "gross_profit": {
+    "pairs": 19,
+    "agree": 19
+   },
+   "op_income": {
+    "pairs": 19,
+    "agree": 19
+   },
+   "net_income": {
+    "pairs": 19,
+    "agree": 19
+   },
+   "sbc": {
+    "pairs": 19,
+    "agree": 18
+   },
+   "rnd": {
+    "pairs": 19,
+    "agree": 19
+   },
+   "snm": {
+    "pairs": 19,
+    "agree": 19
+   },
+   "gna": {
+    "pairs": 19,
+    "agree": 19
+   }
+  }
+ },
+ "NET": {
+  "name": "Cloudflare, Inc.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfRevenue"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 32,
+   "cogs": 32,
+   "gross_profit": 32,
+   "op_income": 32,
+   "net_income": 32,
+   "ocf": 31,
+   "capex": 31,
+   "sbc": 32,
+   "rnd": 32,
+   "snm": 32,
+   "gna": 32,
+   "diluted_shares": 19
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "cogs": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "gross_profit": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "op_income": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "net_income": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "sbc": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "rnd": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "snm": {
+    "pairs": 15,
+    "agree": 15
+   },
+   "gna": {
+    "pairs": 15,
+    "agree": 15
+   }
+  }
+ },
+ "NOW": {
+  "name": "ServiceNow, Inc.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "Revenues",
+    "SalesRevenueNet"
+   ],
+   "cogs": [
+    "CostOfRevenue"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 61,
+   "cogs": 61,
+   "gross_profit": 61,
+   "op_income": 61,
+   "net_income": 61,
+   "ocf": 59,
+   "capex": 59,
+   "sbc": 59,
+   "rnd": 61,
+   "snm": 61,
+   "gna": 61,
+   "diluted_shares": 31
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 30,
+    "agree": 30
+   },
+   "cogs": {
+    "pairs": 30,
+    "agree": 30
+   },
+   "gross_profit": {
+    "pairs": 30,
+    "agree": 30
+   },
+   "op_income": {
+    "pairs": 30,
+    "agree": 30
+   },
+   "net_income": {
+    "pairs": 30,
+    "agree": 29
+   },
+   "sbc": {
+    "pairs": 10,
+    "agree": 10
+   },
+   "rnd": {
+    "pairs": 30,
+    "agree": 30
+   },
+   "snm": {
+    "pairs": 30,
+    "agree": 30
+   },
+   "gna": {
+    "pairs": 30,
+    "agree": 30
+   }
+  }
+ },
+ "OKTA": {
+  "name": "Okta, Inc.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfGoodsAndServicesSold",
+    "CostOfServices"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "cap_software": [
+    "PaymentsForSoftware"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 36,
+   "cogs": 42,
+   "gross_profit": 42,
+   "op_income": 42,
+   "net_income": 42,
+   "ocf": 42,
+   "capex": 42,
+   "cap_software": 32,
+   "sbc": 42,
+   "rnd": 42,
+   "snm": 42,
+   "gna": 42,
+   "diluted_shares": 20
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 17,
+    "agree": 17
+   },
+   "cogs": {
+    "pairs": 21,
+    "agree": 21
+   },
+   "gross_profit": {
+    "pairs": 21,
+    "agree": 21
+   },
+   "op_income": {
+    "pairs": 21,
+    "agree": 21
+   },
+   "net_income": {
+    "pairs": 21,
+    "agree": 21
+   },
+   "sbc": {
+    "pairs": 21,
+    "agree": 21
+   },
+   "rnd": {
+    "pairs": 21,
+    "agree": 21
+   },
+   "snm": {
+    "pairs": 21,
+    "agree": 21
+   },
+   "gna": {
+    "pairs": 21,
+    "agree": 21
+   }
+  }
+ },
+ "PANW": {
+  "name": "Palo Alto Networks, Inc",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "Revenues",
+    "SalesRevenueNet"
+   ],
+   "cogs": [
+    "CostOfGoodsAndServicesSold"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities",
+    "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment",
+    "PaymentsToAcquireProductiveAssets"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 60,
+   "cogs": 60,
+   "gross_profit": 60,
+   "op_income": 60,
+   "net_income": 60,
+   "ocf": 60,
+   "capex": 60,
+   "sbc": 60,
+   "rnd": 60,
+   "snm": 60,
+   "gna": 60,
+   "diluted_shares": 18
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 39,
+    "agree": 38
+   },
+   "cogs": {
+    "pairs": 39,
+    "agree": 39
+   },
+   "gross_profit": {
+    "pairs": 39,
+    "agree": 38
+   },
+   "op_income": {
+    "pairs": 39,
+    "agree": 37
+   },
+   "net_income": {
+    "pairs": 39,
+    "agree": 37
+   },
+   "sbc": {
+    "pairs": 30,
+    "agree": 20
+   },
+   "rnd": {
+    "pairs": 39,
+    "agree": 39
+   },
+   "snm": {
+    "pairs": 39,
+    "agree": 37
+   },
+   "gna": {
+    "pairs": 39,
+    "agree": 39
+   }
+  }
+ },
+ "PATH": {
+  "name": "UiPath, Inc.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfRevenue"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "cap_software": [
+    "PaymentsToDevelopSoftware"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 26,
+   "cogs": 26,
+   "gross_profit": 26,
+   "op_income": 26,
+   "net_income": 26,
+   "ocf": 26,
+   "capex": 26,
+   "cap_software": 10,
+   "sbc": 26,
+   "rnd": 26,
+   "snm": 26,
+   "gna": 26,
+   "diluted_shares": 19
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "cogs": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "gross_profit": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "op_income": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "net_income": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "sbc": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "rnd": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "snm": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "gna": {
+    "pairs": 13,
+    "agree": 13
+   }
+  }
+ },
+ "PLTR": {
+  "name": "Palantir Technologies Inc.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "RevenueFromContractWithCustomerIncludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfRevenue"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 28,
+   "cogs": 28,
+   "gross_profit": 28,
+   "op_income": 28,
+   "net_income": 28,
+   "ocf": 27,
+   "capex": 27,
+   "sbc": 28,
+   "rnd": 28,
+   "snm": 28,
+   "gna": 28,
+   "diluted_shares": 21
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "cogs": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "gross_profit": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "op_income": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "net_income": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "sbc": {
+    "pairs": 13,
+    "agree": 12
+   },
+   "rnd": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "snm": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "gna": {
+    "pairs": 13,
+    "agree": 13
+   }
+  }
+ },
+ "S": {
+  "name": "SENTINELONE, INC",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfRevenue"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "cap_software": [
+    "PaymentsToDevelopSoftware"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 25,
+   "cogs": 25,
+   "gross_profit": 25,
+   "op_income": 25,
+   "net_income": 25,
+   "ocf": 24,
+   "capex": 24,
+   "cap_software": 24,
+   "sbc": 25,
+   "rnd": 25,
+   "snm": 25,
+   "gna": 25,
+   "diluted_shares": 18
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 12,
+    "agree": 12
+   },
+   "cogs": {
+    "pairs": 12,
+    "agree": 12
+   },
+   "gross_profit": {
+    "pairs": 12,
+    "agree": 12
+   },
+   "op_income": {
+    "pairs": 12,
+    "agree": 12
+   },
+   "net_income": {
+    "pairs": 12,
+    "agree": 12
+   },
+   "sbc": {
+    "pairs": 12,
+    "agree": 12
+   },
+   "rnd": {
+    "pairs": 12,
+    "agree": 12
+   },
+   "snm": {
+    "pairs": 12,
+    "agree": 12
+   },
+   "gna": {
+    "pairs": 12,
+    "agree": 12
+   }
+  }
+ },
+ "SHOP": {
+  "name": "Shopify Inc.",
+  "tags": {
+   "revenue": [
+    "Revenues"
+   ],
+   "cogs": [
+    "CostOfGoodsAndServicesSold"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "sbc": [
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 10,
+   "cogs": 10,
+   "gross_profit": 10,
+   "op_income": 10,
+   "net_income": 10,
+   "ocf": 10,
+   "capex": 10,
+   "sbc": 10,
+   "rnd": 10,
+   "snm": 10,
+   "gna": 10,
+   "diluted_shares": 8
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 5,
+    "agree": 5
+   },
+   "cogs": {
+    "pairs": 5,
+    "agree": 5
+   },
+   "gross_profit": {
+    "pairs": 5,
+    "agree": 5
+   },
+   "op_income": {
+    "pairs": 5,
+    "agree": 5
+   },
+   "net_income": {
+    "pairs": 5,
+    "agree": 5
+   },
+   "ocf": {
+    "pairs": 5,
+    "agree": 5
+   },
+   "capex": {
+    "pairs": 5,
+    "agree": 5
+   },
+   "sbc": {
+    "pairs": 5,
+    "agree": 5
+   },
+   "rnd": {
+    "pairs": 5,
+    "agree": 5
+   },
+   "snm": {
+    "pairs": 5,
+    "agree": 5
+   },
+   "gna": {
+    "pairs": 5,
+    "agree": 5
+   }
+  }
+ },
+ "SNOW": {
+  "name": "SNOWFLAKE INC.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfGoodsAndServicesSold"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "cap_software": [
+    "PaymentsToDevelopSoftware"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 28,
+   "cogs": 28,
+   "gross_profit": 28,
+   "op_income": 28,
+   "net_income": 28,
+   "ocf": 27,
+   "capex": 27,
+   "cap_software": 25,
+   "sbc": 28,
+   "rnd": 28,
+   "snm": 28,
+   "gna": 28,
+   "diluted_shares": 18
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "cogs": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "gross_profit": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "op_income": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "net_income": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "sbc": {
+    "pairs": 12,
+    "agree": 12
+   },
+   "rnd": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "snm": {
+    "pairs": 13,
+    "agree": 13
+   },
+   "gna": {
+    "pairs": 13,
+    "agree": 13
+   }
+  }
+ },
+ "TEAM": {
+  "name": "Atlassian Corporation",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfRevenue",
+    "CostOfGoodsAndServicesSold"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "sbc": [
+    "ShareBasedCompensation"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 20,
+   "cogs": 20,
+   "gross_profit": 20,
+   "op_income": 20,
+   "net_income": 20,
+   "ocf": 20,
+   "capex": 20,
+   "sbc": 20,
+   "rnd": 20,
+   "snm": 20,
+   "gna": 20,
+   "diluted_shares": 15
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 10,
+    "agree": 10
+   },
+   "cogs": {
+    "pairs": 10,
+    "agree": 10
+   },
+   "gross_profit": {
+    "pairs": 10,
+    "agree": 10
+   },
+   "op_income": {
+    "pairs": 10,
+    "agree": 10
+   },
+   "net_income": {
+    "pairs": 10,
+    "agree": 10
+   },
+   "ocf": {
+    "pairs": 10,
+    "agree": 10
+   },
+   "capex": {
+    "pairs": 10,
+    "agree": 10
+   },
+   "sbc": {
+    "pairs": 10,
+    "agree": 10
+   },
+   "rnd": {
+    "pairs": 10,
+    "agree": 10
+   },
+   "snm": {
+    "pairs": 10,
+    "agree": 10
+   },
+   "gna": {
+    "pairs": 10,
+    "agree": 10
+   }
+  }
+ },
+ "TTD": {
+  "name": "The Trade Desk, Inc.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfGoodsAndServicesSold",
+    "CostOfServices"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities",
+    "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "cap_software": [
+    "PaymentsToDevelopSoftware"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ],
+   "gross_profit": [
+    "derived: revenue - cogs"
+   ]
+  },
+  "quarters": {
+   "revenue": 37,
+   "cogs": 44,
+   "op_income": 44,
+   "net_income": 44,
+   "ocf": 43,
+   "capex": 43,
+   "cap_software": 43,
+   "sbc": 44,
+   "rnd": 44,
+   "snm": 44,
+   "gna": 44,
+   "diluted_shares": 33,
+   "gross_profit": 37
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 18,
+    "agree": 18
+   },
+   "cogs": {
+    "pairs": 21,
+    "agree": 21
+   },
+   "op_income": {
+    "pairs": 21,
+    "agree": 21
+   },
+   "net_income": {
+    "pairs": 21,
+    "agree": 21
+   },
+   "sbc": {
+    "pairs": 21,
+    "agree": 21
+   },
+   "rnd": {
+    "pairs": 21,
+    "agree": 21
+   },
+   "snm": {
+    "pairs": 21,
+    "agree": 21
+   },
+   "gna": {
+    "pairs": 21,
+    "agree": 21
+   }
+  }
+ },
+ "TWLO": {
+  "name": "TWILIO INC.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "Revenues"
+   ],
+   "cogs": [
+    "CostOfRevenue"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss",
+    "ProfitLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities",
+    "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "cap_software": [
+    "PaymentsToDevelopSoftware"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 45,
+   "cogs": 45,
+   "gross_profit": 45,
+   "op_income": 45,
+   "net_income": 45,
+   "ocf": 44,
+   "capex": 29,
+   "cap_software": 44,
+   "sbc": 45,
+   "rnd": 45,
+   "snm": 45,
+   "gna": 45,
+   "diluted_shares": 20
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 22,
+    "agree": 22
+   },
+   "cogs": {
+    "pairs": 22,
+    "agree": 22
+   },
+   "gross_profit": {
+    "pairs": 22,
+    "agree": 22
+   },
+   "op_income": {
+    "pairs": 22,
+    "agree": 22
+   },
+   "net_income": {
+    "pairs": 20,
+    "agree": 20
+   },
+   "sbc": {
+    "pairs": 22,
+    "agree": 22
+   },
+   "rnd": {
+    "pairs": 22,
+    "agree": 22
+   },
+   "snm": {
+    "pairs": 22,
+    "agree": 22
+   },
+   "gna": {
+    "pairs": 22,
+    "agree": 22
+   }
+  }
+ },
+ "VEEV": {
+  "name": "Veeva Systems Inc.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "Revenues"
+   ],
+   "cogs": [
+    "CostOfRevenue",
+    "CostOfGoodsAndServicesSold"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities",
+    "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "cap_software": [
+    "PaymentsForSoftware"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 58,
+   "cogs": 58,
+   "gross_profit": 58,
+   "op_income": 58,
+   "net_income": 58,
+   "ocf": 56,
+   "capex": 31,
+   "cap_software": 55,
+   "sbc": 56,
+   "rnd": 58,
+   "snm": 58,
+   "gna": 58,
+   "diluted_shares": 44
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 36,
+    "agree": 35
+   },
+   "cogs": {
+    "pairs": 30,
+    "agree": 30
+   },
+   "gross_profit": {
+    "pairs": 36,
+    "agree": 35
+   },
+   "op_income": {
+    "pairs": 36,
+    "agree": 35
+   },
+   "net_income": {
+    "pairs": 36,
+    "agree": 35
+   },
+   "ocf": {
+    "pairs": 22,
+    "agree": 22
+   },
+   "capex": {
+    "pairs": 14,
+    "agree": 14
+   },
+   "cap_software": {
+    "pairs": 19,
+    "agree": 17
+   },
+   "sbc": {
+    "pairs": 27,
+    "agree": 27
+   },
+   "rnd": {
+    "pairs": 30,
+    "agree": 30
+   },
+   "snm": {
+    "pairs": 30,
+    "agree": 30
+   },
+   "gna": {
+    "pairs": 30,
+    "agree": 30
+   }
+  }
+ },
+ "WDAY": {
+  "name": "WORKDAY, INC.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "Revenues"
+   ],
+   "cogs": [
+    "CostOfRevenue"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss",
+    "ProfitLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities",
+    "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment",
+    "PaymentsToAcquireProductiveAssets"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ],
+   "gross_profit": [
+    "derived: revenue - cogs"
+   ]
+  },
+  "quarters": {
+   "revenue": 60,
+   "cogs": 9,
+   "op_income": 62,
+   "net_income": 62,
+   "ocf": 60,
+   "capex": 47,
+   "sbc": 60,
+   "rnd": 60,
+   "snm": 60,
+   "gna": 60,
+   "diluted_shares": 20,
+   "gross_profit": 9
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 36,
+    "agree": 35
+   },
+   "cogs": {
+    "pairs": 4,
+    "agree": 4
+   },
+   "op_income": {
+    "pairs": 39,
+    "agree": 38
+   },
+   "net_income": {
+    "pairs": 39,
+    "agree": 38
+   },
+   "ocf": {
+    "pairs": 26,
+    "agree": 26
+   },
+   "capex": {
+    "pairs": 20,
+    "agree": 19
+   },
+   "sbc": {
+    "pairs": 29,
+    "agree": 29
+   },
+   "rnd": {
+    "pairs": 29,
+    "agree": 29
+   },
+   "snm": {
+    "pairs": 29,
+    "agree": 29
+   },
+   "gna": {
+    "pairs": 29,
+    "agree": 27
+   }
+  }
+ },
+ "ZM": {
+  "name": "Zoom Communications, Inc.",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfGoodsAndServicesSold"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 34,
+   "cogs": 34,
+   "gross_profit": 34,
+   "op_income": 34,
+   "net_income": 34,
+   "ocf": 34,
+   "capex": 34,
+   "sbc": 34,
+   "rnd": 34,
+   "snm": 34,
+   "gna": 34,
+   "diluted_shares": 26
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 20,
+    "agree": 20
+   },
+   "cogs": {
+    "pairs": 17,
+    "agree": 17
+   },
+   "gross_profit": {
+    "pairs": 20,
+    "agree": 20
+   },
+   "op_income": {
+    "pairs": 20,
+    "agree": 20
+   },
+   "net_income": {
+    "pairs": 17,
+    "agree": 17
+   },
+   "sbc": {
+    "pairs": 17,
+    "agree": 17
+   },
+   "rnd": {
+    "pairs": 17,
+    "agree": 17
+   },
+   "snm": {
+    "pairs": 17,
+    "agree": 17
+   },
+   "gna": {
+    "pairs": 17,
+    "agree": 17
+   }
+  }
+ },
+ "ZS": {
+  "name": "Zscaler Inc",
+  "tags": {
+   "revenue": [
+    "RevenueFromContractWithCustomerExcludingAssessedTax"
+   ],
+   "cogs": [
+    "CostOfRevenue",
+    "CostOfGoodsAndServicesSold"
+   ],
+   "gross_profit": [
+    "GrossProfit"
+   ],
+   "op_income": [
+    "OperatingIncomeLoss"
+   ],
+   "net_income": [
+    "NetIncomeLoss"
+   ],
+   "ocf": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "capex": [
+    "PaymentsToAcquirePropertyPlantAndEquipment"
+   ],
+   "cap_software": [
+    "PaymentsToDevelopSoftware"
+   ],
+   "sbc": [
+    "ShareBasedCompensation",
+    "AllocatedShareBasedCompensationExpense"
+   ],
+   "rnd": [
+    "ResearchAndDevelopmentExpense"
+   ],
+   "snm": [
+    "SellingAndMarketingExpense"
+   ],
+   "gna": [
+    "GeneralAndAdministrativeExpense"
+   ],
+   "diluted_shares": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ]
+  },
+  "quarters": {
+   "revenue": 38,
+   "cogs": 38,
+   "gross_profit": 38,
+   "op_income": 38,
+   "net_income": 38,
+   "ocf": 37,
+   "capex": 37,
+   "cap_software": 37,
+   "sbc": 38,
+   "rnd": 38,
+   "snm": 38,
+   "gna": 38,
+   "diluted_shares": 18
+  },
+  "reconciliation": {
+   "revenue": {
+    "pairs": 18,
+    "agree": 18
+   },
+   "cogs": {
+    "pairs": 18,
+    "agree": 18
+   },
+   "gross_profit": {
+    "pairs": 18,
+    "agree": 18
+   },
+   "op_income": {
+    "pairs": 18,
+    "agree": 18
+   },
+   "net_income": {
+    "pairs": 18,
+    "agree": 18
+   },
+   "sbc": {
+    "pairs": 18,
+    "agree": 18
+   },
+   "rnd": {
+    "pairs": 18,
+    "agree": 18
+   },
+   "snm": {
+    "pairs": 18,
+    "agree": 18
+   },
+   "gna": {
+    "pairs": 18,
+    "agree": 18
+   }
+  }
+ }
+}
