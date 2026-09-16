@@ -1,0 +1,123 @@
+name: valuation
+
+on:
+  schedule:
+    # Prices move every day; the consensus behind a forward PE moves when brokers publish, which is
+    # a weekly event at most. Two crons, one workflow, distinguished by github.event.schedule.
+    - cron: "47 6 * * 1-5"   # weekdays 06:47 UTC: prices + FX, then rebuild the pages
+    - cron: "47 7 * * 1"     # Mondays 07:47 UTC: the full run, including analyst estimates
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "daily (prices only) or weekly (everything)"
+        default: weekly
+        type: choice
+        options: [daily, weekly]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: valuation
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: astral-sh/setup-uv@v10.1.0
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --frozen --no-dev
+
+      - name: Decide mode
+        id: mode
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "mode=${{ inputs.mode }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "47 7 * * 1" ]; then
+            echo "mode=weekly" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=daily" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Every fetch step is continue-on-error and every publish step runs anyway: one source being
+      # down must never throw away the sources that worked, and last week's snapshot stays on the
+      # page with an honest "data as of" stamp rather than the page going blank.
+      - name: Exchange rates
+        id: fx
+        continue-on-error: true
+        run: uv run python -m pipelines.valuation.fx
+
+      - name: Prices
+        id: prices
+        continue-on-error: true
+        run: uv run python -m pipelines.valuation.prices
+
+      - name: Analyst estimates (Yahoo)
+        id: est_yf
+        if: steps.mode.outputs.mode == 'weekly'
+        continue-on-error: true
+        run: uv run python -m pipelines.valuation.estimates_yf
+
+      - name: Analyst estimates (East Money, A-shares)
+        id: est_em
+        if: steps.mode.outputs.mode == 'weekly'
+        continue-on-error: true
+        run: uv run python -m pipelines.valuation.estimates_em
+
+      - name: Fundamentals
+        id: fundamentals
+        if: steps.mode.outputs.mode == 'weekly'
+        continue-on-error: true
+        run: uv run python -m pipelines.valuation.fundamentals
+
+      - name: Rebuild marts and facts
+        id: publish
+        if: always()
+        continue-on-error: true
+        run: uv run python -m pipelines.valuation.publish
+
+      - name: Score the pre-registered evaluation
+        id: evaluate
+        if: always()
+        continue-on-error: true
+        run: uv run python -m pipelines.valuation.evaluate
+
+      - name: Commit and push data
+        if: always()
+        run: |
+          git config user.name "portfolio-bot"
+          git config user.email "portfolio-bot@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            exit 0
+          fi
+          git commit -m "data(valuation): ${{ steps.mode.outputs.mode }} refresh $(date -u +'%Y-%m-%d %H:%M UTC')"
+          for i in 1 2 3; do
+            git rebase --abort 2>/dev/null || true
+            # -X theirs: on a conflict in generated files, keep this run's version
+            git pull --rebase -X theirs origin main && git push origin HEAD:main && exit 0
+            echo "push attempt $i failed; retrying"
+            sleep 15
+          done
+          exit 1
+
+      - name: Surface step failures
+        if: >
+          steps.fx.outcome == 'failure' || steps.prices.outcome == 'failure' ||
+          steps.est_yf.outcome == 'failure' || steps.est_em.outcome == 'failure' ||
+          steps.fundamentals.outcome == 'failure' || steps.publish.outcome == 'failure'
+        run: |
+          echo "::error::a valuation step failed (fx=${{ steps.fx.outcome }}, prices=${{ steps.prices.outcome }}, est_yf=${{ steps.est_yf.outcome }}, est_em=${{ steps.est_em.outcome }}, fundamentals=${{ steps.fundamentals.outcome }}, publish=${{ steps.publish.outcome }})"
+          exit 1

@@ -1,0 +1,630 @@
+{
+ "generated_at": "2026-09-16T21:31:23.849929+00:00",
+ "track": "ssb",
+ "label": "Solid-state batteries",
+ "years": [
+  2026,
+  2027
+ ],
+ "as_of_price": "2026-09-16T20:16:11+00:00",
+ "as_of_estimates": "2026-09-16T20:18:00+00:00",
+ "as_of_fx": "2026-09-11",
+ "n_listings": 34,
+ "n_issuers": 32,
+ "n_priced": 34,
+ "n_with_consensus": 14,
+ "n_thin": 2,
+ "n_nm": 20,
+ "median_fwd_pe_this": 19.279067657373343,
+ "median_fwd_pe_next": 15.018798613101236,
+ "p25_fwd_pe_this": 14.765876424903869,
+ "p75_fwd_pe_this": 34.775764912271804,
+ "iqr_fwd_pe_this": 20.009888487367935,
+ "median_growth": 0.35950194639497846,
+ "median_trailing_pe": 24.1904235801683,
+ "cheapest": {
+  "ticker": "002709.SZ",
+  "name": "Tinci Materials",
+  "fwd_pe_2026": 10.343480638525039,
+  "growth": 0.16304262909820055,
+  "coverage": "covered"
+ },
+ "priciest": {
+  "ticker": "600206.SS",
+  "name": "Grinm Advanced Materials",
+  "fwd_pe_2026": 97.41509433962264,
+  "growth": 0.35849056603773577,
+  "coverage": "unknown"
+ },
+ "nm_reasons": [
+  "no consensus for this year"
+ ],
+ "share": {
+  "n_members": 12,
+  "n_excluded": 21,
+  "pool_revenue_usd": 137547162460.2268,
+  "top3_share": 0.7810499884005009,
+  "top5_share": 0.9196614269083512,
+  "hhi": 3566.477927033725,
+  "leader": {
+   "ticker": "300750.SZ",
+   "name": "CATL",
+   "name_cn": "宁德时代",
+   "purity": "main",
+   "revenue_usd": 77777603011.32976,
+   "revenue_native": 521732161000.0,
+   "currency": "CNY",
+   "basis": "total revenue",
+   "note": "the company's whole revenue competes in this market",
+   "period_end": "2026-06-30",
+   "share": 0.5654613415512658
+  },
+  "members": [
+   {
+    "ticker": "300750.SZ",
+    "name": "CATL",
+    "name_cn": "宁德时代",
+    "purity": "main",
+    "revenue_usd": 77777603011.32976,
+    "revenue_native": 521732161000.0,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.5654613415512658
+   },
+   {
+    "ticker": "373220.KS",
+    "name": "LG Energy Solution",
+    "name_cn": null,
+    "purity": "main",
+    "revenue_usd": 17877886294.11326,
+    "revenue_native": 23961731000000.0,
+    "currency": "KRW",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-03-31",
+    "share": 0.12997640935910135
+   },
+   {
+    "ticker": "300014.SZ",
+    "name": "EVE Energy",
+    "name_cn": "亿纬锂能",
+    "purity": "main",
+    "revenue_usd": 11775720338.638937,
+    "revenue_native": 78991532031.59,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.08561223749013368
+   },
+   {
+    "ticker": "300207.SZ",
+    "name": "Sunwoda",
+    "name_cn": "欣旺达",
+    "purity": "main",
+    "revenue_usd": 11097143650.456173,
+    "revenue_native": 74439639607.26001,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.08067882646190558
+   },
+   {
+    "ticker": "002074.SZ",
+    "name": "Gotion High-tech",
+    "name_cn": "国轩高科",
+    "purity": "main",
+    "revenue_usd": 7968466400.828861,
+    "revenue_native": 53452472616.76,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.0579326120459448
+   },
+   {
+    "ticker": "3931.HK",
+    "name": "CALB",
+    "name_cn": "中创新航",
+    "purity": "main",
+    "revenue_usd": 6618972420.989862,
+    "revenue_native": 44400067000.0,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2025-12-31",
+    "share": 0.0481214755913544
+   },
+   {
+    "ticker": "300438.SZ",
+    "name": "Penghui Energy",
+    "name_cn": "鹏辉能源",
+    "purity": "main",
+    "revenue_usd": 2776045531.2373285,
+    "revenue_native": 18621713423.54,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.020182499453887687
+   },
+   {
+    "ticker": "688567.SS",
+    "name": "Farasis Energy",
+    "name_cn": "孚能科技",
+    "purity": "main",
+    "revenue_usd": 1249256261.9126415,
+    "revenue_native": 8380011004.91,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.009082384831267436
+   },
+   {
+    "ticker": "MVST",
+    "name": "Microvast",
+    "name_cn": null,
+    "purity": "high",
+    "revenue_usd": 367560000.0,
+    "revenue_native": 367560000.0,
+    "currency": "USD",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.0026722470563962657
+   },
+   {
+    "ticker": "SES",
+    "name": "SES AI",
+    "name_cn": null,
+    "purity": "high",
+    "revenue_usd": 23463000.0,
+    "revenue_native": 23463000.0,
+    "currency": "USD",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.0001705814905980672
+   },
+   {
+    "ticker": "SLDP",
+    "name": "Solid Power",
+    "name_cn": null,
+    "purity": "high",
+    "revenue_usd": 14893000.0,
+    "revenue_native": 14893000.0,
+    "currency": "USD",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-03-31",
+    "share": 0.00010827558877709648
+   },
+   {
+    "ticker": "IKA.L",
+    "name": "Ilika",
+    "name_cn": null,
+    "purity": "high",
+    "revenue_usd": 152550.72,
+    "revenue_native": 112800.0,
+    "currency": "GBP",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-04-30",
+    "share": 1.1090793679157986e-06
+   }
+  ],
+  "excluded": [
+   {
+    "ticker": "QS",
+    "name": "QuantumScape",
+    "reason": "no trailing revenue on file",
+    "purity": "high"
+   },
+   {
+    "ticker": "002594.SZ",
+    "name": "BYD",
+    "reason": "segment disclosure not checked yet",
+    "purity": "main"
+   },
+   {
+    "ticker": "1211.HK",
+    "name": "BYD (H)",
+    "reason": "segment disclosure not checked yet",
+    "purity": "main"
+   },
+   {
+    "ticker": "006400.KS",
+    "name": "Samsung SDI",
+    "reason": "segment disclosure not checked yet",
+    "purity": "main"
+   },
+   {
+    "ticker": "6752.T",
+    "name": "Panasonic Holdings",
+    "reason": "segment disclosure not checked yet",
+    "purity": "main"
+   },
+   {
+    "ticker": "7203.T",
+    "name": "Toyota Motor",
+    "reason": "buys cells rather than selling them",
+    "purity": "partial"
+   },
+   {
+    "ticker": "002460.SZ",
+    "name": "Ganfeng Lithium",
+    "reason": "sells lithium chemicals into cell makers, one layer up the chain",
+    "purity": "partial"
+   },
+   {
+    "ticker": "300073.SZ",
+    "name": "Easpring Material",
+    "reason": "sells cathode material into cell makers",
+    "purity": "partial"
+   },
+   {
+    "ticker": "688005.SS",
+    "name": "Ronbay Technology",
+    "reason": "sells cathode material into cell makers",
+    "purity": "partial"
+   },
+   {
+    "ticker": "603200.SS",
+    "name": "Shanghai Xibao",
+    "reason": "sells solid electrolyte material, not cells",
+    "purity": "partial"
+   },
+   {
+    "ticker": "603663.SS",
+    "name": "Sanxiang Advanced Materials",
+    "reason": "sells zirconium materials into the chain, not cells",
+    "purity": "partial"
+   },
+   {
+    "ticker": "002709.SZ",
+    "name": "Tinci Materials",
+    "reason": "sells electrolyte and additives into cell makers",
+    "purity": "partial"
+   },
+   {
+    "ticker": "600206.SS",
+    "name": "Grinm Advanced Materials",
+    "reason": "sells target and electrolyte materials, not cells",
+    "purity": "partial"
+   },
+   {
+    "ticker": "300450.SZ",
+    "name": "Wuxi Lead Intelligent",
+    "reason": "sells production equipment to cell makers",
+    "purity": "partial"
+   },
+   {
+    "ticker": "688499.SS",
+    "name": "Leadintelligent",
+    "reason": "sells production equipment to cell makers",
+    "purity": "partial"
+   },
+   {
+    "ticker": "5019.T",
+    "name": "Idemitsu Kosan",
+    "reason": "sells solid electrolyte material, not cells",
+    "purity": "partial"
+   },
+   {
+    "ticker": "6762.T",
+    "name": "TDK",
+    "reason": "segment disclosure not checked yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "6981.T",
+    "name": "Murata Manufacturing",
+    "reason": "segment disclosure not checked yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "6810.T",
+    "name": "Maxell",
+    "reason": "segment disclosure not checked yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "003670.KS",
+    "name": "POSCO Future M",
+    "reason": "sells cathode and anode material into cell makers",
+    "purity": "partial"
+   },
+   {
+    "ticker": "247540.KQ",
+    "name": "Ecopro BM",
+    "reason": "sells cathode material into cell makers",
+    "purity": "partial"
+   }
+  ]
+ },
+ "cited_share": [
+  {
+   "entity": "industry — global EV battery usage, all chemistries (CATL, BYD, LGES, CALB, Gotion, Panasonic, EVE, SK On, SVOLT, REPT)",
+   "metric": "Global EV/PHEV/HEV battery usage (batteries in vehicles registered worldwide) and supplier market share",
+   "value": "Total 725.2 GWh, +20.4% YoY (July alone 116.0 GWh, +22.1%). CATL 289.6 GWh / 39.9% share (+26.6% YoY; share 38.0%→39.9%); BYD 106.7 GWh / 14.7% (+4.7%; 16.9%→14.7%); LG Energy Solution 60.3 GWh / 8.3% (+4.5%; 9.6%→8.3%); CALB 37.3 GWh (+34.3%); Gotion 34.0 GWh (+44.2%); Panasonic 26.2 GWh / 3.6% (+7.6%; 4.0%→3.6%); EVE 25.0 GWh (+53.1%); SK On 22.3 GWh / 3.1% (−9.8%; 4.1%→3.1%); SVOLT 18.9 GWh (+39.1%); REPT 16.9 GWh (+118.5%, new entrant displacing Sunwoda). Seven Chinese suppliers in the top 10 = 72.8% combined (+3.1pp). CATL+BYD combined SHARE 54.6% (−0.3pp from 54.9%). LFP share of global usage 51.6%→56.1%; average pack size 34.5→38.6 kWh.",
+   "unit": "GWh; % market share",
+   "period": "2026-01 to 2026-07 (calendar, actuals)",
+   "source_name": "SNE Research — Press Release (Insight), \"From Jan to Jul 2026, Global EV Battery Usage Posted 725.2GWh\" (English edition; data from its Global EV and Battery Monthly Tracker, August 2026)",
+   "source_url": "https://www.sneresearch.com/en/insight/release_view/727/page/0",
+   "publish_date": "2026-09-07",
+   "publish_date_raw": "2026-09-07",
+   "confidence": "high",
+   "notes": "BACKDROP ONLY — this is all-chemistry xEV battery usage (EV+PHEV+HEV, 80 countries aggregated), NOT solid-state. Nothing in it can be read across to solid-state share. Verifier fixes applied: CATL+BYD 54.6% is a SHARE, not GWh (the researcher wrote '54.6% GWh'); label the scope 'EV incl. PHEV/HEV', not BEV-only. The cited English URL (id 727) is SNE's own English twin of the Korean original at /en/insight/release_view/726/page/0, which carries Korean body text despite the /en/ path — both show 'Registration Date 2026-09-07' in the page body. Do NOT publish per-company shares for CALB, Gotion, EVE, SVOLT or REPT: SNE's text gives only GWh and YoY for those five; the circulating 5.1%/4.7%/3.5%/2.6%/2.3% figures come from CnEVPost reading SNE's chart image. CnEVPost is the downstream re-report — cite SNE."
+  },
+  {
+   "entity": "industry — global EV battery usage EXCLUDING China (CATL, LGES, BYD, Panasonic, SK On, Samsung SDI, Gotion, SVOLT, CALB, EVE)",
+   "metric": "Global (ex-China) EV/PHEV/HEV battery usage and supplier market share",
+   "value": "Total 316.2 GWh, +25.8% YoY. CATL 107.5 GWh / 34.0% (+43.7%; 29.7%→34.0%); LG Energy Solution 51.6 GWh / 16.3% (−1.7%; 20.9%→16.3%); BYD 33.4 GWh / 10.6% (+69.1%; 7.9%→10.6%); Panasonic 26.2 GWh / 8.3% (+7.6%; 9.7%→8.3%); SK On 22.2 GWh / 7.0% (−9.9%; 9.8%→7.0%); Samsung SDI 12.3 GWh / 3.9% (−29.4%; 6.9%→3.9%); Gotion 11.6 GWh (+135.6%); SVOLT 10.0 GWh (+106.0%); CALB 7.4 GWh (+80.0%); EVE 6.3 GWh (+179.2%). Three Korean makers combined 86.1 GWh, −8.9%, share 37.6%→27.2% (−10.4pp). CATL+BYD ex-China combined SHARE 44.6% (+7.0pp).",
+   "unit": "GWh; % market share",
+   "period": "2026-01 to 2026-07 (calendar, actuals)",
+   "source_name": "SNE Research — Press Release (Insight), \"Global (Ex-China) EV Battery Usage in January-July 2026 Reaches 316.2 GWh, Up 25.8% Year-on-Year\"",
+   "source_url": "https://www.sneresearch.com/en/insight/release_view/730/page/0",
+   "publish_date": "2026-09-09",
+   "publish_date_raw": "2026-09-09",
+   "confidence": "high",
+   "notes": "BACKDROP ONLY, all chemistries. This is the more honest denominator for LGES / Samsung SDI / SK On / Panasonic, and it is the only free SNE release that gives a 2026 Samsung SDI number (SDI is absent from the China-inclusive top 10). The −10.4pp collapse in combined Korean share is the single most load-bearing share datapoint for the Korean names. Verifier fixes: CATL+BYD 44.6% is a SHARE not GWh (= 140.9 GWh); scope is xEV incl. hybrids. Shares for Gotion/SVOLT/CALB/EVE are not given in the release — do not compute and attribute them to SNE. 'Registration Date 2026-09-09' is in the page body, not a search snippet. Serves as the negative control proving the 725.2 GWh figure is genuinely China-inclusive."
+  }
+ ],
+ "dual_listings": [
+  {
+   "name": "CATL",
+   "primary": "300750.SZ",
+   "secondary": "3750.HK",
+   "primary_pe": 14.738719196231274,
+   "secondary_pe": null,
+   "premium": null
+  },
+  {
+   "name": "BYD",
+   "primary": "002594.SZ",
+   "secondary": "1211.HK",
+   "primary_pe": 19.612056883374134,
+   "secondary_pe": null,
+   "premium": null
+  }
+ ],
+ "excluded_from_pool": [
+  {
+   "ticker": "unlisted-welion",
+   "name": "WeLion New Energy 卫蓝新能源",
+   "track": "ssb",
+   "reason": "private; enters the shipment and capacity table only"
+  },
+  {
+   "ticker": "unlisted-qingtao",
+   "name": "QingTao Energy 清陶能源",
+   "track": "ssb",
+   "reason": "private; enters the shipment and capacity table only"
+  },
+  {
+   "ticker": "unlisted-tailan",
+   "name": "TaiLan New Energy 太蓝新能源",
+   "track": "ssb",
+   "reason": "private; enters the shipment and capacity table only"
+  },
+  {
+   "ticker": "unlisted-prologium",
+   "name": "ProLogium 辉能科技",
+   "track": "ssb",
+   "reason": "private; enters the shipment and capacity table only"
+  },
+  {
+   "ticker": "unlisted-factorial",
+   "name": "Factorial Energy",
+   "track": "ssb",
+   "reason": "private; enters the shipment and capacity table only"
+  }
+ ],
+ "reference_updated": "2026-09-16",
+ "checks": [
+  {
+   "name": "Price coverage",
+   "status": "pass",
+   "detail": "34 of 34 listings priced"
+  },
+  {
+   "name": "Consensus coverage",
+   "status": "fail",
+   "detail": "14 of 34 listings have a calendar-2026 consensus; 20 do not (no consensus for this year)"
+  },
+  {
+   "name": "Analyst depth",
+   "status": "pass",
+   "detail": "2 of 34 listings are covered by fewer than three analysts"
+  },
+  {
+   "name": "Trailing basis",
+   "status": "pass",
+   "detail": "7 of 34 listings use the last full fiscal year instead of a trailing twelve months, because no quarterly statement is published for them; the table marks which"
+  },
+  {
+   "name": "Trailing earnings",
+   "status": "pass",
+   "detail": "26 of 34 listings have positive trailing profit"
+  },
+  {
+   "name": "Share basis A",
+   "status": "pass",
+   "detail": "12 listings enter the computed pool; 21 excluded for not disclosing revenue for this track"
+  },
+  {
+   "name": "Share adds to one",
+   "status": "pass",
+   "detail": "computed shares sum to 1 by construction"
+  },
+  {
+   "name": "Cited share sourced",
+   "status": "pass",
+   "detail": "2 cited figures, every one with a publisher and a URL"
+  },
+  {
+   "name": "Currency conversion",
+   "status": "pass",
+   "detail": "every priced listing has a resolved price currency"
+  }
+ ],
+ "sources": [
+  {
+   "name": "Yahoo Finance (prices and analyst consensus)",
+   "url": "https://finance.yahoo.com/"
+  },
+  {
+   "name": "East Money analyst forecasts (A-shares)",
+   "url": "https://emweb.securities.eastmoney.com/"
+  },
+  {
+   "name": "SEC EDGAR XBRL companyfacts",
+   "url": "https://www.sec.gov/edgar/sec-api-documentation"
+  },
+  {
+   "name": "FRED daily exchange rates",
+   "url": "https://fred.stlouisfed.org/categories/94"
+  }
+ ],
+ "shipments": [
+  {
+   "entity": "ProLogium Technology 輝能科技",
+   "metric": "Composition of the cumulative LCB cell count — largest single customer application",
+   "value": "more than 900,000 of the >2.4m cells went to one U.S. automotive AUDIO-SYSTEM customer across 175+ repeat orders",
+   "unit": "cells, cumulative",
+   "period": "cumulative to H1 2025 / restated 2026-09-02",
+   "source_name": "ProLogium Technology press release, \"ProLogium Begins Mass Production of High-Energy-Density All-Solid-State Battery…\"",
+   "source_url": "https://prologium.com/prologium-begins-mass-production-of-high-energy-density-all-solid-state-battery-reaching-381-wh-kg-and-903-wh-l/",
+   "publish_date": "2026-09-02",
+   "publish_date_raw": "2026-09-02",
+   "confidence": "medium",
+   "notes": "LOAD-BEARING CAVEAT to publish alongside the 2.4m figure: these are not EV traction cells. The composition line sits in the same release, but only the '>2.4 million' sentence was verbatim-verified by the adversarial check, hence medium confidence — re-read the release before printing the 900,000/175+ numbers. An independent trade outlet (carnewschina, 2026-09-06) makes the same warning explicitly: the total 'should not be interpreted as 2.4 million high-voltage EV traction cells'. Mix is consumer + specialty + automotive."
+  },
+  {
+   "entity": "QuantumScape Corporation (NYSE: QS)",
+   "metric": "Commercial cell shipments (solid-state lithium-metal)",
+   "value": "No GWh and no cell count of shipments has ever been disclosed. Customer SAMPLES/prototypes only — B0 prototype samples of QSE-5 in 2024, B1 prototypes in 2025, and in 2026 QSE-5 cells to an additional automotive OEM and to a major American defense prime. Eagle Line in San Jose is a PILOT line; company aims to 'further double cell output in the second half of 2026' with no absolute base given.",
+   "unit": "none disclosed (no GWh, no unit count)",
+   "period": "as of 2026-06-30 (Q2 FY2026)",
+   "source_name": "QuantumScape Corporation, Form 10-Q for the quarterly period ended June 30, 2026 (SEC EDGAR)",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1811414/000119312526316073/qs-20260630.htm",
+   "publish_date": "2026-07-24",
+   "publish_date_raw": "2026-07-24",
+   "confidence": "high",
+   "notes": "WORD THIS PRECISELY: say 'no GWh of cell shipments disclosed', never 'no GWh figure appears in the filing' — the 10-Q does contain four GWh figures (up to 40 / +40 / +5 / 85 GWh) and every one is PowerCo LICENSED CAPACITY, not QS volume. Anyone re-checking the page against this document will find '85 GWh' in it. The sample-shipment colour comes partly from the Q2 FY2026 shareholder letter (8-K EX-99.1, https://www.sec.gov/Archives/edgar/data/1811414/000119312526312423/qs-ex99_1.htm), not solely from the 10-Q — cite that separately if leaned on. Filing date confirmed from the in-document signature block ('Date: July 24, 2026') and EDGAR metadata."
+  },
+  {
+   "entity": "ProLogium Technology 輝能科技 (Taiwan; unlisted, Nasdaq listing pending as PRLG via SPAC)",
+   "metric": "Cumulative solid-state (Lithium Ceramic Battery, LCB) cells shipped since start of commercial production — the only company-confirmed cumulative shipment figure anywhere in this sweep",
+   "value": "more than 2.4 million cells (a company-stated FLOOR, not a measured point value)",
+   "unit": "cells, cumulative, all applications",
+   "period": "2013 through H1 2025 — the last period for which ProLogium actually measured and published the figure; the same '>2.4 million' threshold was restated unchanged in the 2026-09-02 release",
+   "source_name": "ProLogium Technology press release, \"ProLogium Begins Mass Production of High-Energy-Density All-Solid-State Battery, Reaching 381 Wh/kg and 903 Wh/L\" (company newsroom; GlobeNewswire wire copy)",
+   "source_url": "https://prologium.com/prologium-begins-mass-production-of-high-energy-density-all-solid-state-battery-reaching-381-wh-kg-and-903-wh-l/",
+   "publish_date": "2026-09-02",
+   "publish_date_raw": "2026-09-02",
+   "confidence": "high",
+   "notes": "DO NOT label this 'cumulative through 2026-09-02'. ProLogium first announced crossing 2.4m units on 2025-07-01 (\"As of H1 2025... shipped over 2.4 million\", https://www.globenewswire.com/news-release/2025/07/01/3108084/0/en/ProLogium-s-Next-Generation-Lithium-Ceramic-Battery-Shipments-Surpass-2-4-Million-Units.html); the Sept 2026 release recycles the same boilerplate floor, so dating it to 2026-09-02 implies ~zero growth over 14 months of ramp, which is almost certainly false and backwards. Keep the words 'more than' — rendering it as '=2,400,000' overstates precision. Wire mirror (more durable archival link): https://www.globenewswire.com/news-release/2026/09/02/3354848/0/en/prologium-begins-mass-production-of-high-energy-density-all-solid-state-battery-reaching-381-wh-kg-and-903-wh-l.html (dateline 'TAIPEI, Taiwan, Sept. 02, 2026 03:00 ET' in body). Same release also confirms: Gen 3.5 185.4 Ah large-format cell now in mass production at the Taoyuan Giga-level facility, TÜV-measured 381 Wh/kg / 903 Wh/L, UL Solutions-tested as all-solid-state under GB/T 43568-2026. The Nasdaq/PRLG/SPAC framing is NOT in this release — cite TDAC's 8-K/425 filings separately for that."
+  }
+ ],
+ "capacity": [
+  {
+   "entity": "QuantumScape Corporation (NYSE: QS) / PowerCo",
+   "metric": "Licensed production ceiling under the PowerCo IP License Agreement — NOT built or announced plant capacity",
+   "value": "up to 85 GWh annually (40 GWh + an additional 40 GWh + an additional 5 GWh), described in the filing as 'the potential maximum production by PowerCo under the PowerCo IP License Agreement'",
+   "unit": "GWh/yr (licence ceiling)",
+   "period": "as of 2026-06-30",
+   "source_name": "QuantumScape Corporation, Form 10-Q for the quarterly period ended June 30, 2026 (SEC EDGAR)",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1811414/000119312526316073/qs-20260630.htm",
+   "publish_date": "2026-07-24",
+   "publish_date_raw": "2026-07-24",
+   "confidence": "high",
+   "notes": "MUST NOT be tabulated in a capacity column. It is a contractual ceiling on what a licensee may one day produce, not a line that exists, is funded, or has been announced as a plant. Context that makes the point on a valuation page: QS's own FY2026 capex guidance is tens of millions of dollars — a rounding error against a real gigafactory (see open_gaps: the two researchers gave conflicting capex guidance ranges, so no capex number is published here).",
+   "start_year": "as of 2026-06-30"
+  },
+  {
+   "entity": "宁德时代 CATL (SZ: 300750) — chairman 曾毓群 Robin Zeng",
+   "metric": "Technology-readiness rating for solid-state and mass-deployment timing (a readiness statement, not a capacity figure)",
+   "value": "Solid-state sits at level 4 of 9 on technology maturity; mass deployment at a million-vehicle scale before 2030 is unlikely",
+   "unit": "TRL score (x of 9); qualitative timing",
+   "period": "statement made 2026-06-23 (Summer Davos / World Economic Forum annual meeting of the New Champions)",
+   "source_name": "OFweek新材料网 (aggregator, same article) relaying 曾毓群's June 2026 Summer Davos remarks; also carried by 新浪财经 2026-06-24 and 每日经济新闻 2026-06-25",
+   "source_url": "https://xincailiao.ofweek.com/news/2026-09/ART-180400-8120-30702637.html",
+   "publish_date": "2026-09-11",
+   "publish_date_raw": "2026-09-11",
+   "confidence": "medium",
+   "notes": "MUST BE KEPT SEPARATE from the 2026-09-09 互动易 answer — the adversarial check found the two had been fused into one data point, which is a factual error: the 互动易 reply contains no maturity rating at all. Different speaker context, different date, different venue. The fullest report is Caixin (https://international.caixin.com/2026-06-25/102457176.html) but it is PAYWALLED — headline and lede only were visible and its body was not used. Confidence medium: aggregator-relayed, no first-party transcript obtained. If this goes on a public page, attribute as '曾毓群, 2026年夏季达沃斯 (June 2026), as reported by 新浪财经/每经'.",
+   "start_year": "statement made 2026-06-23 (Summer Davos / World Economic Forum annual meeting of the New Champions)"
+  },
+  {
+   "entity": "宁德时代 CATL (SZ: 300750)",
+   "metric": "All-solid-state battery mass-production timeline (company's own stated target); no GWh capacity attached",
+   "value": "「公司在全固态电池上持续坚定投入，技术处于行业领先水平，2027年有望实现小批量生产」 — small-batch production expected 2027. The answer carries NO GWh capacity figure.",
+   "unit": "target year (no GWh)",
+   "period": "target year 2027; latest restatement 2026-09-09 (investor question 2026-09-03). Identical wording since at least 2025-05, repeated verbatim on 2026-06-18, 2026-07-29 (x2), 2026-08-18 and 2026-09-09.",
+   "source_name": "OFweek新材料网 (aggregator), 「宁德时代给固态电池定了个时间！2027，小批量」 — relaying CATL's own reply on the SZSE 互动易 investor-relations platform",
+   "source_url": "https://xincailiao.ofweek.com/news/2026-09/ART-180400-8120-30702637.html",
+   "publish_date": "2026-09-11",
+   "publish_date_raw": "2026-09-11",
+   "confidence": "medium",
+   "notes": "PRIMARY = CATL's own 互动易 answer of 2026-09-09; attribute it as 'CATL, 深交所互动易, 2026-09-09' and link OFweek only as the readable secondary. The 互动易 record was penetrated and matched verbatim via the irm.cninfo.com.cn search API, but the site is a JS single-page app that serves an empty 7.2KB shell to every deep-link format tried — there is no citable clickable primary URL (https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=300750 is the entry point only). Do NOT present 2026-09-09 as a new disclosure or a newly 'set' timetable — it is a template answer the IR desk has given for over a year; that consistency (five-plus restatements with no capacity number ever attached) is itself the story. Do NOT write 'no GWh capacity EVER disclosed' — unprovable absolute; write 'the answer carries no GWh figure'. Trap on this same OFweek page: it quotes a third party (利元亨研究院杜义亨) forecasting China's first GWh-class all-solid-state demo lines in 2026–2027 — that is an industry-wide forecast and must not be attached to CATL. OFweek page body carries '2026-09-11 09:52 来源：OFweek新材料网'.",
+   "start_year": "target year 2027; latest restatement 2026-09-09 (investor question 2026-09-03). Identical wording since at least 2025-05, repeated verbatim on 2026-06-18, 2026-07-29 (x2), 2026-08-18 and 2026-09-09."
+  }
+ ],
+ "preprofit": [
+  {
+   "ticker": "QS",
+   "name": "QuantumScape",
+   "price": 5.0,
+   "price_currency": "USD",
+   "market_cap": 3075725312.0,
+   "ttm_revenue": null,
+   "reporting_currency": "USD",
+   "eps_2026": null
+  },
+  {
+   "ticker": "SLDP",
+   "name": "Solid Power",
+   "price": 2.39,
+   "price_currency": "USD",
+   "market_cap": 545353152.0,
+   "ttm_revenue": 14893000.0,
+   "reporting_currency": "USD",
+   "eps_2026": null
+  },
+  {
+   "ticker": "SES",
+   "name": "SES AI",
+   "price": 0.5804,
+   "price_currency": "USD",
+   "market_cap": 215495200.0,
+   "ttm_revenue": 23463000.0,
+   "reporting_currency": "USD",
+   "eps_2026": null
+  },
+  {
+   "ticker": "IKA.L",
+   "name": "Ilika",
+   "price": 0.235,
+   "price_currency": "GBP",
+   "market_cap": 46738992.0,
+   "ttm_revenue": 112800.0,
+   "reporting_currency": "GBP",
+   "eps_2026": null
+  },
+  {
+   "ticker": "MVST",
+   "name": "Microvast",
+   "price": 0.5856,
+   "price_currency": "USD",
+   "market_cap": 225183408.0,
+   "ttm_revenue": 367560000.0,
+   "reporting_currency": "USD",
+   "eps_2026": null
+  }
+ ]
+}

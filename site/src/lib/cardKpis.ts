@@ -3,6 +3,8 @@ import fomc from '@data/facts/fomc.json';
 import saas from '@data/facts/saas.json';
 import statarb from '@data/facts/statarb.json';
 import finllm from '@data/facts/finllm.json';
+import optical from '@data/facts/valuation_optical.json';
+import ssb from '@data/facts/valuation_ssb.json';
 import { pct } from './fmt';
 
 /** One headline number per project for the cards, always read from facts. */
@@ -14,4 +16,10 @@ export const cardKpis: Record<string, { label: string; value: string }> = {
   'saas-benchmark': { label: 'median revenue growth, TTM', value: pct(saas.median_rev_growth, 1) },
   'statarb-2019-2020': { label: `best stat-arb Sharpe (${statarb.best_statarb.strategy}) vs ${statarb.buy_and_hold.sharpe.toFixed(2)} buy-and-hold`, value: statarb.best_statarb.sharpe.toFixed(2) },
   'financial-llm-sec': { label: 'BERTScore F1 gain on Gemma 4 with the SEC adapter', value: `+${finllm.deltas_pct.gemma4_base_to_v2.toFixed(1)}%` },
+  'optical-modules-valuation': optical.median_fwd_pe_this != null
+    ? { label: `median forward PE, calendar ${optical.years[0]}`, value: `${optical.median_fwd_pe_this.toFixed(1)}x` }
+    : { label: 'listings tracked', value: String(optical.n_listings) },
+  'solid-state-battery-valuation': ssb.median_fwd_pe_this != null
+    ? { label: `median forward PE, calendar ${ssb.years[0]}`, value: `${ssb.median_fwd_pe_this.toFixed(1)}x` }
+    : { label: 'listings tracked', value: String(ssb.n_listings) },
 };

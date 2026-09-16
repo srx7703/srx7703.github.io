@@ -8,6 +8,8 @@ import fomcFacts from '@data/facts/fomc.json';
 import saasLatest from '@data/marts/sec/saas_latest.json';
 import tcRows from '@data/marts/statarb/tc_sensitivity.json';
 import finllm from '@data/facts/finllm.json';
+import opticalCompanies from '@data/marts/valuation/optical_companies.json';
+import ssbCompanies from '@data/marts/valuation/ssb_companies.json';
 
 export type Pt = [number, number];
 export type MiniSpec =
@@ -72,10 +74,34 @@ function finllmBars(): MiniSpec {
   return { kind: 'bars', bars, y: [0, 1], label: 'BERTScore F1 for base and fine-tuned Gemma 2 27B and Gemma 4 31B' };
 }
 
+type ValRow = { ticker: string; purity: string; fwd_pe_2026: number | null; growth: number | null };
+
+/** Forward PE against expected growth, the same view the page leads with, shrunk to a glyph. */
+function valuationScatter(rows: ValRow[], label: string): MiniSpec {
+  const pts = rows
+    .filter((r) => r.fwd_pe_2026 != null && r.growth != null)
+    .map((r) => ({ x: r.growth as number, y: Math.log10(r.fwd_pe_2026 as number), hit: r.purity === 'high' }));
+  if (!pts.length) return { kind: 'scatter', points: [], x: [0, 1], y: [0, 1], label };
+  const xs = pts.map((p) => p.x), ys = pts.map((p) => p.y);
+  const pad = (lo: number, hi: number): [number, number] => { const d = (hi - lo) * 0.1 || 1; return [lo - d, hi + d]; };
+  return {
+    kind: 'scatter', points: pts, x: pad(Math.min(...xs), Math.max(...xs)), y: pad(Math.min(...ys), Math.max(...ys)),
+    label,
+  };
+}
+
 export const miniCharts: Record<string, MiniSpec> = {
   'midterms-2026': midterms(),
   'fomc-markets': fomc(),
   'saas-benchmark': saas(),
   'statarb-2019-2020': statarb(),
   'financial-llm-sec': finllmBars(),
+  'optical-modules-valuation': valuationScatter(
+    opticalCompanies as ValRow[],
+    'Forward PE against expected earnings growth for each listed optical-module company',
+  ),
+  'solid-state-battery-valuation': valuationScatter(
+    ssbCompanies as ValRow[],
+    'Forward PE against expected earnings growth for each listed solid-state battery company',
+  ),
 };

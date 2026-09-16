@@ -7,14 +7,18 @@ interface Props {
   nDays: number;
   workflow: string; // workflow file name
   cadence: string;
+  /** Replaces the snapshot-count clause for pipelines whose inputs refresh on different clocks. */
+  detail?: string;
 }
-const { lastSnapshot, firstSnapshot, nSnapshots, nDays, workflow, cadence } = Astro.props;
+const { lastSnapshot, firstSnapshot, nSnapshots, nDays, workflow, cadence, detail } = Astro.props;
 const repo = 'srx7703/srx7703.github.io';
 const weekly = cadence.startsWith('weekly');
 ---
 <p class="pipeline">
   <span>Data as of <strong>{dateUtc(lastSnapshot)}</strong></span>
-  <span>· {nSnapshots} {weekly ? (nSnapshots === 1 ? 'refresh' : 'refreshes') : (nSnapshots === 1 ? 'snapshot' : 'snapshots')}{weekly ? '' : ` over ${nDays} ${nDays === 1 ? 'day' : 'days'}`} since {dateUtc(firstSnapshot)}</span>
+  {detail
+    ? <span>· {detail}</span>
+    : <span>· {nSnapshots} {weekly ? (nSnapshots === 1 ? 'refresh' : 'refreshes') : (nSnapshots === 1 ? 'snapshot' : 'snapshots')}{weekly ? '' : ` over ${nDays} ${nDays === 1 ? 'day' : 'days'}`} since {dateUtc(firstSnapshot)}</span>}
   <span>· refreshed {cadence} by <a href={`https://github.com/${repo}/actions/workflows/${workflow}`}>GitHub Actions</a></span>
   <img src={`https://github.com/${repo}/actions/workflows/${workflow}/badge.svg`} alt="GitHub Actions status of the data pipeline" width="152" height="20" loading="lazy" />
 </p>

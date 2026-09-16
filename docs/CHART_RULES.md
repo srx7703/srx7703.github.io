@@ -21,3 +21,12 @@
 11. Figures carry no card chrome: title and subtitle above the plot, source stamp below, hairline rules only
     where a table needs them. Two-panel figures use `<ChartCard size="full">` so they run across the sidenote
     margin; chart text uses the sans token (`--font-sans`), never the serif. See `docs/DESIGN.md`.
+12. A ratio with a non-positive denominator is not plotted. A loss-making company has no PE; drawing it at
+    zero, or off the end of the axis, reads as "cheap". It goes in a table beside the chart with the reason
+    in words, and the chart's subtitle says how many were left out. The same rule covers a share of a market
+    that does not exist yet: show shipments and announced capacity instead of a percentage.
+13. A log axis is for a distribution that spans more than about two orders of magnitude, which valuation
+    multiples do. Say "log scale" in the subtitle; never use one to flatter a series.
+14. When a pool mixes companies with different amounts of exposure to the subject, exposure is encoded in
+    the mark (filled for a pure play, hollow for partial) rather than in the colour, which is already
+    carrying the series. Thin analyst coverage fades the mark. Both are explained in the subtitle.

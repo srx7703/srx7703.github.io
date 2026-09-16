@@ -1,0 +1,323 @@
+{
+ "computed": {
+  "members": [
+   {
+    "ticker": "300750.SZ",
+    "name": "CATL",
+    "name_cn": "宁德时代",
+    "purity": "main",
+    "revenue_usd": 77777603011.32976,
+    "revenue_native": 521732161000.0,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.5654613415512658
+   },
+   {
+    "ticker": "373220.KS",
+    "name": "LG Energy Solution",
+    "name_cn": null,
+    "purity": "main",
+    "revenue_usd": 17877886294.11326,
+    "revenue_native": 23961731000000.0,
+    "currency": "KRW",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-03-31",
+    "share": 0.12997640935910135
+   },
+   {
+    "ticker": "300014.SZ",
+    "name": "EVE Energy",
+    "name_cn": "亿纬锂能",
+    "purity": "main",
+    "revenue_usd": 11775720338.638937,
+    "revenue_native": 78991532031.59,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.08561223749013368
+   },
+   {
+    "ticker": "300207.SZ",
+    "name": "Sunwoda",
+    "name_cn": "欣旺达",
+    "purity": "main",
+    "revenue_usd": 11097143650.456173,
+    "revenue_native": 74439639607.26001,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.08067882646190558
+   },
+   {
+    "ticker": "002074.SZ",
+    "name": "Gotion High-tech",
+    "name_cn": "国轩高科",
+    "purity": "main",
+    "revenue_usd": 7968466400.828861,
+    "revenue_native": 53452472616.76,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.0579326120459448
+   },
+   {
+    "ticker": "3931.HK",
+    "name": "CALB",
+    "name_cn": "中创新航",
+    "purity": "main",
+    "revenue_usd": 6618972420.989862,
+    "revenue_native": 44400067000.0,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2025-12-31",
+    "share": 0.0481214755913544
+   },
+   {
+    "ticker": "300438.SZ",
+    "name": "Penghui Energy",
+    "name_cn": "鹏辉能源",
+    "purity": "main",
+    "revenue_usd": 2776045531.2373285,
+    "revenue_native": 18621713423.54,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.020182499453887687
+   },
+   {
+    "ticker": "688567.SS",
+    "name": "Farasis Energy",
+    "name_cn": "孚能科技",
+    "purity": "main",
+    "revenue_usd": 1249256261.9126415,
+    "revenue_native": 8380011004.91,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.009082384831267436
+   },
+   {
+    "ticker": "MVST",
+    "name": "Microvast",
+    "name_cn": null,
+    "purity": "high",
+    "revenue_usd": 367560000.0,
+    "revenue_native": 367560000.0,
+    "currency": "USD",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.0026722470563962657
+   },
+   {
+    "ticker": "SES",
+    "name": "SES AI",
+    "name_cn": null,
+    "purity": "high",
+    "revenue_usd": 23463000.0,
+    "revenue_native": 23463000.0,
+    "currency": "USD",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.0001705814905980672
+   },
+   {
+    "ticker": "SLDP",
+    "name": "Solid Power",
+    "name_cn": null,
+    "purity": "high",
+    "revenue_usd": 14893000.0,
+    "revenue_native": 14893000.0,
+    "currency": "USD",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-03-31",
+    "share": 0.00010827558877709648
+   },
+   {
+    "ticker": "IKA.L",
+    "name": "Ilika",
+    "name_cn": null,
+    "purity": "high",
+    "revenue_usd": 152550.72,
+    "revenue_native": 112800.0,
+    "currency": "GBP",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-04-30",
+    "share": 1.1090793679157986e-06
+   }
+  ],
+  "excluded": [
+   {
+    "ticker": "QS",
+    "name": "QuantumScape",
+    "reason": "no trailing revenue on file",
+    "purity": "high"
+   },
+   {
+    "ticker": "002594.SZ",
+    "name": "BYD",
+    "reason": "segment disclosure not checked yet",
+    "purity": "main"
+   },
+   {
+    "ticker": "1211.HK",
+    "name": "BYD (H)",
+    "reason": "segment disclosure not checked yet",
+    "purity": "main"
+   },
+   {
+    "ticker": "006400.KS",
+    "name": "Samsung SDI",
+    "reason": "segment disclosure not checked yet",
+    "purity": "main"
+   },
+   {
+    "ticker": "6752.T",
+    "name": "Panasonic Holdings",
+    "reason": "segment disclosure not checked yet",
+    "purity": "main"
+   },
+   {
+    "ticker": "7203.T",
+    "name": "Toyota Motor",
+    "reason": "buys cells rather than selling them",
+    "purity": "partial"
+   },
+   {
+    "ticker": "002460.SZ",
+    "name": "Ganfeng Lithium",
+    "reason": "sells lithium chemicals into cell makers, one layer up the chain",
+    "purity": "partial"
+   },
+   {
+    "ticker": "300073.SZ",
+    "name": "Easpring Material",
+    "reason": "sells cathode material into cell makers",
+    "purity": "partial"
+   },
+   {
+    "ticker": "688005.SS",
+    "name": "Ronbay Technology",
+    "reason": "sells cathode material into cell makers",
+    "purity": "partial"
+   },
+   {
+    "ticker": "603200.SS",
+    "name": "Shanghai Xibao",
+    "reason": "sells solid electrolyte material, not cells",
+    "purity": "partial"
+   },
+   {
+    "ticker": "603663.SS",
+    "name": "Sanxiang Advanced Materials",
+    "reason": "sells zirconium materials into the chain, not cells",
+    "purity": "partial"
+   },
+   {
+    "ticker": "002709.SZ",
+    "name": "Tinci Materials",
+    "reason": "sells electrolyte and additives into cell makers",
+    "purity": "partial"
+   },
+   {
+    "ticker": "600206.SS",
+    "name": "Grinm Advanced Materials",
+    "reason": "sells target and electrolyte materials, not cells",
+    "purity": "partial"
+   },
+   {
+    "ticker": "300450.SZ",
+    "name": "Wuxi Lead Intelligent",
+    "reason": "sells production equipment to cell makers",
+    "purity": "partial"
+   },
+   {
+    "ticker": "688499.SS",
+    "name": "Leadintelligent",
+    "reason": "sells production equipment to cell makers",
+    "purity": "partial"
+   },
+   {
+    "ticker": "5019.T",
+    "name": "Idemitsu Kosan",
+    "reason": "sells solid electrolyte material, not cells",
+    "purity": "partial"
+   },
+   {
+    "ticker": "6762.T",
+    "name": "TDK",
+    "reason": "segment disclosure not checked yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "6981.T",
+    "name": "Murata Manufacturing",
+    "reason": "segment disclosure not checked yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "6810.T",
+    "name": "Maxell",
+    "reason": "segment disclosure not checked yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "003670.KS",
+    "name": "POSCO Future M",
+    "reason": "sells cathode and anode material into cell makers",
+    "purity": "partial"
+   },
+   {
+    "ticker": "247540.KQ",
+    "name": "Ecopro BM",
+    "reason": "sells cathode material into cell makers",
+    "purity": "partial"
+   }
+  ],
+  "pool_revenue_usd": 137547162460.2268,
+  "n_members": 12,
+  "top3_share": 0.7810499884005009,
+  "top5_share": 0.9196614269083512,
+  "hhi": 3566.477927033725
+ },
+ "cited": [
+  {
+   "entity": "industry — global EV battery usage, all chemistries (CATL, BYD, LGES, CALB, Gotion, Panasonic, EVE, SK On, SVOLT, REPT)",
+   "metric": "Global EV/PHEV/HEV battery usage (batteries in vehicles registered worldwide) and supplier market share",
+   "value": "Total 725.2 GWh, +20.4% YoY (July alone 116.0 GWh, +22.1%). CATL 289.6 GWh / 39.9% share (+26.6% YoY; share 38.0%→39.9%); BYD 106.7 GWh / 14.7% (+4.7%; 16.9%→14.7%); LG Energy Solution 60.3 GWh / 8.3% (+4.5%; 9.6%→8.3%); CALB 37.3 GWh (+34.3%); Gotion 34.0 GWh (+44.2%); Panasonic 26.2 GWh / 3.6% (+7.6%; 4.0%→3.6%); EVE 25.0 GWh (+53.1%); SK On 22.3 GWh / 3.1% (−9.8%; 4.1%→3.1%); SVOLT 18.9 GWh (+39.1%); REPT 16.9 GWh (+118.5%, new entrant displacing Sunwoda). Seven Chinese suppliers in the top 10 = 72.8% combined (+3.1pp). CATL+BYD combined SHARE 54.6% (−0.3pp from 54.9%). LFP share of global usage 51.6%→56.1%; average pack size 34.5→38.6 kWh.",
+   "unit": "GWh; % market share",
+   "period": "2026-01 to 2026-07 (calendar, actuals)",
+   "source_name": "SNE Research — Press Release (Insight), \"From Jan to Jul 2026, Global EV Battery Usage Posted 725.2GWh\" (English edition; data from its Global EV and Battery Monthly Tracker, August 2026)",
+   "source_url": "https://www.sneresearch.com/en/insight/release_view/727/page/0",
+   "publish_date": "2026-09-07",
+   "publish_date_raw": "2026-09-07",
+   "confidence": "high",
+   "notes": "BACKDROP ONLY — this is all-chemistry xEV battery usage (EV+PHEV+HEV, 80 countries aggregated), NOT solid-state. Nothing in it can be read across to solid-state share. Verifier fixes applied: CATL+BYD 54.6% is a SHARE, not GWh (the researcher wrote '54.6% GWh'); label the scope 'EV incl. PHEV/HEV', not BEV-only. The cited English URL (id 727) is SNE's own English twin of the Korean original at /en/insight/release_view/726/page/0, which carries Korean body text despite the /en/ path — both show 'Registration Date 2026-09-07' in the page body. Do NOT publish per-company shares for CALB, Gotion, EVE, SVOLT or REPT: SNE's text gives only GWh and YoY for those five; the circulating 5.1%/4.7%/3.5%/2.6%/2.3% figures come from CnEVPost reading SNE's chart image. CnEVPost is the downstream re-report — cite SNE."
+  },
+  {
+   "entity": "industry — global EV battery usage EXCLUDING China (CATL, LGES, BYD, Panasonic, SK On, Samsung SDI, Gotion, SVOLT, CALB, EVE)",
+   "metric": "Global (ex-China) EV/PHEV/HEV battery usage and supplier market share",
+   "value": "Total 316.2 GWh, +25.8% YoY. CATL 107.5 GWh / 34.0% (+43.7%; 29.7%→34.0%); LG Energy Solution 51.6 GWh / 16.3% (−1.7%; 20.9%→16.3%); BYD 33.4 GWh / 10.6% (+69.1%; 7.9%→10.6%); Panasonic 26.2 GWh / 8.3% (+7.6%; 9.7%→8.3%); SK On 22.2 GWh / 7.0% (−9.9%; 9.8%→7.0%); Samsung SDI 12.3 GWh / 3.9% (−29.4%; 6.9%→3.9%); Gotion 11.6 GWh (+135.6%); SVOLT 10.0 GWh (+106.0%); CALB 7.4 GWh (+80.0%); EVE 6.3 GWh (+179.2%). Three Korean makers combined 86.1 GWh, −8.9%, share 37.6%→27.2% (−10.4pp). CATL+BYD ex-China combined SHARE 44.6% (+7.0pp).",
+   "unit": "GWh; % market share",
+   "period": "2026-01 to 2026-07 (calendar, actuals)",
+   "source_name": "SNE Research — Press Release (Insight), \"Global (Ex-China) EV Battery Usage in January-July 2026 Reaches 316.2 GWh, Up 25.8% Year-on-Year\"",
+   "source_url": "https://www.sneresearch.com/en/insight/release_view/730/page/0",
+   "publish_date": "2026-09-09",
+   "publish_date_raw": "2026-09-09",
+   "confidence": "high",
+   "notes": "BACKDROP ONLY, all chemistries. This is the more honest denominator for LGES / Samsung SDI / SK On / Panasonic, and it is the only free SNE release that gives a 2026 Samsung SDI number (SDI is absent from the China-inclusive top 10). The −10.4pp collapse in combined Korean share is the single most load-bearing share datapoint for the Korean names. Verifier fixes: CATL+BYD 44.6% is a SHARE not GWh (= 140.9 GWh); scope is xEV incl. hybrids. Shares for Gotion/SVOLT/CALB/EVE are not given in the release — do not compute and attribute them to SNE. 'Registration Date 2026-09-09' is in the page body, not a search snippet. Serves as the negative control proving the 725.2 GWh figure is genuinely China-inclusive."
+  }
+ ]
+}

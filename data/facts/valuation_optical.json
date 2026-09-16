@@ -1,0 +1,800 @@
+{
+ "generated_at": "2026-09-16T21:31:23.849929+00:00",
+ "track": "optical",
+ "label": "Optical modules",
+ "years": [
+  2026,
+  2027
+ ],
+ "as_of_price": "2026-09-16T20:16:11+00:00",
+ "as_of_estimates": "2026-09-16T20:18:00+00:00",
+ "as_of_fx": "2026-09-11",
+ "n_listings": 34,
+ "n_issuers": 33,
+ "n_priced": 34,
+ "n_with_consensus": 15,
+ "n_thin": 2,
+ "n_nm": 19,
+ "median_fwd_pe_this": 88.68883278723746,
+ "median_fwd_pe_next": 52.07938044530494,
+ "p25_fwd_pe_this": 47.05051006889242,
+ "p75_fwd_pe_this": 169.9538441374022,
+ "iqr_fwd_pe_this": 122.90333406850978,
+ "median_growth": 0.7637928943858374,
+ "median_trailing_pe": 73.78524548219006,
+ "cheapest": {
+  "ticker": "600060.SS",
+  "name": "Hisense Visual",
+  "fwd_pe_2026": 12.820117474302496,
+  "growth": 0.11943220753793438,
+  "coverage": "covered"
+ },
+ "priciest": {
+  "ticker": "688048.SS",
+  "name": "Everbright Photonics",
+  "fwd_pe_2026": 760.7404580152671,
+  "growth": 0.9847328244274809,
+  "coverage": "covered"
+ },
+ "nm_reasons": [
+  "no consensus for this year"
+ ],
+ "share": {
+  "n_members": 16,
+  "n_excluded": 18,
+  "pool_revenue_usd": 31776416526.948254,
+  "top3_share": 0.6956959771649146,
+  "top5_share": 0.8529203040833554,
+  "hhi": 1875.0665235822376,
+  "leader": {
+   "ticker": "300308.SZ",
+   "name": "Innolight",
+   "name_cn": "中际旭创",
+   "purity": "high",
+   "revenue_usd": 9724019468.977339,
+   "revenue_native": 65228722597.899994,
+   "currency": "CNY",
+   "basis": "total revenue",
+   "note": "the company's whole revenue competes in this market",
+   "period_end": "2026-06-30",
+   "share": 0.3060137212366537
+  },
+  "members": [
+   {
+    "ticker": "300308.SZ",
+    "name": "Innolight",
+    "name_cn": "中际旭创",
+    "purity": "high",
+    "revenue_usd": 9724019468.977339,
+    "revenue_native": 65228722597.899994,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.3060137212366537
+   },
+   {
+    "ticker": "COHR",
+    "name": "Coherent",
+    "name_cn": null,
+    "purity": "high",
+    "revenue_usd": 7118181000.0,
+    "revenue_native": 7118181000.0,
+    "currency": "USD",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.22400829854314652
+   },
+   {
+    "ticker": "300502.SZ",
+    "name": "Eoptolink",
+    "name_cn": "新易盛",
+    "purity": "high",
+    "revenue_usd": 5264524677.537269,
+    "revenue_native": 35314431536.92,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.16567395738511437
+   },
+   {
+    "ticker": "LITE",
+    "name": "Lumentum",
+    "name_cn": null,
+    "purity": "high",
+    "revenue_usd": 3014000000.0,
+    "revenue_native": 3014000000.0,
+    "currency": "USD",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-27",
+    "share": 0.09485021690359428
+   },
+   {
+    "ticker": "002281.SZ",
+    "name": "Accelink",
+    "name_cn": "光迅科技",
+    "purity": "high",
+    "revenue_usd": 1982025700.329457,
+    "revenue_native": 13295428397.809998,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.0623741100148465
+   },
+   {
+    "ticker": "MTSI",
+    "name": "MACOM",
+    "name_cn": null,
+    "purity": "high",
+    "revenue_usd": 1163974000.0,
+    "revenue_native": 1163974000.0,
+    "currency": "USD",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-07-03",
+    "share": 0.03663012155611953
+   },
+   {
+    "ticker": "300394.SZ",
+    "name": "T&S Communications",
+    "name_cn": "天孚通信",
+    "purity": "high",
+    "revenue_usd": 825205861.6621944,
+    "revenue_native": 5535480920.03,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.02596912905400682
+   },
+   {
+    "ticker": "603083.SS",
+    "name": "Cambridge Technology",
+    "name_cn": "剑桥科技",
+    "purity": "high",
+    "revenue_usd": 818915794.6228384,
+    "revenue_native": 5493287150.33,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.0257711814020423
+   },
+   {
+    "ticker": "AAOI",
+    "name": "Applied Optoelectronics",
+    "name_cn": null,
+    "purity": "high",
+    "revenue_usd": 595970000.0,
+    "revenue_native": 595970000.0,
+    "currency": "USD",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.018755104103528562
+   },
+   {
+    "ticker": "688313.SS",
+    "name": "Sifotech",
+    "name_cn": "仕佳光子",
+    "purity": "high",
+    "revenue_usd": 392365880.04323196,
+    "revenue_native": 2631990323.33,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.01234770697666563
+   },
+   {
+    "ticker": "300570.SZ",
+    "name": "Taichen Light",
+    "name_cn": "太辰光",
+    "purity": "high",
+    "revenue_usd": 256289580.43679187,
+    "revenue_native": 1719190505.57,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.008065402221154904
+   },
+   {
+    "ticker": "301205.SZ",
+    "name": "Lightel",
+    "name_cn": "联特科技",
+    "purity": "high",
+    "revenue_usd": 216102018.53160405,
+    "revenue_native": 1449612340.31,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.006800704489391903
+   },
+   {
+    "ticker": "688205.SS",
+    "name": "Dekeli",
+    "name_cn": "德科立",
+    "purity": "high",
+    "revenue_usd": 155859516.99463326,
+    "revenue_native": 1045505640.0,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.004904880223434108
+   },
+   {
+    "ticker": "4979.TWO",
+    "name": "Luxnet",
+    "name_cn": null,
+    "purity": "high",
+    "revenue_usd": 148958280.6573957,
+    "revenue_native": 4713040000.0,
+    "currency": "TWD",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.004687699147292785
+   },
+   {
+    "ticker": "3081.TWO",
+    "name": "LandMark Optoelectronics",
+    "name_cn": null,
+    "purity": "high",
+    "revenue_usd": 69621428.57142857,
+    "revenue_native": 2202822000.0,
+    "currency": "TWD",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2025-12-31",
+    "share": 0.0021909779698533827
+   },
+   {
+    "ticker": "4977.TW",
+    "name": "Photop Technologies",
+    "name_cn": null,
+    "purity": "high",
+    "revenue_usd": 30403318.584070794,
+    "revenue_native": 961961000.0,
+    "currency": "TWD",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.0009567887731546761
+   }
+  ],
+  "excluded": [
+   {
+    "ticker": "688498.SS",
+    "name": "Yuanjie Semiconductor",
+    "reason": "sells laser chips into modules, one layer down",
+    "purity": "high"
+   },
+   {
+    "ticker": "000988.SZ",
+    "name": "HGTech",
+    "reason": "segment disclosure not checked yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "688048.SS",
+    "name": "Everbright Photonics",
+    "reason": "sells laser chips, one layer down from modules",
+    "purity": "partial"
+   },
+   {
+    "ticker": "300620.SZ",
+    "name": "Optolink",
+    "reason": "segment disclosure not checked yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "600060.SS",
+    "name": "Hisense Visual",
+    "reason": "segment disclosure not checked yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "601869.SS",
+    "name": "YOFC",
+    "reason": "segment disclosure not checked yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "6869.HK",
+    "name": "YOFC (H)",
+    "reason": "segment disclosure not checked yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "FN",
+    "name": "Fabrinet",
+    "reason": "builds modules its customers book as their own revenue",
+    "purity": "high"
+   },
+   {
+    "ticker": "SMTC",
+    "name": "Semtech",
+    "reason": "sells signal-conditioning chips into modules, one layer down",
+    "purity": "high"
+   },
+   {
+    "ticker": "CRDO",
+    "name": "Credo",
+    "reason": "sells DSPs and active cables, one layer down from modules",
+    "purity": "high"
+   },
+   {
+    "ticker": "AVGO",
+    "name": "Broadcom",
+    "reason": "does not publish revenue for this business separately",
+    "purity": "partial"
+   },
+   {
+    "ticker": "MRVL",
+    "name": "Marvell",
+    "reason": "segment disclosure not checked yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "CIEN",
+    "name": "Ciena",
+    "reason": "publishes a revenue line for this business, but no sourced figure has been recorded here yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "CSCO",
+    "name": "Cisco",
+    "reason": "segment disclosure not checked yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "JBL",
+    "name": "Jabil",
+    "reason": "segment disclosure not checked yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "5802.T",
+    "name": "Sumitomo Electric",
+    "reason": "segment disclosure not checked yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "5801.T",
+    "name": "Furukawa Electric",
+    "reason": "segment disclosure not checked yet",
+    "purity": "partial"
+   },
+   {
+    "ticker": "5803.T",
+    "name": "Fujikura",
+    "reason": "publishes a revenue line for this business, but no sourced figure has been recorded here yet",
+    "purity": "partial"
+   }
+  ]
+ },
+ "cited_share": [
+  {
+   "entity": "Innolight (中际旭创 300308) + Eoptolink (新易盛 300502)",
+   "metric": "Combined share of Google's orders for 800G-plus optical modules (customer-specific, NOT global market share)",
+   "value": "nearly 80% of Google's orders for 800G-plus optical modules",
+   "unit": "% of one customer's orders",
+   "period": "undated — the source says only \"expects ... to capture\", with no year attached",
+   "source_name": "TrendForce press release — \"Google's High-Speed Interconnect Architecture to Push 800G+ Optical Transceiver Share Past 60% by 2026\"",
+   "source_url": "https://www.trendforce.com/presscenter/news/20260210-12919.html",
+   "publish_date": "2026-02-10",
+   "publish_date_raw": "2026-02-10",
+   "confidence": "high",
+   "notes": "PUBLISH AS ITS OWN ROW, separate from the 19.5%→>60% series — the verifier is explicit that fusing them imports a fabricated 2024→2026 period onto this figure. It is share of GOOGLE'S ORDERS, not global market share and not unit shipments. Forward-looking (\"expects\"). Same release also states nearly 4 million Google TPUs shipping in 2026 driving demand for over 6 million 800G-plus modules, and names Lumentum as the OCS/MEMS supplier."
+  },
+  {
+   "entity": "Huawei, Ciena, Nokia, ZTE",
+   "metric": "Combined revenue share of the top Optical Transport SYSTEMS vendors",
+   "value": "over 80 percent combined revenue share",
+   "unit": "% combined revenue share",
+   "period": "trailing four quarters ending 2026Q1 (i.e. 2Q25–1Q26 on Dell'Oro's stated convention)",
+   "source_name": "Dell'Oro Group press release — \"Optical Transport Equipment Market Forecast to Grow 16 Percent in 2026\"",
+   "source_url": "https://www.delloro.com/news/optical-transport-equipment-market-forecast-to-grow-16-percent-in-2026/",
+   "publish_date": "2026-05-19",
+   "publish_date_raw": "2026-05-19",
+   "confidence": "high",
+   "notes": "TWO TRAPS. (1) The >80% is of Optical Transport SYSTEMS, not of the whole ~$18bn optical transport equipment market — that total also contains IPoDWDM ZR/ZR+ pluggables, a separate segment. Writing \"Huawei/Ciena/Nokia/ZTE hold 80%+ of the $18bn market\" would be wrong. (2) STALE as of 2026-09-16: Dell'Oro's 2026-08-20 release gives the trailing four quarters 3Q25–2Q26 top four as Huawei, Ciena, Nokia and Cisco (Acacia) — ZTE has dropped out, replaced by Cisco, and no combined share is given. Publish this row in past tense with the window named; never as \"currently hold\"."
+  },
+  {
+   "entity": "Marvell; Cisco Acacia",
+   "metric": "Lead vendors in IPoDWDM ZR/ZR+ pluggable optics",
+   "value": "the lead vendors were Marvell and Cisco Acacia",
+   "unit": "rank (no share disclosed)",
+   "period": "trailing four quarters ending 2026Q1",
+   "source_name": "Dell'Oro Group press release — \"Optical Transport Equipment Market Forecast to Grow 16 Percent in 2026\"",
+   "source_url": "https://www.delloro.com/news/optical-transport-equipment-market-forecast-to-grow-16-percent-in-2026/",
+   "publish_date": "2026-05-19",
+   "publish_date_raw": "2026-05-19",
+   "confidence": "high",
+   "notes": "The component-relevant part of the Dell'Oro release — the ZR/ZR+ pluggable layer is the one adjacent to the module vendors. NO share percentage is attached to Marvell or Cisco Acacia; do not let the >80% figure migrate onto them."
+  },
+  {
+   "entity": "Huawei, Ciena, Nokia, Cisco (Acacia)",
+   "metric": "Top four Optical Transport Systems vendors — latest trailing window",
+   "value": "the top four vendors were Huawei, Ciena, Nokia, and Cisco (Acacia); no combined share percentage given. Market grew 15% y-o-y in 2Q 2026",
+   "unit": "rank / % y-o-y",
+   "period": "trailing four quarters 3Q2025–2Q2026; growth figure is 2026Q2",
+   "source_name": "Dell'Oro Group press release — \"Optical Transport Equipment Market Grew 15 Percent Year-over-Year in 2Q 2026\"",
+   "source_url": "https://www.delloro.com/news/optical-transport-equipment-market-grew-15-percent-year-over-year-in-2q-2026/",
+   "publish_date": "2026-08-20",
+   "publish_date_raw": "2026-08-20",
+   "confidence": "high",
+   "notes": "This is the CURRENT Dell'Oro vendor line-up and supersedes the May release's Huawei/Ciena/Nokia/ZTE grouping. Verified from raw HTML. Note it carries no combined-share number, so the \">80%\" can only be published against the older 2Q25–1Q26 window."
+  },
+  {
+   "entity": "industry (optical components, 光器件)",
+   "metric": "Omdia six-year forecast for the global optical-components market, as reproduced in Accelink's annual report",
+   "value": "total market to reach US$90.9bn by 2030, 13% CAGR",
+   "unit": "USD bn / % CAGR",
+   "period": "to 2030 (forecast)",
+   "source_name": "武汉光迅科技股份有限公司 2025年年度报告全文, 十一、公司未来发展的展望 (p.19)",
+   "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-04-23/2cd37123-8015-43e0-bffe-2190652dd502.PDF",
+   "publish_date": "2026-04-23",
+   "publish_date_raw": "2026-04-23",
+   "confidence": "high",
+   "notes": "Explicitly a FORECAST and sits in a different section of the filing from the historical share/size passages — keep them apart on the page. Same attribution rule: \"per Omdia, as cited in Accelink's FY2025 annual report\". Scope is optical components, not transceivers."
+  },
+  {
+   "entity": "industry (optical components, 光器件)",
+   "metric": "Global optical-components market size and growth, per Omdia as reproduced in Accelink's annual report",
+   "value": "US$24.3bn rolling-four-quarter revenue, up more than 50% y-o-y; single-quarter record US$7.12bn",
+   "unit": "USD bn",
+   "period": "rolling four quarters to 2025Q3 (i.e. 2024Q4–2025Q3, as defined elsewhere in the same filing)",
+   "source_name": "武汉光迅科技股份有限公司 2025年年度报告全文, p.10",
+   "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-04-23/2cd37123-8015-43e0-bffe-2190652dd502.PDF",
+   "publish_date": "2026-04-23",
+   "publish_date_raw": "2026-04-23",
+   "confidence": "high",
+   "notes": "Conversions: 243亿美元 = US$24.3bn; 71.2亿美元 = US$7.12bn. SCOPE: 光器件 (components) — do NOT divide a LightCounting transceiver revenue by this denominator to manufacture a share; the bases differ. If the page needs a transceiver-only growth rate, use LightCounting's 58% for 2025 instead. Accelink is an interested party (a #5-ranked participant) relaying a third party, but this is a signed, director-attested SZSE filing."
+  },
+  {
+   "entity": "光迅科技 Accelink (002281.SZ)",
+   "metric": "Global optical-components (光器件) market share and rank, per Omdia as reproduced in Accelink's statutory annual report",
+   "value": "5.9% share, rank 5 globally overall; datacom optical components rank 4 (5.9%); telecom rank 5 (5.6%); access rank 4 (7.6%)",
+   "unit": "% of global optical-components revenue / rank",
+   "period": "rolling four quarters 2024Q4–2025Q3 — NOT FY2025; relabelling it \"2025\" would be wrong",
+   "source_name": "武汉光迅科技股份有限公司 2025年年度报告全文 (披露日期 2026-04-23), p.9–10",
+   "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-04-23/2cd37123-8015-43e0-bffe-2190652dd502.PDF",
+   "publish_date": "2026-04-23",
+   "publish_date_raw": "2026-04-23",
+   "confidence": "high",
+   "notes": "The ONLY hard market-share percentage any of the target optical companies puts in its own mandatory filing. ATTRIBUTION: write \"per Omdia data as cited in Accelink's FY2025 annual report\" — never \"Omdia ranks Accelink fifth\", because Omdia's underlying tracker is subscription-only and cannot be independently checked. SCOPE: 光器件 (optical COMPONENTS) is a broader basket than 光模块 — NOT comparable to LightCounting's transceiver-only Top 10 where Accelink is #4. The overall (5.9%) and datacom (5.9%) shares being identical is verbatim in the source, not a transcription slip — worth a footnote. The company's own website copy (https://www.accelink.com/upload/1/cms/20260427/1777270551534.pdf) was re-uploaded 2026-04-27; the SZSE copy is the statutory original and is textually identical on this passage."
+  },
+  {
+   "entity": "industry — global Top 10 optical transceiver suppliers",
+   "metric": "Top 10 optical transceiver suppliers ranked by optical-transceiver sales ONLY (excludes all other product lines; DWDM-module system vendors Cisco/Ciena/Huawei/Marvell/Nokia excluded by design)",
+   "value": "2025: 1 Innolight; 2 Eoptolink; 3 Coherent; 4 Accelink; 5 Molex; 6 Ligent (Hisense); 7 HG Genuine; 8 Source Photonics; 9 Lumentum; 10 CIG",
+   "unit": "rank",
+   "period": "CY2025. Same figure restates CY2024 on the new methodology: 1 Innolight, 2 Coherent, 3 Eoptolink, 4 Accelink, 5 HG Genuine, 6 Ligent (Hisense), 7 Source Photonics, 8 Molex, 9 Lumentum, 10 CIG",
+   "source_name": "LightCounting, LightTrends Newsletter, May 2026 — \"AI Boom Accelerates Transitions Across the Industry Supply Chain\"",
+   "source_url": "https://www.lightcounting.com/newsletter/en/may-2026-optical-vendor-landscape-376",
+   "publish_date": "2026-05",
+   "publish_date_raw": "2026-05 (month precision only — no day-level date exists on the page; C114's dateline and LightCounting's own LinkedIn post point to 2026-05-28)",
+   "confidence": "high",
+   "notes": "Read off the figure image, not the HTML text: https://www.lightcounting.com/storage/Optical%20Vendor%20Landscape%20Newsletter.png (caption \"Top 10 Transceiver vendors in 2010, 2018, 2024 and 2025\"). That storage path looks to be overwritten each year — archive the PNG or the ranking cannot be re-verified; a text-only archive will not preserve it. The English page has been observed embedding the WRONG image (a capex chart); the Chinese edition (/newsletter/chinese/may-2026-optical-vendor-landscape-376) carries the correct table. MANDATORY CAVEATS: (a) transceiver sales only, which is why Coherent and Lumentum rank low — this is NOT a company-revenue ranking; (b) the 2024 column is RESTATED on the May-2026 methodology and is not the list LightCounting published in May 2025 (that one included Cisco, Huawei and Marvell) — label it restated or a YoY comparison against last year's release will look contradictory; (c) LightCounting says ranks #5–#8 have similar shares and are \"competing fiercely for the #5 spot\" — do not present #5–#8 as a meaningful ordering; only #4 Accelink is described as firmly held. Do NOT carry any market-share percentage from this URL: the \"InnoLight 23.4%\" line surfacing in search engines is not on the page. WebFetch returns 403 (bot filter, not a paywall)."
+  },
+  {
+   "entity": "industry (optical transceivers and related products, incl. AOCs)",
+   "metric": "Worldwide sales of optical transceivers and related products — LightCounting's \"final count\" for 2025",
+   "value": "US$26.8bn, up 74% from 2024",
+   "unit": "USD bn / % y-o-y",
+   "period": "CY2025 full year (final count)",
+   "source_name": "LightCounting, LightTrends Newsletter, June 2026 — \"Acacia is on fire and so is the broader transceiver market\" (Q2 Quarterly Market Update)",
+   "source_url": "https://www.lightcounting.com/newsletter/en/june-2026-quarterly-market-update-375",
+   "publish_date": "2026-06",
+   "publish_date_raw": "2026-06 (month precision only — no day-level date on the page)",
+   "confidence": "high",
+   "notes": "SUPERSEDES two earlier public LightCounting numbers that still rank high in search: March 2026 said \"$23.8 billion in 2025, up 55%\" (https://www.lightcounting.com/newsletter/en/march-2026-quarterly-market-update-380) and December 2025 said $23bn. Sequence: $23bn forecast → $23.8bn March estimate → $26.8bn June final count (+12.6% revision). Both issues imply the same 2024 base (~$15.4bn), so each is internally consistent — this is a genuine revision, not a typo. Because of that, the page MUST attribute precisely as \"LightCounting, Q2 Quarterly Market Update, June 2026\" and footnote the revision, or a fact-checker will surface $23.8bn and think the number is wrong. Basis INCLUDES AOCs/related products — do not mix with the transceivers-only +58% figure. The word \"global\" is not LightCounting's; say \"LightCounting's worldwide tally\". July 2026 newsletter does not revise it and no September 2026 quarterly update was found as of 2026-09-16."
+  },
+  {
+   "entity": "Innolight (中际旭创 300308), Eoptolink (新易盛 300502), Coherent (COHR)",
+   "metric": "2025 full-year datacom optical component revenue — vendor rank order, with the leader's absolute revenue",
+   "value": "Innolight led datacom revenue with more than US$5bn, followed by Eoptolink and Coherent",
+   "unit": "USD revenue / rank",
+   "period": "CY2025 full year (actuals from the closed 4Q25/full-year report)",
+   "source_name": "Cignal AI press release — \"Datacom Optical Component Revenue Surpasses $19B in 2025\"",
+   "source_url": "https://cignal.ai/2026/04/datacom-optical-component-revenue-surpasses-19b-in-2025/",
+   "publish_date": "2026-04-21",
+   "publish_date_raw": "2026-04-21",
+   "confidence": "high",
+   "notes": "MOST LOAD-BEARING single row for an optical-module page: a direct, free, vendor-level ranking of three listed names from a house other than LightCounting. CAVEATS: (a) \">$5 billion\" is Cignal's estimate of Innolight's DATACOM OPTICAL COMPONENT revenue, not its total revenue — it sits close to Innolight's audited RMB 38.24bn (~US$5.3bn) top line, which makes the conflation easy and invisible; label the segment. (b) Ranks 2 and 3 are IMPLIED — the source says \"followed by Eoptolink and Coherent\" and never writes \"second\"/\"third\" or gives their revenue; do not assert a numeric gap. (c) Coherent's fiscal year ends 30 June, so its placement here is Cignal's calendar-2025 estimate and will not tie to its 10-K — say \"per Cignal AI\", not \"per Coherent's filings\". (d) Per-vendor percentage shares are in the paid report only. (e) Do NOT cite Cignal's earlier 2026-01-07 release, which carried the pre-close forecast of \">$18 billion\"."
+  },
+  {
+   "entity": "industry (datacom optical components)",
+   "metric": "Total datacom optical component revenue",
+   "value": "more than US$19bn in 2025",
+   "unit": "USD bn",
+   "period": "CY2025 full year (actual)",
+   "source_name": "Cignal AI press release — \"Datacom Optical Component Revenue Surpasses $19B in 2025\"",
+   "source_url": "https://cignal.ai/2026/04/datacom-optical-component-revenue-surpasses-19b-in-2025/",
+   "publish_date": "2026-04-21",
+   "publish_date_raw": "2026-04-21",
+   "confidence": "high",
+   "notes": "Confirmed as the post-close ACTUAL, superseding Cignal's January 2026 pre-close forecast of \">$18 billion\" (release \"Optical Component Revenue Reaches Nearly $25B in 2025\"). The accompanying \"+70% over 2024\" is carried from the release summary and was not separately verified verbatim. Scope is datacom optical COMPONENTS — broader than transceiver modules and narrower than Omdia's all-in optical components basket; do not pair with a LightCounting numerator."
+  },
+  {
+   "entity": "industry — Chinese-language rendering of LightCounting's 2025 Top 10",
+   "metric": "2025 global optical module vendor Top 10 with Chinese entity names (the granular ranks LightCounting does not print in text)",
+   "value": "rank 1 中际旭创 (Innolight, 300308); rank 2 新易盛 (Eoptolink, 300502); rank 3 Coherent (INFERRED, not stated); rank 4 光迅科技 (Accelink, 002281); rank 6 纳真科技 (ex-海信宽带); rank 7 华工正源 (华工科技 000988); rank 8 索尔思光电 (东山精密 002384); rank 10 剑桥科技 (603083) — 7 of the Top 10 are Chinese",
+   "unit": "rank",
+   "period": "CY2025 full year",
+   "source_name": "C114通信网《光模块厂商全球Top10：中国包揽前2，7家入围》(作者 南山)",
+   "source_url": "https://www.c114.com.cn/news/6564/a1311211.html",
+   "publish_date": "2026-05-28",
+   "publish_date_raw": "2026-05-28",
+   "confidence": "medium",
+   "notes": "AGGREGATOR — the original publisher is LightCounting (May 2026 Optical Vendor Landscape release); attribute the ranking to LightCounting and use C114 only as the readable carrier of ranks 6/7/8/10, which appear in neither LightCounting's body text nor its English page. THE ORIGINALLY SUBMITTED URL (/news/16/a1311209.html) IS DEAD (404) — this corrected URL returns HTTP 200; mobile mirror https://m.c114.com.cn/w3542-1311210.html. Date confirmed from the in-body timestamp (2026/5/28 14:09) and the lede \"5月28日消息\". \"Rank 3 Coherent\" is an inference — both sources only say Eoptolink took #2 \"surpassing Coherent\"; either drop it or footnote it as implied. Ranks 5 and 9 are named in neither source (Molex and Lumentum, per the LightCounting figure). MANDATORY: carry the methodology caveat — transceiver sales only, and Cisco/Ciena/Huawei/Marvell/Nokia excluded entirely — or \"7 of the global Top 10 are Chinese\" is misleading. Entity notes: 纳真科技 = renamed Hisense Broadband, unlisted with a HK IPO pending; 索尔思光电 was only consolidated into 东山精密 from Oct 2025, so its full-year 2025 module sales are not all in 东山精密's books."
+  },
+  {
+   "entity": "industry (optical transport equipment); Huawei, Ciena, Nokia, ZTE, Cisco",
+   "metric": "2025 optical transport market size, growth and top-five vendors by revenue share",
+   "value": "market grew 10 percent to US$16bn in 2025; DCI WDM up nearly 40 percent; top five 2025 vendors by revenue share: Huawei, Ciena, Nokia, ZTE, Cisco",
+   "unit": "USD bn / % y-o-y / rank",
+   "period": "CY2025 full year",
+   "source_name": "Dell'Oro Group press release — \"Optical Transport Market Grew to $16 Billion in 2025\"",
+   "source_url": "https://www.delloro.com/news/optical-transport-market-grew-to-16-billion-in-2025/",
+   "publish_date": "2026-02-18",
+   "publish_date_raw": "2026-02-18",
+   "confidence": "low",
+   "notes": "Carried from the researcher's note (they report the date as body-confirmed); this release was NOT separately checked in the adversarial pass, unlike the May and August releases. Use it for the 2025 column of an optical-transport table, after re-reading the page. Same layer caveat: transport systems, not modules."
+  },
+  {
+   "entity": "industry (AI-focused optical transceivers)",
+   "metric": "Global AI-focused optical transceiver market size and growth",
+   "value": "US$16.5bn (2025e) → US$26bn (2026f), over 57% y-o-y growth",
+   "unit": "USD bn",
+   "period": "CY2025 estimate → CY2026 forecast — BOTH are TrendForce projections; 2025 is not an audited actual",
+   "source_name": "TrendForce press release — \"Global AI Optical Transceiver Market to Reach US$26 Billion in 2026; Component Shortages Identified as Primary Capacity Expansion Bottleneck\"",
+   "source_url": "https://www.trendforce.com/presscenter/news/20260420-13017.html",
+   "publish_date": "2026-04-20",
+   "publish_date_raw": "2026-04-20",
+   "confidence": "high",
+   "notes": "Corrected period label: the source sentence puts both years under one verb (\"projected to expand from ... to ...\"), so publish as \"2025e → 2026f\". Scope is AI-focused transceivers ONLY — narrower than LightCounting's all-in $26.8bn and than Omdia's optical-components basket; the numbers are not contradictory, but the scope must be printed. Internal math checks (26/16.5−1 = 57.6%). Release names Coherent, Lumentum, Applied Optoelectronics plus Taiwanese firms ELASER and LuxNet as expanding capacity, and flags EML / CW-laser supply as the bottleneck. No later TrendForce release revises it as of 2026-09-16."
+  },
+  {
+   "entity": "industry (optical transceivers, excluding AOCs/related products)",
+   "metric": "LightCounting's own estimate of total optical transceiver market growth in 2025 (transceivers-only basis)",
+   "value": "58% growth",
+   "unit": "% y-o-y",
+   "period": "CY2025",
+   "source_name": "LightCounting, LightTrends Newsletter, May 2026 — \"AI Boom Accelerates Transitions Across the Industry Supply Chain\"",
+   "source_url": "https://www.lightcounting.com/newsletter/en/may-2026-optical-vendor-landscape-376",
+   "publish_date": "2026-05",
+   "publish_date_raw": "2026-05 (month precision only)",
+   "confidence": "high",
+   "notes": "Verified verbatim inside the Innolight sentence: \"up 61% and just above of our estimates of 58% growth in the total transceiver market last year.\" This is LightCounting's ESTIMATE, not a company figure — never attribute the 58% to Innolight. Different basis from the +74% ($26.8bn) figure, which includes AOCs and related products; do not present the two growth rates side by side as if comparable."
+  },
+  {
+   "entity": "industry (Ethernet optical transceivers)",
+   "metric": "Ethernet share of the total optical transceiver market",
+   "value": "75% of the total market in 2025",
+   "unit": "% of market",
+   "period": "CY2025",
+   "source_name": "LightCounting, LightTrends Newsletter, May 2026 — \"AI Boom Accelerates Transitions Across the Industry Supply Chain\"",
+   "source_url": "https://www.lightcounting.com/newsletter/en/may-2026-optical-vendor-landscape-376",
+   "publish_date": "2026-05",
+   "publish_date_raw": "2026-05 (month precision only)",
+   "confidence": "high",
+   "notes": "Verified verbatim as the continuation of the methodology sentence: \"The ranking accounts for shipments of Ethernet, DWDM, FTTx and wireless fronthaul transceivers, but the Ethernet market accounted for 75% of the total market in 2025.\" Useful for showing that the Top-10 ranking is effectively an Ethernet/AI-datacom ranking."
+  },
+  {
+   "entity": "industry (datacom optical components)",
+   "metric": "1Q26 datacom optical component revenue",
+   "value": "record US$7.7bn in the quarter, more than doubling year-over-year",
+   "unit": "USD bn",
+   "period": "2026Q1 (calendar quarter; actual)",
+   "source_name": "Cignal AI press release — \"Datacom Optical Component Revenue Doubles to $7.7 Billion in 1Q26\"",
+   "source_url": "https://cignal.ai/2026/06/datacom-optical-component-revenue-doubles-to-7-7-billion-in-1q26/",
+   "publish_date": "2026-06-18",
+   "publish_date_raw": "2026-06-18",
+   "confidence": "high",
+   "notes": "This is the TOTAL MARKET, not any vendor's revenue, and \"more than doubled\" describes the market. Keep it visually separated from the Innolight rank row below — adjacency alone will make readers infer $7.7bn is Innolight's number. Cignal's own CDN served a stale, different article on one fetch during verification; if a re-pull does not show the \"$7.7 Billion in 1Q26\" headline, force a cache-bust before trusting it."
+  },
+  {
+   "entity": "Innolight / 中际旭创 (300308.SZ)",
+   "metric": "1Q26 vendor leadership in datacom revenue and in high-speed module unit shipments",
+   "value": "Innolight again topped the leaderboard in both datacom revenue and high-speed module shipments, by a wide margin",
+   "unit": "rank",
+   "period": "2026Q1 (calendar quarter)",
+   "source_name": "Cignal AI press release — \"Datacom Optical Component Revenue Doubles to $7.7 Billion in 1Q26\"",
+   "source_url": "https://cignal.ai/2026/06/datacom-optical-component-revenue-doubles-to-7-7-billion-in-1q26/",
+   "publish_date": "2026-06-18",
+   "publish_date_raw": "2026-06-18",
+   "confidence": "high",
+   "notes": "The most RECENT public vendor-position statement found as of 2026-09-16. Cignal states its method explicitly: \"Vendors are ranked by total optical component revenue and by unit shipments of 400G+ datacom modules and coherent modules.\" The release gives Innolight's RANK only — no revenue, no share percentage. Global scope (zero mentions of China; vendor set spans Acacia, Coherent, Lumentum, Huawei, ZTE, Nokia, Cisco, Accelink, Eoptolink)."
+  },
+  {
+   "entity": "industry (telecom optical components)",
+   "metric": "1Q26 telecom optical component revenue",
+   "value": "record US$2.0bn",
+   "unit": "USD bn",
+   "period": "2026Q1",
+   "source_name": "Cignal AI press release — \"Datacom Optical Component Revenue Doubles to $7.7 Billion in 1Q26\"",
+   "source_url": "https://cignal.ai/2026/06/datacom-optical-component-revenue-doubles-to-7-7-billion-in-1q26/",
+   "publish_date": "2026-06-18",
+   "publish_date_raw": "2026-06-18",
+   "confidence": "high",
+   "notes": "Confirmed present in the release body. Useful as the telecom-vs-datacom split against the $7.7bn datacom figure for the same quarter."
+  },
+  {
+   "entity": "industry (optical transport equipment)",
+   "metric": "Optical transport equipment market growth, 1Q26",
+   "value": "grew 20% year-over-year in 1Q 2026 (Dell'Oro estimate)",
+   "unit": "% y-o-y",
+   "period": "2026Q1",
+   "source_name": "Dell'Oro Group press release — \"Optical Transport Equipment Market Forecast to Grow 16 Percent in 2026\"",
+   "source_url": "https://www.delloro.com/news/optical-transport-equipment-market-forecast-to-grow-16-percent-in-2026/",
+   "publish_date": "2026-05-19",
+   "publish_date_raw": "2026-05-19",
+   "confidence": "high",
+   "notes": "Phrased in the release as \"We estimate that...\" — label it a Dell'Oro estimate. Superseded as the latest data point by 2Q26's +15% y-o-y (Dell'Oro, 2026-08-20)."
+  },
+  {
+   "entity": "industry (optical transceivers and AOCs)",
+   "metric": "Q1 2026 sales of transceivers and AOCs",
+   "value": "around US$10bn, up more than 90% from Q1 2025 — described as the best quarter since LightCounting began collecting data in 2004",
+   "unit": "USD bn / % y-o-y",
+   "period": "2026Q1",
+   "source_name": "LightCounting, LightTrends Newsletter, June 2026 — Q2 Quarterly Market Update",
+   "source_url": "https://www.lightcounting.com/newsletter/en/june-2026-quarterly-market-update-375",
+   "publish_date": "2026-06",
+   "publish_date_raw": "2026-06 (month precision only)",
+   "confidence": "low",
+   "notes": "Carried from the researcher's read of the same verified page; the verifier confirmed the page and quoted only the $26.8bn sentence, so this specific figure was not independently re-confirmed. Re-read the page before publishing."
+  },
+  {
+   "entity": "industry (top-4 cloud service providers)",
+   "metric": "Capex growth assumption underpinning LightCounting's transceiver forecast",
+   "value": "Top-4 CSP capex growth moderating from 70% in 2026 to 30% in 2027",
+   "unit": "% y-o-y",
+   "period": "2026F → 2027F",
+   "source_name": "LightCounting, LightTrends Newsletter, July 2026 — July 2026 Cloud Data Center Optics Report",
+   "source_url": "https://www.lightcounting.com/newsletter/en/july-2026-cloud-data-center-optics-385",
+   "publish_date": "2026-07",
+   "publish_date_raw": "2026-07 (month precision only)",
+   "confidence": "high",
+   "notes": "This is the demand-side assumption, NOT transceiver sales — the single easiest number to mix up with the +73% figure on the same page. The accompanying warning that transceiver sales historically \"turn negative six months ahead of capex\" is carried from the researcher's note and was not separately re-verified."
+  },
+  {
+   "entity": "industry (Ethernet optical transceivers)",
+   "metric": "Forecast growth in Ethernet optical transceiver sales, and 2031 market size",
+   "value": "+73% in 2026; market to reach US$80bn by 2031",
+   "unit": "% y-o-y / USD bn",
+   "period": "2026F and 2031F (both forecasts, not actuals)",
+   "source_name": "LightCounting, LightTrends Newsletter, July 2026 — \"The industry supply chain remains red hot, as investors search for balance between fear and FOMO\" (July 2026 Cloud Data Center Optics Report)",
+   "source_url": "https://www.lightcounting.com/newsletter/en/july-2026-cloud-data-center-optics-385",
+   "publish_date": "2026-07",
+   "publish_date_raw": "2026-07 (month precision only; confirmed from the page's own date caption and the line \"LightCounting releases July 2026 Cloud Data Center Optics Report\")",
+   "confidence": "high",
+   "notes": "MOST RECENT public LightCounting 2026 growth number; supersedes April 2026's \"65% growth for 2026\" (https://www.lightcounting.com/newsletter/en/april-2026-market-forecast-379) and March 2026's \"'only' 60% in 2026\" (https://www.lightcounting.com/newsletter/en/march-2026-ethernet-optics-382), both still prominent in search. Quote the sentence rather than paraphrase the $80bn: the sentence's antecedent is Ethernet optical transceivers, but the preceding sentence frames the raised forecast as covering \"optical interconnects\" more broadly. Keep distinct from LightCounting's separate March 2026 \"$100 Billion Market for AI Cluster Optics by 2030?\" metric. Do NOT confuse the 73% with the 70% on the same page — that is CSP capex, a different series."
+  },
+  {
+   "entity": "industry (optical transport equipment)",
+   "metric": "Optical transport equipment market — full-year forecast",
+   "value": "forecast to grow 16% in 2026, surpassing US$18bn in manufacturer revenue for the first time since the year 2000",
+   "unit": "% y-o-y / USD bn",
+   "period": "2026F (forecast; raised from 10% after 1Q results)",
+   "source_name": "Dell'Oro Group press release — \"Optical Transport Equipment Market Forecast to Grow 16 Percent in 2026\"",
+   "source_url": "https://www.delloro.com/news/optical-transport-equipment-market-forecast-to-grow-16-percent-in-2026/",
+   "publish_date": "2026-05-19",
+   "publish_date_raw": "2026-05-19",
+   "confidence": "high",
+   "notes": "SCOPE WARNING: optical transport SYSTEMS/equipment — a different layer and a different vendor set from optical MODULE makers. Do not merge this with the Cignal/LightCounting module rankings or use it as a module-share denominator. $18bn is manufacturer revenue. Dell'Oro's later (2026-08-20) release does not restate this full-year forecast, and reports growth decelerating to 15% y-o-y in 2Q26."
+  },
+  {
+   "entity": "industry (800G-and-above optical transceiver modules)",
+   "metric": "Global shipment share of 800G-and-above optical transceiver modules (technology mix, not vendor share)",
+   "value": "19.5% in 2024 rising to over 60% by 2026",
+   "unit": "% of global unit shipments",
+   "period": "2024 (TrendForce estimate) → 2026F",
+   "source_name": "TrendForce press release — \"Google's High-Speed Interconnect Architecture to Push 800G+ Optical Transceiver Share Past 60% by 2026\"",
+   "source_url": "https://www.trendforce.com/presscenter/news/20260210-12919.html",
+   "publish_date": "2026-02-10",
+   "publish_date_raw": "2026-02-10",
+   "confidence": "high",
+   "notes": "Publish \">60%\" as a threshold, never as \"60%\". Both endpoints sit inside TrendForce's own \"estimates\" framing — label the 19.5% a TrendForce estimate, not a 2024 actual. This is a TECHNOLOGY-MIX share, not a vendor share. Verification note: one fetch of this URL returned a different TrendForce article from a stale CDN edge cache, and an AI summarizer \"confirmed\" the quote on a fetch whose HTML did not contain it — re-verify from raw HTML, not a summarizer."
+  }
+ ],
+ "dual_listings": [
+  {
+   "name": "YOFC",
+   "primary": "601869.SS",
+   "secondary": "6869.HK",
+   "primary_pe": 57.0968540995789,
+   "secondary_pe": null,
+   "premium": null
+  }
+ ],
+ "excluded_from_pool": [
+  {
+   "ticker": "0877.HK",
+   "name": "O-Net Technologies",
+   "track": "optical",
+   "reason": "no longer quoted on Yahoo Finance; treated as unavailable rather than guessed"
+  },
+  {
+   "ticker": "unlisted-huawei",
+   "name": "Huawei optical",
+   "track": "optical",
+   "reason": "private; enters cited vendor rankings only"
+  }
+ ],
+ "reference_updated": "2026-09-16",
+ "checks": [
+  {
+   "name": "Price coverage",
+   "status": "pass",
+   "detail": "34 of 34 listings priced"
+  },
+  {
+   "name": "Consensus coverage",
+   "status": "fail",
+   "detail": "15 of 34 listings have a calendar-2026 consensus; 19 do not (no consensus for this year)"
+  },
+  {
+   "name": "Analyst depth",
+   "status": "pass",
+   "detail": "2 of 34 listings are covered by fewer than three analysts"
+  },
+  {
+   "name": "Trailing basis",
+   "status": "pass",
+   "detail": "4 of 34 listings use the last full fiscal year instead of a trailing twelve months, because no quarterly statement is published for them; the table marks which"
+  },
+  {
+   "name": "Trailing earnings",
+   "status": "pass",
+   "detail": "31 of 34 listings have positive trailing profit"
+  },
+  {
+   "name": "Share basis A",
+   "status": "pass",
+   "detail": "16 listings enter the computed pool; 18 excluded for not disclosing revenue for this track"
+  },
+  {
+   "name": "Share adds to one",
+   "status": "pass",
+   "detail": "computed shares sum to 1 by construction"
+  },
+  {
+   "name": "Cited share sourced",
+   "status": "pass",
+   "detail": "25 cited figures, every one with a publisher and a URL"
+  },
+  {
+   "name": "Currency conversion",
+   "status": "pass",
+   "detail": "every priced listing has a resolved price currency"
+  }
+ ],
+ "sources": [
+  {
+   "name": "Yahoo Finance (prices and analyst consensus)",
+   "url": "https://finance.yahoo.com/"
+  },
+  {
+   "name": "East Money analyst forecasts (A-shares)",
+   "url": "https://emweb.securities.eastmoney.com/"
+  },
+  {
+   "name": "SEC EDGAR XBRL companyfacts",
+   "url": "https://www.sec.gov/edgar/sec-api-documentation"
+  },
+  {
+   "name": "FRED daily exchange rates",
+   "url": "https://fred.stlouisfed.org/categories/94"
+  }
+ ]
+}

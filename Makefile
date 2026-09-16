@@ -1,4 +1,4 @@
-.PHONY: setup test lint snapshot snapshot-midterms snapshot-fomc backfill sec publish site all
+.PHONY: setup test lint snapshot snapshot-midterms snapshot-fomc backfill sec valuation valuation-daily publish site all
 
 setup:            ## install python deps (uv) and site deps (npm)
 	uv sync
@@ -26,12 +26,26 @@ sec:              ## SEC XBRL ingest + transform (needs SEC_USER_AGENT with a co
 	uv run python -m pipelines.sec.ingest
 	uv run python -m pipelines.sec.transform
 
+valuation:        ## prices, FX, analyst consensus and fundamentals for the valuation pages
+	uv run python -m pipelines.valuation.fx
+	uv run python -m pipelines.valuation.prices
+	uv run python -m pipelines.valuation.estimates_yf
+	uv run python -m pipelines.valuation.estimates_em
+	uv run python -m pipelines.valuation.fundamentals
+
+valuation-daily:  ## the weekday run: prices and FX only, then rebuild the pages
+	uv run python -m pipelines.valuation.fx
+	uv run python -m pipelines.valuation.prices
+	uv run python -m pipelines.valuation.publish
+
 publish:          ## rebuild every mart and facts file from the snapshots
 	uv run python -m pipelines.predmarkets.publish
 	uv run python -m pipelines.statarb.publish
 	uv run python -m pipelines.finllm.publish
+	uv run python -m pipelines.valuation.publish
+	uv run python -m pipelines.valuation.evaluate
 
 site:             ## build the static site (syncs data/ into site/public/data first)
 	cd site && npm run build
 
-all: setup test snapshot backfill sec publish site   ## rebuild everything from scratch (sec needs SEC_USER_AGENT)
+all: setup test snapshot backfill sec valuation publish site   ## rebuild everything from scratch (sec and valuation need SEC_USER_AGENT)

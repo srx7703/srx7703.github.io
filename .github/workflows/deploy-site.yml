@@ -6,7 +6,7 @@ on:
   # Data commits are pushed with GITHUB_TOKEN, which never fires `push` workflows; rebuild after
   # every data workflow instead so the "data as of" stamps stay current.
   workflow_run:
-    workflows: [snapshot-predmarkets, refresh-weekly]
+    workflows: [snapshot-predmarkets, refresh-weekly, valuation]
     types: [completed]
   workflow_dispatch:
 

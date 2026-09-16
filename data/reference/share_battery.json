@@ -1,0 +1,207 @@
+{
+ "track": "ssb",
+ "updated": "2026-09-16",
+ "note": "Collected by eight parallel research agents on 2026-09-16 and each figure then adversarially verified against its own source page; only entries a verifier confirmed as publicly readable are here. Rules in data/reference/README.md. Nothing is recomputed: values are as published.",
+ "segment_revenue": [],
+ "cited_share": [
+  {
+   "entity": "industry — global EV battery usage, all chemistries (CATL, BYD, LGES, CALB, Gotion, Panasonic, EVE, SK On, SVOLT, REPT)",
+   "metric": "Global EV/PHEV/HEV battery usage (batteries in vehicles registered worldwide) and supplier market share",
+   "value": "Total 725.2 GWh, +20.4% YoY (July alone 116.0 GWh, +22.1%). CATL 289.6 GWh / 39.9% share (+26.6% YoY; share 38.0%→39.9%); BYD 106.7 GWh / 14.7% (+4.7%; 16.9%→14.7%); LG Energy Solution 60.3 GWh / 8.3% (+4.5%; 9.6%→8.3%); CALB 37.3 GWh (+34.3%); Gotion 34.0 GWh (+44.2%); Panasonic 26.2 GWh / 3.6% (+7.6%; 4.0%→3.6%); EVE 25.0 GWh (+53.1%); SK On 22.3 GWh / 3.1% (−9.8%; 4.1%→3.1%); SVOLT 18.9 GWh (+39.1%); REPT 16.9 GWh (+118.5%, new entrant displacing Sunwoda). Seven Chinese suppliers in the top 10 = 72.8% combined (+3.1pp). CATL+BYD combined SHARE 54.6% (−0.3pp from 54.9%). LFP share of global usage 51.6%→56.1%; average pack size 34.5→38.6 kWh.",
+   "unit": "GWh; % market share",
+   "period": "2026-01 to 2026-07 (calendar, actuals)",
+   "source_name": "SNE Research — Press Release (Insight), \"From Jan to Jul 2026, Global EV Battery Usage Posted 725.2GWh\" (English edition; data from its Global EV and Battery Monthly Tracker, August 2026)",
+   "source_url": "https://www.sneresearch.com/en/insight/release_view/727/page/0",
+   "publish_date": "2026-09-07",
+   "publish_date_raw": "2026-09-07",
+   "confidence": "high",
+   "notes": "BACKDROP ONLY — this is all-chemistry xEV battery usage (EV+PHEV+HEV, 80 countries aggregated), NOT solid-state. Nothing in it can be read across to solid-state share. Verifier fixes applied: CATL+BYD 54.6% is a SHARE, not GWh (the researcher wrote '54.6% GWh'); label the scope 'EV incl. PHEV/HEV', not BEV-only. The cited English URL (id 727) is SNE's own English twin of the Korean original at /en/insight/release_view/726/page/0, which carries Korean body text despite the /en/ path — both show 'Registration Date 2026-09-07' in the page body. Do NOT publish per-company shares for CALB, Gotion, EVE, SVOLT or REPT: SNE's text gives only GWh and YoY for those five; the circulating 5.1%/4.7%/3.5%/2.6%/2.3% figures come from CnEVPost reading SNE's chart image. CnEVPost is the downstream re-report — cite SNE."
+  },
+  {
+   "entity": "industry — global EV battery usage EXCLUDING China (CATL, LGES, BYD, Panasonic, SK On, Samsung SDI, Gotion, SVOLT, CALB, EVE)",
+   "metric": "Global (ex-China) EV/PHEV/HEV battery usage and supplier market share",
+   "value": "Total 316.2 GWh, +25.8% YoY. CATL 107.5 GWh / 34.0% (+43.7%; 29.7%→34.0%); LG Energy Solution 51.6 GWh / 16.3% (−1.7%; 20.9%→16.3%); BYD 33.4 GWh / 10.6% (+69.1%; 7.9%→10.6%); Panasonic 26.2 GWh / 8.3% (+7.6%; 9.7%→8.3%); SK On 22.2 GWh / 7.0% (−9.9%; 9.8%→7.0%); Samsung SDI 12.3 GWh / 3.9% (−29.4%; 6.9%→3.9%); Gotion 11.6 GWh (+135.6%); SVOLT 10.0 GWh (+106.0%); CALB 7.4 GWh (+80.0%); EVE 6.3 GWh (+179.2%). Three Korean makers combined 86.1 GWh, −8.9%, share 37.6%→27.2% (−10.4pp). CATL+BYD ex-China combined SHARE 44.6% (+7.0pp).",
+   "unit": "GWh; % market share",
+   "period": "2026-01 to 2026-07 (calendar, actuals)",
+   "source_name": "SNE Research — Press Release (Insight), \"Global (Ex-China) EV Battery Usage in January-July 2026 Reaches 316.2 GWh, Up 25.8% Year-on-Year\"",
+   "source_url": "https://www.sneresearch.com/en/insight/release_view/730/page/0",
+   "publish_date": "2026-09-09",
+   "publish_date_raw": "2026-09-09",
+   "confidence": "high",
+   "notes": "BACKDROP ONLY, all chemistries. This is the more honest denominator for LGES / Samsung SDI / SK On / Panasonic, and it is the only free SNE release that gives a 2026 Samsung SDI number (SDI is absent from the China-inclusive top 10). The −10.4pp collapse in combined Korean share is the single most load-bearing share datapoint for the Korean names. Verifier fixes: CATL+BYD 44.6% is a SHARE not GWh (= 140.9 GWh); scope is xEV incl. hybrids. Shares for Gotion/SVOLT/CALB/EVE are not given in the release — do not compute and attribute them to SNE. 'Registration Date 2026-09-09' is in the page body, not a search snippet. Serves as the negative control proving the 725.2 GWh figure is genuinely China-inclusive."
+  }
+ ],
+ "shipments": [
+  {
+   "entity": "ProLogium Technology 輝能科技 (Taiwan; unlisted, Nasdaq listing pending as PRLG via SPAC)",
+   "metric": "Cumulative solid-state (Lithium Ceramic Battery, LCB) cells shipped since start of commercial production — the only company-confirmed cumulative shipment figure anywhere in this sweep",
+   "value": "more than 2.4 million cells (a company-stated FLOOR, not a measured point value)",
+   "unit": "cells, cumulative, all applications",
+   "period": "2013 through H1 2025 — the last period for which ProLogium actually measured and published the figure; the same '>2.4 million' threshold was restated unchanged in the 2026-09-02 release",
+   "source_name": "ProLogium Technology press release, \"ProLogium Begins Mass Production of High-Energy-Density All-Solid-State Battery, Reaching 381 Wh/kg and 903 Wh/L\" (company newsroom; GlobeNewswire wire copy)",
+   "source_url": "https://prologium.com/prologium-begins-mass-production-of-high-energy-density-all-solid-state-battery-reaching-381-wh-kg-and-903-wh-l/",
+   "publish_date": "2026-09-02",
+   "publish_date_raw": "2026-09-02",
+   "confidence": "high",
+   "notes": "DO NOT label this 'cumulative through 2026-09-02'. ProLogium first announced crossing 2.4m units on 2025-07-01 (\"As of H1 2025... shipped over 2.4 million\", https://www.globenewswire.com/news-release/2025/07/01/3108084/0/en/ProLogium-s-Next-Generation-Lithium-Ceramic-Battery-Shipments-Surpass-2-4-Million-Units.html); the Sept 2026 release recycles the same boilerplate floor, so dating it to 2026-09-02 implies ~zero growth over 14 months of ramp, which is almost certainly false and backwards. Keep the words 'more than' — rendering it as '=2,400,000' overstates precision. Wire mirror (more durable archival link): https://www.globenewswire.com/news-release/2026/09/02/3354848/0/en/prologium-begins-mass-production-of-high-energy-density-all-solid-state-battery-reaching-381-wh-kg-and-903-wh-l.html (dateline 'TAIPEI, Taiwan, Sept. 02, 2026 03:00 ET' in body). Same release also confirms: Gen 3.5 185.4 Ah large-format cell now in mass production at the Taoyuan Giga-level facility, TÜV-measured 381 Wh/kg / 903 Wh/L, UL Solutions-tested as all-solid-state under GB/T 43568-2026. The Nasdaq/PRLG/SPAC framing is NOT in this release — cite TDAC's 8-K/425 filings separately for that."
+  },
+  {
+   "entity": "ProLogium Technology 輝能科技",
+   "metric": "Composition of the cumulative LCB cell count — largest single customer application",
+   "value": "more than 900,000 of the >2.4m cells went to one U.S. automotive AUDIO-SYSTEM customer across 175+ repeat orders",
+   "unit": "cells, cumulative",
+   "period": "cumulative to H1 2025 / restated 2026-09-02",
+   "source_name": "ProLogium Technology press release, \"ProLogium Begins Mass Production of High-Energy-Density All-Solid-State Battery…\"",
+   "source_url": "https://prologium.com/prologium-begins-mass-production-of-high-energy-density-all-solid-state-battery-reaching-381-wh-kg-and-903-wh-l/",
+   "publish_date": "2026-09-02",
+   "publish_date_raw": "2026-09-02",
+   "confidence": "medium",
+   "notes": "LOAD-BEARING CAVEAT to publish alongside the 2.4m figure: these are not EV traction cells. The composition line sits in the same release, but only the '>2.4 million' sentence was verbatim-verified by the adversarial check, hence medium confidence — re-read the release before printing the 900,000/175+ numbers. An independent trade outlet (carnewschina, 2026-09-06) makes the same warning explicitly: the total 'should not be interpreted as 2.4 million high-voltage EV traction cells'. Mix is consumer + specialty + automotive."
+  },
+  {
+   "entity": "QuantumScape Corporation (NYSE: QS)",
+   "metric": "Commercial cell shipments (solid-state lithium-metal)",
+   "value": "No GWh and no cell count of shipments has ever been disclosed. Customer SAMPLES/prototypes only — B0 prototype samples of QSE-5 in 2024, B1 prototypes in 2025, and in 2026 QSE-5 cells to an additional automotive OEM and to a major American defense prime. Eagle Line in San Jose is a PILOT line; company aims to 'further double cell output in the second half of 2026' with no absolute base given.",
+   "unit": "none disclosed (no GWh, no unit count)",
+   "period": "as of 2026-06-30 (Q2 FY2026)",
+   "source_name": "QuantumScape Corporation, Form 10-Q for the quarterly period ended June 30, 2026 (SEC EDGAR)",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1811414/000119312526316073/qs-20260630.htm",
+   "publish_date": "2026-07-24",
+   "publish_date_raw": "2026-07-24",
+   "confidence": "high",
+   "notes": "WORD THIS PRECISELY: say 'no GWh of cell shipments disclosed', never 'no GWh figure appears in the filing' — the 10-Q does contain four GWh figures (up to 40 / +40 / +5 / 85 GWh) and every one is PowerCo LICENSED CAPACITY, not QS volume. Anyone re-checking the page against this document will find '85 GWh' in it. The sample-shipment colour comes partly from the Q2 FY2026 shareholder letter (8-K EX-99.1, https://www.sec.gov/Archives/edgar/data/1811414/000119312526312423/qs-ex99_1.htm), not solely from the 10-Q — cite that separately if leaned on. Filing date confirmed from the in-document signature block ('Date: July 24, 2026') and EDGAR metadata."
+  }
+ ],
+ "capacity": [
+  {
+   "entity": "QuantumScape Corporation (NYSE: QS) / PowerCo",
+   "metric": "Licensed production ceiling under the PowerCo IP License Agreement — NOT built or announced plant capacity",
+   "value": "up to 85 GWh annually (40 GWh + an additional 40 GWh + an additional 5 GWh), described in the filing as 'the potential maximum production by PowerCo under the PowerCo IP License Agreement'",
+   "unit": "GWh/yr (licence ceiling)",
+   "period": "as of 2026-06-30",
+   "source_name": "QuantumScape Corporation, Form 10-Q for the quarterly period ended June 30, 2026 (SEC EDGAR)",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1811414/000119312526316073/qs-20260630.htm",
+   "publish_date": "2026-07-24",
+   "publish_date_raw": "2026-07-24",
+   "confidence": "high",
+   "notes": "MUST NOT be tabulated in a capacity column. It is a contractual ceiling on what a licensee may one day produce, not a line that exists, is funded, or has been announced as a plant. Context that makes the point on a valuation page: QS's own FY2026 capex guidance is tens of millions of dollars — a rounding error against a real gigafactory (see open_gaps: the two researchers gave conflicting capex guidance ranges, so no capex number is published here).",
+   "start_year": "as of 2026-06-30"
+  },
+  {
+   "entity": "宁德时代 CATL (SZ: 300750)",
+   "metric": "All-solid-state battery mass-production timeline (company's own stated target); no GWh capacity attached",
+   "value": "「公司在全固态电池上持续坚定投入，技术处于行业领先水平，2027年有望实现小批量生产」 — small-batch production expected 2027. The answer carries NO GWh capacity figure.",
+   "unit": "target year (no GWh)",
+   "period": "target year 2027; latest restatement 2026-09-09 (investor question 2026-09-03). Identical wording since at least 2025-05, repeated verbatim on 2026-06-18, 2026-07-29 (x2), 2026-08-18 and 2026-09-09.",
+   "source_name": "OFweek新材料网 (aggregator), 「宁德时代给固态电池定了个时间！2027，小批量」 — relaying CATL's own reply on the SZSE 互动易 investor-relations platform",
+   "source_url": "https://xincailiao.ofweek.com/news/2026-09/ART-180400-8120-30702637.html",
+   "publish_date": "2026-09-11",
+   "publish_date_raw": "2026-09-11",
+   "confidence": "medium",
+   "notes": "PRIMARY = CATL's own 互动易 answer of 2026-09-09; attribute it as 'CATL, 深交所互动易, 2026-09-09' and link OFweek only as the readable secondary. The 互动易 record was penetrated and matched verbatim via the irm.cninfo.com.cn search API, but the site is a JS single-page app that serves an empty 7.2KB shell to every deep-link format tried — there is no citable clickable primary URL (https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=300750 is the entry point only). Do NOT present 2026-09-09 as a new disclosure or a newly 'set' timetable — it is a template answer the IR desk has given for over a year; that consistency (five-plus restatements with no capacity number ever attached) is itself the story. Do NOT write 'no GWh capacity EVER disclosed' — unprovable absolute; write 'the answer carries no GWh figure'. Trap on this same OFweek page: it quotes a third party (利元亨研究院杜义亨) forecasting China's first GWh-class all-solid-state demo lines in 2026–2027 — that is an industry-wide forecast and must not be attached to CATL. OFweek page body carries '2026-09-11 09:52 来源：OFweek新材料网'.",
+   "start_year": "target year 2027; latest restatement 2026-09-09 (investor question 2026-09-03). Identical wording since at least 2025-05, repeated verbatim on 2026-06-18, 2026-07-29 (x2), 2026-08-18 and 2026-09-09."
+  },
+  {
+   "entity": "宁德时代 CATL (SZ: 300750) — chairman 曾毓群 Robin Zeng",
+   "metric": "Technology-readiness rating for solid-state and mass-deployment timing (a readiness statement, not a capacity figure)",
+   "value": "Solid-state sits at level 4 of 9 on technology maturity; mass deployment at a million-vehicle scale before 2030 is unlikely",
+   "unit": "TRL score (x of 9); qualitative timing",
+   "period": "statement made 2026-06-23 (Summer Davos / World Economic Forum annual meeting of the New Champions)",
+   "source_name": "OFweek新材料网 (aggregator, same article) relaying 曾毓群's June 2026 Summer Davos remarks; also carried by 新浪财经 2026-06-24 and 每日经济新闻 2026-06-25",
+   "source_url": "https://xincailiao.ofweek.com/news/2026-09/ART-180400-8120-30702637.html",
+   "publish_date": "2026-09-11",
+   "publish_date_raw": "2026-09-11",
+   "confidence": "medium",
+   "notes": "MUST BE KEPT SEPARATE from the 2026-09-09 互动易 answer — the adversarial check found the two had been fused into one data point, which is a factual error: the 互动易 reply contains no maturity rating at all. Different speaker context, different date, different venue. The fullest report is Caixin (https://international.caixin.com/2026-06-25/102457176.html) but it is PAYWALLED — headline and lede only were visible and its body was not used. Confidence medium: aggregator-relayed, no first-party transcript obtained. If this goes on a public page, attribute as '曾毓群, 2026年夏季达沃斯 (June 2026), as reported by 新浪财经/每经'.",
+   "start_year": "statement made 2026-06-23 (Summer Davos / World Economic Forum annual meeting of the New Champions)"
+  }
+ ],
+ "segment_disclosure": [],
+ "financials": [
+  {
+   "entity": "QuantumScape Corporation (NYSE: QS)",
+   "metric": "Revenue and cash-runway inputs (revenue / liquidity / operating cash outflow / net loss)",
+   "value": "GAAP revenue US$0 — the Condensed Consolidated Statements of Operations contain no revenue line at all and open directly at 'Operating expenses'; the filing states 'As of June 30, 2026, the Company had not derived revenue from its principal business activities' and MD&A calls it 'a development-stage company with no revenue to date'. Cash and cash equivalents US$132.872m + marketable securities US$726.130m = US$859.002m (MD&A: 'approximately $859.0 million'). Net cash used in operating activities US$116.259m for the six months ended 2026-06-30 (H1 2025: US$122.589m). Net loss H1 2026 US$199.039m (Q2 alone US$98.240m; H1 2025 US$229.121m). H1 2026 capex US$14.598m.",
+   "unit": "US$ (financial-statement amounts filed in US$ thousands)",
+   "period": "three and six months ended 2026-06-30 (fiscal year = calendar year, no FY/CY mismatch)",
+   "source_name": "QuantumScape Corporation, Form 10-Q for the quarterly period ended June 30, 2026 (SEC EDGAR)",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1811414/000119312526316073/qs-20260630.htm",
+   "publish_date": "2026-07-24",
+   "publish_date_raw": "2026-07-24",
+   "confidence": "high",
+   "notes": "Publish as 'US$0 GAAP revenue', not a bare 'US$0', and footnote the two non-revenue cash items a critic will point at: (a) non-GAAP 'customer billings' of US$21.8m in H1 2026 (US$11.0m Q1, US$10.8m Q2) — QS itself says billings is an operational metric and not a GAAP revenue measure, so it must never sit in a revenue column; (b) a US$130m pre-paid initial PowerCo royalty carried as a liability subject to clawback, not recognised as revenue. Do NOT write '100% of revenue is solid-state' — a share on a zero base is vacuous; say instead 'one operating segment, solid-state lithium-metal, zero revenue'. Any runway figure (≈3.3–3.7 years on 2x H1 burn) is OUR calculation, not a company statement: it ignores capex and the milestone-contingent PowerCo inflow. Cross-check: across all 271 us-gaap tags QS has ever filed there is no revenue concept at all. Lighter permalink for readers: https://www.sec.gov/Archives/edgar/data/1811414/000119312526316073/0001193125-26-316073-index.htm"
+  },
+  {
+   "entity": "Solid Power, Inc. (NASDAQ: SLDP)",
+   "metric": "Revenue and cash-runway inputs (revenue and grant income / liquidity / operating cash outflow)",
+   "value": "Total revenue and grant income US$2.805m for H1 2026 (revenue US$1.088m + grant income US$1.717m). Q2 2026 alone was NEGATIVE US$0.268m (revenue −US$1.017m + grant income US$0.749m), driven by a US$1.2m reversal of previously recognised non-government revenue under the SK On R&D licence (change in the constraint on variable consideration). Total liquidity US$419.326m = cash and cash equivalents US$24.284m + available-for-sale securities US$395.042m. Net cash used in operating activities US$27.173m for H1 2026 (H1 2025: US$40.734m). No debt.",
+   "unit": "US$ (financial-statement amounts filed in US$ thousands)",
+   "period": "three and six months ended 2026-06-30 (fiscal year end 12-31, so H1 2026 = calendar H1 2026)",
+   "source_name": "Solid Power, Inc., Form 10-Q for the quarterly period ended June 30, 2026 (SEC EDGAR)",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1844862/000110465926090634/sldp-20260630x10q.htm",
+   "publish_date": "2026-08-05",
+   "publish_date_raw": "2026-08-05",
+   "confidence": "high",
+   "notes": "DO NOT label this 'revenue attributable to solid-state products'. All of it is collaborative-arrangement / milestone / government-contract revenue — the SK On collaboration and a US DOE assistance agreement — and the filing states the company is 'a research and development company with no commercial operations'. Two mechanical traps: (1) 'Total liquidity US$419.326m' is a company-defined MD&A measure, not a balance-sheet line — the US$395.042m AFS figure = current 'Marketable securities' US$218.151m + long-term AFS bonds US$176.891m; an automated read of this same filing produced a wrong ~US$242.4m by using only the current line. (2) The negative Q2 makes any single-quarter revenue multiple meaningless — use H1 or TTM. Runway of ~7+ years (H1 burn on US$419.3m) is our arithmetic, not a company statement; the company says liquidity is sufficient for 'at least the next 12 months' and that it 'may require additional liquidity prior to being able to generate adequate cash flows from electrolyte sales and/or licensing'. Researcher-noted but NOT verifier-confirmed: the balance was boosted by a 2026 equity offering with net proceeds of US$121.3m — re-verify before publishing. Company press release with the same figures dated 2026-08-04 at solidpowerbattery.com; filing date confirmed from the in-document signature block ('Date: August 5, 2026') — the cover-page 'as of August 3, 2026' is the share-count date, not the filing date."
+  }
+ ],
+ "open_gaps": [
+  "A defensible \"solid-state market share\" CANNOT be computed today — not approximately, not with caveats. There is no numerator: QuantumScape has US$0 revenue and has never disclosed a GWh or a cell count; Solid Power's entire revenue line is SK On collaboration money plus DOE grants and went negative in Q2 2026; ProLogium publishes only a cumulative cell count that is a stale floor from H1 2025 and mixes car-audio, consumer and specialty cells; CATL discloses nothing and expects only small-batch production in 2027. And there is no denominator: nothing in this evidence set sizes a solid-state market in either GWh or dollars — SNE's 725.2 GWh / 316.2 GWh is all-chemistry xEV battery usage and cannot be split. The units are also incommensurable across the pool (cells vs GWh vs USD). Any share percentage published today would be manufactured.",
+  "No research house in this payload sizes the solid-state segment at all. There is no analogue here to the LightCounting/Cignal/Dell'Oro coverage that exists for optical — no free release giving solid-state market size, growth, or vendor ranking. That absence, not a missing number, is the structural gap.",
+  "ProLogium's true cumulative shipments as of 2026-09-16 are unknown. Only the >2.4 million floor, last actually measured at H1 2025, is public — and the company has been ramping a Giga-level facility since early 2024, so the real figure is materially higher by an undisclosed amount.",
+  "ProLogium Taoyuan line capacity (~0.5 GWh/yr, quoted as ≈6,000–6,250 80kWh packs) is media-attributed only — carnewschina 2026-09-06, TheNextWeb 2026-09-08, getcarnews 2026-09-09 — and appears nowhere in the company release. No URL for any of those outlets was captured in the payload, so it is deliberately omitted from the entries rather than cited to a link we do not have.",
+  "ProLogium's Dunkirk plant staging is irreconcilable across outlets: one account gives 0.8 GWh in 2028 → 4 GWh by 2030 → 12 GWh by 2032, another gives an initial 4 GWh with a 44 GWh maximum design; TheNextWeb explicitly flags the two as not reconcilable. Do not publish a single Dunkirk number as settled.",
+  "No cash/runway or disclosure data for SES AI, Ilika or Microvast (MVST) reached this agent. The payload was truncated mid-sentence inside the Solid Power verifier verdict, so those three companies — explicitly requested — have zero evidence here and no pool verdict can honestly be issued for them.",
+  "No semi-solid shipment data of any kind is in the payload (WeLion, Ganfeng, Farasis, NIO 150 kWh pack, etc.). The semi-solid leg of the page is entirely unsourced.",
+  "No built or funded solid-state manufacturing capacity figure was verified for anyone. QS's 85 GWh is a PowerCo licence ceiling, CATL discloses no GWh, ProLogium's line capacity is media-only. The capacity column of this page currently has no citable content.",
+  "The two researchers gave conflicting QuantumScape FY2026 capex guidance — US$40–60m in one record versus ~US$27–37m in the other — and neither verifier addressed the conflict. Do not publish a QS capex figure until it is re-pulled from the shareholder letter or 10-Q.",
+  "Solid Power's 2026 equity offering net proceeds of US$121.3m come from researcher notes only; the verifier's text was truncated before that item was confirmed. Re-verify before publishing.",
+  "SNE Research does not give per-company shares for CALB, Gotion, EVE, SVOLT or REPT in its free release text — only GWh and YoY. The widely circulated percentages for those five originate from CnEVPost reading SNE's chart image and are not verifiable in the SNE body.",
+  "CATL's primary record (深交所互动易) has no citable deep link: every deep-link format returns an empty JavaScript shell. The primary can be named and dated but not linked; only the aggregator copy is clickable.",
+  "The rejected-items list was not visible in the payload received, so this sheet cannot report what failed adversarial verification or why — anything a researcher submitted and a verifier killed is invisible to this pass.",
+  "The payload delivered was dominated by optical-track entries (roughly 20 of 27 confirmed items concerned optical transceivers/components). Those are excluded from this solid-state sheet by design, but it means the solid-state track was researched far more thinly than the optical one and should not be treated as an equally complete sweep."
+ ],
+ "citability_verdict": "Four source types are safe to cite on a public page, in descending order of strength. (1) SEC filings on EDGAR — QuantumScape's and Solid Power's 10-Qs are primary, permanent, signed under liability, and are the only documents here where anything is legally attested; cite the Archives permalink (or the lighter filing-index URL) and take the filing date from the in-document signature block, never from a search snippet. (2) First-party company releases on the company's own newsroom or its paid wire (ProLogium via prologium.com / GlobeNewswire) — citable and date-confirmable from the in-body dateline, but you must check whether the number is a fresh measurement or recycled boilerplate: ProLogium's \">2.4 million cells\" was first announced in July 2025 and merely restated unchanged fourteen months later. (3) Free press releases from a named research house where the number sits in the free body, not behind the report paywall (SNE Research) — citable with the house name plus the exact release date, preferring SNE's English-edition URL; the underlying Monthly Tracker is sold, but the headline table is not. (4) Chinese trade aggregators (OFweek) as a readable secondary only — attribute the primary event (CATL's SZSE 互动易 answer of 2026-09-09) and use the aggregator as the clickable link, because 互动易 is a JavaScript single-page app with no working deep link; take the date from the page's own byline block, since Chinese pages' search-engine dates are unreliable. Not safe to cite: paywalled bodies (Caixin's Davos report — headline and lede only were readable); capacity numbers that appear in media but not in the company release (ProLogium's 0.5 GWh/yr Taoyuan line, the Dunkirk staging); per-company shares read off a chart image by a re-reporter (CnEVPost's figures for CALB, Gotion, EVE, SVOLT, REPT); non-GAAP \"customer billings\" presented as revenue; and any licence ceiling (QS/PowerCo's 85 GWh) presented as capacity.",
+ "pool_verdicts": [
+  {
+   "ticker": "QS",
+   "name": "QuantumScape Corporation",
+   "track": "solid-state",
+   "discloses_segment": "no",
+   "segment_line_name": "None. One operating segment ('focused on the development and commercialization of its solid-state lithium-metal battery technology') and no revenue line whatsoever — the income statement opens at 'Operating expenses'. Segment note: 'The operating segment has not derived revenue from its business activities as of June 30, 2026.'",
+   "purity": "high",
+   "evidence_url": "https://www.sec.gov/Archives/edgar/data/1811414/000119312526316073/qs-20260630.htm",
+   "notes": "Cleanest pure-play in the pool but contributes a ZERO to any share numerator: US$0 GAAP revenue inception-to-date, and no GWh or unit count of shipments has ever been disclosed. Cannot enter a computed-share table on either a revenue or a volume basis. Two figures that will be mistaken for revenue and are not: non-GAAP 'customer billings' US$21.8m H1 2026, and a US$130m pre-paid PowerCo royalty carried as a clawback-subject liability. The only GWh numbers in its filings (40/40/5/85) are PowerCo licence ceilings."
+  },
+  {
+   "ticker": "SLDP",
+   "name": "Solid Power, Inc.",
+   "track": "solid-state",
+   "discloses_segment": "bundled",
+   "segment_line_name": "'Revenue' / 'Grant income' / 'Total revenue and grant income' — a single reported segment with no solid-state product line and no split between electrolyte sales and R&D funding",
+   "purity": "high",
+   "evidence_url": "https://www.sec.gov/Archives/edgar/data/1844862/000110465926090634/sldp-20260630x10q.htm",
+   "notes": "Solid-state IS the business, but effectively 100% of the revenue line is SK On collaboration/milestone money plus DOE grant income — R&D funding recognised as revenue, not sulfide-electrolyte product sales. The filing calls the company 'a research and development company with no commercial operations'. Q2 2026 revenue was negative (−US$1.017m) after a US$1.2m reversal, so the line is not even monotonic. Usable as a cash/runway row; NOT usable as a solid-state revenue numerator."
+  },
+  {
+   "ticker": "unlisted — PRLG pending (SPAC with Translational Development Acquisition Corp.)",
+   "name": "ProLogium Technology Co., Ltd. 輝能科技",
+   "track": "solid-state",
+   "discloses_segment": "no",
+   "segment_line_name": "None — no financial statements are public; the only quantity the company publishes is a cumulative cell count ('more than 2.4 million cells on the LCB platform')",
+   "purity": "high",
+   "evidence_url": "https://prologium.com/prologium-begins-mass-production-of-high-energy-density-all-solid-state-battery-reaching-381-wh-kg-and-903-wh-l/",
+   "notes": "The only player in the pool that publishes any cumulative shipment quantity at all — and it is a stale floor last measured at H1 2025, spanning consumer + specialty + automotive-audio applications, not EV traction cells (>900k of them went to one US car-audio customer). No revenue, no GWh, no capacity confirmed by the company. The PRLG/Nasdaq/SPAC framing (~US$3.8bn reverse merger announced 2026-05-27, close expected H2 2026) is independently true per TDAC 8-K/425 filings on SEC EDGAR but is NOT supported by the press release cited above — it needs its own citation."
+  },
+  {
+   "ticker": "300750.SZ",
+   "name": "宁德时代 CATL",
+   "track": "solid-state",
+   "discloses_segment": "no",
+   "segment_line_name": "None. Solid-state sits inside the undifferentiated 动力电池系统 business; there is no solid-state revenue line, no solid-state GWh line, and no solid-state capacity figure in any disclosure verified here",
+   "purity": "main",
+   "evidence_url": "https://xincailiao.ofweek.com/news/2026-09/ART-180400-8120-30702637.html",
+   "notes": "Battery maker with a solid-state roadmap and ~zero solid-state revenue: company target is small-batch production in 2027, and the chairman rates the technology at level 4 of 9 with million-vehicle-scale deployment unlikely before 2030. Its 39.9% global / 34.0% ex-China EV-battery share (SNE, Jan–Jul 2026) is ALL-CHEMISTRY and must never be read across to solid-state. Cannot enter a solid-state computed-share table on any basis."
+  }
+ ]
+}

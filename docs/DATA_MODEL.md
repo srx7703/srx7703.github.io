@@ -104,3 +104,87 @@ Frozen result tables from the original project live in `data/case_studies/statar
 `data/case_studies/finllm/evaluation_results_phase2.json` is the frozen 4-way BERTScore report from
 srx7703/multi-horizon-financial-llm; `pipelines/finllm/publish.py` writes `data/facts/finllm.json`
 and per-item / paired marts for the charts. Nothing is recomputed.
+
+---
+
+# Data model — valuation (optical modules and solid-state batteries)
+
+Pipeline: `pipelines/valuation/`. Runs via GitHub Actions (`valuation.yml`): prices and FX on
+weekdays at 06:47 UTC, the full run including analyst consensus on Mondays at 07:47 UTC. Two pages
+are built from it, one per track, sharing every table.
+
+## Sources (all public, no paid key)
+
+| Source | Endpoint | Used for |
+|---|---|---|
+| Yahoo Finance | `yfinance.Ticker(t).info` | last close, quote currency, reporting currency, market cap, shares |
+| Yahoo Finance | `quoteSummary?modules=earningsTrend` | consensus EPS for the current and next fiscal year, with the period **end date**, the analyst count, the high/low, and the mean as it stood 7/30/60/90 days ago |
+| Yahoo Finance | `Ticker(t).quarterly_income_stmt` / `.income_stmt` | quarterly and annual net income and revenue outside China and the US |
+| East Money | `PC_HSF10/ProfitForecast/PageAjax?code=SZ300308` | A-share consensus: **per-broker** forecasts (`ycmx`) with publisher, researcher, publish date, EPS and attributable net profit for four years, plus East Money's own six-month mean (`jgyc`) and the rating distribution (`pjtj`) |
+| East Money | `datacenter-web/api/data/v1/get?reportName=RPT_LICO_FN_CPD` | A-share quarterly reports (cumulative year-to-date, differenced here) |
+| SEC EDGAR | XBRL `companyfacts` | US net income and revenue, through the machinery already written for the SaaS benchmark |
+| FRED | `fredgraph.csv?id=DEXCHUS` and five more | daily CNY, JPY, KRW, TWD, HKD and GBP rates |
+
+Neither Yahoo nor East Money is a documented public API. Both are treated as sources that can change
+shape or rate-limit without notice: every payload is archived before parsing, every company is
+fetched inside its own try/except, and a failed source never discards the sources that worked.
+
+## Raw archive policy
+
+Payloads land in `data/raw/valuation/<source>/<date>/` as gzipped JSON or CSV, append-only. The one
+deliberate exception is SEC `companyfacts`: EDGAR is itself a permanent public archive with stable
+URLs, the filings cannot be silently rewritten, and one weekly run of the 17 US listings would add
+about 6 MB. As in `pipelines/sec`, the extracted facts are kept and the payload is not.
+
+## Tables
+
+`data/snapshots/valuation/prices/<date>.parquet` — one row per listing.
+
+| column | meaning |
+|---|---|
+| `price`, `currency` | last close in the **quote** currency; `GBp` means London pence, not pounds |
+| `financial_currency` | the currency the company reports in, which can differ (CATL's H line: HKD / CNY) |
+| `market_cap`, `shares_outstanding` | as published; for an H line the cap is the whole issuer at the H price |
+| `price_ts` | when that quote was struck, so a stale market can be seen |
+
+`data/snapshots/valuation/estimates/<date>-{yahoo,eastmoney}.parquet` — the current consensus, one
+row per (ticker, source, fiscal period end), carrying `eps_avg/low/high`, `n_analysts`, the currency
+the EPS is quoted in, and for East Money the mean attributable net profit. A prior-year **actual**
+row (`mark = "A"`) is emitted too, because a non-December filer needs it to build a calendar year.
+
+`data/snapshots/valuation/vintages/<date>-{yahoo,eastmoney}.parquet` — the consensus as it stood
+earlier. Two origins that do not mean the same thing:
+
+- `yahoo_trend` — Yahoo's own restatement of the mean at 7/30/60/90 days ago over a fixed panel. A
+  move here is a **revision**.
+- `eastmoney_rebuilt` — each broker publishes once in the window, so averaging the brokers who had
+  published by an earlier date gives the consensus **as it stood**, not a revision series: the mean
+  moves when new coverage arrives as well as when someone changes their mind, and the earliest
+  points rest on two or three reports. `n_analysts` is the cohort size behind each point, and it is
+  the reason the early series rises.
+- `snapshot` — our own weekly capture, a true revision series from the second week onwards.
+
+Only `yahoo_trend` and `snapshot` are used to score revision persistence.
+
+`data/snapshots/valuation/brokers/<date>-eastmoney.parquet` — the per-broker evidence behind the
+A-share mean: house, researchers, publish date, year, EPS, net profit, rating. This is what makes
+the A-share consensus reproducible rather than taken on trust.
+
+`data/snapshots/valuation/fundamentals/<date>*.parquet` — quarterly attributable net income and
+revenue per listing, already differenced out of cumulative filings, with `derived` marking which
+quarters came from differencing and `source` naming where they came from.
+`fundamentals_annual/` holds annual rows for the listings whose quarterly statements Yahoo does not
+carry (the Japanese names, CALB, Ilika), so those get a fiscal-year trailing multiple clearly
+labelled as such instead of no multiple at all.
+
+`data/snapshots/valuation/fx/<date>.parquet` — 400 days of daily rates per currency as units per
+USD. `DEXUSUK` is published the other way round and is inverted on the way in.
+
+## Derived
+
+`pipelines/valuation/calendarize.py` restates fiscal-year consensus onto calendar years by month
+overlap, because half the pool does not end its year in December. `metrics.py` computes the ratios,
+converting currencies explicitly at every step and returning a written reason instead of a number
+whenever a denominator is not positive. `share.py` builds the two share bases. `publish.py` writes
+`data/marts/valuation/*.json` and `data/facts/valuation_{optical,ssb}.json`; `evaluate.py` scores
+the pre-registered plan and returns "not yet" with a reason for anything that cannot be scored.
