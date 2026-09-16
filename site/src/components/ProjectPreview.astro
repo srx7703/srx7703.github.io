@@ -21,7 +21,7 @@ const statusLabel = { live: 'Live, auto-refreshed', 'case-study': 'Case study', 
     <p class="preview__summary">{summary}</p>
   </div>
   <div class="preview__aside">
-    {kpi && <p class="preview__latest"><span class="preview__latest-label">Latest</span><strong>{kpi.value}</strong>{kpi.label}</p>}
+    {kpi && <p class="preview__latest"><span class="preview__latest-label">Latest</span><strong>{kpi.value}</strong>{' '}{kpi.label}</p>}
     <span class="preview__cta" aria-hidden="true">View project →</span>
   </div>
 </a>

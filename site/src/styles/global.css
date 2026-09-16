@@ -1,5 +1,7 @@
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+/* The root size grows with the viewport (16px at 1360px, 19px at 1920px, 21px from 2270px), so the whole rem-based
+   layout scales up on large screens while lines keep the same number of characters. */
+html { -webkit-text-size-adjust: 100%; font-size: clamp(16px, 0.55vw + 8.5px, 21px); }
 body {
   margin: 0; font-family: var(--font-serif); font-size: var(--fs-md); line-height: 1.55;
   color: var(--ink); background: var(--bg); font-optical-sizing: auto; -webkit-font-smoothing: antialiased;
@@ -59,7 +61,10 @@ summary:hover { color: var(--ink); }
 .masthead__name { font-size: 1.75rem; font-weight: 500; margin: 0; line-height: 1.15; }
 .masthead__name a { text-decoration: none; }
 .masthead__sub { margin: 0.2rem 0 0; color: var(--ink-3); font-size: var(--fs-sm); font-family: var(--font-sans); }
-.hero { font-size: 1.4rem; line-height: 1.4; max-width: 40ch; margin: 0 0 var(--s-6); text-wrap: pretty; }
+.hero { font-size: 1.45rem; line-height: 1.4; margin: 0 0 var(--s-6); text-wrap: pretty; }
+.hero-note { display: block; margin-top: 0.5rem; }
+.hero-note__row { display: grid; grid-template-columns: 5.5em 1fr; gap: 0 0.5rem; margin-top: 0.3rem; font-variant-numeric: tabular-nums; }
+.hero-note__label { color: var(--ink); }
 .site-footer { border-top: 1px dashed var(--border-strong); margin-top: var(--s-6); padding: var(--s-4) 0 var(--s-6); font-size: var(--fs-sm); color: var(--ink-3); font-family: var(--font-sans); }
 .site-footer a { color: inherit; }
 main.page { padding-bottom: var(--s-5); }
@@ -150,10 +155,12 @@ main.page { padding-bottom: var(--s-5); }
 .log time { color: var(--ink-3); font-family: var(--font-sans); font-size: var(--fs-sm); font-variant-numeric: tabular-nums; padding-top: 0.15rem; }
 
 /* narrow screens: the margin folds into the column */
-@media (max-width: 72rem) {
+@media (max-width: 75rem) {
   .page, .container { max-width: calc(var(--col) + 2 * var(--s-4)); }
   .preview { grid-template-columns: minmax(0, 1fr); width: 100%; }
   .preview__aside { padding-top: 0; }
+  .preview__cta { display: none; }
+  .hero .marginnote { display: none; } /* the stamps are on each project page */
   .preview__latest strong { display: inline; font-size: 1em; font-family: var(--font-sans); font-weight: 600; }
   .preview__latest-label { display: inline; text-transform: none; letter-spacing: 0; font-size: inherit; color: var(--ink-2); margin: 0 0.3em 0 0; }
   .preview__latest-label::after { content: ':'; }

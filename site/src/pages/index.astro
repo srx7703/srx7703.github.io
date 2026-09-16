@@ -4,11 +4,21 @@ import Base from '@layouts/Base.astro';
 import ProjectPreview from '@components/ProjectPreview.astro';
 import { cardKpis } from '@lib/cardKpis';
 import { changelog } from '@lib/changelog';
+import MarginNote from '@components/MarginNote.astro';
+import midterms from '@data/facts/midterms.json';
+import fomc from '@data/facts/fomc.json';
+import saas from '@data/facts/saas.json';
+import { dateUtc } from '@lib/fmt';
+const stamps = [
+  { label: 'Midterms', ts: midterms.last_snapshot_ts, cadence: 'twice daily' },
+  { label: 'FOMC', ts: fomc.last_snapshot_ts, cadence: 'twice daily' },
+  { label: 'SaaS', ts: saas.last_refresh ?? saas.generated_at, cadence: 'weekly' },
+];
 const projects = (await getCollection('projects')).filter((p) => p.data.featured).sort((a, b) => a.data.order - b.data.order);
 const recent = changelog.slice(0, 3);
 ---
 <Base title="Data analysis and dashboards">
-  <p class="hero">I build analyses that keep running after the write-up: scheduled pipelines, tested transforms, and dashboards whose method and evaluation are written down before the results are in. Everything here is built end to end with Claude Code; the pipelines and the site are public.</p>
+  <p class="hero"><MarginNote><span class="hero-note">Live data, as of the last pipeline run:{stamps.map((s) => (<span class="hero-note__row"><span class="hero-note__label">{s.label}</span><span>{dateUtc(s.ts)} · {s.cadence}</span></span>))}</span></MarginNote>I build analyses that keep running after the write-up: scheduled pipelines, tested transforms, and dashboards whose method and evaluation are written down before the results are in. Everything here is built end to end with Claude Code; the pipelines and the site are public.</p>
 
   <h2>Projects</h2>
   <div>
