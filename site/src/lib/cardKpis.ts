@@ -13,5 +13,5 @@ export const cardKpis: Record<string, { label: string; value: string }> = {
     : { label: 'decision markets tracked', value: String(fomc.decision_markets) },
   'saas-benchmark': { label: 'median revenue growth, TTM', value: pct(saas.median_rev_growth, 1) },
   'statarb-2019-2020': { label: `best stat-arb Sharpe (${statarb.best_statarb.strategy}) vs ${statarb.buy_and_hold.sharpe.toFixed(2)} buy-and-hold`, value: statarb.best_statarb.sharpe.toFixed(2) },
-  'financial-llm-sec': { label: 'BERTScore F1 gain on Gemma 4 with the SEC adapter', value: `+${finllm.deltas_pct.gemma4_base_to_v2}%` },
+  'financial-llm-sec': { label: 'BERTScore F1 gain on Gemma 4 with the SEC adapter', value: `+${finllm.deltas_pct.gemma4_base_to_v2.toFixed(1)}%` },
 };

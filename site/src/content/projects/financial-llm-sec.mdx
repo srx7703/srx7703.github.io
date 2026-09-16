@@ -1,6 +1,6 @@
 ---
 title: "Teaching a 30B model to read SEC filings: a LoRA fine-tune measured properly"
-summary: "1,060 analyst-style QA pairs distilled from 381 SEC filings, used to fine-tune Gemma 2 27B and Gemma 4 31B with LoRA on a TPU. BERTScore F1 rises 3.5% and 5.8%, with paired tests and per-item results rather than a single headline number."
+summary: "Analyst-style QA pairs distilled from SEC filings, used to fine-tune Gemma 2 27B and Gemma 4 31B with LoRA on a TPU. BERTScore F1 rises on both bases, reported with paired tests and per-item results rather than a single headline number."
 status: case-study
 domain: ["LLM", "evaluation"]
 tools: ["PyTorch/XLA", "HF PEFT", "TPU v6e", "Gemini", "BERTScore", "Vega-Lite"]
@@ -26,21 +26,21 @@ export const byKey = Object.fromEntries(facts.summary.map((s) => [s.key, s]));
 export const asOf = 'April 2026 (frozen results)';
 
 <div class="lede">
-  The same LoRA adapter recipe, trained on {num(facts.dataset.qa_pairs)} question–answer pairs distilled from {num(facts.dataset.filings)} SEC filings of {facts.dataset.tickers} S&amp;P 500 companies, lifts BERTScore F1 by {facts.deltas_pct.gemma2_base_to_v2}% on Gemma 2 27B and {facts.deltas_pct.gemma4_base_to_v2}% on Gemma 4 31B. On Gemma 4 the adapter wins on {g4.wins} of {facts.test_items} held-out items (paired t = {g4.t}); on Gemma 2 it wins {g2.wins} of {facts.test_items} (t = {g2.t}). The effect is larger on the newer base, which argues the adapter adds domain knowledge rather than compensating for a weak model.
+  The same LoRA adapter recipe, trained on {num(facts.dataset.qa_pairs)} question–answer pairs distilled from {num(facts.dataset.filings)} SEC filings of {facts.dataset.tickers} S&amp;P 500 companies, lifts BERTScore F1 by {facts.deltas_pct.gemma2_base_to_v2.toFixed(1)}% on Gemma 2 27B and {facts.deltas_pct.gemma4_base_to_v2.toFixed(1)}% on Gemma 4 31B. On Gemma 4 the adapter wins on {g4.wins} of {facts.test_items} held-out items (paired t = {g4.t}); on Gemma 2 it wins {g2.wins} of {facts.test_items} (t = {g2.t}). The effect is larger on the newer base, which argues the adapter adds domain knowledge rather than compensating for a weak model.
 </div>
 
 <KpiRow>
-  <KpiTile label="BERTScore F1, Gemma 4 31B" value={byKey.v2_gemma4.f1.toFixed(4)} sub={`base ${byKey.base_gemma4.f1.toFixed(4)} · +${facts.deltas_pct.gemma4_base_to_v2}% · wins ${g4.wins}/${facts.test_items}`} tone="positive" />
-  <KpiTile label="BERTScore F1, Gemma 2 27B" value={byKey.v2.f1.toFixed(4)} sub={`base ${byKey.base.f1.toFixed(4)} · +${facts.deltas_pct.gemma2_base_to_v2}% · wins ${g2.wins}/${facts.test_items}`} tone="positive" />
+  <KpiTile label="BERTScore F1, Gemma 4 31B" value={byKey.v2_gemma4.f1.toFixed(4)} sub={`base ${byKey.base_gemma4.f1.toFixed(4)} · +${facts.deltas_pct.gemma4_base_to_v2.toFixed(1)}% · wins ${g4.wins}/${facts.test_items}`} tone="positive" />
+  <KpiTile label="BERTScore F1, Gemma 2 27B" value={byKey.v2.f1.toFixed(4)} sub={`base ${byKey.base.f1.toFixed(4)} · +${facts.deltas_pct.gemma2_base_to_v2.toFixed(1)}% · wins ${g2.wins}/${facts.test_items}`} tone="positive" />
   <KpiTile label="Paired t-test, Gemma 4" value={`t = ${g4.t}`} sub={`mean gain ${g4.mean_delta.toFixed(4)} · 95% CI [${g4.ci_95[0].toFixed(4)}, ${g4.ci_95[1].toFixed(4)}] · n = ${facts.test_items}`} />
 </KpiRow>
 
-<ChartCard title={`The adapter gain is larger on the newer base: +${facts.deltas_pct.gemma4_base_to_v2}% F1 on Gemma 4 versus +${facts.deltas_pct.gemma2_base_to_v2}% on Gemma 2`} subtitle={`BERTScore F1 on the same ${facts.test_items} held-out SEC questions, base model vs base + SEC LoRA; the relative gains of +${facts.deltas_pct.gemma4_base_to_v2}% and +${facts.deltas_pct.gemma2_base_to_v2}% are +${facts.f1_points.gemma4} and +${facts.f1_points.gemma2} F1 points`}>
+<ChartCard title={`The adapter gain is larger on the newer base: +${facts.deltas_pct.gemma4_base_to_v2.toFixed(1)}% F1 on Gemma 4 versus +${facts.deltas_pct.gemma2_base_to_v2.toFixed(1)}% on Gemma 2`} subtitle={`BERTScore F1 on the same ${facts.test_items} held-out SEC questions, base model vs base + SEC LoRA; the relative gains of +${facts.deltas_pct.gemma4_base_to_v2.toFixed(1)}% and +${facts.deltas_pct.gemma2_base_to_v2.toFixed(1)}% are +${facts.f1_points.gemma4} and +${facts.f1_points.gemma2} F1 points`}>
   <VegaChart id="finllm-summary" spec={finllmSummarySpec(facts.test_items)} height={240} ariaLabel="Grouped bar chart of BERTScore F1 for base and fine-tuned Gemma 2 27B and Gemma 4 31B" />
   <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
 </ChartCard>
 
-<ChartCard title={`On Gemma 4 every one of the ${facts.test_items} items improves; the largest gain is item ${facts.largest_item_gain_gemma4.item} (+${facts.largest_item_gain_gemma4.delta.toFixed(3)})`} subtitle="Per-item BERTScore F1, base Gemma 4 31B (grey) to base + SEC LoRA (blue), sorted by gain">
+<ChartCard title={`On Gemma 4 every one of the ${facts.test_items} items improves; the largest gain is item ${facts.largest_item_gain_gemma4.item} (+${facts.largest_item_gain_gemma4.delta.toFixed(3)})`} subtitle="Per-item BERTScore F1, base Gemma 4 31B (grey) to base + SEC LoRA (blue), sorted by gain; axis starts at 0.60 to spread the items">
   <VegaChart id="finllm-paired" spec={finllmPairedSpec('gemma4')} height={360} ariaLabel="Dumbbell chart of per-item BERTScore F1 before and after fine-tuning on Gemma 4" />
   <details>
     <summary>Gemma 2 27B per-item view</summary>
@@ -60,9 +60,9 @@ export const asOf = 'April 2026 (frozen results)';
 <Section id="evaluation" title="Evaluation">
   <div class="prose">
     <ul>
-      <li><strong>Gemma 4 31B:</strong> F1 {byKey.base_gemma4.f1.toFixed(4)} → {byKey.v2_gemma4.f1.toFixed(4)} (+{facts.deltas_pct.gemma4_base_to_v2}%); mean per-item gain {g4.mean_delta.toFixed(4)}, t = {g4.t}, p {facts.p_display.gemma4}, wins {g4.wins}/{facts.test_items}.</li>
-      <li><strong>Gemma 2 27B:</strong> F1 {byKey.base.f1.toFixed(4)} → {byKey.v2.f1.toFixed(4)} (+{facts.deltas_pct.gemma2_base_to_v2}%); t = {g2.t}, p {facts.p_display.gemma2.startsWith('<') ? facts.p_display.gemma2 : `= ${facts.p_display.gemma2}`}, wins {g2.wins}/{facts.test_items}, losses {g2.losses}.</li>
-      <li><strong>Base upgrade is additive:</strong> Gemma 4 + LoRA beats Gemma 2 + LoRA by {facts.deltas_pct.gemma2_v2_to_gemma4_v2}%.</li>
+      <li><strong>Gemma 4 31B:</strong> F1 {byKey.base_gemma4.f1.toFixed(4)} → {byKey.v2_gemma4.f1.toFixed(4)} (+{facts.deltas_pct.gemma4_base_to_v2.toFixed(1)}%); mean per-item gain {g4.mean_delta.toFixed(4)}, t = {g4.t}, p {facts.p_display.gemma4}, wins {g4.wins}/{facts.test_items}.</li>
+      <li><strong>Gemma 2 27B:</strong> F1 {byKey.base.f1.toFixed(4)} → {byKey.v2.f1.toFixed(4)} (+{facts.deltas_pct.gemma2_base_to_v2.toFixed(1)}%); t = {g2.t}, p {facts.p_display.gemma2.startsWith('<') ? facts.p_display.gemma2 : `= ${facts.p_display.gemma2}`}, wins {g2.wins}/{facts.test_items}, losses {g2.losses}.</li>
+      <li><strong>Base upgrade is additive:</strong> Gemma 4 + LoRA beats Gemma 2 + LoRA by {facts.deltas_pct.gemma2_v2_to_gemma4_v2.toFixed(1)}%.</li>
     </ul>
     <p>Limitations: {facts.test_items} items is a small test set and the confidence intervals are wide; BERTScore rewards lexical and semantic overlap with a teacher-written reference, not factual correctness against the filing; the QA pairs and the references come from the same teacher, so the adapter partly learns the teacher's style. A retrieval-grounded factuality check against the source filings is the natural next evaluation.</p>
   </div>

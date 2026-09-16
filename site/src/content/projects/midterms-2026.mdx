@@ -21,6 +21,7 @@ import { evaluationPlan } from '@lib/prereg';
 import DownloadCsv from '@components/DownloadCsv.astro';
 import { headlineSpec } from '@charts/midterms/headline';
 import { balanceSpec } from '@charts/midterms/balance';
+import { gapSpec } from '@charts/midterms/gap';
 import { pct, pts, num, usd, dateUtc, dayUtc, daysUntil } from '@lib/fmt';
 
 export const h = facts.headline;
@@ -69,6 +70,25 @@ export const plan = evaluationPlan();
   <VegaChart id="balance" spec={balanceSpec()} height={170} ariaLabel="Bar chart of the four balance-of-power outcomes and their probabilities" />
   <SourceStamp slot="stamp" sources={[facts.sources[0]]} asOf={asOf} />
 </ChartCard>
+
+<ChartCard title={`Polymarket prices Democrats ${pts(h.house_dem.spread)} above Kalshi on the House and ${pts(h.senate_dem.spread)} on the Senate`} subtitle="Cross-platform gap in the Democratic-control probability, percentage points, one point per snapshot; the pre-registered plan scores whether this gap narrows into election day">
+  <VegaChart id="platform-gap" spec={gapSpec()} height={220} ariaLabel="Line chart of the Polymarket minus Kalshi probability gap for House and Senate control over time" />
+  <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
+</ChartCard>
+
+<Section id="races" title="Most active state races">
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Race (Polymarket event)</th><th class="num">Cumulative volume</th><th class="num">Candidate markets</th></tr></thead>
+      <tbody>
+        {facts.top_races_polymarket.map((r) => (
+          <tr><td><a href={`https://polymarket.com/event/${r.event_slug}`}>{r.title}</a></td><td class="num">{usd(r.volume_usd)}</td><td class="num">{r.markets}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="muted">Top ten Senate and Governor winner events by cumulative volume in the latest full snapshot; a state-by-state probability table follows once both platforms' race markets are matched.</p>
+</Section>
 
 <Section id="method" title="Method">
   <div class="prose">

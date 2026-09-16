@@ -16,6 +16,14 @@ const entries = [
   <ul class="log">
     {entries.map((e) => (<li><time datetime={e.date}>{e.date}</time><span>{e.text}</span></li>))}
   </ul>
+  <h2>Not built yet (deliberately)</h2>
+  <ul>
+    <li>Midterms v2 views: state-race heat table and volume/liquidity charts, plus Cook ratings as the baseline input (before election day).</li>
+    <li>FOMC market-reaction leg (Treasury yields and equity moves on decision day versus the surprise): needs FRED and Tiingo keys.</li>
+    <li>SaaS: per-company quarterly drill-down and an investor-relations spot check of three numbers per company.</li>
+    <li>Personal portfolio attribution from a brokerage account: not published pending a decision on making it public.</li>
+    <li>Tableau / Power BI export attachments of the same facts, resume link, custom domain.</li>
+  </ul>
   <h2>Projects</h2>
   <ul>
     {projects.map((p) => (<li><a href={`/projects/${p.id}/`}>{p.data.title}</a> <span class="muted">· {p.data.status} · started {p.data.started}</span></li>))}

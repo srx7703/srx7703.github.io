@@ -97,10 +97,10 @@ export const pathTitle = facts.meetings.filter((m) => m.agree).map((m) => `${sid
     ) : (
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Decision</th><th>Outcome</th><th class="num">P(outcome) Polymarket</th><th class="num">P(outcome) Kalshi</th><th class="num">Brier Polymarket (0–2)</th><th class="num">Brier Kalshi (0–2)</th></tr></thead>
+          <thead><tr><th>Decision</th><th>Outcome</th><th class="num">P(outcome) Polymarket</th><th class="num">P(outcome) Kalshi</th><th class="num">Brier Polymarket (0–2)</th><th class="num">Brier Kalshi (0–2)</th><th class="num">Sum of buckets (PM / KX)</th></tr></thead>
           <tbody>
             {facts.scorecard.map((r) => (
-              <tr><td>{dayUtc(r.decision_date)}</td><td>{r.outcome}</td><td class="num">{pct(r.platforms.polymarket?.p_outcome, 1)}</td><td class="num">{pct(r.platforms.kalshi?.p_outcome, 1)}</td><td class="num">{r.platforms.polymarket?.brier ?? '—'}</td><td class="num">{r.platforms.kalshi?.brier ?? '—'}</td></tr>
+              <tr><td>{dayUtc(r.decision_date)}</td><td>{r.outcome}</td><td class="num">{pct(r.platforms.polymarket?.p_outcome, 1)}</td><td class="num">{pct(r.platforms.kalshi?.p_outcome, 1)}</td><td class="num">{r.platforms.polymarket?.brier ?? '—'}</td><td class="num">{r.platforms.kalshi?.brier ?? '—'}</td><td class="num">{r.platforms.polymarket?.sum_prob ?? '—'} / {r.platforms.kalshi?.sum_prob ?? '—'}</td></tr>
             ))}
           </tbody>
         </table>

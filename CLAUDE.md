@@ -20,7 +20,7 @@ built by hand in a GUI tool.
 
 1. Numbers in narrative text are templated from `data/facts/<project>.json`, never typed by hand.
 2. Raw snapshots are append-only. Fix bugs in transforms, not by rewriting history.
-3. Every pipeline has pandera schemas on its outputs and pytest unit tests on its parsers.
+3. Every live pipeline validates its outputs with pandera before writing (a schema failure blocks the write); range, uniqueness and freshness checks are recorded in `facts.checks` and shown on the page. Frozen case-study ports (statarb, finllm) fingerprint their inputs instead. Parsers and derivation rules have pytest unit tests.
 4. No secrets in the repo. Free-tier API keys (FRED, Tiingo) come from env vars / Actions secrets.
 5. Platform or source failures are isolated: one failing source must not lose the others' data.
 6. Charts follow `docs/CHART_RULES.md` (title states the finding, subtitle states the metric,

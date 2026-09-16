@@ -21,9 +21,9 @@ static site that turns them into dashboards with written methodology and evaluat
 ## Run locally
 
 ```
-uv sync
-uv run pytest
-uv run python -m pipelines.predmarkets.snapshot --set midterms
+make all          # setup, tests, full snapshot, FOMC backfill, SEC refresh, marts/facts, site build
+make test         # unit tests + prose-numbers guardrail
+make snapshot     # prediction-market snapshot only
 ```
 
 Prediction-market endpoints are keyless. The SEC API needs a descriptive `User-Agent` with a contact

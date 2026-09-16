@@ -87,25 +87,12 @@ def headline_series() -> pl.DataFrame:
     return out
 
 
-def full_run_timestamps(name: str) -> set[str]:
-    path = read.set_dir(name) / "runs.jsonl"
-    if not path.exists():
-        return set()
-    out = set()
-    for line in path.read_text().splitlines():
-        if line.strip():
-            r = json.loads(line)
-            if r.get("scope", "full") == "full":
-                out.add(r["snapshot_ts"])
-    return out
-
-
 def coverage() -> pl.DataFrame:
     """Per full-run coverage. 'quoted' = both sides quoted with a spread of at most 10 cents and some
     volume, i.e. a market someone can actually trade at the shown price (the universe includes many
     dead or placeholder markets)."""
     q = _prob(read.quotes("midterms")).collect()
-    q = q.filter(pl.col("snapshot_ts").is_in(sorted(full_run_timestamps("midterms"))))
+    q = q.filter(pl.col("snapshot_ts").is_in(sorted(read.full_run_timestamps("midterms"))))
     quoted = (
         pl.col("best_bid").is_not_null()
         & pl.col("best_ask").is_not_null()

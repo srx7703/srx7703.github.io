@@ -19,6 +19,7 @@ const domains = Array.from(new Set(projects.flatMap((p) => p.data.domain))).sort
     {domains.map((d) => <button type="button" data-filter="domain" data-value={d} aria-pressed="false">{d}</button>)}
     <span class="filters__count" aria-live="polite"></span>
   </div>
+  <h2>All projects</h2>
   <div class="grid-2" id="project-grid">
     {projects.map((p) => (
       <ProjectCard href={`/projects/${p.id}/`} title={p.data.title} summary={p.data.summary} status={p.data.status} domain={p.data.domain} tools={p.data.tools} kpi={cardKpis[p.id]} />

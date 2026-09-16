@@ -1,21 +1,21 @@
 {
  "project": "saas-benchmark",
- "generated_at": "2026-09-16T06:34:16+00:00",
+ "generated_at": "2026-09-16T06:52:27+00:00",
  "first_refresh": "2026-09-16T06:34:15+00:00",
  "last_refresh": "2026-09-16T06:34:15+00:00",
  "n_refreshes": 1,
- "rule_of_40_p25": 41.4,
+ "rule_of_40_p25": 42.5,
  "rule_of_40_p75": 52.6,
  "companies": 29,
- "companies_scored": 29,
+ "companies_scored": 27,
  "latest_quarter_end_max": "2026-07-31",
  "latest_quarter_end_min": "2026-05-29",
- "median_rev_growth": 0.2066,
- "median_gross_margin": 0.7708,
+ "median_rev_growth": 0.2109,
+ "median_gross_margin": 0.7729,
  "median_op_margin": 0.0755,
  "median_fcf_margin": 0.2704,
- "median_sbc_pct": 0.1512,
- "rule_of_40_pass": 23,
+ "median_sbc_pct": 0.1581,
+ "rule_of_40_pass": 22,
  "leaders": [
   {
    "ticker": "PLTR",
@@ -24,14 +24,6 @@
    "rule_of_40": 133.5,
    "rev_growth": 0.7892,
    "fcf_margin": 0.5455
-  },
-  {
-   "ticker": "VEEV",
-   "name": "Veeva Systems Inc.",
-   "quarter_end": "2026-07-31",
-   "rule_of_40": 63.9,
-   "rev_growth": 0.165,
-   "fcf_margin": 0.4739
   },
   {
    "ticker": "PANW",
@@ -56,6 +48,14 @@
    "rule_of_40": 54.3,
    "rev_growth": 0.139,
    "fcf_margin": 0.4039
+  },
+  {
+   "ticker": "SNOW",
+   "name": "SNOWFLAKE INC.",
+   "quarter_end": "2026-07-31",
+   "rule_of_40": 54.0,
+   "rev_growth": 0.3204,
+   "fcf_margin": 0.2199
   }
  ],
  "laggards": [
@@ -99,7 +99,7 @@
   {
    "name": "Required fields",
    "status": "warn",
-   "detail": "gross_profit: 3 null (INTU, APPF, WDAY)"
+   "detail": "gross_profit: 3 null, capex: 2 null (INTU, APPF, WDAY, VEEV, TWLO)"
   },
   {
    "name": "Key uniqueness",
@@ -114,11 +114,28 @@
   {
    "name": "Freshness",
    "status": "pass",
-   "detail": "latest refresh 0.0 h ago (limit 192 h)"
+   "detail": "latest refresh 0.3 h ago (limit 192 h)"
   }
  ],
  "quarters_total": 1188,
  "missing_metrics": {},
+ "missing_latest": {
+  "INTU": [
+   "gross_profit"
+  ],
+  "APPF": [
+   "gross_profit"
+  ],
+  "WDAY": [
+   "gross_profit"
+  ],
+  "VEEV": [
+   "capex"
+  ],
+  "TWLO": [
+   "capex"
+  ]
+ },
  "sources": [
   {
    "name": "SEC EDGAR XBRL companyfacts API",

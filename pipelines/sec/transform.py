@@ -26,6 +26,7 @@ import logging
 import sys
 from datetime import date
 
+import pandera.polars as pa
 import polars as pl
 
 from pipelines.common.checks import check, freshness, non_null, uniqueness
@@ -37,6 +38,21 @@ log = logging.getLogger("sec.transform")
 
 Q_MIN, Q_MAX = 80, 100  # days in one fiscal quarter (52/53-week years included)
 TTM_MIN, TTM_MAX = 250, 290  # days from first to last quarter end in a 4-quarter window
+
+# Contract on the benchmark table the page is built from (validated before facts are written).
+LATEST_SCHEMA = pa.DataFrameSchema(
+    {
+        "ticker": pa.Column(str),
+        "quarter_end": pa.Column(str, pa.Check.str_matches(r"^\d{4}-\d{2}-\d{2}$")),
+        "revenue": pa.Column(float, pa.Check.gt(0)),
+        "rev_growth": pa.Column(float, pa.Check.in_range(-1.0, 5.0), nullable=True),
+        "gross_margin": pa.Column(float, pa.Check.in_range(-2.0, 1.0), nullable=True),
+        "op_margin": pa.Column(float, pa.Check.in_range(-5.0, 1.0), nullable=True),
+        "fcf_margin": pa.Column(float, pa.Check.in_range(-5.0, 1.0), nullable=True),
+        "rule_of_40": pa.Column(float, pa.Check.in_range(-500.0, 500.0), nullable=True),
+    },
+    unique=["ticker"],
+)
 
 
 def _days(a: str, b: str) -> int:
@@ -184,10 +200,10 @@ def build() -> dict:
             (pl.col("gross_profit") / pl.col("revenue")).alias("gross_margin"),
             (pl.col("op_income") / pl.col("revenue")).alias("op_margin"),
             (pl.col("net_income") / pl.col("revenue")).alias("net_margin"),
-            (
-                (pl.col("ocf") - pl.col("capex").fill_null(0.0) - pl.col("cap_software").fill_null(0.0))
-                / pl.col("revenue")
-            ).alias("fcf_margin"),
+            pl.when(pl.col("capex").is_null())
+            .then(None)
+            .otherwise((pl.col("ocf") - pl.col("capex") - pl.col("cap_software").fill_null(0.0)) / pl.col("revenue"))
+            .alias("fcf_margin"),  # no capex tag -> no FCF, rather than a silently flattering number
             (pl.col("sbc") / pl.col("revenue")).alias("sbc_pct"),
             (pl.col("rnd") / pl.col("revenue")).alias("rnd_pct"),
             (pl.col("snm") / pl.col("revenue")).alias("snm_pct"),
@@ -223,6 +239,12 @@ def build() -> dict:
     core = ("revenue", "gross_profit", "op_income", "ocf", "capex", "sbc")
     missing = {t: [m for m in core if m not in c["quarters"]] for t, c in coverage.items()}
     missing = {t: ms for t, ms in missing.items() if ms}
+    missing_latest = {
+        r["ticker"]: [m for m in core if r.get(m) is None]
+        for r in latest.iter_rows(named=True)
+        if any(r.get(m) is None for m in core)
+    }
+    LATEST_SCHEMA.validate(latest)
 
     def brief(r: dict) -> dict:
         return {
@@ -269,7 +291,7 @@ def build() -> dict:
                 latest.height == len(coverage),
                 f"{latest.height} of {len(coverage)} companies have a scored latest quarter",
             ),
-            non_null(latest, ["revenue", "gross_profit", "op_income", "ocf"], id_col="ticker", warn_up_to=3),
+            non_null(latest, ["revenue", "gross_profit", "op_income", "ocf", "capex"], id_col="ticker", warn_up_to=6),
             uniqueness(latest, ["ticker"], "companies"),
             check(
                 "Reconciliation",
@@ -281,6 +303,7 @@ def build() -> dict:
         ],
         "quarters_total": int(quarterly.filter(pl.col("metric") == "revenue").height),
         "missing_metrics": missing,
+        "missing_latest": missing_latest,
         "sources": [
             {
                 "name": "SEC EDGAR XBRL companyfacts API",

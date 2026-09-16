@@ -10,7 +10,7 @@ import Base from '@layouts/Base.astro';
       <li><strong>Raw data is immutable.</strong> API responses are archived as they arrived; bugs are fixed in transforms, never by rewriting history.</li>
       <li><strong>Results are not typed into prose.</strong> Each project page is templated from a facts file the pipeline writes, and a test scans the page sources for hand-typed data numbers. Definitional constants (a 10-cent spread threshold, a 0.5% tolerance) are the allowed exception and are listed in the test.</li>
       <li><strong>Evaluation is written before results exist.</strong> The scoring rules for the two live prediction-market projects are committed in one file whose git hash is printed on the pages.</li>
-      <li><strong>One chart system.</strong> A fixed palette validated for colour-vision deficiency on both themes, titles that state the finding and are themselves templated from the data, sources and as-of stamps on every chart.</li>
+      <li><strong>One chart system.</strong> A fixed palette checked with a colour-vision-deficiency validator on both themes (with the documented caveats in the chart rules), titles that state the finding and, for every live number, are templated from the data, and sources and as-of stamps on every chart.</li>
     </ul>
 
     <h2>Tooling</h2>
@@ -20,11 +20,11 @@ import Base from '@layouts/Base.astro';
     <p>Claude Code writes most of the code and all of the boilerplate. The repo carries a <code>CLAUDE.md</code> with the conventions above and four project skills: <code>portfolio-project-scaffold</code> (create a project with the standard layout), <code>chart-review</code> (check a spec against the chart rules), <code>data-audit</code> (freshness, ranges, duplicates, reconciliation) and <code>writeup</code> (draft Method, Evaluation and Build notes with every number routed through facts). I decide the questions, the market sets, the metric definitions and the evaluation plans, and I review every chart and every paragraph before it ships.</p>
 
     <h2>Acceptance reviews</h2>
-    <p>After each milestone, independent read-only reviewer agents audit the repo against the original written plan: one for the pipelines and data layer, one for the site and pages. They report PASS / PARTIAL / FAIL per checklist item with file-and-line evidence. Their findings drive the next round of fixes and are summarised in the changelog. The first two reviews produced 47 findings; the ones that changed the site are in the failure log below.</p>
+    <p>After each milestone, independent read-only reviewer agents audit the repo against the original written plan: one for the pipelines and data layer, one for the site and pages. They report PASS / PARTIAL / FAIL per checklist item with file-and-line evidence. Their reports are committed under <a href="https://github.com/srx7703/srx7703.github.io/tree/main/docs/reviews">docs/reviews</a>, their findings drive the next round of fixes, and a closure review re-checks each one. The first two reviews produced 47 findings and the closure review confirmed every high- and medium-severity item fixed; the ones that changed the site are in the failure log below.</p>
 
     <h2>Quality gates</h2>
     <ul>
-      <li>Schema and range checks on every pipeline output before it is written; a failing check blocks the write.</li>
+      <li>Schema checks (pandera) on every live pipeline output before it is written; a schema failure blocks the write. Range, uniqueness, freshness and reconciliation checks are recorded on each page's Data quality table, where a failure shows red instead of hiding.</li>
       <li>Unit tests on the parsers and the differencing rules; a page-source guardrail against hand-typed numbers; both run in CI before every deploy.</li>
       <li>Pipelines commit their own data, and the site rebuilds after every data run, so the Actions history is the audit trail and the "data as of" stamps are real.</li>
       <li>A data-quality table on every project page shows the checks that ran for that build.</li>
@@ -32,11 +32,11 @@ import Base from '@layouts/Base.astro';
 
     <h2>Failure log</h2>
     <ul>
-      <li><strong>Kalshi universe empty.</strong> The first midterms snapshot captured almost no state races: Kalshi closes 2026 election markets on 2027-11-03, a year after election day, and the close-time filter ended in early 2027. Fix: widen the window; document the reason in the data model.</li>
+      <li><strong>Kalshi universe empty.</strong> The first local midterms snapshot, before the first commit, captured almost no state races: Kalshi closes 2026 election markets on 2027-11-03, a year after election day, and the close-time filter ended in early 2027. Fix: widen the window; document the reason in the data model.</li>
       <li><strong>Deploy failed twice on <code>npm ci</code>.</strong> Lockfiles written on macOS omit Linux-only optional bindings, so the Linux runner rejected them. Fix: <code>npm install</code> in CI, documented in the workflow.</li>
       <li><strong>Data refreshes did not redeploy the site.</strong> Pushes made with the Actions token do not trigger push workflows, so the live "data as of" stamps lagged the repo. Caught by the first acceptance review. Fix: deploy on <code>workflow_run</code> after every data job.</li>
       <li><strong>A chart title said something the data did not.</strong> The stat-arb cost chart claimed costs decided the sign; at zero cost every static model was already negative. Caught by the second acceptance review. Fix: the title is now computed from the cost curve, and titles are covered by the numbers guardrail.</li>
-      <li><strong>A truncated axis made a small gain look large.</strong> The Financial LLM summary bars started at 0.70; the bars overflowed the plot and exaggerated a 0.03 gain. Fix: zero baseline with value labels.</li>
+      <li><strong>A truncated axis made a small gain look large.</strong> The first draft of the Financial LLM summary bars started at 0.70; in the browser the bars overflowed the plot and exaggerated a 0.03 gain. Caught in the preview before the page was committed. Fix: zero baseline with value labels.</li>
       <li><strong>Settled markets vanish.</strong> Both platforms drop settled markets from their open listings, so the FOMC scorecard could never fill. Fix: every full run now records settlements to an append-only store.</li>
     </ul>
   </div>

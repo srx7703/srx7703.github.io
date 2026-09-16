@@ -22,3 +22,19 @@ def books(name: str) -> pl.LazyFrame:
 
 def dim(name: str) -> pl.DataFrame | None:
     return load_dim(set_dir(name) / "dim_markets", KEY)
+
+
+def full_run_timestamps(name: str) -> set[str]:
+    """snapshot_ts of runs with scope == "full" (universe scans), from runs.jsonl."""
+    import json
+
+    path = set_dir(name) / "runs.jsonl"
+    if not path.exists():
+        return set()
+    out: set[str] = set()
+    for line in path.read_text().splitlines():
+        if line.strip():
+            r = json.loads(line)
+            if r.get("scope", "full") == "full":
+                out.add(r["snapshot_ts"])
+    return out

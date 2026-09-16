@@ -1,6 +1,6 @@
 ---
 title: "Statistical arbitrage on US large caps, 2019–2020: an honest backtest"
-summary: "OLS, PCA and LASSO multi-stock mean-reversion strategies on 85 large caps, trained on 2019 and tested through the 2020 crash. None beats buy-and-hold after costs; the value is in the controls: look-ahead audit, bootstrap intervals, regime split, cost sensitivity."
+summary: "OLS, PCA and LASSO multi-stock mean-reversion strategies on US large caps, trained on 2019 and tested through the 2020 crash. None beats buy-and-hold after costs; the value is in the controls: look-ahead audit, bootstrap intervals, regime split, cost sensitivity."
 status: case-study
 domain: ["quant finance", "backtesting"]
 tools: ["Python", "statsmodels", "scikit-learn", "yfinance", "Vega-Lite"]
@@ -53,6 +53,7 @@ export const asOf = 'May 2026 (frozen results)';
 <figure class="chart-card">
   <figcaption><h2 class="chart-card__title">Cumulative P&amp;L, 2020 out of sample (figure from the original project)</h2></figcaption>
   <img src="/case-studies/statarb/cumulative_pnl.png" alt="Cumulative profit and loss of the OLS, PCA, LASSO, pairs and buy-and-hold strategies through 2020" loading="lazy" width="1400" height="800" />
+  <SourceStamp sources={facts.sources} asOf={asOf} note="reproduced from the original notebook, not re-rendered in the site chart system" />
 </figure>
 
 <Section id="method" title="Method">

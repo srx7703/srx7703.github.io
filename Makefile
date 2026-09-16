@@ -34,4 +34,4 @@ publish:          ## rebuild every mart and facts file from the snapshots
 site:             ## build the static site (syncs data/ into site/public/data first)
 	cd site && npm run build
 
-all: test snapshot publish site   ## rebuild everything from scratch
+all: setup test snapshot backfill sec publish site   ## rebuild everything from scratch (sec needs SEC_USER_AGENT)

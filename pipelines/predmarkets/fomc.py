@@ -190,8 +190,13 @@ def build() -> dict:
     prices = daily_prices(grid)
     latest = latest_probs(grid)
     resolved = resolutions(grid)
-    today = utc_now().date().isoformat()
-    upcoming = [m for m in sorted(MEETINGS) if MEETINGS[m] >= today and m in set(grid["meeting"].to_list())][:4]
+    now_iso = utc_now().isoformat(timespec="seconds")
+    listed = set(grid["meeting"].to_list())
+    # a meeting stays "upcoming" until 19:30 UTC on decision day (statement at 18:00/19:00 UTC) and
+    # drops out as soon as a settlement is recorded, whichever comes first
+    upcoming = [
+        m for m in sorted(MEETINGS) if m in listed and m not in resolved and f"{MEETINGS[m]}T19:30:00+00:00" > now_iso
+    ][:4]
 
     def dist(df: pl.DataFrame, meeting: str, platform: str) -> dict[str, float]:
         sub = df.filter((pl.col("meeting") == meeting) & (pl.col("platform") == platform))
@@ -308,7 +313,9 @@ def build() -> dict:
         "history_from": prices["date"].min(),
         "markets_tracked": {
             r["platform"]: r["n"]
-            for r in q.filter(pl.col("snapshot_ts") == snapshots[-1])
+            for r in q.filter(
+                pl.col("snapshot_ts") == max(read.full_run_timestamps("fomc") & set(snapshots), default=snapshots[-1])
+            )
             .group_by("platform")
             .agg(pl.len().alias("n"))
             .iter_rows(named=True)
