@@ -12,7 +12,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.5654613415512658
+    "share": 0.5655225738409152
    },
    {
     "ticker": "373220.KS",
@@ -25,7 +25,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-03-31",
-    "share": 0.12997640935910135
+    "share": 0.1299904841553087
    },
    {
     "ticker": "300014.SZ",
@@ -38,7 +38,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.08561223749013368
+    "share": 0.08562150820934702
    },
    {
     "ticker": "300207.SZ",
@@ -51,7 +51,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.08067882646190558
+    "share": 0.08068756295529156
    },
    {
     "ticker": "002074.SZ",
@@ -64,7 +64,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.0579326120459448
+    "share": 0.057938885412875965
    },
    {
     "ticker": "3931.HK",
@@ -77,7 +77,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2025-12-31",
-    "share": 0.0481214755913544
+    "share": 0.04812668653667505
    },
    {
     "ticker": "300438.SZ",
@@ -90,7 +90,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.020182499453887687
+    "share": 0.020184684962536285
    },
    {
     "ticker": "688567.SS",
@@ -103,7 +103,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.009082384831267436
+    "share": 0.009083368338322345
    },
    {
     "ticker": "MVST",
@@ -116,7 +116,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.0026722470563962657
+    "share": 0.002672536426851411
    },
    {
     "ticker": "SES",
@@ -129,20 +129,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.0001705814905980672
-   },
-   {
-    "ticker": "SLDP",
-    "name": "Solid Power",
-    "name_cn": null,
-    "purity": "high",
-    "revenue_usd": 14893000.0,
-    "revenue_native": 14893000.0,
-    "currency": "USD",
-    "basis": "total revenue",
-    "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-03-31",
-    "share": 0.00010827558877709648
+    "share": 0.00017059996240944243
    },
    {
     "ticker": "IKA.L",
@@ -155,13 +142,19 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-04-30",
-    "share": 1.1090793679157986e-06
+    "share": 1.1091994671411745e-06
    }
   ],
   "excluded": [
    {
     "ticker": "QS",
     "name": "QuantumScape",
+    "reason": "no trailing revenue on file",
+    "purity": "high"
+   },
+   {
+    "ticker": "SLDP",
+    "name": "Solid Power",
     "reason": "no trailing revenue on file",
     "purity": "high"
    },
@@ -286,11 +279,11 @@
     "purity": "partial"
    }
   ],
-  "pool_revenue_usd": 137547162460.2268,
-  "n_members": 12,
-  "top3_share": 0.7810499884005009,
-  "top5_share": 0.9196614269083512,
-  "hhi": 3566.477927033725
+  "pool_revenue_usd": 137532269460.2268,
+  "n_members": 11,
+  "top3_share": 0.7811345662055709,
+  "top5_share": 0.9197610145737385,
+  "hhi": 3567.2502602211493
  },
  "cited": [
   {
