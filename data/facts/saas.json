@@ -1,6 +1,11 @@
 {
  "project": "saas-benchmark",
- "generated_at": "2026-09-16T06:05:48+00:00",
+ "generated_at": "2026-09-16T06:34:16+00:00",
+ "first_refresh": "2026-09-16T06:34:15+00:00",
+ "last_refresh": "2026-09-16T06:34:15+00:00",
+ "n_refreshes": 1,
+ "rule_of_40_p25": 41.4,
+ "rule_of_40_p75": 52.6,
  "companies": 29,
  "companies_scored": 29,
  "latest_quarter_end_max": "2026-07-31",
@@ -82,8 +87,36 @@
  "reconciliation": {
   "pairs": 5505,
   "agree": 5380,
-  "rate": 0.9773
+  "rate": 0.9773,
+  "tolerance": "0.5%"
  },
+ "checks": [
+  {
+   "name": "Companies fetched",
+   "status": "pass",
+   "detail": "29 of 29 companies have a scored latest quarter"
+  },
+  {
+   "name": "Required fields",
+   "status": "warn",
+   "detail": "gross_profit: 3 null (INTU, APPF, WDAY)"
+  },
+  {
+   "name": "Key uniqueness",
+   "status": "pass",
+   "detail": "0 duplicate companies on (ticker)"
+  },
+  {
+   "name": "Reconciliation",
+   "status": "pass",
+   "detail": "5,380 of 5,505 direct-vs-derived quarters agree within 0.5%"
+  },
+  {
+   "name": "Freshness",
+   "status": "pass",
+   "detail": "latest refresh 0.0 h ago (limit 192 h)"
+  }
+ ],
  "quarters_total": 1188,
  "missing_metrics": {},
  "sources": [

@@ -23,12 +23,12 @@ import polars as pl
 
 from pipelines.common.http import HttpClient
 from pipelines.common.log import setup_logging
-from pipelines.common.storage import SNAP_DIR, utc_now, write_json, write_parquet
+from pipelines.common.storage import SNAP_DIR, append_jsonl, utc_now, write_json, write_parquet
 from pipelines.sec.config import TAG_MAP, TICKERS
 
 log = logging.getLogger("sec.ingest")
 
-SEC_UA = os.environ.get("SEC_USER_AGENT", "portfolio-pipelines/0.1 (github.com/srx7703)")
+SEC_UA = os.environ.get("SEC_USER_AGENT") or "portfolio-pipelines/0.1 (github.com/srx7703)"
 FACT_COLUMNS = [
     "ticker",
     "cik",
@@ -67,9 +67,7 @@ FACT_DTYPES: dict[str, pl.DataType] = {
 
 class SecClient:
     def __init__(self) -> None:
-        self.http = HttpClient(
-            min_interval=0.12, headers={"User-Agent": SEC_UA, "Accept-Encoding": "gzip, deflate"}
-        )
+        self.http = HttpClient(min_interval=0.12, headers={"User-Agent": SEC_UA, "Accept-Encoding": "gzip, deflate"})
 
     def tickers(self) -> dict[str, tuple[str, str]]:
         data = self.http.get_json("https://www.sec.gov/files/company_tickers.json")
@@ -89,11 +87,7 @@ def extract_facts(cf: dict, ticker: str, cik: str) -> list[dict]:
             if not node:
                 continue
             for f in node.get("units", {}).get(unit, []):
-                if (
-                    not f.get("start")
-                    or not f.get("end")
-                    or f.get("form") not in ("10-K", "10-Q", "10-K/A", "10-Q/A")
-                ):
+                if not f.get("start") or not f.get("end") or f.get("form") not in ("10-K", "10-Q", "10-K/A", "10-Q/A"):
                     continue
                 s, e = date.fromisoformat(f["start"]), date.fromisoformat(f["end"])
                 key = (metric, tag, f["start"], f["end"])
@@ -155,15 +149,9 @@ def main(argv: list[str] | None = None) -> int:
             "last_end": df["end"].max() if df.height else None,
         }
         log.info("%s: %d facts, last period end %s", t, df.height, companies[t]["last_end"])
-    write_json(
-        {
-            "generated_at": utc_now().isoformat(timespec="seconds"),
-            "user_agent": SEC_UA,
-            "companies": companies,
-            "failed": failed,
-        },
-        SNAP_DIR / "sec" / "companies.json",
-    )
+    now = utc_now().isoformat(timespec="seconds")
+    write_json({"generated_at": now, "companies": companies, "failed": failed}, SNAP_DIR / "sec" / "companies.json")
+    append_jsonl({"ts": now, "ok": len(companies), "failed": len(failed)}, SNAP_DIR / "sec" / "refresh_log.jsonl")
     return 1 if failed and len(failed) == len(TICKERS) else 0
 
 

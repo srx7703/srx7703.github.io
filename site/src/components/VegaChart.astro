@@ -13,9 +13,12 @@ interface Props {
 const { spec, id, height = 300, ariaLabel } = Astro.props;
 ---
 <div class="vega" id={id} data-spec={JSON.stringify(spec)} role="img" aria-label={ariaLabel} style={`min-height:${height}px`}></div>
-<noscript><p class="muted">Charts need JavaScript; the numbers are in the table view.</p></noscript>
+<noscript><p class="muted">Charts need JavaScript. The underlying numbers are in the tables and CSV downloads on this page and in the public data files.</p></noscript>
 <script>
-  import embed from 'vega-embed';
+  // vega-embed (~700 KB) is loaded on demand when the first chart nears the viewport.
+  let embedPromise: Promise<any> | null = null;
+  const loadEmbed = () => (embedPromise ??= import('vega-embed').then((m) => m.default));
+  const rendered = new Set<Element>();
 
   const cssVar = (name: string) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
   const isDark = () => document.documentElement.dataset.theme === 'dark'
@@ -46,19 +49,31 @@ const { spec, id, height = 300, ariaLabel } = Astro.props;
   const innerWidth = (el: HTMLElement) => Math.max(240, Math.floor(el.clientWidth) - 8);
 
   const render = async (el: HTMLElement) => {
+    const embed = await loadEmbed();
+    rendered.add(el);
     const spec = resolve(JSON.parse(el.dataset.spec || '{}')) as Record<string, any>;
     spec.config = { ...(spec.config || {}), ...themeConfig() };
+    const w = el.clientWidth || el.getBoundingClientRect().width;
     if (!spec.facet && !spec.spec) {
-      const w = el.clientWidth || el.getBoundingClientRect().width;
       spec.width = w > 0 ? innerWidth(el) - 70 : 'container'; // room for the y axis; container if not laid out yet
       spec.autosize = { type: 'fit-x', contains: 'padding' };
+    } else if (spec.spec && w > 0) {
+      const cols = Number(spec._facetColumns) || 1;
+      spec.spec.width = Math.max(96, Math.floor((innerWidth(el) - 90) / cols)); // panels shrink to fit on phones
     }
+    delete spec._facetColumns;
     await embed(el, spec as any, { actions: false, renderer: 'svg', tooltip: { theme: isDark() ? 'dark' : 'light' } });
   };
 
   const all = () => document.querySelectorAll<HTMLElement>('.vega');
-  const renderAll = () => all().forEach((el) => { render(el).catch((e) => console.error('chart failed', el.id, e)); });
-  renderAll();
+  const safeRender = (el: HTMLElement) => render(el).catch((e) => console.error('chart failed', el.id, e));
+  const renderAll = () => all().forEach((el) => { if (rendered.has(el)) safeRender(el); });
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { io.unobserve(e.target); safeRender(e.target as HTMLElement); }
+    }
+  }, { rootMargin: '400px 0px' });
+  all().forEach((el) => io.observe(el));
   document.addEventListener('themechange', renderAll);
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', renderAll);
   // Re-render when a chart's box changes size: window resize, a collapsed <details> opening,
@@ -71,7 +86,7 @@ const { spec, id, height = 300, ariaLabel } = Astro.props;
       const prev = lastWidth.get(el) ?? -1;
       if (w > 0 && Math.abs(w - prev) > 24) {
         lastWidth.set(el, w);
-        if (prev !== -1) render(el).catch((e) => console.error('chart failed', el.id, e));
+        if (prev !== -1 && rendered.has(el)) safeRender(el);
       }
     }
   });

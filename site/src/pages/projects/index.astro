@@ -2,14 +2,56 @@
 import { getCollection } from 'astro:content';
 import Base from '@layouts/Base.astro';
 import ProjectCard from '@components/ProjectCard.astro';
+import { cardKpis } from '@lib/cardKpis';
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const domains = Array.from(new Set(projects.flatMap((p) => p.data.domain))).sort();
 ---
 <Base title="Projects">
   <h1>Projects</h1>
-  <p class="lede">Live dashboards refresh on a schedule; case studies are frozen write-ups of finished work.</p>
-  <div class="grid-2">
+  <p class="lede">Live dashboards refresh on a schedule; case studies are frozen write-ups of finished work. Filter by type or domain.</p>
+  <div class="filters" role="group" aria-label="Filter projects">
+    <span class="filters__label">Type</span>
+    <button type="button" data-filter="status" data-value="" aria-pressed="true">All</button>
+    <button type="button" data-filter="status" data-value="live" aria-pressed="false">Live</button>
+    <button type="button" data-filter="status" data-value="case-study" aria-pressed="false">Case study</button>
+    <span class="filters__label">Domain</span>
+    <button type="button" data-filter="domain" data-value="" aria-pressed="true">All</button>
+    {domains.map((d) => <button type="button" data-filter="domain" data-value={d} aria-pressed="false">{d}</button>)}
+    <span class="filters__count" aria-live="polite"></span>
+  </div>
+  <div class="grid-2" id="project-grid">
     {projects.map((p) => (
-      <ProjectCard href={`/projects/${p.id}/`} title={p.data.title} summary={p.data.summary} status={p.data.status} domain={p.data.domain} tools={p.data.tools} />
+      <ProjectCard href={`/projects/${p.id}/`} title={p.data.title} summary={p.data.summary} status={p.data.status} domain={p.data.domain} tools={p.data.tools} kpi={cardKpis[p.id]} />
     ))}
   </div>
+  <script>
+    const state: Record<string, string> = { status: '', domain: '' };
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('#project-grid .card'));
+    const count = document.querySelector<HTMLElement>('.filters__count');
+    const apply = () => {
+      let shown = 0;
+      cards.forEach((c) => {
+        const ok = (!state.status || c.dataset.status === state.status) && (!state.domain || (c.dataset.domain || '').split('|').includes(state.domain));
+        c.hidden = !ok;
+        if (ok) shown++;
+      });
+      if (count) count.textContent = `${shown} of ${cards.length}`;
+    };
+    document.querySelectorAll<HTMLButtonElement>('.filters button').forEach((b) => {
+      b.addEventListener('click', () => {
+        const f = b.dataset.filter || '';
+        state[f] = b.dataset.value || '';
+        document.querySelectorAll<HTMLButtonElement>(`.filters button[data-filter="${f}"]`).forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+        apply();
+      });
+    });
+    apply();
+  </script>
 </Base>
+<style>
+  .filters { display: flex; flex-wrap: wrap; gap: var(--s-2); align-items: center; margin: 0 0 var(--s-4); font-size: var(--fs-sm); }
+  .filters__label { color: var(--ink-3); margin-right: var(--s-1); }
+  .filters button { font: inherit; font-size: var(--fs-xs); border: 1px solid var(--border-strong); background: var(--surface); color: var(--ink-2); border-radius: 999px; padding: 0.2em 0.8em; cursor: pointer; }
+  .filters button[aria-pressed="true"] { border-color: var(--accent); color: var(--ink); }
+  .filters__count { margin-left: auto; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+</style>

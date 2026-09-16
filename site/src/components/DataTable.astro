@@ -24,7 +24,7 @@ const fmt = (v: any, f?: Col['format']) => {
     {caption && <caption>{caption}</caption>}
     <thead>
       <tr>{columns.map((c) => (
-        <th scope="col" class={c.align === 'right' || (c.format && c.format !== 'text') ? 'num' : ''} data-key={c.key} data-type={c.format && c.format !== 'text' ? 'number' : 'text'} tabindex="0" role="button" aria-sort="none" title="Sort">{c.label}</th>
+        <th scope="col" class={c.align === 'right' || (c.format && c.format !== 'text') ? 'num' : ''} data-key={c.key} data-type={c.format && c.format !== 'text' ? 'number' : 'text'} tabindex="0" aria-sort="none" title="Sort">{c.label}</th>
       ))}</tr>
     </thead>
     <tbody>

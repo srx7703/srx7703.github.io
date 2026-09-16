@@ -16,19 +16,25 @@ import VegaChart from '@components/VegaChart.astro';
 import SourceStamp from '@components/SourceStamp.astro';
 import PipelineStatus from '@components/PipelineStatus.astro';
 import Section from '@components/Section.astro';
+import DataQuality from '@components/DataQuality.astro';
+import { evaluationPlan } from '@lib/prereg';
 import DownloadCsv from '@components/DownloadCsv.astro';
 import { fomcHistorySpec } from '@charts/fomc/history';
 import { fomcPathSpec } from '@charts/fomc/path';
 import { pct, pts, num, dateUtc, dayUtc, daysUntil } from '@lib/fmt';
 
-export const next = facts.next_meeting;
+export const nextRaw = facts.next_meeting;
+export const bothQuoted = !!(nextRaw?.platforms?.polymarket?.rollup && nextRaw?.platforms?.kalshi?.rollup);
+export const next = bothQuoted ? nextRaw : null;
 export const pm = next?.platforms?.polymarket;
 export const kx = next?.platforms?.kalshi;
 export const asOf = dateUtc(facts.last_snapshot_ts);
-export const sideLabel = (r) => r.hike >= r.cut && r.hike >= r.hold ? 'a hike' : r.cut >= r.hold ? 'a cut' : 'no change';
+export const sideName = { cut: 'a cut', hold: 'no change', hike: 'a hike' };
+export const plan = evaluationPlan();
+export const pathTitle = facts.meetings.filter((m) => m.agree).map((m) => `${sideName[m.platforms.polymarket.modal_side]} on ${dayUtc(m.decision_date)}`);
 
 <div class="lede">
-  {next ? `For the ${dayUtc(next.decision_date)} decision, Polymarket prices ${sideLabel(pm.rollup)} at ${pct(pm.rollup.hike >= pm.rollup.cut ? pm.rollup.hike : pm.rollup.cut, 1)} and Kalshi at ${pct(kx.rollup.hike >= kx.rollup.cut ? kx.rollup.hike : kx.rollup.cut, 1)}; the probability-weighted expected move is ${pm.expected_bps} bps on Polymarket and ${kx.expected_bps} bps on Kalshi.` : 'No upcoming meeting is currently listed on both platforms.'}
+  {next ? (next.agree ? `For the ${dayUtc(next.decision_date)} decision, both platforms make ${sideName[pm.modal_side]} the modal outcome: ${pct(pm.modal_prob, 1)} on Polymarket and ${pct(kx.modal_prob, 1)} on Kalshi. The probability-weighted expected move is ${pm.expected_bps} bps on Polymarket and ${kx.expected_bps} bps on Kalshi.` : `For the ${dayUtc(next.decision_date)} decision the platforms disagree on the modal outcome: Polymarket has ${sideName[pm.modal_side]} at ${pct(pm.modal_prob, 1)}, Kalshi has ${sideName[kx.modal_side]} at ${pct(kx.modal_prob, 1)}. The probability-weighted expected move is ${pm.expected_bps} bps on Polymarket and ${kx.expected_bps} bps on Kalshi.`) : 'No upcoming meeting is currently listed on both platforms.'}
   {' '}History runs from {dayUtc(facts.history_from)} via each platform's own price history, and both platforms are snapshotted twice a day from here on.
 </div>
 
@@ -43,10 +49,10 @@ export const sideLabel = (r) => r.hike >= r.cut && r.hike >= r.hold ? 'a hike' :
 )}
 
 {next && (
-  <ChartCard title={`Both platforms have converged on ${sideLabel(pm.rollup)} for ${dayUtc(next.decision_date)}`} subtitle="Daily probability of a cut, no change or a hike at the next meeting, by platform; last value labelled">
+  <ChartCard title={next.agree ? `Both platforms have converged on ${sideName[pm.modal_side]} for ${dayUtc(next.decision_date)}` : `The platforms disagree on ${dayUtc(next.decision_date)}: ${sideName[pm.modal_side]} on Polymarket, ${sideName[kx.modal_side]} on Kalshi`} subtitle={`Daily probability of a cut, no change or a hike at the next meeting, by platform, since ${dayUtc(facts.history_from)}; dashed line = decision day; last value labelled`}>
     <div class="grid-2">
-      <VegaChart id="fomc-pm" spec={fomcHistorySpec(next.meeting, 'polymarket')} ariaLabel="Line chart of cut, hold and hike probabilities on Polymarket over time" />
-      <VegaChart id="fomc-kx" spec={fomcHistorySpec(next.meeting, 'kalshi', false)} ariaLabel="Line chart of cut, hold and hike probabilities on Kalshi over time" />
+      <VegaChart id="fomc-pm" spec={fomcHistorySpec(next.meeting, 'polymarket', true, next.decision_date)} ariaLabel="Line chart of cut, hold and hike probabilities on Polymarket over time" />
+      <VegaChart id="fomc-kx" spec={fomcHistorySpec(next.meeting, 'kalshi', true, next.decision_date)} ariaLabel="Line chart of cut, hold and hike probabilities on Kalshi over time" />
     </div>
     <details>
       <summary>Table view (all five outcome buckets, latest snapshot)</summary>
@@ -66,19 +72,32 @@ export const sideLabel = (r) => r.hike >= r.cut && r.hike >= r.hold ? 'a hike' :
   </ChartCard>
 )}
 
-<ChartCard title="The implied path: expected change in the target rate at each upcoming meeting" subtitle="Probability-weighted expected change in basis points (cut 50+ = −50, cut 25 = −25, hold = 0, hike 25 = +25, hike 50+ = +50), latest snapshot">
+<ChartCard title={pathTitle.length ? `The implied path: ${pathTitle.join(', ')}` : 'The implied path: the platforms disagree on the modal outcome at every upcoming meeting'} subtitle="Probability-weighted expected change in basis points (cut 50+ = −50, cut 25 = −25, hold = 0, hike 25 = +25, hike 50+ = +50), latest snapshot">
   <VegaChart id="fomc-path" spec={fomcPathSpec()} height={220} ariaLabel="Grouped bar chart of expected rate change per meeting by platform" />
+  <details>
+    <summary>Table view</summary>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Decision date</th><th>Modal outcome (Polymarket / Kalshi)</th><th class="num">Expected bps, Polymarket</th><th class="num">Expected bps, Kalshi</th><th class="num">Sum of bucket probabilities (PM / KX)</th></tr></thead>
+        <tbody>
+          {facts.meetings.map((m) => (
+            <tr><td>{dayUtc(m.decision_date)}</td><td>{sideName[m.platforms.polymarket.modal_side] ?? '—'} / {sideName[m.platforms.kalshi.modal_side] ?? '—'}</td><td class="num">{m.platforms.polymarket.expected_bps ?? '—'}</td><td class="num">{m.platforms.kalshi.expected_bps ?? '—'}</td><td class="num">{m.platforms.polymarket.sum_prob ?? '—'} / {m.platforms.kalshi.sum_prob ?? '—'}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
   <SourceStamp slot="stamp" sources={facts.sources.slice(0, 2)} asOf={asOf} />
 </ChartCard>
 
 <Section id="scorecard" title="Scorecard">
   <div class="prose">
     {facts.scorecard.length === 0 ? (
-      <p>No meeting has resolved since tracking began. The first meeting to be scored is {next ? dayUtc(next.decision_date) : 'the next one'}; the final pre-decision distribution is the last observation before 17:30 UTC on decision day.</p>
+      <p>No meeting has resolved since tracking began. The first meeting to be scored is {next ? dayUtc(next.decision_date) : 'the next one'}; results are captured from Kalshi settlements by every full snapshot run and scored automatically.</p>
     ) : (
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Decision</th><th>Outcome</th><th class="num">P(outcome) Polymarket</th><th class="num">P(outcome) Kalshi</th><th class="num">Brier Polymarket</th><th class="num">Brier Kalshi</th></tr></thead>
+          <thead><tr><th>Decision</th><th>Outcome</th><th class="num">P(outcome) Polymarket</th><th class="num">P(outcome) Kalshi</th><th class="num">Brier Polymarket (0–2)</th><th class="num">Brier Kalshi (0–2)</th></tr></thead>
           <tbody>
             {facts.scorecard.map((r) => (
               <tr><td>{dayUtc(r.decision_date)}</td><td>{r.outcome}</td><td class="num">{pct(r.platforms.polymarket?.p_outcome, 1)}</td><td class="num">{pct(r.platforms.kalshi?.p_outcome, 1)}</td><td class="num">{r.platforms.polymarket?.brier ?? '—'}</td><td class="num">{r.platforms.kalshi?.brier ?? '—'}</td></tr>
@@ -100,8 +119,9 @@ export const sideLabel = (r) => r.hike >= r.cut && r.hike >= r.hold ? 'a hike' :
 
 <Section id="evaluation" title="Evaluation (pre-registered)">
   <div class="prose">
+    <p>The rules below are committed in <a href={plan.url}>docs/EVALUATION_PLAN.md</a> (git blob <code>{plan.short}</code>, <a href={plan.history}>history</a>).</p>
     <ul>
-      <li><strong>Per meeting:</strong> multi-outcome Brier score of each platform's final pre-decision distribution (last observation before 17:30 UTC on decision day), and the probability assigned to the realised outcome.</li>
+      <li><strong>Per meeting:</strong> multi-outcome Brier score (sum over the five buckets of squared error; 0 is perfect, 2 is certain and wrong) of each platform's final pre-decision distribution, taken from the last snapshot before 17:30 UTC on decision day (before the snapshot pipeline started: the last daily history point before decision day), plus the probability assigned to the realised outcome. Bucket probabilities are shown as quoted and are not forced to sum to one; the sum is reported alongside.</li>
       <li><strong>Lead time:</strong> the number of days before the decision when the realised outcome first became and stayed the modal outcome on each platform.</li>
       <li><strong>Baselines:</strong> "no change" every meeting, and "same as last meeting", scored the same way.</li>
       <li><strong>Cross-platform:</strong> the daily gap in P(hike) and whether it closes into the meeting.</li>
@@ -111,9 +131,7 @@ export const sideLabel = (r) => r.hike >= r.cut && r.hike >= r.hold ? 'a hike' :
 </Section>
 
 <Section id="data-quality" title="Data quality">
-  <div class="prose">
-    <p>{facts.n_snapshots} snapshots over {facts.n_days} {facts.n_days === 1 ? 'day' : 'days'}; latest {asOf}. Backfilled history and live snapshots are merged by market and date, with the snapshot winning on the same day. Each platform is ingested independently; schema, range and uniqueness checks gate every write.</p>
-  </div>
+  <DataQuality checks={facts.checks} note="Backfilled history and live snapshots are merged by market and date, with the snapshot winning on the same day." />
 </Section>
 
 <Section id="build-notes" title="Build notes">

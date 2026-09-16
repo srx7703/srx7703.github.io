@@ -28,6 +28,7 @@ from datetime import date
 
 import polars as pl
 
+from pipelines.common.checks import check, freshness, non_null, uniqueness
 from pipelines.common.log import setup_logging
 from pipelines.common.storage import FACTS_DIR, MARTS_DIR, SNAP_DIR, utc_now, write_json
 from pipelines.sec.config import TAG_MAP
@@ -108,18 +109,16 @@ def ttm(qs: dict[str, float], agg: str = "sum") -> dict[str, float]:
 
 def yoy(values: pl.DataFrame, col: str) -> pl.DataFrame:
     """Add <col>_prev: the value one year earlier (nearest quarter end within 20 days), per ticker."""
-    left = values.select("ticker", "quarter_end", col).with_columns(
-        pl.col("quarter_end").str.to_date().alias("qd")
-    )
+    left = values.select("ticker", "quarter_end", col).with_columns(pl.col("quarter_end").str.to_date().alias("qd"))
     right = left.select(
         "ticker",
         pl.col("qd").dt.offset_by("1y").alias("qd"),
         pl.col(col).alias(f"{col}_prev"),
     ).sort("qd")
-    joined = left.sort("qd").join_asof(right, on="qd", by="ticker", strategy="nearest", tolerance="20d")
-    return values.join(
-        joined.select("ticker", "quarter_end", f"{col}_prev"), on=["ticker", "quarter_end"], how="left"
+    joined = left.sort("ticker", "qd").join_asof(
+        right.sort("ticker", "qd"), on="qd", by="ticker", strategy="nearest", tolerance="20d", check_sortedness=False
     )
+    return values.join(joined.select("ticker", "quarter_end", f"{col}_prev"), on=["ticker", "quarter_end"], how="left")
 
 
 def build() -> dict:
@@ -161,9 +160,7 @@ def build() -> dict:
         for metric, q in series.items():
             t = ttm(q, "mean" if metric in AVERAGE_METRICS else "sum")
             for e, v in q.items():
-                rows.append(
-                    {"ticker": ticker, "quarter_end": e, "metric": metric, "quarterly": v, "ttm": t.get(e)}
-                )
+                rows.append({"ticker": ticker, "quarter_end": e, "metric": metric, "quarterly": v, "ttm": t.get(e)})
         coverage[ticker] = cov
 
     quarterly = pl.DataFrame(
@@ -176,9 +173,7 @@ def build() -> dict:
             "ttm": pl.Float64,
         },
     ).sort("ticker", "metric", "quarter_end")
-    wide = quarterly.pivot(on="metric", index=["ticker", "quarter_end"], values="ttm").sort(
-        "ticker", "quarter_end"
-    )
+    wide = quarterly.pivot(on="metric", index=["ticker", "quarter_end"], values="ttm").sort("ticker", "quarter_end")
     for m in TAG_MAP:
         if m not in wide.columns:
             wide = wide.with_columns(pl.lit(None, dtype=pl.Float64).alias(m))
@@ -206,9 +201,7 @@ def build() -> dict:
         .group_by("ticker", maintain_order=True)
         .last()
         .with_columns(
-            pl.col("ticker")
-            .map_elements(lambda t: coverage.get(t, {}).get("name"), return_dtype=pl.Utf8)
-            .alias("name")
+            pl.col("ticker").map_elements(lambda t: coverage.get(t, {}).get("name"), return_dtype=pl.Utf8).alias("name")
         )
         .sort("rule_of_40", descending=True, nulls_last=True)
     )
@@ -241,9 +234,17 @@ def build() -> dict:
             "fcf_margin": round(r["fcf_margin"], 4),
         }
 
+    log_path = SNAP_DIR / "sec" / "refresh_log.jsonl"
+    refreshes = [json.loads(x) for x in log_path.read_text().splitlines() if x.strip()] if log_path.exists() else []
+    r40 = scored["rule_of_40"].drop_nulls()
     facts = {
         "project": "saas-benchmark",
         "generated_at": utc_now().isoformat(timespec="seconds"),
+        "first_refresh": refreshes[0]["ts"] if refreshes else None,
+        "last_refresh": refreshes[-1]["ts"] if refreshes else None,
+        "n_refreshes": len(refreshes),
+        "rule_of_40_p25": round(float(r40.quantile(0.25)), 1) if r40.len() else None,
+        "rule_of_40_p75": round(float(r40.quantile(0.75)), 1) if r40.len() else None,
         "companies": latest.height,
         "companies_scored": scored.height,
         "latest_quarter_end_max": latest["quarter_end"].max(),
@@ -260,7 +261,24 @@ def build() -> dict:
             "pairs": recon_pairs,
             "agree": recon_ok,
             "rate": round(recon_ok / recon_pairs, 4) if recon_pairs else None,
+            "tolerance": "0.5%",
         },
+        "checks": [
+            check(
+                "Companies fetched",
+                latest.height == len(coverage),
+                f"{latest.height} of {len(coverage)} companies have a scored latest quarter",
+            ),
+            non_null(latest, ["revenue", "gross_profit", "op_income", "ocf"], id_col="ticker", warn_up_to=3),
+            uniqueness(latest, ["ticker"], "companies"),
+            check(
+                "Reconciliation",
+                (recon_ok / recon_pairs if recon_pairs else 0) >= 0.95,
+                f"{recon_ok:,} of {recon_pairs:,} direct-vs-derived quarters agree within 0.5%",
+                warn=(recon_ok / recon_pairs if recon_pairs else 0) >= 0.9,
+            ),
+            freshness(refreshes[-1]["ts"] if refreshes else None, 24 * 8, "refresh"),
+        ],
         "quarters_total": int(quarterly.filter(pl.col("metric") == "revenue").height),
         "missing_metrics": missing,
         "sources": [

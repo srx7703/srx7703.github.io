@@ -6,11 +6,14 @@ type Row = { snapshot_ts: string; key: string; platform: string; prob: number | 
 const KEY_BY_CHAMBER: Record<string, string> = { House: 'house_dem', Senate: 'senate_dem' };
 
 /** Democratic-control probability over time, one line per platform, for one chamber. */
-export function headlineSpec(chamber: 'House' | 'Senate', showLegend = true) {
+export function headlineSpec(chamber: 'House' | 'Senate', showLegend = true, electionDay = '2026-11-03') {
   const key = KEY_BY_CHAMBER[chamber];
   const rows = (series as Row[])
     .filter((r) => r.key === key && r.prob != null)
     .map((r) => ({ ts: r.snapshot_ts, prob: r.prob, platform: r.platform }));
+  const ts = rows.map((r) => new Date(r.ts).getTime());
+  const spanDays = ts.length ? (Math.max(...ts) - Math.min(...ts)) / 86400000 : 0;
+  const xFormat = spanDays < 3 ? '%b %d %H:%M' : '%b %d';
   const tooltip = [
     { field: 'ts', type: 'temporal', title: 'Snapshot (UTC)', format: '%b %d, %H:%M' },
     { field: 'platform', type: 'nominal', title: 'Platform' },
@@ -21,7 +24,7 @@ export function headlineSpec(chamber: 'House' | 'Senate', showLegend = true) {
     data: { values: rows },
     height: 240,
     encoding: {
-      x: { field: 'ts', type: 'temporal', title: null, axis: { format: '%b %d', grid: false, labelAngle: 0, tickCount: 6 } },
+      x: { field: 'ts', type: 'temporal', title: null, axis: { format: xFormat, grid: false, labelAngle: 0, tickCount: 5 } },
       y: {
         field: 'prob', type: 'quantitative', title: `Democrats win the ${chamber}`,
         scale: { domain: [0, 1] }, axis: { format: '.0%', tickCount: 5, gridDash: [0] },
@@ -33,6 +36,15 @@ export function headlineSpec(chamber: 'House' | 'Senate', showLegend = true) {
       },
     },
     layer: [
+      ...(spanDays >= 14 ? [{
+        data: { values: [{ ts: `${electionDay}T00:00:00Z`, label: 'Election day' }] },
+        mark: { type: 'rule', strokeDash: [4, 4], color: tok('ink-3') },
+        encoding: { x: { field: 'ts', type: 'temporal' }, color: { value: tok('ink-3') } },
+      }, {
+        data: { values: [{ ts: `${electionDay}T00:00:00Z`, label: 'Election day' }] },
+        mark: { type: 'text', align: 'right', dx: -4, dy: -100, fontSize: 11, color: tok('ink-3') },
+        encoding: { x: { field: 'ts', type: 'temporal' }, text: { field: 'label' } },
+      }] : []),
       { mark: { type: 'line', strokeWidth: 2, strokeJoin: 'round', strokeCap: 'round' } },
       {
         mark: { type: 'point', filled: true, size: 64, stroke: tok('surface'), strokeWidth: 2 },

@@ -13,6 +13,7 @@ import csv
 import logging
 import sys
 
+from pipelines.common.checks import check, file_fingerprint
 from pipelines.common.log import setup_logging
 from pipelines.common.storage import DATA_DIR, FACTS_DIR, MARTS_DIR, utc_now, write_json
 
@@ -101,6 +102,13 @@ def build() -> dict:
     )
 
     by_strat = {r["Strategy"]: r for r in main}
+    passed_checks = sum(1 for r in audit if str(r.get("passed")).lower() == "true")
+    curve: dict[str, dict[str, float]] = {}
+    for r in tc:
+        curve.setdefault(r["Strategy"], {})[str(int(r["TC_bps"]))] = r["Sharpe"]
+    zero = {k: v["0"] for k, v in curve.items() if "0" in v}
+    zero_best = max(zero, key=zero.get)
+    drop10 = [curve[k]["0"] - curve[k]["10"] for k in curve if "0" in curve[k] and "10" in curve[k]]
     best = min((r for r in main if r["Strategy"] in ("OLS", "PCA", "LASSO")), key=lambda r: -r["Sharpe"])
     nz = [r["n_nonzero"] for r in sparsity if r.get("n_nonzero") is not None]
     facts = {
@@ -115,6 +123,19 @@ def build() -> dict:
             "test": "2020",
         },
         "tc_bps": 5,
+        "tc_curve": curve,
+        "zero_cost": {
+            "best_strategy": zero_best,
+            "best_sharpe": zero[zero_best],
+            "all_negative": all(v < 0 for v in zero.values()),
+        },
+        "sharpe_drop_per_10bps": round(sum(drop10) / len(drop10), 2) if drop10 else None,
+        "basis": {
+            "main_results": "portfolio level, dollar-neutral, full-year 2020 out of sample, 5 bps one-way cost",
+            "tc_sensitivity": "portfolio level, full-year 2020 out of sample, cost varied",
+            "train_test": "residual-direct Sharpe (before portfolio aggregation), no transaction cost",
+            "rolling": "residual-direct Sharpe, no transaction cost; refit monthly on a trailing 12-month window",
+        },
         "main_results": [
             {
                 "strategy": r["Strategy"],
@@ -153,6 +174,7 @@ def build() -> dict:
             "cum_var": pca["cum_var_at_k"],
             "corr_pc1_market": pca["corr_PC1_market_proxy"],
         },
+        "regime_days": {r["Regime"]: int(r["N days"]) for r in regime if r["Strategy"] == "OLS"},
         "half_life": [
             {
                 "model": r["Model"],
@@ -185,6 +207,19 @@ def build() -> dict:
             "passed": sum(1 for r in audit if str(r.get("passed")).lower() == "true"),
         },
         "lasso_hedges_mean": round(sum(nz) / len(nz), 1) if nz else None,
+        "checks": [
+            file_fingerprint(TABLES / "main_results.csv", "main_results.csv"),
+            check(
+                "Tables loaded",
+                True,
+                f"{len(main)} strategies, {len(tc)} cost points, {len(regime)} regime rows, {len(ci)} interval rows",
+            ),
+            check(
+                "Look-ahead audit",
+                passed_checks == len(audit),
+                f"{passed_checks} of {len(audit)} checks passed in the original project",
+            ),
+        ],
         "sources": [
             {
                 "name": "Yahoo Finance daily adjusted closes via yfinance",

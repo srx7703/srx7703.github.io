@@ -8,7 +8,7 @@ const { title, subtitle } = Astro.props;
 ---
 <figure class="chart-card">
   <figcaption>
-    <h3 class="chart-card__title">{title}</h3>
+    <h2 class="chart-card__title">{title}</h2>
     {subtitle && <p class="chart-card__subtitle">{subtitle}</p>}
   </figcaption>
   <div class="chart-card__body"><slot /></div>

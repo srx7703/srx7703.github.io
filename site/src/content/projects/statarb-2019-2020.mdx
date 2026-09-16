@@ -15,6 +15,7 @@ import ChartCard from '@components/ChartCard.astro';
 import VegaChart from '@components/VegaChart.astro';
 import SourceStamp from '@components/SourceStamp.astro';
 import Section from '@components/Section.astro';
+import DataQuality from '@components/DataQuality.astro';
 import { tcSpec } from '@charts/statarb/tc';
 import { ciSpec } from '@charts/statarb/ci';
 import { regimeSpec } from '@charts/statarb/regime';
@@ -34,44 +35,48 @@ export const asOf = 'May 2026 (frozen results)';
   <KpiTile label="Look-ahead audit" value={`${facts.lookahead_audit.passed} / ${facts.lookahead_audit.checks}`} sub="checks passed (lag test, oracle test, contamination test, anomaly bound)" tone="positive" />
 </KpiRow>
 
-<ChartCard title="Costs decide the sign: at zero cost LASSO is roughly flat, at 20 bps every model loses" subtitle="Out-of-sample Sharpe ratio (2020) as a function of one-way transaction cost, by model">
+<ChartCard title={facts.zero_cost.all_negative ? `No static model is profitable even at zero cost; each 10 bps of one-way cost removes about ${facts.sharpe_drop_per_10bps} of Sharpe` : `At zero cost ${facts.zero_cost.best_strategy} is positive; each 10 bps of one-way cost removes about ${facts.sharpe_drop_per_10bps} of Sharpe`} subtitle={`Out-of-sample Sharpe ratio (2020, portfolio level) as a function of one-way transaction cost, by model; ${facts.basis.tc_sensitivity}`}>
   <VegaChart id="statarb-tc" spec={tcSpec()} height={260} ariaLabel="Line chart of Sharpe ratio versus transaction cost for OLS, PCA and LASSO" />
   <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
 </ChartCard>
 
-<ChartCard title="No strategy's Sharpe is distinguishable from zero on one year of data" subtitle="Point estimate and bootstrap 95% interval of the annualised Sharpe ratio, 2020 out of sample, 5 bps one-way cost">
+<ChartCard title="No strategy's Sharpe is distinguishable from zero on one year of data" subtitle={`Point estimate and bootstrap 95% interval of the annualised Sharpe ratio; ${facts.basis.main_results}`}>
   <VegaChart id="statarb-ci" spec={ciSpec()} height={210} ariaLabel="Dot and interval chart of Sharpe ratios with bootstrap confidence intervals" />
   <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
 </ChartCard>
 
-<ChartCard title="Mean reversion was punished hardest before and during the crash, and merely flat in the recovery" subtitle="Annualised Sharpe by COVID regime; the pre-crash and crash windows are 33 and 23 trading days, so their Sharpe ratios are noisy">
+<ChartCard title="Mean reversion was punished hardest before and during the crash, and merely flat in the recovery" subtitle={`Annualised Sharpe by COVID regime; the pre-crash and crash windows are ${facts.regime_days.pre_crash} and ${facts.regime_days.crash} trading days, so their Sharpe ratios are noisy`}>
   <VegaChart id="statarb-regime" spec={regimeSpec()} height={230} ariaLabel="Small-multiple bar charts of Sharpe ratio by strategy for three market regimes" />
   <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
 </ChartCard>
 
 <figure class="chart-card">
-  <figcaption><h3 class="chart-card__title">Cumulative P&amp;L, 2020 out of sample (figure from the original project)</h3></figcaption>
+  <figcaption><h2 class="chart-card__title">Cumulative P&amp;L, 2020 out of sample (figure from the original project)</h2></figcaption>
   <img src="/case-studies/statarb/cumulative_pnl.png" alt="Cumulative profit and loss of the OLS, PCA, LASSO, pairs and buy-and-hold strategies through 2020" loading="lazy" width="1400" height="800" />
 </figure>
 
 <Section id="method" title="Method">
   <div class="prose">
-    <p><strong>Universe and data.</strong> Top-100 companies by market capitalisation (snapshot 2026-05-04), daily adjusted closes from Yahoo Finance, December 2018 to December 2020. Fifteen names are dropped for missing history or non-NYSE trading calendars, leaving 85 tickers over 523 NYSE trading days. Log returns are winsorised at 1% and 99% per ticker. Survivorship bias from using today's ranking is acknowledged, not corrected.</p>
-    <p><strong>Models.</strong> For each target stock, the return is regressed on the other 84 (OLS), on the first {facts.pca.k} principal components explaining {pct(facts.pca.cum_var, 1)} of variance (PCA; PC1 correlates {facts.pca.corr_pc1_market.toFixed(3)} with an equal-weight market proxy), or on the other stocks with an L1 penalty (LASSO, on average {facts.lasso_hedges_mean} non-zero hedges per target). Fits use 2019 only.</p>
-    <p><strong>Signal and backtest.</strong> Residuals are z-scored over a 60-day rolling window; enter at |z| = 2, exit at 0.5. Positions are dollar-neutral: $1 in the target against $1 in the hedge basket. Ornstein–Uhlenbeck half-lives of the residuals are 20–27 days on average. Benchmarks: Engle–Granger pairs trading (five lowest p-value pairs from the training year) and equal-weight buy-and-hold.</p>
+    <p><strong>Universe and data.</strong> Top-{facts.universe.candidates} companies by market capitalisation (snapshot 2026-05-04), daily adjusted closes from Yahoo Finance, December 2018 to December 2020. {facts.universe.dropped} names are dropped for missing history or non-NYSE trading calendars, leaving {facts.universe.tickers} tickers over {facts.universe.days} NYSE trading days. Log returns are winsorised at 1% and 99% per ticker. Survivorship bias from using today's ranking is acknowledged, not corrected.</p>
+    <p><strong>Models.</strong> For each target stock, the return is regressed on the other {facts.universe.tickers - 1} (OLS), on the first {facts.pca.k} principal components explaining {pct(facts.pca.cum_var, 1)} of variance (PCA; PC1 correlates {facts.pca.corr_pc1_market.toFixed(3)} with an equal-weight market proxy), or on the other stocks with an L1 penalty (LASSO, on average {facts.lasso_hedges_mean} non-zero hedges per target). Fits use 2019 only.</p>
+    <p><strong>Signal and backtest.</strong> Residuals are z-scored over a 60-day rolling window; enter at |z| = 2, exit at 0.5. Positions are dollar-neutral: $1 in the target against $1 in the hedge basket. Ornstein–Uhlenbeck half-lives of the residuals average {Math.min(...facts.half_life.map((h) => h.mean_days)).toFixed(0)}–{Math.max(...facts.half_life.map((h) => h.mean_days)).toFixed(0)} days across the three models. Benchmarks: Engle–Granger pairs trading (five lowest p-value pairs from the training year) and equal-weight buy-and-hold.</p>
   </div>
 </Section>
 
 <Section id="evaluation" title="Evaluation">
   <div class="prose">
     <ul>
-      <li><strong>Overfitting:</strong> train Sharpe {Math.min(...facts.train_test.map((r) => r.train)).toFixed(1)}–{Math.max(...facts.train_test.map((r) => r.train)).toFixed(1)} versus test {Math.min(...facts.train_test.map((r) => r.test)).toFixed(1)} to +{Math.max(...facts.train_test.map((r) => r.test)).toFixed(1)}; {facts.smallest_gap} has the smallest gap, as the L1 penalty predicts.</li>
+      <li><strong>Overfitting</strong> ({facts.basis.train_test}): train Sharpe {Math.min(...facts.train_test.map((r) => r.train)).toFixed(1)}–{Math.max(...facts.train_test.map((r) => r.train)).toFixed(1)} versus test {Math.min(...facts.train_test.map((r) => r.test)).toFixed(1)} to +{Math.max(...facts.train_test.map((r) => r.test)).toFixed(1)}; {facts.smallest_gap} has the smallest gap, as the L1 penalty predicts.</li>
       <li><strong>Significance:</strong> bootstrap 95% intervals for every Sharpe include zero; Memmel tests of LASSO against OLS, PCA and pairs do not reject equal Sharpe (p from {Math.min(...facts.memmel.map((m) => m.p)).toFixed(2)} to {Math.max(...facts.memmel.map((m) => m.p)).toFixed(2)}).</li>
       <li><strong>Look-ahead audit:</strong> {facts.lookahead_audit.passed} of {facts.lookahead_audit.checks} checks pass, including a deliberately leaky variant that should and does blow up the Sharpe, and a perfect-foresight oracle as an upper bound.</li>
-      <li><strong>Robustness:</strong> a six-month rolling refit lifts OLS from {facts.rolling[0].static} to {facts.rolling[0].rolling} and LASSO from {facts.rolling[1].static} to {facts.rolling[1].rolling} (no-cost Sharpe), which locates the loss in stale betas rather than in the signal.</li>
+      <li><strong>Robustness</strong> ({facts.basis.rolling}): a rolling refit lifts OLS from {facts.rolling[0].static} to {facts.rolling[0].rolling} and LASSO from {facts.rolling[1].static} to {facts.rolling[1].rolling} , which locates the loss in stale betas rather than in the signal. These residual-direct figures are not comparable with the portfolio-level Sharpe ratios above.</li>
     </ul>
     <p>Limitations: one test year, one crisis, five-pair benchmark, no borrow costs or market impact, and a universe chosen with hindsight.</p>
   </div>
+</Section>
+
+<Section id="data-quality" title="Data quality">
+  <DataQuality checks={facts.checks} note="Frozen inputs; the page cannot drift from the original results because it is rebuilt from the same CSV tables." />
 </Section>
 
 <Section id="build-notes" title="Build notes">

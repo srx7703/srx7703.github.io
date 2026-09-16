@@ -3,6 +3,11 @@ name: deploy-site
 on:
   push:
     branches: [main]
+  # Data commits are pushed with GITHUB_TOKEN, which never fires `push` workflows; rebuild after
+  # every data workflow instead so the "data as of" stamps stay current.
+  workflow_run:
+    workflows: [snapshot-predmarkets, refresh-weekly]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -20,6 +25,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: main
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -30,6 +37,11 @@ jobs:
         # (@astrojs/compiler-binding-*, @emnapi/*), which makes `npm ci` fail on ubuntu runners.
         run: npm install --no-audit --no-fund
         working-directory: site
+      - name: Tests (pipelines + prose-numbers guardrail)
+        run: |
+          pip install --quiet uv
+          uv sync --frozen
+          uv run pytest -q -p no:warnings
       - name: Build
         run: npm run build
         working-directory: site

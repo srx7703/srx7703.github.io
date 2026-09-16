@@ -87,7 +87,11 @@ Pipeline: `pipelines/sec/ingest.py` + `transform.py`, weekly (`refresh-weekly.ym
   (Polymarket `prices-history`, Kalshi candlesticks), refreshed weekly.
 - `pipelines/predmarkets/fomc.py` maps both platforms to one meeting/outcome grid
   (cut50, cut25, hold, hike25, hike50), rolls up to cut/hold/hike for charts, and scores resolved
-  meetings with the multi-outcome Brier score of the last observation before 17:30 UTC on decision day.
+  meetings with the multi-outcome Brier score (0 = perfect, 2 = certain and wrong) of the last snapshot
+  taken before 17:30 UTC on decision day (fallback: last daily history point before decision day).
+- `data/snapshots/predmarkets/<set>/resolutions.json` — append-only store of settled tier-1 markets
+  (Kalshi `result`, Polymarket closed 1/0 prices), captured by every full run so results survive the
+  markets leaving the open listings. Also the basis for scoring the midterms after November 3.
 - Outputs: `data/marts/predmarkets/fomc_history.json`, `fomc_meetings.json`, `data/facts/fomc.json`.
 
 # Case study — stat-arb 2019–2020

@@ -1,6 +1,6 @@
 {
  "project": "financial-llm-sec",
- "generated_at": "2026-09-16T06:12:58+00:00",
+ "generated_at": "2026-09-16T06:32:39+00:00",
  "test_items": 20,
  "dataset": {
   "qa_pairs": 1060,
@@ -84,6 +84,14 @@
    "losses": 0
   }
  },
+ "f1_points": {
+  "gemma2": 2.8,
+  "gemma4": 4.8
+ },
+ "p_display": {
+  "gemma2": "0.002",
+  "gemma4": "< 0.001"
+ },
  "largest_item_gain_gemma4": {
   "item": 2,
   "base": 0.8188,
@@ -96,6 +104,23 @@
   "lora": 0.843,
   "delta": 0.0195
  },
+ "checks": [
+  {
+   "name": "Frozen input",
+   "status": "pass",
+   "detail": "evaluation_results_phase2.json sha256 83ec33b98a18, 2,691 bytes"
+  },
+  {
+   "name": "Per-item coverage",
+   "status": "pass",
+   "detail": "20 items scored for each of 4 models"
+  },
+  {
+   "name": "Paired test consistency",
+   "status": "pass",
+   "detail": "mean per-item delta equals the difference of aggregate F1"
+  }
+ ],
  "links": {
   "repo": "https://github.com/srx7703/multi-horizon-financial-llm",
   "adapter_gemma2": "https://huggingface.co/Srx7703/gemma-2-27b-financial-adapter",

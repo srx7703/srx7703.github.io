@@ -61,9 +61,7 @@ class PolymarketClient:
         return self.clob.get_json("/book", {"token_id": token_id})
 
     def prices_history(self, token_id: str, *, interval: str = "max", fidelity: int = 1440) -> dict:
-        return self.clob.get_json(
-            "/prices-history", {"market": token_id, "interval": interval, "fidelity": fidelity}
-        )
+        return self.clob.get_json("/prices-history", {"market": token_id, "interval": interval, "fidelity": fidelity})
 
 
 # --- normalization -------------------------------------------------------------

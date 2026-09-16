@@ -2,18 +2,19 @@
 import { getCollection } from 'astro:content';
 import Base from '@layouts/Base.astro';
 import ProjectCard from '@components/ProjectCard.astro';
+import { cardKpis } from '@lib/cardKpis';
 const projects = (await getCollection('projects')).filter((p) => p.data.featured).sort((a, b) => a.data.order - b.data.order);
 ---
 <Base title="Data analysis and dashboards">
   <section class="hero">
     <h1>Data analysis, dashboard design, and the pipelines behind them.</h1>
-    <p class="lede">I build analyses that keep running after the write-up: scheduled data pipelines, tested transforms, and dashboards with the method and evaluation written down. Everything here is built end to end with Claude Code, and the code is public.</p>
+    <p class="lede">I build analyses that keep running after the write-up: scheduled data pipelines, tested transforms, and dashboards with the method and evaluation written down. Everything here is built end to end with Claude Code; the pipelines and the site are public.</p>
   </section>
   <section>
     <h2>Featured projects</h2>
     <div class="grid-2">
       {projects.map((p) => (
-        <ProjectCard href={`/projects/${p.id}/`} title={p.data.title} summary={p.data.summary} status={p.data.status} domain={p.data.domain} tools={p.data.tools} />
+        <ProjectCard href={`/projects/${p.id}/`} title={p.data.title} summary={p.data.summary} status={p.data.status} domain={p.data.domain} tools={p.data.tools} kpi={cardKpis[p.id]} />
       ))}
     </div>
     <p><a href="/projects/">All projects →</a></p>

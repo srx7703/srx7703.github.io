@@ -1,6 +1,6 @@
 {
  "project": "midterms-2026",
- "generated_at": "2026-09-16T06:09:07+00:00",
+ "generated_at": "2026-09-16T06:34:16+00:00",
  "election_day": "2026-11-03",
  "first_snapshot_ts": "2026-09-16T02:26:10+00:00",
  "last_snapshot_ts": "2026-09-16T02:33:41+00:00",
@@ -10,11 +10,46 @@
   "kalshi": 19973,
   "polymarket": 11549
  },
- "live_markets_tracked": {
-  "kalshi": 19335,
-  "polymarket": 10943
+ "quoted_markets_tracked": {
+  "kalshi": 6844,
+  "polymarket": 5136
  },
+ "quoted_definition": "both sides quoted, spread <= 10 cents, any volume",
+ "last_full_snapshot_ts": "2026-09-16T02:33:41+00:00",
  "order_books_captured": 1603,
+ "tier1_books_latest": 517,
+ "checks": [
+  {
+   "name": "Schema",
+   "status": "pass",
+   "detail": "pandera schemas validated before every write (3 runs)"
+  },
+  {
+   "name": "Probability range",
+   "status": "pass",
+   "detail": "0 values outside [0, 1] across yes_price, best_bid, best_ask, mid"
+  },
+  {
+   "name": "Key uniqueness",
+   "status": "pass",
+   "detail": "0 duplicate markets on (platform, market_id)"
+  },
+  {
+   "name": "Required fields",
+   "status": "pass",
+   "detail": "all present"
+  },
+  {
+   "name": "Both platforms",
+   "status": "pass",
+   "detail": "2 of 2 platforms in the latest run"
+  },
+  {
+   "name": "Freshness",
+   "status": "pass",
+   "detail": "latest snapshot 4.0 h ago (limit 14 h)"
+  }
+ ],
  "headline": {
   "bop_dd": {
    "label": "D Senate + D House",

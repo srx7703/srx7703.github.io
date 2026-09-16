@@ -6,12 +6,13 @@ Outcome buckets: cut50 (<= -50 bps), cut25, hold, hike25, hike50 (>= +50 bps). C
 
 from __future__ import annotations
 
+import json
 import logging
 import re
-from datetime import datetime
 
 import polars as pl
 
+from pipelines.common.checks import check, freshness, probability_range, uniqueness
 from pipelines.common.storage import FACTS_DIR, MARTS_DIR, SNAP_DIR, utc_now, write_json
 from pipelines.predmarkets import read
 
@@ -129,21 +130,14 @@ def market_grid(dim: pl.DataFrame) -> pl.DataFrame:
                 continue
             meeting, bucket = polymarket_meeting(r["question"]), polymarket_bucket(r["question"])
         if meeting and bucket:
-            rows.append(
-                {"platform": r["platform"], "market_id": r["market_id"], "meeting": meeting, "bucket": bucket}
-            )
-    return pl.DataFrame(
-        rows, schema={"platform": pl.Utf8, "market_id": pl.Utf8, "meeting": pl.Utf8, "bucket": pl.Utf8}
-    )
+            rows.append({"platform": r["platform"], "market_id": r["market_id"], "meeting": meeting, "bucket": bucket})
+    return pl.DataFrame(rows, schema={"platform": pl.Utf8, "market_id": pl.Utf8, "meeting": pl.Utf8, "bucket": pl.Utf8})
 
 
 def daily_prices(grid: pl.DataFrame) -> pl.DataFrame:
     """Union of backfilled daily history and snapshot observations, one row per market-date."""
     hist_dir = SNAP_DIR / "predmarkets" / "fomc" / "history"
-    parts = [
-        pl.read_parquet(p).select("platform", "market_id", "date", "price")
-        for p in hist_dir.glob("*.parquet")
-    ]
+    parts = [pl.read_parquet(p).select("platform", "market_id", "date", "price") for p in hist_dir.glob("*.parquet")]
     q = (
         read.quotes("fomc")
         .collect()
@@ -171,25 +165,22 @@ def latest_probs(grid: pl.DataFrame) -> pl.DataFrame:
     )
 
 
-def resolutions(dim: pl.DataFrame, grid: pl.DataFrame) -> dict[str, str]:
-    """meeting -> winning bucket, from Kalshi settlement results in the latest raw tier-1 snapshot."""
-    raw_dir = SNAP_DIR.parent / "raw" / "predmarkets" / "fomc"
-    files = sorted(raw_dir.glob("*/*/kalshi_tier1_events.json.gz"))
-    if not files:
+def resolutions(grid: pl.DataFrame) -> dict[str, str]:
+    """meeting -> winning bucket, from the append-only resolutions store written by the snapshotter
+    (Kalshi settlement results first, Polymarket closed 1/0 prices as a fallback)."""
+    path = SNAP_DIR / "predmarkets" / "fomc" / "resolutions.json"
+    if not path.exists():
         return {}
-    from pipelines.common.storage import read_json_gz
-
-    events = read_json_gz(files[-1])
+    store = json.loads(path.read_text())["markets"]
+    lookup = {(r["platform"], r["market_id"]): (r["meeting"], r["bucket"]) for r in grid.iter_rows(named=True)}
     out: dict[str, str] = {}
-    for ev in events:
-        meeting = kalshi_meeting(ev.get("event_ticker"))
-        if not meeting:
-            continue
-        for m in ev.get("markets") or []:
-            if (m.get("result") or "").lower() == "yes":
-                b = kalshi_bucket(m.get("yes_sub_title"))
-                if b:
-                    out[meeting] = b
+    for pf in ("kalshi", "polymarket"):
+        for rec in store.values():
+            if rec["platform"] != pf or rec["result"] != "yes":
+                continue
+            hit = lookup.get((rec["platform"], rec["market_id"]))
+            if hit and hit[0] not in out:
+                out[hit[0]] = hit[1]
     return out
 
 
@@ -198,19 +189,13 @@ def build() -> dict:
     grid = market_grid(dim)
     prices = daily_prices(grid)
     latest = latest_probs(grid)
-    resolved = resolutions(dim, grid)
+    resolved = resolutions(grid)
     today = utc_now().date().isoformat()
-    upcoming = [m for m in sorted(MEETINGS) if MEETINGS[m] >= today and m in set(grid["meeting"].to_list())][
-        :4
-    ]
+    upcoming = [m for m in sorted(MEETINGS) if MEETINGS[m] >= today and m in set(grid["meeting"].to_list())][:4]
 
     def dist(df: pl.DataFrame, meeting: str, platform: str) -> dict[str, float]:
         sub = df.filter((pl.col("meeting") == meeting) & (pl.col("platform") == platform))
-        return {
-            r["bucket"]: round(float(r["prob"]), 4)
-            for r in sub.iter_rows(named=True)
-            if r["prob"] is not None
-        }
+        return {r["bucket"]: round(float(r["prob"]), 4) for r in sub.iter_rows(named=True) if r["prob"] is not None}
 
     def expected_bps(d: dict[str, float]) -> float | None:
         if not d:
@@ -222,45 +207,68 @@ def build() -> dict:
         entry: dict = {"meeting": m, "decision_date": MEETINGS[m], "platforms": {}}
         for pf in ("polymarket", "kalshi"):
             d = dist(latest, m, pf)
-            if d:
-                entry["platforms"][pf] = {
-                    "buckets": d,
-                    "expected_bps": expected_bps(d),
-                    "rollup": {
-                        k: round(sum(p for b, p in d.items() if ROLLUP[b] == k), 4)
-                        for k in ("cut", "hold", "hike")
-                    },
-                }
-        if len(entry["platforms"]) == 2:
+            rollup = (
+                {k: round(sum(p for b, p in d.items() if ROLLUP[b] == k), 4) for k in ("cut", "hold", "hike")}
+                if d
+                else None
+            )
+            modal = max(rollup, key=rollup.get) if rollup else None
+            entry["platforms"][pf] = {
+                "buckets": d,
+                "expected_bps": expected_bps(d),
+                "sum_prob": round(sum(d.values()), 4) if d else None,
+                "rollup": rollup,
+                "modal_side": modal,
+                "modal_prob": rollup[modal] if modal else None,
+            }
+        sides = [entry["platforms"][pf]["modal_side"] for pf in ("polymarket", "kalshi")]
+        entry["agree"] = bool(sides[0] and sides[0] == sides[1])
+        if all(entry["platforms"][pf]["rollup"] for pf in ("polymarket", "kalshi")):
             entry["gap_hike_pt"] = round(
-                (
-                    entry["platforms"]["polymarket"]["rollup"]["hike"]
-                    - entry["platforms"]["kalshi"]["rollup"]["hike"]
-                )
+                (entry["platforms"]["polymarket"]["rollup"]["hike"] - entry["platforms"]["kalshi"]["rollup"]["hike"])
                 * 100,
                 1,
             )
         meetings_out.append(entry)
 
-    # scorecard for resolved meetings: final pre-decision distribution and multi-outcome Brier score
+    # scorecard for resolved meetings: final pre-decision distribution = last snapshot before
+    # 17:30 UTC on decision day (fallback: last daily history point before decision day);
+    # multi-outcome Brier score over the five buckets, range 0 (perfect) to 2 (certain and wrong).
+    q_all = (
+        read.quotes("fomc")
+        .collect()
+        .with_columns(pl.coalesce([pl.col("mid"), pl.col("yes_price")]).alias("price"))
+        .join(grid, on=["platform", "market_id"], how="inner")
+    )
     scorecard = []
     for m, winner in sorted(resolved.items()):
-        cutoff = datetime.fromisoformat(MEETINGS.get(m, m + "-01") + "T17:30:00+00:00")
-        sub = prices.filter((pl.col("meeting") == m) & (pl.col("date") < cutoff.date().isoformat()))
+        cutoff_ts = MEETINGS.get(m, m + "-01") + "T17:30:00+00:00"
         row: dict = {"meeting": m, "decision_date": MEETINGS.get(m), "outcome": winner, "platforms": {}}
         for pf in ("polymarket", "kalshi"):
-            s = sub.filter(pl.col("platform") == pf)
-            if s.height == 0:
-                continue
-            last_date = s["date"].max()
-            d = {
-                r["bucket"]: float(r["price"])
-                for r in s.filter(pl.col("date") == last_date).iter_rows(named=True)
-            }
+            snaps = q_all.filter(
+                (pl.col("meeting") == m) & (pl.col("platform") == pf) & (pl.col("snapshot_ts") < cutoff_ts)
+            )
+            if snaps.height:
+                last = snaps["snapshot_ts"].max()
+                d = {
+                    r["bucket"]: float(r["price"])
+                    for r in snaps.filter(pl.col("snapshot_ts") == last).iter_rows(named=True)
+                    if r["price"] is not None
+                }
+                as_of = last
+            else:
+                hist = prices.filter(
+                    (pl.col("meeting") == m) & (pl.col("platform") == pf) & (pl.col("date") < cutoff_ts[:10])
+                )
+                if hist.height == 0:
+                    continue
+                as_of = hist["date"].max()
+                d = {r["bucket"]: float(r["price"]) for r in hist.filter(pl.col("date") == as_of).iter_rows(named=True)}
             brier = sum((d.get(b, 0.0) - (1.0 if b == winner else 0.0)) ** 2 for b in BPS)
             row["platforms"][pf] = {
-                "as_of": last_date,
+                "as_of": as_of,
                 "buckets": {k: round(v, 4) for k, v in d.items()},
+                "sum_prob": round(sum(d.values()), 4),
                 "p_outcome": round(d.get(winner, 0.0), 4),
                 "brier": round(brier, 4),
             }
@@ -280,8 +288,18 @@ def build() -> dict:
 
     q = read.quotes("fomc").collect()
     snapshots = sorted(q["snapshot_ts"].unique().to_list())
+    latest_all = q.filter(pl.col("snapshot_ts") == snapshots[-1])
+    checks = [
+        check("Schema", True, "pandera schemas validated before every write; history validated on backfill"),
+        probability_range(latest_all, ["yes_price", "best_bid", "best_ask", "mid"]),
+        uniqueness(latest_all, ["platform", "market_id"], "markets"),
+        uniqueness(prices, ["platform", "market_id", "date"], "daily prices", name="Key uniqueness (history)"),
+        check("Outcome grid", int(grid.height) >= 10, f"{grid.height} decision markets mapped to meeting x outcome"),
+        freshness(snapshots[-1], 14, "snapshot"),
+    ]
     facts = {
         "project": "fomc-markets",
+        "checks": checks,
         "generated_at": utc_now().isoformat(timespec="seconds"),
         "first_snapshot_ts": snapshots[0],
         "last_snapshot_ts": snapshots[-1],

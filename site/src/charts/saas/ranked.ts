@@ -18,7 +18,7 @@ export function saasRankedSpec() {
         encoding: {
           y: { field: 'ticker', type: 'nominal', sort: '-x', title: null, axis: { labelFontSize: 11 } },
           x: { field: 'rule_of_40', type: 'quantitative', title: 'Rule of 40 score (growth % + FCF margin %)', axis: { tickCount: 6 } },
-          color: { field: 'pass', type: 'nominal', scale: { domain: ['Rule of 40 met', 'Below 40'], range: [series.a, series.neutral] }, legend: null },
+          color: { field: 'pass', type: 'nominal', scale: { domain: ['Rule of 40 met', 'Below 40'], range: [series.a, series.neutral] }, legend: { title: null, orient: 'top', direction: 'horizontal' } },
           tooltip: [
             { field: 'name', type: 'nominal', title: 'Company' },
             { field: 'rev_growth', type: 'quantitative', title: 'Revenue growth', format: '.1%' },

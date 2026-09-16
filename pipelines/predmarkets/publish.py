@@ -22,6 +22,7 @@ from dataclasses import dataclass
 
 import polars as pl
 
+from pipelines.common.checks import check, freshness, non_null, probability_range, uniqueness
 from pipelines.common.log import setup_logging
 from pipelines.common.storage import FACTS_DIR, MARTS_DIR, utc_now, write_json
 from pipelines.predmarkets import read
@@ -86,15 +87,44 @@ def headline_series() -> pl.DataFrame:
     return out
 
 
+def full_run_timestamps(name: str) -> set[str]:
+    path = read.set_dir(name) / "runs.jsonl"
+    if not path.exists():
+        return set()
+    out = set()
+    for line in path.read_text().splitlines():
+        if line.strip():
+            r = json.loads(line)
+            if r.get("scope", "full") == "full":
+                out.add(r["snapshot_ts"])
+    return out
+
+
 def coverage() -> pl.DataFrame:
+    """Per full-run coverage. 'quoted' = both sides quoted with a spread of at most 10 cents and some
+    volume, i.e. a market someone can actually trade at the shown price (the universe includes many
+    dead or placeholder markets)."""
     q = _prob(read.quotes("midterms")).collect()
+    q = q.filter(pl.col("snapshot_ts").is_in(sorted(full_run_timestamps("midterms"))))
+    quoted = (
+        pl.col("best_bid").is_not_null()
+        & pl.col("best_ask").is_not_null()
+        & ((pl.col("best_ask") - pl.col("best_bid")) <= 0.10)
+        & ((pl.col("volume_24h") > 0) | (pl.col("volume") > 0))
+    )
     return (
         q.group_by("snapshot_ts", "platform")
         .agg(
             pl.len().alias("markets"),
-            (pl.col("prob").is_between(0.02, 0.98)).sum().alias("live_markets"),
-            pl.col("volume").sum().alias("volume_usd"),
-            pl.col("volume_24h").sum().alias("volume_24h_usd"),
+            quoted.sum().alias("quoted_markets"),
+            pl.col("volume").sum().alias("volume"),
+            pl.col("volume_24h").sum().alias("volume_24h"),
+        )
+        .with_columns(
+            pl.when(pl.col("platform") == "kalshi")
+            .then(pl.lit("contracts"))
+            .otherwise(pl.lit("usd"))
+            .alias("volume_unit")
         )
         .sort("snapshot_ts", "platform")
     )
@@ -109,20 +139,28 @@ def build_midterms() -> dict:
     cov = coverage()
     q = read.quotes("midterms").collect()
     snapshots = sorted(q["snapshot_ts"].unique().to_list())
-    runs = [
-        json.loads(line)
-        for line in (read.set_dir("midterms") / "runs.jsonl").read_text().splitlines()
-        if line
-    ]
+    runs = [json.loads(line) for line in (read.set_dir("midterms") / "runs.jsonl").read_text().splitlines() if line]
     books_total = sum(r.get("books") or 0 for r in runs)
+    books_latest = next((r.get("books") or 0 for r in reversed(runs) if r.get("books")), 0)
+    latest_q_all = q.filter(pl.col("snapshot_ts") == snapshots[-1])
+    checks = [
+        check("Schema", True, f"pandera schemas validated before every write ({len(runs)} runs)"),
+        probability_range(latest_q_all, ["yes_price", "best_bid", "best_ask", "mid"]),
+        uniqueness(latest_q_all, ["platform", "market_id"], "markets"),
+        non_null(latest_q_all, ["market_id", "event_id"]),
+        check(
+            "Both platforms",
+            latest_q_all["platform"].n_unique() == 2,
+            f"{latest_q_all['platform'].n_unique()} of 2 platforms in the latest run",
+        ),
+        freshness(snapshots[-1], 14, "snapshot"),
+    ]
 
     latest = _latest_by(series, ["key", "platform"])
     head: dict[str, dict] = {}
     for key in sorted({h.key for h in HEADLINES}):
         rows = latest.filter(pl.col("key") == key)
-        by_platform = {
-            r["platform"]: round(r["prob"], 4) for r in rows.iter_rows(named=True) if r["prob"] is not None
-        }
+        by_platform = {r["platform"]: round(r["prob"], 4) for r in rows.iter_rows(named=True) if r["prob"] is not None}
         entry = {"label": rows["label"][0] if rows.height else key, **by_platform}
         if "polymarket" in by_platform and "kalshi" in by_platform:
             entry["spread"] = round(by_platform["polymarket"] - by_platform["kalshi"], 4)
@@ -130,18 +168,14 @@ def build_midterms() -> dict:
 
     latest_cov = _latest_by(cov, ["platform"])
     markets_tracked = {r["platform"]: r["markets"] for r in latest_cov.iter_rows(named=True)}
-    live_tracked = {r["platform"]: r["live_markets"] for r in latest_cov.iter_rows(named=True)}
+    quoted_tracked = {r["platform"]: r["quoted_markets"] for r in latest_cov.iter_rows(named=True)}
 
     # top state Senate/Governor races on Polymarket by cumulative volume (latest snapshot)
     dim = read.dim("midterms")
-    latest_q = q.filter(pl.col("snapshot_ts") == snapshots[-1]).join(
-        dim, on=["platform", "market_id"], how="left"
-    )
+    latest_q = q.filter(pl.col("snapshot_ts") == snapshots[-1]).join(dim, on=["platform", "market_id"], how="left")
     races = (
         latest_q.filter(
-            pl.col("event_slug").str.contains(
-                "senate-election-winner|governor-winner-2026|governor-election-winner"
-            )
+            pl.col("event_slug").str.contains("senate-election-winner|governor-winner-2026|governor-election-winner")
         )
         .group_by("event_slug", "event_title")
         .agg(pl.col("volume").sum().alias("volume_usd"), pl.len().alias("markets"))
@@ -158,8 +192,12 @@ def build_midterms() -> dict:
         "n_snapshots": len(snapshots),
         "n_days": len({s[:10] for s in snapshots}),
         "markets_tracked": markets_tracked,
-        "live_markets_tracked": live_tracked,
+        "quoted_markets_tracked": quoted_tracked,
+        "quoted_definition": "both sides quoted, spread <= 10 cents, any volume",
+        "last_full_snapshot_ts": latest_cov["snapshot_ts"].max() if latest_cov.height else None,
         "order_books_captured": books_total,
+        "tier1_books_latest": books_latest,
+        "checks": checks,
         "headline": head,
         "top_races_polymarket": [
             {

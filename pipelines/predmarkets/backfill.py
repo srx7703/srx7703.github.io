@@ -15,6 +15,7 @@ import logging
 import sys
 from datetime import UTC, datetime
 
+import pandera.polars as pa
 import polars as pl
 
 from pipelines.common.log import setup_logging
@@ -25,6 +26,16 @@ from pipelines.predmarkets.kalshi import KalshiClient
 from pipelines.predmarkets.polymarket import PolymarketClient
 
 log = logging.getLogger("predmarkets.backfill")
+
+HIST_SCHEMA = pa.DataFrameSchema(
+    {
+        "platform": pa.Column(str, pa.Check.isin(["polymarket", "kalshi"])),
+        "market_id": pa.Column(str),
+        "date": pa.Column(str, pa.Check.str_matches(r"^\d{4}-\d{2}-\d{2}$")),
+        "price": pa.Column(float, pa.Check.in_range(0.0, 1.0)),
+    },
+    unique=["platform", "market_id", "date"],
+)
 
 HIST_DTYPES: dict[str, pl.DataType] = {
     "platform": pl.Utf8,
@@ -93,9 +104,7 @@ def backfill_kalshi(dim: pl.DataFrame, days: int = 400) -> pl.DataFrame:
                     "open_interest": float(k.get("open_interest_fp") or 0),
                 }
             )
-    return pl.DataFrame(rows, schema=HIST_DTYPES).unique(
-        subset=["market_id", "date"], keep="last", maintain_order=True
-    )
+    return pl.DataFrame(rows, schema=HIST_DTYPES).unique(subset=["market_id", "date"], keep="last", maintain_order=True)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -111,10 +120,12 @@ def main(argv: list[str] | None = None) -> int:
     out = SNAP_DIR / "predmarkets" / args.set / "history"
     if args.platform in ("all", "polymarket"):
         pm = backfill_polymarket(dim)
+        HIST_SCHEMA.validate(pm)
         write_parquet(pm, out / "polymarket.parquet")
         log.info("polymarket history: %d rows, %d markets", pm.height, pm["market_id"].n_unique())
     if args.platform in ("all", "kalshi"):
         kx = backfill_kalshi(dim)
+        HIST_SCHEMA.validate(kx)
         write_parquet(kx, out / "kalshi.parquet")
         log.info("kalshi history: %d rows, %d markets", kx.height, kx["market_id"].n_unique())
     return 0

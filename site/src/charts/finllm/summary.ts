@@ -2,7 +2,7 @@ import rows from '@data/marts/finllm/summary.json';
 import { VL_SCHEMA, series, tok } from '../theme';
 
 /** BERTScore F1 for base vs SEC-LoRA on both base models (emphasis: adapter in blue, base in grey). */
-export function finllmSummarySpec() {
+export function finllmSummarySpec(n: number) {
   return {
     $schema: VL_SCHEMA,
     data: { values: rows },
@@ -10,7 +10,7 @@ export function finllmSummarySpec() {
     encoding: {
       x: { field: 'family', type: 'nominal', title: null, axis: { labelAngle: 0 } },
       xOffset: { field: 'variant', type: 'nominal', sort: ['base', '+ SEC LoRA'] },
-      y: { field: 'f1', type: 'quantitative', title: 'BERTScore F1 (n = 20 held-out items)', scale: { domain: [0, 1] }, axis: { format: '.1f', tickCount: 6 } },
+      y: { field: 'f1', type: 'quantitative', title: `BERTScore F1 (n = ${n} held-out items)`, scale: { domain: [0, 1] }, axis: { format: '.1f', tickCount: 6 } },
       color: { field: 'variant', type: 'nominal', sort: ['base', '+ SEC LoRA'], scale: { domain: ['base', '+ SEC LoRA'], range: [series.neutral, series.a] }, legend: { title: null, orient: 'top', direction: 'horizontal' } },
       tooltip: [
         { field: 'label', type: 'nominal', title: 'Model' },

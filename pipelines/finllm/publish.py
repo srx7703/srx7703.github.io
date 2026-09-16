@@ -13,6 +13,7 @@ import json
 import logging
 import sys
 
+from pipelines.common.checks import check, file_fingerprint
 from pipelines.common.log import setup_logging
 from pipelines.common.storage import DATA_DIR, FACTS_DIR, MARTS_DIR, utc_now, write_json
 
@@ -93,8 +94,29 @@ def build() -> dict:
                 "losses": t4["losses"],
             },
         },
+        "f1_points": {
+            "gemma2": round((res["v2"]["bertscore_f1"] - res["base"]["bertscore_f1"]) * 100, 1),
+            "gemma4": round((res["v2_gemma4"]["bertscore_f1"] - res["base_gemma4"]["bertscore_f1"]) * 100, 1),
+        },
+        "p_display": {
+            "gemma2": ("< 0.001" if t2["p_value"] < 0.001 else f"{t2['p_value']:.3f}"),
+            "gemma4": ("< 0.001" if t4["p_value"] < 0.001 else f"{t4['p_value']:.3f}"),
+        },
         "largest_item_gain_gemma4": max(g4, key=lambda r: r["delta"]),
         "smallest_item_gain_gemma4": min(g4, key=lambda r: r["delta"]),
+        "checks": [
+            file_fingerprint(SRC, "evaluation_results_phase2.json"),
+            check(
+                "Per-item coverage",
+                all(len(res[k]["per_item_f1"]) == n for k in MODELS),
+                f"{n} items scored for each of {len(MODELS)} models",
+            ),
+            check(
+                "Paired test consistency",
+                abs(t4["mean_delta"] - (res["v2_gemma4"]["bertscore_f1"] - res["base_gemma4"]["bertscore_f1"])) < 0.001,
+                "mean per-item delta equals the difference of aggregate F1",
+            ),
+        ],
         "links": {
             "repo": "https://github.com/srx7703/multi-horizon-financial-llm",
             "adapter_gemma2": "https://huggingface.co/Srx7703/gemma-2-27b-financial-adapter",

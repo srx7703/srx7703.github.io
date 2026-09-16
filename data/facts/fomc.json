@@ -1,6 +1,38 @@
 {
  "project": "fomc-markets",
- "generated_at": "2026-09-16T06:09:07+00:00",
+ "checks": [
+  {
+   "name": "Schema",
+   "status": "pass",
+   "detail": "pandera schemas validated before every write; history validated on backfill"
+  },
+  {
+   "name": "Probability range",
+   "status": "pass",
+   "detail": "0 values outside [0, 1] across yes_price, best_bid, best_ask, mid"
+  },
+  {
+   "name": "Key uniqueness",
+   "status": "pass",
+   "detail": "0 duplicate markets on (platform, market_id)"
+  },
+  {
+   "name": "Key uniqueness (history)",
+   "status": "pass",
+   "detail": "0 duplicate daily prices on (platform, market_id, date)"
+  },
+  {
+   "name": "Outcome grid",
+   "status": "pass",
+   "detail": "80 decision markets mapped to meeting x outcome"
+  },
+  {
+   "name": "Freshness",
+   "status": "pass",
+   "detail": "latest snapshot 4.0 h ago (limit 14 h)"
+  }
+ ],
+ "generated_at": "2026-09-16T06:34:16+00:00",
  "first_snapshot_ts": "2026-09-16T02:27:56+00:00",
  "last_snapshot_ts": "2026-09-16T02:35:26+00:00",
  "n_snapshots": 3,
@@ -24,11 +56,14 @@
      "hike50": 0.0085
     },
     "expected_bps": 22.2,
+    "sum_prob": 1.0005,
     "rollup": {
      "cut": 0.002,
      "hold": 0.115,
      "hike": 0.8835
-    }
+    },
+    "modal_side": "hike",
+    "modal_prob": 0.8835
    },
    "kalshi": {
     "buckets": {
@@ -39,13 +74,17 @@
      "hike50": 0.005
     },
     "expected_bps": 21.6,
+    "sum_prob": 1.01,
     "rollup": {
      "cut": 0.01,
      "hold": 0.125,
      "hike": 0.875
-    }
+    },
+    "modal_side": "hike",
+    "modal_prob": 0.875
    }
   },
+  "agree": true,
   "gap_hike_pt": 0.8
  },
  "meetings": [
@@ -62,11 +101,14 @@
       "hike50": 0.0085
      },
      "expected_bps": 22.2,
+     "sum_prob": 1.0005,
      "rollup": {
       "cut": 0.002,
       "hold": 0.115,
       "hike": 0.8835
-     }
+     },
+     "modal_side": "hike",
+     "modal_prob": 0.8835
     },
     "kalshi": {
      "buckets": {
@@ -77,13 +119,17 @@
       "hike50": 0.005
      },
      "expected_bps": 21.6,
+     "sum_prob": 1.01,
      "rollup": {
       "cut": 0.01,
       "hold": 0.125,
       "hike": 0.875
-     }
+     },
+     "modal_side": "hike",
+     "modal_prob": 0.875
     }
    },
+   "agree": true,
    "gap_hike_pt": 0.8
   },
   {
@@ -99,11 +145,14 @@
       "hike50": 0.009
      },
      "expected_bps": 9.2,
+     "sum_prob": 1.019,
      "rollup": {
       "cut": 0.025,
       "hold": 0.605,
       "hike": 0.389
-     }
+     },
+     "modal_side": "hold",
+     "modal_prob": 0.605
     },
     "kalshi": {
      "buckets": {
@@ -114,13 +163,17 @@
       "hike50": 0.015
      },
      "expected_bps": 9.2,
+     "sum_prob": 1.045,
      "rollup": {
       "cut": 0.03,
       "hold": 0.625,
       "hike": 0.39
-     }
+     },
+     "modal_side": "hold",
+     "modal_prob": 0.625
     }
    },
+   "agree": true,
    "gap_hike_pt": -0.1
   },
   {
@@ -136,11 +189,14 @@
       "hike50": 0.02
      },
      "expected_bps": 14.8,
+     "sum_prob": 1.0335,
      "rollup": {
       "cut": 0.0435,
       "hold": 0.365,
       "hike": 0.625
-     }
+     },
+     "modal_side": "hike",
+     "modal_prob": 0.625
     },
     "kalshi": {
      "buckets": {
@@ -151,13 +207,17 @@
       "hike50": 0.015
      },
      "expected_bps": 15.9,
+     "sum_prob": 1.02,
      "rollup": {
       "cut": 0.02,
       "hold": 0.355,
       "hike": 0.645
-     }
+     },
+     "modal_side": "hike",
+     "modal_prob": 0.645
     }
    },
+   "agree": true,
    "gap_hike_pt": -2.0
   },
   {
@@ -173,11 +233,14 @@
       "hike50": 0.0225
      },
      "expected_bps": 2.0,
+     "sum_prob": 0.9935,
      "rollup": {
       "cut": 0.156,
       "hold": 0.58,
       "hike": 0.2575
-     }
+     },
+     "modal_side": "hold",
+     "modal_prob": 0.58
     },
     "kalshi": {
      "buckets": {
@@ -188,13 +251,17 @@
       "hike50": 0.06
      },
      "expected_bps": 3.4,
+     "sum_prob": 0.97,
      "rollup": {
       "cut": 0.165,
       "hold": 0.53,
       "hike": 0.275
-     }
+     },
+     "modal_side": "hold",
+     "modal_prob": 0.53
     }
    },
+   "agree": true,
    "gap_hike_pt": -1.8
   }
  ],

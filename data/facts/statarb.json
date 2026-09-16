@@ -1,6 +1,6 @@
 {
  "project": "statarb-2019-2020",
- "generated_at": "2026-09-16T06:09:07+00:00",
+ "generated_at": "2026-09-16T06:34:16+00:00",
  "universe": {
   "tickers": 85,
   "candidates": 100,
@@ -10,6 +10,41 @@
   "test": "2020"
  },
  "tc_bps": 5,
+ "tc_curve": {
+  "OLS": {
+   "0": -0.4727,
+   "5": -0.8249,
+   "10": -1.1767,
+   "20": -1.8775,
+   "50": -3.9368
+  },
+  "PCA": {
+   "0": -0.5254,
+   "5": -0.8566,
+   "10": -1.1882,
+   "20": -1.8513,
+   "50": -3.8266
+  },
+  "LASSO": {
+   "0": -0.0378,
+   "5": -0.4098,
+   "10": -0.7819,
+   "20": -1.5251,
+   "50": -3.725
+  }
+ },
+ "zero_cost": {
+  "best_strategy": "LASSO",
+  "best_sharpe": -0.0378,
+  "all_negative": true
+ },
+ "sharpe_drop_per_10bps": 0.7,
+ "basis": {
+  "main_results": "portfolio level, dollar-neutral, full-year 2020 out of sample, 5 bps one-way cost",
+  "tc_sensitivity": "portfolio level, full-year 2020 out of sample, cost varied",
+  "train_test": "residual-direct Sharpe (before portfolio aggregation), no transaction cost",
+  "rolling": "residual-direct Sharpe, no transaction cost; refit monthly on a trailing 12-month window"
+ },
  "main_results": [
   {
    "strategy": "OLS",
@@ -93,6 +128,11 @@
   "k": 22,
   "cum_var": 0.8044509364033133,
   "corr_pc1_market": 0.9859532346540835
+ },
+ "regime_days": {
+  "pre_crash": 33,
+  "crash": 23,
+  "recovery": 197
  },
  "half_life": [
   {
@@ -184,6 +224,23 @@
   "passed": 12
  },
  "lasso_hedges_mean": 11.9,
+ "checks": [
+  {
+   "name": "Frozen input",
+   "status": "pass",
+   "detail": "main_results.csv sha256 932fa947cab0, 334 bytes"
+  },
+  {
+   "name": "Tables loaded",
+   "status": "pass",
+   "detail": "5 strategies, 15 cost points, 15 regime rows, 5 interval rows"
+  },
+  {
+   "name": "Look-ahead audit",
+   "status": "pass",
+   "detail": "12 of 12 checks passed in the original project"
+  }
+ ],
  "sources": [
   {
    "name": "Yahoo Finance daily adjusted closes via yfinance",

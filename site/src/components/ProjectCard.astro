@@ -6,13 +6,15 @@ interface Props {
   status: 'live' | 'case-study' | 'in-progress';
   domain: string[];
   tools: string[];
+  kpi?: { label: string; value: string };
 }
-const { href, title, summary, status, domain, tools } = Astro.props;
+const { href, title, summary, status, domain, tools, kpi } = Astro.props;
 const statusLabel = { live: 'Live · auto-refreshed', 'case-study': 'Case study', 'in-progress': 'In progress' }[status];
 ---
-<a class="card" href={href}>
+<a class="card" href={href} data-status={status} data-domain={domain.join('|')}>
   <div class="card__meta"><span class={`badge badge--${status}`}>{statusLabel}</span><span class="card__domain">{domain.join(' · ')}</span></div>
   <h3 class="card__title">{title}</h3>
+  {kpi && <div class="card__kpi"><span class="card__kpi-value">{kpi.value}</span><span class="card__kpi-label">{kpi.label}</span></div>}
   <p class="card__summary">{summary}</p>
   <p class="card__tools">{tools.join(' · ')}</p>
 </a>
@@ -20,7 +22,10 @@ const statusLabel = { live: 'Live · auto-refreshed', 'case-study': 'Case study'
   .card { display: block; border: 1px solid var(--border); border-radius: var(--radius); padding: var(--s-4); background: var(--surface); color: inherit; text-decoration: none; transition: border-color 120ms; }
   .card:hover { border-color: var(--accent); }
   .card__meta { display: flex; gap: var(--s-2); align-items: center; font-size: var(--fs-xs); color: var(--ink-3); margin-bottom: var(--s-2); flex-wrap: wrap; }
-  .card__title { margin: 0 0 var(--s-1); font-size: var(--fs-lg); }
+  .card__title { margin: 0 0 var(--s-2); font-size: var(--fs-lg); }
+  .card__kpi { display: flex; align-items: baseline; gap: var(--s-2); margin: 0 0 var(--s-2); }
+  .card__kpi-value { font-size: var(--fs-xl); font-weight: 600; letter-spacing: -0.01em; }
+  .card__kpi-label { font-size: var(--fs-xs); color: var(--ink-3); }
   .card__summary { margin: 0 0 var(--s-2); color: var(--ink-2); font-size: var(--fs-sm); }
   .card__tools { margin: 0; font-size: var(--fs-xs); color: var(--ink-3); }
 </style>

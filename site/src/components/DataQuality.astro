@@ -1,0 +1,23 @@
+---
+/** Table of the checks the publish step ran for this build (from facts.checks). */
+interface Props { checks: { name: string; status: 'pass' | 'warn' | 'fail'; detail: string }[]; note?: string }
+const { checks, note } = Astro.props;
+const passed = checks.filter((c) => c.status === 'pass').length;
+const icon = { pass: '✓', warn: '!', fail: '✕' };
+---
+<p class="dq-summary"><strong>{passed} of {checks.length}</strong> checks passed at the last publish.{note && ` ${note}`}</p>
+<div class="table-wrap">
+  <table class="dq">
+    <thead><tr><th>Check</th><th>Status</th><th>Detail</th></tr></thead>
+    <tbody>
+      {checks.map((c) => (<tr><td>{c.name}</td><td><span class={`dq__status dq__status--${c.status}`}>{icon[c.status]} {c.status}</span></td><td>{c.detail}</td></tr>))}
+    </tbody>
+  </table>
+</div>
+<style>
+  .dq-summary { margin: 0 0 var(--s-2); }
+  .dq__status { font-size: var(--fs-xs); border-radius: 999px; padding: 0.1em 0.6em; border: 1px solid var(--border-strong); white-space: nowrap; }
+  .dq__status--pass { color: var(--positive); border-color: var(--positive); }
+  .dq__status--warn { color: var(--ink-2); }
+  .dq__status--fail { color: var(--negative); border-color: var(--negative); }
+</style>

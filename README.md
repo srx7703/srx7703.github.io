@@ -15,7 +15,7 @@ static site that turns them into dashboards with written methodology and evaluat
 | `pipelines/finllm/` | Port of the multi-horizon-financial-llm 4-way evaluation (Gemma 2/4 + SEC LoRA) |
 | `tests/test_site_numbers.py` | Guardrail: no hand-typed data numbers in project-page prose |
 | `data/` | Raw responses, normalized parquet snapshots, derived marts, KPI facts |
-| `site/` | Astro 7 + Vega-Lite static site, deployed to GitHub Pages on every push |
+| `site/` | Astro 7 + Vega-Lite static site, deployed to GitHub Pages after every push and every data refresh |
 | `docs/` | Data model, evaluation plans, design rules |
 
 ## Run locally

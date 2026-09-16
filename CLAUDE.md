@@ -1,16 +1,16 @@
 # CLAUDE.md — portfolio repo conventions
 
-This repo is Ruoxuan Song's data-analysis portfolio: scheduled data pipelines (Python + DuckDB)
-that feed a static site (Astro + Vega-Lite). Everything is text and reproducible; nothing is
+This repo is Ruoxuan Song's data-analysis portfolio: scheduled data pipelines (Python + Polars,
+pandera-validated) that feed a static site (Astro + Vega-Lite). Everything is text and reproducible; nothing is
 built by hand in a GUI tool.
 
 ## Layout
 
 - `pipelines/common/`      shared http / storage / logging helpers
-- `pipelines/<project>/`   one folder per data pipeline; `snapshot.py` / `transform.sql` / `metrics.py` / `evaluate.py` / `tests/`
+- `pipelines/<project>/`   one folder per data pipeline: ingest/snapshot → transform → publish (marts + facts) + `tests/`
 - `data/raw/`              immutable API responses (json.gz), partitioned `<set>/<date>/<HHMM>/` — never edit or rewrite
 - `data/snapshots/`        normalized per-run parquet tables + `dim_*.parquet` slowly-changing dimensions
-- `data/marts/`            DuckDB-derived tables the site reads
+- `data/marts/`            derived tables (parquet/json) the site reads; large ones are loaded by URL
 - `data/facts/`            per-project KPI JSON; **every number in site prose comes from here**
 - `site/`                  Astro site (components, Vega-Lite specs, project MDX pages)
 - `docs/`                  data model, evaluation plans, design notes
@@ -34,6 +34,9 @@ uv sync                      # deps
 uv run pytest                # tests
 uv run ruff check .          # lint
 make snapshot                # run all prediction-market snapshots locally
+make publish                 # rebuild every mart and facts file
+make site                    # build the site (runs the data sync hook)
+make all                     # tests + snapshot + publish + site
 ```
 
 Python runs from the repo root (`python -m pipelines.<pkg>.<module>`); `pythonpath = ["."]`.

@@ -16,14 +16,17 @@ import VegaChart from '@components/VegaChart.astro';
 import SourceStamp from '@components/SourceStamp.astro';
 import PipelineStatus from '@components/PipelineStatus.astro';
 import Section from '@components/Section.astro';
+import DataQuality from '@components/DataQuality.astro';
+import { evaluationPlan } from '@lib/prereg';
 import DownloadCsv from '@components/DownloadCsv.astro';
 import { headlineSpec } from '@charts/midterms/headline';
 import { balanceSpec } from '@charts/midterms/balance';
-import { pct, pts, num, usd, dateUtc, daysUntil } from '@lib/fmt';
+import { pct, pts, num, usd, dateUtc, dayUtc, daysUntil } from '@lib/fmt';
 
 export const h = facts.headline;
 export const asOf = dateUtc(facts.last_snapshot_ts);
 export const daysLeft = daysUntil(facts.election_day, facts.last_snapshot_ts);
+export const plan = evaluationPlan();
 
 <div class="lede">
   With {daysLeft} days to election day, both platforms price a Democratic House as very likely
@@ -37,13 +40,13 @@ export const daysLeft = daysUntil(facts.election_day, facts.last_snapshot_ts);
 <KpiRow>
   <KpiTile label="Democrats win the House" value={pct(h.house_dem.polymarket, 1)} sub={`Polymarket · Kalshi ${pct(h.house_dem.kalshi, 1)} · gap ${pts(h.house_dem.spread)}`} />
   <KpiTile label="Democrats win the Senate" value={pct(h.senate_dem.polymarket, 1)} sub={`Polymarket · Kalshi ${pct(h.senate_dem.kalshi, 1)} · gap ${pts(h.senate_dem.spread)}`} />
-  <KpiTile label="Markets tracked" value={num(facts.markets_tracked.polymarket + facts.markets_tracked.kalshi)} sub={`${num(facts.markets_tracked.polymarket)} Polymarket · ${num(facts.markets_tracked.kalshi)} Kalshi · ${num(facts.order_books_captured)} order books captured`} />
+  <KpiTile label="Tier-1 markets with order books" value={num(facts.tier1_books_latest)} sub={`latest run · universe scan ${num(facts.markets_tracked.polymarket)} Polymarket + ${num(facts.markets_tracked.kalshi)} Kalshi markets, ${num(facts.quoted_markets_tracked.polymarket + facts.quoted_markets_tracked.kalshi)} actively quoted`} />
 </KpiRow>
 
-<ChartCard title={`Both platforms price a Democratic House near ${pct(h.house_dem.polymarket)}; the Senate is closer to even`} subtitle="Probability that Democrats control each chamber after the 2026 midterms, order-book mid, one point per snapshot (UTC)">
+<ChartCard title={`Both platforms price a Democratic House near ${pct(h.house_dem.polymarket)}; the Senate is closer to even`} subtitle={`Probability that Democrats control each chamber after the 2026 midterms, order-book mid, one point per snapshot (UTC); ${facts.n_snapshots} snapshots since ${dayUtc(facts.first_snapshot_ts)}`}>
   <div class="grid-2">
     <VegaChart id="headline-house" spec={headlineSpec('House')} ariaLabel="Line chart of the probability Democrats win the House, by platform, over time" />
-    <VegaChart id="headline-senate" spec={headlineSpec('Senate', false)} ariaLabel="Line chart of the probability Democrats win the Senate, by platform, over time" />
+    <VegaChart id="headline-senate" spec={headlineSpec('Senate', true)} ariaLabel="Line chart of the probability Democrats win the Senate, by platform, over time" />
   </div>
   <details>
     <summary>Table view</summary>
@@ -72,13 +75,13 @@ export const daysLeft = daysUntil(facts.election_day, facts.last_snapshot_ts);
     <p><strong>Question.</strong> How do the two largest prediction-market venues price the 2026 midterms, how far apart are they, and how well will they have done once results are in?</p>
     <p><strong>Data.</strong> A scheduled GitHub Actions job snapshots both platforms twice a day. Polymarket: every market tagged <em>Midterms</em> on the Gamma API ({num(facts.markets_tracked.polymarket)} markets in the latest full run), plus CLOB order books for the headline events and every state Senate and Governor winner market. Kalshi: every open <em>Elections</em> event with markets closing between November 2026 and November 2027 ({num(facts.markets_tracked.kalshi)} markets), plus order books for the control, seat-count and state-race series. No API keys are involved; both APIs are public.</p>
     <p><strong>Definitions.</strong> The probability shown is the order-book mid when both sides are quoted, otherwise the platform's displayed YES price. Gap = Polymarket minus Kalshi, in percentage points. Order-book depth is summed within 5 and 10 cents of the touch on each side. Raw responses are archived unchanged; all tables are rebuilt from them.</p>
-    <p><strong>Pipeline.</strong> <code>pipelines/predmarkets/snapshot.py</code> (ingest, pandera-validated) → parquet snapshots + dimension deltas → <code>publish.py</code> (DuckDB/Polars marts and the facts file this page is templated from). Every number on this page is read from <code>data/facts/midterms.json</code>; none is typed by hand.</p>
+    <p><strong>Pipeline.</strong> <code>pipelines/predmarkets/snapshot.py</code> (ingest, pandera-validated) → parquet snapshots + dimension deltas → <code>publish.py</code> (Polars marts and the facts file this page is templated from). "Actively quoted" means both sides quoted, spread of at most 10 cents and some volume; the raw universe includes many dormant markets. Every number on this page is read from <code>data/facts/midterms.json</code>; none is typed by hand.</p>
   </div>
 </Section>
 
 <Section id="evaluation" title="Evaluation (pre-registered)">
   <div class="prose">
-    <p>Results are scored after November 3, 2026 against the plan below, which is committed before election day so the scoring rules cannot be tuned to the outcome.</p>
+    <p>Results are scored after election day against the plan below, committed before it in <a href={plan.url}>docs/EVALUATION_PLAN.md</a> (git blob <code>{plan.short}</code>, <a href={plan.history}>history</a>) so the scoring rules cannot be tuned to the outcome.</p>
     <ul>
       <li><strong>Accuracy:</strong> Brier score and log loss of each platform's final pre-election price for every resolved market, overall and by market type (control, seat count, state race).</li>
       <li><strong>Calibration:</strong> reliability diagram in 10 probability bins, plus sharpness.</li>
@@ -91,10 +94,8 @@ export const daysLeft = daysUntil(facts.election_day, facts.last_snapshot_ts);
 </Section>
 
 <Section id="data-quality" title="Data quality">
-  <div class="prose">
-    <p>{facts.n_snapshots} snapshots over {facts.n_days} {facts.n_days === 1 ? 'day' : 'days'}; latest {asOf}. Each run validates schema, probability ranges and key uniqueness before writing, and the two platforms are ingested independently so one failing source cannot lose the other's data.</p>
-    <p>Most active state races on Polymarket by cumulative volume: {facts.top_races_polymarket.slice(0, 5).map((r) => `${r.title} (${usd(r.volume_usd)})`).join('; ')}.</p>
-  </div>
+  <DataQuality checks={facts.checks} note={`${facts.n_snapshots} snapshots over ${facts.n_days} ${facts.n_days === 1 ? 'day' : 'days'}; the two platforms are ingested independently so one failing source cannot lose the other's data.`} />
+  <p class="prose">Most active state races on Polymarket by cumulative volume: {facts.top_races_polymarket.slice(0, 5).map((r) => `${r.title} (${usd(r.volume_usd)})`).join('; ')}.</p>
 </Section>
 
 <Section id="build-notes" title="Build notes">

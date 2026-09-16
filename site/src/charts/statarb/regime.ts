@@ -10,6 +10,7 @@ export function regimeSpec() {
     $schema: VL_SCHEMA,
     data: { values: data },
     facet: { column: { field: 'regime_label', type: 'nominal', sort: regimes.map((r) => labels[r]), title: null, header: { labelFontSize: 12 } } },
+    _facetColumns: 3,
     spec: {
       width: 170,
       height: 180,

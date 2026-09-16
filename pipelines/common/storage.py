@@ -3,7 +3,7 @@
 Data layers (see docs/DATA_MODEL.md):
   data/raw/        immutable API responses (gzipped JSON), partitioned by set/date/time
   data/snapshots/  normalized per-run tables (parquet) + dimension delta files
-  data/marts/      DuckDB-derived tables the site reads
+  data/marts/      derived tables (Polars) the site reads
   data/facts/      per-project KPI JSON the site narrative is templated from
 """
 
@@ -75,9 +75,7 @@ def load_dim(dim_dir: Path, key: list[str]) -> pl.DataFrame | None:
     return df.sort("valid_from").unique(subset=key, keep="last", maintain_order=True)
 
 
-def write_dim_delta(
-    new: pl.DataFrame, dim_dir: Path, key: list[str], snapshot_ts: str, date: str, hhmm: str
-) -> int:
+def write_dim_delta(new: pl.DataFrame, dim_dir: Path, key: list[str], snapshot_ts: str, date: str, hhmm: str) -> int:
     """Append-only dimension: write only rows that are new or whose attributes changed.
 
     `new` must contain the key and attribute columns (no bookkeeping columns). New rows get
@@ -87,16 +85,12 @@ def write_dim_delta(
     attrs = [c for c in new.columns if c not in key]
     cur = load_dim(dim_dir, key)
     if cur is None:
-        delta = new.with_columns(
-            pl.lit(snapshot_ts).alias("first_seen"), pl.lit(snapshot_ts).alias("valid_from")
-        )
+        delta = new.with_columns(pl.lit(snapshot_ts).alias("first_seen"), pl.lit(snapshot_ts).alias("valid_from"))
     else:
         cur_attrs = cur.select([*key, *[pl.col(c).alias(f"_cur_{c}") for c in attrs], "first_seen"])
         joined = new.join(cur_attrs, on=key, how="left")
         changed = (
-            pl.any_horizontal([pl.col(c).ne_missing(pl.col(f"_cur_{c}")) for c in attrs])
-            if attrs
-            else pl.lit(False)
+            pl.any_horizontal([pl.col(c).ne_missing(pl.col(f"_cur_{c}")) for c in attrs]) if attrs else pl.lit(False)
         )
         is_new = pl.col("first_seen").is_null()
         delta = (

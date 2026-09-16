@@ -64,9 +64,7 @@ def _in_bounds(price: float | None, bounds: tuple[float, float]) -> bool:
 
 
 # --- Polymarket ------------------------------------------------------------------
-def _pm_tier1_events(
-    client: pm.PolymarketClient, ms: MarketSet, universe: dict[str, dict]
-) -> dict[str, dict]:
+def _pm_tier1_events(client: pm.PolymarketClient, ms: MarketSet, universe: dict[str, dict]) -> dict[str, dict]:
     tier1: dict[str, dict] = {}
     for slug in ms.polymarket_tier1_slugs:
         ev = next((e for e in universe.values() if e.get("slug") == slug), None)
@@ -96,8 +94,14 @@ def snapshot_polymarket(ms: MarketSet, snapshot_ts: str, raw_dir: Path, *, scope
             for ev in client.events_by_tag(tag):
                 universe[str(ev["id"])] = ev
     tier1 = _pm_tier1_events(client, ms, universe)
-    write_json_gz([pm.trim_event(e) for e in tier1.values()], raw_dir / "polymarket_tier1_events.json.gz")
+    if scope == "full":  # the tier-1 event set barely changes between runs; archive it once a day
+        write_json_gz([pm.trim_event(e) for e in tier1.values()], raw_dir / "polymarket_tier1_events.json.gz")
 
+    if scope == "full":
+        pfile = SNAP_DIR / "predmarkets" / ms.name / "polymarket_tier1_slugs.json"
+        known = set(json.loads(pfile.read_text())["slugs"]) if pfile.exists() else set()
+        known |= {e.get("slug") for e in tier1.values() if e.get("slug")}
+        write_json({"updated_at": snapshot_ts, "slugs": sorted(known)}, pfile)
     quoted = universe if scope == "full" else tier1
     rows = pm.flatten_markets(quoted.values(), snapshot_ts)
     if scope == "full":  # tier-1 events fetched by slug may sit outside the universe tags
@@ -120,9 +124,7 @@ def snapshot_polymarket(ms: MarketSet, snapshot_ts: str, raw_dir: Path, *, scope
                 continue
             raw_books.append({"market_id": row["market_id"], "token_id": row["yes_token"], "book": book})
             book_rows.append(
-                pm.summarize_book(
-                    book, market_id=row["market_id"], token_id=row["yes_token"], snapshot_ts=snapshot_ts
-                )
+                pm.summarize_book(book, market_id=row["market_id"], token_id=row["yes_token"], snapshot_ts=snapshot_ts)
             )
         write_json_gz(raw_books, raw_dir / "polymarket_books.json.gz")
     stats = {
@@ -134,6 +136,95 @@ def snapshot_polymarket(ms: MarketSet, snapshot_ts: str, raw_dir: Path, *, scope
         "http_calls": client.gamma.calls + client.clob.calls,
     }
     return rows, book_rows, stats
+
+
+def _safe_series(client: kx.KalshiClient, series: str) -> list[dict]:
+    """One retired or renamed series must not abort the whole Kalshi side of a run."""
+    try:
+        return client.events_for_series(series)
+    except Exception as exc:  # noqa: BLE001
+        log.warning("kalshi series %s failed: %s", series, exc)
+        return []
+
+
+def capture_resolutions(ms: MarketSet, set_dir: Path, snapshot_ts: str) -> dict:
+    """Append-only record of settled tier-1 markets (both platforms), so results survive the
+    markets dropping out of the open/active listings. Read by the scoring code."""
+    path = set_dir / "resolutions.json"
+    store: dict = json.loads(path.read_text()) if path.exists() else {"markets": {}}
+    markets: dict = store["markets"]
+    added = 0
+    # Kalshi: settled events of every tier-1 series (explicit + discovered)
+    series = set(ms.kalshi_tier1_series)
+    sfile = set_dir / "kalshi_tier1_series.json"
+    if sfile.exists():
+        series |= set(json.loads(sfile.read_text())["series"])
+    kc = kx.KalshiClient()
+    for s in sorted(series):
+        try:
+            for ev in kc.iter_events(status="settled", series_ticker=s):
+                for m in ev.get("markets") or []:
+                    res = (m.get("result") or "").lower()
+                    if res not in ("yes", "no"):
+                        continue
+                    key = f"kalshi:{m['ticker']}"
+                    if key not in markets:
+                        markets[key] = {
+                            "platform": "kalshi",
+                            "market_id": m["ticker"],
+                            "event_id": ev.get("event_ticker"),
+                            "event_slug": ev.get("event_ticker"),
+                            "outcome_yes": m.get("yes_sub_title"),
+                            "question": m.get("title"),
+                            "result": res,
+                            "settled_ts": m.get("settlement_ts") or m.get("close_time"),
+                            "recorded_at": snapshot_ts,
+                        }
+                        added += 1
+        except Exception as exc:  # noqa: BLE001
+            log.warning("settled sweep failed for %s: %s", s, exc)
+    # Polymarket: re-fetch every tier-1 event slug ever seen; closed markets carry 1/0 prices
+    pfile = set_dir / "polymarket_tier1_slugs.json"
+    slugs = set(json.loads(pfile.read_text())["slugs"]) if pfile.exists() else set()
+    pc = pm.PolymarketClient()
+    for slug in sorted(slugs):
+        try:
+            ev = pc.event_by_slug(slug)
+        except Exception as exc:  # noqa: BLE001
+            log.warning("resolution fetch failed for %s: %s", slug, exc)
+            continue
+        for m in ev.get("markets") or []:
+            if not m.get("closed"):
+                continue
+            prices = pm._loads(m.get("outcomePrices")) or []
+            try:
+                p0 = float(prices[0]) if prices else None
+            except (TypeError, ValueError):
+                p0 = None
+            if p0 is None or 0.01 < p0 < 0.99:
+                continue  # closed but not clearly resolved
+            key = f"polymarket:{m.get('id')}"
+            if key not in markets:
+                markets[key] = {
+                    "platform": "polymarket",
+                    "market_id": str(m.get("id")),
+                    "event_id": str(ev.get("id")),
+                    "event_slug": ev.get("slug"),
+                    "outcome_yes": None,
+                    "question": m.get("question"),
+                    "result": "yes" if p0 >= 0.99 else "no",
+                    "settled_ts": m.get("closedTime") or m.get("endDate"),
+                    "recorded_at": snapshot_ts,
+                }
+                added += 1
+    store["updated_at"] = snapshot_ts
+    write_json(store, path)
+    return {
+        "resolved_total": len(markets),
+        "added": added,
+        "kalshi_series": len(series),
+        "polymarket_slugs": len(slugs),
+    }
 
 
 # --- Kalshi -------------------------------------------------------------------------
@@ -151,9 +242,7 @@ def _kx_is_tier1(ev: dict, ms: MarketSet, rx: re.Pattern | None) -> bool:
     return st in ms.kalshi_tier1_series or bool(rx and rx.match(st))
 
 
-def snapshot_kalshi(
-    ms: MarketSet, snapshot_ts: str, raw_dir: Path, *, scope: str, books: bool, set_dir: Path
-):
+def snapshot_kalshi(ms: MarketSet, snapshot_ts: str, raw_dir: Path, *, scope: str, books: bool, set_dir: Path):
     client = kx.KalshiClient()
     u = ms.kalshi_universe
     rx = re.compile(ms.kalshi_tier1_series_regex) if ms.kalshi_tier1_series_regex else None
@@ -162,7 +251,7 @@ def snapshot_kalshi(
 
     if scope == "full":
         for s in u.series:
-            for ev in client.events_for_series(s):
+            for ev in _safe_series(client, s):
                 events[ev["event_ticker"]] = ev
         if u.categories:
             lo = datetime.fromisoformat(u.close_from).replace(tzinfo=UTC) if u.close_from else None
@@ -177,7 +266,7 @@ def snapshot_kalshi(
         # explicit tier-1 series may be missing from a category scan
         for s in ms.kalshi_tier1_series:
             if not any(e.get("series_ticker") == s for e in events.values()):
-                for ev in client.events_for_series(s):
+                for ev in _safe_series(client, s):
                     events[ev["event_ticker"]] = ev
         tier1_series = sorted({e["series_ticker"] for e in events.values() if _kx_is_tier1(e, ms, rx)})
         write_json({"snapshot_ts": snapshot_ts, "series": tier1_series}, series_file)
@@ -188,7 +277,7 @@ def snapshot_kalshi(
         lo = datetime.fromisoformat(u.close_from).replace(tzinfo=UTC) if u.close_from else None
         hi = datetime.fromisoformat(u.close_to).replace(tzinfo=UTC) if u.close_to else None
         for s in tier1_series:
-            for ev in client.events_for_series(s):
+            for ev in _safe_series(client, s):
                 closes = [c for c in (_parse_iso(m.get("close_time")) for m in ev.get("markets") or []) if c]
                 if closes and ((lo and max(closes) < lo) or (hi and min(closes) >= hi)):
                     continue  # same window as the full scan (drops e.g. 2028 events of the same series)
@@ -196,7 +285,8 @@ def snapshot_kalshi(
 
     tier1 = [e for e in events.values() if _kx_is_tier1(e, ms, rx)]
     rows = kx.flatten_markets(events.values(), snapshot_ts)
-    write_json_gz(tier1, raw_dir / "kalshi_tier1_events.json.gz")
+    if scope == "full":
+        write_json_gz(tier1, raw_dir / "kalshi_tier1_events.json.gz")
 
     book_rows: list[dict] = []
     raw_books: list[dict] = []
@@ -207,11 +297,7 @@ def snapshot_kalshi(
                 if m.get("status") not in kx.OPEN_STATUSES:
                     continue
                 bid, ask = kx._f(m.get("yes_bid_dollars")), kx._f(m.get("yes_ask_dollars"))
-                ref = (
-                    (bid + ask) / 2
-                    if bid is not None and ask is not None
-                    else kx._f(m.get("last_price_dollars"))
-                )
+                ref = (bid + ask) / 2 if bid is not None and ask is not None else kx._f(m.get("last_price_dollars"))
                 if not _in_bounds(ref, ms.book_price_bounds):
                     continue
                 n_candidates += 1
@@ -278,6 +364,13 @@ def snapshot_set(ms: MarketSet, *, scope: str = "full", books: bool = True) -> d
         BOOKS_SCHEMA.validate(bdf)
         write_parquet(bdf, set_dir / "books" / date / f"{hhmm}.parquet")
 
+    if scope == "full":
+        try:
+            result["resolutions"] = capture_resolutions(ms, set_dir, snapshot_ts)
+            log.info("%s/resolutions: %s", ms.name, result["resolutions"])
+        except Exception as exc:  # noqa: BLE001
+            log.exception("%s/resolutions failed", ms.name)
+            result["errors"].append(f"resolutions: {exc!r}")
     result["quotes"] = len(rows)
     result["books"] = len(book_rows)
     result["seconds"] = round(time.monotonic() - t0, 1)

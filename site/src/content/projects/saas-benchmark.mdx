@@ -1,6 +1,6 @@
 ---
 title: "Public SaaS benchmark from SEC filings: growth, margins and the Rule of 40"
-summary: "A weekly-refreshed benchmark of 29 US-listed software companies built only from SEC XBRL data: trailing-twelve-month growth, gross, operating and free-cash-flow margins, stock compensation, and a Rule-of-40 scoreboard."
+summary: "A weekly-refreshed benchmark of US-listed software companies built only from SEC XBRL data: trailing-twelve-month growth, gross, operating and free-cash-flow margins, stock compensation, and a Rule-of-40 scoreboard."
 status: live
 domain: ["finance", "FP&A"]
 tools: ["Python", "Polars", "SEC EDGAR XBRL API", "pandera", "Vega-Lite", "GitHub Actions"]
@@ -21,6 +21,7 @@ import Section from '@components/Section.astro';
 import DataTable from '@components/DataTable.astro';
 import FilterBar from '@components/FilterBar.astro';
 import DownloadCsv from '@components/DownloadCsv.astro';
+import DataQuality from '@components/DataQuality.astro';
 import { saasScatterSpec } from '@charts/saas/scatter';
 import { saasRankedSpec } from '@charts/saas/ranked';
 import { pct, num, usd, dateUtc, dayUtc } from '@lib/fmt';
@@ -33,7 +34,7 @@ export const tagCounts = Object.values(coverage).reduce((acc, c) => { const k = 
   Across {facts.companies} companies with quarters ending {dayUtc(facts.latest_quarter_end_min)} to {dayUtc(facts.latest_quarter_end_max)}, the median software company grows revenue {pct(facts.median_rev_growth, 1)} a year with a {pct(facts.median_fcf_margin, 1)} free-cash-flow margin, and {facts.rule_of_40_pass} of {facts.companies_scored} clear the Rule of 40. {top.name} leads with a score of {top.rule_of_40} ({pct(top.rev_growth, 1)} growth, {pct(top.fcf_margin, 1)} FCF margin). Median stock-based compensation is {pct(facts.median_sbc_pct, 1)} of revenue.
 </div>
 
-<PipelineStatus lastSnapshot={facts.generated_at} firstSnapshot="2026-09-16T05:53:33+00:00" nSnapshots={1} nDays={1} workflow="refresh-weekly.yml" cadence="weekly (Mondays)" />
+<PipelineStatus lastSnapshot={facts.last_refresh ?? facts.generated_at} firstSnapshot={facts.first_refresh ?? facts.generated_at} nSnapshots={facts.n_refreshes || 1} nDays={facts.n_refreshes || 1} workflow="refresh-weekly.yml" cadence="weekly (Mondays)" />
 
 <KpiRow>
   <KpiTile label="Median revenue growth (TTM, YoY)" value={pct(facts.median_rev_growth, 1)} sub={`${facts.companies_scored} companies scored`} />
@@ -42,11 +43,11 @@ export const tagCounts = Object.values(coverage).reduce((acc, c) => { const k = 
 </KpiRow>
 
 <ChartCard title={`${facts.rule_of_40_pass} of ${facts.companies_scored} companies sit above the Rule-of-40 line; the outliers are on growth, not margin`} subtitle="Trailing-twelve-month revenue growth vs free-cash-flow margin, latest reported quarter per company; FCF = operating cash flow − capex − capitalised software">
-  <VegaChart id="saas-scatter" spec={saasScatterSpec()} height={400} ariaLabel="Scatter plot of revenue growth versus free-cash-flow margin for 29 software companies with a Rule-of-40 reference line" />
+  <VegaChart id="saas-scatter" spec={saasScatterSpec()} height={400} ariaLabel={`Scatter plot of revenue growth versus free-cash-flow margin for ${facts.companies} software companies with a Rule-of-40 reference line`} />
   <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
 </ChartCard>
 
-<ChartCard title={`${top.ticker} is the only company above 100; most of the group clusters between 30 and 60`} subtitle="Rule-of-40 score = revenue growth (%) + FCF margin (%), trailing twelve months, latest quarter">
+<ChartCard title={`${top.ticker} leads at ${top.rule_of_40}; the middle half of the group sits between ${facts.rule_of_40_p25} and ${facts.rule_of_40_p75}`} subtitle="Rule-of-40 score = revenue growth (%) + FCF margin (%), trailing twelve months, latest quarter">
   <VegaChart id="saas-ranked" spec={saasRankedSpec()} height={latest.length * 22 + 60} ariaLabel="Horizontal bar chart ranking companies by Rule-of-40 score" />
   <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
 </ChartCard>
@@ -73,12 +74,16 @@ export const tagCounts = Object.values(coverage).reduce((acc, c) => { const k = 
   </div>
 </Section>
 
-<Section id="evaluation" title="Evaluation and data quality">
+<Section id="evaluation" title="Evaluation and limitations">
   <div class="prose">
-    <p><strong>Reconciliation.</strong> Where a quarter is reported directly and can also be derived by differencing, the two are compared: {num(facts.reconciliation.agree)} of {num(facts.reconciliation.pairs)} pairs agree within 0.5% ({pct(facts.reconciliation.rate, 1)}). Disagreements are almost all quarters restated in a later filing, where the derived value comes from the restated year-to-date figure and the direct value from the original 10-Q; the direct value is kept and the pair is flagged.</p>
+    <p><strong>Reconciliation.</strong> Where a quarter is reported directly and can also be derived by differencing, the two are compared: {num(facts.reconciliation.agree)} of {num(facts.reconciliation.pairs)} pairs agree within {facts.reconciliation.tolerance} ({pct(facts.reconciliation.rate, 1)}). Disagreements are almost all quarters restated in a later filing, where the derived value comes from the restated year-to-date figure and the direct value from the original 10-Q; the direct value is kept and the pair is flagged.</p>
     <p><strong>Coverage.</strong> {facts.quarters_total} company-quarters of revenue. {Object.keys(facts.missing_metrics).length === 0 ? 'Every company has revenue, gross profit, operating income, operating cash flow, capex and stock compensation.' : `Missing core metrics: ${Object.entries(facts.missing_metrics).map(([t, ms]) => `${t} (${ms.join(', ')})`).join('; ')}.`}</p>
     <p><strong>Limitations.</strong> Companies with a fiscal year ending in January (many enterprise-software names) report a quarter later than calendar-year filers, so "latest quarter" differs by up to two months across the table. Capitalised software is netted from FCF only where the company tags it. Foreign private issuers filing 20-F under IFRS are excluded, which is why Shopify is the only non-US name and monday.com is absent.</p>
   </div>
+</Section>
+
+<Section id="data-quality" title="Data quality">
+  <DataQuality checks={facts.checks} note={`${facts.n_refreshes || 1} weekly ${facts.n_refreshes === 1 ? 'refresh' : 'refreshes'} so far; every refresh re-derives all quarters from the current filings.`} />
 </Section>
 
 <Section id="build-notes" title="Build notes">
@@ -89,6 +94,6 @@ export const tagCounts = Object.values(coverage).reduce((acc, c) => { const k = 
 
 <Section id="changelog" title="Changelog">
   <ul class="prose">
-    <li><strong>2026-09-16</strong> — page v0: 29 companies, scatter and ranking, benchmark table, reconciliation stats.</li>
+    <li><strong>2026-09-16</strong> — page v0: scatter and ranking, sortable benchmark table with CSV export, reconciliation stats.</li>
   </ul>
 </Section>
