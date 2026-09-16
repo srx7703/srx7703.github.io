@@ -1,7 +1,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
-  margin: 0; font-family: var(--font-serif); font-size: var(--fs-md); line-height: 1.6;
+  margin: 0; font-family: var(--font-serif); font-size: var(--fs-md); line-height: 1.55;
   color: var(--ink); background: var(--bg); font-optical-sizing: auto; -webkit-font-smoothing: antialiased;
   counter-reset: sidenote-counter;
 }
@@ -59,20 +59,23 @@ summary:hover { color: var(--ink); }
 .masthead__name { font-size: 1.75rem; font-weight: 500; margin: 0; line-height: 1.15; }
 .masthead__name a { text-decoration: none; }
 .masthead__sub { margin: 0.2rem 0 0; color: var(--ink-3); font-size: var(--fs-sm); font-family: var(--font-sans); }
-.hero { font-size: 1.35rem; line-height: 1.4; max-width: 34ch; margin: 0 0 var(--s-6); text-wrap: pretty; }
+.hero { font-size: 1.4rem; line-height: 1.4; max-width: 40ch; margin: 0 0 var(--s-6); text-wrap: pretty; }
 .site-footer { border-top: 1px dashed var(--border-strong); margin-top: var(--s-6); padding: var(--s-4) 0 var(--s-6); font-size: var(--fs-sm); color: var(--ink-3); font-family: var(--font-sans); }
 .site-footer a { color: inherit; }
 main.page { padding-bottom: var(--s-5); }
 
 /* project previews (home, projects index) */
-.preview { display: flex; justify-content: space-between; gap: var(--s-5); color: inherit; text-decoration: none; padding: var(--s-4) 0; border-bottom: 1px dashed var(--border); }
+.preview { display: grid; grid-template-columns: minmax(0, 1fr) var(--margin); column-gap: var(--gutter); width: var(--container); max-width: none; color: inherit; text-decoration: none; padding: var(--s-4) 0; border-bottom: 1px dashed var(--border); }
+.preview__aside { display: flex; flex-direction: column; gap: var(--s-2); padding-top: 0.35rem; }
 .preview:first-of-type { border-top: 1px dashed var(--border); }
 .preview__title { font-size: 1.4rem; font-style: normal; font-weight: 500; margin: 0 0 0.25rem; line-height: 1.2; }
 .preview:hover .preview__title { text-decoration: underline; text-decoration-style: dashed; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
 .preview__meta { margin: 0 0 0.4rem; }
 .preview__summary { margin: 0; color: var(--ink-2); font-size: 0.98rem; }
-.preview__latest { margin: 0.4rem 0 0; font-size: var(--fs-sm); color: var(--ink-2); font-family: var(--font-sans); font-variant-numeric: tabular-nums; }
-.preview__cta { font-style: italic; white-space: nowrap; align-self: center; opacity: 0; transition: opacity 120ms; }
+.preview__latest { margin: 0; font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--ink-2); font-variant-numeric: tabular-nums; line-height: 1.35; }
+.preview__latest strong { display: block; font-family: var(--font-serif); font-weight: 500; font-size: 1.7rem; line-height: 1.1; color: var(--ink); margin-bottom: 0.15rem; }
+.preview__latest-label { display: block; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.2rem; }
+.preview__cta { font-style: italic; white-space: nowrap; opacity: 0; transition: opacity 120ms; }
 .preview:hover .preview__cta, .preview:focus-visible .preview__cta { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .preview__cta { transition: none; } }
 
@@ -147,15 +150,19 @@ main.page { padding-bottom: var(--s-5); }
 .log time { color: var(--ink-3); font-family: var(--font-sans); font-size: var(--fs-sm); font-variant-numeric: tabular-nums; padding-top: 0.15rem; }
 
 /* narrow screens: the margin folds into the column */
-@media (max-width: 64rem) {
+@media (max-width: 72rem) {
   .page, .container { max-width: calc(var(--col) + 2 * var(--s-4)); }
+  .preview { grid-template-columns: minmax(0, 1fr); width: 100%; }
+  .preview__aside { padding-top: 0; }
+  .preview__latest strong { display: inline; font-size: 1em; font-family: var(--font-sans); font-weight: 600; }
+  .preview__latest-label { display: inline; text-transform: none; letter-spacing: 0; font-size: inherit; color: var(--ink-2); margin: 0 0.3em 0 0; }
+  .preview__latest-label::after { content: ':'; }
   .sidenote, .marginnote { float: none; clear: none; display: block; width: auto; margin: 0.6rem 0 0.9rem; padding-left: 0.9rem; border-left: 1px dashed var(--border-strong); }
   .fullwidth, .figure--full, .section--wide { width: 100%; }
 }
 @media (max-width: 40rem) {
   :root { --fs-3xl: 2.1rem; }
   .hero { font-size: 1.2rem; }
-  .preview { flex-direction: column; gap: var(--s-2); }
   .preview__cta { display: none; }
   .log li { grid-template-columns: 1fr; gap: 0; }
 }

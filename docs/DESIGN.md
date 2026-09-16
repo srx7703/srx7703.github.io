@@ -15,9 +15,9 @@ layout, and Distill's article header and appendix.
 
 ## Layout (`site/src/styles/global.css`)
 
-- One text column (`--col`, 41rem) with a right margin (`--margin`, 15rem) for sidenotes; the page container is
-  their sum. Below 64rem the margin folds into the column: sidenotes become indented notes, full-width figures
-  become 100%.
+- One text column (`--col`, 46rem) with a right margin (`--margin`, 19rem) for sidenotes; the page container is
+  their sum (68rem). Below 72rem the margin folds into the column: sidenotes become indented notes, full-width
+  figures become 100%. Project rows on the home and list pages use the margin for the latest headline number.
 - Header: serif nav row with the theme toggle, then the masthead (name + one line). Footer: dashed rule.
 - Project pages: `[slug].astro` renders the Distill-style header (status line, title, dek, byline with author,
   start date, tools and the evaluation-plan blob hash for live projects) and a citation footer.

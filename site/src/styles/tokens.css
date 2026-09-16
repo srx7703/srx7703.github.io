@@ -40,7 +40,7 @@
 
   --fs-xs: 0.75rem;
   --fs-sm: 0.875rem;
-  --fs-md: 1.0625rem;
+  --fs-md: 1.125rem;
   --fs-lg: 1.25rem;
   --fs-xl: 1.5rem;
   --fs-2xl: 2rem;
@@ -55,9 +55,9 @@
   --radius: 0;
 
   /* Tufte layout: text column + gutter + margin for sidenotes */
-  --col: 41rem;
-  --gutter: 2.5rem;
-  --margin: 15rem;
+  --col: 46rem;
+  --gutter: 3rem;
+  --margin: 19rem;
   --container: calc(var(--col) + var(--gutter) + var(--margin));
 }
 

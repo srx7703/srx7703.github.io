@@ -19,7 +19,9 @@ const statusLabel = { live: 'Live, auto-refreshed', 'case-study': 'Case study', 
     <Title class="preview__title">{title}</Title>
     <p class="preview__meta"><span class={`badge badge--${status}`}>{statusLabel}</span><span class="small-caps"> · {domain.join(', ')} · since {started}</span></p>
     <p class="preview__summary">{summary}</p>
-    {kpi && <p class="preview__latest">Latest: <strong>{kpi.value}</strong> {kpi.label}</p>}
   </div>
-  <span class="preview__cta" aria-hidden="true">View project →</span>
+  <div class="preview__aside">
+    {kpi && <p class="preview__latest"><span class="preview__latest-label">Latest</span><strong>{kpi.value}</strong>{kpi.label}</p>}
+    <span class="preview__cta" aria-hidden="true">View project →</span>
+  </div>
 </a>
