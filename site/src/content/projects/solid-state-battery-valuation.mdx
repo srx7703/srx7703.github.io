@@ -60,6 +60,7 @@ export const earnersClause = pureEarners.length === 0
     ? `One of them, ${pureEarners[0].name}, does earn a trailing profit — ${x1(pureEarners[0].trailing_pe)} on trailing earnings, in the full table below — and the rest do not`
     : `${pureEarners.length} of them earn a trailing profit, shown in the full table below; the rest do not`;
 
+export const nSpread = companies.filter((c) => c.dispersion != null).length;
 export const pricedRows = companies.filter((c) => c.fwd_pe_2026 != null);
 export const notPlotted = companies.length - pricedRows.length;
 export const scatterOmitted = companies.length - scatterRows(companies).length;
@@ -146,7 +147,7 @@ export const evalStatus = (key) => {
     business.</Sidenote> The {facts.n_listings - pure.length} battery makers, materials suppliers and equipment
     vendors have plenty of earnings, almost none of it from solid-state cells. The median listing with a usable
     multiple trades at {x1(facts.median_fwd_pe_this)} calendar-{y0} consensus earnings and
-    {x1(facts.median_fwd_pe_next)} for {y1}, and {facts.n_nm} listings have no meaningful multiple at all.
+    {x1(facts.median_fwd_pe_next)} for {y1}, and {facts.n_nm ? `${facts.n_nm} listings have no meaningful multiple at all.` : 'Every listing in the pool has one.'}
   </p>
   <p>
     There is no market-share chart here, because there is barely a market to take a share of. What the page shows
@@ -223,7 +224,7 @@ export const evalStatus = (key) => {
   </Section>
 )}
 
-<ChartCard title="A multiple only means something next to the growth it is paying for" subtitle={`Forward PE on calendar-${y0} consensus against the consensus EPS growth from ${y0} to ${y1}${scatterUsesLog(companies) ? '; log scale on PE' : ''}. Filled and hollow marks carry the same meaning as the chart above; faded marks are covered by fewer than three analysts, or by an unpublished number of them. ${scatterOmitted} of ${facts.n_listings} listings are not plotted, for want of a consensus for one year or both.`}>
+<ChartCard title="A multiple only means something next to the growth it is paying for" subtitle={`Forward PE on calendar-${y0} consensus against the consensus EPS growth from ${y0} to ${y1}${scatterUsesLog(companies) ? '; log scale on PE' : ''}. Filled and hollow marks carry the same meaning as the chart above; faded marks are covered by fewer than three analysts, or by an unpublished number of them. ${scatterOmitted ? `${scatterOmitted} of ${facts.n_listings} listings are not plotted, for want of a consensus for one year or both.` : 'Every listing in the pool is plotted.'}`}>
   <VegaChart id="ssb-scatter" spec={peGrowthScatterSpec(companies)} height={380} ariaLabel="Scatter plot of forward PE against expected earnings growth for the solid-state battery pool" />
   <SourceStamp slot="stamp" sources={priceSources} asOf={asOfEst} />
 </ChartCard>
@@ -309,7 +310,7 @@ export const evalStatus = (key) => {
       solid-state share. They appear in the shipments and capacity tables above where a public release exists.</Sidenote>
     </p>
   </div>
-  <ChartCard title={share.leader ? `${share.leader.name} is the largest revenue in the listed battery pool at ${pct(share.leader.share, 1)} — of conventional battery revenue, not of solid-state` : 'Share of the peer pool'} subtitle={`Share of trailing-twelve-month revenue across the ${share.n_members} listings with a sourced revenue figure, converted to US dollars at FRED rates.${shareTruncated} The revenue is each company's whole business, which for every member of this pool is overwhelmingly conventional lithium-ion.`}>
+  <ChartCard title={share.leader ? `${share.leader.name} is the largest revenue in the listed battery pool at ${pct(share.leader.share, 1)} — of conventional battery revenue, not of solid-state` : 'Share of the peer pool'} subtitle={`Share of the ${share.n_members} listings with a sourced revenue figure, converted to US dollars at FRED rates. The revenue is each company's whole business, which for every member of this pool is overwhelmingly conventional lithium-ion; each bar's period is in its tooltip.${shareTruncated}`}>
     <VegaChart id="ssb-share" spec={shareBarsSpec(share.members, SHARE_BARS_LIMIT)} height={320} ariaLabel="Bar chart of each company's share of the listed battery pool's trailing revenue" />
     <SourceStamp slot="stamp" sources={shareSources} asOf={asOfPrice} />
   </ChartCard>
@@ -451,7 +452,7 @@ export const evalStatus = (key) => {
     <p><strong>Question.</strong> What is the listed solid-state battery world being priced at, and how much of that price rests on a product that is not being sold in volume yet?</p>
     <p><strong>Pool.</strong> {facts.n_listings} listings across {facts.n_issuers} companies in mainland China, the United States, Japan, Korea, Hong Kong and the United Kingdom, in three groups: the pure plays, the cell makers with a solid-state roadmap, and the materials and equipment suppliers. Private developers are named in the shipments and capacity tables but cannot be valued, so they are not in the pool.</p>
     <p><strong>Prices and consensus.</strong> As on the optical page: Yahoo Finance for prices and non-Chinese consensus, East Money's per-broker forecasts for the A-shares, SEC XBRL and East Money quarterly reports and Yahoo for trailing earnings, FRED for exchange rates. Fiscal years are restated onto calendar years by month overlap, which matters here for the {offDecember} listings whose year does not end in December, including the Japanese names, whose years end in March.</p>
-    <p><strong>Definitions.</strong> Trailing PE is market capitalisation over trailing-twelve-month attributable profit. Forward PE is price over calendar-year consensus EPS, with the consensus converted into the price currency first, and on the accounting basis of whoever published it — see the note above the table. Growth is the consensus for {y1} over the consensus for {y0}. Price to sales is market value over trailing revenue, shown only for the pure plays and only where there is revenue and the two currencies agree.</p>
+    <p><strong>Definitions.</strong> Trailing PE is market capitalisation over trailing-twelve-month attributable profit. Forward PE is price over calendar-year consensus EPS, with the consensus converted into the price currency first, and on the accounting basis of whoever published it — see the note above the table. Growth is the consensus for {y1} over the consensus for {y0}. Forecast spread is the gap between the highest and lowest forecast as a share of the mean, blended across fiscal years on the same weights as the mean itself, and blank wherever any contributing year is already reported, because a reported year has no range: {nSpread} of {facts.n_listings} listings carry one. Price to sales is market value over trailing revenue, shown only for the pure plays and only where there is revenue and the two currencies agree.</p>
     <p><strong>What is deliberately missing.</strong> No solid-state market share, because a market share of a market that does not exist is not a number. No negative PE: a company forecast to lose money gets a written reason instead. No estimate of how much of any company's value is "the solid-state option", which would be an opinion rather than a measurement. No enterprise value or cash runway for the pure plays yet, which is the gap this page most wants to close.</p>
   </div>
 </Section>

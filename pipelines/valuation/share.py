@@ -42,6 +42,8 @@ from __future__ import annotations
 
 import json
 import logging
+import re
+from datetime import date
 from pathlib import Path
 
 from pipelines.common.storage import DATA_DIR
@@ -56,6 +58,27 @@ USD = "USD"
 # How a pool member's revenue was measured. These strings reach the page, beside the bar.
 BASIS_TOTAL = "total revenue"
 BASIS_SEGMENT = "disclosed segment"
+# How far behind a disclosed segment figure may be before it is dropped rather than quoted. A company
+# reporting once a year is up to twelve months behind the day it files; twenty-one leaves room for a
+# late filer without letting the year before last's number stand beside everyone else's current one.
+SEGMENT_MAX_AGE_MONTHS = 21
+
+
+def _period_age_months(period: str | None) -> int | None:
+    """Roughly how old a "FY2025" or "2026-06-30" period label is, in months; None if unparseable."""
+    if not period:
+        return None
+    text = str(period)
+    m = re.search(r"(\d{4})-(\d{2})", text)
+    if m:
+        year, month = int(m.group(1)), int(m.group(2))
+    else:
+        m = re.search(r"(\d{4})", text)
+        if not m:
+            return None
+        year, month = int(m.group(1)), 12
+    today = date.today()
+    return (today.year - year) * 12 + (today.month - month)
 
 # Why a company is not in the computed pool. The classes exist so a count can be split into clauses
 # that are each true; the per-row `reason` is the sentence a reader sees.
@@ -132,6 +155,18 @@ def _revenue_basis(company: Company, ttm: dict | None, segments: dict[str, dict]
     # nobody in this pool. Where the reference file records the segment, the segment is used.
     seg = segments.get(company.ticker) or segments.get(company.primary)
     if seg is not None:
+        # A segment figure is a fiscal year, not a trailing twelve months, so it always sits somewhat
+        # behind the A-shares' half-year-old TTM. That much is tolerable and the period is printed
+        # beside the member. A figure whose fiscal year ended more than SEGMENT_MAX_AGE_MONTHS ago is
+        # not: by then the company has filed a newer one, and the pool would be quoting a superseded
+        # number against everyone else's current one.
+        age = _period_age_months(seg.get("period"))
+        if age is not None and age > SEGMENT_MAX_AGE_MONTHS:
+            return _excluded(
+                REASON_NO_DATA,
+                f"its disclosed figure is for {seg.get('period')}, about {age} months old; a newer one "
+                "has been filed since and is not recorded here yet",
+            )
         return {
             "revenue": seg["value"],
             "currency": seg.get("currency") or USD,

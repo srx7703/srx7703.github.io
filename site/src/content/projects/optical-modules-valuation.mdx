@@ -44,6 +44,7 @@ export const evaluation = Object.values(evalFiles)[0] ?? null;
 export const scored = (evaluation?.tracks ?? {})[facts.track] ?? {};
 // Everything the prose says about the shape of the pool is counted here, from the mart, so a sentence
 // cannot drift away from the table under it.
+export const nSpread = companies.filter((c) => c.dispersion != null).length;
 export const pricedRows = companies.filter((c) => c.fwd_pe_2026 != null);
 export const notPlotted = companies.length - pricedRows.length;
 export const scatterOmitted = companies.length - scatterRows(companies).length;
@@ -131,7 +132,7 @@ export const evalStatus = (key) => {
   </p>
   <p>
     On share, the {share.n_members} listings with a sourced revenue figure for this business split a pool of
-    {usd(share.pool_revenue_usd)} over the last twelve months, and the largest three take
+    {usd(share.pool_revenue_usd)} of revenue, and the largest three take
     {pct(share.top3_share, 1)} of it.<Sidenote>This is a share of the pool we can source from filings, not of the
     world market. A company enters on one of two bases — its whole income statement, where the whole company
     competes in this market, or a disclosed segment — and the chart's legend says which basis each bar uses.
@@ -151,8 +152,9 @@ export const evalStatus = (key) => {
   <KpiTile label="Largest three, share of the pool" value={pct(share.top3_share, 1)} sub={share.leader ? `${share.leader.name} leads with ${pct(share.leader.share, 1)}` : 'no computable pool yet'} />
 </KpiRow>
 
-<ChartCard size="full" title={facts.priciest && facts.cheapest ? `${cheapenClause}; the ${y0} range runs ${x1(facts.cheapest.fwd_pe_2026)} to ${x1(facts.priciest.fwd_pe_2026)}${endsNote}` : 'Forward PE across the pool'} subtitle={`Forward PE on calendar-${y0} and calendar-${y1} consensus EPS, one line per listing, most expensive first${dumbbellUsesLog(companies) ? '; log scale' : ''}. Filled marks are companies whose whole business is optical, hollow marks diversified groups priced on everything they sell; faded marks are covered by fewer than three analysts, or by an unpublished number of them. ${notPlotted} of ${facts.n_listings} listings are not plotted, each with its reason in the table below.`}>
+<ChartCard size="full" title={facts.priciest && facts.cheapest ? `${cheapenClause}; the ${y0} range runs ${x1(facts.cheapest.fwd_pe_2026)} to ${x1(facts.priciest.fwd_pe_2026)}${endsNote}` : 'Forward PE across the pool'} subtitle={`Forward PE on calendar-${y0} and calendar-${y1} consensus EPS, one line per listing, most expensive first${dumbbellUsesLog(companies) ? '; log scale' : ''}. Filled marks are companies whose whole business is optical, hollow marks diversified groups priced on everything they sell; faded marks are covered by fewer than three analysts, or by an unpublished number of them. ${notPlotted ? `${notPlotted} of ${facts.n_listings} listings are not plotted, each with its reason in the table below.` : 'Every listing in the pool is plotted.'}`}>
   <VegaChart id="optical-dumbbell" spec={peDumbbellSpec(companies)} height={Math.max(220, pricedRows.length * 17 + 90)} ariaLabel={`Dumbbell chart of calendar ${y0} and ${y1} forward PE for each listing in the optical pool`} />
+  {notPlotted > 0 && (
   <details open={notPlotted * 2 >= facts.n_listings}>
     <summary>The {notPlotted} listings with no meaningful multiple</summary>
     <div class="table-wrap">
@@ -166,10 +168,11 @@ export const evalStatus = (key) => {
       </table>
     </div>
   </details>
+  )}
   <SourceStamp slot="stamp" sources={priceSources} asOf={asOfPrice} note={`consensus as of ${asOfEst}`} />
 </ChartCard>
 
-<ChartCard title="A multiple only means something next to the growth it is paying for" subtitle={`Forward PE on calendar-${y0} consensus against the consensus EPS growth from ${y0} to ${y1}${scatterUsesLog(companies) ? '; log scale on PE' : ''}. Filled and hollow marks carry the same meaning as the chart above; faded marks are covered by fewer than three analysts, or by an unpublished number of them. ${scatterOmitted} of ${facts.n_listings} listings are not plotted, for want of a consensus for one year or both.`}>
+<ChartCard title="A multiple only means something next to the growth it is paying for" subtitle={`Forward PE on calendar-${y0} consensus against the consensus EPS growth from ${y0} to ${y1}${scatterUsesLog(companies) ? '; log scale on PE' : ''}. Filled and hollow marks carry the same meaning as the chart above; faded marks are covered by fewer than three analysts, or by an unpublished number of them. ${scatterOmitted ? `${scatterOmitted} of ${facts.n_listings} listings are not plotted, for want of a consensus for one year or both.` : 'Every listing in the pool is plotted.'}`}>
   <VegaChart id="optical-scatter" spec={peGrowthScatterSpec(companies)} height={380} ariaLabel="Scatter plot of forward PE against expected earnings growth for the optical pool" />
   <SourceStamp slot="stamp" sources={priceSources} asOf={asOfEst} />
 </ChartCard>
@@ -186,7 +189,7 @@ export const evalStatus = (key) => {
       reproduced with publisher and date and not recomputed.
     </p>
   </div>
-  <ChartCard title={share.leader ? `${share.leader.name} is the largest sourced optical revenue in the pool at ${pct(share.leader.share, 1)}` : 'Share of the peer pool'} subtitle={`Share of trailing-twelve-month revenue across the ${share.n_members} listings with a sourced revenue figure for this business, converted to US dollars at FRED rates.${shareTruncated}`}>
+  <ChartCard title={share.leader ? `${share.leader.name} is the largest sourced optical revenue in the pool at ${pct(share.leader.share, 1)}` : 'Share of the peer pool'} subtitle={`Share of the ${share.n_members} listings with a sourced revenue figure for this business, converted to US dollars at FRED rates. The specialists contribute a trailing twelve months and the diversified groups their most recent disclosed segment year, so the periods are not identical; each bar's own period is in its tooltip.${shareTruncated}`}>
     <VegaChart id="optical-share" spec={shareBarsSpec(share.members, SHARE_BARS_LIMIT)} height={320} ariaLabel="Bar chart of each company's share of the peer pool's trailing revenue" />
     <SourceStamp slot="stamp" sources={shareSources} asOf={asOfPrice} />
   </ChartCard>
@@ -332,7 +335,7 @@ export const evalStatus = (key) => {
     <p><strong>Question.</strong> What is the listed optical-module and optical-component world being priced at right now, how much of that price is the growth analysts expect next year, and who actually has the revenue?</p>
     <p><strong>Pool.</strong> {facts.n_listings} listings across {facts.n_issuers} companies in mainland China, the United States, Japan, Taiwan and Hong Kong. Companies are labelled by how much of them is optical: the specialists, and the diversified groups that sell optical alongside something larger. Diversified groups stay in the valuation table because their multiple is a real comparison point, but the charts draw them hollow and the share table takes their whole revenue only where the whole company competes in this market. Dual-listed issuers appear once per listing, because the whole point is that the same earnings are priced differently in two markets.</p>
     <p><strong>Prices and consensus.</strong> Prices, market caps and non-Chinese analyst consensus come from Yahoo Finance; A-share consensus is built from East Money's per-broker forecasts, taking each house's most recent report, which gives a broker count and a forecast range rather than a single blended number. Trailing earnings come from SEC XBRL for the US listings, East Money's quarterly reports for the A-shares, and Yahoo elsewhere; cumulative filings are differenced into quarters before being summed into a trailing twelve months.</p>
-    <p><strong>Definitions.</strong> Trailing PE is market capitalisation over trailing-twelve-month attributable profit, which avoids the share-count conventions that differ across these markets. Forward PE is price over calendar-year consensus EPS, which is adjusted non-GAAP earnings where Yahoo supplies it and 归母净利润 where a Chinese broker does — see the note above the table. Growth is the consensus for {y1} over the consensus for {y0}. Forecast spread is the gap between the highest and lowest broker forecast as a share of the mean. Every ratio converts currencies explicitly at FRED rates, because a listing's price currency, reporting currency and consensus currency can all be different.</p>
+    <p><strong>Definitions.</strong> Trailing PE is market capitalisation over trailing-twelve-month attributable profit, which avoids the share-count conventions that differ across these markets. Forward PE is price over calendar-year consensus EPS, which is adjusted non-GAAP earnings where Yahoo supplies it and 归母净利润 where a Chinese broker does — see the note above the table. Growth is the consensus for {y1} over the consensus for {y0}. Forecast spread is the gap between the highest and lowest forecast as a share of the mean, blended across fiscal years on the same weights as the mean itself. It is blank wherever any contributing year is already reported, because a reported year has no range: {nSpread} of {facts.n_listings} listings carry one. Every ratio converts currencies explicitly at FRED rates, because a listing's price currency, reporting currency and consensus currency can all be different.</p>
     <p><strong>What is deliberately missing.</strong> A negative or absent denominator produces no number and a written reason, never a negative multiple. Companies covered by fewer than three analysts, or by an unpublished number of them, are drawn faded, because a two-broker "consensus" is two opinions.</p>
   </div>
 </Section>
