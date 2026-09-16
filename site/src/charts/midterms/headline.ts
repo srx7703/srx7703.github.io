@@ -15,16 +15,17 @@ export function headlineSpec(chamber: 'House' | 'Senate', showLegend = true, ele
   const spanDays = ts.length ? (Math.max(...ts) - Math.min(...ts)) / 86400000 : 0;
   const xFormat = spanDays < 3 ? '%b %d %H:%M' : '%b %d';
   const tooltip = [
-    { field: 'ts', type: 'temporal', title: 'Snapshot (UTC)', format: '%b %d, %H:%M' },
+    { field: 'ts_utc', type: 'nominal', title: 'Snapshot (UTC)' },
     { field: 'platform', type: 'nominal', title: 'Platform' },
     { field: 'prob', type: 'quantitative', title: 'Probability', format: '.1%' },
   ];
   return {
     $schema: VL_SCHEMA,
     data: { values: rows },
+    transform: [{ calculate: "utcFormat(toDate(datum.ts), '%b %d, %H:%M')", as: 'ts_utc' }],
     height: 240,
     encoding: {
-      x: { field: 'ts', type: 'temporal', title: null, axis: { format: xFormat, grid: false, labelAngle: 0, tickCount: 5 } },
+      x: { field: 'ts', type: 'temporal', title: null, scale: { type: 'utc' }, axis: { format: xFormat, grid: false, labelAngle: 0, tickCount: 5 } },
       y: {
         field: 'prob', type: 'quantitative', title: `Democrats win the ${chamber}`,
         scale: { domain: [0, 1] }, axis: { format: '.0%', tickCount: 5, gridDash: [0] },

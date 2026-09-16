@@ -16,6 +16,8 @@ import VegaChart from '@components/VegaChart.astro';
 import SourceStamp from '@components/SourceStamp.astro';
 import Section from '@components/Section.astro';
 import DataQuality from '@components/DataQuality.astro';
+import Sidenote from '@components/Sidenote.astro';
+import Appendix from '@components/Appendix.astro';
 import { finllmSummarySpec } from '@charts/finllm/summary';
 import { finllmPairedSpec } from '@charts/finllm/paired';
 import { num } from '@lib/fmt';
@@ -26,7 +28,7 @@ export const byKey = Object.fromEntries(facts.summary.map((s) => [s.key, s]));
 export const asOf = 'April 2026 (frozen results)';
 
 <div class="lede">
-  The same LoRA adapter recipe, trained on {num(facts.dataset.qa_pairs)} question–answer pairs distilled from {num(facts.dataset.filings)} SEC filings of {facts.dataset.tickers} S&amp;P 500 companies, lifts BERTScore F1 by {facts.deltas_pct.gemma2_base_to_v2.toFixed(1)}% on Gemma 2 27B and {facts.deltas_pct.gemma4_base_to_v2.toFixed(1)}% on Gemma 4 31B. On Gemma 4 the adapter wins on {g4.wins} of {facts.test_items} held-out items (paired t = {g4.t}); on Gemma 2 it wins {g2.wins} of {facts.test_items} (t = {g2.t}). The effect is larger on the newer base, which argues the adapter adds domain knowledge rather than compensating for a weak model.
+  The same LoRA adapter recipe, trained on {num(facts.dataset.qa_pairs)} question–answer pairs distilled from {num(facts.dataset.filings)} SEC filings of {facts.dataset.tickers} S&amp;P 500 companies, lifts BERTScore F1<Sidenote>BERTScore matches each answer against the teacher-written reference with contextual token embeddings; F1 combines its precision and recall. It measures agreement with the teacher, not factual correctness against the filing.</Sidenote> by {facts.deltas_pct.gemma2_base_to_v2.toFixed(1)}% on Gemma 2 27B and {facts.deltas_pct.gemma4_base_to_v2.toFixed(1)}% on Gemma 4 31B. On Gemma 4 the adapter wins on {g4.wins} of {facts.test_items} held-out items (paired t = {g4.t});<Sidenote>Paired t-test on the per-item F1 differences, adapter minus base, over the same held-out items; a win is an item where the adapter's F1 is higher.</Sidenote> on Gemma 2 it wins {g2.wins} of {facts.test_items} (t = {g2.t}). The effect is larger on the newer base, which argues the adapter adds domain knowledge rather than compensating for a weak model.
 </div>
 
 <KpiRow>
@@ -48,6 +50,8 @@ export const asOf = 'April 2026 (frozen results)';
   </details>
   <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
 </ChartCard>
+
+<Appendix>
 
 <Section id="method" title="Method">
   <div class="prose">
@@ -83,3 +87,5 @@ export const asOf = 'April 2026 (frozen results)';
     <li><strong>2026-09-16</strong> — case-study page from the April 2026 evaluation report.</li>
   </ul>
 </Section>
+
+</Appendix>

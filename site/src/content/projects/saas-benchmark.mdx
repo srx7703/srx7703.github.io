@@ -22,6 +22,8 @@ import DataTable from '@components/DataTable.astro';
 import FilterBar from '@components/FilterBar.astro';
 import DownloadCsv from '@components/DownloadCsv.astro';
 import DataQuality from '@components/DataQuality.astro';
+import Sidenote from '@components/Sidenote.astro';
+import Appendix from '@components/Appendix.astro';
 import { saasScatterSpec } from '@charts/saas/scatter';
 import { saasRankedSpec } from '@charts/saas/ranked';
 import { pct, num, usd, dateUtc, dayUtc } from '@lib/fmt';
@@ -31,7 +33,7 @@ export const top = facts.leaders[0];
 export const tagCounts = Object.values(coverage).reduce((acc, c) => { const k = (c.tags.revenue || []).join(' + '); acc[k] = (acc[k] || 0) + 1; return acc; }, {});
 
 <div class="lede">
-  Across {facts.companies} companies with quarters ending {dayUtc(facts.latest_quarter_end_min)} to {dayUtc(facts.latest_quarter_end_max)}, the median software company grows revenue {pct(facts.median_rev_growth, 1)} a year with a {pct(facts.median_fcf_margin, 1)} free-cash-flow margin, and {facts.rule_of_40_pass} of {facts.companies_scored} clear the Rule of 40. {top.name} leads with a score of {top.rule_of_40} ({pct(top.rev_growth, 1)} growth, {pct(top.fcf_margin, 1)} FCF margin). Median stock-based compensation is {pct(facts.median_sbc_pct, 1)} of revenue.
+  Across {facts.companies} companies with quarters ending {dayUtc(facts.latest_quarter_end_min)} to {dayUtc(facts.latest_quarter_end_max)}, the median software company grows revenue {pct(facts.median_rev_growth, 1)} a year with a {pct(facts.median_fcf_margin, 1)} free-cash-flow margin,<Sidenote>FCF = operating cash flow − purchases of PP&E − capitalised software, summed over the trailing twelve months; growth compares that TTM with the TTM one year earlier.</Sidenote> and {facts.rule_of_40_pass} of {facts.companies_scored} clear the Rule of 40.<Sidenote>Rule of 40 = revenue growth (%) + FCF margin (%). A company whose capex is not tagged in XBRL gets no FCF margin and no score, which is why the scored count can be below the company count.</Sidenote> {top.name} leads with a score of {top.rule_of_40} ({pct(top.rev_growth, 1)} growth, {pct(top.fcf_margin, 1)} FCF margin). Median stock-based compensation is {pct(facts.median_sbc_pct, 1)} of revenue.
 </div>
 
 <PipelineStatus lastSnapshot={facts.last_refresh ?? facts.generated_at} firstSnapshot={facts.first_refresh ?? facts.generated_at} nSnapshots={facts.n_refreshes || 1} nDays={facts.n_refreshes || 1} workflow="refresh-weekly.yml" cadence="weekly (Mondays)" />
@@ -52,7 +54,7 @@ export const tagCounts = Object.values(coverage).reduce((acc, c) => { const k = 
   <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
 </ChartCard>
 
-<Section id="table" title="Benchmark table">
+<Section id="table" title="Benchmark table" wide>
   <FilterBar target="saas-table" placeholder="Search company or ticker…" selects={[{ column: 'pass', label: 'Rule of 40', options: ['met', 'below'] }]} />
   <DataTable id="saas-table" filterKeys={['pass']} columns={[
     { key: 'ticker', label: 'Ticker' }, { key: 'name', label: 'Company' }, { key: 'quarter_end', label: 'Quarter end' },
@@ -63,6 +65,8 @@ export const tagCounts = Object.values(coverage).reduce((acc, c) => { const k = 
   ]} rows={latest.map((r) => ({ ...r, pass: r.rule_of_40 != null && r.rule_of_40 >= 40 ? 'met' : 'below' }))} caption="Click a column header to sort. Trailing twelve months as of each company's latest reported quarter." />
   <p><DownloadCsv filename="saas_benchmark_latest.csv" src="/data/marts/sec/saas_latest.json" label="Download the benchmark table (CSV)" /> <DownloadCsv filename="saas_benchmark_ttm_history.csv" src="/data/marts/sec/saas_ttm.json" label="Download all quarters (CSV)" /></p>
 </Section>
+
+<Appendix>
 
 <Section id="method" title="Method">
   <div class="prose">
@@ -97,3 +101,5 @@ export const tagCounts = Object.values(coverage).reduce((acc, c) => { const k = 
     <li><strong>2026-09-16</strong> — page v0: scatter and ranking, sortable benchmark table with CSV export, reconciliation stats.</li>
   </ul>
 </Section>
+
+</Appendix>

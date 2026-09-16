@@ -17,6 +17,8 @@ import SourceStamp from '@components/SourceStamp.astro';
 import PipelineStatus from '@components/PipelineStatus.astro';
 import Section from '@components/Section.astro';
 import DataQuality from '@components/DataQuality.astro';
+import Sidenote from '@components/Sidenote.astro';
+import Appendix from '@components/Appendix.astro';
 import { evaluationPlan } from '@lib/prereg';
 import DownloadCsv from '@components/DownloadCsv.astro';
 import { headlineSpec } from '@charts/midterms/headline';
@@ -30,10 +32,7 @@ export const daysLeft = daysUntil(facts.election_day, facts.last_snapshot_ts);
 export const plan = evaluationPlan();
 
 <div class="lede">
-  With {daysLeft} days to election day, both platforms price a Democratic House as very likely
-  ({pct(h.house_dem.polymarket, 1)} on Polymarket, {pct(h.house_dem.kalshi, 1)} on Kalshi) and the
-  Senate as a near coin flip that leans Democratic ({pct(h.senate_dem.polymarket, 1)} vs {pct(h.senate_dem.kalshi, 1)}).
-  The cross-platform gap is {pts(h.senate_dem.spread)} on the Senate and {pts(h.house_dem.spread)} on the House.
+  <p>With {daysLeft} days to election day, both platforms price a Democratic House as very likely ({pct(h.house_dem.polymarket, 1)} on Polymarket, {pct(h.house_dem.kalshi, 1)} on Kalshi) and the Senate as a near coin flip that leans Democratic ({pct(h.senate_dem.polymarket, 1)} vs {pct(h.senate_dem.kalshi, 1)}).<Sidenote>Probabilities are the order-book mid when both sides are quoted, otherwise the platform's displayed YES price; one point per twice-daily snapshot, in UTC.</Sidenote> The cross-platform gap is {pts(h.senate_dem.spread)} on the Senate and {pts(h.house_dem.spread)} on the House.<Sidenote>Gap = Polymarket minus Kalshi, in percentage points. The pre-registered plan scores whether it narrows into election day.</Sidenote></p>
 </div>
 
 <PipelineStatus lastSnapshot={facts.last_snapshot_ts} firstSnapshot={facts.first_snapshot_ts} nSnapshots={facts.n_snapshots} nDays={facts.n_days} workflow="snapshot-predmarkets.yml" cadence="twice daily" />
@@ -44,7 +43,7 @@ export const plan = evaluationPlan();
   <KpiTile label="Tier-1 markets with order books" value={num(facts.tier1_books_latest)} sub={`latest run · universe scan ${num(facts.markets_tracked.polymarket)} Polymarket + ${num(facts.markets_tracked.kalshi)} Kalshi markets, ${num(facts.quoted_markets_tracked.polymarket + facts.quoted_markets_tracked.kalshi)} actively quoted`} />
 </KpiRow>
 
-<ChartCard title={`Both platforms price a Democratic House near ${pct(h.house_dem.polymarket)}; the Senate is closer to even`} subtitle={`Probability that Democrats control each chamber after the 2026 midterms, order-book mid, one point per snapshot (UTC); ${facts.n_snapshots} snapshots since ${dayUtc(facts.first_snapshot_ts)}`}>
+<ChartCard size="full" title={`Both platforms price a Democratic House near ${pct(h.house_dem.polymarket)}; the Senate is closer to even`} subtitle={`Probability that Democrats control each chamber after the 2026 midterms, order-book mid, one point per snapshot (UTC); ${facts.n_snapshots} snapshots since ${dayUtc(facts.first_snapshot_ts)}`}>
   <div class="grid-2">
     <VegaChart id="headline-house" spec={headlineSpec('House')} ariaLabel="Line chart of the probability Democrats win the House, by platform, over time" />
     <VegaChart id="headline-senate" spec={headlineSpec('Senate', true)} ariaLabel="Line chart of the probability Democrats win the Senate, by platform, over time" />
@@ -90,6 +89,8 @@ export const plan = evaluationPlan();
   <p class="muted">Top ten Senate and Governor winner events by cumulative volume in the latest full snapshot; a state-by-state probability table follows once both platforms' race markets are matched.</p>
 </Section>
 
+<Appendix>
+
 <Section id="method" title="Method">
   <div class="prose">
     <p><strong>Question.</strong> How do the two largest prediction-market venues price the 2026 midterms, how far apart are they, and how well will they have done once results are in?</p>
@@ -129,3 +130,5 @@ export const plan = evaluationPlan();
     <li><strong>2026-09-16</strong> — pipeline live; first snapshots; page v0 with headline probabilities and balance of power.</li>
   </ul>
 </Section>
+
+</Appendix>

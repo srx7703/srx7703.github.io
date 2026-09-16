@@ -4,7 +4,7 @@ import { SIDE_DOMAIN, SIDE_LABEL_EXPR, SIDE_RANGE, VL_SCHEMA, tok } from '../the
 export function fomcHistorySpec(meeting: string, platform: 'polymarket' | 'kalshi', showLegend = true, decisionDate?: string) {
   const label = platform === 'polymarket' ? 'Polymarket' : 'Kalshi';
   const tooltip = [
-    { field: 'date', type: 'temporal', title: 'Date', format: '%b %d, %Y' },
+    { field: 'date_utc', type: 'nominal', title: 'Date' },
     { field: 'side', type: 'nominal', title: 'Outcome' },
     { field: 'prob', type: 'quantitative', title: 'Probability', format: '.1%' },
   ];
@@ -14,10 +14,11 @@ export function fomcHistorySpec(meeting: string, platform: 'polymarket' | 'kalsh
     transform: [
       { filter: `datum.meeting == '${meeting}' && datum.platform == '${platform}'` },
       { calculate: 'toDate(datum.date)', as: 'date' },
+      { calculate: "utcFormat(datum.date, '%b %d, %Y')", as: 'date_utc' },
     ],
     height: 240,
     encoding: {
-      x: { field: 'date', type: 'temporal', title: null, axis: { format: '%b %y', grid: false, labelAngle: 0, tickCount: 5 } },
+      x: { field: 'date', type: 'temporal', title: null, scale: { type: 'utc' }, axis: { format: '%b %y', grid: false, labelAngle: 0, tickCount: 5 } },
       y: { field: 'prob', type: 'quantitative', title: `${label}: probability`, scale: { domain: [0, 1] }, axis: { format: '.0%', tickCount: 5 } },
       color: {
         field: 'side', type: 'nominal', scale: { domain: SIDE_DOMAIN, range: SIDE_RANGE },

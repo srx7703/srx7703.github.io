@@ -1,8 +1,8 @@
 ---
-interface Props { id: string; title: string; }
-const { id, title } = Astro.props;
+interface Props { id: string; title: string; wide?: boolean; }
+const { id, title, wide = false } = Astro.props;
 ---
-<section id={id} class="section">
+<section id={id} class:list={["section", { "section--wide": wide }]}>
   <h2><a href={`#${id}`} class="anchor">{title}</a></h2>
   <slot />
 </section>

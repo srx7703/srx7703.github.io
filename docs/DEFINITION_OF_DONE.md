@@ -6,5 +6,6 @@
 - [ ] Method and Evaluation sections written; every metric has a baseline
 - [ ] Every chart: title = finding, subtitle = metric definition, source + as-of stamp, token palette, readable light/dark
 - [ ] Lighthouse performance and accessibility >= 90; usable on a phone
-- [ ] Project card has a screenshot and a one-sentence takeaway
+- [ ] Project row (home and list) has a one-sentence takeaway and one headline number read from facts
+- [ ] Definitions the takeaway relies on are `<Sidenote>`s; Method, Evaluation, Data quality, Build notes and Changelog sit inside `<Appendix>`
 - [ ] Build notes document what the AI executed and what the author decided

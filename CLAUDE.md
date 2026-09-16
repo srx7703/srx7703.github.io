@@ -25,6 +25,8 @@ built by hand in a GUI tool.
 5. Platform or source failures are isolated: one failing source must not lose the others' data.
 6. Charts follow `docs/CHART_RULES.md` (title states the finding, subtitle states the metric,
    source + as-of stamp, design tokens only, readable in light and dark).
+   Pages follow `docs/DESIGN.md`: paper ground and serif text, one text column with a sidenote margin,
+   Distill-style header and appendix. No cards, pills, tiles or brand colours.
 7. Commits: conventional prefixes — `feat(midterms):`, `data(predmarkets):`, `site:`, `docs:`, `ci:`.
 
 ## Commands

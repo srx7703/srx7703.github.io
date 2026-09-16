@@ -16,6 +16,8 @@ import VegaChart from '@components/VegaChart.astro';
 import SourceStamp from '@components/SourceStamp.astro';
 import Section from '@components/Section.astro';
 import DataQuality from '@components/DataQuality.astro';
+import Sidenote from '@components/Sidenote.astro';
+import Appendix from '@components/Appendix.astro';
 import { tcSpec } from '@charts/statarb/tc';
 import { ciSpec } from '@charts/statarb/ci';
 import { regimeSpec } from '@charts/statarb/regime';
@@ -26,7 +28,7 @@ export const bh = facts.buy_and_hold;
 export const asOf = 'May 2026 (frozen results)';
 
 <div class="lede">
-  Under static fitting and {facts.tc_bps} bps one-way costs, none of the three stat-arb models is profitable in 2020 out of sample: the best, {best.strategy}, has a Sharpe of {best.sharpe.toFixed(2)} and an annual return of {pct(best.ann_return, 1)}, against {bh.sharpe.toFixed(2)} and {pct(bh.ann_return, 1)} for buy-and-hold. The interesting results are the controls: train-to-test Sharpe gaps of {Math.min(...facts.train_test.map((r) => r.gap)).toFixed(1)} to {Math.max(...facts.train_test.map((r) => r.gap)).toFixed(1)} show how much a 2019 fit overfits, bootstrap intervals are wide enough to contain zero for every strategy, and a rolling six-month refit turns the sign positive.
+  <p>Under static fitting and {facts.tc_bps} bps one-way costs,<Sidenote>One-way cost: the charge, in basis points of traded notional, applied each time a position is entered or exited on either leg. The cost-sensitivity chart varies it.</Sidenote> none of the three stat-arb models is profitable in 2020 out of sample: the best, {best.strategy}, has a Sharpe of {best.sharpe.toFixed(2)} and an annual return of {pct(best.ann_return, 1)}, against {bh.sharpe.toFixed(2)} and {pct(bh.ann_return, 1)} for buy-and-hold. The interesting results are the controls: train-to-test Sharpe gaps of {Math.min(...facts.train_test.map((r) => r.gap)).toFixed(1)} to {Math.max(...facts.train_test.map((r) => r.gap)).toFixed(1)} show how much a 2019 fit overfits, bootstrap intervals are wide enough to contain zero for every strategy, and a rolling six-month refit turns the sign positive.<Sidenote>The rolling-refit figures are residual-direct Sharpe ratios and are not comparable with the portfolio-level Sharpe ratios in this paragraph; see Evaluation.</Sidenote></p>
 </div>
 
 <KpiRow>
@@ -50,11 +52,13 @@ export const asOf = 'May 2026 (frozen results)';
   <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
 </ChartCard>
 
-<figure class="chart-card">
-  <figcaption><h2 class="chart-card__title">Cumulative P&amp;L, 2020 out of sample (figure from the original project)</h2></figcaption>
+<figure class="figure">
+  <figcaption><h2 class="figure__title">Cumulative P&amp;L, 2020 out of sample (figure from the original project)</h2></figcaption>
   <img src="/case-studies/statarb/cumulative_pnl.png" alt="Cumulative profit and loss of the OLS, PCA, LASSO, pairs and buy-and-hold strategies through 2020" loading="lazy" width="1400" height="800" />
   <SourceStamp sources={facts.sources} asOf={asOf} note="reproduced from the original notebook, not re-rendered in the site chart system" />
 </figure>
+
+<Appendix>
 
 <Section id="method" title="Method">
   <div class="prose">
@@ -91,3 +95,5 @@ export const asOf = 'May 2026 (frozen results)';
     <li><strong>2026-09-16</strong> — case-study page from the May 2026 results.</li>
   </ul>
 </Section>
+
+</Appendix>

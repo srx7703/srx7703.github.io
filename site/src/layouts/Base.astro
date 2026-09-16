@@ -1,6 +1,9 @@
 ---
 import '../styles/tokens.css';
 import '../styles/global.css';
+// Preload the two above-the-fold font files so they do not wait for the stylesheet to arrive.
+import newsreaderUrl from '@fontsource-variable/newsreader/files/newsreader-latin-wght-normal.woff2?url';
+import plexSansUrl from '@fontsource-variable/ibm-plex-sans/files/ibm-plex-sans-latin-wght-normal.woff2?url';
 
 interface Props {
   title: string;
@@ -25,6 +28,8 @@ const isHome = path === '/';
     <title>{title} · Ruoxuan Song</title>
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href={newsreaderUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={plexSansUrl} as="font" type="font/woff2" crossorigin />
     <script is:inline>
       // Apply the stored theme before first paint to avoid a flash.
       (function () {

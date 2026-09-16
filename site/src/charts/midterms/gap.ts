@@ -20,13 +20,14 @@ export function gapSpec() {
   return {
     $schema: VL_SCHEMA,
     data: { values: rows },
+    transform: [{ calculate: "utcFormat(toDate(datum.ts), '%b %d, %H:%M')", as: 'ts_utc' }],
     height: 200,
     encoding: {
-      x: { field: 'ts', type: 'temporal', title: null, axis: { format: spanDays < 3 ? '%b %d %H:%M' : '%b %d', grid: false, labelAngle: 0, tickCount: 5 } },
+      x: { field: 'ts', type: 'temporal', title: null, scale: { type: 'utc' }, axis: { format: spanDays < 3 ? '%b %d %H:%M' : '%b %d', grid: false, labelAngle: 0, tickCount: 5 } },
       y: { field: 'gap_pt', type: 'quantitative', title: 'Polymarket minus Kalshi (pt)', axis: { tickCount: 5 } },
       color: { field: 'chamber', type: 'nominal', scale: { domain: ['House', 'Senate'], range: [tokens.a, tokens.b] }, legend: { title: null, orient: 'top', direction: 'horizontal', symbolType: 'circle' } },
       tooltip: [
-        { field: 'ts', type: 'temporal', title: 'Snapshot (UTC)', format: '%b %d, %H:%M' },
+        { field: 'ts_utc', type: 'nominal', title: 'Snapshot (UTC)' },
         { field: 'chamber', type: 'nominal', title: 'Chamber' },
         { field: 'gap_pt', type: 'quantitative', title: 'Gap (pt)', format: '+.1f' },
       ],

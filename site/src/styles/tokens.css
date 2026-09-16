@@ -3,8 +3,8 @@
  * Skeleton: Tufte-style main column with a right margin for sidenotes, Distill-style article header and appendix.
  * Chart series colours were re-validated on both surfaces with the dataviz palette validator (docs/CHART_RULES.md).
  */
-@import '@fontsource-variable/newsreader/opsz.css';
-@import '@fontsource-variable/newsreader/opsz-italic.css';
+@import '@fontsource-variable/newsreader';            /* wght axis only: 58 KB latin vs 132 KB with the opsz axis */
+@import '@fontsource-variable/newsreader/wght-italic.css';
 @import '@fontsource-variable/ibm-plex-sans';
 
 :root {

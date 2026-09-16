@@ -20,7 +20,8 @@ export function ciSpec() {
     layer: [
       { mark: { type: 'rule', strokeWidth: 2, color: series.neutral }, encoding: { x: { field: 'lo', type: 'quantitative', title: 'Sharpe ratio (point estimate and bootstrap 95% interval)', axis: { tickCount: 7 } }, x2: { field: 'hi' } } },
       { mark: { type: 'point', filled: true, size: 90, color: series.a, stroke: tok('surface'), strokeWidth: 2 }, encoding: { x: { field: 'sharpe', type: 'quantitative' } } },
-      { data: { values: [{ x: 0 }] }, mark: { type: 'rule', strokeDash: [4, 4], color: tok('border-strong') }, encoding: { x: { field: 'x', type: 'quantitative' } } },
+      // the zero rule drops the inherited y/tooltip channels so it adds no 'undefined' row to the y scale
+      { data: { values: [{ x: 0 }] }, mark: { type: 'rule', strokeDash: [4, 4], color: tok('border-strong') }, encoding: { y: null, tooltip: null, x: { field: 'x', type: 'quantitative' } } },
     ],
   };
 }
