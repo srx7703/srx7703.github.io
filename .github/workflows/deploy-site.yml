@@ -26,7 +26,9 @@ jobs:
           cache: npm
           cache-dependency-path: site/package-lock.json
       - name: Install
-        run: npm ci
+        # npm install (not ci): lockfiles written on macOS omit Linux-only optional bindings
+        # (@astrojs/compiler-binding-*, @emnapi/*), which makes `npm ci` fail on ubuntu runners.
+        run: npm install --no-audit --no-fund
         working-directory: site
       - name: Build
         run: npm run build
