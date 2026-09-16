@@ -285,6 +285,14 @@ def company_row(
     cal = calendar_results(estimate_rows, years)
     ce0, ce1 = cal[y0].estimate, cal[y1].estimate
 
+    # A consensus with no stated currency is left null by the fetcher rather than guessed, which is the
+    # right call there and unusable here: CALB's Hong Kong line then has a HKD price, a CNY income
+    # statement and a null-currency EPS, so no multiple can be formed at all. The company's own
+    # reporting currency is the only defensible fallback, and the row records that it was assumed.
+    stated_ccy = (ce0.currency if ce0 else None) or (ce1.currency if ce1 else None)
+    estimate_ccy = stated_ccy or reporting_ccy
+    assumed_ccy = stated_ccy is None and estimate_ccy is not None
+
     t_pe, t_nm = trailing_pe(
         market_cap=(price_row or {}).get("market_cap"),
         market_cap_currency=price_ccy,
@@ -294,11 +302,11 @@ def company_row(
     )
     f0, f0_nm = forward_pe(
         price=price, price_currency=price_ccy,
-        eps=ce0.eps if ce0 else None, eps_currency=ce0.currency if ce0 else None, rates=rates,
+        eps=ce0.eps if ce0 else None, eps_currency=(ce0.currency if ce0 else None) or estimate_ccy, rates=rates,
     )
     f1, f1_nm = forward_pe(
         price=price, price_currency=price_ccy,
-        eps=ce1.eps if ce1 else None, eps_currency=ce1.currency if ce1 else None, rates=rates,
+        eps=ce1.eps if ce1 else None, eps_currency=(ce1.currency if ce1 else None) or estimate_ccy, rates=rates,
     )
 
     def sharpen(nm: str | None, year: int) -> str | None:
@@ -343,7 +351,8 @@ def company_row(
         "trailing_pe_nm": t_nm,
         f"eps_{y0}": ce0.eps if ce0 else None,
         f"eps_{y1}": ce1.eps if ce1 else None,
-        "estimate_currency": (ce0.currency if ce0 else None) or (ce1.currency if ce1 else None),
+        "estimate_currency": estimate_ccy,
+        "estimate_currency_assumed": assumed_ccy,
         f"fwd_pe_{y0}": f0,
         f"fwd_pe_{y0}_nm": f0_nm,
         f"fwd_pe_{y1}": f1,

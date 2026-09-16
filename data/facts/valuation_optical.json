@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-16T22:11:37.061729+00:00",
+ "generated_at": "2026-09-16T22:12:45.086031+00:00",
  "track": "optical",
  "label": "Optical modules",
  "years": [
@@ -710,8 +710,10 @@
    "primary": "601869.SS",
    "secondary": "6869.HK",
    "primary_pe": 57.0968540995789,
-   "secondary_pe": 13.183163416350501,
-   "premium": 3.331043490575575
+   "secondary_pe": 18.7504619842799,
+   "basis": "both lines on 601869.SS's consensus for calendar 2026",
+   "nm": null,
+   "premium": 2.045090523500062
   }
  ],
  "share_base_artefacts": [

@@ -48,7 +48,13 @@ from pipelines.common.storage import FACTS_DIR, MARTS_DIR, SNAP_DIR, append_json
 from pipelines.valuation import read
 from pipelines.valuation.config import COMPANIES, EXCLUDED, TRACKS, Company
 from pipelines.valuation.fundamentals import ttm_by_ticker
-from pipelines.valuation.metrics import NM_LOSS, NM_NO_EARNINGS, company_row, sources_with_rows
+from pipelines.valuation.metrics import (
+    NM_LOSS,
+    NM_NO_EARNINGS,
+    company_row,
+    forward_pe,
+    sources_with_rows,
+)
 from pipelines.valuation.schema import ESTIMATE_KEY, FUNDAMENTAL_KEY, PRICE_KEY
 from pipelines.valuation.share import (
     BASIS_SEGMENT,
@@ -448,8 +454,16 @@ def suppress_share_base_artefacts(rows: list[dict], companies: list[Company]) ->
     return flagged
 
 
-def dual_listings(rows: list[dict], companies: list[Company]) -> list[dict]:
-    """The same earnings priced in two markets: a clean control for the dispersion story."""
+def dual_listings(rows: list[dict], companies: list[Company], rates: dict[str, float]) -> list[dict]:
+    """The same earnings priced in two markets.
+
+    Both multiples are built from the PRIMARY line's consensus, with only the price differing. Taking
+    each line's own consensus would measure the two data sources disagreeing rather than the two
+    markets: YOFC's A line carries East Money's twenty-broker mean while its H line carries a Yahoo
+    figure resting on one analyst, and comparing them produced a 333% "premium" on a single issuer
+    whose earnings are, by construction, identical. What is left after holding the forecast fixed is
+    the thing the page is actually about.
+    """
     by_ticker = {r["ticker"]: r for r in rows}
     out = []
     for c in companies:
@@ -458,14 +472,24 @@ def dual_listings(rows: list[dict], companies: list[Company]) -> list[dict]:
         sec, pri = by_ticker.get(c.ticker), by_ticker.get(c.fundamentals_from)
         if not sec or not pri:
             continue
-        key = f"fwd_pe_{Y0}"
-        a_pe, h_pe = pri.get(key), sec.get(key)
+        eps = pri.get(f"eps_{Y0}")
+        eps_ccy = pri.get("estimate_currency")
+        a_pe, a_nm = forward_pe(
+            price=pri.get("price"), price_currency=pri.get("price_currency"),
+            eps=eps, eps_currency=eps_ccy, rates=rates,
+        )
+        h_pe, h_nm = forward_pe(
+            price=sec.get("price"), price_currency=sec.get("price_currency"),
+            eps=eps, eps_currency=eps_ccy, rates=rates,
+        )
         out.append({
             "name": pri["name"],
             "primary": c.fundamentals_from,
             "secondary": c.ticker,
             "primary_pe": a_pe,
             "secondary_pe": h_pe,
+            "basis": f"both lines on {pri['ticker']}'s consensus for calendar {Y0}",
+            "nm": a_nm or h_nm,
             "premium": (a_pe / h_pe - 1.0) if (a_pe and h_pe) else None,
         })
     return out
@@ -575,7 +599,7 @@ def build_track(track: str, data: dict, as_of: date, snapshot_ts: str) -> dict:
         "cited_share": cited,
         "n_quoted": n_quoted,
         "withheld_quotes": held_back,
-        "dual_listings": dual_listings(rows, companies),
+        "dual_listings": dual_listings(rows, companies, data['rates']),
         "share_base_artefacts": share_base_artefacts,
         "excluded_from_pool": [e for e in EXCLUDED if e["track"] == track],
         "reference_updated": reference.get("updated"),

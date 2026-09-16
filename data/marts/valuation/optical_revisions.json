@@ -1501,6 +1501,13 @@
   "ticker": "COHR",
   "name": "Coherent",
   "as_of": "2026-09-16",
+  "year": 2026,
+  "eps": 7.513170000000001
+ },
+ {
+  "ticker": "COHR",
+  "name": "Coherent",
+  "as_of": "2026-09-16",
   "year": 2027,
   "eps": 11.685825000000001
  },
@@ -1531,6 +1538,13 @@
   "as_of": "2026-09-09",
   "year": 2027,
   "eps": 27.4719
+ },
+ {
+  "ticker": "LITE",
+  "name": "Lumentum",
+  "as_of": "2026-09-16",
+  "year": 2026,
+  "eps": 15.17025
  },
  {
   "ticker": "LITE",
@@ -1641,6 +1655,13 @@
   "ticker": "FN",
   "name": "Fabrinet",
   "as_of": "2026-09-16",
+  "year": 2026,
+  "eps": 16.123060000000002
+ },
+ {
+  "ticker": "FN",
+  "name": "Fabrinet",
+  "as_of": "2026-09-16",
   "year": 2027,
   "eps": 19.97192
  },
@@ -1711,6 +1732,13 @@
   "ticker": "SMTC",
   "name": "Semtech",
   "as_of": "2026-09-16",
+  "year": 2026,
+  "eps": 3.3272016666666664
+ },
+ {
+  "ticker": "SMTC",
+  "name": "Semtech",
+  "as_of": "2026-09-16",
   "year": 2027,
   "eps": 5.6388275
  },
@@ -1741,6 +1769,13 @@
   "as_of": "2026-09-09",
   "year": 2027,
   "eps": 8.508553333333332
+ },
+ {
+  "ticker": "CRDO",
+  "name": "Credo",
+  "as_of": "2026-09-16",
+  "year": 2026,
+  "eps": 5.356886666666666
  },
  {
   "ticker": "CRDO",
@@ -1816,6 +1851,13 @@
   "ticker": "MRVL",
   "name": "Marvell",
   "as_of": "2026-09-16",
+  "year": 2026,
+  "eps": 4.098363333333333
+ },
+ {
+  "ticker": "MRVL",
+  "name": "Marvell",
+  "as_of": "2026-09-16",
   "year": 2027,
   "eps": 6.548463333333332
  },
@@ -1881,6 +1923,13 @@
   "as_of": "2026-09-09",
   "year": 2027,
   "eps": 5.335262500000001
+ },
+ {
+  "ticker": "CSCO",
+  "name": "Cisco",
+  "as_of": "2026-09-16",
+  "year": 2026,
+  "eps": 4.668595833333333
  },
  {
   "ticker": "CSCO",
@@ -1956,6 +2005,13 @@
   "ticker": "5802.T",
   "name": "Sumitomo Electric",
   "as_of": "2026-09-16",
+  "year": 2026,
+  "eps": 116.33826499999999
+ },
+ {
+  "ticker": "5802.T",
+  "name": "Sumitomo Electric",
+  "as_of": "2026-09-16",
   "year": 2027,
   "eps": 132.5526975
  },
@@ -1991,6 +2047,13 @@
   "ticker": "5801.T",
   "name": "Furukawa Electric",
   "as_of": "2026-09-16",
+  "year": 2026,
+  "eps": 142.59324
+ },
+ {
+  "ticker": "5801.T",
+  "name": "Furukawa Electric",
+  "as_of": "2026-09-16",
   "year": 2027,
   "eps": 189.14709
  },
@@ -2021,6 +2084,13 @@
   "as_of": "2026-09-09",
   "year": 2027,
   "eps": 208.87541
+ },
+ {
+  "ticker": "5803.T",
+  "name": "Fujikura",
+  "as_of": "2026-09-16",
+  "year": 2026,
+  "eps": 170.778025
  },
  {
   "ticker": "5803.T",
