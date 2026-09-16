@@ -33,7 +33,15 @@ layout, and Distill's article header and appendix.
 | `Appendix` | Wraps Method, Evaluation, Data quality, Build notes, Changelog; smaller type after the results. |
 | `Section` | Titled section with an anchor; `wide` lets a big table span the margin. |
 | `PipelineStatus` | One plain line: data as of, snapshot count, cadence, Actions badge. |
-| `ProjectPreview` | A project row on the home and list pages: title, status line, summary, latest headline number. |
+| `ProjectPreview` | A project row on the home and list pages: title, status line, summary, latest headline number and a `MiniChart`. |
+| `MiniChart` | 220 x 60 inline SVG drawn at build time from marts/facts (`lib/minicharts.ts`); colours are series tokens. |
+
+## Photos
+
+Sources are exported by hand (no EXIF, colour at 88%) to `site/public/photos/` as JPEG + WebP at 1x and 2x, with
+width and height set on the `<img>`. Places: a 56px avatar in the masthead, one wide photo under the home intro, a
+margin portrait and one column-width photo on About. The home photo's right 15% was outpainted (Bria) to centre the
+subject; the rest is unedited.
 
 ## Not allowed
 
