@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Base from '@layouts/Base.astro';
 import { evaluationPlan } from '@lib/prereg';
 import { dayUtc } from '@lib/fmt';
+import { AUTHOR, AUTHOR_CITE } from '@lib/site';
 
 export async function getStaticPaths() {
   const entries = await getCollection('projects');
@@ -23,7 +24,7 @@ const year = entry.data.started.slice(0, 4);
       <p class="dek">{entry.data.summary}</p>
     </header>
     <dl class="byline">
-      <div><dt>Author</dt><dd>Ruoxuan Song</dd></div>
+      <div><dt>Author</dt><dd>{AUTHOR}</dd></div>
       <div><dt>Started</dt><dd>{dayUtc(entry.data.started)}</dd></div>
       <div><dt>Built with</dt><dd>{entry.data.tools.join(', ')}</dd></div>
       {plan && <div><dt>Evaluation plan</dt><dd><a href={plan.url} title="docs/EVALUATION_PLAN.md, pre-registered">blob {plan.short}</a></dd></div>}
@@ -31,7 +32,7 @@ const year = entry.data.started.slice(0, 4);
     <Content />
     <footer class="appendix">
       <p class="appendix__label">Citation</p>
-      <p>Song, Ruoxuan. “{entry.data.title}.” <em>srx7703.github.io</em>, {year}. <a href={url}>{url}</a></p>
+      <p>{AUTHOR_CITE}. “{entry.data.title}.” <em>srx7703.github.io</em>, {year}. <a href={url}>{url}</a></p>
       <p>Code and data: <a href="https://github.com/srx7703/srx7703.github.io">github.com/srx7703/srx7703.github.io</a></p>
     </footer>
   </article>

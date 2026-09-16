@@ -1,6 +1,7 @@
 ---
 import '../styles/tokens.css';
 import '../styles/global.css';
+import { AUTHOR } from '../lib/site';
 // Preload the two above-the-fold font files so they do not wait for the stylesheet to arrive.
 import newsreaderUrl from '@fontsource-variable/newsreader/files/newsreader-latin-wght-normal.woff2?url';
 import plexSansUrl from '@fontsource-variable/ibm-plex-sans/files/ibm-plex-sans-latin-wght-normal.woff2?url';
@@ -25,7 +26,7 @@ const isHome = path === '/';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title} · Ruoxuan Song</title>
+    <title>{title} · {AUTHOR}</title>
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href={newsreaderUrl} as="font" type="font/woff2" crossorigin />
@@ -52,7 +53,7 @@ const isHome = path === '/';
         </button>
       </nav>
       <div class="masthead">
-        <p class="masthead__name">{isHome ? 'Ruoxuan Song' : <a href="/">Ruoxuan Song</a>}</p>
+        <p class="masthead__name">{isHome ? AUTHOR : <a href="/">{AUTHOR}</a>}</p>
         <p class="masthead__sub">Data analysis, dashboards, and the pipelines behind them</p>
       </div>
     </header>
@@ -63,7 +64,7 @@ const isHome = path === '/';
     </main>
     <footer class="site-footer">
       <div class="page">
-        <span>© {new Date().getUTCFullYear()} Ruoxuan Song · </span>
+        <span>© {new Date().getUTCFullYear()} {AUTHOR} · </span>
         <a href="https://github.com/srx7703/srx7703.github.io">Source on GitHub</a>
         <span> · Built with Claude Code, Astro and Vega-Lite. Data refreshed by GitHub Actions.</span>
       </div>

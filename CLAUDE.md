@@ -1,6 +1,6 @@
 # CLAUDE.md — portfolio repo conventions
 
-This repo is Ruoxuan Song's data-analysis portfolio: scheduled data pipelines (Python + Polars,
+This repo is Ruoxuan (Song) Song's data-analysis portfolio: scheduled data pipelines (Python + Polars,
 pandera-validated) that feed a static site (Astro + Vega-Lite). Everything is text and reproducible; nothing is
 built by hand in a GUI tool.
 

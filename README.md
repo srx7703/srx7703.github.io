@@ -1,6 +1,6 @@
 # portfolio
 
-Data-analysis portfolio by Ruoxuan Song: scheduled pipelines that snapshot public data, and a
+Data-analysis portfolio by Ruoxuan (Song) Song: scheduled pipelines that snapshot public data, and a
 static site that turns them into dashboards with written methodology and evaluation.
 
 ![snapshot-predmarkets](https://github.com/srx7703/srx7703.github.io/actions/workflows/snapshot-predmarkets.yml/badge.svg)
