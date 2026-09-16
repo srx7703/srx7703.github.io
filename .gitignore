@@ -20,3 +20,8 @@ site/public/data/
 # filings cannot be rewritten, so the extracted facts are kept and the 6 MB/run payload is not.
 # Documented in docs/DATA_MODEL.md.
 data/raw/valuation/sec/
+
+# iCloud Drive syncs ~/Desktop and makes " 2" conflict copies when two processes write the same file,
+# which happens constantly when several agents work in parallel. Seven of them reached a commit once.
+*\ 2.*
+*\ 3.*
