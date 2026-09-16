@@ -158,10 +158,10 @@ export const evalStatus = (key) => {
     <summary>The {notPlotted} listings with no meaningful multiple</summary>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Listing</th><th>Company</th><th>Exposure</th><th>Why there is no multiple</th></tr></thead>
+        <thead><tr><th>Company</th><th>Listing</th><th>Exposure</th><th>Why there is no multiple</th></tr></thead>
         <tbody>
           {companies.filter((c) => c.fwd_pe_2026 == null).map((c) => (
-            <tr><td>{c.ticker}</td><td>{c.name}</td><td>{c.purity}</td><td>{c.fwd_pe_2026_nm}</td></tr>
+            <tr><td>{c.name}</td><td>{c.ticker}</td><td>{c.purity}</td><td>{c.fwd_pe_2026_nm}</td></tr>
           ))}
         </tbody>
       </table>
@@ -308,7 +308,7 @@ export const evalStatus = (key) => {
     { column: 'market', label: 'Market', options: ['cn', 'us', 'jp', 'tw', 'hk'] },
   ]} />
   <DataTable id="optical-table" filterKeys={['purity', 'coverage', 'market']} columns={[
-    { key: 'ticker', label: 'Listing' }, { key: 'name', label: 'Company' },
+    { key: 'name', label: 'Company' }, { key: 'ticker', label: 'Listing' },
     { key: 'purity', label: 'Exposure' },
     { key: 'price', label: 'Price', format: 'fixed1' }, { key: 'price_currency', label: 'Ccy' },
     { key: 'trailing_pe', label: 'Trailing PE', format: 'fixed1' },
