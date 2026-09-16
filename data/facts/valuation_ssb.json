@@ -1,45 +1,46 @@
 {
- "generated_at": "2026-09-16T22:08:07.602517+00:00",
+ "generated_at": "2026-09-16T22:11:37.061729+00:00",
  "track": "ssb",
  "label": "Solid-state batteries",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-09-16T21:32:25+00:00",
- "as_of_estimates": "2026-09-16T21:48:04+00:00",
+ "as_of_price": "2026-09-16T22:08:57+00:00",
+ "as_of_estimates": "2026-09-16T22:10:01+00:00",
  "as_of_fx": "2026-09-11",
  "n_listings": 34,
  "n_issuers": 32,
  "n_priced": 34,
- "n_with_consensus": 14,
- "n_thin": 2,
- "n_nm": 20,
+ "n_with_consensus": 25,
+ "n_thin": 6,
+ "n_nm": 9,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 19.279067657373343,
- "median_fwd_pe_next": 15.018798613101236,
- "p25_fwd_pe_this": 14.765876424903869,
- "p75_fwd_pe_this": 34.775764912271804,
- "iqr_fwd_pe_this": 20.009888487367935,
- "median_growth": 0.35950194639497846,
+ "median_fwd_pe_this": 20.474053502376123,
+ "median_fwd_pe_next": 16.248077908764735,
+ "p25_fwd_pe_this": 14.738719196231274,
+ "p75_fwd_pe_this": 39.31955888431048,
+ "iqr_fwd_pe_this": 24.58083968807921,
+ "median_growth": 0.35309506035956706,
  "median_trailing_pe": 24.1904235801683,
  "cheapest": {
-  "ticker": "002709.SZ",
-  "name": "Tinci Materials",
-  "fwd_pe_2026": 10.343480638525039,
-  "growth": 0.16304262909820055,
+  "ticker": "7203.T",
+  "name": "Toyota Motor",
+  "fwd_pe_2026": 9.777341312996768,
+  "growth": 0.09720134465026042,
   "coverage": "covered"
  },
  "priciest": {
-  "ticker": "600206.SS",
-  "name": "Grinm Advanced Materials",
-  "fwd_pe_2026": 97.41509433962264,
-  "growth": 0.35849056603773577,
-  "coverage": "unknown"
+  "ticker": "247540.KQ",
+  "name": "Ecopro BM",
+  "fwd_pe_2026": 979.2298850801769,
+  "growth": 5.832111835766311,
+  "coverage": "covered"
  },
  "nm_reasons": [
-  "consensus source returned nothing this run",
-  "no consensus for this year"
+  "consensus forecasts a loss",
+  "no consensus for this year",
+  "no exchange rate"
  ],
  "share": {
   "n_members": 12,
@@ -406,16 +407,16 @@
    "primary": "300750.SZ",
    "secondary": "3750.HK",
    "primary_pe": 14.738719196231274,
-   "secondary_pe": null,
-   "premium": null
+   "secondary_pe": 20.474053502376123,
+   "premium": -0.280126957052214
   },
   {
    "name": "BYD",
    "primary": "002594.SZ",
    "secondary": "1211.HK",
    "primary_pe": 19.612056883374134,
-   "secondary_pe": null,
-   "premium": null
+   "secondary_pe": 16.0815221324155,
+   "premium": 0.21953983720497083
   }
  ],
  "share_base_artefacts": [],
@@ -623,7 +624,7 @@
    "market_cap": 3075725312.0,
    "ttm_revenue": null,
    "reporting_currency": "USD",
-   "eps_2026": null,
+   "eps_2026": -0.66885,
    "trailing_pe": null,
    "trailing_pe_nm": "loss-making over the trailing twelve months"
   },
@@ -636,7 +637,7 @@
    "market_cap": 545353152.0,
    "ttm_revenue": null,
    "reporting_currency": "USD",
-   "eps_2026": null,
+   "eps_2026": -0.4,
    "trailing_pe": null,
    "trailing_pe_nm": "loss-making over the trailing twelve months"
   },
@@ -649,7 +650,7 @@
    "market_cap": 215495200.0,
    "ttm_revenue": 23463000.0,
    "reporting_currency": "USD",
-   "eps_2026": null,
+   "eps_2026": -0.14806,
    "trailing_pe": null,
    "trailing_pe_nm": "loss-making over the trailing twelve months"
   },
@@ -662,7 +663,7 @@
    "market_cap": 46738992.0,
    "ttm_revenue": 112800.0,
    "reporting_currency": "GBP",
-   "eps_2026": null,
+   "eps_2026": -0.038066666666666665,
    "trailing_pe": null,
    "trailing_pe_nm": "loss-making over the trailing twelve months"
   },
@@ -675,7 +676,7 @@
    "market_cap": 225183408.0,
    "ttm_revenue": 367560000.0,
    "reporting_currency": "USD",
-   "eps_2026": null,
+   "eps_2026": -0.01,
    "trailing_pe": 4.391851617810543,
    "trailing_pe_nm": null
   }
@@ -690,7 +691,7 @@
    "market_cap": 3075725312.0,
    "ttm_revenue": null,
    "reporting_currency": "USD",
-   "eps_2026": null,
+   "eps_2026": -0.66885,
    "trailing_pe": null,
    "trailing_pe_nm": "loss-making over the trailing twelve months"
   },
@@ -703,7 +704,7 @@
    "market_cap": 545353152.0,
    "ttm_revenue": null,
    "reporting_currency": "USD",
-   "eps_2026": null,
+   "eps_2026": -0.4,
    "trailing_pe": null,
    "trailing_pe_nm": "loss-making over the trailing twelve months"
   },
@@ -716,7 +717,7 @@
    "market_cap": 215495200.0,
    "ttm_revenue": 23463000.0,
    "reporting_currency": "USD",
-   "eps_2026": null,
+   "eps_2026": -0.14806,
    "trailing_pe": null,
    "trailing_pe_nm": "loss-making over the trailing twelve months"
   },
@@ -729,7 +730,7 @@
    "market_cap": 46738992.0,
    "ttm_revenue": 112800.0,
    "reporting_currency": "GBP",
-   "eps_2026": null,
+   "eps_2026": -0.038066666666666665,
    "trailing_pe": null,
    "trailing_pe_nm": "loss-making over the trailing twelve months"
   }
@@ -744,7 +745,7 @@
    "market_cap": 225183408.0,
    "ttm_revenue": 367560000.0,
    "reporting_currency": "USD",
-   "eps_2026": null,
+   "eps_2026": -0.01,
    "trailing_pe": 4.391851617810543,
    "trailing_pe_nm": null
   }
@@ -770,13 +771,13 @@
   },
   {
    "name": "Consensus coverage",
-   "status": "fail",
-   "detail": "14 of 34 listings have a calendar-2026 consensus; 20 do not (consensus source returned nothing this run, no consensus for this year)"
+   "status": "pass",
+   "detail": "25 of 34 listings have a calendar-2026 consensus; 9 do not (consensus forecasts a loss, no consensus for this year, no exchange rate)"
   },
   {
    "name": "Analyst depth",
    "status": "pass",
-   "detail": "2 of 34 listings are covered by fewer than three analysts"
+   "detail": "6 of 34 listings are covered by fewer than three analysts"
   },
   {
    "name": "Trailing basis",

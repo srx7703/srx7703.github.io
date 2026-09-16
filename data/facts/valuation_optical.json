@@ -1,27 +1,27 @@
 {
- "generated_at": "2026-09-16T22:08:07.602517+00:00",
+ "generated_at": "2026-09-16T22:11:37.061729+00:00",
  "track": "optical",
  "label": "Optical modules",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-09-16T21:32:25+00:00",
- "as_of_estimates": "2026-09-16T21:48:04+00:00",
+ "as_of_price": "2026-09-16T22:08:57+00:00",
+ "as_of_estimates": "2026-09-16T22:10:01+00:00",
  "as_of_fx": "2026-09-11",
  "n_listings": 34,
  "n_issuers": 33,
  "n_priced": 34,
- "n_with_consensus": 15,
- "n_thin": 2,
- "n_nm": 19,
+ "n_with_consensus": 34,
+ "n_thin": 5,
+ "n_nm": 0,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 88.68883278723746,
- "median_fwd_pe_next": 52.07938044530494,
- "p25_fwd_pe_this": 47.05051006889242,
- "p75_fwd_pe_this": 169.9538441374022,
- "iqr_fwd_pe_this": 122.90333406850978,
- "median_growth": 0.7637928943858374,
+ "median_fwd_pe_this": 47.05051006889242,
+ "median_fwd_pe_next": 29.962278293316817,
+ "p25_fwd_pe_this": 27.13379566184533,
+ "p75_fwd_pe_this": 91.62595819680936,
+ "iqr_fwd_pe_this": 64.49216253496404,
+ "median_growth": 0.6791104904119889,
  "median_trailing_pe": 75.99286279261213,
  "cheapest": {
   "ticker": "600060.SS",
@@ -37,9 +37,7 @@
   "growth": 0.9847328244274809,
   "coverage": "covered"
  },
- "nm_reasons": [
-  "consensus source returned nothing this run"
- ],
+ "nm_reasons": [],
  "share": {
   "n_members": 16,
   "n_excluded": 17,
@@ -712,8 +710,8 @@
    "primary": "601869.SS",
    "secondary": "6869.HK",
    "primary_pe": 57.0968540995789,
-   "secondary_pe": null,
-   "premium": null
+   "secondary_pe": 13.183163416350501,
+   "premium": 3.331043490575575
   }
  ],
  "share_base_artefacts": [
@@ -777,13 +775,13 @@
   },
   {
    "name": "Consensus coverage",
-   "status": "fail",
-   "detail": "15 of 34 listings have a calendar-2026 consensus; 19 do not (consensus source returned nothing this run)"
+   "status": "pass",
+   "detail": "34 of 34 listings have a calendar-2026 consensus; 0 do not ()"
   },
   {
    "name": "Analyst depth",
    "status": "pass",
-   "detail": "2 of 34 listings are covered by fewer than three analysts"
+   "detail": "5 of 34 listings are covered by fewer than three analysts"
   },
   {
    "name": "Trailing basis",

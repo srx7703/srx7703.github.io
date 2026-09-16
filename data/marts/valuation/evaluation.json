@@ -1,7 +1,9 @@
 {
- "generated_at": "2026-09-16T22:08:15.828446+00:00",
+ "generated_at": "2026-09-16T22:11:38.128303+00:00",
  "plan": "docs/EVALUATION_PLAN.md",
- "snapshot_vintages_written": [],
+ "snapshot_vintages_written": [
+  "/home/runner/work/srx7703.github.io/srx7703.github.io/data/snapshots/valuation/vintages/2026-09-16-snapshot.parquet"
+ ],
  "tracks": {
   "optical": {
    "consensus_accuracy": {
@@ -10,22 +12,34 @@
    },
    "revision_persistence": {
     "status": "not_yet",
-    "why": "1 true-revision vintage date on file across 15 listings, giving 0 week/four-week windows where 3 are needed. East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions; the weekly snapshot series that replaces it for those listings now covers 15 of them and grows by one date a week"
+    "why": "5 true-revision vintage dates on file across 34 listings, giving 0 week/four-week windows where 3 are needed. East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions; the weekly snapshot series that replaces it for those listings now covers 33 of them and grows by one date a week"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-09-16T22:08:07.602517+00:00",
-    "iqr": 122.90333406850978,
-    "p25": 47.05051006889242,
-    "p75": 169.9538441374022,
-    "median": 88.68883278723746,
-    "n_priced": 15,
+    "as_of": "2026-09-16T22:11:37.061729+00:00",
+    "iqr": 64.49216253496404,
+    "p25": 27.13379566184533,
+    "p75": 91.62595819680936,
+    "median": 47.05051006889242,
+    "n_priced": 34,
     "n_listings": 34,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
    },
    "dual_listing_premium": {
-    "status": "not_yet",
-    "why": "no dual-listed issuer in this track has a forward PE on both lines yet"
+    "status": "partial",
+    "as_of": "2026-09-16T22:11:37.061729+00:00",
+    "pairs": [
+     {
+      "name": "YOFC",
+      "primary": "601869.SS",
+      "secondary": "6869.HK",
+      "primary_pe": 57.0968540995789,
+      "secondary_pe": 13.183163416350501,
+      "premium": 3.331043490575575
+     }
+    ],
+    "median_premium": 3.331043490575575,
+    "note": "the premium is the A line over the H line on identical reported earnings"
    },
    "share_bases": {
     "status": "partial",
@@ -211,22 +225,42 @@
    },
    "revision_persistence": {
     "status": "not_yet",
-    "why": "1 true-revision vintage date on file across 14 listings, giving 0 week/four-week windows where 3 are needed. East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions; the weekly snapshot series that replaces it for those listings now covers 14 of them and grows by one date a week"
+    "why": "5 true-revision vintage dates on file across 32 listings, giving 0 week/four-week windows where 3 are needed. East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions; the weekly snapshot series that replaces it for those listings now covers 31 of them and grows by one date a week"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-09-16T22:08:07.602517+00:00",
-    "iqr": 20.009888487367935,
-    "p25": 14.765876424903869,
-    "p75": 34.775764912271804,
-    "median": 19.279067657373343,
-    "n_priced": 14,
+    "as_of": "2026-09-16T22:11:37.061729+00:00",
+    "iqr": 24.58083968807921,
+    "p25": 14.738719196231274,
+    "p75": 39.31955888431048,
+    "median": 20.474053502376123,
+    "n_priced": 25,
     "n_listings": 34,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
    },
    "dual_listing_premium": {
-    "status": "not_yet",
-    "why": "no dual-listed issuer in this track has a forward PE on both lines yet"
+    "status": "partial",
+    "as_of": "2026-09-16T22:11:37.061729+00:00",
+    "pairs": [
+     {
+      "name": "CATL",
+      "primary": "300750.SZ",
+      "secondary": "3750.HK",
+      "primary_pe": 14.738719196231274,
+      "secondary_pe": 20.474053502376123,
+      "premium": -0.280126957052214
+     },
+     {
+      "name": "BYD",
+      "primary": "002594.SZ",
+      "secondary": "1211.HK",
+      "primary_pe": 19.612056883374134,
+      "secondary_pe": 16.0815221324155,
+      "premium": 0.21953983720497083
+     }
+    ],
+    "median_premium": -0.030293559923621594,
+    "note": "the premium is the A line over the H line on identical reported earnings"
    },
    "share_bases": {
     "status": "partial",
