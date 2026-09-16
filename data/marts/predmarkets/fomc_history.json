@@ -3336,7 +3336,7 @@
   "platform": "kalshi",
   "date": "2026-09-16",
   "side": "hold",
-  "prob": 0.125
+  "prob": 0.13
  },
  {
   "meeting": "2026-09",
@@ -5968,7 +5968,7 @@
   "platform": "polymarket",
   "date": "2026-09-16",
   "side": "hold",
-  "prob": 0.11499999999999999
+  "prob": 0.125
  },
  {
   "meeting": "2026-10",
@@ -8628,7 +8628,7 @@
   "platform": "kalshi",
   "date": "2026-09-16",
   "side": "hike",
-  "prob": 0.39
+  "prob": 0.395
  },
  {
   "meeting": "2026-10",
@@ -10518,21 +10518,21 @@
   "platform": "polymarket",
   "date": "2026-09-16",
   "side": "cut",
-  "prob": 0.025
+  "prob": 0.033
  },
  {
   "meeting": "2026-10",
   "platform": "polymarket",
   "date": "2026-09-16",
   "side": "hike",
-  "prob": 0.389
+  "prob": 0.374
  },
  {
   "meeting": "2026-10",
   "platform": "polymarket",
   "date": "2026-09-16",
   "side": "hold",
-  "prob": 0.605
+  "prob": 0.615
  },
  {
   "meeting": "2026-12",
@@ -13213,7 +13213,7 @@
   "platform": "kalshi",
   "date": "2026-09-16",
   "side": "hold",
-  "prob": 0.355
+  "prob": 0.345
  },
  {
   "meeting": "2026-12",
@@ -14207,21 +14207,21 @@
   "platform": "polymarket",
   "date": "2026-09-16",
   "side": "cut",
-  "prob": 0.043500000000000004
+  "prob": 0.045500000000000006
  },
  {
   "meeting": "2026-12",
   "platform": "polymarket",
   "date": "2026-09-16",
   "side": "hike",
-  "prob": 0.625
+  "prob": 0.6034999999999999
  },
  {
   "meeting": "2026-12",
   "platform": "polymarket",
   "date": "2026-09-16",
   "side": "hold",
-  "prob": 0.365
+  "prob": 0.36
  },
  {
   "meeting": "2027-01",
@@ -15712,21 +15712,21 @@
   "platform": "kalshi",
   "date": "2026-09-16",
   "side": "cut",
-  "prob": 0.165
+  "prob": 0.16
  },
  {
   "meeting": "2027-01",
   "platform": "kalshi",
   "date": "2026-09-16",
   "side": "hike",
-  "prob": 0.275
+  "prob": 0.265
  },
  {
   "meeting": "2027-01",
   "platform": "kalshi",
   "date": "2026-09-16",
   "side": "hold",
-  "prob": 0.53
+  "prob": 0.505
  },
  {
   "meeting": "2027-01",
@@ -16720,20 +16720,20 @@
   "platform": "polymarket",
   "date": "2026-09-16",
   "side": "cut",
-  "prob": 0.156
+  "prob": 0.16599999999999998
  },
  {
   "meeting": "2027-01",
   "platform": "polymarket",
   "date": "2026-09-16",
   "side": "hike",
-  "prob": 0.2575
+  "prob": 0.2585
  },
  {
   "meeting": "2027-01",
   "platform": "polymarket",
   "date": "2026-09-16",
   "side": "hold",
-  "prob": 0.58
+  "prob": 0.575
  }
 ]
