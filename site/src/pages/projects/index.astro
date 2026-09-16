@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@layouts/Base.astro';
+import ProjectCard from '@components/ProjectCard.astro';
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+<Base title="Projects">
+  <h1>Projects</h1>
+  <p class="lede">Live dashboards refresh on a schedule; case studies are frozen write-ups of finished work.</p>
+  <div class="grid-2">
+    {projects.map((p) => (
+      <ProjectCard href={`/projects/${p.id}/`} title={p.data.title} summary={p.data.summary} status={p.data.status} domain={p.data.domain} tools={p.data.tools} />
+    ))}
+  </div>
+</Base>

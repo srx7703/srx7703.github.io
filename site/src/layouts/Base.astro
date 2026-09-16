@@ -1,0 +1,77 @@
+---
+import '../styles/tokens.css';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'Data-analysis portfolio: scheduled pipelines, dashboards with written methodology, built end to end with Claude Code.' } = Astro.props;
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/projects/', label: 'Projects' },
+  { href: '/how-i-work/', label: 'How I work' },
+  { href: '/about/', label: 'About' },
+];
+const path = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · Ruoxuan Song</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script is:inline>
+      // Apply the stored theme before first paint to avoid a flash.
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container row">
+        <a class="brand" href="/">Ruoxuan Song</a>
+        <nav aria-label="Primary">
+          {nav.map((n) => (
+            <a href={n.href} aria-current={path === n.href || (n.href !== '/' && path.startsWith(n.href)) ? 'page' : undefined}>{n.label}</a>
+          ))}
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle light / dark">
+          <span class="theme-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+    <main id="main" class="container">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <span>© {new Date().getUTCFullYear()} Ruoxuan Song · </span>
+        <a href="https://github.com/srx7703/srx7703.github.io">Source on GitHub</a>
+        <span> · Built with Claude Code, Astro and Vega-Lite. Data refreshed by GitHub Actions.</span>
+      </div>
+    </footer>
+    <script>
+      const btn = document.getElementById('theme-toggle');
+      const root = document.documentElement;
+      const apply = (t: string | null) => {
+        if (t === 'light' || t === 'dark') root.dataset.theme = t;
+        else delete root.dataset.theme;
+        document.dispatchEvent(new CustomEvent('themechange'));
+      };
+      btn?.addEventListener('click', () => {
+        const current = root.dataset.theme ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const next = current === 'dark' ? 'light' : 'dark';
+        try { localStorage.setItem('theme', next); } catch {}
+        apply(next);
+      });
+    </script>
+  </body>
+</html>

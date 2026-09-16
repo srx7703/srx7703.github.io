@@ -1,0 +1,60 @@
+---
+/**
+ * Renders a Vega-Lite spec client-side with vega-embed. Any string of the form `token:--name`
+ * inside the spec is replaced at render time with the CSS custom property's computed value, so
+ * chart chrome and series colours follow the light/dark theme from tokens.css.
+ */
+interface Props {
+  spec: Record<string, unknown>;
+  id: string;
+  height?: number;
+  ariaLabel: string;
+}
+const { spec, id, height = 300, ariaLabel } = Astro.props;
+---
+<div class="vega" id={id} data-spec={JSON.stringify(spec)} role="img" aria-label={ariaLabel} style={`min-height:${height}px`}></div>
+<noscript><p class="muted">Charts need JavaScript; the numbers are in the table view.</p></noscript>
+<script>
+  import embed from 'vega-embed';
+
+  const cssVar = (name: string) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  const isDark = () => document.documentElement.dataset.theme === 'dark'
+    || (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+
+  const resolve = (v: unknown): unknown => {
+    if (typeof v === 'string' && v.startsWith('token:')) return cssVar(v.slice(6));
+    if (Array.isArray(v)) return v.map(resolve);
+    if (v && typeof v === 'object') return Object.fromEntries(Object.entries(v as Record<string, unknown>).map(([k, x]) => [k, resolve(x)]));
+    return v;
+  };
+
+  const themeConfig = () => ({
+    background: 'transparent',
+    font: cssVar('--font-sans') || 'system-ui, sans-serif',
+    axis: {
+      labelColor: cssVar('--ink-2'), titleColor: cssVar('--ink-2'), gridColor: cssVar('--grid'),
+      domainColor: cssVar('--border-strong'), tickColor: cssVar('--border-strong'),
+      labelFontSize: 12, titleFontSize: 12, titleFontWeight: 'normal', labelPadding: 6, titlePadding: 8,
+    },
+    legend: { labelColor: cssVar('--ink-2'), titleColor: cssVar('--ink-2'), labelFontSize: 12, symbolSize: 80 },
+    view: { stroke: null },
+    text: { color: cssVar('--ink-2') },
+  });
+
+  const render = async (el: HTMLElement) => {
+    const spec = resolve(JSON.parse(el.dataset.spec || '{}')) as Record<string, any>;
+    spec.config = { ...(spec.config || {}), ...themeConfig() };
+    spec.width = 'container';
+    spec.autosize = { type: 'fit-x', contains: 'padding' };
+    await embed(el, spec as any, { actions: false, renderer: 'svg', tooltip: { theme: isDark() ? 'dark' : 'light' } });
+  };
+
+  const all = () => document.querySelectorAll<HTMLElement>('.vega');
+  const renderAll = () => all().forEach((el) => { render(el).catch((e) => console.error('chart failed', el.id, e)); });
+  renderAll();
+  document.addEventListener('themechange', renderAll);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', renderAll);
+</script>
+<style>
+  .vega { width: 100%; }
+</style>

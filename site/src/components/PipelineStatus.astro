@@ -1,0 +1,23 @@
+---
+import { dateUtc } from '../lib/fmt';
+interface Props {
+  lastSnapshot: string;
+  firstSnapshot: string;
+  nSnapshots: number;
+  nDays: number;
+  workflow: string; // workflow file name
+  cadence: string;
+}
+const { lastSnapshot, firstSnapshot, nSnapshots, nDays, workflow, cadence } = Astro.props;
+const repo = 'srx7703/srx7703.github.io';
+---
+<div class="pipeline">
+  <img src={`https://github.com/${repo}/actions/workflows/${workflow}/badge.svg`} alt="GitHub Actions status of the data pipeline" width="152" height="20" loading="lazy" />
+  <span>Data as of <strong>{dateUtc(lastSnapshot)}</strong></span>
+  <span>· {nSnapshots} snapshots over {nDays} {nDays === 1 ? 'day' : 'days'} since {dateUtc(firstSnapshot)}</span>
+  <span>· refreshed {cadence} by <a href={`https://github.com/${repo}/actions/workflows/${workflow}`}>GitHub Actions</a></span>
+</div>
+<style>
+  .pipeline { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2); font-size: var(--fs-sm); color: var(--ink-2); padding: var(--s-2) var(--s-3); border: 1px dashed var(--border); border-radius: var(--radius); margin: var(--s-3) 0; }
+  .pipeline img { display: inline-block; }
+</style>

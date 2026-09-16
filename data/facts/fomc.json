@@ -1,0 +1,11 @@
+{
+ "project": "fomc-markets",
+ "generated_at": "2026-09-16T02:39:11+00:00",
+ "first_snapshot_ts": "2026-09-16T02:27:56+00:00",
+ "last_snapshot_ts": "2026-09-16T02:35:26+00:00",
+ "n_snapshots": 3,
+ "markets_tracked": {
+  "kalshi": 400,
+  "polymarket": 287
+ }
+}

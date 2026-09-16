@@ -1,0 +1,22 @@
+---
+/** Title states the finding; subtitle states the metric, unit and window (docs/CHART_RULES.md). */
+interface Props {
+  title: string;
+  subtitle?: string;
+}
+const { title, subtitle } = Astro.props;
+---
+<figure class="chart-card">
+  <figcaption>
+    <h3 class="chart-card__title">{title}</h3>
+    {subtitle && <p class="chart-card__subtitle">{subtitle}</p>}
+  </figcaption>
+  <div class="chart-card__body"><slot /></div>
+  <slot name="stamp" />
+</figure>
+<style>
+  .chart-card { margin: var(--s-5) 0; padding: var(--s-4); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+  .chart-card__title { font-size: var(--fs-lg); font-weight: 600; margin: 0 0 var(--s-1); line-height: 1.3; }
+  .chart-card__subtitle { font-size: var(--fs-sm); color: var(--ink-2); margin: 0 0 var(--s-3); }
+  .chart-card__body { overflow-x: auto; }
+</style>

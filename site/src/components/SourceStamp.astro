@@ -1,0 +1,17 @@
+---
+interface Props {
+  sources: { name: string; url?: string }[];
+  asOf: string; // formatted string
+  note?: string;
+}
+const { sources, asOf, note } = Astro.props;
+---
+<p class="stamp">
+  <span>Source: {sources.map((s, i) => (<>{i > 0 && ', '}{s.url ? <a href={s.url}>{s.name}</a> : s.name}</>))}</span>
+  <span> · Data as of {asOf}</span>
+  {note && <span> · {note}</span>}
+</p>
+<style>
+  .stamp { font-size: var(--fs-xs); color: var(--ink-3); margin: var(--s-2) 0 0; }
+  .stamp a { color: inherit; }
+</style>

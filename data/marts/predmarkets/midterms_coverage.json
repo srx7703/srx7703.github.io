@@ -1,0 +1,50 @@
+[
+ {
+  "snapshot_ts": "2026-09-16T02:26:10+00:00",
+  "platform": "kalshi",
+  "markets": 19973,
+  "live_markets": 19337,
+  "volume_usd": 203567814.5,
+  "volume_24h_usd": 2569798.92
+ },
+ {
+  "snapshot_ts": "2026-09-16T02:26:10+00:00",
+  "platform": "polymarket",
+  "markets": 11549,
+  "live_markets": 10943,
+  "volume_usd": 60587680.056397,
+  "volume_24h_usd": 676265.752491
+ },
+ {
+  "snapshot_ts": "2026-09-16T02:28:50+00:00",
+  "platform": "kalshi",
+  "markets": 431,
+  "live_markets": 399,
+  "volume_usd": 128696413.91,
+  "volume_24h_usd": 1655032.1300000001
+ },
+ {
+  "snapshot_ts": "2026-09-16T02:28:50+00:00",
+  "platform": "polymarket",
+  "markets": 1007,
+  "live_markets": 966,
+  "volume_usd": 41539632.999937996,
+  "volume_24h_usd": 504354.94448700006
+ },
+ {
+  "snapshot_ts": "2026-09-16T02:33:41+00:00",
+  "platform": "kalshi",
+  "markets": 19973,
+  "live_markets": 19335,
+  "volume_usd": 203573655.27,
+  "volume_24h_usd": 2570986.36
+ },
+ {
+  "snapshot_ts": "2026-09-16T02:33:41+00:00",
+  "platform": "polymarket",
+  "markets": 11549,
+  "live_markets": 10943,
+  "volume_usd": 60587680.056397,
+  "volume_24h_usd": 691674.0987280001
+ }
+]

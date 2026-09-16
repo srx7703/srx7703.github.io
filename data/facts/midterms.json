@@ -1,0 +1,132 @@
+{
+ "project": "midterms-2026",
+ "generated_at": "2026-09-16T02:39:11+00:00",
+ "election_day": "2026-11-03",
+ "first_snapshot_ts": "2026-09-16T02:26:10+00:00",
+ "last_snapshot_ts": "2026-09-16T02:33:41+00:00",
+ "n_snapshots": 3,
+ "n_days": 1,
+ "markets_tracked": {
+  "kalshi": 19973,
+  "polymarket": 11549
+ },
+ "live_markets_tracked": {
+  "kalshi": 19335,
+  "polymarket": 10943
+ },
+ "order_books_captured": 1603,
+ "headline": {
+  "bop_dd": {
+   "label": "D Senate + D House",
+   "polymarket": 0.565
+  },
+  "bop_dr": {
+   "label": "D Senate + R House",
+   "polymarket": 0.012
+  },
+  "bop_rd": {
+   "label": "R Senate + D House",
+   "polymarket": 0.325
+  },
+  "bop_rr": {
+   "label": "R Senate + R House",
+   "polymarket": 0.105
+  },
+  "house_dem": {
+   "label": "Democrats win the House",
+   "kalshi": 0.855,
+   "polymarket": 0.875,
+   "spread": 0.02
+  },
+  "house_rep": {
+   "label": "Republicans win the House",
+   "kalshi": 0.145,
+   "polymarket": 0.135,
+   "spread": -0.01
+  },
+  "senate_dem": {
+   "label": "Democrats win the Senate",
+   "kalshi": 0.545,
+   "polymarket": 0.585,
+   "spread": 0.04
+  },
+  "senate_rep": {
+   "label": "Republicans win the Senate",
+   "kalshi": 0.455,
+   "polymarket": 0.425,
+   "spread": -0.03
+  }
+ },
+ "top_races_polymarket": [
+  {
+   "event_slug": "maine-senate-election-winner",
+   "title": "Maine Senate Election Winner",
+   "volume_usd": 1355506,
+   "markets": 13
+  },
+  {
+   "event_slug": "alaska-governor-election-winner",
+   "title": "Alaska Governor Election Winner  ",
+   "volume_usd": 1288018,
+   "markets": 40
+  },
+  {
+   "event_slug": "texas-senate-election-winner",
+   "title": "Texas Senate Election Winner",
+   "volume_usd": 1266661,
+   "markets": 13
+  },
+  {
+   "event_slug": "michigan-senate-election-winner",
+   "title": "Michigan Senate Election Winner",
+   "volume_usd": 798541,
+   "markets": 13
+  },
+  {
+   "event_slug": "wisconsin-governor-winner-2026",
+   "title": "Wisconsin Governor Election Winner",
+   "volume_usd": 587696,
+   "markets": 13
+  },
+  {
+   "event_slug": "alaska-senate-election-winner",
+   "title": "Alaska Senate Election Winner",
+   "volume_usd": 510315,
+   "markets": 29
+  },
+  {
+   "event_slug": "ohio-senate-election-winner",
+   "title": "Ohio Senate Election Winner",
+   "volume_usd": 353810,
+   "markets": 13
+  },
+  {
+   "event_slug": "iowa-senate-election-winner",
+   "title": "Iowa Senate Election Winner",
+   "volume_usd": 326741,
+   "markets": 13
+  },
+  {
+   "event_slug": "nebraska-senate-election-winner",
+   "title": "Nebraska Senate Election Winner  ",
+   "volume_usd": 274532,
+   "markets": 13
+  },
+  {
+   "event_slug": "michigan-governor-winner-2026",
+   "title": "Michigan Governor Election Winner",
+   "volume_usd": 206511,
+   "markets": 13
+  }
+ ],
+ "sources": [
+  {
+   "name": "Polymarket Gamma + CLOB APIs",
+   "url": "https://docs.polymarket.com/"
+  },
+  {
+   "name": "Kalshi public trade API v2",
+   "url": "https://docs.kalshi.com/"
+  }
+ ]
+}

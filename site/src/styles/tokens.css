@@ -1,0 +1,81 @@
+/* Design tokens. Chart chrome values follow the validated reference palette (docs/CHART_RULES.md). */
+:root {
+  color-scheme: light;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --bg: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-3: #898781;
+  --grid: #e1e0d9;
+  --border: #e1e0d9;
+  --border-strong: #c3c2b7;
+  --accent: #2a78d6;
+  --positive: #006300;
+  --negative: #d03b3b;
+
+  /* categorical series, fixed order: platforms then parties */
+  --series-polymarket: #4a3aa7;
+  --series-kalshi: #1baf7a;
+  --series-dem: #2a78d6;
+  --series-rep: #e34948;
+  --series-neutral: #898781;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 2.75rem;
+
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1.25rem;
+  --s-5: 2rem;
+  --s-6: 3rem;
+  --radius: 10px;
+  --container: 68rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --ink-3: #898781;
+    --grid: #2c2c2a;
+    --border: #2c2c2a;
+    --border-strong: #383835;
+    --accent: #3987e5;
+    --positive: #0ca30c;
+    --negative: #e66767;
+    --series-polymarket: #9085e9;
+    --series-kalshi: #199e70;
+    --series-dem: #3987e5;
+    --series-rep: #e66767;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0d0d0d;
+  --surface: #1a1a19;
+  --ink: #ffffff;
+  --ink-2: #c3c2b7;
+  --ink-3: #898781;
+  --grid: #2c2c2a;
+  --border: #2c2c2a;
+  --border-strong: #383835;
+  --accent: #3987e5;
+  --positive: #0ca30c;
+  --negative: #e66767;
+  --series-polymarket: #9085e9;
+  --series-kalshi: #199e70;
+  --series-dem: #3987e5;
+  --series-rep: #e66767;
+}

@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@layouts/Base.astro';
+import ProjectCard from '@components/ProjectCard.astro';
+const projects = (await getCollection('projects')).filter((p) => p.data.featured).sort((a, b) => a.data.order - b.data.order);
+---
+<Base title="Data analysis and dashboards">
+  <section class="hero">
+    <h1>Data analysis, dashboard design, and the pipelines behind them.</h1>
+    <p class="lede">I build analyses that keep running after the write-up: scheduled data pipelines, tested transforms, and dashboards with the method and evaluation written down. Everything here is built end to end with Claude Code, and the code is public.</p>
+  </section>
+  <section>
+    <h2>Featured projects</h2>
+    <div class="grid-2">
+      {projects.map((p) => (
+        <ProjectCard href={`/projects/${p.id}/`} title={p.data.title} summary={p.data.summary} status={p.data.status} domain={p.data.domain} tools={p.data.tools} />
+      ))}
+    </div>
+    <p><a href="/projects/">All projects →</a></p>
+  </section>
+  <section>
+    <h2>How I work</h2>
+    <p class="prose">One repo, one set of conventions: raw data is immutable, every number on a page comes from a facts file the pipeline writes, charts follow one palette and one set of rules, and nothing ships without tests. <a href="/how-i-work/">Read the workflow →</a></p>
+  </section>
+</Base>
+<style>
+  .hero { margin: var(--s-4) 0 var(--s-6); }
+  .hero h1 { font-size: var(--fs-3xl); max-width: 22ch; }
+  section + section { margin-top: var(--s-6); }
+</style>

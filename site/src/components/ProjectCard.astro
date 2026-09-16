@@ -1,0 +1,26 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  summary: string;
+  status: 'live' | 'case-study' | 'in-progress';
+  domain: string[];
+  tools: string[];
+}
+const { href, title, summary, status, domain, tools } = Astro.props;
+const statusLabel = { live: 'Live · auto-refreshed', 'case-study': 'Case study', 'in-progress': 'In progress' }[status];
+---
+<a class="card" href={href}>
+  <div class="card__meta"><span class={`badge badge--${status}`}>{statusLabel}</span><span class="card__domain">{domain.join(' · ')}</span></div>
+  <h3 class="card__title">{title}</h3>
+  <p class="card__summary">{summary}</p>
+  <p class="card__tools">{tools.join(' · ')}</p>
+</a>
+<style>
+  .card { display: block; border: 1px solid var(--border); border-radius: var(--radius); padding: var(--s-4); background: var(--surface); color: inherit; text-decoration: none; transition: border-color 120ms; }
+  .card:hover { border-color: var(--accent); }
+  .card__meta { display: flex; gap: var(--s-2); align-items: center; font-size: var(--fs-xs); color: var(--ink-3); margin-bottom: var(--s-2); flex-wrap: wrap; }
+  .card__title { margin: 0 0 var(--s-1); font-size: var(--fs-lg); }
+  .card__summary { margin: 0 0 var(--s-2); color: var(--ink-2); font-size: var(--fs-sm); }
+  .card__tools { margin: 0; font-size: var(--fs-xs); color: var(--ink-3); }
+</style>

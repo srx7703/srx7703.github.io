@@ -1,0 +1,28 @@
+---
+import Base from '@layouts/Base.astro';
+---
+<Base title="How I work">
+  <h1>How I work</h1>
+  <p class="lede">The site is a product of a workflow, not a set of one-off notebooks. This page describes the workflow so the projects can be judged on it.</p>
+  <div class="prose">
+    <h2>Principles</h2>
+    <ul>
+      <li><strong>Raw data is immutable.</strong> API responses are archived as they arrived; bugs are fixed in transforms, never by rewriting history.</li>
+      <li><strong>Numbers are never typed.</strong> Each project page is templated from a facts file the pipeline writes, so prose and charts cannot drift apart.</li>
+      <li><strong>Evaluation is designed before results exist.</strong> Scoring rules for live projects are committed in advance.</li>
+      <li><strong>One chart system.</strong> A fixed palette validated for colour-vision deficiency and both themes, titles that state the finding, sources and as-of stamps on every chart.</li>
+    </ul>
+    <h2>Tooling</h2>
+    <p>Python with DuckDB and Polars for pipelines, pandera for data contracts, pytest for parsers, GitHub Actions for scheduling, Astro and Vega-Lite for the site, GitHub Pages for hosting. All of it is free and public.</p>
+    <h2>Working with Claude Code</h2>
+    <p>Claude Code writes most of the code and all of the boilerplate. The repo carries a <code>CLAUDE.md</code> with the conventions above, four project skills (scaffold a project, review a chart, audit data, draft a write-up) and a definition of done that every project must pass. I decide the questions, the market sets, the metric definitions and the evaluation plans, and I review every chart and every paragraph before it ships.</p>
+    <h2>Quality gates</h2>
+    <ul>
+      <li>Schema and range checks on every pipeline output; a failing check blocks the write.</li>
+      <li>Unit tests on every parser; lint and type checks on the site.</li>
+      <li>Pipelines commit their own data, so the Actions history is the audit trail.</li>
+    </ul>
+    <h2>Failure log</h2>
+    <p>Kept deliberately. First entry: the Kalshi universe filter initially dropped every state race because Kalshi closes 2026 election markets a year after election day; the fix was to widen the close-time window and record the reason in the data model docs.</p>
+  </div>
+</Base>
