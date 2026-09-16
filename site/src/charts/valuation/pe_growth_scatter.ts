@@ -71,7 +71,7 @@ export function peGrowthScatterSpec(rows: CompanyRow[]) {
         encoding: {
           x: { field: 'growth', type: 'quantitative' },
           y: { field: 'pe', type: 'quantitative' },
-          text: { field: 'ticker' },
+          text: { field: 'name' },
         },
       },
     ],

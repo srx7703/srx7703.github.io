@@ -26,8 +26,9 @@ export function peDumbbellSpec(rows: CompanyRow[]) {
     .slice()
     .sort((a, b) => (b.fwd_pe_2026 as number) - (a.fwd_pe_2026 as number))
     .map((r) => ({
-      label: r.ticker,
+      label: r.name,
       name: r.name,
+      ticker: r.ticker,
       pe26: r.fwd_pe_2026,
       pe27: r.fwd_pe_2027,
       growth: r.growth,
@@ -46,8 +47,7 @@ export function peDumbbellSpec(rows: CompanyRow[]) {
     ...(r.pe27 != null ? [{ ...r, year: '2027E', pe: r.pe27, fill_color: fillFor(r.purity, '2027E') }] : []),
   ]);
   const tooltip = [
-    { field: 'name', type: 'nominal', title: 'Company' },
-    { field: 'label', type: 'nominal', title: 'Listing' },
+    { field: 'ticker', type: 'nominal', title: 'Listing' },
     { field: 'year', type: 'nominal', title: 'Calendar year' },
     { field: 'pe', type: 'quantitative', title: 'Forward PE', format: '.1f' },
     { field: 'growth', type: 'quantitative', title: '2026E to 2027E EPS growth', format: '+.1%' },
@@ -60,7 +60,9 @@ export function peDumbbellSpec(rows: CompanyRow[]) {
     encoding: {
       y: {
         field: 'label', type: 'nominal', sort: plotted.map((r) => r.label), title: null,
-        axis: { labelFontSize: 10, labelLimit: 90 },
+        // 160px fits the longest name in the pool (Sanxiang Advanced Materials) at this size;
+        // the 90px default truncated a third of the axis to "Everbright Photon…".
+        axis: { labelFontSize: 10, labelLimit: 160 },
       },
     },
     layer: [

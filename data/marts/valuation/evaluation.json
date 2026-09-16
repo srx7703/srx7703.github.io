@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-16T23:15:35.707338+00:00",
+ "generated_at": "2026-09-16T23:28:27.378142+00:00",
  "plan": "docs/EVALUATION_PLAN.md",
  "snapshot_vintages_written": [],
  "tracks": {
@@ -14,7 +14,7 @@
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-09-16T22:12:45.086031+00:00",
+    "as_of": "2026-09-16T23:28:21.326391+00:00",
     "iqr": 64.49216253496404,
     "p25": 27.13379566184533,
     "p75": 91.62595819680936,
@@ -25,7 +25,7 @@
    },
    "dual_listing_premium": {
     "status": "partial",
-    "as_of": "2026-09-16T22:12:45.086031+00:00",
+    "as_of": "2026-09-16T23:28:21.326391+00:00",
     "pairs": [
      {
       "name": "YOFC",
@@ -44,13 +44,13 @@
    "share_bases": {
     "status": "partial",
     "rank_correlation": {
-     "spearman": 1.0,
-     "n": 4,
+     "spearman": 0.9,
+     "n": 5,
      "basis": "rank",
      "unit": "rank",
-     "source_name": "C114通信网《光模块厂商全球Top10：中国包揽前2，7家入围》(作者 南山)",
-     "source_url": "https://www.c114.com.cn/news/6564/a1311211.html",
-     "period": "CY2025 full year"
+     "source_name": "LightCounting, LightTrends Newsletter, May 2026 — \"AI Boom Accelerates Transitions Across the Industry Supply Chain\"",
+     "source_url": "https://www.lightcounting.com/newsletter/en/may-2026-optical-vendor-landscape-376",
+     "period": "CY2025. Same figure restates CY2024 on the new methodology: 1 Innolight, 2 Coherent, 3 Eoptolink, 4 Accelink, 5 HG Genuine, 6 Ligent (Hisense), 7 Source Photonics, 8 Molex, 9 Lumentum, 10 CIG"
     },
     "rank_correlation_why": null,
     "share_difference": {
@@ -73,6 +73,63 @@
     },
     "share_difference_why": null,
     "comparisons": [
+     {
+      "basis": "rank",
+      "unit": "rank",
+      "source_name": "LightCounting, LightTrends Newsletter, May 2026 — \"AI Boom Accelerates Transitions Across the Industry Supply Chain\"",
+      "source_url": "https://www.lightcounting.com/newsletter/en/may-2026-optical-vendor-landscape-376",
+      "period": "CY2025. Same figure restates CY2024 on the new methodology: 1 Innolight, 2 Coherent, 3 Eoptolink, 4 Accelink, 5 HG Genuine, 6 Ligent (Hisense), 7 Source Photonics, 8 Molex, 9 Lumentum, 10 CIG",
+      "n": 5,
+      "spearman": 0.9,
+      "median_abs_difference": null,
+      "pairs": [
+       {
+        "name": "Innolight",
+        "ticker": "300308.SZ",
+        "computed_share": 0.2924581201261637,
+        "cited_value": -1.0,
+        "cited_rank": 1,
+        "difference": null,
+        "cited_text": "1 Innolight"
+       },
+       {
+        "name": "Eoptolink",
+        "ticker": "300502.SZ",
+        "computed_share": 0.15833503783721556,
+        "cited_value": -2.0,
+        "cited_rank": 2,
+        "difference": null,
+        "cited_text": "2 Eoptolink"
+       },
+       {
+        "name": "Coherent",
+        "ticker": "COHR",
+        "computed_share": 0.15863806169237296,
+        "cited_value": -3.0,
+        "cited_rank": 3,
+        "difference": null,
+        "cited_text": "3 Coherent"
+       },
+       {
+        "name": "Accelink",
+        "ticker": "002281.SZ",
+        "computed_share": 0.059611101377305034,
+        "cited_value": -4.0,
+        "cited_rank": 4,
+        "difference": null,
+        "cited_text": "4 Accelink"
+       },
+       {
+        "name": "CIG Shanghai",
+        "ticker": "603083.SS",
+        "computed_share": 0.024629586006187476,
+        "cited_value": -10.0,
+        "cited_rank": 10,
+        "difference": null,
+        "cited_text": "10 CIG"
+       }
+      ]
+     },
      {
       "basis": "rank",
       "unit": "rank",
@@ -111,61 +168,13 @@
         "cited_text": "rank 4 光迅科技 (Accelink, 002281)"
        },
        {
-        "name": "Cambridge Technology",
+        "name": "CIG Shanghai",
         "ticker": "603083.SS",
         "computed_share": 0.024629586006187476,
         "cited_value": -10.0,
         "cited_rank": 10,
         "difference": null,
         "cited_text": "rank 10 剑桥科技 (603083) — 7 of the Top 10 are Chinese"
-       }
-      ]
-     },
-     {
-      "basis": "rank",
-      "unit": "rank",
-      "source_name": "LightCounting, LightTrends Newsletter, May 2026 — \"AI Boom Accelerates Transitions Across the Industry Supply Chain\"",
-      "source_url": "https://www.lightcounting.com/newsletter/en/may-2026-optical-vendor-landscape-376",
-      "period": "CY2025. Same figure restates CY2024 on the new methodology: 1 Innolight, 2 Coherent, 3 Eoptolink, 4 Accelink, 5 HG Genuine, 6 Ligent (Hisense), 7 Source Photonics, 8 Molex, 9 Lumentum, 10 CIG",
-      "n": 4,
-      "spearman": 0.8,
-      "median_abs_difference": null,
-      "pairs": [
-       {
-        "name": "Innolight",
-        "ticker": "300308.SZ",
-        "computed_share": 0.2924581201261637,
-        "cited_value": -1.0,
-        "cited_rank": 1,
-        "difference": null,
-        "cited_text": "1 Innolight"
-       },
-       {
-        "name": "Eoptolink",
-        "ticker": "300502.SZ",
-        "computed_share": 0.15833503783721556,
-        "cited_value": -2.0,
-        "cited_rank": 2,
-        "difference": null,
-        "cited_text": "2 Eoptolink"
-       },
-       {
-        "name": "Coherent",
-        "ticker": "COHR",
-        "computed_share": 0.15863806169237296,
-        "cited_value": -3.0,
-        "cited_rank": 3,
-        "difference": null,
-        "cited_text": "3 Coherent"
-       },
-       {
-        "name": "Accelink",
-        "ticker": "002281.SZ",
-        "computed_share": 0.059611101377305034,
-        "cited_value": -4.0,
-        "cited_rank": 4,
-        "difference": null,
-        "cited_text": "4 Accelink"
        }
       ]
      },
@@ -200,7 +209,7 @@
       "Yuanjie Semiconductor",
       "HGTech",
       "Everbright Photonics",
-      "Optolink",
+      "Advanced Fiber Resources",
       "Hisense Visual",
       "YOFC",
       "Lumentum",
@@ -229,7 +238,7 @@
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-09-16T22:12:45.086031+00:00",
+    "as_of": "2026-09-16T23:28:21.326391+00:00",
     "iqr": 25.104812724485377,
     "p25": 13.933505087396137,
     "p75": 39.03831781188151,
@@ -240,7 +249,7 @@
    },
    "dual_listing_premium": {
     "status": "partial",
-    "as_of": "2026-09-16T22:12:45.086031+00:00",
+    "as_of": "2026-09-16T23:28:21.326391+00:00",
     "pairs": [
      {
       "name": "CATL",
@@ -549,7 +558,7 @@
       "Tinci Materials",
       "Grinm Advanced Materials",
       "Wuxi Lead Intelligent",
-      "Leadintelligent",
+      "Lyric Robot",
       "Idemitsu Kosan",
       "TDK",
       "Murata Manufacturing",

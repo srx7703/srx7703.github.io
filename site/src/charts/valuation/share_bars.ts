@@ -30,9 +30,9 @@ export function shareBarsSpec(members: ShareMember[], limit = SHARE_BARS_LIMIT) 
     data: { values: rows },
     mark: { type: 'bar', height: 13, cornerRadiusEnd: 3 },
     encoding: {
-      y: { field: 'ticker', type: 'nominal', sort: rows.map((r) => r.ticker), title: null, axis: { labelFontSize: 10 } },
+      y: { field: 'name', type: 'nominal', sort: rows.map((r) => r.name), title: null, axis: { labelFontSize: 10, labelLimit: 160 } },
       x: {
-        field: 'share', type: 'quantitative', title: 'Share of the peer pool, trailing twelve months',
+        field: 'share', type: 'quantitative', title: 'Share of the peer pool',
         axis: { format: '.0%', tickCount: 5 },
       },
       color: {
@@ -41,7 +41,7 @@ export function shareBarsSpec(members: ShareMember[], limit = SHARE_BARS_LIMIT) 
         legend: { title: null, orient: 'top', direction: 'vertical', symbolType: 'square' },
       },
       tooltip: [
-        { field: 'name', type: 'nominal', title: 'Company' },
+        { field: 'ticker', type: 'nominal', title: 'Listing' },
         { field: 'share', type: 'quantitative', title: 'Share of pool', format: '.1%' },
         { field: 'revenue_usd', type: 'quantitative', title: 'Revenue, TTM (USD)', format: '$,.0f' },
         { field: 'basis', type: 'nominal', title: 'Revenue basis' },

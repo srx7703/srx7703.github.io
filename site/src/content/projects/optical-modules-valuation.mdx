@@ -127,8 +127,7 @@ export const evalStatus = (key) => {
     ${x1(facts.p75_fwd_pe_this)}.${endsProse}`
     : 'No listing in the pool has a usable multiple today.'} {specialistPes.length > 1 && `Read only the
     ${specialists.length} priced listings whose whole business is optical and the range is narrower:
-    ${x1(Math.min(...specialistPes))} to ${x1(Math.max(...specialistPes))}.`} {facts.n_nm} listings have no
-    meaningful multiple at all.
+    ${x1(Math.min(...specialistPes))} to ${x1(Math.max(...specialistPes))}.`} {facts.n_nm > 0 && `${facts.n_nm} listings have no meaningful multiple at all.`}
   </p>
   <p>
     On share, the {share.n_members} listings with a sourced revenue figure for this business split a pool of
