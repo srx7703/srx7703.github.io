@@ -21,17 +21,26 @@ independent): 28 codes have broker rows; ``SH600206`` (有研新材) has the mea
 publishes no consensus for them. Those two sit in ``EXPECTED_EMPTY``, so a clean run is green and
 the coverage check keeps its one job: going red when the other 29 stop arriving.
 
-``vintages`` is a COVERAGE series, not a revision history. Every broker row is stamped with its
-publish date, so the mean can be rebuilt as of any past date — but East Money publishes each
-broker's report exactly once (0 repeat publishers across the live pool), so an earlier as-of point
-differs from today's only in WHICH brokers had published by then, never in what any broker thinks.
-A series that runs 2 -> 20 brokers between April and September is coverage growing, not analysts
-raising numbers, and every row carries the size of the cohort behind it in ``n_analysts`` so that
-is visible in the data rather than only in this docstring. ``schema.py`` states the same next to
-the column and ``evaluate.py`` excludes ``eastmoney_rebuilt`` from its revision measure. Pass
-``--cohort matched`` for the other reading: the panel frozen at the first date that had a
-consensus, which moves only when one of those brokers revises (on today's payloads, almost never —
-which is the point).
+``vintages`` is a COVERAGE series, not a revision history, and it is the only reading this module
+emits. Every broker row is stamped with its publish date, so the mean can be rebuilt as of any past
+date — but East Money publishes each broker's report exactly once (0 repeat publishers across the
+live pool), so an earlier as-of point differs from today's only in WHICH brokers had published by
+then, never in what any broker thinks. A series that runs 2 -> 20 brokers between April and
+September is coverage growing, not analysts raising numbers, and every row carries the size of the
+cohort behind it in ``n_analysts`` so that is visible in the data rather than only in this
+docstring. ``schema.py`` states the same next to the column and ``evaluate.py`` excludes
+``eastmoney_rebuilt`` from its revision measure.
+
+There used to be a ``--cohort matched`` mode offering "the other reading": the panel frozen at the
+first date that had a consensus, described as a revision series. It was removed because on this
+source it cannot be one. With 0 repeat publishers every frozen panel member has exactly one
+forecast, so the mean over that panel is the same number at every later as_of by construction — on
+the 28 payloads archived for 2026-09-16 it produced 526 rows across 75 series and **all 75 were
+perfectly flat**, against 3 of 75 for the coverage reading. It also had no separate ``origin``:
+both modes wrote ``eastmoney_rebuilt``, so a matched run on a date that already had a default run
+silently merged two different meanings into one table under one label. A real revision series for
+the A-share pool has to come from our own weekly captures (``origin="snapshot"``), which is what
+``evaluate.py`` is waiting for.
 
 Writes, for run date ``<date>``:
 
@@ -41,15 +50,28 @@ Writes, for run date ``<date>``:
     data/snapshots/valuation/vintages/<date>-eastmoney.parquet     that consensus as of past dates
     data/snapshots/valuation/runs.jsonl                            one line per run, with checks
 
-One listing failing must not lose the others: per-company work is isolated, all three frames are
-built and validated before any of them is written, and a run that produced no rows writes nothing
-at all rather than laying an empty table over a good one. A partial run (``--only``) merges with
-whatever is already on disk for the date, new rows winning on the table key, so it can only add.
+Raw payloads are append-only evidence (``CLAUDE.md`` rule 2): a second run on the same date never
+overwrites the first payload for a code. An identical body is recognised and left alone, a
+differing one lands beside it under the run's ``__HHMM``, then ``__HHMM_2``. See
+:func:`archive_payload`, which mirrors ``fx.archive_csv``. A ``--limit`` smoke run must not be able
+to delete the evidence behind the full run's parquet.
+
+One listing failing must not lose the others, and neither must one bad row. Per-company work is
+isolated, and each listing's rows are put through the frame build and pandera *inside* that guard,
+so a value polars or pandera rejects costs exactly the listing it came from and is named in the run
+record. The pool-level build, merge and validate are guarded too: all three frames are validated
+before any of them is written, and if that fails nothing is written, the failure is recorded in
+``runs.jsonl`` with the rest of the run, and the process exits non-zero. A run that produced no rows
+writes nothing at all rather than laying an empty table over a good one. A partial run (``--only``)
+merges with whatever is already on disk for the date, new rows winning on the table key, so it can
+only add.
 """
 
 from __future__ import annotations
 
 import argparse
+import gzip
+import json
 import logging
 import statistics
 import sys
@@ -70,7 +92,6 @@ from pipelines.common.storage import (
     append_jsonl,
     run_stamp,
     utc_now,
-    write_json_gz,
     write_parquet,
 )
 from pipelines.valuation.config import COMPANIES, THIN_COVERAGE_BELOW, Company
@@ -109,10 +130,12 @@ THROTTLE = 0.25  # seconds between codes
 # run, and a check that is always red cannot report the day East Money stops answering for the pool.
 EXPECTED_EMPTY = frozenset({"688567.SS", "603200.SS"})  # 孚能科技, 上海洗霸
 
-# How `rebuild_vintages` picks the brokers behind each as-of point. See the module docstring.
-COHORT_GROWING = "growing"  # every broker who had published by then — a coverage series
-COHORT_MATCHED = "matched"  # the panel frozen at the first date with a consensus — a revision series
-COHORTS = (COHORT_GROWING, COHORT_MATCHED)
+# What `rebuild_vintages` measures, recorded on every run record so a reader of runs.jsonl does not
+# have to come here to find out. There is one reading and it is coverage; see the module docstring.
+VINTAGE_SERIES = "coverage"
+
+# Distinct payloads archived for one code on one date before the run gives up (see `archive_payload`).
+MAX_ARCHIVES = 64
 
 HEADERS = {
     "User-Agent": (
@@ -278,31 +301,20 @@ def consensus_from_brokers(rows: list[dict]) -> list[dict]:
     return out
 
 
-def rebuild_vintages(rows: list[dict], *, cohort: str = COHORT_GROWING) -> list[dict]:
-    """Rebuild the published consensus as of each report date.
+def rebuild_vintages(rows: list[dict]) -> list[dict]:
+    """Rebuild the published consensus as of each report date — a COVERAGE series.
 
     For date ``d``, every broker's latest report on or before ``d`` contributes. Only forecast
     years are emitted: a reported actual is the same number at every date, so a series on it would
     be a flat line the table has no ``mark`` column to filter out. Dates are capped to the most
     recent ``MAX_VINTAGE_DATES``, but reports older than the cap still feed the points kept.
 
-    Under ``COHORT_GROWING`` (the default, and what the page shows) this is a coverage series: East
-    Money publishes each broker once, so a point differs from today only in who had published by
-    then. ``n_analysts`` carries that cohort size on every row, which is what tells a reader the
-    mean climbed because brokers 3..20 arrived, not because anyone revised.
-
-    ``COHORT_MATCHED`` answers the other question: it freezes each year's panel at the first date
-    that had ``MIN_VINTAGE_BROKERS`` of them — a subset of today's cohort by construction — and
-    reports only those brokers at every later date, so the mean moves only when one of them changes
-    their mind. ``n_analysts`` is then that fixed panel size, and on East Money's one-report-per-
-    broker data the series is very nearly a flat line, which is the honest answer. Both modes write
-    ``origin == "eastmoney_rebuilt"`` because the vintages schema has no third label for East
-    Money, so only ever emit one of them for a given date; the
-    run record's ``vintage_cohort`` field says which one is on disk.
+    East Money publishes each broker once, so a point differs from today only in who had published
+    by then. ``n_analysts`` carries that cohort size on every row, which is what tells a reader the
+    mean climbed because brokers 3..20 arrived, not because anyone revised. That is the whole of
+    what this source can say; the module docstring records why the frozen-panel reading was removed
+    rather than offered as an alternative.
     """
-    if cohort not in COHORTS:
-        raise ValueError(f"cohort must be one of {COHORTS}, got {cohort!r}")
-
     by_ticker: dict[str, list[dict]] = defaultdict(list)
     for r in rows:
         if r["mark"] == "E":
@@ -319,19 +331,6 @@ def rebuild_vintages(rows: list[dict], *, cohort: str = COHORT_GROWING) -> list[
                 if r["eps"] is not None:
                     by_year[r["year"]][r["org"]] = r["eps"]
             points.append((as_of, by_year))
-
-        if cohort == COHORT_MATCHED:
-            # Freeze each year's panel at the first date that had a consensus at all. Anchoring at
-            # the very first report date would freeze a one-broker panel that never gets emitted.
-            panel: dict[int, set[str]] = {}
-            for _as_of, by_year in points:  # points are in date order, so the first hit wins
-                for year, orgs in by_year.items():
-                    if year not in panel and len(orgs) >= MIN_VINTAGE_BROKERS:
-                        panel[year] = set(orgs)
-            points = [
-                (as_of, {y: {o: e for o, e in orgs.items() if o in panel.get(y, ())} for y, orgs in by_year.items()})
-                for as_of, by_year in points
-            ]
 
         for as_of, by_year in points:
             for year, eps in sorted(by_year.items()):
@@ -427,7 +426,7 @@ def mean_deviation(ours: list[dict], mean: dict | None) -> float | None:
     return abs(mine[year] - theirs[year]) / abs(theirs[year])
 
 
-def collect(company: Company, payload: dict, *, cohort: str = COHORT_GROWING) -> dict:
+def collect(company: Company, payload: dict) -> dict:
     """Turn one payload into the three tables' rows, plus how the consensus was arrived at."""
     brokers = parse_brokers(company.ticker, payload.get("ycmx"))
     mean = mean_row(payload.get("jgyc"))
@@ -436,7 +435,7 @@ def collect(company: Company, payload: dict, *, cohort: str = COHORT_GROWING) ->
         return {
             "brokers": brokers,
             "estimates": estimates,
-            "vintages": rebuild_vintages(brokers, cohort=cohort),
+            "vintages": rebuild_vintages(brokers),
             "basis": "brokers",
             "n_brokers": len({r["org"] for r in brokers}),
             "deviation": mean_deviation(estimates, mean),
@@ -461,8 +460,63 @@ def fetch(http: HttpClient, em_code: str) -> dict:
     return payload
 
 
+def archive_payload(payload: Any, raw_dir: Path, key: str, hhmm: str) -> Path:
+    """Archive one payload exactly as served, before anything parses it.
+
+    Raw files are evidence, so an existing archive for the same day is never overwritten: an
+    identical body is left alone and a differing one lands beside it under the run's HHMM, then
+    ``__HHMM_2``, ``__HHMM_3``... Every candidate is compared, not just the first — a third distinct
+    payload in the same minute (a cron run and a manual re-run colliding) must not be dropped on the
+    floor while the function returns a path holding somebody else's bytes.
+
+    This module used to write straight to ``<em_code>.json.gz`` with ``write_json_gz``, so a second
+    run replaced the first run's payload in place. Measured on 2026-09-16, five runs left zero
+    ``__HHMM`` files, two of them ``--limit`` partials that overwrote the evidence behind the full
+    run's parquet — the parquet for a run has to be reproducible from the raw layer of that run, and
+    ``CLAUDE.md`` rule 2 says raw snapshots are append-only. Same policy and same shape as
+    ``fx.archive_csv``; the only difference is gzipped JSON instead of gzipped CSV.
+    """
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    body = json.dumps(payload, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    for n in range(MAX_ARCHIVES):
+        if n == 0:
+            path = raw_dir / f"{key}.json.gz"
+        elif n == 1:
+            path = raw_dir / f"{key}__{hhmm}.json.gz"
+        else:
+            path = raw_dir / f"{key}__{hhmm}_{n}.json.gz"
+        if not path.exists():
+            with gzip.open(path, "wb") as f:
+                f.write(body)
+            return path
+        try:
+            if gzip.decompress(path.read_bytes()) == body:
+                return path  # already archived, byte for byte
+        except OSError:  # unreadable archive: keep it, write beside it
+            continue
+    raise RuntimeError(f"too many differing archives for {key} at {hhmm} in {raw_dir}")
+
+
 def _stamp(rows: list[dict], snapshot_ts: str) -> list[dict]:
     return [{**r, "snapshot_ts": snapshot_ts} for r in rows]
+
+
+def validate_company(got: dict, snapshot_ts: str) -> None:
+    """Prove one listing's rows survive the frame build and pandera, before they join the pool.
+
+    Framing and validating only the combined tables would put this outside the per-company
+    try/except: one listing carrying a value polars or pandera rejects would then take down all 29
+    A-share listings *and* the ``runs.jsonl`` record that would have explained why. Doing it per
+    company keeps a bad payload costing exactly the listing it came from, named in ``errors`` and in
+    the Fetches check. Same reasoning as ``estimates_yf.validate_rows`` and the guard in ``fx``.
+    """
+    for rows, frame, schema in (
+        (got["brokers"], brokers_frame, BROKERS_SCHEMA),
+        (got["estimates"], estimates_frame, ESTIMATES_SCHEMA),
+        (got["vintages"], vintages_frame, VINTAGES_SCHEMA),
+    ):
+        if rows:
+            schema.validate(frame(_stamp(rows, snapshot_ts)))
 
 
 def _merge_existing(df: pl.DataFrame, path: Path, key: list[str]) -> pl.DataFrame:
@@ -489,28 +543,19 @@ def _merge_existing(df: pl.DataFrame, path: Path, key: list[str]) -> pl.DataFram
     return merged.unique(subset=key, keep="last", maintain_order=True)
 
 
-def snapshot(companies: list[Company], *, cohort: str = COHORT_GROWING) -> dict:
+def snapshot(companies: list[Company]) -> dict:
     t0 = time.monotonic()
     ts = utc_now()
-    date, _hhmm = run_stamp(ts)
+    date, hhmm = run_stamp(ts)
     snapshot_ts = ts.isoformat(timespec="seconds")
     raw_dir = RAW_DIR / "valuation" / SOURCE / date
     out_dir = SNAP_DIR / "valuation"
-
-    if cohort != COHORT_GROWING:
-        log.warning(
-            "vintages are being built with the %r cohort; they share origin %r with the default reading and "
-            "will merge over any rows already written for %s, so do not mix the two on one date",
-            cohort,
-            "eastmoney_rebuilt",
-            date,
-        )
 
     http = HttpClient(BASE, min_interval=THROTTLE, headers=HEADERS)
     brokers: list[dict] = []
     estimates: list[dict] = []
     vintages: list[dict] = []
-    errors: list[str] = []  # fetch or parse blew up
+    errors: list[str] = []  # fetch, parse or per-listing validation blew up
     no_estimates: list[str] = []  # payload arrived but carried neither brokers nor a mean
     mean_only: list[str] = []
     thin: list[str] = []
@@ -521,8 +566,10 @@ def snapshot(companies: list[Company], *, cohort: str = COHORT_GROWING) -> dict:
             try:
                 payload = fetch(http, c.em_code)
                 # raw first: evidence lands even if the parse below is what breaks
-                write_json_gz(payload, raw_dir / f"{c.em_code}.json.gz")
-                got = collect(c, payload, cohort=cohort)
+                archive_payload(payload, raw_dir, c.em_code, hhmm)
+                got = collect(c, payload)
+                # inside the guard, so a row polars or pandera rejects costs one listing, not 29
+                validate_company(got, snapshot_ts)
             except Exception as exc:  # noqa: BLE001 - one listing must never lose the others
                 log.exception("%s (%s) failed", c.ticker, c.em_code)
                 errors.append(f"{c.ticker}: {exc!r}")
@@ -554,23 +601,33 @@ def snapshot(companies: list[Company], *, cohort: str = COHORT_GROWING) -> dict:
         http.close()
 
     # Build, merge and validate all three tables before writing any of them: a schema failure on
-    # `estimates` must not leave a `brokers` parquet on disk with no partner file and no run record.
+    # `estimates` must not leave a `brokers` parquet on disk with no partner file. The whole block
+    # is guarded because it used to sit outside every try: a failure here took the run record with
+    # it, so the one artefact that could have explained the missing data was never written. Now
+    # nothing is written, the reason is named in `errors` and in the Snapshot check, the run is
+    # recorded like any other, and main() exits non-zero on it.
     pending: list[tuple[str, Path, pl.DataFrame]] = []
-    for table, rows, frame, schema, key in (
-        ("brokers", brokers, brokers_frame, BROKERS_SCHEMA, BROKER_KEY),
-        ("estimates", estimates, estimates_frame, ESTIMATES_SCHEMA, ESTIMATE_KEY),
-        ("vintages", vintages, vintages_frame, VINTAGES_SCHEMA, VINTAGE_KEY),
-    ):
-        if not rows:
-            # nothing to say is not the same as "there is nothing": leave the day's file alone
-            log.warning("no %s rows this run; leaving any existing %s file for %s untouched", table, table, date)
-            continue
-        path = out_dir / table / f"{date}-{SOURCE}.parquet"
-        df = frame(_stamp(rows, snapshot_ts))
-        schema.validate(df)
-        merged = _merge_existing(df, path, key)
-        schema.validate(merged)
-        pending.append((table, path, merged))
+    write_error: str | None = None
+    try:
+        for table, rows, frame, schema, key in (
+            ("brokers", brokers, brokers_frame, BROKERS_SCHEMA, BROKER_KEY),
+            ("estimates", estimates, estimates_frame, ESTIMATES_SCHEMA, ESTIMATE_KEY),
+            ("vintages", vintages, vintages_frame, VINTAGES_SCHEMA, VINTAGE_KEY),
+        ):
+            if not rows:
+                # nothing to say is not the same as "there is nothing": leave the day's file alone
+                log.warning("no %s rows this run; leaving any existing %s file for %s untouched", table, table, date)
+                continue
+            path = out_dir / table / f"{date}-{SOURCE}.parquet"
+            df = frame(_stamp(rows, snapshot_ts))
+            schema.validate(df)
+            merged = _merge_existing(df, path, key)
+            schema.validate(merged)
+            pending.append((table, path, merged))
+    except Exception as exc:  # noqa: BLE001 - nothing is written, but the run is still recorded
+        log.exception("building the snapshot tables failed; nothing written for %s", date)
+        write_error = repr(exc)
+        pending = []
 
     written: dict[str, int] = {}
     for table, path, df in pending:
@@ -616,6 +673,13 @@ def snapshot(companies: list[Company], *, cohort: str = COHORT_GROWING) -> dict:
             warn=True,
         ),
         check("Fetches", not errors, f"{len(errors)} failed: {'; '.join(errors)}" if errors else f"{http.calls} calls"),
+        check(
+            "Snapshot written",
+            write_error is None,
+            f"{', '.join(f'{t}: {n}' for t, n in sorted(written.items())) or 'nothing to write'}"
+            if write_error is None
+            else f"building the tables failed, nothing written, the day's files left as they are: {write_error}",
+        ),
     ]
 
     result = {
@@ -624,11 +688,13 @@ def snapshot(companies: list[Company], *, cohort: str = COHORT_GROWING) -> dict:
         "listings": len(companies),
         "rows": written,
         "brokers": len({(r["ticker"], r["org"]) for r in brokers}),
-        "vintage_cohort": cohort,  # which reading of `vintages` is on disk for this date
+        "vintage_series": VINTAGE_SERIES,  # what `vintages` measures; there is one reading
         "mean_only": mean_only,
         "no_estimates": no_estimates,
         "no_estimates_unexpected": unexpected_empty,
-        "errors": errors,
+        # a listing that failed, plus the table build if that is what failed: both are run failures
+        "errors": errors + ([f"write: {write_error}"] if write_error else []),
+        "write_error": write_error,
         "http_calls": http.calls,
         "checks": checks,
         "seconds": round(time.monotonic() - t0, 1),
@@ -641,14 +707,6 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--only", action="append", default=[], metavar="TICKER", help="restrict to these tickers")
     ap.add_argument("--limit", type=int, default=0, help="stop after N listings (smoke runs)")
-    ap.add_argument(
-        "--cohort",
-        choices=COHORTS,
-        default=COHORT_GROWING,
-        help="brokers behind each vintage point: growing = the published consensus as it stood "
-        "(a coverage series, the default); matched = the panel frozen at the earliest kept date "
-        "(a revision series). Both land under origin eastmoney_rebuilt, so do not mix them on one date.",
-    )
     args = ap.parse_args(argv)
     setup_logging()
 
@@ -661,12 +719,13 @@ def main(argv: list[str] | None = None) -> int:
         log.error("no listings selected")
         return 1
 
-    res = snapshot(companies, cohort=args.cohort)
+    res = snapshot(companies)
     log.info("rows=%s brokers=%s seconds=%s", res["rows"], res["brokers"], res["seconds"])
     for c in res["checks"]:
         log.info("check %-38s %-4s %s", c["name"], c["status"], c["detail"])
     # A listing East Money has never covered is not a run failure — otherwise the exit code is 1 on
-    # every clean day and says nothing. Everything else is, but only after the data we did get is written.
+    # every clean day and says nothing. Everything else is, including a table build that blew up,
+    # but only after the data we did get is written and the run is recorded.
     known = [t for t in res["no_estimates"] if t in EXPECTED_EMPTY]
     if known:
         log.info("%s: no East Money consensus, as expected", ", ".join(known))

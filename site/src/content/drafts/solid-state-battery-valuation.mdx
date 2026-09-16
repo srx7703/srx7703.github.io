@@ -1,6 +1,6 @@
 ---
 title: "Solid-state batteries: what the market is paying for a product almost nobody sells yet"
-summary: "Forward PE for calendar 2026 and 2027 across the listed solid-state battery pool worldwide, separating the pure plays that have no earnings from the battery makers whose solid-state revenue is still roughly zero, with shipments and announced capacity instead of a market-share chart."
+summary: "Forward PE for calendar 2026 and 2027 across the listed solid-state battery pool worldwide, separating the pure plays that have no consensus from the battery makers whose solid-state revenue is still roughly zero, with shipments and stated timelines instead of a market-share chart."
 status: live
 domain: ["equities", "valuation"]
 tools: ["Python", "Polars", "Yahoo Finance", "East Money", "SEC EDGAR XBRL", "FRED", "Vega-Lite", "GitHub Actions"]
@@ -25,11 +25,11 @@ import DownloadCsv from '@components/DownloadCsv.astro';
 import Sidenote from '@components/Sidenote.astro';
 import Appendix from '@components/Appendix.astro';
 import { evaluationPlan } from '@lib/prereg';
-import { peDumbbellSpec } from '@charts/valuation/pe_dumbbell';
-import { peGrowthScatterSpec } from '@charts/valuation/pe_growth_scatter';
-import { shareBarsSpec } from '@charts/valuation/share_bars';
-import { consensusSeriesSpec } from '@charts/valuation/consensus_series';
-import { pct, num, usd, dateUtc } from '@lib/fmt';
+import { dumbbellUsesLog, peDumbbellSpec } from '@charts/valuation/pe_dumbbell';
+import { peGrowthScatterSpec, scatterRows, scatterUsesLog } from '@charts/valuation/pe_growth_scatter';
+import { SHARE_BARS_LIMIT, shareBarsSpec } from '@charts/valuation/share_bars';
+import { CONSENSUS_MAX_SERIES, consensusSeriesSpec } from '@charts/valuation/consensus_series';
+import { pct, num, usd, dateUtc, dayUtc } from '@lib/fmt';
 
 export const x1 = (v) => (v == null ? '—' : `${v.toFixed(1)}x`);
 export const plan = evaluationPlan();
@@ -37,48 +37,142 @@ export const [y0, y1] = facts.years;
 export const asOfPrice = dateUtc(facts.as_of_price);
 export const asOfEst = dateUtc(facts.as_of_estimates);
 export const share = facts.share;
-export const pure = facts.preprofit ?? [];
-export const dumbbellHeight = Math.max(220, companies.filter((c) => c.fwd_pe_2026 != null).length * 17 + 90);
+// The pre-registered scorer writes data/marts/valuation/evaluation.json. It is loaded through a glob so
+// that a build before the scorer's first run renders "not scored yet" instead of failing.
+export const evalFiles = import.meta.glob('../../../../data/marts/valuation/evaluation.json', { eager: true, import: 'default' });
+export const evaluation = Object.values(evalFiles)[0] ?? null;
+export const scored = (evaluation?.tracks ?? {})[facts.track] ?? {};
+
+export const pure = facts.pure_plays ?? facts.preprofit ?? [];
+export const pureTickers = new Set(pure.map((p) => p.ticker));
+export const pureRows = companies.filter((c) => pureTickers.has(c.ticker));
+// Being a pure play and being unprofitable are two different statements, and the page used to make one
+// while selecting on the other. Both sets come from facts where publish.py provides them, and from the
+// mart otherwise; either way the sentence is derived, not asserted.
+export const pureEarners = facts.pure_plays_with_earnings ?? pureRows.filter((c) => c.trailing_pe != null);
+export const pureWithConsensus = pureRows.filter((c) => c.fwd_pe_2026 != null);
+export const pureConsensusClause = pureWithConsensus.length === 0
+  ? `carry no forward multiple, because no broker publishes a calendar-${y0} forecast for any of them`
+  : `mostly carry no forward multiple: ${pureWithConsensus.length} of the ${pure.length} have a published calendar-${y0} forecast and the rest do not`;
+export const earnersClause = pureEarners.length === 0
+  ? 'None of them earns a profit'
+  : pureEarners.length === 1
+    ? `One of them, ${pureEarners[0].name}, does earn a trailing profit — ${x1(pureEarners[0].trailing_pe)} on trailing earnings, in the full table below — and the rest do not`
+    : `${pureEarners.length} of them earn a trailing profit, shown in the full table below; the rest do not`;
+
+export const pricedRows = companies.filter((c) => c.fwd_pe_2026 != null);
+export const notPlotted = companies.length - pricedRows.length;
+export const scatterOmitted = companies.length - scatterRows(companies).length;
+export const withBothYears = pricedRows.filter((c) => c.fwd_pe_2027 != null);
+export const cheapen = withBothYears.filter((c) => c.fwd_pe_2027 < c.fwd_pe_2026).length;
+export const offDecember = companies.filter((c) => c.fy_end_month !== 12).length;
+export const shareShown = Math.min(SHARE_BARS_LIMIT, share.members.length);
+export const shareTruncated = shareShown < share.n_members ? ` The chart draws the largest ${shareShown} of them.` : '';
+export const cheapenClause = withBothYears.length === 0 ? `No listing has a ${y1} multiple yet`
+  : cheapen === withBothYears.length ? `Every priced listing gets cheaper on ${y1}`
+  : `${cheapen} of ${withBothYears.length} priced listings get cheaper on ${y1}`;
+// Accounting basis of the forward EPS, per source, for the footnote the two adjacent columns need.
+export const SOURCE_NAMES = { yahoo: 'Yahoo Finance', eastmoney: 'East Money' };
+export const estimateSources = [...new Set(pricedRows.map((c) => c.estimate_source).filter(Boolean))]
+  .map((s) => SOURCE_NAMES[s] ?? s);
+export const sourcesInUse = estimateSources.length === 0
+  ? 'No listing here carries a consensus today.'
+  : `Today every priced listing here is sourced from ${estimateSources.join(' or ')}.`;
+// Chart-by-chart source attribution: the share bars are built from whichever source supplied each
+// company's revenue, not from the two that happen to sit at positions 2 and 3 of the list.
+export const shareSources = share.sources ?? facts.sources;
+export const priceSources = facts.sources;
+
+export const citedShare = facts.cited_share ?? [];
+export const isIndustryRow = (c) => /^industry\b/i.test(String(c.entity ?? ''));
+export const citedCompanies = citedShare.filter((c) => !isIndustryRow(c));
+export const citedMarket = citedShare.filter(isIndustryRow);
+export const citedValue = (c) => `${c.value}${c.unit && !String(c.unit).startsWith('rank') ? ` ${c.unit}` : ''}`;
+// "Announced capacity" has to mean a capacity figure in gigawatt- or megawatt-hours. A row that says of
+// itself that it is a licence ceiling, a readiness rating, a target year or a tonnage of material goes
+// in the table below the capacity one instead, with its own caveat rendered beside it.
+export const capacityRows = facts.capacity ?? [];
+// Wording that says the row is not a capacity figure. Every one of these is quoted from the row's own
+// `metric` or `unit` string: a licence ceiling, a readiness rating and a target year all say so of
+// themselves. publish.py's own flag wins if it ever sets one; otherwise a doubtful row goes to the
+// claims table, which is the safe direction to be wrong in.
+export const NOT_CAPACITY = /n(?:o|ot)\s+(?:a\s+)?GWh|none disclosed|ceiling|licen[cs]e|target year|TRL|readiness|NOT built/i;
+export const isCapacity = (c) => c.is_capacity ?? (
+  /\b[GM]Wh\b/i.test(String(c.unit ?? '')) && !NOT_CAPACITY.test(`${c.unit ?? ''} ${c.metric ?? ''}`)
+);
+export const realCapacity = capacityRows.filter(isCapacity);
+export const claimRows = capacityRows.filter((c) => !isCapacity(c));
+
+export const revisionDays = [...new Set(revisions.map((r) => r.as_of))].sort();
 export const deepest = companies
   .filter((c) => c.n_analysts != null && c.fwd_pe_2026 != null)
   .sort((a, b) => b.n_analysts - a.n_analysts)
-  .slice(0, 5)
+  .slice(0, CONSENSUS_MAX_SERIES)
   .map((c) => c.ticker);
+// Price to sales only where the trading currency and the reporting currency agree: a market value in
+// one currency over revenue in another is not a ratio. publish.py's own field wins if it exists.
+export const priceToSales = (p) => p.price_to_sales ?? (
+  p.market_cap != null && p.ttm_revenue > 0 && p.price_currency === p.reporting_currency
+    ? p.market_cap / p.ttm_revenue
+    : null
+);
+export const mixedCurrency = pure.filter((p) => p.price_currency !== p.reporting_currency).length;
+
+export const evalStatus = (key) => {
+  const r = scored[key];
+  if (!r) return 'Not scored yet — no scorer output was on disk when this page was built.';
+  if (r.status === 'not_yet') return `Not yet: ${r.why}`;
+  const parts = [];
+  if (key === 'valuation_dispersion' && r.p25 != null) parts.push(`quartiles ${x1(r.p25)} to ${x1(r.p75)} across ${r.n_priced} of ${r.n_listings} listings`);
+  if (key === 'revision_persistence' && r.n_transitions != null) parts.push(`${r.n_transitions} transitions over ${r.periods_used} periods`);
+  if (key === 'dual_listing_premium' && r.median_premium != null) parts.push(`median A line over H line ${pct(r.median_premium, 1)} across ${r.pairs.length} pairs`);
+  if (key === 'share_bases') {
+    if (r.rank_correlation) parts.push(`rank correlation ${r.rank_correlation.spearman.toFixed(2)} over ${r.rank_correlation.n} companies, against ${r.rank_correlation.source_name}`);
+    else if (r.rank_correlation_why) parts.push(`no rank correlation yet: ${r.rank_correlation_why}`);
+    if (r.share_difference) parts.push(`${r.share_difference.n} companies quoted a share, median gap ${pct(r.share_difference.median_abs_difference, 1)}`);
+    else if (r.share_difference_why) parts.push(`no share comparison yet: ${r.share_difference_why}`);
+  }
+  if (r.note) parts.push(r.note);
+  return `Reports now: ${parts.join('; ') || 'scored'}`;
+};
 
 <div class="lede">
   <p>
     Two different things are listed under "solid-state batteries" and they should not share an axis. The
-    {pure.length} pure plays have no earnings and no PE; the {facts.n_listings - pure.length} battery makers,
-    materials suppliers and equipment vendors have plenty of earnings, almost none of it from solid-state
-    cells.<Sidenote>Every listing on this page carries an exposure label. <em>The track is the business</em> means
-    solid-state is what the company sells, which today also means it is pre-revenue. <em>Partial exposure</em>
-    covers the battery makers with a solid-state roadmap and the materials and equipment suppliers: their multiple
-    is a multiple of the whole company, not of a solid-state business.</Sidenote> The median listing with a usable
+    {pure.length} pure plays {pureConsensusClause}. {earnersClause}.<Sidenote>Every listing on this page carries an exposure label. <em>Whole
+    business</em> means solid-state is what the company sells, which today also means it is pre-revenue or close
+    to it. <em>Partial exposure</em> covers the battery makers with a solid-state roadmap and the materials and
+    equipment suppliers: their multiple is a multiple of the whole company, not of a solid-state
+    business.</Sidenote> The {facts.n_listings - pure.length} battery makers, materials suppliers and equipment
+    vendors have plenty of earnings, almost none of it from solid-state cells. The median listing with a usable
     multiple trades at {x1(facts.median_fwd_pe_this)} calendar-{y0} consensus earnings and
     {x1(facts.median_fwd_pe_next)} for {y1}, and {facts.n_nm} listings have no meaningful multiple at all.
   </p>
   <p>
     There is no market-share chart here, because there is barely a market to take a share of. What the page shows
-    instead is who has publicly shipped semi-solid or solid-state cells and who has announced
-    capacity.<Sidenote>Announced capacity is a press release, not a plant. It is reproduced with the publisher and
-    the date attached so the reader can weigh it accordingly, and it is kept separate from shipments that a
-    company has actually reported.</Sidenote> The revenue share below is share of the listed battery pool, which is
-    overwhelmingly conventional lithium-ion.
+    instead is who has publicly shipped semi-solid or solid-state cells, and what companies have said about
+    capacity and timing.<Sidenote>An announcement is a press release, not a plant. Each row is reproduced with the
+    publisher and the date attached so the reader can weigh it accordingly, and anything that is not a plant
+    capacity — a licence ceiling, a readiness rating, a tonnage of material — goes in the table under the
+    capacity one rather than in it.</Sidenote> The revenue share below is share of the listed battery pool, which is overwhelmingly
+    conventional lithium-ion.
   </p>
 </div>
 
 <PipelineStatus lastSnapshot={facts.as_of_price} firstSnapshot={facts.as_of_price} nSnapshots={1} nDays={1} workflow="valuation.yml" cadence="daily for prices, weekly for the consensus" detail={`analyst consensus as of ${asOfEst}, exchange rates as of ${facts.as_of_fx}`} />
 
+<p class="muted">Public data only, and nothing here is investment advice.</p>
+
 <KpiRow>
-  <KpiTile label={`Median forward PE, calendar ${y0}`} value={x1(facts.median_fwd_pe_this)} sub={`${facts.n_with_consensus} of ${facts.n_listings} listings priced · quartiles ${x1(facts.p25_fwd_pe_this)} to ${x1(facts.p75_fwd_pe_this)}`} />
-  <KpiTile label="Listings with no meaningful multiple" value={num(facts.n_nm)} sub={facts.nm_reasons.join('; ') || 'every listing is priced'} />
+  <KpiTile label={`Median forward PE, calendar ${y0}`} value={x1(facts.median_fwd_pe_this)} sub={`${facts.n_with_consensus} of ${facts.n_listings} listings have a consensus multiple · quartiles ${x1(facts.p25_fwd_pe_this)} to ${x1(facts.p75_fwd_pe_this)}`} />
+  <KpiTile label={`Median consensus growth, ${y0} to ${y1}`} value={pct(facts.median_growth, 1)} sub={`${num(facts.n_nm)} of ${facts.n_listings} listings have no meaningful multiple · ${facts.nm_reasons.join('; ') || 'every listing is priced'}`} />
   <KpiTile label="Largest three, share of the listed battery pool" value={pct(share.top3_share, 1)} sub={share.leader ? `${share.leader.name} leads with ${pct(share.leader.share, 1)} of pool revenue` : 'no computable pool yet'} />
 </KpiRow>
 
-<ChartCard size="full" title={facts.priciest && facts.cheapest ? `Among the listings that have earnings at all, the pool spans ${x1(facts.cheapest.fwd_pe_2026)} to ${x1(facts.priciest.fwd_pe_2026)} on ${y0} consensus` : 'Forward PE across the pool'} subtitle={`Forward PE on calendar-${y0} and calendar-${y1} consensus EPS, one line per listing, most expensive first; log scale; hollow marks are partial exposure; the pure solid-state plays are absent because they have no earnings`}>
-  <VegaChart id="ssb-dumbbell" spec={peDumbbellSpec(companies)} height={dumbbellHeight} ariaLabel={`Dumbbell chart of calendar ${y0} and ${y1} forward PE for each listing in the solid-state battery pool`} />
-  <details>
-    <summary>Listings with no meaningful multiple</summary>
+<ChartCard size="full" title={facts.priciest && facts.cheapest ? `${cheapenClause}; the ${y0} range across the listings that have a consensus runs ${x1(facts.cheapest.fwd_pe_2026)} to ${x1(facts.priciest.fwd_pe_2026)}` : 'Forward PE across the pool'} subtitle={`Forward PE on calendar-${y0} and calendar-${y1} consensus EPS, one line per listing, most expensive first${dumbbellUsesLog(companies) ? '; log scale' : ''}. Filled marks are companies whose whole business is solid-state, hollow marks are diversified companies priced on everything they sell; faded marks are covered by fewer than three analysts, or by an unpublished number of them. ${notPlotted} of ${facts.n_listings} listings are not plotted — including all ${pure.length} pure plays, for want of a published forecast — each with its reason in the table below.`}>
+  <VegaChart id="ssb-dumbbell" spec={peDumbbellSpec(companies)} height={Math.max(220, pricedRows.length * 17 + 90)} ariaLabel={`Dumbbell chart of calendar ${y0} and ${y1} forward PE for each listing in the solid-state battery pool`} />
+  <details open={notPlotted * 2 >= facts.n_listings}>
+    <summary>The {notPlotted} listings with no meaningful multiple</summary>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Listing</th><th>Company</th><th>Exposure</th><th>Why there is no multiple</th></tr></thead>
@@ -90,17 +184,18 @@ export const deepest = companies
       </table>
     </div>
   </details>
-  <SourceStamp slot="stamp" sources={facts.sources.slice(0, 2)} asOf={asOfPrice} note={`consensus as of ${asOfEst}`} />
+  <SourceStamp slot="stamp" sources={priceSources} asOf={asOfPrice} note={`consensus as of ${asOfEst}`} />
 </ChartCard>
 
 {pure.length > 0 && (
   <Section id="pure-plays" title="The pure plays, on the only measures they have">
     <div class="prose">
       <p>
-        These are the companies whose business really is solid-state. None of them has earnings, so none of them
-        has a PE; what they have is a market value, whatever revenue they book today, and a cash balance being
-        spent. Price to trailing sales is shown where there is any revenue to divide by, and left blank where
-        there is not, rather than filled with a large number that looks like a valuation.
+        These are the companies whose business really is solid-state. They {pureConsensusClause}, so what the
+        page can show is a market value, whatever revenue they book today, and a cash balance being spent.
+        {' '}{earnersClause}. Price to trailing sales is shown where there is revenue to divide by and the quote and
+        the accounts are in the same currency, and left blank otherwise, rather than filled with a number that looks
+        like a valuation.
       </p>
     </div>
     <div class="table-wrap">
@@ -112,20 +207,25 @@ export const deepest = companies
               <td>{p.ticker}</td><td>{p.name}</td>
               <td class="num">{usd(p.market_cap)} {p.price_currency}</td>
               <td class="num">{p.ttm_revenue ? `${usd(p.ttm_revenue)} ${p.reporting_currency}` : '—'}</td>
-              <td class="num">{p.market_cap && p.ttm_revenue && p.ttm_revenue > 0 ? x1(p.market_cap / p.ttm_revenue) : '—'}</td>
+              <td class="num">{x1(priceToSales(p))}</td>
               <td class="num">{p.eps_2026 == null ? '—' : p.eps_2026.toFixed(2)}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-    <p class="muted">Market value and price to sales mix the trading currency with the reporting currency where a company reports in a different one; the currency of each is printed beside it.</p>
+    <p class="muted">
+      Market value is in the trading currency and revenue in the reporting currency; the currency of each is
+      printed beside it. Price to sales is only computed where the two agree, so it is never a ratio of two
+      currencies{mixedCurrency > 0 ? `, which is why ${mixedCurrency} of these rows leave it blank` : ''}.
+      {pure.every((p) => p.eps_2026 == null) && ` The ${y0}E EPS column is empty for the same reason the dumbbell above omits these companies: no broker publishes a forecast for any of them.`}
+    </p>
   </Section>
 )}
 
-<ChartCard title="A multiple only means something next to the growth it is paying for" subtitle={`Forward PE on calendar-${y0} consensus against the consensus EPS growth from ${y0} to ${y1}; log scale on PE; faded marks are listings covered by fewer than three analysts`}>
+<ChartCard title="A multiple only means something next to the growth it is paying for" subtitle={`Forward PE on calendar-${y0} consensus against the consensus EPS growth from ${y0} to ${y1}${scatterUsesLog(companies) ? '; log scale on PE' : ''}. Filled and hollow marks carry the same meaning as the chart above; faded marks are covered by fewer than three analysts, or by an unpublished number of them. ${scatterOmitted} of ${facts.n_listings} listings are not plotted, for want of a consensus for one year or both.`}>
   <VegaChart id="ssb-scatter" spec={peGrowthScatterSpec(companies)} height={380} ariaLabel="Scatter plot of forward PE against expected earnings growth for the solid-state battery pool" />
-  <SourceStamp slot="stamp" sources={facts.sources.slice(0, 2)} asOf={asOfEst} />
+  <SourceStamp slot="stamp" sources={priceSources} asOf={asOfEst} />
 </ChartCard>
 
 <Section id="shipments" title="What has shipped, and what has only been announced" wide>
@@ -133,8 +233,10 @@ export const deepest = companies
     <p>
       A share chart needs a market. Semi-solid cells have gone into cars in small numbers and fully solid-state
       cells have not gone into series production anywhere, so a percentage would be a percentage of almost
-      nothing. These two tables are the honest substitute: reported shipments, and announced capacity with the
-      year the company said it would start.
+      nothing. What can be sourced instead is reported shipments, and what companies have said in public about
+      capacity and timing. {realCapacity.length === 0
+        ? 'No company in this pool has a solid-state plant capacity sourced to a public release, so there is no capacity table here — only the announcements that are most often mistaken for one.'
+        : `${realCapacity.length} of the ${capacityRows.length} sourced announcements carry an actual plant capacity; the rest are below it, because a licence ceiling, a readiness rating or a tonnage of material is not a capacity figure.`}
     </p>
   </div>
   {(facts.shipments ?? []).length > 0 ? (
@@ -145,7 +247,9 @@ export const deepest = companies
         <tbody>
           {facts.shipments.map((s) => (
             <tr>
-              <td>{s.entity}</td><td>{s.metric}</td><td>{s.value}{s.unit ? ` ${s.unit}` : ''}</td><td>{s.period}</td>
+              <td>{s.entity}</td>
+              <td>{s.metric}{s.caveat && <><br /><span class="muted">{s.caveat}</span></>}</td>
+              <td>{s.value}{s.unit ? ` ${s.unit}` : ''}</td><td>{s.period}</td>
               <td><a href={s.source_url}>{s.source_name}</a>{s.publish_date && s.publish_date !== 'unconfirmed' ? `, ${s.publish_date}` : ''}</td>
             </tr>
           ))}
@@ -156,15 +260,36 @@ export const deepest = companies
     <p class="prose">No shipment figure has been sourced to a public release yet. Nothing is shown rather than an estimate.</p>
   )}
 
-  {(facts.capacity ?? []).length > 0 && (
+  {realCapacity.length > 0 && (
     <div class="table-wrap">
       <table>
-        <caption>Announced capacity, as announced</caption>
+        <caption>Announced plant capacity, as announced — with each publisher's own caveat beside it</caption>
         <thead><tr><th>Company</th><th>What was announced</th><th>Value</th><th>Stated start</th><th>Source</th></tr></thead>
         <tbody>
-          {facts.capacity.map((c) => (
+          {realCapacity.map((c) => (
             <tr>
-              <td>{c.entity}</td><td>{c.metric}</td><td>{c.value}{c.unit ? ` ${c.unit}` : ''}</td><td>{c.start_year ?? c.period}</td>
+              <td>{c.entity}</td>
+              <td>{c.metric}{c.caveat && <><br /><span class="muted">{c.caveat}</span></>}</td>
+              <td>{c.value}{c.unit ? ` ${c.unit}` : ''}</td><td>{c.start_year ?? c.period}</td>
+              <td><a href={c.source_url}>{c.source_name}</a>{c.publish_date && c.publish_date !== 'unconfirmed' ? `, ${c.publish_date}` : ''}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+
+  {claimRows.length > 0 && (
+    <div class="table-wrap">
+      <table>
+        <caption>Announcements that are not plant capacity — quoted unchanged, each with the caveat that says what it is instead</caption>
+        <thead><tr><th>Company</th><th>What was said, and what it is not</th><th>Value</th><th>Said</th><th>Source</th></tr></thead>
+        <tbody>
+          {claimRows.map((c) => (
+            <tr>
+              <td>{c.entity}</td>
+              <td>{c.metric}{c.caveat && <><br /><span class="muted">{c.caveat}</span></>}</td>
+              <td>{c.value}{c.unit ? ` ${c.unit}` : ''}</td><td>{c.period}</td>
               <td><a href={c.source_url}>{c.source_name}</a>{c.publish_date && c.publish_date !== 'unconfirmed' ? `, ${c.publish_date}` : ''}</td>
             </tr>
           ))}
@@ -184,19 +309,40 @@ export const deepest = companies
       solid-state share. They appear in the shipments and capacity tables above where a public release exists.</Sidenote>
     </p>
   </div>
-  <ChartCard title={share.leader ? `${share.leader.name} is the largest revenue in the listed pool at ${pct(share.leader.share, 1)}` : 'Share of the peer pool'} subtitle="Share of trailing-twelve-month revenue across the listings that disclose revenue for this business, converted to US dollars at FRED rates">
-    <VegaChart id="ssb-share" spec={shareBarsSpec(share.members)} height={320} ariaLabel="Bar chart of each company's share of the peer pool's trailing revenue" />
-    <SourceStamp slot="stamp" sources={facts.sources.slice(2, 4)} asOf={asOfPrice} />
+  <ChartCard title={share.leader ? `${share.leader.name} is the largest revenue in the listed battery pool at ${pct(share.leader.share, 1)} — of conventional battery revenue, not of solid-state` : 'Share of the peer pool'} subtitle={`Share of trailing-twelve-month revenue across the ${share.n_members} listings with a sourced revenue figure, converted to US dollars at FRED rates.${shareTruncated} The revenue is each company's whole business, which for every member of this pool is overwhelmingly conventional lithium-ion.`}>
+    <VegaChart id="ssb-share" spec={shareBarsSpec(share.members, SHARE_BARS_LIMIT)} height={320} ariaLabel="Bar chart of each company's share of the listed battery pool's trailing revenue" />
+    <SourceStamp slot="stamp" sources={shareSources} asOf={asOfPrice} />
   </ChartCard>
-  {facts.cited_share.length > 0 && (
+  {citedCompanies.length > 0 && (
     <div class="table-wrap">
       <table>
-        <caption>Published by others, quoted unchanged</caption>
+        <caption>Company share and rank, published by others and quoted unchanged</caption>
         <thead><tr><th>Company</th><th>What was published</th><th>Value</th><th>Period</th><th>Publisher</th></tr></thead>
         <tbody>
-          {facts.cited_share.map((c) => (
+          {citedCompanies.map((c) => (
             <tr>
-              <td>{c.entity}</td><td>{c.metric}</td><td>{c.value}{c.unit && c.unit !== 'rank' ? ` ${c.unit}` : ''}</td>
+              <td>{c.entity}</td>
+              <td>{c.metric}{c.caveat && <><br /><span class="muted">{c.caveat}</span></>}</td>
+              <td>{citedValue(c)}</td>
+              <td>{c.period}</td>
+              <td><a href={c.source_url}>{c.source_name}</a>{c.publish_date && c.publish_date !== 'unconfirmed' ? `, ${c.publish_date}` : ''}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+  {citedMarket.length > 0 && (
+    <div class="table-wrap">
+      <table>
+        <caption>Industry-level figures, published by others and quoted unchanged — the market rather than one company's share of it</caption>
+        <thead><tr><th>Scope</th><th>What was published</th><th>Value</th><th>Period</th><th>Publisher</th></tr></thead>
+        <tbody>
+          {citedMarket.map((c) => (
+            <tr>
+              <td>{c.entity}</td>
+              <td>{c.metric}{c.caveat && <><br /><span class="muted">{c.caveat}</span></>}</td>
+              <td>{citedValue(c)}</td>
               <td>{c.period}</td>
               <td><a href={c.source_url}>{c.source_name}</a>{c.publish_date && c.publish_date !== 'unconfirmed' ? `, ${c.publish_date}` : ''}</td>
             </tr>
@@ -223,9 +369,10 @@ export const deepest = companies
   <Section id="dual" title="The same earnings, priced twice">
     <div class="prose">
       <p>
-        Three issuers here are listed in both mainland China and Hong Kong. Same company, same accounts, same
-        forecasts, two prices. Whatever gap appears is a property of the two markets rather than of the business,
-        which makes it the cleanest control the page has for everything else on it.
+        {facts.dual_listings.length === 1 ? 'One issuer here is' : `${facts.dual_listings.length} issuers here are`} listed
+        in both mainland China and Hong Kong. Same company, same accounts, same forecasts, two prices. Whatever gap
+        appears is a property of the two markets rather than of the business, which makes it the cleanest control
+        the page has for everything else on it.
       </p>
       <div class="table-wrap">
         <table>
@@ -241,18 +388,38 @@ export const deepest = companies
           </tbody>
         </table>
       </div>
+      {facts.dual_listings.every((d) => d.premium == null) && (
+        <p class="muted">
+          The comparison column is empty: no H line in this pool has a calendar-{y0} consensus yet, so there is no
+          second multiple to divide by. The "Consensus coverage" check in Data quality is the one that has to pass
+          before this table says anything.
+        </p>
+      )}
     </div>
   </Section>
 )}
 
 {deepest.length > 0 && (
-  <ChartCard title="What the published consensus has been saying, for the most heavily covered names" subtitle={`Consensus EPS for calendar ${y1}, as it stood on each date; for the A-shares this is rebuilt from each broker's own report date, so the line moves when new brokers start covering as well as when someone changes their mind`}>
+  <ChartCard title="What the published consensus has been saying, for the most heavily covered names" subtitle={`Consensus EPS for calendar ${y1}, as it stood on each date, for the ${deepest.length} listings with the deepest coverage; ${dayUtc(revisionDays[0])} to ${dayUtc(revisionDays[revisionDays.length - 1])}. For the A-shares this is rebuilt from each broker's own report date, so the line moves when new brokers start covering as well as when someone changes their mind; our own weekly snapshots start with this page and have one point so far.`}>
     <VegaChart id="ssb-consensus" spec={consensusSeriesSpec(revisions, deepest, y1)} height={280} ariaLabel="Line chart of the consensus earnings estimate over time for the most covered battery listings" />
-    <SourceStamp slot="stamp" sources={facts.sources.slice(0, 2)} asOf={asOfEst} />
+    <SourceStamp slot="stamp" sources={priceSources} asOf={asOfEst} />
   </ChartCard>
 )}
 
 <Section id="table" title="Every listing" wide>
+  <div class="prose">
+    <p>
+      The two forward columns and the trailing column are not on the same accounting basis, and the difference
+      between them is not all growth.<Sidenote>Trailing PE divides market capitalisation by attributable profit
+      (归母净利润) as reported. The forward columns divide price by consensus earnings per share, and what that
+      means depends on who published the consensus: Yahoo Finance supplies <em>adjusted</em>, non-GAAP EPS, while
+      East Money's Chinese brokers forecast 归母净利润 — the same basis as the trailing column. Adjusted EPS
+      leaves out items GAAP includes, so on a Yahoo-sourced row the trailing and forward multiples are not on one
+      basis and the difference between them is not purely growth; the same caution applies to comparing two
+      forward multiples from different sources. The Estimate source column says which row is which.
+      {' '}{sourcesInUse}</Sidenote>
+    </p>
+  </div>
   <FilterBar target="ssb-table" placeholder="Search company or ticker…" selects={[
     { column: 'purity', label: 'Exposure', options: ['high', 'main', 'partial'] },
     { column: 'coverage', label: 'Analyst coverage', options: ['covered', 'thin', 'unknown'] },
@@ -268,8 +435,9 @@ export const deepest = companies
     { key: 'fwd_pe_2027', label: `PE ${y1}E`, format: 'fixed1' },
     { key: 'growth', label: 'EPS growth', format: 'pct' },
     { key: 'n_analysts', label: 'Analysts', format: 'num' },
+    { key: 'estimate_source', label: 'Estimate source' },
     { key: 'ttm_revenue', label: 'Revenue TTM', format: 'usd' },
-  ]} rows={companies} caption="Click a column header to sort. Prices and revenue are in each listing's own currency; the multiples convert the consensus into the price currency before dividing. Earnings basis 'ttm' is a real trailing twelve months; 'last_fy' is the last full fiscal year, used where no quarterly statement is published." />
+  ]} rows={companies} caption="Click a column header to sort. Exposure 'high' is a company whose whole business is solid-state, 'main' a cell maker with a solid-state roadmap, 'partial' a materials or equipment supplier; only the first is a pure play. Prices and revenue are in each listing's own currency; the multiples convert the consensus into the price currency before dividing. Earnings basis 'ttm' is a real trailing twelve months; 'last_fy' is the last full fiscal year, used where no quarterly statement is published." />
   <p>
     <DownloadCsv filename="solid_state_valuation.csv" src="/data/marts/valuation/ssb_companies.json" label="Download this table (CSV)" />{' '}
     <DownloadCsv filename="solid_state_consensus_history.csv" src="/data/marts/valuation/ssb_revisions.json" label="Download the consensus history (CSV)" />
@@ -282,27 +450,43 @@ export const deepest = companies
   <div class="prose">
     <p><strong>Question.</strong> What is the listed solid-state battery world being priced at, and how much of that price rests on a product that is not being sold in volume yet?</p>
     <p><strong>Pool.</strong> {facts.n_listings} listings across {facts.n_issuers} companies in mainland China, the United States, Japan, Korea, Hong Kong and the United Kingdom, in three groups: the pure plays, the cell makers with a solid-state roadmap, and the materials and equipment suppliers. Private developers are named in the shipments and capacity tables but cannot be valued, so they are not in the pool.</p>
-    <p><strong>Prices and consensus.</strong> As on the optical page: Yahoo Finance for prices and non-Chinese consensus, East Money's per-broker forecasts for the A-shares, SEC XBRL and East Money quarterly reports and Yahoo for trailing earnings, FRED for exchange rates. Fiscal years are restated onto calendar years by month overlap, which matters here for the Japanese names, whose years end in March.</p>
-    <p><strong>Definitions.</strong> Trailing PE is market capitalisation over trailing-twelve-month attributable profit. Forward PE is price over calendar-year consensus EPS, with the consensus converted into the price currency first. Growth is the consensus for {y1} over the consensus for {y0}. Price to sales is market value over trailing revenue, shown only for the pure plays and only where there is revenue.</p>
-    <p><strong>What is deliberately missing.</strong> No solid-state market share, because a market share of a market that does not exist is not a number. No negative PE: a company forecast to lose money gets a written reason instead. No estimate of how much of any company's value is "the solid-state option", which would be an opinion rather than a measurement.</p>
+    <p><strong>Prices and consensus.</strong> As on the optical page: Yahoo Finance for prices and non-Chinese consensus, East Money's per-broker forecasts for the A-shares, SEC XBRL and East Money quarterly reports and Yahoo for trailing earnings, FRED for exchange rates. Fiscal years are restated onto calendar years by month overlap, which matters here for the {offDecember} listings whose year does not end in December, including the Japanese names, whose years end in March.</p>
+    <p><strong>Definitions.</strong> Trailing PE is market capitalisation over trailing-twelve-month attributable profit. Forward PE is price over calendar-year consensus EPS, with the consensus converted into the price currency first, and on the accounting basis of whoever published it — see the note above the table. Growth is the consensus for {y1} over the consensus for {y0}. Price to sales is market value over trailing revenue, shown only for the pure plays and only where there is revenue and the two currencies agree.</p>
+    <p><strong>What is deliberately missing.</strong> No solid-state market share, because a market share of a market that does not exist is not a number. No negative PE: a company forecast to lose money gets a written reason instead. No estimate of how much of any company's value is "the solid-state option", which would be an opinion rather than a measurement. No enterprise value or cash runway for the pure plays yet, which is the gap this page most wants to close.</p>
   </div>
 </Section>
 
 <Section id="evaluation" title="Evaluation (pre-registered)">
   <div class="prose">
-    <p>The scoring rules were committed in <a href={plan.url}>docs/EVALUATION_PLAN.md</a> (git blob <code>{plan.short}</code>, <a href={plan.history}>history</a>) before the first snapshot was published.</p>
+    <p>The scoring rules are fixed in <a href={plan.url}>docs/EVALUATION_PLAN.md</a> (git blob <code>{plan.short}</code>, <a href={plan.history}>history</a>). They went in with the first snapshot, in the same commit, so the history cannot show that they predate the first result — what it does show is the blob hash below, which changes if a single character of the rules changes after today. Read it as a commitment from here on, not as proof of what came first.</p>
+    <p class="muted">{evaluation ? `Scored by pipelines/valuation/evaluate.py, last run ${dateUtc(evaluation.generated_at)}.` : 'The scorer has not written an output file yet, so every item below reads as unscored.'}</p>
     <ul>
-      <li><strong>Consensus accuracy.</strong> The calendar-{y0} consensus against reported {y0} results, split by source, track and coverage depth, with two naive baselines. Scored from spring {y0 + 1}.</li>
-      <li><strong>Revision persistence.</strong> Whether a consensus that moved up keeps moving up, as a transition matrix, using only true revision series.</li>
-      <li><strong>Valuation dispersion.</strong> The quartile spread of forward PE each quarter, next to the count of priced listings.</li>
-      <li><strong>Same earnings, two prices.</strong> The A-line over H-line multiple for the dual-listed issuers, quarterly.</li>
-      <li><strong>Computed share against cited share.</strong> Rank correlation and median gap between the two bases, with the gap attributed.</li>
+      <li>
+        <strong>Consensus accuracy.</strong> The calendar-{y0} consensus against reported {y0} results, split by source, track and coverage depth, with two naive baselines. Scored from spring {y0 + 1}.
+        <br /><span class="muted">{evalStatus('consensus_accuracy')}</span>
+      </li>
+      <li>
+        <strong>Revision persistence.</strong> Whether a consensus that moved up keeps moving up, as a transition matrix. Only true revision series count: East Money's rebuilt history is excluded because its mean moves with broker coverage as well as with opinion, which matters most here, where the A-shares are the larger part of the pool.
+        <br /><span class="muted">{evalStatus('revision_persistence')}</span>
+      </li>
+      <li>
+        <strong>Valuation dispersion.</strong> The quartile spread of forward PE each quarter, next to the count of priced listings.
+        <br /><span class="muted">{evalStatus('valuation_dispersion')}</span>
+      </li>
+      <li>
+        <strong>Same earnings, two prices.</strong> The A-line over H-line multiple for the dual-listed issuers, quarterly.
+        <br /><span class="muted">{evalStatus('dual_listing_premium')}</span>
+      </li>
+      <li>
+        <strong>Computed share against cited share.</strong> Rank correlation and median gap between the two bases, with the gap attributed.
+        <br /><span class="muted">{evalStatus('share_bases')}</span>
+      </li>
     </ul>
   </div>
 </Section>
 
 <Section id="data-quality" title="Data quality">
-  <DataQuality checks={facts.checks} note={`Prices as of ${asOfPrice}; consensus as of ${asOfEst}. Shipment and capacity figures are quoted from public releases and are not recomputed; each carries its publisher and date.`} />
+  <DataQuality checks={facts.checks} note={`Prices as of ${asOfPrice}; consensus as of ${asOfEst}. Shipment, capacity and timing figures are quoted from public releases and are not recomputed; each carries its publisher and date.`} />
 </Section>
 
 <Section id="build-notes" title="Build notes">
@@ -314,7 +498,7 @@ export const deepest = companies
 
 <Section id="changelog" title="Changelog">
   <ul class="prose">
-    <li><strong>2026-09-16</strong> — page v0: forward PE on calendar years, pure-play table, shipments and capacity, pool revenue share, consensus history.</li>
+    <li><strong>2026-09-16</strong> — page v0: forward PE on calendar years, pure-play table, shipments and stated timelines, pool revenue share, consensus history.</li>
   </ul>
 </Section>
 

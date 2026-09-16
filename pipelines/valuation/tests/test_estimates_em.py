@@ -2,12 +2,16 @@
 
 from __future__ import annotations
 
+import gzip
+import json
+
 import polars as pl
 import pytest
 
 from pipelines.valuation import estimates_em
 from pipelines.valuation.estimates_em import (
     EXPECTED_EMPTY,
+    archive_payload,
     collect,
     consensus_from_brokers,
     consensus_from_mean,
@@ -439,34 +443,42 @@ def test_the_rebuilt_series_is_coverage_and_n_analysts_says_so_on_every_row():
     assert y26 == [("2026-06-23", 23.0, 2), ("2026-09-09", 27.0, 3)]
 
 
-def test_matched_cohort_holds_the_panel_fixed_so_a_pure_coverage_move_is_flat():
-    """The same input, read as a revision series: no broker moved, so nothing moves."""
+def test_there_is_one_reading_of_the_vintage_series_and_no_cohort_switch():
+    """The frozen-panel "revision series" is gone: on one report per broker it could only be flat.
+
+    It shared ``origin == "eastmoney_rebuilt"`` with the coverage reading, so a ``--cohort matched``
+    run on a date that already had a default run merged two meanings into one table under one label.
+    """
+    rows = parse_brokers(TICKER, [ycmx_row("A证券", "2026-04-02", (20.0, 50.0, 80.0))])
+    with pytest.raises(TypeError):
+        rebuild_vintages(rows, cohort="matched")
+    assert not hasattr(estimates_em, "COHORT_MATCHED")
+    with pytest.raises(SystemExit):  # argparse refuses the flag rather than silently ignoring it
+        estimates_em.main(["--cohort", "matched"])
+
+
+def test_the_frozen_panel_reading_would_have_been_flat_by_construction():
+    """Why it was removed, stated as a test rather than only in the docstring.
+
+    Each broker publishes once, so freezing the panel at the first date with a consensus fixes both
+    the members and their single forecasts: every later as_of reports the identical mean. The
+    coverage reading of the same input moves, and ``n_analysts`` says why.
+    """
     rows: list[dict] = []
     for org, day, eps in (("A证券", "04-02", 20.0), ("B证券", "06-23", 26.0), ("C证券", "09-09", 35.0)):
         rows += parse_brokers(TICKER, [ycmx_row(org, f"2026-{day}", (eps, 50.0, 80.0))])
 
-    out = [r for r in rebuild_vintages(rows, cohort="matched") if r["period_end"] == "2026-12-31"]
+    out = [r for r in rebuild_vintages(rows) if r["period_end"] == "2026-12-31"]
     assert [(r["as_of"], r["eps_avg"], r["n_analysts"]) for r in out] == [
         ("2026-06-23", 23.0, 2),
-        ("2026-09-09", 23.0, 2),  # C joining the sample is coverage, not a revision
+        ("2026-09-09", 27.0, 3),
     ]
-
-
-def test_matched_cohort_still_moves_when_a_panel_member_revises():
-    rows = parse_brokers(TICKER, [ycmx_row("A证券", "2026-04-02", (20.0, 50.0, 80.0))])
-    rows += parse_brokers(TICKER, [ycmx_row("B证券", "2026-06-23", (26.0, 50.0, 80.0))])
-    rows += parse_brokers(TICKER, [ycmx_row("C证券", "2026-09-09", (35.0, 50.0, 80.0))])
-    rows += parse_brokers(TICKER, [ycmx_row("A证券", "2026-09-09", (40.0, 50.0, 80.0))])  # A raises
-
-    out = {r["as_of"]: (r["eps_avg"], r["n_analysts"]) for r in rebuild_vintages(rows, cohort="matched")
-           if r["period_end"] == "2026-12-31"}
-    assert out["2026-06-23"] == (23.0, 2)
-    assert out["2026-09-09"] == (33.0, 2)  # (40 + 26) / 2 — A's revision, C still excluded
-
-
-def test_an_unknown_cohort_is_refused():
-    with pytest.raises(ValueError, match="cohort"):
-        rebuild_vintages([], cohort="whatever")
+    frozen = {"A证券", "B证券"}  # the panel the removed mode would have kept
+    means = [
+        sum(v for k, v in point.items() if k in frozen) / 2
+        for point in ({"A证券": 20.0, "B证券": 26.0}, {"A证券": 20.0, "B证券": 26.0, "C证券": 35.0})
+    ]
+    assert means == [23.0, 23.0]  # a horizontal line, which is not a revision series
 
 
 # --- the net profit mean is keyed by broker too -------------------------------------
@@ -554,19 +566,54 @@ def test_one_listing_blowing_up_does_not_lose_the_others(em):
 
 
 def test_a_validation_failure_never_leaves_a_half_written_snapshot(em, monkeypatch):
-    """brokers used to be on disk before estimates was even validated: an orphan with no partner."""
+    """brokers used to be on disk before estimates was even validated: an orphan with no partner.
 
-    class Boom:
-        def validate(self, df):
+    The build is also inside a guard now, so the failure is recorded rather than raised: a run that
+    lost its data has to leave the line in runs.jsonl that explains why.
+    """
+
+    def boom_on_estimates(df, path, key):
+        if path.parent.name == "estimates":
             raise ValueError("out of contract")
+        return df
 
-    monkeypatch.setattr(estimates_em, "ESTIMATES_SCHEMA", Boom())
-    with pytest.raises(ValueError, match="out of contract"):
-        em([A], {"SZ300308": payload_for(29.0)})
+    monkeypatch.setattr(estimates_em, "_merge_existing", boom_on_estimates)
+    res = em([A], {"SZ300308": payload_for(29.0)})
 
-    assert table(em, "brokers").is_empty()
+    assert table(em, "brokers").is_empty()  # no orphan: brokers is never written without estimates
     assert table(em, "estimates").is_empty()
     assert table(em, "vintages").is_empty()
+    assert res["rows"] == {}
+    assert "out of contract" in res["write_error"]
+    assert any("write:" in e for e in res["errors"])  # so main() exits non-zero
+    written = next(c for c in res["checks"] if c["name"] == "Snapshot written")
+    assert written["status"] == "fail" and "nothing written" in written["detail"]
+    assert (em.snap / "runs.jsonl").read_text(encoding="utf-8").strip().count("\n") == 0  # recorded anyway
+
+
+def test_one_listings_rows_failing_pandera_does_not_lose_the_other_listings(em, monkeypatch):
+    """The isolation rule has to cover the frame build, not stop at the fetch.
+
+    Framing and validating only the combined table put both calls outside the per-company guard, so
+    a value pandera rejects on one A-share listing took down all 29 *and* the run record with them.
+    """
+    real = estimates_em.ESTIMATES_SCHEMA
+
+    class RejectsA:
+        def validate(self, df):
+            if "300308.SZ" in df["ticker"].to_list():
+                raise ValueError("eps_avg is out of contract for 300308.SZ")
+            return real.validate(df)
+
+    monkeypatch.setattr(estimates_em, "ESTIMATES_SCHEMA", RejectsA())
+    res = em([A, B], {"SZ300308": payload_for(29.0), "SZ300502": payload_for(18.0)})
+
+    assert sorted(set(table(em, "estimates")["ticker"].to_list())) == ["300502.SZ"]
+    assert sorted(set(table(em, "brokers")["ticker"].to_list())) == ["300502.SZ"]
+    assert table(em, "vintages").height  # B is whole, not partly written
+    assert len(res["errors"]) == 1 and "300308.SZ" in res["errors"][0]
+    assert res["write_error"] is None
+    assert (em.snap / "runs.jsonl").read_text(encoding="utf-8").strip().count("\n") == 0
 
 
 def test_a_partial_run_merges_with_the_days_file_instead_of_replacing_it(em):
@@ -619,9 +666,51 @@ def test_coverage_goes_red_when_a_covered_listing_stops_arriving(em):
     assert "300308.SZ" in coverage["detail"]
 
 
-def test_the_run_record_says_which_vintage_reading_is_on_disk(em):
-    assert em([A], {"SZ300308": payload_for(29.0)})["vintage_cohort"] == "growing"
-    assert em([A], {"SZ300308": payload_for(29.0)}, cohort="matched")["vintage_cohort"] == "matched"
+def test_the_run_record_says_what_the_vintage_series_measures(em):
+    assert em([A], {"SZ300308": payload_for(29.0)})["vintage_series"] == "coverage"
+
+
+# --- the raw archive is append-only (CLAUDE.md rule 2) ------------------------------
+def test_an_identical_payload_is_recognised_rather_than_archived_twice(tmp_path):
+    first = archive_payload({"ycmx": [1]}, tmp_path, "SZ300308", "0900")
+    again = archive_payload({"ycmx": [1]}, tmp_path, "SZ300308", "1400")
+
+    assert again == first
+    assert sorted(p.name for p in tmp_path.iterdir()) == ["SZ300308.json.gz"]
+
+
+def test_a_differing_payload_lands_beside_the_first_instead_of_replacing_it(tmp_path):
+    """The S6 failure: `--limit` smoke runs overwrote the evidence behind the full run's parquet."""
+    first = archive_payload({"ycmx": [1]}, tmp_path, "SZ300308", "0900")
+    second = archive_payload({"ycmx": [2]}, tmp_path, "SZ300308", "1400")
+    third = archive_payload({"ycmx": [3]}, tmp_path, "SZ300308", "1400")  # same minute, third body
+
+    assert len({first, second, third}) == 3
+    assert second.name == "SZ300308__1400.json.gz"
+    assert third.name == "SZ300308__1400_2.json.gz"
+    bodies = [json.loads(gzip.decompress(p.read_bytes())) for p in (first, second, third)]
+    assert bodies == [{"ycmx": [1]}, {"ycmx": [2]}, {"ycmx": [3]}]
+
+
+def test_an_unreadable_archive_is_kept_and_the_payload_written_beside_it(tmp_path):
+    (tmp_path / "SZ300308.json.gz").write_bytes(b"not gzip at all")
+    path = archive_payload({"ycmx": [1]}, tmp_path, "SZ300308", "1400")
+
+    assert path.name == "SZ300308__1400.json.gz"
+    assert (tmp_path / "SZ300308.json.gz").read_bytes() == b"not gzip at all"
+
+
+def test_a_rerun_keeps_the_earlier_runs_payload_on_disk(em, tmp_path):
+    """Through snapshot(): the parquet for a run has to stay reproducible from that run's raw layer."""
+    em([A], {"SZ300308": payload_for(29.0)})
+    em([A], {"SZ300308": payload_for(31.0)})
+
+    raw = sorted((tmp_path / "raw" / "valuation" / "eastmoney").glob("*/SZ300308*.json.gz"))
+    assert len(raw) == 2, [p.name for p in raw]
+    eps = sorted(
+        json.loads(gzip.decompress(p.read_bytes()))["ycmx"][0]["EPS2"] for p in raw
+    )
+    assert eps == [29.0, 31.0]
 
 
 def test_main_exits_zero_when_the_only_gap_is_an_expected_one(monkeypatch):

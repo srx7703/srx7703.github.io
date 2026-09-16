@@ -117,12 +117,16 @@ OPTICAL: list[Company] = [
         name_cn="长飞光纤H", fundamentals_from="601869.SS", note="H line of 601869.SS",
     ),
     # --- United States ---
-    Company("COHR", "Coherent", "optical", "high", "us", 6, share_basis="total"),
-    Company("LITE", "Lumentum", "optical", "high", "us", 6, share_basis="total"),
+    Company("COHR", "Coherent", "optical", "high", "us", 6, share_basis="segment", segment_line="yes",
+            note="transceivers sit inside Datacenter & Communications, beside Lasers and Materials"),
+    Company("LITE", "Lumentum", "optical", "high", "us", 6, share_basis="segment", segment_line="yes",
+            note="Cloud & Networking sits beside the Industrial Tech business"),
     Company("AAOI", "Applied Optoelectronics", "optical", "high", "us", 12, share_basis="total"),
     Company("FN", "Fabrinet", "optical", "high", "us", 6, note="contract manufacturer",
             share_basis="none", share_note="builds modules its customers book as their own revenue"),
-    Company("MTSI", "MACOM", "optical", "high", "us", 9, note="fiscal year ends early October", share_basis="total"),
+    Company("MTSI", "MACOM", "optical", "partial", "us", 9, note="fiscal year ends early October",
+            share_basis="none",
+            share_note="sells lasers, drivers and TIAs into module vendors, one layer down"),
     Company("SMTC", "Semtech", "optical", "high", "us", 1, note="fiscal year ends late January",
             share_basis="none", share_note="sells signal-conditioning chips into modules, one layer down"),
     Company("CRDO", "Credo", "optical", "high", "us", 4, note="fiscal year ends end-April",
@@ -138,9 +142,12 @@ OPTICAL: list[Company] = [
     Company("5801.T", "Furukawa Electric", "optical", "partial", "jp", 3),
     Company("5803.T", "Fujikura", "optical", "partial", "jp", 3, segment_line="yes"),
     # --- Taiwan ---
-    Company("4979.TWO", "Luxnet", "optical", "high", "tw", 12, note="TPEx listing, not TWSE", share_basis="total"),
-    Company("3081.TWO", "LandMark Optoelectronics", "optical", "high", "tw", 12, share_basis="total"),
-    Company("4977.TW", "Photop Technologies", "optical", "high", "tw", 12, share_basis="total"),
+    Company("4979.TWO", "Luxnet", "optical", "high", "tw", 12, name_cn="光环科技",
+            note="TPEx listing, not TWSE", share_basis="total"),
+    Company("3081.TWO", "LandMark Optoelectronics", "optical", "high", "tw", 12, name_cn="联亚光电",
+            share_basis="total"),
+    Company("4977.TW", "PCL Technologies", "optical", "high", "tw", 12, name_cn="眾達光電",
+            share_basis="total"),
 ]
 
 SSB: list[Company] = [

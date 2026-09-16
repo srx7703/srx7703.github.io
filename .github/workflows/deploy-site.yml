@@ -5,6 +5,11 @@ on:
     branches: [main]
   # Data commits are pushed with GITHUB_TOKEN, which never fires `push` workflows; rebuild after
   # every data workflow instead so the "data as of" stamps stay current.
+  #
+  # Deliberately `completed`, not `success`: a data run that loses one source still commits the
+  # sources that worked and exits 1, and that partial refresh should still reach the site. The
+  # protection against publishing a blanked page lives on the writing side instead — a publish step
+  # refuses to replace a good facts file with an emptier one, so there is nothing bad to deploy.
   workflow_run:
     workflows: [snapshot-predmarkets, refresh-weekly, valuation]
     types: [completed]

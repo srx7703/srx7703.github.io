@@ -23,9 +23,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -36,7 +36,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "SLDP",
@@ -62,9 +65,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -75,7 +78,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "SES",
@@ -101,9 +107,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -114,7 +120,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "IKA.L",
@@ -140,9 +149,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -153,7 +162,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "MVST",
@@ -179,9 +191,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -192,7 +204,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "300750.SZ",
@@ -228,10 +243,13 @@
   "blend": false,
   "actual_weight": 0,
   "estimate_source": "eastmoney",
-  "revision_30d": null,
-  "revision_30d_as_of": null,
+  "revision_30d": 0.0,
+  "revision_30d_as_of": "2026-09-16",
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": "2026-09-16T20:18:00+00:00"
  },
  {
   "ticker": "3750.HK",
@@ -257,9 +275,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -270,7 +288,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "002594.SZ",
@@ -306,10 +327,13 @@
   "blend": false,
   "actual_weight": 0,
   "estimate_source": "eastmoney",
-  "revision_30d": null,
-  "revision_30d_as_of": null,
+  "revision_30d": 0.0,
+  "revision_30d_as_of": "2026-09-16",
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": "2026-09-16T20:18:00+00:00"
  },
  {
   "ticker": "1211.HK",
@@ -335,9 +359,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -348,7 +372,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "300014.SZ",
@@ -384,10 +411,13 @@
   "blend": false,
   "actual_weight": 0,
   "estimate_source": "eastmoney",
-  "revision_30d": null,
-  "revision_30d_as_of": null,
+  "revision_30d": 0.0,
+  "revision_30d_as_of": "2026-09-16",
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": "2026-09-16T20:18:00+00:00"
  },
  {
   "ticker": "002074.SZ",
@@ -423,10 +453,13 @@
   "blend": false,
   "actual_weight": 0,
   "estimate_source": "eastmoney",
-  "revision_30d": null,
-  "revision_30d_as_of": null,
+  "revision_30d": 0.0,
+  "revision_30d_as_of": "2026-09-16",
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": "2026-09-16T20:18:00+00:00"
  },
  {
   "ticker": "300207.SZ",
@@ -462,10 +495,13 @@
   "blend": false,
   "actual_weight": 0,
   "estimate_source": "eastmoney",
-  "revision_30d": null,
-  "revision_30d_as_of": null,
+  "revision_30d": 0.0,
+  "revision_30d_as_of": "2026-09-16",
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": "2026-09-16T20:18:00+00:00"
  },
  {
   "ticker": "3931.HK",
@@ -491,9 +527,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -504,7 +540,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "688567.SS",
@@ -543,7 +582,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "300438.SZ",
@@ -579,10 +621,13 @@
   "blend": false,
   "actual_weight": 0,
   "estimate_source": "eastmoney",
-  "revision_30d": null,
-  "revision_30d_as_of": null,
+  "revision_30d": 0.0,
+  "revision_30d_as_of": "2026-09-16",
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": "2026-09-16T20:18:00+00:00"
  },
  {
   "ticker": "006400.KS",
@@ -608,9 +653,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -621,7 +666,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "373220.KS",
@@ -647,9 +695,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -660,7 +708,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "6752.T",
@@ -686,9 +737,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -699,7 +750,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "7203.T",
@@ -725,9 +779,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -738,7 +792,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "002460.SZ",
@@ -774,10 +831,13 @@
   "blend": false,
   "actual_weight": 0,
   "estimate_source": "eastmoney",
-  "revision_30d": null,
-  "revision_30d_as_of": null,
+  "revision_30d": 0.0,
+  "revision_30d_as_of": "2026-09-16",
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": "2026-09-16T20:18:00+00:00"
  },
  {
   "ticker": "300073.SZ",
@@ -813,10 +873,13 @@
   "blend": false,
   "actual_weight": 0,
   "estimate_source": "eastmoney",
-  "revision_30d": null,
-  "revision_30d_as_of": null,
+  "revision_30d": 0.0,
+  "revision_30d_as_of": "2026-09-16",
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": "2026-09-16T20:18:00+00:00"
  },
  {
   "ticker": "688005.SS",
@@ -852,10 +915,13 @@
   "blend": false,
   "actual_weight": 0,
   "estimate_source": "eastmoney",
-  "revision_30d": null,
-  "revision_30d_as_of": null,
+  "revision_30d": 0.0,
+  "revision_30d_as_of": "2026-09-16",
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": "2026-09-16T20:18:00+00:00"
  },
  {
   "ticker": "603200.SS",
@@ -894,7 +960,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "603663.SS",
@@ -930,10 +999,13 @@
   "blend": false,
   "actual_weight": 0,
   "estimate_source": "eastmoney",
-  "revision_30d": null,
-  "revision_30d_as_of": null,
+  "revision_30d": 0.0,
+  "revision_30d_as_of": "2026-09-16",
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": "2026-09-16T20:18:00+00:00"
  },
  {
   "ticker": "002709.SZ",
@@ -969,10 +1041,13 @@
   "blend": false,
   "actual_weight": 0,
   "estimate_source": "eastmoney",
-  "revision_30d": null,
-  "revision_30d_as_of": null,
+  "revision_30d": 0.0,
+  "revision_30d_as_of": "2026-09-16",
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": "2026-09-16T20:18:00+00:00"
  },
  {
   "ticker": "600206.SS",
@@ -1008,10 +1083,13 @@
   "blend": false,
   "actual_weight": 0,
   "estimate_source": "eastmoney",
-  "revision_30d": null,
-  "revision_30d_as_of": null,
+  "revision_30d": 0.0,
+  "revision_30d_as_of": "2026-09-16",
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": "2026-09-16T20:18:00+00:00"
  },
  {
   "ticker": "300450.SZ",
@@ -1047,10 +1125,13 @@
   "blend": false,
   "actual_weight": 0,
   "estimate_source": "eastmoney",
-  "revision_30d": null,
-  "revision_30d_as_of": null,
+  "revision_30d": 0.0,
+  "revision_30d_as_of": "2026-09-16",
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": "2026-09-16T20:18:00+00:00"
  },
  {
   "ticker": "688499.SS",
@@ -1086,10 +1167,13 @@
   "blend": false,
   "actual_weight": 0,
   "estimate_source": "eastmoney",
-  "revision_30d": null,
-  "revision_30d_as_of": null,
+  "revision_30d": 0.0,
+  "revision_30d_as_of": "2026-09-16",
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": "2026-09-16T20:18:00+00:00"
  },
  {
   "ticker": "5019.T",
@@ -1115,9 +1199,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -1128,7 +1212,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "6762.T",
@@ -1154,9 +1241,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -1167,7 +1254,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "6981.T",
@@ -1193,9 +1283,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -1206,7 +1296,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "6810.T",
@@ -1232,9 +1325,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -1245,7 +1338,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "003670.KS",
@@ -1271,9 +1367,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -1284,7 +1380,10 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  },
  {
   "ticker": "247540.KQ",
@@ -1310,9 +1409,9 @@
   "eps_2027": null,
   "estimate_currency": null,
   "fwd_pe_2026": null,
-  "fwd_pe_2026_nm": "no consensus for this year",
+  "fwd_pe_2026_nm": "consensus source returned nothing this run",
   "fwd_pe_2027": null,
-  "fwd_pe_2027_nm": "no consensus for this year",
+  "fwd_pe_2027_nm": "consensus source returned nothing this run",
   "growth": null,
   "n_analysts": null,
   "coverage": "unknown",
@@ -1323,6 +1422,9 @@
   "revision_30d": null,
   "revision_30d_as_of": null,
   "revision_90d": null,
-  "revision_90d_as_of": null
+  "revision_90d_as_of": null,
+  "price_as_of": "2026-09-16T20:16:11+00:00",
+  "price_age_days": 0,
+  "estimates_as_of": null
  }
 ]

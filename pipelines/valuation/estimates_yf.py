@@ -43,17 +43,48 @@ from ``GBP`` and confusing those is a 100x error, not a 17% one.
 analyst count, so every vintage row carries the *current* count for that period. Treat
 ``vintages.n_analysts`` as "coverage today", not "coverage on ``as_of``".
 
+*How many fiscal years Yahoo will give — two, and the calendar cost of that.* ``earningsTrend``
+carries four estimate periods: ``0q``, ``+1q``, ``0y``, ``+1y``, plus the long-term growth rows
+``+5y`` / ``-5y``, which hold a growth rate and neither an ``endDate`` nor an ``earningsEstimate``.
+**There is no ``+2y``.** No ``earningsTrend`` payload has been archived in this repo yet
+(``data/raw/valuation/yahoo/`` is empty — the first Yahoo run has not landed), so the claim rests on
+the client this repo already depends on: yfinance 1.7.0 reads the same endpoint and slices
+``trend[:4]`` for every estimate table it builds (``yfinance/scrapers/analysis.py``
+``_get_periodic_df``), while only its *growth* table walks the whole list — i.e. exactly four
+periods carry an EPS panel, and the two beyond them are growth rates.
+
+The consequence is not cosmetic. For a listing whose fiscal year ends in autumn, the calendar year
+after next runs past the end of ``+1y``: AVGO and CIEN (year ends early November) get ten of the
+twelve months of calendar 2027 out of FY2027 and need FY2028 for November and December, MTSI (early
+October) gets nine and needs three. FY2028 is not on offer, so those calendar years cap at 10/12 and
+9/12 — the 0.833 and 0.750 the acceptance review measured — and fall under ``MIN_COVERAGE``. Such a
+listing has not lost its consensus and no analyst has declined to forecast it: **Yahoo publishes no
+third fiscal year to blend**, and anything that reports the gap to a reader has to say that rather
+than "no consensus for this year". :func:`fiscal_periods` reads whatever ``Ny`` panels a payload actually
+carries instead of a hardcoded pair, so a third year is emitted the day Yahoo adds one, without a
+code change; every run records the period keys it saw in ``estimates_yf_runs.jsonl``, and the
+``Yahoo fiscal-year panels`` check fires when one arrives, so the claim above can be rechecked from
+the run log rather than re-derived by hand.
+
 Even with ``formatted=false`` the numbers in this path arrive as ``{"raw": ..., "fmt": ...}`` and any
 field can be ``{}`` or absent, so every numeric read goes through ``_raw``.
+
+Raw payloads are append-only evidence (``CLAUDE.md`` rule 2): a rerun never overwrites an earlier
+run's payload for a ticker. See :func:`archive_payload`, which mirrors ``fx.archive_csv``.
 """
 
 from __future__ import annotations
 
 import argparse
 import calendar
+import gzip
+import json
 import logging
 import math
+import re
 import sys
+import time
+from collections import Counter
 from collections.abc import Callable
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
@@ -72,7 +103,6 @@ from pipelines.common.storage import (
     append_jsonl,
     run_stamp,
     utc_now,
-    write_json_gz,
     write_parquet,
 )
 from pipelines.valuation.config import BY_TICKER, COMPANIES, THIN_COVERAGE_BELOW, Company
@@ -100,12 +130,22 @@ ORIGIN = "yahoo_trend"
 MODULES = "earningsTrend,price"
 MIN_INTERVAL = 0.6
 
-#: the two fiscal-year periods we keep; ``0q`` / ``+1q`` are quarters and are dropped
-FY_PERIODS = ("0y", "+1y")
+#: the fiscal year in progress. ``0q`` / ``+1q`` are quarters and are dropped
+CURRENT_FY = "0y"
+#: the fiscal-year periods Yahoo actually publishes an EPS panel for today; see `fiscal_periods`
+KNOWN_FY_PERIODS = ("0y", "+1y")
+#: a fiscal-year period key: ``0y``, ``+1y``, ``+2y``. A leading ``-`` is a past year and is not one.
+FY_PERIOD_RE = re.compile(r"^\+?(\d+)y$")
+#: growth rates over the next / last five years. No ``endDate``, no ``earningsEstimate``, not a panel.
+LONG_TERM_PERIODS = frozenset({"+5y", "-5y"})
+#: how far ahead a period may be and still be read as a fiscal-year panel rather than a growth row
+MAX_FY_AHEAD = 3
 #: ``epsTrend`` keys and how many days back they were true
 VINTAGE_KEYS = (("current", 0), ("7daysAgo", 7), ("30daysAgo", 30), ("60daysAgo", 60), ("90daysAgo", 90))
 #: how far the reported fiscal-year end may sit from the configured one before it is worth a warning
 FY_END_TOLERANCE_DAYS = 45
+#: distinct payloads archived for one ticker on one date before the run gives up (`archive_payload`)
+MAX_ARCHIVES = 64
 
 #: reporting currency implied by the market of the *reporting* entity. ``hk`` is deliberately
 #: absent: an HK line is usually the secondary listing of a mainland issuer that reports in CNY, so
@@ -233,6 +273,46 @@ def fy_label(period_end: date) -> str:
     return f"FY{period_end.year}"
 
 
+def period_keys(trend: list[dict] | None) -> list[str]:
+    """Every ``period`` key one ``earningsTrend`` list carries, in the order Yahoo sent them.
+
+    Recorded per run so "Yahoo publishes two fiscal years" stays a checkable statement about the
+    payloads rather than a claim in a docstring that nothing re-reads.
+    """
+    return [str((node or {}).get("period") or "") for node in trend or [] if (node or {}).get("period")]
+
+
+def fiscal_periods(periods: list[str]) -> list[str]:
+    """The fiscal-year periods present, nearest first — ``["0y", "+1y"]`` on every payload so far.
+
+    Read from the payload instead of hardcoded, so the day Yahoo starts publishing a ``+2y`` panel
+    the third year is emitted with no code change and the run record shows when that began. Today
+    it never fires: the module docstring records the evidence that ``earningsTrend`` carries two
+    fiscal years and no more.
+
+    Quarters (``0q``, ``+1q``) are not fiscal years. Neither are the long-term growth rows
+    ``+5y`` / ``-5y``, which carry a growth rate, an empty ``endDate`` and no ``earningsEstimate``:
+    admitting them would manufacture a "period has no usable endDate" warning on every listing in
+    the pool and, if one ever did carry a date, a fifth-year EPS panel nothing downstream expects.
+    A ``-1y`` is a year already reported and is not a forecast.
+    """
+    found: list[tuple[int, str]] = []
+    seen: set[str] = set()
+    for key in periods:
+        if key in seen or key in LONG_TERM_PERIODS:
+            continue
+        seen.add(key)
+        match = FY_PERIOD_RE.match(key)
+        if match is None:
+            continue
+        ahead = int(match.group(1))
+        if ahead > MAX_FY_AHEAD:
+            log.warning("ignoring earningsTrend period %r: further ahead than %d years", key, MAX_FY_AHEAD)
+            continue
+        found.append((ahead, key))
+    return [key for _, key in sorted(found)]
+
+
 def implied_currency(company: Company) -> str | None:
     """Reporting currency implied by config alone, or None when config cannot say.
 
@@ -319,10 +399,12 @@ def parse_trend(
     ``as_of`` dates. ``price`` is the quoteSummary ``price`` module when it was fetched, used only
     to resolve the currency.
 
-    Estimate rows: ``0y`` and ``+1y`` as mark ``E``, plus the year before ``0y`` as mark ``A`` built
-    from ``yearAgoEps`` -- that actual is what the calendarisation layer blends with the estimate
-    for a non-December year end. A missing ``yearAgoEps`` (observed on 3750.HK) produces no actual
-    row rather than an invented one.
+    Estimate rows: every fiscal-year period the payload carries as mark ``E`` -- ``0y`` and ``+1y``
+    on every payload seen so far, and a further year automatically if Yahoo ever publishes one (see
+    ``fiscal_periods`` and the module docstring) -- plus the year before ``0y`` as mark ``A`` built
+    from ``yearAgoEps``. That actual is what the calendarisation layer blends with the estimate for
+    a non-December year end. A missing ``yearAgoEps`` (observed on 3750.HK) produces no actual row
+    rather than an invented one.
     """
     stamp = snapshot_ts.isoformat(timespec="seconds")
     today = snapshot_ts.date()
@@ -361,17 +443,17 @@ def parse_trend(
     else:
         log.debug("%s: EPS currency %s from %s", ticker, currency, currency_source)
 
-    if FY_PERIODS[0] not in by_period:
+    if CURRENT_FY not in by_period:
         checks.append(
             check(
                 "Yahoo consensus coverage",
                 False,
-                f"{ticker}: earningsTrend has no 0y period (got {sorted(by_period) or 'nothing'})",
+                f"{ticker}: earningsTrend has no {CURRENT_FY} period (got {sorted(by_period) or 'nothing'})",
                 warn=True,
             )
         )
 
-    for period in FY_PERIODS:
+    for period in fiscal_periods(list(by_period)):
         node = by_period.get(period)
         if node is None:
             continue
@@ -389,7 +471,7 @@ def parse_trend(
         est = node.get("earningsEstimate") or {}
         n_analysts = _int(est, "numberOfAnalysts")
 
-        if period == "0y":
+        if period == CURRENT_FY:
             want, drift = fy_end_drift(period_end, company.fy_end_month, today)
             if drift > FY_END_TOLERANCE_DAYS:
                 checks.append(
@@ -420,7 +502,7 @@ def parse_trend(
             }
         )
 
-        if period == "0y":
+        if period == CURRENT_FY:
             year_ago = _raw(est, "yearAgoEps")
             if year_ago is None and company.fy_end_month != 12:
                 # calendarize blends the estimate with the prior actual for a non-December filer,
@@ -498,7 +580,65 @@ def price_of(result: dict) -> dict:
 
 
 # --- network -------------------------------------------------------------------------
-def session(*, min_interval: float = MIN_INTERVAL) -> tuple[HttpClient, str | None]:
+class YfSession:
+    """quoteSummary through yfinance's own authenticated session.
+
+    The hand-rolled cookie-and-crumb handshake below works from a home connection and is refused
+    outright from GitHub Actions: the 2026-09-16 weekly run answered HTTP 429 for all 37 listings and
+    wrote nothing, while the price fetch in the same job, which goes through yfinance, took 68 of 68
+    listings in 40 seconds. yfinance keeps a session Yahoo accepts from a datacentre address and
+    tracks the handshake as it changes, so the estimates fetch uses it too and the raw handshake stays
+    only as a fallback for an environment where yfinance is unavailable.
+
+    ``get_raw_json`` is a yfinance internal. It is wrapped here so a rename breaks one place, is
+    reported as a named failure, and falls back rather than losing the run.
+    """
+
+    def __init__(self, min_interval: float = MIN_INTERVAL) -> None:
+        self.min_interval = min_interval
+        self.calls = 0
+        self._last = 0.0
+        self._data = None
+        try:
+            from yfinance.data import YfData
+
+            self._data = YfData()
+        except Exception as exc:  # noqa: BLE001 - an import or signature change must not end the run
+            log.warning("yfinance session unavailable (%s); falling back to the raw handshake", exc)
+
+    @property
+    def available(self) -> bool:
+        return self._data is not None
+
+    def _throttle(self) -> None:
+        wait = self._last + self.min_interval - time.monotonic()
+        if wait > 0:
+            time.sleep(wait)
+        self._last = time.monotonic()
+
+    def get_json(self, url: str, params: dict[str, Any] | None = None) -> Any:
+        if self._data is None:
+            raise RuntimeError("yfinance session unavailable")
+        self._throttle()
+        self.calls += 1
+        return self._data.get_raw_json(url, params=params)
+
+
+def session(*, min_interval: float = MIN_INTERVAL) -> tuple[Any, str | None]:
+    """A transport for quoteSummary, plus the crumb it needs if the raw handshake is the one used.
+
+    yfinance's session is preferred because Yahoo accepts it from a datacentre address and refuses the
+    hand-rolled handshake below outright; the raw handshake is the fallback for an environment without
+    yfinance. Both expose ``get_json(url, params)``, so the caller does not care which it got.
+    """
+    yf_session = YfSession(min_interval=min_interval)
+    if yf_session.available:
+        log.info("fetching through yfinance's session; the raw handshake is refused from CI runners")
+        return yf_session, None
+    return _raw_session(min_interval=min_interval)
+
+
+def _raw_session(*, min_interval: float = MIN_INTERVAL) -> tuple[HttpClient, str | None]:
     """An HttpClient for quoteSummary plus the crumb it needs, if the handshake succeeds.
 
     Yahoo gates quoteSummary on a consent cookie and a matching crumb. HttpClient has no cookie jar
@@ -569,6 +709,42 @@ def fetch(
 
 
 # --- orchestration -------------------------------------------------------------------
+def archive_payload(payload: Any, raw_dir: Path, key: str, hhmm: str) -> Path:
+    """Archive one quoteSummary payload exactly as served, before anything parses it.
+
+    Raw files are evidence, so an existing archive for the same day is never overwritten: an
+    identical body is left alone and a differing one lands beside it under the run's HHMM, then
+    ``__HHMM_2``, ``__HHMM_3``... Every candidate is compared, not just the first -- a third distinct
+    payload in the same minute (a cron run and a manual re-run colliding) must not be dropped on the
+    floor while the function returns a path holding somebody else's bytes.
+
+    This module used to write straight to ``<ticker>.json.gz`` with ``write_json_gz``, so a second
+    run replaced the first run's payload in place and a ``--tickers`` re-run erased the evidence
+    behind the rows a fuller run had already written. ``CLAUDE.md`` rule 2 says raw snapshots are
+    append-only, and the parquet for a run has to be reproducible from the raw layer of that run.
+    Same policy and same shape as ``fx.archive_csv``; the only difference is gzipped JSON.
+    """
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    body = json.dumps(payload, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    for n in range(MAX_ARCHIVES):
+        if n == 0:
+            path = raw_dir / f"{key}.json.gz"
+        elif n == 1:
+            path = raw_dir / f"{key}__{hhmm}.json.gz"
+        else:
+            path = raw_dir / f"{key}__{hhmm}_{n}.json.gz"
+        if not path.exists():
+            with gzip.open(path, "wb") as f:
+                f.write(body)
+            return path
+        try:
+            if gzip.decompress(path.read_bytes()) == body:
+                return path  # already archived, byte for byte
+        except OSError:  # unreadable archive: keep it, write beside it
+            continue
+    raise RuntimeError(f"too many differing archives for {key} at {hhmm} in {raw_dir}")
+
+
 def validate_rows(rows: list[dict], vints: list[dict]) -> None:
     """Prove one company's rows survive the frame build and pandera, before they join the pool.
 
@@ -658,22 +834,24 @@ def main(argv: list[str] | None = None) -> int:
     checks: list[dict] = []
     errors: list[str] = []
     failed: list[str] = []
+    periods_seen: Counter[str] = Counter()  # what earningsTrend actually carried, for the run record
 
     def keeper(ticker: str) -> Callable[[dict], None]:
         """Archive a payload the modules retry is about to supersede, under its own name."""
 
         def keep(payload: dict) -> None:
-            write_json_gz(payload, raw_dir / f"{ticker}-first.json.gz")
+            archive_payload(payload, raw_dir, f"{ticker}-first", hhmm)
 
         return keep
 
     for company in companies:
         try:
             payload = fetch(client, company.ticker, crumb=crumb, on_discard=keeper(company.ticker))
-            write_json_gz(payload, raw_dir / f"{company.ticker}.json.gz")  # evidence first, parse second
+            archive_payload(payload, raw_dir, company.ticker, hhmm)  # evidence first, parse second
             result = extract_result(payload)
+            trend = trend_of(result)
             rows, vints, company_checks = parse_trend(
-                company.ticker, company, trend_of(result), ts, price=price_of(result)
+                company.ticker, company, trend, ts, price=price_of(result)
             )
             validate_rows(rows, vints)  # inside the guard, so a rejected row costs one listing
         except Exception as exc:  # noqa: BLE001 - one company must never lose the others
@@ -684,7 +862,27 @@ def main(argv: list[str] | None = None) -> int:
         estimates += rows
         vintages += vints
         checks += company_checks
+        periods_seen.update(period_keys(trend))
         log.info("%s: %d estimate rows, %d vintage rows", company.ticker, len(rows), len(vints))
+
+    # Whether Yahoo has started publishing a third fiscal year is a fact about the payloads, not a
+    # thing to re-derive by hand: `fiscal_periods` already emits one if it arrives, and this is what
+    # says so out loud, because any "the calendar year is not covered" reason downstream depends on
+    # there being exactly two.
+    extra_fy = sorted(set(fiscal_periods(sorted(periods_seen))) - set(KNOWN_FY_PERIODS))
+    checks.append(
+        check(
+            "Yahoo fiscal-year panels",
+            not extra_fy,
+            f"earningsTrend now carries {', '.join(extra_fy)} as well as {', '.join(KNOWN_FY_PERIODS)}; "
+            "a calendar year that needed the third year is no longer short of coverage, so any reason "
+            "string saying otherwise is stale"
+            if extra_fy
+            else f"{', '.join(KNOWN_FY_PERIODS)} and no further fiscal year, as expected"
+            + (f" (periods seen: {', '.join(sorted(periods_seen))})" if periods_seen else "; no payload parsed"),
+            warn=True,
+        )
+    )
 
     thin = sorted({r["ticker"] for r in estimates if r["mark"] == "E" and (r["n_analysts"] or 0) < THIN_COVERAGE_BELOW})
     checks.append(
@@ -754,6 +952,9 @@ def main(argv: list[str] | None = None) -> int:
         "companies": len(companies),
         "estimate_rows": len(estimates),
         "vintage_rows": len(vintages),
+        # the evidence for "earningsTrend publishes two fiscal years"; see the module docstring
+        "periods": dict(sorted(periods_seen.items())),
+        "fiscal_periods": fiscal_periods(sorted(periods_seen)),
         "written": written,
         "failed": failed,
         "errors": errors,

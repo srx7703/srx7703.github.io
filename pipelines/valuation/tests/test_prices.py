@@ -16,6 +16,7 @@ from pandera.errors import SchemaError
 
 from pipelines.common.storage import read_json_gz, run_stamp, utc_now
 from pipelines.valuation import prices as mod
+from pipelines.valuation.config import Company
 from pipelines.valuation.prices import (
     Throttle,
     archive_info,
@@ -473,3 +474,52 @@ def test_throttle_paces_and_counts_the_calls():
         pacer.tick()
     assert pacer.calls == 3
     assert _time.monotonic() - started >= 0.03  # two gaps of 20 ms between three calls
+
+
+def test_a_rate_limited_run_stops_at_the_deadline_and_keeps_what_it_got(monkeypatch):
+    """A soft block answers every listing the same way; the loop must not burn the job timeout on it.
+
+    Before the deadline existed, 68 listings x MAX_ATTEMPTS x a 60 s backoff cap ran for the better part
+    of an hour and the Actions job was killed mid-loop, so even the listings that had answered were
+    never written. The deadline turns that into a partial run with a named list of what was skipped.
+    """
+    from pipelines.valuation import prices as m
+
+    companies = [
+        Company(ticker=f"T{i}.SZ", name=f"T{i}", track="optical", purity="high", market="cn", fy_end_month=12)
+        for i in range(6)
+    ]
+    seen: list[str] = []
+
+    def fake_fetch(ticker, *, throttle=None, attempts=m.MAX_ATTEMPTS):
+        seen.append(ticker)
+        if len(seen) > 2:
+            raise RuntimeError("HTTP 429 for " + ticker)
+        return {"currentPrice": 10.0, "currency": "CNY", "financialCurrency": "CNY", "marketCap": 1e9}
+
+    monkeypatch.setattr(m, "fetch_info", fake_fetch)
+    monkeypatch.setattr(m, "archive_info", lambda *a, **k: None)
+    # a deadline of zero fires on the first iteration, so exactly one listing is attempted
+    rows, failed, errors = m.fetch_prices(companies, min_interval=0.0, deadline_seconds=0.0)
+
+    assert len(seen) == 1, "the loop kept fetching past the deadline"
+    assert len(rows) == 1, "the row that did arrive was thrown away"
+    assert len(failed) == 5, "the untried listings are not recorded as failures"
+    assert any("deadline" in e for e in errors), "the run record does not say why they were skipped"
+    assert any("T5.SZ" in e for e in errors), "the skipped listings are not named"
+
+
+def test_no_deadline_means_every_listing_is_attempted(monkeypatch):
+    from pipelines.valuation import prices as m
+
+    companies = [
+        Company(ticker=f"T{i}.SZ", name=f"T{i}", track="optical", purity="high", market="cn", fy_end_month=12)
+        for i in range(4)
+    ]
+    monkeypatch.setattr(
+        m, "fetch_info",
+        lambda t, **k: {"currentPrice": 1.0, "currency": "CNY", "financialCurrency": "CNY", "marketCap": 1.0},
+    )
+    monkeypatch.setattr(m, "archive_info", lambda *a, **k: None)
+    rows, failed, errors = m.fetch_prices(companies, min_interval=0.0, deadline_seconds=None)
+    assert len(rows) == 4 and not failed and not errors

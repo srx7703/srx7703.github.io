@@ -1,6 +1,7 @@
 {
- "generated_at": "2026-09-16T21:49:34.680762+00:00",
+ "generated_at": "2026-09-16T22:07:53.646325+00:00",
  "plan": "docs/EVALUATION_PLAN.md",
+ "snapshot_vintages_written": [],
  "tracks": {
   "optical": {
    "consensus_accuracy": {
@@ -9,11 +10,11 @@
    },
    "revision_persistence": {
     "status": "not_yet",
-    "why": "only 0 true-revision vintage dates on file across 0 listings; East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions, so the A-shares contribute nothing here until our own weekly snapshots accumulate"
+    "why": "1 true-revision vintage date on file across 15 listings, giving 0 week/four-week windows where 3 are needed. East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions; the weekly snapshot series that replaces it for those listings now covers 15 of them and grows by one date a week"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-09-16T21:49:34.362529+00:00",
+    "as_of": "2026-09-16T22:06:53.118028+00:00",
     "iqr": 122.90333406850978,
     "p25": 47.05051006889242,
     "p75": 169.9538441374022,
@@ -27,8 +28,180 @@
     "why": "no dual-listed issuer in this track has a forward PE on both lines yet"
    },
    "share_bases": {
-    "status": "not_yet",
-    "why": "25 cited figures on file, none of them a percentage share that matches a company in the computed pool; most public optical sources publish rankings rather than shares"
+    "status": "partial",
+    "rank_correlation": {
+     "spearman": 1.0,
+     "n": 4,
+     "basis": "rank",
+     "unit": "rank",
+     "source_name": "C114通信网《光模块厂商全球Top10：中国包揽前2，7家入围》(作者 南山)",
+     "source_url": "https://www.c114.com.cn/news/6564/a1311211.html",
+     "period": "CY2025 full year"
+    },
+    "rank_correlation_why": null,
+    "share_difference": {
+     "median_abs_difference": 0.0006111013773050303,
+     "n": 1,
+     "source_name": "武汉光迅科技股份有限公司 2025年年度报告全文 (披露日期 2026-04-23), p.9–10",
+     "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-04-23/2cd37123-8015-43e0-bffe-2190652dd502.PDF",
+     "period": "rolling four quarters 2024Q4–2025Q3 — NOT FY2025; relabelling it \"2025\" would be wrong",
+     "pairs": [
+      {
+       "name": "Accelink",
+       "ticker": "002281.SZ",
+       "computed_share": 0.059611101377305034,
+       "cited_value": 0.059000000000000004,
+       "cited_rank": null,
+       "difference": 0.0006111013773050303,
+       "cited_text": "5.9% share, rank 5 globally overall; datacom optical components rank 4 (5.9%); telecom rank 5 (5.6%); access rank 4 (7.6%)"
+      }
+     ]
+    },
+    "share_difference_why": null,
+    "comparisons": [
+     {
+      "basis": "rank",
+      "unit": "rank",
+      "source_name": "C114通信网《光模块厂商全球Top10：中国包揽前2，7家入围》(作者 南山)",
+      "source_url": "https://www.c114.com.cn/news/6564/a1311211.html",
+      "period": "CY2025 full year",
+      "n": 4,
+      "spearman": 1.0,
+      "median_abs_difference": null,
+      "pairs": [
+       {
+        "name": "Innolight",
+        "ticker": "300308.SZ",
+        "computed_share": 0.2924581201261637,
+        "cited_value": -1.0,
+        "cited_rank": 1,
+        "difference": null,
+        "cited_text": "rank 1 中际旭创 (Innolight, 300308)"
+       },
+       {
+        "name": "Eoptolink",
+        "ticker": "300502.SZ",
+        "computed_share": 0.15833503783721556,
+        "cited_value": -2.0,
+        "cited_rank": 2,
+        "difference": null,
+        "cited_text": "rank 2 新易盛 (Eoptolink, 300502)"
+       },
+       {
+        "name": "Accelink",
+        "ticker": "002281.SZ",
+        "computed_share": 0.059611101377305034,
+        "cited_value": -4.0,
+        "cited_rank": 4,
+        "difference": null,
+        "cited_text": "rank 4 光迅科技 (Accelink, 002281)"
+       },
+       {
+        "name": "Cambridge Technology",
+        "ticker": "603083.SS",
+        "computed_share": 0.024629586006187476,
+        "cited_value": -10.0,
+        "cited_rank": 10,
+        "difference": null,
+        "cited_text": "rank 10 剑桥科技 (603083) — 7 of the Top 10 are Chinese"
+       }
+      ]
+     },
+     {
+      "basis": "rank",
+      "unit": "rank",
+      "source_name": "LightCounting, LightTrends Newsletter, May 2026 — \"AI Boom Accelerates Transitions Across the Industry Supply Chain\"",
+      "source_url": "https://www.lightcounting.com/newsletter/en/may-2026-optical-vendor-landscape-376",
+      "period": "CY2025. Same figure restates CY2024 on the new methodology: 1 Innolight, 2 Coherent, 3 Eoptolink, 4 Accelink, 5 HG Genuine, 6 Ligent (Hisense), 7 Source Photonics, 8 Molex, 9 Lumentum, 10 CIG",
+      "n": 4,
+      "spearman": 0.8,
+      "median_abs_difference": null,
+      "pairs": [
+       {
+        "name": "Innolight",
+        "ticker": "300308.SZ",
+        "computed_share": 0.2924581201261637,
+        "cited_value": -1.0,
+        "cited_rank": 1,
+        "difference": null,
+        "cited_text": "1 Innolight"
+       },
+       {
+        "name": "Eoptolink",
+        "ticker": "300502.SZ",
+        "computed_share": 0.15833503783721556,
+        "cited_value": -2.0,
+        "cited_rank": 2,
+        "difference": null,
+        "cited_text": "2 Eoptolink"
+       },
+       {
+        "name": "Coherent",
+        "ticker": "COHR",
+        "computed_share": 0.15863806169237296,
+        "cited_value": -3.0,
+        "cited_rank": 3,
+        "difference": null,
+        "cited_text": "3 Coherent"
+       },
+       {
+        "name": "Accelink",
+        "ticker": "002281.SZ",
+        "computed_share": 0.059611101377305034,
+        "cited_value": -4.0,
+        "cited_rank": 4,
+        "difference": null,
+        "cited_text": "4 Accelink"
+       }
+      ]
+     },
+     {
+      "basis": "share",
+      "unit": "%",
+      "source_name": "武汉光迅科技股份有限公司 2025年年度报告全文 (披露日期 2026-04-23), p.9–10",
+      "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-04-23/2cd37123-8015-43e0-bffe-2190652dd502.PDF",
+      "period": "rolling four quarters 2024Q4–2025Q3 — NOT FY2025; relabelling it \"2025\" would be wrong",
+      "n": 1,
+      "spearman": null,
+      "median_abs_difference": 0.0006111013773050303,
+      "pairs": [
+       {
+        "name": "Accelink",
+        "ticker": "002281.SZ",
+        "computed_share": 0.059611101377305034,
+        "cited_value": 0.059000000000000004,
+        "cited_rank": null,
+        "difference": 0.0006111013773050303,
+        "cited_text": "5.9% share, rank 5 globally overall; datacom optical components rank 4 (5.9%); telecom rank 5 (5.6%); access rank 4 (7.6%)"
+       }
+      ]
+     }
+    ],
+    "unexplained": {
+     "private_vendors": [
+      "O-Net Technologies",
+      "Huawei optical"
+     ],
+     "no_segment_disclosure": [
+      "Yuanjie Semiconductor",
+      "HGTech",
+      "Everbright Photonics",
+      "Optolink",
+      "Hisense Visual",
+      "YOFC",
+      "Lumentum",
+      "Fabrinet",
+      "MACOM",
+      "Semtech",
+      "Credo",
+      "Broadcom",
+      "Marvell",
+      "Cisco",
+      "Jabil",
+      "Sumitomo Electric",
+      "Furukawa Electric"
+     ]
+    }
    }
   },
   "ssb": {
@@ -38,11 +211,11 @@
    },
    "revision_persistence": {
     "status": "not_yet",
-    "why": "only 0 true-revision vintage dates on file across 0 listings; East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions, so the A-shares contribute nothing here until our own weekly snapshots accumulate"
+    "why": "1 true-revision vintage date on file across 14 listings, giving 0 week/four-week windows where 3 are needed. East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions; the weekly snapshot series that replaces it for those listings now covers 14 of them and grows by one date a week"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-09-16T21:49:34.362529+00:00",
+    "as_of": "2026-09-16T22:06:53.118028+00:00",
     "iqr": 20.009888487367935,
     "p25": 14.765876424903869,
     "p75": 34.775764912271804,
@@ -56,8 +229,296 @@
     "why": "no dual-listed issuer in this track has a forward PE on both lines yet"
    },
    "share_bases": {
-    "status": "not_yet",
-    "why": "2 cited figures on file, none of them a percentage share that matches a company in the computed pool; most public optical sources publish rankings rather than shares"
+    "status": "partial",
+    "rank_correlation": {
+     "spearman": 0.6,
+     "n": 6,
+     "basis": "quantity",
+     "unit": "GWh",
+     "source_name": "SNE Research — Press Release (Insight), \"From Jan to Jul 2026, Global EV Battery Usage Posted 725.2GWh\" (English edition; data from its Global EV and Battery Monthly Tracker, August 2026)",
+     "source_url": "https://www.sneresearch.com/en/insight/release_view/727/page/0",
+     "period": "2026-01 to 2026-07 (calendar, actuals)"
+    },
+    "rank_correlation_why": null,
+    "share_difference": {
+     "median_abs_difference": 0.041438156031483195,
+     "n": 3,
+     "source_name": "SNE Research — Press Release (Insight), \"From Jan to Jul 2026, Global EV Battery Usage Posted 725.2GWh\" (English edition; data from its Global EV and Battery Monthly Tracker, August 2026)",
+     "source_url": "https://www.sneresearch.com/en/insight/release_view/727/page/0",
+     "period": "2026-01 to 2026-07 (calendar, actuals)",
+     "pairs": [
+      {
+       "name": "CATL",
+       "ticker": "300750.SZ",
+       "computed_share": 0.5413672142251794,
+       "cited_value": 0.39899999999999997,
+       "cited_rank": null,
+       "difference": 0.14236721422517945,
+       "cited_text": "CATL 289.6 GWh / 39.9% share (+26.6% YoY"
+      },
+      {
+       "name": "LG Energy Solution",
+       "ticker": "373220.KS",
+       "computed_share": 0.1244381560314832,
+       "cited_value": 0.083,
+       "cited_rank": null,
+       "difference": 0.041438156031483195,
+       "cited_text": "LG Energy Solution 60.3 GWh / 8.3% (+4.5%"
+      },
+      {
+       "name": "Panasonic Holdings",
+       "ticker": "6752.T",
+       "computed_share": 0.04260968090230077,
+       "cited_value": 0.036000000000000004,
+       "cited_rank": null,
+       "difference": 0.0066096809023007685,
+       "cited_text": "Panasonic 26.2 GWh / 3.6% (+7.6%"
+      }
+     ]
+    },
+    "share_difference_why": null,
+    "comparisons": [
+     {
+      "basis": "quantity",
+      "unit": "GWh",
+      "source_name": "SNE Research — Press Release (Insight), \"From Jan to Jul 2026, Global EV Battery Usage Posted 725.2GWh\" (English edition; data from its Global EV and Battery Monthly Tracker, August 2026)",
+      "source_url": "https://www.sneresearch.com/en/insight/release_view/727/page/0",
+      "period": "2026-01 to 2026-07 (calendar, actuals)",
+      "n": 6,
+      "spearman": 0.6,
+      "median_abs_difference": null,
+      "pairs": [
+       {
+        "name": "CATL",
+        "ticker": "300750.SZ",
+        "computed_share": 0.5413672142251794,
+        "cited_value": 289.6,
+        "cited_rank": null,
+        "difference": null,
+        "cited_text": "CATL 289.6 GWh / 39.9% share (+26.6% YoY"
+       },
+       {
+        "name": "LG Energy Solution",
+        "ticker": "373220.KS",
+        "computed_share": 0.1244381560314832,
+        "cited_value": 60.3,
+        "cited_rank": null,
+        "difference": null,
+        "cited_text": "LG Energy Solution 60.3 GWh / 8.3% (+4.5%"
+       },
+       {
+        "name": "CALB",
+        "ticker": "3931.HK",
+        "computed_share": 0.04607103487185892,
+        "cited_value": 37.3,
+        "cited_rank": null,
+        "difference": null,
+        "cited_text": "CALB 37.3 GWh (+34.3%)"
+       },
+       {
+        "name": "Gotion High-tech",
+        "ticker": "002074.SZ",
+        "computed_share": 0.05546412193283029,
+        "cited_value": 34.0,
+        "cited_rank": null,
+        "difference": null,
+        "cited_text": "Gotion 34.0 GWh (+44.2%)"
+       },
+       {
+        "name": "Panasonic Holdings",
+        "ticker": "6752.T",
+        "computed_share": 0.04260968090230077,
+        "cited_value": 26.2,
+        "cited_rank": null,
+        "difference": null,
+        "cited_text": "Panasonic 26.2 GWh / 3.6% (+7.6%"
+       },
+       {
+        "name": "EVE Energy",
+        "ticker": "300014.SZ",
+        "computed_share": 0.08196432736934707,
+        "cited_value": 25.0,
+        "cited_rank": null,
+        "difference": null,
+        "cited_text": "EVE 25.0 GWh (+53.1%)"
+       }
+      ]
+     },
+     {
+      "basis": "quantity",
+      "unit": "GWh",
+      "source_name": "SNE Research — Press Release (Insight), \"Global (Ex-China) EV Battery Usage in January-July 2026 Reaches 316.2 GWh, Up 25.8% Year-on-Year\"",
+      "source_url": "https://www.sneresearch.com/en/insight/release_view/730/page/0",
+      "period": "2026-01 to 2026-07 (calendar, actuals)",
+      "n": 6,
+      "spearman": 0.4857142857142857,
+      "median_abs_difference": null,
+      "pairs": [
+       {
+        "name": "CATL",
+        "ticker": "300750.SZ",
+        "computed_share": 0.5413672142251794,
+        "cited_value": 107.5,
+        "cited_rank": null,
+        "difference": null,
+        "cited_text": "CATL 107.5 GWh / 34.0% (+43.7%"
+       },
+       {
+        "name": "LG Energy Solution",
+        "ticker": "373220.KS",
+        "computed_share": 0.1244381560314832,
+        "cited_value": 51.6,
+        "cited_rank": null,
+        "difference": null,
+        "cited_text": "LG Energy Solution 51.6 GWh / 16.3% (−1.7%"
+       },
+       {
+        "name": "Panasonic Holdings",
+        "ticker": "6752.T",
+        "computed_share": 0.04260968090230077,
+        "cited_value": 26.2,
+        "cited_rank": null,
+        "difference": null,
+        "cited_text": "Panasonic 26.2 GWh / 8.3% (+7.6%"
+       },
+       {
+        "name": "Gotion High-tech",
+        "ticker": "002074.SZ",
+        "computed_share": 0.05546412193283029,
+        "cited_value": 11.6,
+        "cited_rank": null,
+        "difference": null,
+        "cited_text": "Gotion 11.6 GWh (+135.6%)"
+       },
+       {
+        "name": "CALB",
+        "ticker": "3931.HK",
+        "computed_share": 0.04607103487185892,
+        "cited_value": 7.4,
+        "cited_rank": null,
+        "difference": null,
+        "cited_text": "CALB 7.4 GWh (+80.0%)"
+       },
+       {
+        "name": "EVE Energy",
+        "ticker": "300014.SZ",
+        "computed_share": 0.08196432736934707,
+        "cited_value": 6.3,
+        "cited_rank": null,
+        "difference": null,
+        "cited_text": "EVE 6.3 GWh (+179.2%)"
+       }
+      ]
+     },
+     {
+      "basis": "share",
+      "unit": "%",
+      "source_name": "SNE Research — Press Release (Insight), \"From Jan to Jul 2026, Global EV Battery Usage Posted 725.2GWh\" (English edition; data from its Global EV and Battery Monthly Tracker, August 2026)",
+      "source_url": "https://www.sneresearch.com/en/insight/release_view/727/page/0",
+      "period": "2026-01 to 2026-07 (calendar, actuals)",
+      "n": 3,
+      "spearman": 1.0,
+      "median_abs_difference": 0.041438156031483195,
+      "pairs": [
+       {
+        "name": "CATL",
+        "ticker": "300750.SZ",
+        "computed_share": 0.5413672142251794,
+        "cited_value": 0.39899999999999997,
+        "cited_rank": null,
+        "difference": 0.14236721422517945,
+        "cited_text": "CATL 289.6 GWh / 39.9% share (+26.6% YoY"
+       },
+       {
+        "name": "LG Energy Solution",
+        "ticker": "373220.KS",
+        "computed_share": 0.1244381560314832,
+        "cited_value": 0.083,
+        "cited_rank": null,
+        "difference": 0.041438156031483195,
+        "cited_text": "LG Energy Solution 60.3 GWh / 8.3% (+4.5%"
+       },
+       {
+        "name": "Panasonic Holdings",
+        "ticker": "6752.T",
+        "computed_share": 0.04260968090230077,
+        "cited_value": 0.036000000000000004,
+        "cited_rank": null,
+        "difference": 0.0066096809023007685,
+        "cited_text": "Panasonic 26.2 GWh / 3.6% (+7.6%"
+       }
+      ]
+     },
+     {
+      "basis": "share",
+      "unit": "%",
+      "source_name": "SNE Research — Press Release (Insight), \"Global (Ex-China) EV Battery Usage in January-July 2026 Reaches 316.2 GWh, Up 25.8% Year-on-Year\"",
+      "source_url": "https://www.sneresearch.com/en/insight/release_view/730/page/0",
+      "period": "2026-01 to 2026-07 (calendar, actuals)",
+      "n": 3,
+      "spearman": 1.0,
+      "median_abs_difference": 0.04039031909769923,
+      "pairs": [
+       {
+        "name": "CATL",
+        "ticker": "300750.SZ",
+        "computed_share": 0.5413672142251794,
+        "cited_value": 0.34,
+        "cited_rank": null,
+        "difference": 0.2013672142251794,
+        "cited_text": "CATL 107.5 GWh / 34.0% (+43.7%"
+       },
+       {
+        "name": "LG Energy Solution",
+        "ticker": "373220.KS",
+        "computed_share": 0.1244381560314832,
+        "cited_value": 0.163,
+        "cited_rank": null,
+        "difference": -0.03856184396851681,
+        "cited_text": "LG Energy Solution 51.6 GWh / 16.3% (−1.7%"
+       },
+       {
+        "name": "Panasonic Holdings",
+        "ticker": "6752.T",
+        "computed_share": 0.04260968090230077,
+        "cited_value": 0.083,
+        "cited_rank": null,
+        "difference": -0.04039031909769923,
+        "cited_text": "Panasonic 26.2 GWh / 8.3% (+7.6%"
+       }
+      ]
+     }
+    ],
+    "unexplained": {
+     "private_vendors": [
+      "WeLion New Energy 卫蓝新能源",
+      "QingTao Energy 清陶能源",
+      "TaiLan New Energy 太蓝新能源",
+      "ProLogium 辉能科技",
+      "Factorial Energy"
+     ],
+     "no_segment_disclosure": [
+      "QuantumScape",
+      "BYD",
+      "Samsung SDI",
+      "Toyota Motor",
+      "Ganfeng Lithium",
+      "Easpring Material",
+      "Ronbay Technology",
+      "Shanghai Xibao",
+      "Sanxiang Advanced Materials",
+      "Tinci Materials",
+      "Grinm Advanced Materials",
+      "Wuxi Lead Intelligent",
+      "Leadintelligent",
+      "Idemitsu Kosan",
+      "TDK",
+      "Murata Manufacturing",
+      "Maxell",
+      "POSCO Future M",
+      "Ecopro BM"
+     ]
+    }
    }
   }
  }

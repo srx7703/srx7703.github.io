@@ -25,11 +25,11 @@ import DownloadCsv from '@components/DownloadCsv.astro';
 import Sidenote from '@components/Sidenote.astro';
 import Appendix from '@components/Appendix.astro';
 import { evaluationPlan } from '@lib/prereg';
-import { peDumbbellSpec } from '@charts/valuation/pe_dumbbell';
-import { peGrowthScatterSpec } from '@charts/valuation/pe_growth_scatter';
-import { shareBarsSpec } from '@charts/valuation/share_bars';
-import { consensusSeriesSpec } from '@charts/valuation/consensus_series';
-import { pct, num, usd, dateUtc, dayUtc } from '@lib/fmt';
+import { dumbbellUsesLog, peDumbbellSpec } from '@charts/valuation/pe_dumbbell';
+import { peGrowthScatterSpec, scatterRows, scatterUsesLog } from '@charts/valuation/pe_growth_scatter';
+import { SHARE_BARS_LIMIT, shareBarsSpec } from '@charts/valuation/share_bars';
+import { CONSENSUS_MAX_SERIES, consensusSeriesSpec } from '@charts/valuation/consensus_series';
+import { pct, usd, dateUtc, dayUtc } from '@lib/fmt';
 
 export const x1 = (v) => (v == null ? '—' : `${v.toFixed(1)}x`);
 export const plan = evaluationPlan();
@@ -37,91 +37,191 @@ export const [y0, y1] = facts.years;
 export const asOfPrice = dateUtc(facts.as_of_price);
 export const asOfEst = dateUtc(facts.as_of_estimates);
 export const share = facts.share;
-export const dumbbellHeight = Math.max(220, companies.filter((c) => c.fwd_pe_2026 != null).length * 17 + 90);
+// The pre-registered scorer writes data/marts/valuation/evaluation.json. It is loaded through a glob so
+// that a build before the scorer's first run renders "not scored yet" instead of failing.
+export const evalFiles = import.meta.glob('../../../../data/marts/valuation/evaluation.json', { eager: true, import: 'default' });
+export const evaluation = Object.values(evalFiles)[0] ?? null;
+export const scored = (evaluation?.tracks ?? {})[facts.track] ?? {};
+// Everything the prose says about the shape of the pool is counted here, from the mart, so a sentence
+// cannot drift away from the table under it.
+export const pricedRows = companies.filter((c) => c.fwd_pe_2026 != null);
+export const notPlotted = companies.length - pricedRows.length;
+export const scatterOmitted = companies.length - scatterRows(companies).length;
+export const withBothYears = pricedRows.filter((c) => c.fwd_pe_2027 != null);
+export const cheapen = withBothYears.filter((c) => c.fwd_pe_2027 < c.fwd_pe_2026).length;
+export const offDecember = companies.filter((c) => c.fy_end_month !== 12).length;
+export const specialists = pricedRows.filter((c) => c.purity === 'high');
+export const specialistPes = specialists.map((c) => c.fwd_pe_2026);
+export const shareShown = Math.min(SHARE_BARS_LIMIT, share.members.length);
+export const shareTruncated = shareShown < share.n_members ? ` The chart draws the largest ${shareShown} of them.` : '';
+// Exposure of a named extreme, read back from the mart rather than assumed: the widest multiples in
+// this pool belong to a television maker and a laser-chip maker, and a multiple of a whole company is
+// not a multiple of its optical business.
+export const rowFor = (e) => (e ? companies.find((c) => c.ticker === e.ticker) ?? null : null);
+export const ends = [facts.cheapest, facts.priciest].map(rowFor).filter(Boolean);
+export const partialEnds = ends.filter((c) => c.purity !== 'high').map((c) => c.name);
+export const endsProse = partialEnds.length === 0 ? ''
+  : partialEnds.length === ends.length
+    ? ' Both of those extremes are diversified groups, priced on everything they sell rather than on an optical business.'
+    : ` ${partialEnds[0]} is a diversified group, priced on everything it sells rather than on an optical business.`;
+export const endsNote = partialEnds.length === 0 ? ''
+  : partialEnds.length === ends.length ? ', and both ends are diversified groups'
+  : ', and one end is a diversified group';
+export const cheapenClause = withBothYears.length === 0 ? `No listing has a ${y1} multiple yet`
+  : cheapen === withBothYears.length ? `Every priced listing gets cheaper on ${y1}`
+  : `${cheapen} of ${withBothYears.length} priced listings get cheaper on ${y1}`;
+// Accounting basis of the forward EPS, per source, for the footnote the two adjacent columns need.
+export const SOURCE_NAMES = { yahoo: 'Yahoo Finance', eastmoney: 'East Money' };
+export const estimateSources = [...new Set(pricedRows.map((c) => c.estimate_source).filter(Boolean))]
+  .map((s) => SOURCE_NAMES[s] ?? s);
+export const sourcesInUse = estimateSources.length === 0
+  ? 'No listing here carries a consensus today.'
+  : `Today every priced listing here is sourced from ${estimateSources.join(' or ')}.`;
+// Chart-by-chart source attribution: the share bars are built from whichever source supplied each
+// company's revenue, not from the two that happen to sit at positions 2 and 3 of the list.
+export const shareSources = share.sources ?? facts.sources;
+export const priceSources = facts.sources;
+
+export const citedShare = facts.cited_share ?? [];
+export const isIndustryRow = (c) => /^industry\b/i.test(String(c.entity ?? ''));
+export const citedCompanies = citedShare.filter((c) => !isIndustryRow(c));
+export const citedMarket = citedShare.filter(isIndustryRow);
+export const citedValue = (c) => `${c.value}${c.unit && !String(c.unit).startsWith('rank') ? ` ${c.unit}` : ''}`;
+
+export const revisionDays = [...new Set(revisions.map((r) => r.as_of))].sort();
 export const deepest = companies
   .filter((c) => c.n_analysts != null && c.fwd_pe_2026 != null)
   .sort((a, b) => b.n_analysts - a.n_analysts)
-  .slice(0, 5)
+  .slice(0, CONSENSUS_MAX_SERIES)
   .map((c) => c.ticker);
+
+export const evalStatus = (key) => {
+  const r = scored[key];
+  if (!r) return 'Not scored yet — no scorer output was on disk when this page was built.';
+  if (r.status === 'not_yet') return `Not yet: ${r.why}`;
+  const parts = [];
+  if (key === 'valuation_dispersion' && r.p25 != null) parts.push(`quartiles ${x1(r.p25)} to ${x1(r.p75)} across ${r.n_priced} of ${r.n_listings} listings`);
+  if (key === 'revision_persistence' && r.n_transitions != null) parts.push(`${r.n_transitions} transitions over ${r.periods_used} periods`);
+  if (key === 'dual_listing_premium' && r.median_premium != null) parts.push(`median A line over H line ${pct(r.median_premium, 1)} across ${r.pairs.length} pairs`);
+  if (key === 'share_bases') {
+    if (r.rank_correlation) parts.push(`rank correlation ${r.rank_correlation.spearman.toFixed(2)} over ${r.rank_correlation.n} companies, against ${r.rank_correlation.source_name}`);
+    else if (r.rank_correlation_why) parts.push(`no rank correlation yet: ${r.rank_correlation_why}`);
+    if (r.share_difference) parts.push(`${r.share_difference.n} companies quoted a share, median gap ${pct(r.share_difference.median_abs_difference, 1)}`);
+    else if (r.share_difference_why) parts.push(`no share comparison yet: ${r.share_difference_why}`);
+  }
+  if (r.note) parts.push(r.note);
+  return `Reports now: ${parts.join('; ') || 'scored'}`;
+};
 
 <div class="lede">
   <p>
     Across {facts.n_listings} listings, the median optical name trades at {x1(facts.median_fwd_pe_this)} the
     consensus earnings for calendar {y0} and {x1(facts.median_fwd_pe_next)} for {y1}.<Sidenote>Forward PE is the
-    share price divided by the consensus earnings per share for a <em>calendar</em> year. Half this pool does not
-    end its fiscal year in December, so every estimate is restated onto calendar years by month overlap before
-    anything is compared: a June year end makes calendar {y0} half the reported {y0} fiscal year and half the
-    {y0 + 1} fiscal-year estimate.</Sidenote> {facts.cheapest && facts.priciest ? `${facts.priciest.name} is the most
-    expensive at ${x1(facts.priciest.fwd_pe_2026)} and ${facts.cheapest.name} the cheapest at
-    ${x1(facts.cheapest.fwd_pe_2026)}` : 'No listing in the pool has a usable multiple today'}, a spread of
-    {x1(facts.iqr_fwd_pe_this)} between the quartiles. {facts.n_nm} listings have no meaningful multiple at all.
+    share price divided by the consensus earnings per share for a <em>calendar</em> year. {offDecember} of the
+    {facts.n_listings} listings here do not end their fiscal year in December, so every estimate is restated onto
+    calendar years by month overlap before anything is compared: a June year end makes calendar {y0} half the
+    reported {y0} fiscal year and half the {y0 + 1} fiscal-year estimate.</Sidenote> {facts.cheapest && facts.priciest
+    ? `${facts.priciest.name} is the most expensive at ${x1(facts.priciest.fwd_pe_2026)} and ${facts.cheapest.name}
+    the cheapest at ${x1(facts.cheapest.fwd_pe_2026)}, with the quartiles at ${x1(facts.p25_fwd_pe_this)} and
+    ${x1(facts.p75_fwd_pe_this)}.${endsProse}`
+    : 'No listing in the pool has a usable multiple today.'} {specialistPes.length > 1 && `Read only the
+    ${specialists.length} priced listings whose whole business is optical and the range is narrower:
+    ${x1(Math.min(...specialistPes))} to ${x1(Math.max(...specialistPes))}.`} {facts.n_nm} listings have no
+    meaningful multiple at all.
   </p>
   <p>
-    On share, the {share.n_members} listings that publish revenue for this business split a pool of
+    On share, the {share.n_members} listings with a sourced revenue figure for this business split a pool of
     {usd(share.pool_revenue_usd)} over the last twelve months, and the largest three take
     {pct(share.top3_share, 1)} of it.<Sidenote>This is a share of the pool we can source from filings, not of the
-    world market. {share.n_excluded} listed companies are excluded because they never break out optical revenue,
-    and Huawei and the other private vendors are not in it at all. The research houses' own rankings are quoted
-    further down, unchanged, for exactly that reason.</Sidenote>
+    world market. A company enters on one of two bases — its whole income statement, where the whole company
+    competes in this market, or a disclosed segment — and the chart's legend says which basis each bar uses.
+    {share.n_excluded} listed companies are outside it, each with its own reason in the table below, and Huawei
+    and the other private vendors are not in it at all. The research houses' own rankings are quoted further
+    down, unchanged, for exactly that reason.</Sidenote>
   </p>
 </div>
 
 <PipelineStatus lastSnapshot={facts.as_of_price} firstSnapshot={facts.as_of_price} nSnapshots={1} nDays={1} workflow="valuation.yml" cadence="daily for prices, weekly for the consensus" detail={`analyst consensus as of ${asOfEst}, exchange rates as of ${facts.as_of_fx}`} />
 
+<p class="muted">Public data only, and nothing here is investment advice.</p>
+
 <KpiRow>
-  <KpiTile label={`Median forward PE, calendar ${y0}`} value={x1(facts.median_fwd_pe_this)} sub={`${facts.n_with_consensus} of ${facts.n_listings} listings priced · quartiles ${x1(facts.p25_fwd_pe_this)} to ${x1(facts.p75_fwd_pe_this)}`} />
+  <KpiTile label={`Median forward PE, calendar ${y0}`} value={x1(facts.median_fwd_pe_this)} sub={`${facts.n_with_consensus} of ${facts.n_listings} listings have a consensus multiple · quartiles ${x1(facts.p25_fwd_pe_this)} to ${x1(facts.p75_fwd_pe_this)}`} />
   <KpiTile label={`Median consensus growth, ${y0} to ${y1}`} value={pct(facts.median_growth, 1)} sub={`median forward PE falls to ${x1(facts.median_fwd_pe_next)} on ${y1} earnings`} />
   <KpiTile label="Largest three, share of the pool" value={pct(share.top3_share, 1)} sub={share.leader ? `${share.leader.name} leads with ${pct(share.leader.share, 1)}` : 'no computable pool yet'} />
 </KpiRow>
 
-<ChartCard size="full" title={facts.priciest && facts.cheapest ? `The pool spans ${x1(facts.cheapest.fwd_pe_2026)} to ${x1(facts.priciest.fwd_pe_2026)} on ${y0} earnings, and every listing gets cheaper on ${y1}` : 'Forward PE across the pool'} subtitle={`Forward PE on calendar-${y0} and calendar-${y1} consensus EPS, one line per listing, most expensive first; log scale; hollow marks are companies with only partial exposure to optical`}>
-  <VegaChart id="optical-dumbbell" spec={peDumbbellSpec(companies)} height={dumbbellHeight} ariaLabel={`Dumbbell chart of calendar ${y0} and ${y1} forward PE for each listing in the optical pool`} />
-  <details>
-    <summary>Listings with no meaningful multiple</summary>
+<ChartCard size="full" title={facts.priciest && facts.cheapest ? `${cheapenClause}; the ${y0} range runs ${x1(facts.cheapest.fwd_pe_2026)} to ${x1(facts.priciest.fwd_pe_2026)}${endsNote}` : 'Forward PE across the pool'} subtitle={`Forward PE on calendar-${y0} and calendar-${y1} consensus EPS, one line per listing, most expensive first${dumbbellUsesLog(companies) ? '; log scale' : ''}. Filled marks are companies whose whole business is optical, hollow marks diversified groups priced on everything they sell; faded marks are covered by fewer than three analysts, or by an unpublished number of them. ${notPlotted} of ${facts.n_listings} listings are not plotted, each with its reason in the table below.`}>
+  <VegaChart id="optical-dumbbell" spec={peDumbbellSpec(companies)} height={Math.max(220, pricedRows.length * 17 + 90)} ariaLabel={`Dumbbell chart of calendar ${y0} and ${y1} forward PE for each listing in the optical pool`} />
+  <details open={notPlotted * 2 >= facts.n_listings}>
+    <summary>The {notPlotted} listings with no meaningful multiple</summary>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Listing</th><th>Company</th><th>Why there is no multiple</th></tr></thead>
+        <thead><tr><th>Listing</th><th>Company</th><th>Exposure</th><th>Why there is no multiple</th></tr></thead>
         <tbody>
           {companies.filter((c) => c.fwd_pe_2026 == null).map((c) => (
-            <tr><td>{c.ticker}</td><td>{c.name}</td><td>{c.fwd_pe_2026_nm}</td></tr>
+            <tr><td>{c.ticker}</td><td>{c.name}</td><td>{c.purity}</td><td>{c.fwd_pe_2026_nm}</td></tr>
           ))}
         </tbody>
       </table>
     </div>
   </details>
-  <SourceStamp slot="stamp" sources={facts.sources.slice(0, 2)} asOf={asOfPrice} note={`consensus as of ${asOfEst}`} />
+  <SourceStamp slot="stamp" sources={priceSources} asOf={asOfPrice} note={`consensus as of ${asOfEst}`} />
 </ChartCard>
 
-<ChartCard title="A multiple only means something next to the growth it is paying for" subtitle={`Forward PE on calendar-${y0} consensus against the consensus EPS growth from ${y0} to ${y1}; log scale on PE; faded marks are listings covered by fewer than three analysts`}>
+<ChartCard title="A multiple only means something next to the growth it is paying for" subtitle={`Forward PE on calendar-${y0} consensus against the consensus EPS growth from ${y0} to ${y1}${scatterUsesLog(companies) ? '; log scale on PE' : ''}. Filled and hollow marks carry the same meaning as the chart above; faded marks are covered by fewer than three analysts, or by an unpublished number of them. ${scatterOmitted} of ${facts.n_listings} listings are not plotted, for want of a consensus for one year or both.`}>
   <VegaChart id="optical-scatter" spec={peGrowthScatterSpec(companies)} height={380} ariaLabel="Scatter plot of forward PE against expected earnings growth for the optical pool" />
-  <SourceStamp slot="stamp" sources={facts.sources.slice(0, 2)} asOf={asOfEst} />
+  <SourceStamp slot="stamp" sources={priceSources} asOf={asOfEst} />
 </ChartCard>
 
 <Section id="share" title="Market share, on two bases that do not agree" wide>
   <div class="prose">
     <p>
       The first basis is arithmetic: revenue for this business divided by the sum over the pool, every input from a
-      filing.<Sidenote>A company enters only if revenue for optical is actually disclosed: the specialists, whose
-      whole revenue is optical, and any diversified group that publishes a segment figure. The rest are listed as
-      excluded rather than given their group revenue, which would put a network equipment vendor above every
-      specialist and say nothing about modules.</Sidenote> The second basis is quotation: what the research houses
-      and trade bodies have published, reproduced with publisher and date and not recomputed.
+      filing.<Sidenote>Where a company's whole revenue competes in this market, that is the figure used; where a
+      diversified group publishes a segment, the segment is used instead. The bar chart's legend marks which of the
+      two each company is on. Groups with no usable figure on either basis are listed as excluded rather than given
+      their whole revenue, which would put a network equipment vendor above every specialist and say nothing about
+      modules.</Sidenote> The second basis is quotation: what the research houses and trade bodies have published,
+      reproduced with publisher and date and not recomputed.
     </p>
   </div>
-  <ChartCard title={share.leader ? `${share.leader.name} is the largest disclosed optical revenue in the pool at ${pct(share.leader.share, 1)}` : 'Share of the peer pool'} subtitle="Share of trailing-twelve-month revenue across the listings that disclose revenue for this business, converted to US dollars at FRED rates">
-    <VegaChart id="optical-share" spec={shareBarsSpec(share.members)} height={320} ariaLabel="Bar chart of each company's share of the peer pool's trailing revenue" />
-    <SourceStamp slot="stamp" sources={facts.sources.slice(2, 4)} asOf={asOfPrice} />
+  <ChartCard title={share.leader ? `${share.leader.name} is the largest sourced optical revenue in the pool at ${pct(share.leader.share, 1)}` : 'Share of the peer pool'} subtitle={`Share of trailing-twelve-month revenue across the ${share.n_members} listings with a sourced revenue figure for this business, converted to US dollars at FRED rates.${shareTruncated}`}>
+    <VegaChart id="optical-share" spec={shareBarsSpec(share.members, SHARE_BARS_LIMIT)} height={320} ariaLabel="Bar chart of each company's share of the peer pool's trailing revenue" />
+    <SourceStamp slot="stamp" sources={shareSources} asOf={asOfPrice} />
   </ChartCard>
 
-  {facts.cited_share.length > 0 && (
+  {citedCompanies.length > 0 && (
     <div class="table-wrap">
       <table>
-        <caption>Published by others, quoted unchanged</caption>
+        <caption>Company share and rank, published by others and quoted unchanged</caption>
         <thead><tr><th>Company</th><th>What was published</th><th>Value</th><th>Period</th><th>Publisher</th></tr></thead>
         <tbody>
-          {facts.cited_share.map((c) => (
+          {citedCompanies.map((c) => (
             <tr>
-              <td>{c.entity}</td><td>{c.metric}</td><td>{c.value}{c.unit && c.unit !== 'rank' ? ` ${c.unit}` : ''}</td>
+              <td>{c.entity}</td>
+              <td>{c.metric}{c.caveat && <><br /><span class="muted">{c.caveat}</span></>}</td>
+              <td>{citedValue(c)}</td>
+              <td>{c.period}</td>
+              <td><a href={c.source_url}>{c.source_name}</a>{c.publish_date && c.publish_date !== 'unconfirmed' ? `, ${c.publish_date}` : ''}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+
+  {citedMarket.length > 0 && (
+    <div class="table-wrap">
+      <table>
+        <caption>Industry-level figures, published by others and quoted unchanged — the market rather than one company's share of it</caption>
+        <thead><tr><th>Scope</th><th>What was published</th><th>Value</th><th>Period</th><th>Publisher</th></tr></thead>
+        <tbody>
+          {citedMarket.map((c) => (
+            <tr>
+              <td>{c.entity}</td>
+              <td>{c.metric}{c.caveat && <><br /><span class="muted">{c.caveat}</span></>}</td>
+              <td>{citedValue(c)}</td>
               <td>{c.period}</td>
               <td><a href={c.source_url}>{c.source_name}</a>{c.publish_date && c.publish_date !== 'unconfirmed' ? `, ${c.publish_date}` : ''}</td>
             </tr>
@@ -145,14 +245,61 @@ export const deepest = companies
   </details>
 </Section>
 
+{facts.dual_listings.length > 0 && (
+  <Section id="dual" title="The same earnings, priced twice">
+    <div class="prose">
+      <p>
+        {facts.dual_listings.length === 1 ? 'One issuer here is' : `${facts.dual_listings.length} issuers here are`} listed
+        in both mainland China and Hong Kong. Same company, same accounts, same forecasts, two prices. Whatever gap
+        appears is a property of the two markets rather than of the business, which makes it the cleanest control
+        the page has for everything else on it.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Company</th><th>A line</th><th class="num">PE</th><th>H line</th><th class="num">PE</th><th class="num">A over H</th></tr></thead>
+          <tbody>
+            {facts.dual_listings.map((d) => (
+              <tr>
+                <td>{d.name}</td><td>{d.primary}</td><td class="num">{x1(d.primary_pe)}</td>
+                <td>{d.secondary}</td><td class="num">{x1(d.secondary_pe)}</td>
+                <td class="num">{d.premium == null ? '—' : pct(d.premium, 1)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {facts.dual_listings.every((d) => d.premium == null) && (
+        <p class="muted">
+          The comparison column is empty: no H line in this pool has a calendar-{y0} consensus yet, so there is no
+          second multiple to divide by. The "Consensus coverage" check in Data quality is the one that has to pass
+          before this table says anything.
+        </p>
+      )}
+    </div>
+  </Section>
+)}
+
 {deepest.length > 0 && (
-  <ChartCard title="What the published consensus has been saying, for the most heavily covered names" subtitle={`Consensus EPS for calendar ${y1}, as it stood on each date; for the A-shares this is rebuilt from each broker's own report date, so the line moves when new brokers start covering as well as when someone changes their mind`}>
+  <ChartCard title="What the published consensus has been saying, for the most heavily covered names" subtitle={`Consensus EPS for calendar ${y1}, as it stood on each date, for the ${deepest.length} listings with the deepest coverage; ${dayUtc(revisionDays[0])} to ${dayUtc(revisionDays[revisionDays.length - 1])}. For the A-shares this is rebuilt from each broker's own report date, so the line moves when new brokers start covering as well as when someone changes their mind; our own weekly snapshots start with this page and have one point so far.`}>
     <VegaChart id="optical-consensus" spec={consensusSeriesSpec(revisions, deepest, y1)} height={280} ariaLabel="Line chart of the consensus earnings estimate over time for the most covered optical listings" />
-    <SourceStamp slot="stamp" sources={facts.sources.slice(0, 2)} asOf={asOfEst} />
+    <SourceStamp slot="stamp" sources={priceSources} asOf={asOfEst} />
   </ChartCard>
 )}
 
 <Section id="table" title="Every listing" wide>
+  <div class="prose">
+    <p>
+      The two forward columns and the trailing column are not on the same accounting basis, and the difference
+      between them is not all growth.<Sidenote>Trailing PE divides market capitalisation by attributable profit
+      (归母净利润) as reported. The forward columns divide price by consensus earnings per share, and what that
+      means depends on who published the consensus: Yahoo Finance supplies <em>adjusted</em>, non-GAAP EPS, while
+      East Money's Chinese brokers forecast 归母净利润 — the same basis as the trailing column. Adjusted EPS
+      leaves out items GAAP includes, so on a Yahoo-sourced row the trailing and forward multiples are not on one
+      basis and the difference between them is not purely growth; the same caution applies to comparing two
+      forward multiples from different sources. The Estimate source column says which row is which.
+      {' '}{sourcesInUse}</Sidenote>
+    </p>
+  </div>
   <FilterBar target="optical-table" placeholder="Search company or ticker…" selects={[
     { column: 'purity', label: 'Exposure', options: ['high', 'partial'] },
     { column: 'coverage', label: 'Analyst coverage', options: ['covered', 'thin', 'unknown'] },
@@ -160,6 +307,7 @@ export const deepest = companies
   ]} />
   <DataTable id="optical-table" filterKeys={['purity', 'coverage', 'market']} columns={[
     { key: 'ticker', label: 'Listing' }, { key: 'name', label: 'Company' },
+    { key: 'purity', label: 'Exposure' },
     { key: 'price', label: 'Price', format: 'fixed1' }, { key: 'price_currency', label: 'Ccy' },
     { key: 'trailing_pe', label: 'Trailing PE', format: 'fixed1' },
     { key: 'ttm_basis', label: 'Earnings basis' },
@@ -168,8 +316,9 @@ export const deepest = companies
     { key: 'growth', label: 'EPS growth', format: 'pct' },
     { key: 'n_analysts', label: 'Analysts', format: 'num' },
     { key: 'dispersion', label: 'Forecast spread', format: 'pct' },
+    { key: 'estimate_source', label: 'Estimate source' },
     { key: 'ttm_revenue', label: 'Revenue TTM', format: 'usd' },
-  ]} rows={companies} caption="Click a column header to sort. Prices and revenue are in each listing's own currency; the multiples convert the consensus into the price currency before dividing. Earnings basis 'ttm' is a real trailing twelve months; 'last_fy' is the last full fiscal year, used where no quarterly statement is published." />
+  ]} rows={companies} caption="Click a column header to sort. Exposure 'high' is a company whose whole business is optical; 'partial' is a diversified group whose multiple prices everything it sells. Prices and revenue are in each listing's own currency; the multiples convert the consensus into the price currency before dividing. Earnings basis 'ttm' is a real trailing twelve months; 'last_fy' is the last full fiscal year, used where no quarterly statement is published." />
   <p>
     <DownloadCsv filename="optical_valuation.csv" src="/data/marts/valuation/optical_companies.json" label="Download this table (CSV)" />{' '}
     <DownloadCsv filename="optical_consensus_history.csv" src="/data/marts/valuation/optical_revisions.json" label="Download the consensus history (CSV)" />
@@ -181,22 +330,38 @@ export const deepest = companies
 <Section id="method" title="Method">
   <div class="prose">
     <p><strong>Question.</strong> What is the listed optical-module and optical-component world being priced at right now, how much of that price is the growth analysts expect next year, and who actually has the revenue?</p>
-    <p><strong>Pool.</strong> {facts.n_listings} listings across {facts.n_issuers} companies in mainland China, the United States, Japan, Taiwan and Hong Kong. Companies are labelled by how much of them is optical: the specialists, and the diversified groups that sell optical alongside something larger. Diversified groups stay in the valuation table because their multiple is a real comparison point, but they only enter the share table if they disclose optical revenue separately. Dual-listed issuers appear once per listing, because the whole point is that the same earnings are priced differently in two markets.</p>
+    <p><strong>Pool.</strong> {facts.n_listings} listings across {facts.n_issuers} companies in mainland China, the United States, Japan, Taiwan and Hong Kong. Companies are labelled by how much of them is optical: the specialists, and the diversified groups that sell optical alongside something larger. Diversified groups stay in the valuation table because their multiple is a real comparison point, but the charts draw them hollow and the share table takes their whole revenue only where the whole company competes in this market. Dual-listed issuers appear once per listing, because the whole point is that the same earnings are priced differently in two markets.</p>
     <p><strong>Prices and consensus.</strong> Prices, market caps and non-Chinese analyst consensus come from Yahoo Finance; A-share consensus is built from East Money's per-broker forecasts, taking each house's most recent report, which gives a broker count and a forecast range rather than a single blended number. Trailing earnings come from SEC XBRL for the US listings, East Money's quarterly reports for the A-shares, and Yahoo elsewhere; cumulative filings are differenced into quarters before being summed into a trailing twelve months.</p>
-    <p><strong>Definitions.</strong> Trailing PE is market capitalisation over trailing-twelve-month attributable profit, which avoids the share-count conventions that differ across these markets. Forward PE is price over calendar-year consensus EPS. Growth is the consensus for {y1} over the consensus for {y0}. Forecast spread is the gap between the highest and lowest broker forecast as a share of the mean. Every ratio converts currencies explicitly at FRED rates, because a listing's price currency, reporting currency and consensus currency can all be different.</p>
-    <p><strong>What is deliberately missing.</strong> A negative or absent denominator produces no number and a written reason, never a negative multiple. Companies covered by fewer than three analysts are marked thin and drawn faded, because a two-broker "consensus" is two opinions.</p>
+    <p><strong>Definitions.</strong> Trailing PE is market capitalisation over trailing-twelve-month attributable profit, which avoids the share-count conventions that differ across these markets. Forward PE is price over calendar-year consensus EPS, which is adjusted non-GAAP earnings where Yahoo supplies it and 归母净利润 where a Chinese broker does — see the note above the table. Growth is the consensus for {y1} over the consensus for {y0}. Forecast spread is the gap between the highest and lowest broker forecast as a share of the mean. Every ratio converts currencies explicitly at FRED rates, because a listing's price currency, reporting currency and consensus currency can all be different.</p>
+    <p><strong>What is deliberately missing.</strong> A negative or absent denominator produces no number and a written reason, never a negative multiple. Companies covered by fewer than three analysts, or by an unpublished number of them, are drawn faded, because a two-broker "consensus" is two opinions.</p>
   </div>
 </Section>
 
 <Section id="evaluation" title="Evaluation (pre-registered)">
   <div class="prose">
-    <p>The scoring rules were committed in <a href={plan.url}>docs/EVALUATION_PLAN.md</a> (git blob <code>{plan.short}</code>, <a href={plan.history}>history</a>) before the first snapshot was published, so they cannot be tuned to the answer.</p>
+    <p>The scoring rules are fixed in <a href={plan.url}>docs/EVALUATION_PLAN.md</a> (git blob <code>{plan.short}</code>, <a href={plan.history}>history</a>). They went in with the first snapshot, in the same commit, so the history cannot show that they predate the first result — what it does show is the blob hash below, which changes if a single character of the rules changes after today. Read it as a commitment from here on, not as proof of what came first.</p>
+    <p class="muted">{evaluation ? `Scored by pipelines/valuation/evaluate.py, last run ${dateUtc(evaluation.generated_at)}.` : 'The scorer has not written an output file yet, so every item below reads as unscored.'}</p>
     <ul>
-      <li><strong>Consensus accuracy.</strong> The calendar-{y0} consensus captured at the end of this month against reported {y0} results, split by data source, by track and by whether coverage was thin. Baselines: last reported annual EPS unchanged, and East Money's own six-month mean. Scored from spring {y0 + 1}.</li>
-      <li><strong>Revision persistence.</strong> Whether a consensus that moved up keeps moving up four weeks later, as a transition matrix. Only true revision series count: East Money's rebuilt history is excluded because its mean moves with broker coverage as well as with opinion.</li>
-      <li><strong>Valuation dispersion.</strong> The quartile spread of forward PE each quarter, reported next to the number of priced listings, because a spread that narrows because companies dropped out has not narrowed.</li>
-      <li><strong>Same earnings, two prices.</strong> The A-line over H-line multiple for dual-listed issuers, as the control for the item above.</li>
-      <li><strong>Computed share against cited share.</strong> Rank correlation and median gap between the two bases, with the gap attributed to private vendors, non-disclosing companies, or a different market definition.</li>
+      <li>
+        <strong>Consensus accuracy.</strong> The calendar-{y0} consensus captured at the end of this month against reported {y0} results, split by data source, by track and by whether coverage was thin. Baselines: last reported annual EPS unchanged, and East Money's own six-month mean. Scored from spring {y0 + 1}.
+        <br /><span class="muted">{evalStatus('consensus_accuracy')}</span>
+      </li>
+      <li>
+        <strong>Revision persistence.</strong> Whether a consensus that moved up keeps moving up four weeks later, as a transition matrix. Only true revision series count: East Money's rebuilt history is excluded because its mean moves with broker coverage as well as with opinion.
+        <br /><span class="muted">{evalStatus('revision_persistence')}</span>
+      </li>
+      <li>
+        <strong>Valuation dispersion.</strong> The quartile spread of forward PE each quarter, reported next to the number of priced listings, because a spread that narrows because companies dropped out has not narrowed.
+        <br /><span class="muted">{evalStatus('valuation_dispersion')}</span>
+      </li>
+      <li>
+        <strong>Same earnings, two prices.</strong> The A-line over H-line multiple for dual-listed issuers, as the control for the item above.
+        <br /><span class="muted">{evalStatus('dual_listing_premium')}</span>
+      </li>
+      <li>
+        <strong>Computed share against cited share.</strong> Rank correlation and median gap between the two bases, with the gap attributed to private vendors, non-disclosing companies, or a different market definition.
+        <br /><span class="muted">{evalStatus('share_bases')}</span>
+      </li>
     </ul>
   </div>
 </Section>

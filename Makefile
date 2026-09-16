@@ -26,16 +26,19 @@ sec:              ## SEC XBRL ingest + transform (needs SEC_USER_AGENT with a co
 	uv run python -m pipelines.sec.ingest
 	uv run python -m pipelines.sec.transform
 
+# Each fetch is prefixed with `-` so one dead ticker or one throttled source cannot stop the others,
+# which is the same isolation the Actions workflow gets from continue-on-error. Every module still
+# exits non-zero on its own failures and prints what it lost, and `publish` runs on whatever arrived.
 valuation:        ## prices, FX, analyst consensus and fundamentals for the valuation pages
-	uv run python -m pipelines.valuation.fx
-	uv run python -m pipelines.valuation.prices
-	uv run python -m pipelines.valuation.estimates_yf
-	uv run python -m pipelines.valuation.estimates_em
-	uv run python -m pipelines.valuation.fundamentals
+	-uv run python -m pipelines.valuation.fx
+	-uv run python -m pipelines.valuation.prices
+	-uv run python -m pipelines.valuation.estimates_yf
+	-uv run python -m pipelines.valuation.estimates_em
+	-uv run python -m pipelines.valuation.fundamentals
 
 valuation-daily:  ## the weekday run: prices and FX only, then rebuild the pages
-	uv run python -m pipelines.valuation.fx
-	uv run python -m pipelines.valuation.prices
+	-uv run python -m pipelines.valuation.fx
+	-uv run python -m pipelines.valuation.prices
 	uv run python -m pipelines.valuation.publish
 
 publish:          ## rebuild every mart and facts file from the snapshots

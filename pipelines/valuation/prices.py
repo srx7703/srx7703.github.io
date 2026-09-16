@@ -99,6 +99,12 @@ MIN_INTERVAL = 0.6  # seconds between tickers; 68 listings -> ~40 s of pacing pe
 MAX_ATTEMPTS = 4  # total tries per ticker when rate-limited (>= 3 required)
 BACKOFF_BASE = 5.0  # first retry sleeps this long, then doubles
 BACKOFF_CAP = 60.0
+# A wall-clock ceiling for the whole run. Retrying each listing is right; retrying all of them through a
+# rate limit is not. Yahoo answers a soft block with an empty payload for every ticker, so per-listing
+# backoff alone can run for an hour and be killed by the job timeout mid-loop, losing even the listings
+# that answered. Past the deadline the loop stops, records what is left as skipped, and lets the caller
+# write the rows it already has; the next scheduled run picks up the rest.
+RUN_DEADLINE_SECONDS = 15 * 60
 
 STALE_AFTER_HOURS = 96.0  # a quote older than this (weekend + holiday) is worth flagging
 
@@ -400,12 +406,17 @@ def fetch_prices(
     ts: datetime | None = None,
     min_interval: float = MIN_INTERVAL,
     attempts: int = MAX_ATTEMPTS,
+    deadline_seconds: float | None = RUN_DEADLINE_SECONDS,
 ) -> tuple[list[dict], list[str], list[str]]:
     """Fetch every listing.
 
     Returns (rows, failed tickers, error strings); a failure never stops the others. The error text
     goes into the run record because runs.jsonl is permanent while the Actions log that holds the
     reason expires -- "failed: [15 tickers]" months later cannot tell a rate limit from a delisting.
+
+    `deadline_seconds` bounds the whole loop, not each listing: past it the remaining listings are
+    recorded as skipped rather than attempted, so a rate-limited run ends with the rows it did get
+    instead of being killed by the job timeout with nothing written.
     """
     stamp = ts or utc_now()
     date, hhmm = run_stamp(stamp)
@@ -439,6 +450,20 @@ def fetch_prices(
             failed.append(company.ticker)
             errors.append(f"{company.ticker}: {exc!r}")
             log.warning("[%d/%d] %s failed: %s", i, len(todo), company.ticker, exc)
+        if deadline_seconds is not None and time.monotonic() - started > deadline_seconds:
+            skipped = [c.ticker for c in todo[i:]]
+            if skipped:
+                failed.extend(skipped)
+                errors.append(
+                    f"deadline of {deadline_seconds:.0f}s reached after {i} of {len(todo)} listings; "
+                    f"skipped {len(skipped)}: {', '.join(skipped[:8])}"
+                    + (" ..." if len(skipped) > 8 else "")
+                )
+                log.error(
+                    "deadline reached after %d of %d listings; %d skipped and left for the next run",
+                    i, len(todo), len(skipped),
+                )
+            break
     log.info(
         "fetched %d/%d listings in %.1fs (%d calls, %d failed)",
         len(rows),

@@ -1,15 +1,28 @@
 import { VL_SCHEMA, series } from '../theme';
 import type { ShareMember } from './types';
 
+/** How many bars the chart draws. The page states the cap in the subtitle rather than truncating silently. */
+export const SHARE_BARS_LIMIT = 12;
+
+const SEGMENT_LABEL = 'disclosed segment revenue';
+const WHOLE_LABEL = 'whole-company revenue';
+
+/** True when publish.py recorded a segment figure rather than consolidated revenue, however it words it. */
+const isSegment = (basis: string | null | undefined) => /segment/i.test(String(basis ?? ''));
+
 /**
  * Share of the peer pool's trailing revenue. This is a share of the listed companies we can source,
  * not of the world market: private vendors and companies that do not disclose revenue for the track
  * are absent, and the page says who and why.
+ *
+ * The legend says where each company's revenue number came from — its whole income statement, or a
+ * disclosed segment — and nothing else. It used to append a claim that the track was the company's
+ * whole business, which on the battery page told the reader that CATL's business is solid-state.
  */
-export function shareBarsSpec(members: ShareMember[], limit = 12) {
+export function shareBarsSpec(members: ShareMember[], limit = SHARE_BARS_LIMIT) {
   const rows = members.slice(0, limit).map((m) => ({
     ...m,
-    basis_label: m.basis === 'total revenue' ? 'total revenue (the track is the business)' : 'disclosed segment revenue',
+    basis_label: isSegment(m.basis) ? SEGMENT_LABEL : WHOLE_LABEL,
   }));
   return {
     $schema: VL_SCHEMA,
@@ -24,17 +37,14 @@ export function shareBarsSpec(members: ShareMember[], limit = 12) {
       },
       color: {
         field: 'basis_label', type: 'nominal',
-        scale: {
-          domain: ['total revenue (the track is the business)', 'disclosed segment revenue'],
-          range: [series.a, series.neutral],
-        },
+        scale: { domain: [WHOLE_LABEL, SEGMENT_LABEL], range: [series.a, series.neutral] },
         legend: { title: null, orient: 'top', direction: 'vertical', symbolType: 'square' },
       },
       tooltip: [
         { field: 'name', type: 'nominal', title: 'Company' },
         { field: 'share', type: 'quantitative', title: 'Share of pool', format: '.1%' },
         { field: 'revenue_usd', type: 'quantitative', title: 'Revenue, TTM (USD)', format: '$,.0f' },
-        { field: 'basis_label', type: 'nominal', title: 'Revenue basis' },
+        { field: 'basis', type: 'nominal', title: 'Revenue basis' },
         { field: 'period_end', type: 'nominal', title: 'As of' },
       ],
     },

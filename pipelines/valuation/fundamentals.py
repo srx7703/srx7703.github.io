@@ -34,15 +34,36 @@ table where nothing can mistake it for a quarter.
 
 The two tables are read back through :func:`load_ttm`, which gives one trailing figure per ticker:
 a real trailing twelve months (``basis="ttm"``) wherever four clean quarters exist, and the last
-full fiscal year (``basis="last_fy"``) for the nine listings - 3931.HK, 5019.T, 5801.T, 5802.T,
-5803.T, 6752.T, 6762.T, 6810.T, IKA.L - that Yahoo publishes no quarterly statement for at all.
-A ``last_fy`` figure is not a TTM: it ends at the company's fiscal year end and can be a year old.
-Anything that prints it should print the basis with it.
+full fiscal year (``basis="last_fy"``) otherwise. On the 2026-09-16 snapshot that is *eleven*
+listings, and not all for the same reason:
+
+    no quarterly statement at all (nine)  3931.HK, 5019.T, 5801.T, 5802.T, 5803.T, 6752.T, 6762.T,
+                                          6810.T, IKA.L. Yahoo publishes none for these.
+    quarters on file, no clean window (two)
+                                          3081.TWO has five quarterly rows, but 2025-09-30 is
+                                          missing, so its last four span 456 days and fail the
+                                          330-400 day test. 6981.T has four contiguous quarters
+                                          whose newest ends 2025-09-30, older than TTM_MAX_AGE_DAYS.
+
+Anything reporting why a listing fell back has to keep those apart: "no quarterly statement is
+published for them" is false for the last two, and 3081.TWO's multiple is struck on a fiscal year
+with four quarters sitting unusable beside it. A ``last_fy`` figure is not a TTM either way - it
+ends at the company's fiscal year end and can be a year old - so anything that prints it should
+print the basis with it.
 
 Partial runs are normal (``--tickers`` / ``--source``), so a same-date write merges over whatever is
 already on disk for that date - new rows win on (ticker, period_end) and nothing an earlier run
 fetched is lost - and a run that produced no rows at all writes nothing rather than emptying a good
-table. See :func:`_merge_existing`.
+table. See :func:`_merge_existing`. Raw payloads are append-only evidence (``CLAUDE.md`` rule 2):
+:func:`_raw_path` never returns a name already on disk, so a rerun cannot replace the payload the
+earlier run's parquet was built from, not even one landing in the same minute.
+
+One listing failing must not lose the others, and neither must one bad row. Each primary is fetched
+inside its own guard, and each *listing's* rows then go through the frame build and pandera inside a
+second one (:func:`validate_listing`), so a value polars or pandera rejects costs exactly that
+listing and is named in the run record instead of taking the pool with it. The writes are guarded
+too: if one fails, nothing lands, the reason is recorded in ``fundamentals_runs.jsonl`` with the rest
+of the run, and the process exits non-zero.
 """
 
 from __future__ import annotations
@@ -129,6 +150,7 @@ FY_SPAN_SLACK = 35  # how far a gap may sit from a whole number of years and sti
 TTM_MAX_AGE_DAYS = 200
 ANNUAL_MAX_AGE_DAYS = 550
 RECENT_DROP_DAYS = 400  # a dropped period this recent breaks the listing's current TTM window
+MAX_ARCHIVES = 64  # payloads archived for one key on one date before a run gives up (see `_raw_path`)
 
 
 class SourceError(RuntimeError):
@@ -178,10 +200,26 @@ def _key(ticker: str) -> str:
 
 def _raw_path(source: str, day: str, key: str, hhmm: str) -> Path:
     """Raw archive path. Raw files are append-only evidence: a same-day rerun gets its own file
-    rather than overwriting the payload already on disk."""
+    rather than overwriting the payload already on disk.
+
+    Every candidate is tried, not just ``__HHMM``: two runs inside the same minute (a cron run and a
+    manual re-run colliding) used to land on the same name, so the second silently replaced the
+    first run's payload and left a parquet no longer reproducible from its own raw layer. Same
+    ladder as ``fx.archive_csv`` and the two estimates modules; unlike them this only picks the
+    name, so an identical body is archived again rather than recognised — append-only is the
+    property that matters, and a duplicate costs a few KB.
+    """
     base = RAW_DIR / "valuation" / source / day
-    path = base / f"{key}.json.gz"
-    return path if not path.exists() else base / f"{key}__{hhmm}.json.gz"
+    for n in range(MAX_ARCHIVES):
+        if n == 0:
+            path = base / f"{key}.json.gz"
+        elif n == 1:
+            path = base / f"{key}__{hhmm}.json.gz"
+        else:
+            path = base / f"{key}__{hhmm}_{n}.json.gz"
+        if not path.exists():
+            return path
+    raise RuntimeError(f"too many archives for {key} at {hhmm} in {base}")
 
 
 def owner(c: Company) -> Company:
@@ -625,8 +663,8 @@ def load_ttm(as_of: str | None = None, **kwargs: Any) -> dict[str, dict]:
     """:func:`ttm_by_ticker` over the newest snapshot of both fundamentals tables.
 
     This is the entry point ``publish.load_all`` should call: looping ``ttm_from_quarters`` over
-    ``read.load("fundamentals")`` alone leaves the nine annual-only listings with no trailing PE and
-    applies no age gate. ``as_of`` defaults to today, which is what turns the age gates on.
+    ``read.load("fundamentals")`` alone leaves the eleven ``last_fy`` listings with no trailing PE
+    and applies no age gate. ``as_of`` defaults to today, which is what turns the age gates on.
     """
     as_of = as_of or utc_now().date().isoformat()
     return ttm_by_ticker(
@@ -823,6 +861,19 @@ def select(tickers: str | None, sources: str | None) -> list[Company]:
     return chosen
 
 
+def validate_listing(rows: list[dict], annual: list[dict]) -> None:
+    """Prove one listing's rows survive the frame build and pandera, before they join the pool.
+
+    Framing and validating only the combined table would put both calls outside the per-listing
+    guard, which is the one shape the isolation rule exists to forbid: a single row polars or
+    pandera rejects would take every other listing's data with it, and the run record after it.
+    Same reasoning and same placement as ``estimates_yf.validate_rows`` and ``estimates_em``.
+    """
+    for part in (rows, annual):
+        if part:
+            FUNDAMENTALS_SCHEMA.validate(fundamentals_frame(part))
+
+
 def build(targets: list[Company], snapshot_ts: str, day: str, hhmm: str) -> dict:
     """Fetch every distinct primary once, then fan the rows back out to the listings that use them."""
 
@@ -901,17 +952,28 @@ def build(targets: list[Company], snapshot_ts: str, day: str, hhmm: str) -> dict
 
     out: list[dict] = []
     annual_out: list[dict] = []
+    invalid: dict[str, str] = {}
     for c in targets:
         base = rows_by_primary.get(c.primary)
         if base is None:
             continue
         src = source_of(c)
-        clean, drops = clean_rows(base, c.ticker, src, snapshot_ts)
+        try:
+            clean, drops = clean_rows(base, c.ticker, src, snapshot_ts)
+            ann, ann_drops = clean_rows(annual_by_primary.get(c.primary, []), c.ticker, src, snapshot_ts)
+            # Inside the guard, so a value polars or pandera rejects costs this listing and no other.
+            # The frame build and the schema call used to happen once, over the whole pool, outside
+            # every try: one bad row lost all 68 listings *and* the fundamentals_runs.jsonl line that
+            # would have explained where the day's data went.
+            validate_listing(clean, ann)
+        except Exception as exc:  # noqa: BLE001 - isolation: one listing must never sink the rest
+            invalid[c.ticker] = repr(exc)
+            log.exception("%s: rows rejected before the write; dropped, the rest of the pool stands", c.ticker)
+            continue
         out += clean
         dropped += drops
         if c.primary != c.ticker:
             log.info("%s: %d quarters copied from %s", c.ticker, len(clean), c.primary)
-        ann, ann_drops = clean_rows(annual_by_primary.get(c.primary, []), c.ticker, src, snapshot_ts)
         annual_out += ann
         dropped += ann_drops
 
@@ -923,6 +985,7 @@ def build(targets: list[Company], snapshot_ts: str, day: str, hhmm: str) -> dict
         "coverage": coverage,
         "dropped": dropped,
         "failed": failed,
+        "invalid": invalid,
         "primaries": primaries,
     }
 
@@ -988,6 +1051,7 @@ def main(argv: list[str] | None = None) -> int:
     snapshot_ts = ts.isoformat(timespec="seconds")
     result = build(targets, snapshot_ts, day, hhmm)
     rows, annual, failed, dropped = result["rows"], result["annual"], result["failed"], result["dropped"]
+    invalid: dict[str, str] = result["invalid"]
 
     # Write whatever we did get, before reporting failure.
     per_ticker: dict[str, int] = {}
@@ -996,36 +1060,48 @@ def main(argv: list[str] | None = None) -> int:
     annual_tickers = {r["ticker"] for r in annual}
     thin = sorted(t for t, n in per_ticker.items() if n < MIN_QUARTERS)
     # Yahoo publishes no quarterly income statement at all for several HK and JP listings; those
-    # listings are carried by the annual table rather than being a failure.
+    # listings are carried by the annual table rather than being a failure. A listing dropped for a
+    # rejected row is not one of them and must not be reported as "no quarterly statement".
     empty = sorted(
-        c.ticker for c in targets if c.ticker not in per_ticker and c.primary not in result["failed"]
+        c.ticker
+        for c in targets
+        if c.ticker not in per_ticker and c.primary not in result["failed"] and c.ticker not in invalid
     )
     annual_only = [t for t in empty if t in annual_tickers]
 
-    df = fundamentals_frame(rows)
-    FUNDAMENTALS_SCHEMA.validate(df)
+    # Both writes are guarded: the frame build and the schema call used to sit outside every try, so
+    # a failure here took the fundamentals_runs.jsonl line with it and the run that lost the day's
+    # data left nothing that said so. Now nothing is written, the reason is named, and the run is
+    # recorded and exits non-zero like any other failure.
     path = None
-    if rows:
-        target = SNAP_DIR / "valuation" / "fundamentals" / f"{day}.parquet"
-        df = _merge_existing(df, target, FUNDAMENTAL_KEY)
-        FUNDAMENTALS_SCHEMA.validate(df)
-        path = write_parquet(df, target)
-        log.info("wrote %s (%d rows, %d listings this run)", path, df.height, len(per_ticker))
-    else:
-        # Every primary failed, or every source answered with nothing. Writing the empty frame would
-        # replace a good table with a hole and, on a new date, make that hole the newest snapshot
-        # read.load() sees - so the run is recorded and the table is left exactly as it is.
-        log.error("no rows fetched; leaving the %s snapshot untouched rather than emptying it", day)
-
     annual_path = None
-    if annual:
-        adf = fundamentals_frame(annual)
-        FUNDAMENTALS_SCHEMA.validate(adf)
-        annual_target = SNAP_DIR / "valuation" / "fundamentals_annual" / f"{day}.parquet"
-        adf = _merge_existing(adf, annual_target, FUNDAMENTAL_KEY)
-        FUNDAMENTALS_SCHEMA.validate(adf)
-        annual_path = write_parquet(adf, annual_target)
-        log.info("wrote %s (%d annual rows)", annual_path, adf.height)
+    table_rows: int | None = None
+    annual_table_rows: int | None = None
+    write_error: str | None = None
+    try:
+        if rows:
+            target = SNAP_DIR / "valuation" / "fundamentals" / f"{day}.parquet"
+            df = _merge_existing(fundamentals_frame(rows), target, FUNDAMENTAL_KEY)
+            FUNDAMENTALS_SCHEMA.validate(df)
+            path = write_parquet(df, target)
+            table_rows = df.height
+            log.info("wrote %s (%d rows, %d listings this run)", path, df.height, len(per_ticker))
+        else:
+            # Every primary failed, or every source answered with nothing. Writing the empty frame
+            # would replace a good table with a hole and, on a new date, make that hole the newest
+            # snapshot read.load() sees - so the run is recorded and the table is left as it is.
+            log.error("no rows fetched; leaving the %s snapshot untouched rather than emptying it", day)
+
+        if annual:
+            annual_target = SNAP_DIR / "valuation" / "fundamentals_annual" / f"{day}.parquet"
+            adf = _merge_existing(fundamentals_frame(annual), annual_target, FUNDAMENTAL_KEY)
+            FUNDAMENTALS_SCHEMA.validate(adf)
+            annual_path = write_parquet(adf, annual_target)
+            annual_table_rows = adf.height
+            log.info("wrote %s (%d annual rows)", annual_path, adf.height)
+    except Exception as exc:  # noqa: BLE001 - the run record is written either way, and says why
+        log.exception("writing the %s snapshots failed", day)
+        write_error = repr(exc)
 
     recent = _recent_drops(dropped, day)
     recent_names = sorted({f"{d.get('ticker')} {d.get('period_end')}" for d in recent})
@@ -1034,13 +1110,23 @@ def main(argv: list[str] | None = None) -> int:
     checks = [
         check(
             "Snapshot written",
-            bool(rows or annual),
-            (
+            bool(rows or annual) and write_error is None,
+            f"the write failed, nothing landed, the snapshots on disk were left as they are: {write_error}"
+            if write_error
+            else (
                 f"{len(rows)} quarterly rows for {len(per_ticker)} listings"
                 + (f", {len(annual)} annual rows" if annual else "")
             )
             if (rows or annual)
             else "no rows fetched from any source; the snapshots on disk were left as they are",
+        ),
+        check(
+            "Rows validated",
+            not invalid,
+            f"{len(invalid)} listing(s) dropped for a row the schema rejected: "
+            + "; ".join(f"{t}: {why}" for t, why in sorted(invalid.items()))
+            if invalid
+            else f"every one of {len(per_ticker)} listings passed the schema before the write",
         ),
         check(
             "Listings fetched",
@@ -1094,10 +1180,14 @@ def main(argv: list[str] | None = None) -> int:
             "listings": len(targets),
             "primaries": len(result["primaries"]),
             "rows": len(rows),  # rows this run produced
-            "table_rows": df.height if rows else None,  # rows in the table after merging the date
+            "table_rows": table_rows,  # rows in the table after merging the date; None if not written
             "snapshot": str(path) if path else None,  # None when the run wrote nothing
             "annual_rows": len(annual),
+            "annual_table_rows": annual_table_rows,
+            "annual_snapshot": str(annual_path) if annual_path else None,
             "failed": failed,
+            "invalid": invalid,  # listings dropped because their own rows failed the schema
+            "write_error": write_error,
             "affected": _affected(targets, failed),
             "dropped": dropped,
             "thin": thin,
@@ -1110,6 +1200,12 @@ def main(argv: list[str] | None = None) -> int:
     )
     if failed:
         log.error("%d of %d primaries failed: %s", len(failed), len(result["primaries"]), ", ".join(sorted(failed)))
+        return 1
+    if invalid:
+        log.error("%d listing(s) dropped for a rejected row: %s", len(invalid), ", ".join(sorted(invalid)))
+        return 1
+    if write_error is not None:
+        log.error("the snapshot write failed: %s", write_error)
         return 1
     if not rows and not annual:
         log.error("no rows fetched from any source; nothing was written")

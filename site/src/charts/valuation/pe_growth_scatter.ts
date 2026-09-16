@@ -1,23 +1,31 @@
 import { VL_SCHEMA, series, tok } from '../theme';
-import { type CompanyRow, PURITY_DOMAIN, priced, purityOf } from './types';
+import { type CompanyRow, PURITY_DOMAIN, isThin, peScale, priced, purityOf, spansOrders } from './types';
+
+/** The listings the scatter can draw: priced, and with a growth figure to put them on the x axis. */
+export const scatterRows = (rows: CompanyRow[]) => priced(rows).filter((r) => r.growth != null);
+
+/** True when the chart draws a log axis, so the page can say "log scale" only when it is one (rule 13). */
+export const scatterUsesLog = (rows: CompanyRow[]) => spansOrders(scatterRows(rows).map((r) => r.fwd_pe_2026));
 
 /**
  * Forward PE against the growth the consensus expects. A multiple only means something next to the
  * growth it is paying for, so this is the chart that separates "expensive" from "expensive for a reason".
+ *
+ * Exposure is in the mark and not in the colour (docs/CHART_RULES.md rule 14), matching the dumbbell
+ * above it: filled is a company whose whole business is the track, hollow is a diversified company
+ * priced on everything it sells. Opacity means thin (or unpublished) analyst coverage on both charts.
  */
 export function peGrowthScatterSpec(rows: CompanyRow[]) {
-  const plotted = priced(rows)
-    .filter((r) => r.growth != null)
-    .map((r) => ({
-      ticker: r.ticker,
-      name: r.name,
-      pe: r.fwd_pe_2026,
-      growth: r.growth,
-      coverage: r.coverage,
-      n_analysts: r.n_analysts,
-      purity: purityOf(r),
-      thin: r.coverage === 'thin',
-    }));
+  const plotted = scatterRows(rows).map((r) => ({
+    ticker: r.ticker,
+    name: r.name,
+    pe: r.fwd_pe_2026,
+    growth: r.growth,
+    coverage: r.coverage,
+    n_analysts: r.n_analysts,
+    purity: purityOf(r),
+    thin: isThin(r),
+  }));
   const tooltip = [
     { field: 'name', type: 'nominal', title: 'Company' },
     { field: 'ticker', type: 'nominal', title: 'Listing' },
@@ -32,19 +40,26 @@ export function peGrowthScatterSpec(rows: CompanyRow[]) {
     layer: [
       {
         data: { values: plotted },
-        mark: { type: 'point', filled: true, size: 95, stroke: tok('surface'), strokeWidth: 2, clip: true },
+        mark: { type: 'point', filled: false, size: 95, strokeWidth: 2, clip: true },
         encoding: {
           x: {
             field: 'growth', type: 'quantitative', title: 'Consensus EPS growth, 2026E to 2027E',
-            axis: { format: '+.0%', tickCount: 6 },
+            scale: { nice: true, zero: false, padding: 12 }, axis: { format: '+.0%', tickCount: 6 },
           },
           y: {
             field: 'pe', type: 'quantitative', title: 'Forward PE on calendar-2026 consensus',
-            scale: { type: 'log', nice: false }, axis: { tickCount: 6, format: '.0f' },
+            scale: peScale(plotted.map((r) => r.pe)), axis: { tickCount: 6, format: '.0f' },
           },
-          color: {
-            field: 'purity', type: 'nominal', scale: { domain: PURITY_DOMAIN, range: [series.a, series.neutral] },
-            legend: { title: null, orient: 'top', direction: 'horizontal', symbolType: 'circle' },
+          // One colour for every listing: the colour channel carries no variable here, so exposure can
+          // have the mark. The hollow entry in the legend is a real outline, not an empty swatch.
+          stroke: { value: series.a },
+          fill: {
+            field: 'purity', type: 'nominal',
+            scale: { domain: PURITY_DOMAIN, range: [series.a, tok('bg')] },
+            legend: {
+              title: null, orient: 'top', direction: 'horizontal', symbolType: 'circle',
+              symbolStrokeColor: series.a, symbolStrokeWidth: 2, symbolSize: 110,
+            },
           },
           opacity: { condition: { test: 'datum.thin', value: 0.4 }, value: 1 },
           tooltip,

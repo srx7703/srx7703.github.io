@@ -22,9 +22,15 @@ from __future__ import annotations
 
 import logging
 import math
+from collections.abc import Collection, Iterable, Mapping
 from datetime import date
 
-from pipelines.valuation.calendarize import CalendarEstimate, calendarize, from_rows
+from pipelines.valuation.calendarize import (
+    CalendarEstimate,
+    CalendarResult,
+    calendar_estimate_or_reason,
+    from_rows,
+)
 from pipelines.valuation.config import THIN_COVERAGE_BELOW, Company
 
 log = logging.getLogger("valuation.metrics")
@@ -40,6 +46,11 @@ NM_NEG_FORECAST = "consensus forecasts a loss"
 NM_NO_CONSENSUS = "no consensus for this year"
 NM_NO_PRICE = "no price"
 NM_NO_FX = "no exchange rate"
+# Three different facts used to arrive as NM_NO_CONSENSUS, and only one of them is a statement about
+# analysts. A source that failed to fetch is ours, not theirs; a fiscal calendar that runs off the end
+# of what the source publishes is a limit of the panel we hold, not an absence of coverage.
+NM_SOURCE_UNAVAILABLE = "consensus source returned nothing this run"
+NM_PARTIAL_COVER = "the fiscal years on file ({fiscal_years}) cover {months} of the 12 months of calendar {year}"
 
 
 def major_currency(currency: str | None) -> str | None:
@@ -151,15 +162,50 @@ def revision(current: float | None, past: float | None) -> float | None:
     return _finite(current / abs(past) - math.copysign(1.0, past))
 
 
-def calendar_estimates(rows: list[dict], years: tuple[int, ...]) -> dict[int, CalendarEstimate]:
-    """Calendar-year consensus for one listing from its fiscal-year estimate rows."""
+def calendar_results(rows: list[dict], years: tuple[int, ...]) -> dict[int, CalendarResult]:
+    """Calendar-year blend per year for one listing, each carrying the coverage behind it."""
     fiscal = from_rows(rows)
-    out: dict[int, CalendarEstimate] = {}
-    for y in years:
-        ce = calendarize(fiscal, y)
-        if ce is not None:
-            out[y] = ce
-    return out
+    return {y: calendar_estimate_or_reason(fiscal, y) for y in years}
+
+
+def calendar_estimates(rows: list[dict], years: tuple[int, ...]) -> dict[int, CalendarEstimate]:
+    """Calendar-year consensus for one listing, years that could not be covered left out."""
+    return {y: r.estimate for y, r in calendar_results(rows, years).items() if r.estimate is not None}
+
+
+def sources_with_rows(estimates_by_ticker: Mapping[str, Iterable[dict]]) -> frozenset[str]:
+    """Which estimate sources produced at least one row this run.
+
+    A source that fetched nothing at all is a failed fetch, and every listing routed to it is blank for
+    that reason rather than because analysts do not cover it. Pass the result to ``company_row`` as
+    ``sources_ran``; see ``NM_SOURCE_UNAVAILABLE``.
+    """
+    return frozenset(r["source"] for rows in estimates_by_ticker.values() for r in rows if r.get("source"))
+
+
+def consensus_reason(
+    result: CalendarResult,
+    *,
+    company: Company,
+    estimate_rows: list[dict],
+    sources_ran: Collection[str] | None = None,
+) -> str:
+    """Why this listing has no calendar-year consensus, said as something a reader can check.
+
+    Order matters. Partial cover is checked first because those listings *do* have a consensus — the
+    fiscal years on file simply run out before the calendar year does, and saying "no consensus" of a
+    company with a full analyst panel is false. A failed fetch is next, and is only claimed when the run
+    is known to have produced nothing from that source; without that knowledge we do not assert it.
+    """
+    if result.coverage > 0.0 and result.estimate is None:
+        return NM_PARTIAL_COVER.format(
+            fiscal_years=", ".join(result.fiscal_years),
+            months=result.months_covered,
+            year=result.year,
+        )
+    if not estimate_rows and sources_ran is not None and company.estimates not in sources_ran:
+        return NM_SOURCE_UNAVAILABLE
+    return NM_NO_CONSENSUS
 
 
 # A revision is a change of mind over a fixed panel of analysts. "eastmoney_rebuilt" is not that: each
@@ -222,16 +268,22 @@ def company_row(
     rates: dict[str, float],
     years: tuple[int, int],
     as_of: date,
+    sources_ran: Collection[str] | None = None,
 ) -> dict:
-    """One fully-derived row for the marts and the page."""
+    """One fully-derived row for the marts and the page.
+
+    ``sources_ran`` is the set of estimate sources that produced rows anywhere in this run, from
+    ``sources_with_rows``. It is what separates "this listing's source failed" from "analysts do not
+    cover this listing"; leave it None and the row falls back to the weaker, non-committal reason.
+    """
     y0, y1 = years
     price = (price_row or {}).get("price")
     price_ccy = (price_row or {}).get("currency")
     px_major, px_ccy_major = normalise_quote(price, price_ccy)
     reporting_ccy = (ttm or {}).get("currency") or (price_row or {}).get("financial_currency")
 
-    cal = calendar_estimates(estimate_rows, years)
-    ce0, ce1 = cal.get(y0), cal.get(y1)
+    cal = calendar_results(estimate_rows, years)
+    ce0, ce1 = cal[y0].estimate, cal[y1].estimate
 
     t_pe, t_nm = trailing_pe(
         market_cap=(price_row or {}).get("market_cap"),
@@ -249,14 +301,17 @@ def company_row(
         eps=ce1.eps if ce1 else None, eps_currency=ce1.currency if ce1 else None, rates=rates,
     )
 
-    by_end = {r["period_end"]: r for r in estimate_rows if r.get("period_end")}
-    lows = [by_end[p].get("eps_low") for p, _, _ in (ce0.parts if ce0 else ()) if p in by_end]
-    highs = [by_end[p].get("eps_high") for p, _, _ in (ce0.parts if ce0 else ()) if p in by_end]
-    disp = dispersion(
-        min([x for x in lows if x is not None], default=None),
-        max([x for x in highs if x is not None], default=None),
-        ce0.eps if ce0 else None,
-    )
+    def sharpen(nm: str | None, year: int) -> str | None:
+        """Replace the catch-all reason with the one that is actually true for this listing."""
+        if nm != NM_NO_CONSENSUS:
+            return nm
+        return consensus_reason(cal[year], company=company, estimate_rows=estimate_rows, sources_ran=sources_ran)
+
+    f0_nm, f1_nm = sharpen(f0_nm, y0), sharpen(f1_nm, y1)
+
+    # The spread is blended on the same weights as the mean it is divided by, and is None unless every
+    # contributing fiscal year carries a range; see calendarize._blend_bound.
+    disp = dispersion(ce0.eps_low, ce0.eps_high, ce0.eps) if ce0 else None
 
     vints = vintage_estimates(vintage_rows, years, origins=REVISION_ORIGINS)
     rev: dict[str, float | None] = {}

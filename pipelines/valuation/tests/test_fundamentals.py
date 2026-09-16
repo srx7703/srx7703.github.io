@@ -938,3 +938,74 @@ def test_rows_validate_against_the_contract_schema():
     FUNDAMENTALS_SCHEMA.validate(df)
     assert df.height == 6
     assert df.columns == list(FUNDAMENTALS_DTYPES)
+
+
+# ------------------------------------------- isolation covers the frame build, not just the fetch
+def _run_log(tmp_path) -> dict:
+    lines = (tmp_path / "valuation" / "fundamentals_runs.jsonl").read_text().splitlines()
+    return json.loads(lines[-1])
+
+
+def test_one_listings_rows_failing_the_schema_does_not_lose_the_other_listings(monkeypatch, tmp_path):
+    """The frame build and the schema call used to be one call over the whole pool, outside every
+    try: one rejected row lost all 68 listings *and* the run record that would have explained it."""
+    import polars as pl
+
+    _patch_em(monkeypatch, tmp_path)
+    real = fd.FUNDAMENTALS_SCHEMA
+
+    class RejectsOne:
+        def validate(self, df):
+            if "300308.SZ" in df["ticker"].to_list():
+                raise ValueError("revenue is out of contract for 300308.SZ")
+            return real.validate(df)
+
+    monkeypatch.setattr(fd, "FUNDAMENTALS_SCHEMA", RejectsOne())
+    assert fd.main(["--tickers", "300308.SZ,300502.SZ", "--source", "eastmoney"]) == 1
+
+    df = pl.read_parquet(_only(tmp_path / "valuation" / "fundamentals"))
+    assert df["ticker"].unique().to_list() == ["300502.SZ"]  # the good listing is whole and on disk
+
+    run = _run_log(tmp_path)
+    assert list(run["invalid"]) == ["300308.SZ"]
+    assert "out of contract" in run["invalid"]["300308.SZ"]
+    assert run["write_error"] is None
+    validated = next(c for c in run["checks"] if c["name"] == "Rows validated")
+    assert validated["status"] == "fail" and "300308.SZ" in validated["detail"]
+    # and it is not misreported as a listing whose source publishes no quarterly statement
+    coverage = next(c for c in run["checks"] if c["name"] == "Quarterly coverage")
+    assert "300308.SZ" not in coverage["detail"]
+
+
+def test_a_failing_write_still_records_the_run_and_exits_non_zero(monkeypatch, tmp_path):
+    """The one path that can lose every parsed row: the audit line is then all that explains it."""
+    _patch_em(monkeypatch, tmp_path)
+
+    def boom(*a, **kw):
+        raise OSError("[Errno 28] no space left on device")
+
+    monkeypatch.setattr(fd, "write_parquet", boom)
+    assert fd.main(["--tickers", "300308.SZ", "--source", "eastmoney"]) == 1
+
+    run = _run_log(tmp_path)
+    assert run["rows"] == 4  # parsed fine ...
+    assert run["snapshot"] is None and run["table_rows"] is None  # ... but nothing landed
+    assert "no space left" in run["write_error"]
+    written = next(c for c in run["checks"] if c["name"] == "Snapshot written")
+    assert written["status"] == "fail" and "nothing landed" in written["detail"]
+
+
+def test_two_runs_in_the_same_minute_do_not_share_an_archive_name(monkeypatch, tmp_path):
+    """`__HHMM` alone collides when a cron run and a manual re-run land in the same minute."""
+    monkeypatch.setattr(fd, "RAW_DIR", tmp_path)
+    paths = []
+    for _ in range(3):
+        path = fd._raw_path("eastmoney_fin", "2026-09-16", "300308.SZ", "1830")
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(f"payload {len(paths)}".encode())
+        paths.append(path)
+
+    assert [p.name for p in paths] == [
+        "300308.SZ.json.gz", "300308.SZ__1830.json.gz", "300308.SZ__1830_2.json.gz",
+    ]
+    assert [p.read_bytes() for p in paths] == [b"payload 0", b"payload 1", b"payload 2"]

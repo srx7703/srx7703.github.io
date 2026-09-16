@@ -93,12 +93,28 @@ jobs:
         continue-on-error: true
         run: uv run python -m pipelines.valuation.evaluate
 
+      # What gets staged depends on whether publish succeeded, because the two halves of data/ carry
+      # different risk. data/raw and data/snapshots are the append-only archive: nothing on the site
+      # reads them, and today's closing price cannot be re-fetched tomorrow, so throwing the run away
+      # would lose it for good. data/facts and data/marts are exactly what the two pages render, and
+      # a publish that died part-way through can leave one of them blanked or truncated — committing
+      # that pushes it to main, where deploy-site rebuilds the live pages from it before this job's
+      # own `exit 1` has surfaced anything. So a failed publish commits the archive and leaves the
+      # published layer exactly as it was. (deploy-site must also stop rebuilding after a failed
+      # valuation run; that gate lives in deploy-site.yml.)
       - name: Commit and push data
         if: always()
         run: |
           git config user.name "portfolio-bot"
           git config user.email "portfolio-bot@users.noreply.github.com"
-          git add data/
+          if [ "${{ steps.publish.outcome }}" = "success" ]; then
+            git add data/
+          else
+            echo "::warning::publish did not succeed; committing the archive only and leaving data/facts and data/marts as they were"
+            git add data/raw data/snapshots
+            # restore anything publish half-wrote, so it cannot be committed and cannot block the rebase
+            git checkout -- data/facts data/marts 2>/dev/null || true
+          fi
           if git diff --cached --quiet; then
             echo "nothing to commit"
             exit 0
@@ -113,11 +129,17 @@ jobs:
           done
           exit 1
 
+      # Every step that runs under continue-on-error has to be named here, or its failure is invisible:
+      # continue-on-error turns the step's conclusion green and only `outcome` still remembers. The
+      # scorer was missing from this list, so a crash in the module that decides whether the project's
+      # own claims can be checked left the job green.
       - name: Surface step failures
         if: >
+          always() && (
           steps.fx.outcome == 'failure' || steps.prices.outcome == 'failure' ||
           steps.est_yf.outcome == 'failure' || steps.est_em.outcome == 'failure' ||
-          steps.fundamentals.outcome == 'failure' || steps.publish.outcome == 'failure'
+          steps.fundamentals.outcome == 'failure' || steps.publish.outcome == 'failure' ||
+          steps.evaluate.outcome == 'failure' )
         run: |
-          echo "::error::a valuation step failed (fx=${{ steps.fx.outcome }}, prices=${{ steps.prices.outcome }}, est_yf=${{ steps.est_yf.outcome }}, est_em=${{ steps.est_em.outcome }}, fundamentals=${{ steps.fundamentals.outcome }}, publish=${{ steps.publish.outcome }})"
+          echo "::error::a valuation step failed (fx=${{ steps.fx.outcome }}, prices=${{ steps.prices.outcome }}, est_yf=${{ steps.est_yf.outcome }}, est_em=${{ steps.est_em.outcome }}, fundamentals=${{ steps.fundamentals.outcome }}, publish=${{ steps.publish.outcome }}, evaluate=${{ steps.evaluate.outcome }})"
           exit 1

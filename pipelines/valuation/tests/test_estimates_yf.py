@@ -6,6 +6,7 @@ that survive ``formatted=false`` and the empty ``{}`` blocks Yahoo emits for mis
 
 from __future__ import annotations
 
+import gzip
 import json
 from datetime import UTC, date, datetime
 from types import SimpleNamespace
@@ -21,10 +22,13 @@ from pipelines.valuation.estimates_yf import (
     _minus_one_year,
     _parse_date,
     _raw,
+    archive_payload,
     expected_fy_end,
     extract_result,
+    fiscal_periods,
     fy_label,
     parse_trend,
+    period_keys,
     price_of,
     resolve_currency,
     trend_of,
@@ -715,7 +719,7 @@ def _fake_httpx(monkeypatch, **kw):
 
 def test_session_replays_the_cookies_and_the_crumb(monkeypatch):
     _fake_httpx(monkeypatch)
-    client, crumb = yf.session(min_interval=0.0)
+    client, crumb = yf._raw_session(min_interval=0.0)
     assert crumb == "crumb-xyz"
     assert client._client.headers["cookie"] == "A1=d=abc; A3=d=def"
     client.close()
@@ -725,7 +729,7 @@ def test_session_keeps_the_cookies_when_only_the_crumb_request_fails(monkeypatch
     # one transient timeout on getcrumb used to throw the consent cookies away with it, and every
     # one of the 37 quoteSummary calls then answered 401 for want of a jar that had been collected
     _fake_httpx(monkeypatch, crumb_raises=True)
-    client, crumb = yf.session(min_interval=0.0)
+    client, crumb = yf._raw_session(min_interval=0.0)
     assert crumb is None
     assert client._client.headers["cookie"] == "A1=d=abc; A3=d=def"
     client.close()
@@ -941,3 +945,146 @@ def test_a_run_that_parsed_nothing_leaves_the_existing_file_alone(sandbox, monke
     assert run["estimate_rows"] == 0 and run["written"] == {}
     skipped = next(c for c in run["checks"] if c["name"] == "Estimates snapshot")
     assert skipped["status"] == "warn" and "left as it stands" in skipped["detail"]
+
+
+# --- how many fiscal years Yahoo offers (T2) ------------------------------------------------------
+# Yahoo's earningsTrend carries 0q, +1q, 0y, +1y plus the +5y / -5y long-term growth rows. There is
+# no +2y, which is why an October or November year end cannot cover the whole of the calendar year
+# after next: FY+2 does not exist to blend. Nothing here fetches; the point of these tests is that
+# the module reads the payload rather than a hardcoded pair, so the day a third panel appears it is
+# emitted and the run record says so.
+FIVE_YEAR_GROWTH = [
+    {"period": "+5y", "endDate": {}, "growth": {"raw": 0.213}},
+    {"period": "-5y", "endDate": {}, "growth": {"raw": 0.164}},
+]
+
+
+def test_todays_payload_shape_offers_exactly_two_fiscal_years():
+    assert fiscal_periods([n["period"] for n in COHR_TREND]) == ["0y", "+1y"]
+    assert period_keys(COHR_TREND) == ["0q", "+1q", "0y", "+1y"]
+
+
+def test_long_term_growth_rows_are_not_fiscal_years():
+    """They carry a growth rate, an empty endDate and no earningsEstimate. Admitting them would
+    manufacture a 'no usable endDate' warning on every listing in the pool."""
+    periods = [n["period"] for n in COHR_TREND + FIVE_YEAR_GROWTH]
+    assert fiscal_periods(periods) == ["0y", "+1y"]
+
+
+def test_a_growth_row_does_not_reach_the_parser_or_its_checks():
+    est, vin, checks = parse_trend("COHR", BY_TICKER["COHR"], COHR_TREND + FIVE_YEAR_GROWTH, SNAP)
+
+    assert sorted({r["fy_label"] for r in est}) == ["FY2026", "FY2027", "FY2028"]
+    assert not [c for c in checks if "endDate" in c["detail"]]
+    assert vin
+
+
+@pytest.mark.parametrize(
+    ("periods", "want"),
+    [
+        (["+1y", "0y"], ["0y", "+1y"]),  # nearest first whatever order Yahoo sent
+        (["0q", "+1q", "-1q"], []),  # quarters are not fiscal years
+        (["-1y", "0y"], ["0y"]),  # a year already reported is not a forecast
+        (["0y", "+1y", "+2y"], ["0y", "+1y", "+2y"]),  # the third year, if it ever arrives
+        (["0y", "+9y"], ["0y"]),  # beyond MAX_FY_AHEAD it is not an EPS panel
+        (["0y", "0y"], ["0y"]),
+    ],
+)
+def test_fiscal_periods_reads_what_the_payload_carries(periods, want):
+    assert fiscal_periods(periods) == want
+
+
+def test_a_third_fiscal_year_would_be_emitted_without_a_code_change():
+    """AVGO, MTSI and CIEN need FY+2 to cover the calendar year after next. Yahoo does not publish
+    it; if it ever does, the row lands rather than being silently discarded by a hardcoded pair."""
+    third = {
+        "period": "+2y",
+        "endDate": "2029-06-30",
+        "earningsEstimate": {"avg": {"raw": 12.8}, "low": {"raw": 10.0}, "high": {"raw": 15.5},
+                             "numberOfAnalysts": {"raw": 11}},
+        "epsTrend": {"current": {"raw": 12.8}, "30daysAgo": {"raw": 12.4}},
+    }
+    est, vin, _ = parse_trend("COHR", BY_TICKER["COHR"], [*COHR_TREND, third], SNAP)
+
+    row = next(r for r in est if r["period_end"] == "2029-06-30")
+    assert (row["fy_label"], row["mark"], row["eps_avg"], row["n_analysts"]) == ("FY2029", "E", 12.8, 11)
+    assert row["eps_low"] == 10.0 and row["eps_high"] == 15.5
+    assert len([r for r in vin if r["period_end"] == "2029-06-30"]) == 2
+    ESTIMATES_SCHEMA.validate(estimates_frame(est))
+    VINTAGES_SCHEMA.validate(vintages_frame(vin))
+
+
+def test_the_run_record_carries_the_periods_the_payloads_actually_had(sandbox, monkeypatch):
+    monkeypatch.setattr(yf, "fetch", lambda client, ticker, **kw: _payload(COHR_TREND + FIVE_YEAR_GROWTH))
+
+    assert yf.main(["--tickers", "COHR"]) == 0
+
+    run = _run_log(sandbox)
+    assert run["periods"] == {"+1q": 1, "+1y": 1, "+5y": 1, "-5y": 1, "0q": 1, "0y": 1}
+    assert run["fiscal_periods"] == ["0y", "+1y"]
+    panels = next(c for c in run["checks"] if c["name"] == "Yahoo fiscal-year panels")
+    assert panels["status"] == "pass" and "no further fiscal year" in panels["detail"]
+
+
+def test_a_third_fiscal_year_arriving_is_reported_rather_than_absorbed(sandbox, monkeypatch):
+    third = {"period": "+2y", "endDate": "2029-06-30", "earningsEstimate": {"avg": {"raw": 12.8}}}
+    monkeypatch.setattr(yf, "fetch", lambda client, ticker, **kw: _payload([*COHR_TREND, third]))
+
+    assert yf.main(["--tickers", "COHR"]) == 0
+
+    run = _run_log(sandbox)
+    assert run["fiscal_periods"] == ["0y", "+1y", "+2y"]
+    panels = next(c for c in run["checks"] if c["name"] == "Yahoo fiscal-year panels")
+    assert panels["status"] == "warn" and "+2y" in panels["detail"]
+    assert "2029-06-30" in pl.read_parquet(_paths(sandbox)[0])["period_end"].to_list()
+
+
+# --- the raw archive is append-only (S6, CLAUDE.md rule 2) ----------------------------------------
+def test_an_identical_payload_is_recognised_rather_than_archived_twice(tmp_path):
+    first = archive_payload({"quoteSummary": 1}, tmp_path, "COHR", "0900")
+    again = archive_payload({"quoteSummary": 1}, tmp_path, "COHR", "1400")
+
+    assert again == first
+    assert sorted(p.name for p in tmp_path.iterdir()) == ["COHR.json.gz"]
+
+
+def test_a_differing_payload_lands_beside_the_first_instead_of_replacing_it(tmp_path):
+    first = archive_payload({"quoteSummary": 1}, tmp_path, "COHR", "0900")
+    second = archive_payload({"quoteSummary": 2}, tmp_path, "COHR", "1400")
+    third = archive_payload({"quoteSummary": 3}, tmp_path, "COHR", "1400")  # same minute, third body
+
+    assert [p.name for p in (first, second, third)] == [
+        "COHR.json.gz", "COHR__1400.json.gz", "COHR__1400_2.json.gz",
+    ]
+    assert [json.loads(gzip.decompress(p.read_bytes())) for p in (first, second, third)] == [
+        {"quoteSummary": 1}, {"quoteSummary": 2}, {"quoteSummary": 3},
+    ]
+
+
+def test_an_unreadable_archive_is_kept_and_the_payload_written_beside_it(tmp_path):
+    (tmp_path / "COHR.json.gz").write_bytes(b"not gzip at all")
+    path = archive_payload({"quoteSummary": 1}, tmp_path, "COHR", "1400")
+
+    assert path.name == "COHR__1400.json.gz"
+    assert (tmp_path / "COHR.json.gz").read_bytes() == b"not gzip at all"
+
+
+def test_a_tickers_rerun_keeps_the_earlier_runs_payload_on_disk(sandbox, monkeypatch):
+    """The parquet for a run has to stay reproducible from the raw layer of that run."""
+    monkeypatch.setattr(yf, "fetch", lambda client, ticker, **kw: _payload(COHR_TREND))
+    assert yf.main(["--tickers", "COHR"]) == 0
+
+    moved = [{**COHR_TREND[2], "earningsEstimate": {**COHR_TREND[2]["earningsEstimate"], "avg": {"raw": 9.9}}}]
+    monkeypatch.setattr(yf, "fetch", lambda client, ticker, **kw: _payload(moved))
+    assert yf.main(["--tickers", "COHR"]) == 0
+
+    _, _, raw_dir = _paths(sandbox)
+    archived = sorted(raw_dir.glob("COHR*.json.gz"))
+    assert len(archived) == 2, [p.name for p in archived]
+    avgs = sorted(
+        json.loads(gzip.decompress(p.read_bytes()))["quoteSummary"]["result"][0]["earningsTrend"]["trend"][-1][
+            "earningsEstimate"
+        ]["avg"]["raw"]
+        for p in archived
+    )
+    assert avgs == [9.9, 11.02]
