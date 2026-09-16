@@ -1,0 +1,39 @@
+---
+/**
+ * "Download CSV" button. Pass small data inline via `rows`, or a same-origin JSON URL via `src`
+ * (an array of flat objects); the CSV is built in the browser so no file needs committing.
+ */
+interface Props {
+  filename: string;
+  rows?: Record<string, unknown>[];
+  src?: string;
+  label?: string;
+}
+const { filename, rows, src, label = 'Download CSV' } = Astro.props;
+---
+<button type="button" class="dl" data-filename={filename} data-src={src} data-rows={rows ? JSON.stringify(rows) : undefined}>{label}</button>
+<script>
+  const toCsv = (rows: Record<string, unknown>[]) => {
+    if (!rows.length) return '';
+    const cols = Array.from(rows.reduce((s, r) => { Object.keys(r).forEach((k) => s.add(k)); return s; }, new Set<string>()));
+    const esc = (v: unknown) => { const s = v == null ? '' : String(v); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
+    return [cols.join(','), ...rows.map((r) => cols.map((c) => esc(r[c])).join(','))].join('\n');
+  };
+  document.querySelectorAll<HTMLButtonElement>('button.dl').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      let rows: Record<string, unknown>[] = [];
+      if (btn.dataset.rows) rows = JSON.parse(btn.dataset.rows);
+      else if (btn.dataset.src) rows = await (await fetch(btn.dataset.src)).json();
+      const blob = new Blob([toCsv(rows)], { type: 'text/csv;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = btn.dataset.filename || 'data.csv';
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    });
+  });
+</script>
+<style>
+  .dl { font: inherit; font-size: var(--fs-xs); color: var(--ink-2); background: var(--surface); border: 1px solid var(--border-strong); border-radius: 999px; padding: 0.2em 0.8em; cursor: pointer; }
+  .dl:hover { border-color: var(--accent); color: var(--ink); }
+</style>

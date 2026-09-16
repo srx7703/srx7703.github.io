@@ -1,0 +1,80 @@
+---
+title: "Teaching a 30B model to read SEC filings: a LoRA fine-tune measured properly"
+summary: "1,060 analyst-style QA pairs distilled from 381 SEC filings, used to fine-tune Gemma 2 27B and Gemma 4 31B with LoRA on a TPU. BERTScore F1 rises 3.5% and 5.8%, with paired tests and per-item results rather than a single headline number."
+status: case-study
+domain: ["LLM", "evaluation"]
+tools: ["PyTorch/XLA", "HF PEFT", "TPU v6e", "Gemini", "BERTScore", "Vega-Lite"]
+featured: false
+order: 11
+started: "2026-04-13"
+---
+import facts from '@data/facts/finllm.json';
+import KpiRow from '@components/KpiRow.astro';
+import KpiTile from '@components/KpiTile.astro';
+import ChartCard from '@components/ChartCard.astro';
+import VegaChart from '@components/VegaChart.astro';
+import SourceStamp from '@components/SourceStamp.astro';
+import Section from '@components/Section.astro';
+import { finllmSummarySpec } from '@charts/finllm/summary';
+import { finllmPairedSpec } from '@charts/finllm/paired';
+import { num } from '@lib/fmt';
+
+export const g4 = facts.paired.gemma4;
+export const g2 = facts.paired.gemma2;
+export const byKey = Object.fromEntries(facts.summary.map((s) => [s.key, s]));
+export const asOf = 'April 2026 (frozen results)';
+
+<div class="lede">
+  The same LoRA adapter recipe, trained on {num(facts.dataset.qa_pairs)} question–answer pairs distilled from {num(facts.dataset.filings)} SEC filings of {facts.dataset.tickers} S&amp;P 500 companies, lifts BERTScore F1 by {facts.deltas_pct.gemma2_base_to_v2}% on Gemma 2 27B and {facts.deltas_pct.gemma4_base_to_v2}% on Gemma 4 31B. On Gemma 4 the adapter wins on {g4.wins} of {facts.test_items} held-out items (paired t = {g4.t}); on Gemma 2 it wins {g2.wins} of {facts.test_items} (t = {g2.t}). The effect is larger on the newer base, which argues the adapter adds domain knowledge rather than compensating for a weak model.
+</div>
+
+<KpiRow>
+  <KpiTile label="BERTScore F1, Gemma 4 31B" value={byKey.v2_gemma4.f1.toFixed(4)} sub={`base ${byKey.base_gemma4.f1.toFixed(4)} · +${facts.deltas_pct.gemma4_base_to_v2}% · wins ${g4.wins}/${facts.test_items}`} tone="positive" />
+  <KpiTile label="BERTScore F1, Gemma 2 27B" value={byKey.v2.f1.toFixed(4)} sub={`base ${byKey.base.f1.toFixed(4)} · +${facts.deltas_pct.gemma2_base_to_v2}% · wins ${g2.wins}/${facts.test_items}`} tone="positive" />
+  <KpiTile label="Paired t-test, Gemma 4" value={`t = ${g4.t}`} sub={`mean gain ${g4.mean_delta.toFixed(4)} · 95% CI [${g4.ci_95[0].toFixed(4)}, ${g4.ci_95[1].toFixed(4)}] · n = ${facts.test_items}`} />
+</KpiRow>
+
+<ChartCard title="The adapter gain is larger on the newer base: +5.8 points of F1 on Gemma 4 versus +3.5 on Gemma 2" subtitle="BERTScore F1 on the same 20 held-out SEC questions, base model vs base + SEC LoRA">
+  <VegaChart id="finllm-summary" spec={finllmSummarySpec()} height={240} ariaLabel="Grouped bar chart of BERTScore F1 for base and fine-tuned Gemma 2 27B and Gemma 4 31B" />
+  <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
+</ChartCard>
+
+<ChartCard title={`On Gemma 4 every one of the ${facts.test_items} items improves; the largest gain is item ${facts.largest_item_gain_gemma4.item} (+${facts.largest_item_gain_gemma4.delta.toFixed(3)})`} subtitle="Per-item BERTScore F1, base Gemma 4 31B (grey) to base + SEC LoRA (blue), sorted by gain">
+  <VegaChart id="finllm-paired" spec={finllmPairedSpec('gemma4')} height={360} ariaLabel="Dumbbell chart of per-item BERTScore F1 before and after fine-tuning on Gemma 4" />
+  <details>
+    <summary>Gemma 2 27B per-item view</summary>
+    <VegaChart id="finllm-paired-g2" spec={finllmPairedSpec('gemma2')} height={360} ariaLabel="Dumbbell chart of per-item BERTScore F1 before and after fine-tuning on Gemma 2" />
+  </details>
+  <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
+</ChartCard>
+
+<Section id="method" title="Method">
+  <div class="prose">
+    <p><strong>Data.</strong> {num(facts.dataset.filings)} filings ({facts.dataset.forms.join(', ')}) for {facts.dataset.tickers} S&amp;P 500 companies were pulled from EDGAR, summarised by {facts.dataset.teacher}, and turned into {num(facts.dataset.qa_pairs)} analyst-style question–answer pairs. The teacher's answers are the training targets and the evaluation references, so the benchmark measures agreement with the teacher, not ground truth.</p>
+    <p><strong>Training.</strong> LoRA adapters (rank 8) trained with HF PEFT on {facts.training.hardware}, sharded with PyTorch/XLA SPMD FSDPv2 in bf16. Phase 1 used Gemma 2 27B; Phase 2 re-ran the identical recipe (same data, rank, alpha, mesh, hyperparameters) on Gemma 4 31B, changing only the model id, the chat template and the KV-cache setup.</p>
+    <p><strong>Evaluation.</strong> {facts.test_items} held-out items scored with BERTScore (precision, recall, F1) against the reference answers, for four models: each base and each base plus the adapter. Differences are tested with a paired t-test on per-item F1.</p>
+  </div>
+</Section>
+
+<Section id="evaluation" title="Evaluation">
+  <div class="prose">
+    <ul>
+      <li><strong>Gemma 4 31B:</strong> F1 {byKey.base_gemma4.f1.toFixed(4)} → {byKey.v2_gemma4.f1.toFixed(4)} (+{facts.deltas_pct.gemma4_base_to_v2}%); mean per-item gain {g4.mean_delta.toFixed(4)}, t = {g4.t}, p &lt; 0.001, wins {g4.wins}/{facts.test_items}.</li>
+      <li><strong>Gemma 2 27B:</strong> F1 {byKey.base.f1.toFixed(4)} → {byKey.v2.f1.toFixed(4)} (+{facts.deltas_pct.gemma2_base_to_v2}%); t = {g2.t}, p = {g2.p}, wins {g2.wins}/{facts.test_items}, losses {g2.losses}.</li>
+      <li><strong>Base upgrade is additive:</strong> Gemma 4 + LoRA beats Gemma 2 + LoRA by {facts.deltas_pct.gemma2_v2_to_gemma4_v2}%.</li>
+    </ul>
+    <p>Limitations: {facts.test_items} items is a small test set and the confidence intervals are wide; BERTScore rewards lexical and semantic overlap with a teacher-written reference, not factual correctness against the filing; the QA pairs and the references come from the same teacher, so the adapter partly learns the teacher's style. A retrieval-grounded factuality check against the source filings is the natural next evaluation.</p>
+  </div>
+</Section>
+
+<Section id="build-notes" title="Build notes">
+  <div class="prose">
+    <p>Original project (spring 2026) built with Claude Code as the implementer: the EDGAR pipeline, the distillation prompts, the TPU training scripts and the evaluation harness; the author chose the task, the model pair, the evaluation design and worked through the TPU/XLA issues documented in the repo. This page ports the frozen 4-way evaluation report. Code: <a href={facts.links.repo}>multi-horizon-financial-llm</a>; adapters: <a href={facts.links.adapter_gemma2}>Gemma 2 27B</a>, <a href={facts.links.adapter_gemma4}>Gemma 4 31B</a>.</p>
+  </div>
+</Section>
+
+<Section id="changelog" title="Changelog">
+  <ul class="prose">
+    <li><strong>2026-09-16</strong> — case-study page from the April 2026 evaluation report.</li>
+  </ul>
+</Section>

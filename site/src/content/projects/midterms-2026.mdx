@@ -16,6 +16,7 @@ import VegaChart from '@components/VegaChart.astro';
 import SourceStamp from '@components/SourceStamp.astro';
 import PipelineStatus from '@components/PipelineStatus.astro';
 import Section from '@components/Section.astro';
+import DownloadCsv from '@components/DownloadCsv.astro';
 import { headlineSpec } from '@charts/midterms/headline';
 import { balanceSpec } from '@charts/midterms/balance';
 import { pct, pts, num, usd, dateUtc, daysUntil } from '@lib/fmt';
@@ -57,6 +58,7 @@ export const daysLeft = daysUntil(facts.election_day, facts.last_snapshot_ts);
       </table>
     </div>
   </details>
+  <p><DownloadCsv filename="midterms_headline_series.csv" src="/data/marts/predmarkets/midterms_headline.json" label="Download the headline series (CSV)" /></p>
   <SourceStamp slot="stamp" sources={facts.sources} asOf={asOf} />
 </ChartCard>
 

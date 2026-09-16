@@ -1,0 +1,114 @@
+{
+ "project": "financial-llm-sec",
+ "generated_at": "2026-09-16T06:12:58+00:00",
+ "test_items": 20,
+ "dataset": {
+  "qa_pairs": 1060,
+  "filings": 381,
+  "tickers": 69,
+  "forms": [
+   "10-K",
+   "10-Q",
+   "8-K"
+  ],
+  "teacher": "Gemini 3.1 Pro"
+ },
+ "training": {
+  "hardware": "TPU v6e-8 (Trillium)",
+  "method": "LoRA via HF PEFT, PyTorch/XLA SPMD FSDPv2, bf16"
+ },
+ "summary": [
+  {
+   "key": "base",
+   "family": "Gemma 2 27B",
+   "variant": "base",
+   "label": "Base Gemma 2 27B (no adapter)",
+   "f1": 0.8078,
+   "p": 0.7992,
+   "r": 0.8167
+  },
+  {
+   "key": "v2",
+   "family": "Gemma 2 27B",
+   "variant": "+ SEC LoRA",
+   "label": "Gemma 2 27B + v2 LoRA",
+   "f1": 0.8361,
+   "p": 0.8297,
+   "r": 0.8439
+  },
+  {
+   "key": "base_gemma4",
+   "family": "Gemma 4 31B",
+   "variant": "base",
+   "label": "Base Gemma 4 31B (no adapter)",
+   "f1": 0.8283,
+   "p": 0.8028,
+   "r": 0.8558
+  },
+  {
+   "key": "v2_gemma4",
+   "family": "Gemma 4 31B",
+   "variant": "+ SEC LoRA",
+   "label": "Gemma 4 31B + v2 LoRA",
+   "f1": 0.876,
+   "p": 0.8717,
+   "r": 0.8806
+  }
+ ],
+ "deltas_pct": {
+  "gemma2_base_to_v2": 3.5,
+  "gemma4_base_to_v2": 5.76,
+  "gemma2_v2_to_gemma4_v2": 4.77
+ },
+ "paired": {
+  "gemma2": {
+   "mean_delta": 0.0284,
+   "t": 3.64,
+   "p": 0.0018,
+   "ci_95": [
+    0.012,
+    0.0447
+   ],
+   "wins": 16,
+   "losses": 4
+  },
+  "gemma4": {
+   "mean_delta": 0.0477,
+   "t": 10.42,
+   "p": 0.0,
+   "ci_95": [
+    0.0381,
+    0.0572
+   ],
+   "wins": 20,
+   "losses": 0
+  }
+ },
+ "largest_item_gain_gemma4": {
+  "item": 2,
+  "base": 0.8188,
+  "lora": 0.9211,
+  "delta": 0.1023
+ },
+ "smallest_item_gain_gemma4": {
+  "item": 10,
+  "base": 0.8235,
+  "lora": 0.843,
+  "delta": 0.0195
+ },
+ "links": {
+  "repo": "https://github.com/srx7703/multi-horizon-financial-llm",
+  "adapter_gemma2": "https://huggingface.co/Srx7703/gemma-2-27b-financial-adapter",
+  "adapter_gemma4": "https://huggingface.co/Srx7703/gemma-4-31b-financial-adapter"
+ },
+ "sources": [
+  {
+   "name": "SEC EDGAR filings via edgartools",
+   "url": "https://www.sec.gov/search-filings"
+  },
+  {
+   "name": "BERTScore (Zhang et al., 2020)",
+   "url": "https://arxiv.org/abs/1904.09675"
+  }
+ ]
+}

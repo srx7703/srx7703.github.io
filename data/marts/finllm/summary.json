@@ -1,0 +1,38 @@
+[
+ {
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "label": "Base Gemma 2 27B (no adapter)",
+  "f1": 0.8078,
+  "p": 0.7992,
+  "r": 0.8167
+ },
+ {
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "label": "Gemma 2 27B + v2 LoRA",
+  "f1": 0.8361,
+  "p": 0.8297,
+  "r": 0.8439
+ },
+ {
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "label": "Base Gemma 4 31B (no adapter)",
+  "f1": 0.8283,
+  "p": 0.8028,
+  "r": 0.8558
+ },
+ {
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "label": "Gemma 4 31B + v2 LoRA",
+  "f1": 0.876,
+  "p": 0.8717,
+  "r": 0.8806
+ }
+]

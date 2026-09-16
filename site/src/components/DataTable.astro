@@ -1,0 +1,69 @@
+---
+/**
+ * Sortable table. `columns`: [{ key, label, format?: 'pct'|'usd'|'num'|'fixed1'|'text', align? }];
+ * `rows`: flat objects. Each row also gets data-* attributes for every `filterKeys` entry so a
+ * FilterBar can filter on them. Click a header to sort; numbers sort numerically.
+ */
+import { pct, usd, num } from '../lib/fmt';
+interface Col { key: string; label: string; format?: 'pct' | 'usd' | 'num' | 'fixed1' | 'text'; align?: 'left' | 'right' }
+interface Props { id: string; columns: Col[]; rows: Record<string, any>[]; filterKeys?: string[]; caption?: string }
+const { id, columns, rows, filterKeys = [], caption } = Astro.props;
+const fmt = (v: any, f?: Col['format']) => {
+  if (v == null) return '—';
+  switch (f) {
+    case 'pct': return pct(v, 1);
+    case 'usd': return usd(v);
+    case 'num': return num(v);
+    case 'fixed1': return Number(v).toFixed(1);
+    default: return String(v);
+  }
+};
+---
+<div class="table-wrap">
+  <table id={id} class="datatable">
+    {caption && <caption>{caption}</caption>}
+    <thead>
+      <tr>{columns.map((c) => (
+        <th scope="col" class={c.align === 'right' || (c.format && c.format !== 'text') ? 'num' : ''} data-key={c.key} data-type={c.format && c.format !== 'text' ? 'number' : 'text'} tabindex="0" role="button" aria-sort="none" title="Sort">{c.label}</th>
+      ))}</tr>
+    </thead>
+    <tbody>
+      {rows.map((r) => (
+        <tr {...Object.fromEntries(filterKeys.map((k) => [`data-${k.toLowerCase()}`, String(r[k] ?? '')]))}>
+          {columns.map((c) => (
+            <td class={c.align === 'right' || (c.format && c.format !== 'text') ? 'num' : ''} data-value={r[c.key] ?? ''} set:html={fmt(r[c.key], c.format)} />
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+<script>
+  document.querySelectorAll<HTMLTableElement>('table.datatable').forEach((table) => {
+    const ths = Array.from(table.tHead?.rows[0]?.cells ?? []);
+    ths.forEach((th, idx) => {
+      const sort = () => {
+        const dir = th.getAttribute('aria-sort') === 'ascending' ? 'descending' : 'ascending';
+        ths.forEach((h) => h.setAttribute('aria-sort', 'none'));
+        th.setAttribute('aria-sort', dir);
+        const numeric = th.dataset.type === 'number';
+        const body = table.tBodies[0];
+        const rows = Array.from(body.rows);
+        rows.sort((a, b) => {
+          const va = a.cells[idx].dataset.value ?? '', vb = b.cells[idx].dataset.value ?? '';
+          if (numeric) { const na = va === '' ? -Infinity : Number(va), nb = vb === '' ? -Infinity : Number(vb); return dir === 'ascending' ? na - nb : nb - na; }
+          return dir === 'ascending' ? va.localeCompare(vb) : vb.localeCompare(va);
+        });
+        rows.forEach((r) => body.appendChild(r));
+      };
+      th.addEventListener('click', sort);
+      th.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); sort(); } });
+    });
+  });
+</script>
+<style>
+  .datatable th { cursor: pointer; user-select: none; white-space: nowrap; }
+  .datatable th[aria-sort="ascending"]::after { content: " ↑"; color: var(--ink-3); }
+  .datatable th[aria-sort="descending"]::after { content: " ↓"; color: var(--ink-3); }
+  .datatable caption { text-align: left; color: var(--ink-3); font-size: var(--fs-xs); padding: var(--s-1) 0; caption-side: bottom; }
+</style>

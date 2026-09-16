@@ -1,0 +1,52 @@
+---
+/** One row of filters above a DataTable: a text search plus optional select filters on columns. */
+interface Props {
+  target: string; // id of the DataTable
+  selects?: { column: string; label: string; options: string[] }[];
+  placeholder?: string;
+}
+const { target, selects = [], placeholder = 'Search…' } = Astro.props;
+---
+<div class="filterbar" data-target={target}>
+  <input type="search" class="filterbar__search" placeholder={placeholder} aria-label="Search table" />
+  {selects.map((s) => (
+    <label class="filterbar__select">{s.label}
+      <select data-column={s.column} aria-label={s.label}>
+        <option value="">All</option>
+        {s.options.map((o) => <option value={o}>{o}</option>)}
+      </select>
+    </label>
+  ))}
+  <span class="filterbar__count" aria-live="polite"></span>
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('.filterbar').forEach((bar) => {
+    const table = document.getElementById(bar.dataset.target || '') as HTMLTableElement | null;
+    if (!table) return;
+    const search = bar.querySelector<HTMLInputElement>('.filterbar__search');
+    const selects = Array.from(bar.querySelectorAll<HTMLSelectElement>('select'));
+    const count = bar.querySelector<HTMLElement>('.filterbar__count');
+    const rows = Array.from(table.tBodies[0]?.rows ?? []);
+    const apply = () => {
+      const q = (search?.value || '').toLowerCase();
+      let shown = 0;
+      rows.forEach((tr) => {
+        const text = tr.textContent?.toLowerCase() || '';
+        const okText = !q || text.includes(q);
+        const okSel = selects.every((s) => !s.value || (tr.dataset[s.dataset.column || ''] || '') === s.value);
+        tr.hidden = !(okText && okSel);
+        if (!tr.hidden) shown++;
+      });
+      if (count) count.textContent = `${shown} of ${rows.length}`;
+    };
+    search?.addEventListener('input', apply);
+    selects.forEach((s) => s.addEventListener('change', apply));
+    apply();
+  });
+</script>
+<style>
+  .filterbar { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-3); align-items: center; margin: 0 0 var(--s-2); font-size: var(--fs-sm); }
+  .filterbar__search, .filterbar select { font: inherit; font-size: var(--fs-sm); color: var(--ink); background: var(--surface); border: 1px solid var(--border-strong); border-radius: 6px; padding: 0.3em 0.6em; }
+  .filterbar__select { display: inline-flex; gap: var(--s-1); align-items: center; color: var(--ink-2); }
+  .filterbar__count { color: var(--ink-3); margin-left: auto; font-variant-numeric: tabular-nums; }
+</style>

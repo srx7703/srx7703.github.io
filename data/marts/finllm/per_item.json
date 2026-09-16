@@ -1,0 +1,562 @@
+[
+ {
+  "item": 1,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.788
+ },
+ {
+  "item": 2,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.7962
+ },
+ {
+  "item": 3,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.8057
+ },
+ {
+  "item": 4,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.7951
+ },
+ {
+  "item": 5,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.8008
+ },
+ {
+  "item": 6,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.8045
+ },
+ {
+  "item": 7,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.8004
+ },
+ {
+  "item": 8,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.8377
+ },
+ {
+  "item": 9,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.8123
+ },
+ {
+  "item": 10,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.8037
+ },
+ {
+  "item": 11,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.8034
+ },
+ {
+  "item": 12,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.8177
+ },
+ {
+  "item": 13,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.816
+ },
+ {
+  "item": 14,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.8063
+ },
+ {
+  "item": 15,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.828
+ },
+ {
+  "item": 16,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.8013
+ },
+ {
+  "item": 17,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.7887
+ },
+ {
+  "item": 18,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.8201
+ },
+ {
+  "item": 19,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.8109
+ },
+ {
+  "item": 20,
+  "key": "base",
+  "family": "Gemma 2 27B",
+  "variant": "base",
+  "f1": 0.8185
+ },
+ {
+  "item": 1,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8047
+ },
+ {
+  "item": 2,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8424
+ },
+ {
+  "item": 3,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8877
+ },
+ {
+  "item": 4,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.855
+ },
+ {
+  "item": 5,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8304
+ },
+ {
+  "item": 6,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8718
+ },
+ {
+  "item": 7,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8604
+ },
+ {
+  "item": 8,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.7955
+ },
+ {
+  "item": 9,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8499
+ },
+ {
+  "item": 10,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8267
+ },
+ {
+  "item": 11,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8535
+ },
+ {
+  "item": 12,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.7949
+ },
+ {
+  "item": 13,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8473
+ },
+ {
+  "item": 14,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8319
+ },
+ {
+  "item": 15,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8771
+ },
+ {
+  "item": 16,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8546
+ },
+ {
+  "item": 17,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8117
+ },
+ {
+  "item": 18,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.7797
+ },
+ {
+  "item": 19,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8481
+ },
+ {
+  "item": 20,
+  "key": "v2",
+  "family": "Gemma 2 27B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.7997
+ },
+ {
+  "item": 1,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8302
+ },
+ {
+  "item": 2,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8188
+ },
+ {
+  "item": 3,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8344
+ },
+ {
+  "item": 4,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8248
+ },
+ {
+  "item": 5,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8208
+ },
+ {
+  "item": 6,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8377
+ },
+ {
+  "item": 7,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8338
+ },
+ {
+  "item": 8,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.839
+ },
+ {
+  "item": 9,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8176
+ },
+ {
+  "item": 10,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8235
+ },
+ {
+  "item": 11,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8269
+ },
+ {
+  "item": 12,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8305
+ },
+ {
+  "item": 13,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8397
+ },
+ {
+  "item": 14,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8119
+ },
+ {
+  "item": 15,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8359
+ },
+ {
+  "item": 16,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8189
+ },
+ {
+  "item": 17,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.826
+ },
+ {
+  "item": 18,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8206
+ },
+ {
+  "item": 19,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8422
+ },
+ {
+  "item": 20,
+  "key": "base_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "base",
+  "f1": 0.8336
+ },
+ {
+  "item": 1,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8601
+ },
+ {
+  "item": 2,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.9211
+ },
+ {
+  "item": 3,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8876
+ },
+ {
+  "item": 4,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.914
+ },
+ {
+  "item": 5,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8813
+ },
+ {
+  "item": 6,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8774
+ },
+ {
+  "item": 7,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8734
+ },
+ {
+  "item": 8,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8767
+ },
+ {
+  "item": 9,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.862
+ },
+ {
+  "item": 10,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.843
+ },
+ {
+  "item": 11,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.881
+ },
+ {
+  "item": 12,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8611
+ },
+ {
+  "item": 13,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8782
+ },
+ {
+  "item": 14,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8595
+ },
+ {
+  "item": 15,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.901
+ },
+ {
+  "item": 16,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.876
+ },
+ {
+  "item": 17,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8604
+ },
+ {
+  "item": 18,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8719
+ },
+ {
+  "item": 19,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8677
+ },
+ {
+  "item": 20,
+  "key": "v2_gemma4",
+  "family": "Gemma 4 31B",
+  "variant": "+ SEC LoRA",
+  "f1": 0.8667
+ }
+]

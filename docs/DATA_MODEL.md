@@ -94,3 +94,9 @@ Pipeline: `pipelines/sec/ingest.py` + `transform.py`, weekly (`refresh-weekly.ym
 
 Frozen result tables from the original project live in `data/case_studies/statarb/tables`;
 `pipelines/statarb/publish.py` turns them into `data/facts/statarb.json` and chart marts. Nothing is recomputed.
+
+# Case study — Financial LLM (SEC LoRA)
+
+`data/case_studies/finllm/evaluation_results_phase2.json` is the frozen 4-way BERTScore report from
+srx7703/multi-horizon-financial-llm; `pipelines/finllm/publish.py` writes `data/facts/finllm.json`
+and per-item / paired marts for the charts. Nothing is recomputed.

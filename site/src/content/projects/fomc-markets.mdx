@@ -16,6 +16,7 @@ import VegaChart from '@components/VegaChart.astro';
 import SourceStamp from '@components/SourceStamp.astro';
 import PipelineStatus from '@components/PipelineStatus.astro';
 import Section from '@components/Section.astro';
+import DownloadCsv from '@components/DownloadCsv.astro';
 import { fomcHistorySpec } from '@charts/fomc/history';
 import { fomcPathSpec } from '@charts/fomc/path';
 import { pct, pts, num, dateUtc, dayUtc, daysUntil } from '@lib/fmt';
@@ -60,6 +61,7 @@ export const sideLabel = (r) => r.hike >= r.cut && r.hike >= r.hold ? 'a hike' :
         </table>
       </div>
     </details>
+    <p><DownloadCsv filename="fomc_daily_history.csv" src="/data/marts/predmarkets/fomc_history.json" label="Download the daily history (CSV)" /></p>
     <SourceStamp slot="stamp" sources={facts.sources.slice(0, 2)} asOf={asOf} />
   </ChartCard>
 )}

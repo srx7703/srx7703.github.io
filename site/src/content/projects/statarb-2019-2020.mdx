@@ -25,7 +25,7 @@ export const bh = facts.buy_and_hold;
 export const asOf = 'May 2026 (frozen results)';
 
 <div class="lede">
-  Under static fitting and {facts.tc_bps} bps one-way costs, none of the three stat-arb models is profitable in 2020 out of sample: the best, {best.strategy}, has a Sharpe of {best.sharpe.toFixed(2)} and an annual return of {pct(best.ann_return, 1)}, against {bh.sharpe.toFixed(2)} and {pct(bh.ann_return, 1)} for buy-and-hold. The interesting results are the controls: train-to-test Sharpe gaps of 3.5 to 5.0 show how much a 2019 fit overfits, bootstrap intervals are wide enough to contain zero for every strategy, and a rolling six-month refit turns the sign positive.
+  Under static fitting and {facts.tc_bps} bps one-way costs, none of the three stat-arb models is profitable in 2020 out of sample: the best, {best.strategy}, has a Sharpe of {best.sharpe.toFixed(2)} and an annual return of {pct(best.ann_return, 1)}, against {bh.sharpe.toFixed(2)} and {pct(bh.ann_return, 1)} for buy-and-hold. The interesting results are the controls: train-to-test Sharpe gaps of {Math.min(...facts.train_test.map((r) => r.gap)).toFixed(1)} to {Math.max(...facts.train_test.map((r) => r.gap)).toFixed(1)} show how much a 2019 fit overfits, bootstrap intervals are wide enough to contain zero for every strategy, and a rolling six-month refit turns the sign positive.
 </div>
 
 <KpiRow>
@@ -65,7 +65,7 @@ export const asOf = 'May 2026 (frozen results)';
 <Section id="evaluation" title="Evaluation">
   <div class="prose">
     <ul>
-      <li><strong>Overfitting:</strong> train Sharpe 3.8–4.4 versus test −0.6 to +0.3; {facts.smallest_gap} has the smallest gap, as the L1 penalty predicts.</li>
+      <li><strong>Overfitting:</strong> train Sharpe {Math.min(...facts.train_test.map((r) => r.train)).toFixed(1)}–{Math.max(...facts.train_test.map((r) => r.train)).toFixed(1)} versus test {Math.min(...facts.train_test.map((r) => r.test)).toFixed(1)} to +{Math.max(...facts.train_test.map((r) => r.test)).toFixed(1)}; {facts.smallest_gap} has the smallest gap, as the L1 penalty predicts.</li>
       <li><strong>Significance:</strong> bootstrap 95% intervals for every Sharpe include zero; Memmel tests of LASSO against OLS, PCA and pairs do not reject equal Sharpe (p from {Math.min(...facts.memmel.map((m) => m.p)).toFixed(2)} to {Math.max(...facts.memmel.map((m) => m.p)).toFixed(2)}).</li>
       <li><strong>Look-ahead audit:</strong> {facts.lookahead_audit.passed} of {facts.lookahead_audit.checks} checks pass, including a deliberately leaky variant that should and does blow up the Sharpe, and a perfect-foresight oracle as an upper bound.</li>
       <li><strong>Robustness:</strong> a six-month rolling refit lifts OLS from {facts.rolling[0].static} to {facts.rolling[0].rolling} and LASSO from {facts.rolling[1].static} to {facts.rolling[1].rolling} (no-cost Sharpe), which locates the loss in stale betas rather than in the signal.</li>

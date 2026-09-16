@@ -41,11 +41,18 @@ const { spec, id, height = 300, ariaLabel } = Astro.props;
     text: { color: cssVar('--ink-2') },
   });
 
+  // Explicit pixel width (not 'container'): Vega-Lite's container sizing misbehaves for band
+  // scales with xOffset (renders 0 x 1030). Faceted specs size their own panels.
+  const innerWidth = (el: HTMLElement) => Math.max(240, Math.floor(el.clientWidth) - 8);
+
   const render = async (el: HTMLElement) => {
     const spec = resolve(JSON.parse(el.dataset.spec || '{}')) as Record<string, any>;
     spec.config = { ...(spec.config || {}), ...themeConfig() };
-    spec.width = 'container';
-    spec.autosize = { type: 'fit-x', contains: 'padding' };
+    if (!spec.facet && !spec.spec) {
+      const w = el.clientWidth || el.getBoundingClientRect().width;
+      spec.width = w > 0 ? innerWidth(el) - 70 : 'container'; // room for the y axis; container if not laid out yet
+      spec.autosize = { type: 'fit-x', contains: 'padding' };
+    }
     await embed(el, spec as any, { actions: false, renderer: 'svg', tooltip: { theme: isDark() ? 'dark' : 'light' } });
   };
 
@@ -54,6 +61,21 @@ const { spec, id, height = 300, ariaLabel } = Astro.props;
   renderAll();
   document.addEventListener('themechange', renderAll);
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', renderAll);
+  // Re-render when a chart's box changes size: window resize, a collapsed <details> opening,
+  // or the first layout after a hidden start (width 0 -> real width).
+  const lastWidth = new WeakMap<Element, number>();
+  const ro = new ResizeObserver((entries) => {
+    for (const entry of entries) {
+      const el = entry.target as HTMLElement;
+      const w = Math.round(entry.contentRect.width);
+      const prev = lastWidth.get(el) ?? -1;
+      if (w > 0 && Math.abs(w - prev) > 24) {
+        lastWidth.set(el, w);
+        if (prev !== -1) render(el).catch((e) => console.error('chart failed', el.id, e));
+      }
+    }
+  });
+  all().forEach((el) => ro.observe(el));
 </script>
 <style>
   .vega { width: 100%; }

@@ -18,6 +18,9 @@ import VegaChart from '@components/VegaChart.astro';
 import SourceStamp from '@components/SourceStamp.astro';
 import PipelineStatus from '@components/PipelineStatus.astro';
 import Section from '@components/Section.astro';
+import DataTable from '@components/DataTable.astro';
+import FilterBar from '@components/FilterBar.astro';
+import DownloadCsv from '@components/DownloadCsv.astro';
 import { saasScatterSpec } from '@charts/saas/scatter';
 import { saasRankedSpec } from '@charts/saas/ranked';
 import { pct, num, usd, dateUtc, dayUtc } from '@lib/fmt';
@@ -49,26 +52,15 @@ export const tagCounts = Object.values(coverage).reduce((acc, c) => { const k = 
 </ChartCard>
 
 <Section id="table" title="Benchmark table">
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Company</th><th>Quarter end</th><th class="num">Revenue TTM</th><th class="num">Growth</th><th class="num">Gross margin</th><th class="num">Op. margin</th><th class="num">FCF margin</th><th class="num">SBC / revenue</th><th class="num">Rule of 40</th></tr></thead>
-      <tbody>
-        {latest.map((r) => (
-          <tr>
-            <td><strong>{r.ticker}</strong> <span class="muted">{r.name}</span></td>
-            <td>{r.quarter_end}</td>
-            <td class="num">{usd(r.revenue)}</td>
-            <td class="num">{pct(r.rev_growth, 1)}</td>
-            <td class="num">{pct(r.gross_margin, 1)}</td>
-            <td class="num">{pct(r.op_margin, 1)}</td>
-            <td class="num">{pct(r.fcf_margin, 1)}</td>
-            <td class="num">{pct(r.sbc_pct, 1)}</td>
-            <td class="num">{r.rule_of_40 == null ? '—' : r.rule_of_40.toFixed(1)}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
+  <FilterBar target="saas-table" placeholder="Search company or ticker…" selects={[{ column: 'pass', label: 'Rule of 40', options: ['met', 'below'] }]} />
+  <DataTable id="saas-table" filterKeys={['pass']} columns={[
+    { key: 'ticker', label: 'Ticker' }, { key: 'name', label: 'Company' }, { key: 'quarter_end', label: 'Quarter end' },
+    { key: 'revenue', label: 'Revenue TTM', format: 'usd' }, { key: 'rev_growth', label: 'Growth', format: 'pct' },
+    { key: 'gross_margin', label: 'Gross margin', format: 'pct' }, { key: 'op_margin', label: 'Op. margin', format: 'pct' },
+    { key: 'fcf_margin', label: 'FCF margin', format: 'pct' }, { key: 'sbc_pct', label: 'SBC / revenue', format: 'pct' },
+    { key: 'rule_of_40', label: 'Rule of 40', format: 'fixed1' },
+  ]} rows={latest.map((r) => ({ ...r, pass: r.rule_of_40 != null && r.rule_of_40 >= 40 ? 'met' : 'below' }))} caption="Click a column header to sort. Trailing twelve months as of each company's latest reported quarter." />
+  <p><DownloadCsv filename="saas_benchmark_latest.csv" src="/data/marts/sec/saas_latest.json" label="Download the benchmark table (CSV)" /> <DownloadCsv filename="saas_benchmark_ttm_history.csv" src="/data/marts/sec/saas_ttm.json" label="Download all quarters (CSV)" /></p>
 </Section>
 
 <Section id="method" title="Method">

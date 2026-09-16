@@ -12,6 +12,8 @@ static site that turns them into dashboards with written methodology and evaluat
 | `pipelines/predmarkets/` | Twice-daily snapshots of Polymarket and Kalshi quotes and order books for the 2026 US midterms and FOMC decision markets; history backfill; FOMC outcome grid + scorecard |
 | `pipelines/sec/` | Weekly SEC XBRL companyfacts ingest for 29 SaaS companies, year-to-date differencing into clean quarters, TTM benchmark (Rule of 40) |
 | `pipelines/statarb/` | Port of a finished stat-arb backtest (ISE 537) from frozen result tables |
+| `pipelines/finllm/` | Port of the multi-horizon-financial-llm 4-way evaluation (Gemma 2/4 + SEC LoRA) |
+| `tests/test_site_numbers.py` | Guardrail: no hand-typed data numbers in project-page prose |
 | `data/` | Raw responses, normalized parquet snapshots, derived marts, KPI facts |
 | `site/` | Astro 7 + Vega-Lite static site, deployed to GitHub Pages on every push |
 | `docs/` | Data model, evaluation plans, design rules |
