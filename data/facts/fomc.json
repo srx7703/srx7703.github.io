@@ -32,15 +32,15 @@
    "detail": "latest snapshot 0.3 h ago (limit 14 h)"
   }
  ],
- "generated_at": "2026-09-16T06:52:27+00:00",
+ "generated_at": "2026-09-16T06:55:23+00:00",
  "first_snapshot_ts": "2026-09-16T02:27:56+00:00",
  "last_snapshot_ts": "2026-09-16T06:37:11+00:00",
  "n_snapshots": 4,
  "n_days": 1,
  "history_from": "2025-10-01",
  "markets_tracked": {
-  "polymarket": 287,
-  "kalshi": 400
+  "kalshi": 400,
+  "polymarket": 287
  },
  "decision_markets": 80,
  "next_meeting": {
