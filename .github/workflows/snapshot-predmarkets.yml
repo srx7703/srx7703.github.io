@@ -1,0 +1,79 @@
+name: snapshot-predmarkets
+
+on:
+  schedule:
+    - cron: "17 6 * * *"    # daily full snapshot (universe quotes + tier-1 books), UTC
+    - cron: "17 18 * * *"   # intraday tier-1 snapshot (quotes + books for tracked markets)
+  workflow_dispatch:
+    inputs:
+      set:
+        description: "market set: midterms | fomc | all"
+        default: "all"
+        required: false
+      scope:
+        description: "full | tier1"
+        default: "full"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: snapshot-predmarkets
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --frozen --no-dev
+
+      - name: Resolve scope
+        id: scope
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "scope=${{ github.event.inputs.scope || 'full' }}" >> "$GITHUB_OUTPUT"
+            echo "set=${{ github.event.inputs.set || 'all' }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "17 18 * * *" ]; then
+            echo "scope=tier1" >> "$GITHUB_OUTPUT"; echo "set=all" >> "$GITHUB_OUTPUT"
+          else
+            echo "scope=full" >> "$GITHUB_OUTPUT"; echo "set=all" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Snapshot prediction markets
+        id: snap
+        continue-on-error: true
+        run: uv run python -m pipelines.predmarkets.snapshot --set "${{ steps.scope.outputs.set }}" --scope "${{ steps.scope.outputs.scope }}"
+
+      - name: Commit and push data
+        run: |
+          git config user.name "portfolio-bot"
+          git config user.email "portfolio-bot@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            exit 0
+          fi
+          git commit -m "data(predmarkets): ${{ steps.scope.outputs.scope }} snapshot $(date -u +'%Y-%m-%d %H:%M UTC')"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            echo "push attempt $i failed; retrying"
+            sleep 15
+          done
+          exit 1
+
+      - name: Surface snapshot failure
+        if: steps.snap.outcome == 'failure'
+        run: |
+          echo "::error::snapshot step failed (partial data may have been committed)"
+          exit 1

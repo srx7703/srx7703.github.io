@@ -1,0 +1,15 @@
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+# node / astro
+node_modules/
+site/dist/
+site/.astro/
+# local
+.env
+*.log
+.DS_Store
+data/tmp/
