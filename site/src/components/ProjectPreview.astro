@@ -1,4 +1,6 @@
 ---
+import MiniChart from './MiniChart.astro';
+import type { MiniSpec } from '@lib/minicharts';
 /** One project row: title, a status line, the summary, and the latest headline number (from facts via cardKpis). */
 interface Props {
   href: string;
@@ -8,9 +10,10 @@ interface Props {
   domain: string[];
   started: string;
   kpi?: { label: string; value: string };
+  mini?: MiniSpec;
   headingLevel?: 'h2' | 'h3';
 }
-const { href, title, summary, status, domain, started, kpi, headingLevel = 'h3' } = Astro.props;
+const { href, title, summary, status, domain, started, kpi, mini, headingLevel = 'h3' } = Astro.props;
 const Title = headingLevel;
 const statusLabel = { live: 'Live, auto-refreshed', 'case-study': 'Case study', 'in-progress': 'In progress' }[status];
 ---
@@ -21,6 +24,7 @@ const statusLabel = { live: 'Live, auto-refreshed', 'case-study': 'Case study', 
     <p class="preview__summary">{summary}</p>
   </div>
   <div class="preview__aside">
+    {mini && <div class="preview__mini"><MiniChart spec={mini} /></div>}
     {kpi && <p class="preview__latest"><span class="preview__latest-label">Latest</span><strong>{kpi.value}</strong>{' '}{kpi.label}</p>}
     <span class="preview__cta" aria-hidden="true">View project →</span>
   </div>

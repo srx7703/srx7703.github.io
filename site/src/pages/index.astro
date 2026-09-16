@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '@layouts/Base.astro';
 import ProjectPreview from '@components/ProjectPreview.astro';
 import { cardKpis } from '@lib/cardKpis';
+import { miniCharts } from '@lib/minicharts';
 import { changelog } from '@lib/changelog';
 import MarginNote from '@components/MarginNote.astro';
 import midterms from '@data/facts/midterms.json';
@@ -20,10 +21,17 @@ const recent = changelog.slice(0, 3);
 <Base title="Data analysis and dashboards">
   <p class="hero"><MarginNote><span class="hero-note">Live data, as of the last pipeline run:{stamps.map((s) => (<span class="hero-note__row"><span class="hero-note__label">{s.label}</span><span>{dateUtc(s.ts)} · {s.cadence}</span></span>))}</span></MarginNote>I build analyses that keep running after the write-up: scheduled pipelines, tested transforms, and dashboards whose method and evaluation are written down before the results are in. Everything here is built end to end with Claude Code; the pipelines and the site are public.</p>
 
+  <figure class="photo photo--wide">
+    <picture>
+      <source type="image/webp" srcset="/photos/home-la-night-736.webp 1x, /photos/home-la-night-1472.webp 2x" />
+      <img src="/photos/home-la-night-736.jpg" srcset="/photos/home-la-night-736.jpg 1x, /photos/home-la-night-1472.jpg 2x" width="736" height="368" alt="Song Ruoxuan at a hillside overlook above a city at night" loading="lazy" decoding="async" />
+    </picture>
+  </figure>
+
   <h2>Projects</h2>
   <div>
     {projects.map((p) => (
-      <ProjectPreview href={`/projects/${p.id}/`} title={p.data.title} summary={p.data.summary} status={p.data.status} domain={p.data.domain} started={p.data.started} kpi={cardKpis[p.id]} />
+      <ProjectPreview href={`/projects/${p.id}/`} title={p.data.title} summary={p.data.summary} status={p.data.status} domain={p.data.domain} started={p.data.started} kpi={cardKpis[p.id]} mini={miniCharts[p.id]} />
     ))}
   </div>
   <p class="more"><a href="/projects/">All projects, with filters →</a></p>

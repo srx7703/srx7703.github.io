@@ -57,7 +57,16 @@ summary:hover { color: var(--ink); }
 .site-nav a[aria-current="page"] { text-decoration: underline; text-decoration-style: dashed; text-underline-offset: 0.25em; }
 .theme-toggle { margin-left: auto; border: 0; background: none; cursor: pointer; color: var(--ink); font-size: 1.1rem; line-height: 1; padding: 0.2rem; }
 .theme-icon::before { content: "◐"; }
-.masthead { margin: var(--s-6) 0 var(--s-6); }
+.masthead { margin: var(--s-6) 0 var(--s-6); display: flex; align-items: center; gap: var(--s-3); }
+.masthead__avatar { flex: none; }
+.masthead__avatar img { display: block; width: 3.5rem; height: 3.5rem; border-radius: 50%; object-fit: cover; border: 1px solid var(--border); }
+/* photos: slightly desaturated at export time; a hairline keeps them on the paper */
+.photo { margin: var(--s-5) 0; }
+.photo img, .marginnote img { display: block; width: 100%; height: auto; border: 1px solid var(--border); }
+.marginnote img { margin-bottom: 0.25rem; }
+/* mini charts in project rows */
+.preview__mini { margin-bottom: 0.4rem; }
+.preview__mini svg { display: block; width: 100%; max-width: 15rem; height: auto; }
 .masthead__name { font-size: 1.75rem; font-weight: 500; margin: 0; line-height: 1.15; }
 .masthead__name a { text-decoration: none; }
 .masthead__sub { margin: 0.2rem 0 0; color: var(--ink-3); font-size: var(--fs-sm); font-family: var(--font-sans); }

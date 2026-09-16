@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '@layouts/Base.astro';
 import ProjectPreview from '@components/ProjectPreview.astro';
 import { cardKpis } from '@lib/cardKpis';
+import { miniCharts } from '@lib/minicharts';
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
 const domains = Array.from(new Set(projects.flatMap((p) => p.data.domain))).sort();
 ---
@@ -21,7 +22,7 @@ const domains = Array.from(new Set(projects.flatMap((p) => p.data.domain))).sort
   </div>
   <div id="project-list">
     {projects.map((p) => (
-      <ProjectPreview href={`/projects/${p.id}/`} title={p.data.title} summary={p.data.summary} status={p.data.status} domain={p.data.domain} started={p.data.started} kpi={cardKpis[p.id]} headingLevel="h2" />
+      <ProjectPreview href={`/projects/${p.id}/`} title={p.data.title} summary={p.data.summary} status={p.data.status} domain={p.data.domain} started={p.data.started} kpi={cardKpis[p.id]} mini={miniCharts[p.id]} headingLevel="h2" />
     ))}
   </div>
   <script>

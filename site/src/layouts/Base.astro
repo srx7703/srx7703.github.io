@@ -53,8 +53,11 @@ const isHome = path === '/';
         </button>
       </nav>
       <div class="masthead">
+        <a class="masthead__avatar" href="/" aria-hidden="true" tabindex="-1"><img src="/photos/avatar-64.jpg" srcset="/photos/avatar-64.jpg 1x, /photos/avatar-128.jpg 2x" width="64" height="64" alt="" decoding="async" /></a>
+        <div>
         <p class="masthead__name">{isHome ? AUTHOR : <a href="/">{AUTHOR}</a>}</p>
         <p class="masthead__sub">Data analysis, dashboards, and the pipelines behind them</p>
+        </div>
       </div>
     </header>
     <main id="main" class="page">

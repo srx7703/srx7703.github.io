@@ -1,12 +1,19 @@
 ---
 import Base from '@layouts/Base.astro';
 import { AUTHOR } from '@lib/site';
+import MarginNote from '@components/MarginNote.astro';
 ---
 <Base title="About">
   <h1>About</h1>
   <div class="prose">
-    <p>I am {AUTHOR}. I work on data analysis and investment research, and I build the pipelines and dashboards behind the analyses I write.</p>
+    <p><MarginNote><picture><source type="image/webp" srcset="/photos/about-river-352.webp 1x, /photos/about-river-704.webp 2x" /><img class="photo__img" src="/photos/about-river-352.jpg" srcset="/photos/about-river-352.jpg 1x, /photos/about-river-704.jpg 2x" width="352" height="469" alt="Song Ruoxuan in a suit by a river" loading="lazy" decoding="async" /></picture></MarginNote>I am {AUTHOR}. I work on data analysis and investment research, and I build the pipelines and dashboards behind the analyses I write.</p>
     <p>This site collects projects that keep running after the write-up. Each one states its question, its data, its metric definitions and how it will be evaluated, and links to the code that produces it.</p>
     <p>Code: <a href="https://github.com/srx7703">github.com/srx7703</a></p>
   </div>
+  <figure class="photo photo--wide">
+    <picture>
+      <source type="image/webp" srcset="/photos/about-bench-736.webp 1x, /photos/about-bench-1472.webp 2x" />
+      <img src="/photos/about-bench-736.jpg" srcset="/photos/about-bench-736.jpg 1x, /photos/about-bench-1472.jpg 2x" width="736" height="491" alt="Song Ruoxuan sitting on a bench under a wooden shelter, holding a camera" loading="lazy" decoding="async" />
+    </picture>
+  </figure>
 </Base>
