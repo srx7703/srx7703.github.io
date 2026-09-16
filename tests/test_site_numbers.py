@@ -25,7 +25,7 @@ ALLOW = [
     # definitional constants stated in Method sections
     r"between 2% and 98%", r"2% and 98%", r"1% and 99%", r"\$1 in the", r"bootstrap 95%", r"95% interval", r"ISE 537",
     r"\b10 (cents|bps|equal|probab)", r"10-cent", r"\b(12|18)-month", r"\b(30|60)[- ]day", r"\b(20|50)\+? bps", r"\b[12]\d{3}\b", r"\bH[12]\b",
-    r"\b(17|05):(30|00)", r"\bTop-?", r"\b0\.(70|75)\b", r"rank \d", r"\b(3|6|9)M\b", r"\d{2}bps", r"\b(24|48|36) h",
+    r"\b(17|05):(30|00)", r"\bTop-?", r"\b0\.(70|75)\b", r"rank \d", r"\b(3|6|9)M\b", r"\d{2}bps", r"\b(24|48|36) h", r"starts at 0\.\d+",
 ]
 
 DATA_NUMBER = re.compile(r"(?<![\w.-])(?:\$\s?\d[\d,]*(?:\.\d+)?[MBK]?|\d[\d,]*(?:\.\d+)?\s?%|\d{1,3}(?:,\d{3})+|\d+\.\d+|\d{2,})(?![\w-])")
