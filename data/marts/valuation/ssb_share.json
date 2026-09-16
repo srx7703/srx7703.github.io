@@ -12,7 +12,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.5413672142251794
+    "share": 0.5414233392516381
    },
    {
     "ticker": "373220.KS",
@@ -25,7 +25,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-03-31",
-    "share": 0.1244381560314832
+    "share": 0.12445105687700214
    },
    {
     "ticker": "300014.SZ",
@@ -38,7 +38,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.08196432736934707
+    "share": 0.08197282483635542
    },
    {
     "ticker": "300207.SZ",
@@ -51,7 +51,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.07724112741079167
+    "share": 0.07724913521068372
    },
    {
     "ticker": "002074.SZ",
@@ -64,7 +64,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.05546412193283029
+    "share": 0.05546987205073398
    },
    {
     "ticker": "3931.HK",
@@ -77,7 +77,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2025-12-31",
-    "share": 0.04607103487185892
+    "share": 0.0460758111826203
    },
    {
     "ticker": "6752.T",
@@ -90,7 +90,7 @@
     "basis": "disclosed segment",
     "note": "reportable segment information, Energy segment, sales to external customers, year ended 2026-03-31",
     "period_end": "FY2026",
-    "share": 0.04260968090230077
+    "share": 0.04261409836498636
    },
    {
     "ticker": "300438.SZ",
@@ -103,7 +103,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.01932252959234667
+    "share": 0.0193245328120765
    },
    {
     "ticker": "688567.SS",
@@ -116,7 +116,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.008695387311775231
+    "share": 0.008696288786467674
    },
    {
     "ticker": "MVST",
@@ -129,7 +129,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.002558383462031108
+    "share": 0.0025586486966735554
    },
    {
     "ticker": "SES",
@@ -142,20 +142,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.0001633130677158447
-   },
-   {
-    "ticker": "SLDP",
-    "name": "Solid Power",
-    "name_cn": null,
-    "purity": "high",
-    "revenue_usd": 14893000.0,
-    "revenue_native": 14893000.0,
-    "currency": "USD",
-    "basis": "total revenue",
-    "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-03-31",
-    "share": 0.00010366200048979563
+    "share": 0.00016332999883026343
    },
    {
     "ticker": "IKA.L",
@@ -168,7 +155,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-04-30",
-    "share": 1.0618218499535807e-06
+    "share": 1.0619319319420299e-06
    }
   ],
   "excluded": [
@@ -182,8 +169,9 @@
    {
     "ticker": "SLDP",
     "name": "Solid Power",
+    "purity": "high",
     "reason": "no trailing revenue on file",
-    "purity": "high"
+    "reason_class": "no_data"
    },
    {
     "ticker": "002594.SZ",
@@ -312,21 +300,21 @@
     "reason_class": "other_layer"
    }
   ],
-  "pool_revenue_usd": 143668846150.29254,
-  "n_members": 13,
+  "pool_revenue_usd": 143653953150.29254,
+  "n_members": 12,
   "basis_counts": {
    "disclosed segment": 1,
-   "total revenue": 12
+   "total revenue": 11
   },
   "excluded_counts": {
    "other_layer": 13,
    "no_disclosure": 0,
    "not_recorded": 5,
-   "no_data": 1
+   "no_data": 2
   },
-  "top3_share": 0.7477696976260096,
-  "top5_share": 0.8804749469696317,
-  "hhi": 3287.176046761701
+  "top3_share": 0.7478472209649957,
+  "top5_share": 0.8805662282264134,
+  "hhi": 3287.8575557560143
  },
  "cited": [
   {

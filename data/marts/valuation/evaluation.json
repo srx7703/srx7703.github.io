@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-16T22:07:53.646325+00:00",
+ "generated_at": "2026-09-16T22:08:15.828446+00:00",
  "plan": "docs/EVALUATION_PLAN.md",
  "snapshot_vintages_written": [],
  "tracks": {
@@ -14,7 +14,7 @@
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-09-16T22:06:53.118028+00:00",
+    "as_of": "2026-09-16T22:08:07.602517+00:00",
     "iqr": 122.90333406850978,
     "p25": 47.05051006889242,
     "p75": 169.9538441374022,
@@ -215,7 +215,7 @@
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-09-16T22:06:53.118028+00:00",
+    "as_of": "2026-09-16T22:08:07.602517+00:00",
     "iqr": 20.009888487367935,
     "p25": 14.765876424903869,
     "p75": 34.775764912271804,
@@ -241,7 +241,7 @@
     },
     "rank_correlation_why": null,
     "share_difference": {
-     "median_abs_difference": 0.041438156031483195,
+     "median_abs_difference": 0.04145105687700214,
      "n": 3,
      "source_name": "SNE Research — Press Release (Insight), \"From Jan to Jul 2026, Global EV Battery Usage Posted 725.2GWh\" (English edition; data from its Global EV and Battery Monthly Tracker, August 2026)",
      "source_url": "https://www.sneresearch.com/en/insight/release_view/727/page/0",
@@ -250,28 +250,28 @@
       {
        "name": "CATL",
        "ticker": "300750.SZ",
-       "computed_share": 0.5413672142251794,
+       "computed_share": 0.5414233392516381,
        "cited_value": 0.39899999999999997,
        "cited_rank": null,
-       "difference": 0.14236721422517945,
+       "difference": 0.14242333925163814,
        "cited_text": "CATL 289.6 GWh / 39.9% share (+26.6% YoY"
       },
       {
        "name": "LG Energy Solution",
        "ticker": "373220.KS",
-       "computed_share": 0.1244381560314832,
+       "computed_share": 0.12445105687700214,
        "cited_value": 0.083,
        "cited_rank": null,
-       "difference": 0.041438156031483195,
+       "difference": 0.04145105687700214,
        "cited_text": "LG Energy Solution 60.3 GWh / 8.3% (+4.5%"
       },
       {
        "name": "Panasonic Holdings",
        "ticker": "6752.T",
-       "computed_share": 0.04260968090230077,
+       "computed_share": 0.04261409836498636,
        "cited_value": 0.036000000000000004,
        "cited_rank": null,
-       "difference": 0.0066096809023007685,
+       "difference": 0.0066140983649863525,
        "cited_text": "Panasonic 26.2 GWh / 3.6% (+7.6%"
       }
      ]
@@ -291,7 +291,7 @@
        {
         "name": "CATL",
         "ticker": "300750.SZ",
-        "computed_share": 0.5413672142251794,
+        "computed_share": 0.5414233392516381,
         "cited_value": 289.6,
         "cited_rank": null,
         "difference": null,
@@ -300,7 +300,7 @@
        {
         "name": "LG Energy Solution",
         "ticker": "373220.KS",
-        "computed_share": 0.1244381560314832,
+        "computed_share": 0.12445105687700214,
         "cited_value": 60.3,
         "cited_rank": null,
         "difference": null,
@@ -309,7 +309,7 @@
        {
         "name": "CALB",
         "ticker": "3931.HK",
-        "computed_share": 0.04607103487185892,
+        "computed_share": 0.0460758111826203,
         "cited_value": 37.3,
         "cited_rank": null,
         "difference": null,
@@ -318,7 +318,7 @@
        {
         "name": "Gotion High-tech",
         "ticker": "002074.SZ",
-        "computed_share": 0.05546412193283029,
+        "computed_share": 0.05546987205073398,
         "cited_value": 34.0,
         "cited_rank": null,
         "difference": null,
@@ -327,7 +327,7 @@
        {
         "name": "Panasonic Holdings",
         "ticker": "6752.T",
-        "computed_share": 0.04260968090230077,
+        "computed_share": 0.04261409836498636,
         "cited_value": 26.2,
         "cited_rank": null,
         "difference": null,
@@ -336,7 +336,7 @@
        {
         "name": "EVE Energy",
         "ticker": "300014.SZ",
-        "computed_share": 0.08196432736934707,
+        "computed_share": 0.08197282483635542,
         "cited_value": 25.0,
         "cited_rank": null,
         "difference": null,
@@ -357,7 +357,7 @@
        {
         "name": "CATL",
         "ticker": "300750.SZ",
-        "computed_share": 0.5413672142251794,
+        "computed_share": 0.5414233392516381,
         "cited_value": 107.5,
         "cited_rank": null,
         "difference": null,
@@ -366,7 +366,7 @@
        {
         "name": "LG Energy Solution",
         "ticker": "373220.KS",
-        "computed_share": 0.1244381560314832,
+        "computed_share": 0.12445105687700214,
         "cited_value": 51.6,
         "cited_rank": null,
         "difference": null,
@@ -375,7 +375,7 @@
        {
         "name": "Panasonic Holdings",
         "ticker": "6752.T",
-        "computed_share": 0.04260968090230077,
+        "computed_share": 0.04261409836498636,
         "cited_value": 26.2,
         "cited_rank": null,
         "difference": null,
@@ -384,7 +384,7 @@
        {
         "name": "Gotion High-tech",
         "ticker": "002074.SZ",
-        "computed_share": 0.05546412193283029,
+        "computed_share": 0.05546987205073398,
         "cited_value": 11.6,
         "cited_rank": null,
         "difference": null,
@@ -393,7 +393,7 @@
        {
         "name": "CALB",
         "ticker": "3931.HK",
-        "computed_share": 0.04607103487185892,
+        "computed_share": 0.0460758111826203,
         "cited_value": 7.4,
         "cited_rank": null,
         "difference": null,
@@ -402,7 +402,7 @@
        {
         "name": "EVE Energy",
         "ticker": "300014.SZ",
-        "computed_share": 0.08196432736934707,
+        "computed_share": 0.08197282483635542,
         "cited_value": 6.3,
         "cited_rank": null,
         "difference": null,
@@ -418,33 +418,33 @@
       "period": "2026-01 to 2026-07 (calendar, actuals)",
       "n": 3,
       "spearman": 1.0,
-      "median_abs_difference": 0.041438156031483195,
+      "median_abs_difference": 0.04145105687700214,
       "pairs": [
        {
         "name": "CATL",
         "ticker": "300750.SZ",
-        "computed_share": 0.5413672142251794,
+        "computed_share": 0.5414233392516381,
         "cited_value": 0.39899999999999997,
         "cited_rank": null,
-        "difference": 0.14236721422517945,
+        "difference": 0.14242333925163814,
         "cited_text": "CATL 289.6 GWh / 39.9% share (+26.6% YoY"
        },
        {
         "name": "LG Energy Solution",
         "ticker": "373220.KS",
-        "computed_share": 0.1244381560314832,
+        "computed_share": 0.12445105687700214,
         "cited_value": 0.083,
         "cited_rank": null,
-        "difference": 0.041438156031483195,
+        "difference": 0.04145105687700214,
         "cited_text": "LG Energy Solution 60.3 GWh / 8.3% (+4.5%"
        },
        {
         "name": "Panasonic Holdings",
         "ticker": "6752.T",
-        "computed_share": 0.04260968090230077,
+        "computed_share": 0.04261409836498636,
         "cited_value": 0.036000000000000004,
         "cited_rank": null,
-        "difference": 0.0066096809023007685,
+        "difference": 0.0066140983649863525,
         "cited_text": "Panasonic 26.2 GWh / 3.6% (+7.6%"
        }
       ]
@@ -457,33 +457,33 @@
       "period": "2026-01 to 2026-07 (calendar, actuals)",
       "n": 3,
       "spearman": 1.0,
-      "median_abs_difference": 0.04039031909769923,
+      "median_abs_difference": 0.04038590163501365,
       "pairs": [
        {
         "name": "CATL",
         "ticker": "300750.SZ",
-        "computed_share": 0.5413672142251794,
+        "computed_share": 0.5414233392516381,
         "cited_value": 0.34,
         "cited_rank": null,
-        "difference": 0.2013672142251794,
+        "difference": 0.20142333925163808,
         "cited_text": "CATL 107.5 GWh / 34.0% (+43.7%"
        },
        {
         "name": "LG Energy Solution",
         "ticker": "373220.KS",
-        "computed_share": 0.1244381560314832,
+        "computed_share": 0.12445105687700214,
         "cited_value": 0.163,
         "cited_rank": null,
-        "difference": -0.03856184396851681,
+        "difference": -0.038548943122997864,
         "cited_text": "LG Energy Solution 51.6 GWh / 16.3% (−1.7%"
        },
        {
         "name": "Panasonic Holdings",
         "ticker": "6752.T",
-        "computed_share": 0.04260968090230077,
+        "computed_share": 0.04261409836498636,
         "cited_value": 0.083,
         "cited_rank": null,
-        "difference": -0.04039031909769923,
+        "difference": -0.04038590163501365,
         "cited_text": "Panasonic 26.2 GWh / 8.3% (+7.6%"
        }
       ]
@@ -499,6 +499,7 @@
      ],
      "no_segment_disclosure": [
       "QuantumScape",
+      "Solid Power",
       "BYD",
       "Samsung SDI",
       "Toyota Motor",
