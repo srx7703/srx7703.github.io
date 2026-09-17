@@ -2678,14 +2678,14 @@
   "platform": "kalshi",
   "date": "2026-09-17",
   "side": "hike",
-  "prob": 0.47000000000000003
+  "prob": 0.51
  },
  {
   "meeting": "2026-10",
   "platform": "kalshi",
   "date": "2026-09-17",
   "side": "hold",
-  "prob": 0.545
+  "prob": 0.515
  },
  {
   "meeting": "2026-10",
@@ -4589,21 +4589,21 @@
   "platform": "polymarket",
   "date": "2026-09-17",
   "side": "cut",
-  "prob": 0.013
+  "prob": 0.01
  },
  {
   "meeting": "2026-10",
   "platform": "polymarket",
   "date": "2026-09-17",
   "side": "hike",
-  "prob": 0.4625
+  "prob": 0.5015
  },
  {
   "meeting": "2026-10",
   "platform": "polymarket",
   "date": "2026-09-17",
   "side": "hold",
-  "prob": 0.525
+  "prob": 0.485
  },
  {
   "meeting": "2026-12",
@@ -7305,7 +7305,7 @@
   "platform": "kalshi",
   "date": "2026-09-17",
   "side": "hold",
-  "prob": 0.295
+  "prob": 0.3
  },
  {
   "meeting": "2026-12",
@@ -8320,21 +8320,21 @@
   "platform": "polymarket",
   "date": "2026-09-17",
   "side": "cut",
-  "prob": 0.025500000000000002
+  "prob": 0.024
  },
  {
   "meeting": "2026-12",
   "platform": "polymarket",
   "date": "2026-09-17",
   "side": "hike",
-  "prob": 0.7010000000000001
+  "prob": 0.6775
  },
  {
   "meeting": "2026-12",
   "platform": "polymarket",
   "date": "2026-09-17",
   "side": "hold",
-  "prob": 0.305
+  "prob": 0.315
  },
  {
   "meeting": "2027-01",
@@ -9846,21 +9846,21 @@
   "platform": "kalshi",
   "date": "2026-09-17",
   "side": "cut",
-  "prob": 0.13
+  "prob": 0.12
  },
  {
   "meeting": "2027-01",
   "platform": "kalshi",
   "date": "2026-09-17",
   "side": "hike",
-  "prob": 0.275
+  "prob": 0.27
  },
  {
   "meeting": "2027-01",
   "platform": "kalshi",
   "date": "2026-09-17",
   "side": "hold",
-  "prob": 0.615
+  "prob": 0.61
  },
  {
   "meeting": "2027-01",
@@ -10875,14 +10875,14 @@
   "platform": "polymarket",
   "date": "2026-09-17",
   "side": "cut",
-  "prob": 0.14250000000000002
+  "prob": 0.129
  },
  {
   "meeting": "2027-01",
   "platform": "polymarket",
   "date": "2026-09-17",
   "side": "hike",
-  "prob": 0.3265
+  "prob": 0.327
  },
  {
   "meeting": "2027-01",
@@ -11883,20 +11883,20 @@
   "platform": "kalshi",
   "date": "2026-09-17",
   "side": "cut",
-  "prob": 0.16999999999999998
+  "prob": 0.15000000000000002
  },
  {
   "meeting": "2027-03",
   "platform": "kalshi",
   "date": "2026-09-17",
   "side": "hike",
-  "prob": 0.205
+  "prob": 0.21500000000000002
  },
  {
   "meeting": "2027-03",
   "platform": "kalshi",
   "date": "2026-09-17",
   "side": "hold",
-  "prob": 0.705
+  "prob": 0.695
  }
 ]
