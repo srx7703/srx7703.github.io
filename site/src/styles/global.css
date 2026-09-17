@@ -142,6 +142,15 @@ main.page { padding-bottom: var(--s-5); }
 .section { margin: var(--s-6) 0; clear: both; }
 .section h2 { margin-top: 0; }
 .section--wide { width: var(--container); max-width: none; }
+/* A wide section already occupies the sidenote margin, so there is no column left for a note to float
+   into: one that tried landed on top of the table it was explaining. Inside a wide section a note
+   renders in the flow instead, the same way every note does once the margin folds on a narrow screen. */
+.section--wide .sidenote, .section--wide .marginnote {
+  float: none; clear: none; display: block; width: auto;
+  margin: 0.7rem 0 1rem; padding-left: 0.9rem;
+  border-left: 1px dashed var(--border-strong);
+}
+.section--wide .sidenote { max-width: 62ch; }
 .anchor { color: inherit; text-decoration: none; }
 .anchor:hover { text-decoration: underline; text-decoration-style: dashed; }
 .appendix { margin-top: var(--s-6); padding-top: var(--s-4); border-top: 1px solid var(--border-strong); font-size: 0.92rem; color: var(--ink-2); clear: both; }
