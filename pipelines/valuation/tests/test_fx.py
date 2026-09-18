@@ -287,6 +287,9 @@ class _FakeClient:
         "DEXUSUK": DEXUSUK_CSV,
         "DEXHKUS": "observation_date,DEXHKUS\n2026-09-11,7.8427\n",
         "DEXTAUS": "observation_date,DEXTAUS\n2026-09-11,31.6400\n",
+        # EUR is the second series quoted as USD-per-unit, so it exercises the inversion alongside GBP
+        "DEXUSEU": "observation_date,DEXUSEU\n2026-09-11,1.1604\n",
+        "DEXSZUS": "observation_date,DEXSZUS\n2026-09-11,0.8159\n",
     }
 
     def __init__(self, bodies: dict[str, str | None] | None = None) -> None:
@@ -302,16 +305,16 @@ class _FakeClient:
 
 
 def test_one_dead_series_does_not_lose_the_others(tmp_path, monkeypatch) -> None:
-    """The non-negotiable isolation rule: KRW dies, the other six are still written, exit code is 1."""
+    """The non-negotiable isolation rule: KRW dies, every other currency is still written, exit code is 1."""
     monkeypatch.setattr(mod, "RAW_DIR", tmp_path / "raw")
     monkeypatch.setattr(mod, "SNAP_DIR", tmp_path / "snap")
     res = mod.snapshot_fx(days=3650, client=_FakeClient())
 
     assert len(res["errors"]) == 1 and "KRW/DEXKOUS" in res["errors"][0]
-    assert set(res["currencies"]) == {"CNY", "JPY", "GBP", "HKD", "TWD", "USD"}
+    assert set(res["currencies"]) == {"CNY", "JPY", "GBP", "EUR", "CHF", "HKD", "TWD", "USD"}
     assert res["rows"] > 0
     df = pl.read_parquet(res["path"])  # the data we did get was written before the failure was reported
-    assert set(df["currency"].unique()) == {"CNY", "JPY", "GBP", "HKD", "TWD", "USD"}
+    assert set(df["currency"].unique()) == {"CNY", "JPY", "GBP", "EUR", "CHF", "HKD", "TWD", "USD"}
     assert "KRW" not in set(df["currency"].unique())
     assert res["latest_rates"]["GBP"] == pytest.approx(1.0 / 1.3524, abs=1e-6)
 
@@ -335,7 +338,7 @@ def test_a_bad_payload_costs_one_currency_not_the_whole_run(tmp_path, monkeypatc
 
     assert any("JPY/DEXJPUS" in e and "YYYY-MM-DD" in e for e in res["errors"])
     df = pl.read_parquet(res["path"])
-    assert set(df["currency"].unique()) == {"CNY", "GBP", "HKD", "TWD", "USD"}  # everyone else survived
+    assert set(df["currency"].unique()) == {"CNY", "GBP", "EUR", "CHF", "HKD", "TWD", "USD"}  # everyone else survived
     assert {c["name"]: c["status"] for c in res["checks"]}["Snapshot written"] == "pass"
     assert (tmp_path / "snap" / "valuation" / "runs.jsonl").exists()  # the run is on the record
 
@@ -350,7 +353,7 @@ def test_a_second_run_never_shrinks_the_day(tmp_path, monkeypatch) -> None:
     monkeypatch.setattr(mod, "SNAP_DIR", tmp_path / "snap")
     first = mod.snapshot_fx(days=3650, client=_FakeClient())
     before = pl.read_parquet(first["path"])
-    assert set(before["currency"].unique()) == {"CNY", "JPY", "GBP", "HKD", "TWD", "USD"}
+    assert set(before["currency"].unique()) == {"CNY", "JPY", "GBP", "EUR", "CHF", "HKD", "TWD", "USD"}
 
     # CNY and JPY are down this time; TWD has been revised
     second = mod.snapshot_fx(
@@ -365,7 +368,7 @@ def test_a_second_run_never_shrinks_the_day(tmp_path, monkeypatch) -> None:
     )
     assert second["path"] == first["path"]  # same date, same file
     df = pl.read_parquet(second["path"])
-    assert set(df["currency"].unique()) == {"CNY", "JPY", "GBP", "HKD", "TWD", "USD"}
+    assert set(df["currency"].unique()) == {"CNY", "JPY", "GBP", "EUR", "CHF", "HKD", "TWD", "USD"}
     assert df.height >= before.height  # a partial run may add rows, never remove them
     FX_SCHEMA.validate(df)  # still one row per (date, currency)
 

@@ -17,7 +17,7 @@ import pytest
 
 from pipelines.common.storage import read_json_gz, run_stamp, utc_now
 from pipelines.valuation import estimates_yf as yf
-from pipelines.valuation.config import BY_TICKER
+from pipelines.valuation.config import BY_TICKER, COMPANIES
 from pipelines.valuation.estimates_yf import (
     _minus_one_year,
     _parse_date,
@@ -564,11 +564,20 @@ def test_parsed_rows_satisfy_the_pandera_schemas():
 
 
 def test_the_pool_is_every_non_a_share_listing():
+    """Set equality against the config, not a hardcoded count: the pool grows when a track is added.
+
+    The count used to be asserted as 37 and broke the day the power track landed, which told nobody
+    anything about the fetcher. What matters is that the pool is exactly the listings whose estimates
+    come from Yahoo, that no A-share slips in, and that every market Yahoo has to cover is present.
+    """
     pool = yahoo_companies()
-    assert len(pool) == 37
-    assert all(c.estimates == "yahoo" for c in pool)
+    expected = {c.ticker for c in COMPANIES if c.estimates == "yahoo"}
+    assert {c.ticker for c in pool} == expected
     assert all(c.market != "cn" for c in pool)
-    assert {"COHR", "5802.T", "006400.KS", "3081.TWO", "QS", "3750.HK", "IKA.L"} <= {c.ticker for c in pool}
+    assert {"COHR", "5802.T", "006400.KS", "3081.TWO", "QS", "3750.HK", "IKA.L"} <= expected
+    # every non-A-share market the config declares has to be represented, or the fetcher is untested
+    # against a currency or a fiscal calendar it will meet in production
+    assert {c.market for c in pool} == {c.market for c in COMPANIES if c.estimates == "yahoo"}
 
 
 def test_pool_can_be_narrowed_and_ignores_a_shares():

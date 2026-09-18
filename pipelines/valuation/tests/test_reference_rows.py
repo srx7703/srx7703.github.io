@@ -24,6 +24,9 @@ from pipelines.valuation.share import reference_path
 RENDERED = {
     "optical": ("cited_share", "segment_revenue"),
     "ssb": ("cited_share", "shipments", "capacity", "segment_revenue"),
+    # the power track has no market-share layer: its supply paths are different products, so the page
+    # renders none of these lists and its curated data lives under pipelines/power/reference
+    "power": (),
 }
 
 # Phrases that address the pipeline's own authors rather than a reader. None of them belongs in a

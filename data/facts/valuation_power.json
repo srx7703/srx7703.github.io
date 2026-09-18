@@ -1,0 +1,143 @@
+{
+ "generated_at": "2026-09-18T20:17:52.530960+00:00",
+ "track": "power",
+ "label": "Data-center power",
+ "years": [
+  2026,
+  2027
+ ],
+ "as_of_price": "2026-09-18T20:14:06+00:00",
+ "as_of_estimates": "2026-09-18T20:15:05+00:00",
+ "as_of_fx": "2026-09-11",
+ "n_listings": 30,
+ "n_issuers": 30,
+ "n_priced": 30,
+ "n_with_consensus": 26,
+ "n_thin": 0,
+ "n_nm": 4,
+ "n_stale_prices": 0,
+ "median_fwd_pe_this": 25.217549475882656,
+ "median_fwd_pe_next": 19.980800877674163,
+ "p25_fwd_pe_this": 19.066744438071876,
+ "p75_fwd_pe_this": 30.932195670023777,
+ "iqr_fwd_pe_this": 11.865451231951901,
+ "median_growth": 0.1801713288921929,
+ "median_trailing_pe": 38.665220673552724,
+ "cheapest": {
+  "ticker": "FSLR",
+  "name": "First Solar",
+  "fwd_pe_2026": 11.204360071859767,
+  "growth": 0.32584870340236116,
+  "coverage": "covered"
+ },
+ "priciest": {
+  "ticker": "TSLA",
+  "name": "Tesla",
+  "fwd_pe_2026": 204.88778896450867,
+  "growth": 0.23604252207660736,
+  "coverage": "covered"
+ },
+ "nm_reasons": [
+  "consensus forecasts a loss"
+ ],
+ "share": {
+  "n_members": 0,
+  "n_excluded": 0,
+  "pool_revenue_usd": 0.0,
+  "basis_counts": {},
+  "excluded_counts": {},
+  "top3_share": null,
+  "top5_share": null,
+  "hhi": null,
+  "leader": null,
+  "members": [],
+  "excluded": []
+ },
+ "cited_share": [],
+ "n_quoted": 0,
+ "withheld_quotes": [],
+ "dual_listings": [],
+ "share_base_artefacts": [],
+ "excluded_from_pool": [],
+ "reference_updated": "2026-09-18",
+ "sources": [
+  {
+   "name": "Yahoo Finance (prices and analyst consensus)",
+   "url": "https://finance.yahoo.com/"
+  },
+  {
+   "name": "East Money analyst forecasts (A-shares)",
+   "url": "https://emweb.securities.eastmoney.com/"
+  },
+  {
+   "name": "SEC EDGAR XBRL companyfacts",
+   "url": "https://www.sec.gov/edgar/sec-api-documentation"
+  },
+  {
+   "name": "FRED daily exchange rates",
+   "url": "https://fred.stlouisfed.org/categories/94"
+  }
+ ],
+ "checks": [
+  {
+   "name": "Publish guard",
+   "status": "pass",
+   "detail": "30 listings priced against 30 in the published facts"
+  },
+  {
+   "name": "Price coverage",
+   "status": "pass",
+   "detail": "30 of 30 listings priced"
+  },
+  {
+   "name": "Price freshness",
+   "status": "pass",
+   "detail": "every price is from the last 4 days"
+  },
+  {
+   "name": "Consensus coverage",
+   "status": "pass",
+   "detail": "26 of 30 listings have a calendar-2026 consensus; 4 do not (consensus forecasts a loss)"
+  },
+  {
+   "name": "Analyst depth",
+   "status": "pass",
+   "detail": "0 of 30 listings are covered by fewer than three analysts"
+  },
+  {
+   "name": "Trailing basis",
+   "status": "pass",
+   "detail": "3 of 30 listings use the last full fiscal year instead of a trailing twelve months, because no quarterly statement is published for them; the table marks which"
+  },
+  {
+   "name": "Trailing earnings",
+   "status": "pass",
+   "detail": "5 of 30 listings have positive trailing profit"
+  },
+  {
+   "name": "Dual-listing share base",
+   "status": "pass",
+   "detail": "0 dual-listed issuers; each secondary line's market cap implies the same share count as its primary"
+  },
+  {
+   "name": "Share basis A",
+   "status": "pass",
+   "detail": "no market-share layer for this track by design"
+  },
+  {
+   "name": "Share adds to one",
+   "status": "pass",
+   "detail": "computed shares sum to 1 by construction; this is a float tripwire, not a test of the pool"
+  },
+  {
+   "name": "Quoted figures sourced",
+   "status": "pass",
+   "detail": "0 quoted figures on the page, every one with a publisher, a URL and a publication date"
+  },
+  {
+   "name": "Currency conversion",
+   "status": "pass",
+   "detail": "every priced listing has a resolved price currency"
+  }
+ ]
+}

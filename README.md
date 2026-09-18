@@ -14,7 +14,8 @@ static site that turns them into dashboards with written methodology and evaluat
 | `pipelines/sec/` | Weekly SEC XBRL companyfacts ingest for 29 SaaS companies, year-to-date differencing into clean quarters, TTM benchmark (Rule of 40) |
 | `pipelines/statarb/` | Port of a finished stat-arb backtest (ISE 537) from frozen result tables |
 | `pipelines/finllm/` | Port of the multi-horizon-financial-llm 4-way evaluation (Gemma 2/4 + SEC LoRA) |
-| `pipelines/valuation/` | Daily prices and weekly analyst consensus for 68 listed optical-module and solid-state-battery companies worldwide; fiscal years restated onto calendar years; forward PE, forecast dispersion and market share on a computed and a cited basis |
+| `pipelines/valuation/` | Daily prices and weekly analyst consensus for 98 listed optical-module, solid-state-battery and data-center-power companies worldwide; fiscal years restated onto calendar years; forward PE, forecast dispersion and market share on a computed and a cited basis |
+| `pipelines/power/` | Weekly EIA-860M generator inventory, retirement deferrals differenced between two vintages, EIA-861M retail sales, the Short-Term Energy Outlook and the PJM load forecast with its large-load adjustment; plus a hand-curated contract, cost and demand-estimate layer, each row with a public source and a caveat |
 | `tests/test_site_numbers.py` | Guardrail: no hand-typed data numbers in project-page prose |
 | `data/` | Raw responses, normalized parquet snapshots, derived marts, KPI facts |
 | `site/` | Astro 7 + Vega-Lite static site, deployed to GitHub Pages after every push and every data refresh |

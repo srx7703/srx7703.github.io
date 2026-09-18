@@ -1,0 +1,6250 @@
+{
+ "generated_at": "2026-09-18T20:23:13.100383+00:00",
+ "inventory_vintage": "2026-07",
+ "headline": {
+  "commercial_share_of_us_growth": 0.849,
+  "us_growth_twh": 52.4,
+  "gas_share_of_planned_additions": 0.1897,
+  "planned_additions_gw": 249.9,
+  "pjm_large_load_share_of_growth": 1.0151541392448908,
+  "pjm_window": [
+   2026,
+   2031
+  ],
+  "deferred_gw": 14.2
+ },
+ "demand": {
+  "national": {
+   "status": "ok",
+   "window_end": "2026-06",
+   "window_start": "2025-07",
+   "prior_window_end": "2025-06",
+   "ttm_twh": {
+    "commercial": 1517.1,
+    "industrial": 1046.5,
+    "residential": 1510.8,
+    "total": 4081.7,
+    "transportation": 7.2
+   },
+   "ttm_growth_twh": {
+    "commercial": 44.5,
+    "industrial": 5.6,
+    "residential": 2.4,
+    "total": 52.4,
+    "transportation": -0.1
+   },
+   "ttm_growth_pct": {
+    "commercial": 0.0302,
+    "industrial": 0.0054,
+    "residential": 0.0016,
+    "total": 0.013,
+    "transportation": -0.0099
+   },
+   "share_of_growth": {
+    "commercial": 0.849,
+    "industrial": 0.1072,
+    "residential": 0.0451,
+    "transportation": -0.0014
+   },
+   "total_growth_twh": 52.4
+  },
+  "by_state": [
+   {
+    "state": "AZ",
+    "year": 2010,
+    "twh": 28.94,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "AZ",
+    "year": 2011,
+    "twh": 29.51,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "AZ",
+    "year": 2012,
+    "twh": 29.69,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "AZ",
+    "year": 2013,
+    "twh": 30.04,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "AZ",
+    "year": 2014,
+    "twh": 29.29,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "AZ",
+    "year": 2015,
+    "twh": 29.28,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "AZ",
+    "year": 2016,
+    "twh": 29.56,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "AZ",
+    "year": 2017,
+    "twh": 29.68,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "AZ",
+    "year": 2018,
+    "twh": 29.68,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "AZ",
+    "year": 2019,
+    "twh": 29.42,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "AZ",
+    "year": 2020,
+    "twh": 29.13,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "AZ",
+    "year": 2021,
+    "twh": 29.99,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "AZ",
+    "year": 2022,
+    "twh": 31.51,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "AZ",
+    "year": 2023,
+    "twh": 32.62,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "AZ",
+    "year": 2024,
+    "twh": 36.1,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "AZ",
+    "year": 2025,
+    "twh": 37.54,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "AZ",
+    "year": 2026,
+    "twh": 19.62,
+    "months": 6,
+    "complete_year": false
+   },
+   {
+    "state": "GA",
+    "year": 2010,
+    "twh": 47.9,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "GA",
+    "year": 2011,
+    "twh": 46.93,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "GA",
+    "year": 2012,
+    "twh": 45.94,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "GA",
+    "year": 2013,
+    "twh": 45.35,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "GA",
+    "year": 2014,
+    "twh": 46.61,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "GA",
+    "year": 2015,
+    "twh": 47.15,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "GA",
+    "year": 2016,
+    "twh": 47.76,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "GA",
+    "year": 2017,
+    "twh": 46.27,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "GA",
+    "year": 2018,
+    "twh": 47.31,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "GA",
+    "year": 2019,
+    "twh": 47.41,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "GA",
+    "year": 2020,
+    "twh": 44.3,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "GA",
+    "year": 2021,
+    "twh": 45.78,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "GA",
+    "year": 2022,
+    "twh": 49.54,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "GA",
+    "year": 2023,
+    "twh": 51.4,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "GA",
+    "year": 2024,
+    "twh": 55.17,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "GA",
+    "year": 2025,
+    "twh": 56.93,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "GA",
+    "year": 2026,
+    "twh": 28.83,
+    "months": 6,
+    "complete_year": false
+   },
+   {
+    "state": "IL",
+    "year": 2010,
+    "twh": 51.44,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "IL",
+    "year": 2011,
+    "twh": 50.47,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "IL",
+    "year": 2012,
+    "twh": 50.81,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "IL",
+    "year": 2013,
+    "twh": 50.47,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "IL",
+    "year": 2014,
+    "twh": 50.62,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "IL",
+    "year": 2015,
+    "twh": 50.32,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "IL",
+    "year": 2016,
+    "twh": 50.91,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "IL",
+    "year": 2017,
+    "twh": 49.99,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "IL",
+    "year": 2018,
+    "twh": 50.76,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "IL",
+    "year": 2019,
+    "twh": 49.28,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "IL",
+    "year": 2020,
+    "twh": 45.49,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "IL",
+    "year": 2021,
+    "twh": 46.92,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "IL",
+    "year": 2022,
+    "twh": 47.12,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "IL",
+    "year": 2023,
+    "twh": 45.58,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "IL",
+    "year": 2024,
+    "twh": 45.24,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "IL",
+    "year": 2025,
+    "twh": 46.35,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "IL",
+    "year": 2026,
+    "twh": 22.27,
+    "months": 6,
+    "complete_year": false
+   },
+   {
+    "state": "LA",
+    "year": 2010,
+    "twh": 24.2,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "LA",
+    "year": 2011,
+    "twh": 24.28,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "LA",
+    "year": 2012,
+    "twh": 24.24,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "LA",
+    "year": 2013,
+    "twh": 24.25,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "LA",
+    "year": 2014,
+    "twh": 24.49,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "LA",
+    "year": 2015,
+    "twh": 25.0,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "LA",
+    "year": 2016,
+    "twh": 24.9,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "LA",
+    "year": 2017,
+    "twh": 24.5,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "LA",
+    "year": 2018,
+    "twh": 24.69,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "LA",
+    "year": 2019,
+    "twh": 24.28,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "LA",
+    "year": 2020,
+    "twh": 22.4,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "LA",
+    "year": 2021,
+    "twh": 22.46,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "LA",
+    "year": 2022,
+    "twh": 23.54,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "LA",
+    "year": 2023,
+    "twh": 23.74,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "LA",
+    "year": 2024,
+    "twh": 23.65,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "LA",
+    "year": 2025,
+    "twh": 23.9,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "LA",
+    "year": 2026,
+    "twh": 11.19,
+    "months": 6,
+    "complete_year": false
+   },
+   {
+    "state": "OH",
+    "year": 2010,
+    "twh": 46.53,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "OH",
+    "year": 2011,
+    "twh": 47.11,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "OH",
+    "year": 2012,
+    "twh": 46.76,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "OH",
+    "year": 2013,
+    "twh": 46.72,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "OH",
+    "year": 2014,
+    "twh": 47.0,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "OH",
+    "year": 2015,
+    "twh": 47.12,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "OH",
+    "year": 2016,
+    "twh": 47.74,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "OH",
+    "year": 2017,
+    "twh": 46.16,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "OH",
+    "year": 2018,
+    "twh": 47.19,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "OH",
+    "year": 2019,
+    "twh": 46.01,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "OH",
+    "year": 2020,
+    "twh": 43.2,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "OH",
+    "year": 2021,
+    "twh": 44.98,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "OH",
+    "year": 2022,
+    "twh": 46.09,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "OH",
+    "year": 2023,
+    "twh": 46.35,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "OH",
+    "year": 2024,
+    "twh": 50.81,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "OH",
+    "year": 2025,
+    "twh": 57.76,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "OH",
+    "year": 2026,
+    "twh": 31.06,
+    "months": 6,
+    "complete_year": false
+   },
+   {
+    "state": "TX",
+    "year": 2010,
+    "twh": 121.47,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "TX",
+    "year": 2011,
+    "twh": 128.21,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "TX",
+    "year": 2012,
+    "twh": 133.1,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "TX",
+    "year": 2013,
+    "twh": 136.52,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "TX",
+    "year": 2014,
+    "twh": 139.43,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "TX",
+    "year": 2015,
+    "twh": 136.32,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "TX",
+    "year": 2016,
+    "twh": 139.1,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "TX",
+    "year": 2017,
+    "twh": 137.49,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "TX",
+    "year": 2018,
+    "twh": 143.52,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "TX",
+    "year": 2019,
+    "twh": 142.0,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "TX",
+    "year": 2020,
+    "twh": 145.17,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "TX",
+    "year": 2021,
+    "twh": 147.84,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "TX",
+    "year": 2022,
+    "twh": 160.72,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "TX",
+    "year": 2023,
+    "twh": 165.79,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "TX",
+    "year": 2024,
+    "twh": 164.23,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "TX",
+    "year": 2025,
+    "twh": 173.81,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "TX",
+    "year": 2026,
+    "twh": 87.62,
+    "months": 6,
+    "complete_year": false
+   },
+   {
+    "state": "VA",
+    "year": 2010,
+    "twh": 48.04,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "VA",
+    "year": 2011,
+    "twh": 47.05,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "VA",
+    "year": 2012,
+    "twh": 46.76,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "VA",
+    "year": 2013,
+    "twh": 47.75,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "VA",
+    "year": 2014,
+    "twh": 47.75,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "VA",
+    "year": 2015,
+    "twh": 48.35,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "VA",
+    "year": 2016,
+    "twh": 49.26,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "VA",
+    "year": 2017,
+    "twh": 50.2,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "VA",
+    "year": 2018,
+    "twh": 52.27,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "VA",
+    "year": 2019,
+    "twh": 53.98,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "VA",
+    "year": 2020,
+    "twh": 53.53,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "VA",
+    "year": 2021,
+    "twh": 58.72,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "VA",
+    "year": 2022,
+    "twh": 68.56,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "VA",
+    "year": 2023,
+    "twh": 73.81,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "VA",
+    "year": 2024,
+    "twh": 78.71,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "VA",
+    "year": 2025,
+    "twh": 83.62,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "state": "VA",
+    "year": 2026,
+    "twh": 42.51,
+    "months": 6,
+    "complete_year": false
+   }
+  ],
+  "national_commercial": [
+   {
+    "year": 2010,
+    "twh": 1330.2,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "year": 2011,
+    "twh": 1328.06,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "year": 2012,
+    "twh": 1327.1,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "year": 2013,
+    "twh": 1337.08,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "year": 2014,
+    "twh": 1352.16,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "year": 2015,
+    "twh": 1360.75,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "year": 2016,
+    "twh": 1367.19,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "year": 2017,
+    "twh": 1352.89,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "year": 2018,
+    "twh": 1381.76,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "year": 2019,
+    "twh": 1360.88,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "year": 2020,
+    "twh": 1287.44,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "year": 2021,
+    "twh": 1328.44,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "year": 2022,
+    "twh": 1390.87,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "year": 2023,
+    "twh": 1408.11,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "year": 2024,
+    "twh": 1450.94,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "year": 2025,
+    "twh": 1493.49,
+    "months": 12,
+    "complete_year": true
+   },
+   {
+    "year": 2026,
+    "twh": 738.71,
+    "months": 6,
+    "complete_year": false
+   }
+  ],
+  "states": [
+   "VA",
+   "TX",
+   "GA",
+   "OH",
+   "LA",
+   "AZ",
+   "IL"
+  ],
+  "steo": {
+   "status": "ok",
+   "vintage": "2026-09",
+   "history_through": "2025",
+   "annual": [
+    {
+     "series_id": "ELCCP_US",
+     "label": "Commercial sector",
+     "period": "2022",
+     "value": 1390.9,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELCCP_US",
+     "label": "Commercial sector",
+     "period": "2023",
+     "value": 1408.1,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELCCP_US",
+     "label": "Commercial sector",
+     "period": "2024",
+     "value": 1450.9,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELCCP_US",
+     "label": "Commercial sector",
+     "period": "2025",
+     "value": 1493.5,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELCCP_US",
+     "label": "Commercial sector",
+     "period": "2026",
+     "value": 1542.2,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELCCP_US",
+     "label": "Commercial sector",
+     "period": "2027",
+     "value": 1584.4,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELICP_US",
+     "label": "Industrial sector",
+     "period": "2022",
+     "value": 1020.5,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELICP_US",
+     "label": "Industrial sector",
+     "period": "2023",
+     "value": 1009.3,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELICP_US",
+     "label": "Industrial sector",
+     "period": "2024",
+     "value": 1034.6,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELICP_US",
+     "label": "Industrial sector",
+     "period": "2025",
+     "value": 1042.2,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELICP_US",
+     "label": "Industrial sector",
+     "period": "2026",
+     "value": 1059.3,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELICP_US",
+     "label": "Industrial sector",
+     "period": "2027",
+     "value": 1086.8,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELRCP_US",
+     "label": "Residential sector",
+     "period": "2022",
+     "value": 1509.2,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELRCP_US",
+     "label": "Residential sector",
+     "period": "2023",
+     "value": 1450.0,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELRCP_US",
+     "label": "Residential sector",
+     "period": "2024",
+     "value": 1482.9,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELRCP_US",
+     "label": "Residential sector",
+     "period": "2025",
+     "value": 1515.0,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELRCP_US",
+     "label": "Residential sector",
+     "period": "2026",
+     "value": 1526.8,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELRCP_US",
+     "label": "Residential sector",
+     "period": "2027",
+     "value": 1533.2,
+     "unit": "billion kWh"
+    },
+    {
+     "series_id": "ELTCP_US",
+     "label": "All sectors, US",
+     "period": "2022",
+     "value": 3927.2,
+     "unit": "TWh"
+    },
+    {
+     "series_id": "ELTCP_US",
+     "label": "All sectors, US",
+     "period": "2023",
+     "value": 3874.3,
+     "unit": "TWh"
+    },
+    {
+     "series_id": "ELTCP_US",
+     "label": "All sectors, US",
+     "period": "2024",
+     "value": 3975.4,
+     "unit": "TWh"
+    },
+    {
+     "series_id": "ELTCP_US",
+     "label": "All sectors, US",
+     "period": "2025",
+     "value": 4058.0,
+     "unit": "TWh"
+    },
+    {
+     "series_id": "ELTCP_US",
+     "label": "All sectors, US",
+     "period": "2026",
+     "value": 4135.2,
+     "unit": "TWh"
+    },
+    {
+     "series_id": "ELTCP_US",
+     "label": "All sectors, US",
+     "period": "2027",
+     "value": 4210.9,
+     "unit": "TWh"
+    }
+   ],
+   "growth": {
+    "ELCCP_US": {
+     "from_year": "2025",
+     "to_year": "2027",
+     "from": 1493.5,
+     "to": 1584.4,
+     "change_twh": 90.9
+    },
+    "ELICP_US": {
+     "from_year": "2025",
+     "to_year": "2027",
+     "from": 1042.2,
+     "to": 1086.8,
+     "change_twh": 44.6
+    },
+    "ELRCP_US": {
+     "from_year": "2025",
+     "to_year": "2027",
+     "from": 1515.0,
+     "to": 1533.2,
+     "change_twh": 18.2
+    },
+    "ELTCP_US": {
+     "from_year": "2025",
+     "to_year": "2027",
+     "from": 4058.0,
+     "to": 4210.9,
+     "change_twh": 152.9
+    }
+   },
+   "commercial_share_of_growth": 0.5945
+  },
+  "forecasts": [
+   {
+    "source": "Lawrence Berkeley National Laboratory",
+    "scenario": "historical",
+    "geography": "US",
+    "year": 2014,
+    "basis": "level",
+    "base_year": null,
+    "value": 58,
+    "unit": "TWh",
+    "share_of_national": null,
+    "source_name": "Berkeley Lab, \"Berkeley Lab Report Evaluates Increase in Electricity Demand from Data Centers\" (summary of the 2024 United States Data Center Energy Usage Report)",
+    "source_url": "https://newscenter.lbl.gov/2025/01/15/berkeley-lab-report-evaluates-increase-in-electricity-demand-from-data-centers/",
+    "publish_date": "2025-01-15",
+    "last_checked": "2026-09-18",
+    "quote": "climbed from 58 TWh in 2014 to 176 TWh in 2023",
+    "caveat": "Covers servers, storage, network equipment and cooling and power infrastructure inside US data centers, and excludes cryptocurrency mining, which Berkeley Lab estimates separately. It is electricity delivered to the site, so transmission and distribution losses upstream are not counted.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "Lawrence Berkeley National Laboratory",
+    "scenario": "historical",
+    "geography": "US",
+    "year": 2018,
+    "basis": "level",
+    "base_year": null,
+    "value": 76,
+    "unit": "TWh",
+    "share_of_national": 1.9,
+    "source_name": "Shehabi et al., \"2024 United States Data Center Energy Usage Report\", LBNL-2001637",
+    "source_url": "https://eta-publications.lbl.gov/sites/default/files/2024-12/lbnl-2024-united-states-data-center-energy-usage-report_1.pdf",
+    "publish_date": "2024-12-01",
+    "last_checked": "2026-09-18",
+    "quote": "data centers consumed about 76 TWh, representing 1.9% of total",
+    "caveat": "Excludes cryptocurrency mining, which this report models separately in its own section. Includes on-site cooling and power infrastructure but not transmission and distribution losses, and not electricity generated on site.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "Lawrence Berkeley National Laboratory",
+    "scenario": "historical",
+    "geography": "US",
+    "year": 2023,
+    "basis": "level",
+    "base_year": null,
+    "value": 176,
+    "unit": "TWh",
+    "share_of_national": 4.4,
+    "source_name": "Shehabi et al., \"2024 United States Data Center Energy Usage Report\", LBNL-2001637",
+    "source_url": "https://eta-publications.lbl.gov/sites/default/files/2024-12/lbnl-2024-united-states-data-center-energy-usage-report_1.pdf",
+    "publish_date": "2024-12-01",
+    "last_checked": "2026-09-18",
+    "quote": "reaching 176 TWh by 2023, representing 4.4% of total U.S. electricity consumption",
+    "caveat": "Excludes cryptocurrency mining, which the report estimates separately, so it is not comparable with estimates such as EPRI's that fold mining in. Includes cooling and power infrastructure at the site; excludes grid losses.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "Lawrence Berkeley National Laboratory",
+    "scenario": "low",
+    "geography": "US",
+    "year": 2028,
+    "basis": "level",
+    "base_year": null,
+    "value": 325,
+    "unit": "TWh",
+    "share_of_national": 6.7,
+    "source_name": "Shehabi et al., \"2024 United States Data Center Energy Usage Report\", LBNL-2001637",
+    "source_url": "https://eta-publications.lbl.gov/sites/default/files/2024-12/lbnl-2024-united-states-data-center-energy-usage-report_1.pdf",
+    "publish_date": "2024-12-01",
+    "last_checked": "2026-09-18",
+    "quote": "the low and high end of roughly 325 and 580 TWh in 2028",
+    "caveat": "Excludes cryptocurrency mining and grid losses. The spread comes from assumptions about GPU shipments, how hard and how often AI servers run, and cooling system choice; it is not a probability range and the report attaches no likelihood to either end.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "Lawrence Berkeley National Laboratory",
+    "scenario": "high",
+    "geography": "US",
+    "year": 2028,
+    "basis": "level",
+    "base_year": null,
+    "value": 580,
+    "unit": "TWh",
+    "share_of_national": 12.0,
+    "source_name": "Shehabi et al., \"2024 United States Data Center Energy Usage Report\", LBNL-2001637",
+    "source_url": "https://eta-publications.lbl.gov/sites/default/files/2024-12/lbnl-2024-united-states-data-center-energy-usage-report_1.pdf",
+    "publish_date": "2024-12-01",
+    "last_checked": "2026-09-18",
+    "quote": "the low and high end of roughly 325 and 580 TWh in 2028",
+    "caveat": "Excludes cryptocurrency mining and grid losses. The high end assumes GPU shipments at the top of the modelled range running near their rated power for most of the year; the report treats it as a bound, not an expectation.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "Lawrence Berkeley National Laboratory",
+    "scenario": "historical",
+    "geography": "US",
+    "year": 2014,
+    "basis": "level",
+    "base_year": null,
+    "value": 70,
+    "unit": "TWh",
+    "share_of_national": 1.8,
+    "source_name": "Shehabi et al., \"United States Data Center Energy Usage Report\" (2016), LBNL-1005775",
+    "source_url": "https://www.osti.gov/servlets/purl/1372902/",
+    "publish_date": "2016-06-01",
+    "last_checked": "2026-09-18",
+    "quote": "data centers in the U.S. consumed an estimated 70 billion kWh",
+    "caveat": "Superseded: the same team's 2024 report revised 2014 down to about 58 TWh after updated shipment data, a changed definition of data center space types and lower assumed power for high-end servers. Excludes cryptocurrency mining and grid losses.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "Lawrence Berkeley National Laboratory",
+    "scenario": "current trends",
+    "geography": "US",
+    "year": 2020,
+    "basis": "level",
+    "base_year": null,
+    "value": 73,
+    "unit": "TWh",
+    "share_of_national": null,
+    "source_name": "Shehabi et al., \"United States Data Center Energy Usage Report\" (2016), LBNL-1005775",
+    "source_url": "https://www.osti.gov/servlets/purl/1372902/",
+    "publish_date": "2016-06-01",
+    "last_checked": "2026-09-18",
+    "quote": "data centers are projected to consume approximately 73 billion kWh in 2020",
+    "caveat": "Badly superseded and kept as a record of how flat the view was before AI. This case assumed efficiency gains would keep consumption nearly level; the 2024 report says none of the 2016 scenarios captured the rise of AI. Excludes cryptocurrency mining.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "US Environmental Protection Agency",
+    "scenario": "historical",
+    "geography": "US",
+    "year": 2006,
+    "basis": "level",
+    "base_year": null,
+    "value": 61,
+    "unit": "TWh",
+    "share_of_national": 1.5,
+    "source_name": "EPA, \"Report to Congress on Server and Data Center Energy Efficiency, Public Law 109-431\"",
+    "source_url": "https://www.energystar.gov/ia/partners/prod_development/downloads/EPA_Datacenter_Report_Congress_Final1.pdf",
+    "publish_date": "2007-08-02",
+    "last_checked": "2026-09-18",
+    "quote": "sector consumed about 61 billion kilowatt-hours (kWh) in 2006",
+    "caveat": "Covers servers, storage, networking and the power and cooling infrastructure that supports them, which the report puts at half the total. Pre-dates cryptocurrency mining entirely, and excludes grid losses.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "US Environmental Protection Agency",
+    "scenario": "current efficiency trends",
+    "geography": "US",
+    "year": 2011,
+    "basis": "level",
+    "base_year": null,
+    "value": 107,
+    "unit": "TWh",
+    "share_of_national": 2.5,
+    "source_name": "EPA, \"Report to Congress on Server and Data Center Energy Efficiency, Public Law 109-431\"",
+    "source_url": "https://www.energystar.gov/ia/partners/prod_development/downloads/EPA_Datacenter_Report_Congress_Final1.pdf",
+    "publish_date": "2007-08-02",
+    "last_checked": "2026-09-18",
+    "quote": "electricity use is expected to rise to about 107 billion kWh",
+    "caveat": "Superseded and far too high: later work put actual 2011 US data center use nearer 70 TWh, because virtualisation and the shift to hyperscale facilities cut consumption in ways this case did not foresee. Excludes cryptocurrency mining and grid losses.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "US Environmental Protection Agency",
+    "scenario": "historical trends",
+    "geography": "US",
+    "year": 2011,
+    "basis": "level",
+    "base_year": null,
+    "value": 125,
+    "unit": "TWh",
+    "share_of_national": 2.9,
+    "source_name": "EPA, \"Report to Congress on Server and Data Center Energy Efficiency, Public Law 109-431\"",
+    "source_url": "https://www.energystar.gov/ia/partners/prod_development/downloads/EPA_Datacenter_Report_Congress_Final1.pdf",
+    "publish_date": "2007-08-02",
+    "last_checked": "2026-09-18",
+    "quote": "historical trends scenario is estimated at about 125 billion kWh",
+    "caveat": "A deliberate counterfactual rather than a forecast: it extrapolates 2000-2006 trends assuming no further efficiency improvement, so it is the report's upper bound and not what EPA expected. Excludes cryptocurrency mining and grid losses.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "EPRI",
+    "scenario": "historical",
+    "geography": "US",
+    "year": 2023,
+    "basis": "share",
+    "base_year": null,
+    "value": 4.0,
+    "unit": "%",
+    "share_of_national": 4.0,
+    "source_name": "EPRI, \"Powering Intelligence: Analyzing Artificial Intelligence and Data Center Energy Consumption\" (2024 white paper, 3002028905)",
+    "source_url": "https://restservice.epri.com/publicdownload/000000003002028905/0/Product",
+    "publish_date": "2024-05-28",
+    "last_checked": "2026-09-18",
+    "quote": "versus an estimated 4% today",
+    "caveat": "Cryptocurrency mining is explicitly excluded from this study, as are the grid losses upstream of the meter. The underlying quantity is an average 2023 data center load of about 152 TWh, well below Berkeley Lab's 176 TWh for the same year on a similar scope.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "EPRI",
+    "scenario": "low growth",
+    "geography": "US",
+    "year": 2030,
+    "basis": "level",
+    "base_year": null,
+    "value": 196.3,
+    "unit": "TWh",
+    "share_of_national": 4.6,
+    "source_name": "EPRI, \"Powering Intelligence: Analyzing Artificial Intelligence and Data Center Energy Consumption\" (2024 white paper, 3002028905)",
+    "source_url": "https://restservice.epri.com/publicdownload/000000003002028905/0/Product",
+    "publish_date": "2024-05-28",
+    "last_checked": "2026-09-18",
+    "quote": "the graph shows the projection at a mid-range of 196.3 TWh/yr",
+    "caveat": "Excludes cryptocurrency mining by design and excludes grid losses. This case applies a 3.7% annual load growth rate to a 2023 base, and its share assumes all other US load grows at 1% a year, so the percentage moves if the rest of the economy grows faster.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "EPRI",
+    "scenario": "moderate growth",
+    "geography": "US",
+    "year": 2030,
+    "basis": "level",
+    "base_year": null,
+    "value": 214.0,
+    "unit": "TWh",
+    "share_of_national": 5.0,
+    "source_name": "EPRI, \"Powering Intelligence: Analyzing Artificial Intelligence and Data Center Energy Consumption\" (2024 white paper, 3002028905)",
+    "source_url": "https://restservice.epri.com/publicdownload/000000003002028905/0/Product",
+    "publish_date": "2024-05-28",
+    "last_checked": "2026-09-18",
+    "quote": "moderate growth 5% scenario, the projection predicts a mid-range of 214.0 TWh/yr",
+    "caveat": "Excludes cryptocurrency mining and grid losses. A 5% annual load growth case; the share of national electricity assumes non-data-center load grows at 1% a year.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "EPRI",
+    "scenario": "high growth",
+    "geography": "US",
+    "year": 2030,
+    "basis": "level",
+    "base_year": null,
+    "value": 296.4,
+    "unit": "TWh",
+    "share_of_national": 6.8,
+    "source_name": "EPRI, \"Powering Intelligence: Analyzing Artificial Intelligence and Data Center Energy Consumption\" (2024 white paper, 3002028905)",
+    "source_url": "https://restservice.epri.com/publicdownload/000000003002028905/0/Product",
+    "publish_date": "2024-05-28",
+    "last_checked": "2026-09-18",
+    "quote": "data center energy usage rises to a mid-range of 296.4 TWh/yr",
+    "caveat": "Excludes cryptocurrency mining and grid losses. A 10% annual load growth case; the share of national electricity assumes non-data-center load grows at 1% a year.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "EPRI",
+    "scenario": "higher growth",
+    "geography": "US",
+    "year": 2030,
+    "basis": "level",
+    "base_year": null,
+    "value": 403.9,
+    "unit": "TWh",
+    "share_of_national": 9.1,
+    "source_name": "EPRI, \"Powering Intelligence: Analyzing Artificial Intelligence and Data Center Energy Consumption\" (2024 white paper, 3002028905)",
+    "source_url": "https://restservice.epri.com/publicdownload/000000003002028905/0/Product",
+    "publish_date": "2024-05-28",
+    "last_checked": "2026-09-18",
+    "quote": "data center electricity usage rising to an average of 403.9 TWh/year",
+    "caveat": "Excludes cryptocurrency mining and grid losses. The 15% annual growth case, and the one behind the widely repeated headline that data centers could reach 9% of US electricity by 2030; it was the top of EPRI's 2024 range, not its central view.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "EPRI",
+    "scenario": "low",
+    "geography": "US",
+    "year": 2024,
+    "basis": "level",
+    "base_year": null,
+    "value": 177,
+    "unit": "TWh",
+    "share_of_national": null,
+    "source_name": "EPRI, \"Powering Intelligence: Updated U.S. Data Center Scenarios\" (brief on the 2026 white paper)",
+    "source_url": "https://restservice.epri.com/publicattachment/97025",
+    "publish_date": "2026-02-26",
+    "last_checked": "2026-09-18",
+    "quote": "In 2024, total U.S. data center electricity use is estimated at 177-192 TWh",
+    "caveat": "The low end of the 177-192 TWh range EPRI publishes for 2024. Unlike EPRI's 2024 white paper and Berkeley Lab's series, these estimates include cryptocurrency mining alongside small- and large-scale data centers, which is part of why they sit above Berkeley Lab's 176 TWh for 2023.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "EPRI",
+    "scenario": "high",
+    "geography": "US",
+    "year": 2024,
+    "basis": "level",
+    "base_year": null,
+    "value": 192,
+    "unit": "TWh",
+    "share_of_national": null,
+    "source_name": "EPRI, \"Powering Intelligence: Updated U.S. Data Center Scenarios\" (brief on the 2026 white paper)",
+    "source_url": "https://restservice.epri.com/publicattachment/97025",
+    "publish_date": "2026-02-26",
+    "last_checked": "2026-09-18",
+    "quote": "In 2024, total U.S. data center electricity use is estimated at 177-192 TWh",
+    "caveat": "The high end of the 177-192 TWh range EPRI publishes for 2024. Includes cryptocurrency mining as well as small- and large-scale data centers, so it is on a wider scope than Berkeley Lab's or EPRI's own 2024 figures. Excludes grid losses.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "EPRI",
+    "scenario": "low",
+    "geography": "US",
+    "year": 2030,
+    "basis": "level",
+    "base_year": null,
+    "value": 380,
+    "unit": "TWh",
+    "share_of_national": 9.0,
+    "source_name": "EPRI, \"Powering Intelligence: Updated U.S. Data Center Scenarios\" (brief on the 2026 white paper)",
+    "source_url": "https://restservice.epri.com/publicattachment/97025",
+    "publish_date": "2026-02-26",
+    "last_checked": "2026-09-18",
+    "quote": "growing to roughly 380-790 TWh by 2030",
+    "caveat": "Includes cryptocurrency mining, which EPRI's 2024 white paper excluded, so the jump against the earlier vintage is partly scope and mostly real development. The low case assumes most projects under construction plus about a quarter of those in advanced planning become operational; announced capacity is treated as a pipeline indicator, not a firm forecast.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "EPRI",
+    "scenario": "high",
+    "geography": "US",
+    "year": 2030,
+    "basis": "level",
+    "base_year": null,
+    "value": 790,
+    "unit": "TWh",
+    "share_of_national": 17.0,
+    "source_name": "EPRI, \"Powering Intelligence: Updated U.S. Data Center Scenarios\" (brief on the 2026 white paper)",
+    "source_url": "https://restservice.epri.com/publicattachment/97025",
+    "publish_date": "2026-02-26",
+    "last_checked": "2026-09-18",
+    "quote": "growing to roughly 380-790 TWh by 2030",
+    "caveat": "Includes cryptocurrency mining. The high case assumes projects in early planning also get built; EPRI cautions that announced nominal capacity should be read as a pipeline indicator rather than a near-term peak forecast, because ramp-up, on-site generation and load flexibility all cut into the realised figure.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "International Energy Agency",
+    "scenario": "Base Case",
+    "geography": "US",
+    "year": 2030,
+    "basis": "increment",
+    "base_year": 2024,
+    "value": 240,
+    "unit": "TWh",
+    "share_of_national": null,
+    "source_name": "IEA, \"Energy and AI\", chapter on energy demand from AI",
+    "source_url": "https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai",
+    "publish_date": "2025-04-10",
+    "last_checked": "2026-09-18",
+    "quote": "Consumption increases by around 240 TWh (up 130%) in the United States",
+    "caveat": "This is growth on top of the 2024 US level, not a total, and must never be added to a level from another row. The IEA counts all data centres including those used for cryptocurrency mining, and measures electricity delivered to the site, excluding grid losses.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "International Energy Agency",
+    "scenario": "historical",
+    "geography": "global",
+    "year": 2024,
+    "basis": "level",
+    "base_year": null,
+    "value": 415,
+    "unit": "TWh",
+    "share_of_national": null,
+    "source_name": "IEA, \"Energy and AI\", executive summary",
+    "source_url": "https://www.iea.org/reports/energy-and-ai/executive-summary",
+    "publish_date": "2025-04-10",
+    "last_checked": "2026-09-18",
+    "quote": "around 1.5% of the world's electricity consumption in 2024, or 415 terawatt-hours",
+    "caveat": "A world total, not a US one: the IEA puts the US at 45% of it. Quoting this figure as American is the commonest error in this literature. The 1.5% is a share of world electricity, so it is not comparable with the US share columns elsewhere in this table.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "International Energy Agency",
+    "scenario": "Base Case",
+    "geography": "global",
+    "year": 2030,
+    "basis": "level",
+    "base_year": null,
+    "value": 945,
+    "unit": "TWh",
+    "share_of_national": null,
+    "source_name": "IEA, \"Energy and AI\", executive summary",
+    "source_url": "https://www.iea.org/reports/energy-and-ai/executive-summary",
+    "publish_date": "2025-04-10",
+    "last_checked": "2026-09-18",
+    "quote": "Data centre electricity consumption is set to more than double to around 945 TWh",
+    "caveat": "A world total, not a US one. The IEA also runs Lift-Off, High Efficiency and Headwinds sensitivity cases which diverge mainly after 2030, so this Base Case figure is not the only IEA number in circulation for that year.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "US Energy Information Administration",
+    "scenario": "Counterfactual Baseline case",
+    "geography": "US",
+    "year": 2050,
+    "basis": "level",
+    "base_year": null,
+    "value": 446,
+    "unit": "TWh",
+    "share_of_national": null,
+    "source_name": "EIA, \"Data center server energy use grows across the commercial building stock\" (Today in Energy, on AEO2026)",
+    "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=67704",
+    "publish_date": "2026-05-19",
+    "last_checked": "2026-09-18",
+    "quote": "reaches between 446 billion kilowatthours (BkWh) and 818 billion BkWh",
+    "caveat": "Servers only. Cooling, ventilation, power conversion and every other piece of data center infrastructure are outside this number, so it is roughly the IT-equipment share of what other rows in this table call data center consumption, and is not comparable with them. This case also assumes servers get 10% more efficient every three years after 2040.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "US Energy Information Administration",
+    "scenario": "High Electricity Demand case",
+    "geography": "US",
+    "year": 2050,
+    "basis": "level",
+    "base_year": null,
+    "value": 818,
+    "unit": "TWh",
+    "share_of_national": null,
+    "source_name": "EIA, \"Data center server energy use grows across the commercial building stock\" (Today in Energy, on AEO2026)",
+    "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=67704",
+    "publish_date": "2026-05-19",
+    "last_checked": "2026-09-18",
+    "quote": "reaches between 446 billion kilowatthours (BkWh) and 818 billion BkWh",
+    "caveat": "Servers only, excluding cooling and other infrastructure, so it understates whole-facility consumption on the definition most other rows here use. EIA separately puts space cooling in this case 84 BkWh above the baseline in 2050, which gives a sense of what is left out.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "Goldman Sachs Research",
+    "scenario": "historical",
+    "geography": "US",
+    "year": 2022,
+    "basis": "share",
+    "base_year": null,
+    "value": 3.0,
+    "unit": "%",
+    "share_of_national": 3.0,
+    "source_name": "Goldman Sachs, \"AI is poised to drive 160% increase in data center power demand\"",
+    "source_url": "https://www.goldmansachs.com/insights/articles/AI-poised-to-drive-160-increase-in-power-demand",
+    "publish_date": "2024-05-14",
+    "last_checked": "2026-09-18",
+    "quote": "Data centers will use 8% of US power by 2030, compared with 3%",
+    "caveat": "A rounded share with no TWh published alongside it and no statement of whether cryptocurrency mining is inside or outside the definition. The free article summarises three underlying reports whose methods and scope are not public.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "Goldman Sachs Research",
+    "scenario": "base",
+    "geography": "US",
+    "year": 2030,
+    "basis": "share",
+    "base_year": null,
+    "value": 8.0,
+    "unit": "%",
+    "share_of_national": 8.0,
+    "source_name": "Goldman Sachs, \"AI is poised to drive 160% increase in data center power demand\"",
+    "source_url": "https://www.goldmansachs.com/insights/articles/AI-poised-to-drive-160-increase-in-power-demand",
+    "publish_date": "2024-05-14",
+    "last_checked": "2026-09-18",
+    "quote": "Data centers will use 8% of US power by 2030, compared with 3%",
+    "caveat": "A single rounded share with no range and no TWh, and the article does not say whether cryptocurrency mining counts. The 160% growth figure in the headline is global, not American, and the two are often conflated.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "Goldman Sachs Research",
+    "scenario": "historical",
+    "geography": "US",
+    "year": 2025,
+    "basis": "level",
+    "base_year": null,
+    "value": 31,
+    "unit": "GW",
+    "share_of_national": null,
+    "source_name": "Goldman Sachs, \"US Data Center Power Demand Projected to Double by 2027\"",
+    "source_url": "https://www.goldmansachs.com/insights/articles/us-data-center-power-demand-projected-to-double-by-2027",
+    "publish_date": "2026-05-20",
+    "last_checked": "2026-09-18",
+    "quote": "US data center power demand is expected to climb from 31 gigawatts (GW)",
+    "caveat": "Power in gigawatts, not annual energy, and derived from an assumed 70% capacity utilisation applied to installed capacity rather than measured. Do not compare it with a TWh row without converting. Built on a commercial facility-level dataset whose coverage is not public.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "Goldman Sachs Research",
+    "scenario": "base",
+    "geography": "US",
+    "year": 2027,
+    "basis": "level",
+    "base_year": null,
+    "value": 66,
+    "unit": "GW",
+    "share_of_national": null,
+    "source_name": "Goldman Sachs, \"US Data Center Power Demand Projected to Double by 2027\"",
+    "source_url": "https://www.goldmansachs.com/insights/articles/us-data-center-power-demand-projected-to-double-by-2027",
+    "publish_date": "2026-05-20",
+    "last_checked": "2026-09-18",
+    "quote": "to 41 GW in 2026 and 66 GW the year after",
+    "caveat": "Power in gigawatts, not annual energy. It already discounts announced schedules, assuming only about 50-60% of capacity planned for the next one to two years arrives on time. The related 8.5% figure Goldman quotes for 2027 is a share of peak summer demand, not of annual consumption.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "Grid Strategies",
+    "scenario": "aggregated utility forecast",
+    "geography": "US",
+    "year": 2030,
+    "basis": "increment",
+    "base_year": 2025,
+    "value": 90,
+    "unit": "GW",
+    "share_of_national": null,
+    "source_name": "Grid Strategies, \"Power Demand Forecasts Revised Up for Third Year Running, Led by Data Centers\"",
+    "source_url": "https://gridstrategiesllc.com/wp-content/uploads/Grid-Strategies-National-Load-Growth-Report-2025.pdf",
+    "publish_date": "2025-11-01",
+    "last_checked": "2026-09-18",
+    "quote": "roughly 90 GW are linked to data centers",
+    "caveat": "Growth in peak demand in gigawatts, not annual energy, and growth on top of 2025 rather than a total. It is what utilities filed on FERC Form 714, so it counts requested and planned load, and Grid Strategies itself judges the data center portion overstated by about 25 GW because not every announced project completes.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "Grid Strategies",
+    "scenario": "aggregated utility forecast",
+    "geography": "US",
+    "year": 2029,
+    "basis": "increment",
+    "base_year": 2024,
+    "value": 90,
+    "unit": "GW",
+    "share_of_national": null,
+    "source_name": "Grid Strategies, \"Strategic Industries Surging: Driving US Power Demand\"",
+    "source_url": "https://gridstrategiesllc.com/wp-content/uploads/National-Load-Growth-Report-2024.pdf",
+    "publish_date": "2024-12-01",
+    "last_checked": "2026-09-18",
+    "quote": "aggregate utility data center load forecasts may exceed 90 GW",
+    "caveat": "Peak demand growth in gigawatts on top of 2024, not annual energy and not a total. Drawn from utility filings, which record requested load rather than signed contracts; the same report notes industry specialists put five-year data center growth anywhere from 10 GW to 65 GW.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "Deloitte",
+    "scenario": "base",
+    "geography": "US",
+    "year": 2026,
+    "basis": "level",
+    "base_year": null,
+    "value": 260,
+    "unit": "TWh",
+    "share_of_national": 6.0,
+    "source_name": "Deloitte, \"As generative AI asks for more power, data centers seek more reliable, cleaner energy solutions\" (TMT Predictions 2025)",
+    "source_url": "https://www.deloitte.com/us/en/insights/industry/technology/technology-media-and-telecom-predictions/2025/genai-power-consumption-creates-need-for-more-sustainable-data-centers.html",
+    "publish_date": "2024-11-19",
+    "last_checked": "2026-09-18",
+    "quote": "data centers are anticipated to represent 6% (or 260 TWh) of total electricity consumption",
+    "caveat": "A single unnamed estimate with no range, and the piece does not state whether cryptocurrency mining is inside the definition. Most of the surrounding article is global, so the 1,065 TWh figure often quoted from it is a world total and not this one.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "Deloitte",
+    "scenario": "base",
+    "geography": "US",
+    "year": 2035,
+    "basis": "level",
+    "base_year": null,
+    "value": 123,
+    "unit": "GW",
+    "share_of_national": null,
+    "source_name": "Deloitte, \"Can US infrastructure keep up with the AI economy?\"",
+    "source_url": "https://www.deloitte.com/us/en/insights/industry/power-and-utilities/data-center-infrastructure-artificial-intelligence.html",
+    "publish_date": "2025-06-24",
+    "last_checked": "2026-09-18",
+    "quote": "reaching 123 gigawatts, up from 4 gigawatts in 2024",
+    "caveat": "AI data centers only, not all data centers, and power in gigawatts rather than annual energy, so it belongs beside none of the TWh rows without conversion and a scope adjustment. Cryptocurrency mining is outside it by definition.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "source": "Boston Consulting Group",
+    "scenario": "base",
+    "geography": "global",
+    "year": 2028,
+    "basis": "level",
+    "base_year": null,
+    "value": 130,
+    "unit": "GW",
+    "share_of_national": null,
+    "source_name": "BCG, \"Breaking Barriers to Data Center Growth\"",
+    "source_url": "https://www.bcg.com/publications/2025/breaking-barriers-data-center-growth",
+    "publish_date": "2025-01-20",
+    "last_checked": "2026-09-18",
+    "quote": "expected to total roughly 130 GW in 2028",
+    "caveat": "A world figure, not a US one, and power in gigawatts rather than annual energy. BCG's US statement in the same piece is that data centers account for up to 60% of total US load growth from 2023 to 2030, which is a share of growth and not a share of consumption.",
+    "stale": false,
+    "unconfirmed": false
+   }
+  ]
+ },
+ "supply_physical": {
+  "totals": {
+   "years": [
+    2026,
+    2029
+   ],
+   "total_mw": 249948.3,
+   "units": 2076,
+   "by_family_mw": {
+    "solar": 117313.6,
+    "storage": 64516.1,
+    "gas_cc": 25384.1,
+    "gas_ct": 21006.9,
+    "wind": 19696.3,
+    "gas_engine": 1023.8,
+    "hydro": 323.9,
+    "biomass": 190.0,
+    "oil": 188.8,
+    "geothermal": 157.3,
+    "other": 138.5,
+    "gas_steam": 9.0
+   },
+   "share_by_family": {
+    "biomass": 0.0008,
+    "gas_cc": 0.1016,
+    "gas_ct": 0.084,
+    "gas_engine": 0.0041,
+    "gas_steam": 0.0,
+    "geothermal": 0.0006,
+    "hydro": 0.0013,
+    "oil": 0.0008,
+    "other": 0.0006,
+    "solar": 0.4694,
+    "storage": 0.2581,
+    "wind": 0.0788
+   },
+   "by_stage_mw": {
+    "announced": 130388.2,
+    "permitted": 26413.5,
+    "under_construction": 77915.5,
+    "commissioning": 15231.1
+   },
+   "gas_mw": 47423.8,
+   "gas_share": 0.1897,
+   "under_construction_mw": 93146.6,
+   "under_construction_share": 0.3727,
+   "under_construction_by_family_mw": {
+    "solar": 46178.3,
+    "storage": 22539.3,
+    "wind": 11673.3,
+    "gas_cc": 6470.3,
+    "gas_ct": 5620.3,
+    "gas_engine": 339.1,
+    "geothermal": 130.8,
+    "biomass": 75.6,
+    "oil": 54.6,
+    "other": 38.5,
+    "hydro": 17.5,
+    "gas_steam": 9.0
+   },
+   "gas_share_under_construction": 0.1335
+  },
+  "additions": [
+   {
+    "year": 2026,
+    "family": "biomass",
+    "stage": "announced",
+    "family_label": "Biomass",
+    "mw": 3.0,
+    "units": 1
+   },
+   {
+    "year": 2026,
+    "family": "biomass",
+    "stage": "commissioning",
+    "family_label": "Biomass",
+    "mw": 2.6,
+    "units": 2
+   },
+   {
+    "year": 2026,
+    "family": "biomass",
+    "stage": "under_construction",
+    "family_label": "Biomass",
+    "mw": 3.0,
+    "units": 1
+   },
+   {
+    "year": 2026,
+    "family": "gas_cc",
+    "stage": "commissioning",
+    "family_label": "Gas, combined cycle",
+    "mw": 1306.0,
+    "units": 3
+   },
+   {
+    "year": 2026,
+    "family": "gas_cc",
+    "stage": "under_construction",
+    "family_label": "Gas, combined cycle",
+    "mw": 612.0,
+    "units": 1
+   },
+   {
+    "year": 2026,
+    "family": "gas_ct",
+    "stage": "commissioning",
+    "family_label": "Gas, combustion turbine",
+    "mw": 819.9,
+    "units": 8
+   },
+   {
+    "year": 2026,
+    "family": "gas_ct",
+    "stage": "under_construction",
+    "family_label": "Gas, combustion turbine",
+    "mw": 1460.7,
+    "units": 11
+   },
+   {
+    "year": 2026,
+    "family": "gas_engine",
+    "stage": "commissioning",
+    "family_label": "Gas engines",
+    "mw": 71.8,
+    "units": 10
+   },
+   {
+    "year": 2026,
+    "family": "gas_engine",
+    "stage": "under_construction",
+    "family_label": "Gas engines",
+    "mw": 132.1,
+    "units": 18
+   },
+   {
+    "year": 2026,
+    "family": "gas_steam",
+    "stage": "under_construction",
+    "family_label": "Gas steam",
+    "mw": 9.0,
+    "units": 1
+   },
+   {
+    "year": 2026,
+    "family": "geothermal",
+    "stage": "commissioning",
+    "family_label": "Geothermal",
+    "mw": 43.0,
+    "units": 1
+   },
+   {
+    "year": 2026,
+    "family": "hydro",
+    "stage": "commissioning",
+    "family_label": "Hydro",
+    "mw": 2.8,
+    "units": 6
+   },
+   {
+    "year": 2026,
+    "family": "hydro",
+    "stage": "under_construction",
+    "family_label": "Hydro",
+    "mw": 4.3,
+    "units": 1
+   },
+   {
+    "year": 2026,
+    "family": "oil",
+    "stage": "commissioning",
+    "family_label": "Oil",
+    "mw": 16.5,
+    "units": 6
+   },
+   {
+    "year": 2026,
+    "family": "oil",
+    "stage": "under_construction",
+    "family_label": "Oil",
+    "mw": 18.6,
+    "units": 9
+   },
+   {
+    "year": 2026,
+    "family": "other",
+    "stage": "under_construction",
+    "family_label": "Other",
+    "mw": 9.9,
+    "units": 1
+   },
+   {
+    "year": 2026,
+    "family": "solar",
+    "stage": "announced",
+    "family_label": "Solar",
+    "mw": 1.5,
+    "units": 1
+   },
+   {
+    "year": 2026,
+    "family": "solar",
+    "stage": "commissioning",
+    "family_label": "Solar",
+    "mw": 8830.1,
+    "units": 85
+   },
+   {
+    "year": 2026,
+    "family": "solar",
+    "stage": "permitted",
+    "family_label": "Solar",
+    "mw": 1.0,
+    "units": 1
+   },
+   {
+    "year": 2026,
+    "family": "solar",
+    "stage": "under_construction",
+    "family_label": "Solar",
+    "mw": 18952.4,
+    "units": 320
+   },
+   {
+    "year": 2026,
+    "family": "storage",
+    "stage": "announced",
+    "family_label": "Storage",
+    "mw": 470.0,
+    "units": 2
+   },
+   {
+    "year": 2026,
+    "family": "storage",
+    "stage": "commissioning",
+    "family_label": "Storage",
+    "mw": 2752.3,
+    "units": 24
+   },
+   {
+    "year": 2026,
+    "family": "storage",
+    "stage": "under_construction",
+    "family_label": "Storage",
+    "mw": 10189.2,
+    "units": 128
+   },
+   {
+    "year": 2026,
+    "family": "wind",
+    "stage": "commissioning",
+    "family_label": "Wind",
+    "mw": 610.1,
+    "units": 3
+   },
+   {
+    "year": 2026,
+    "family": "wind",
+    "stage": "under_construction",
+    "family_label": "Wind",
+    "mw": 4405.4,
+    "units": 17
+   },
+   {
+    "year": 2027,
+    "family": "biomass",
+    "stage": "announced",
+    "family_label": "Biomass",
+    "mw": 6.4,
+    "units": 4
+   },
+   {
+    "year": 2027,
+    "family": "biomass",
+    "stage": "permitted",
+    "family_label": "Biomass",
+    "mw": 1.6,
+    "units": 1
+   },
+   {
+    "year": 2027,
+    "family": "biomass",
+    "stage": "under_construction",
+    "family_label": "Biomass",
+    "mw": 70.0,
+    "units": 7
+   },
+   {
+    "year": 2027,
+    "family": "gas_cc",
+    "stage": "announced",
+    "family_label": "Gas, combined cycle",
+    "mw": 3080.7,
+    "units": 17
+   },
+   {
+    "year": 2027,
+    "family": "gas_cc",
+    "stage": "permitted",
+    "family_label": "Gas, combined cycle",
+    "mw": 316.3,
+    "units": 7
+   },
+   {
+    "year": 2027,
+    "family": "gas_cc",
+    "stage": "under_construction",
+    "family_label": "Gas, combined cycle",
+    "mw": 747.5,
+    "units": 2
+   },
+   {
+    "year": 2027,
+    "family": "gas_ct",
+    "stage": "announced",
+    "family_label": "Gas, combustion turbine",
+    "mw": 3507.2,
+    "units": 35
+   },
+   {
+    "year": 2027,
+    "family": "gas_ct",
+    "stage": "permitted",
+    "family_label": "Gas, combustion turbine",
+    "mw": 603.3,
+    "units": 8
+   },
+   {
+    "year": 2027,
+    "family": "gas_ct",
+    "stage": "under_construction",
+    "family_label": "Gas, combustion turbine",
+    "mw": 2877.7,
+    "units": 29
+   },
+   {
+    "year": 2027,
+    "family": "gas_engine",
+    "stage": "announced",
+    "family_label": "Gas engines",
+    "mw": 121.8,
+    "units": 6
+   },
+   {
+    "year": 2027,
+    "family": "gas_engine",
+    "stage": "permitted",
+    "family_label": "Gas engines",
+    "mw": 15.7,
+    "units": 5
+   },
+   {
+    "year": 2027,
+    "family": "gas_engine",
+    "stage": "under_construction",
+    "family_label": "Gas engines",
+    "mw": 91.2,
+    "units": 5
+   },
+   {
+    "year": 2027,
+    "family": "geothermal",
+    "stage": "announced",
+    "family_label": "Geothermal",
+    "mw": 26.5,
+    "units": 5
+   },
+   {
+    "year": 2027,
+    "family": "geothermal",
+    "stage": "commissioning",
+    "family_label": "Geothermal",
+    "mw": 43.0,
+    "units": 1
+   },
+   {
+    "year": 2027,
+    "family": "geothermal",
+    "stage": "under_construction",
+    "family_label": "Geothermal",
+    "mw": 43.0,
+    "units": 1
+   },
+   {
+    "year": 2027,
+    "family": "hydro",
+    "stage": "announced",
+    "family_label": "Hydro",
+    "mw": 45.4,
+    "units": 6
+   },
+   {
+    "year": 2027,
+    "family": "hydro",
+    "stage": "permitted",
+    "family_label": "Hydro",
+    "mw": 2.8,
+    "units": 6
+   },
+   {
+    "year": 2027,
+    "family": "hydro",
+    "stage": "under_construction",
+    "family_label": "Hydro",
+    "mw": 10.4,
+    "units": 4
+   },
+   {
+    "year": 2027,
+    "family": "oil",
+    "stage": "announced",
+    "family_label": "Oil",
+    "mw": 114.0,
+    "units": 2
+   },
+   {
+    "year": 2027,
+    "family": "oil",
+    "stage": "permitted",
+    "family_label": "Oil",
+    "mw": 14.1,
+    "units": 3
+   },
+   {
+    "year": 2027,
+    "family": "oil",
+    "stage": "under_construction",
+    "family_label": "Oil",
+    "mw": 19.5,
+    "units": 6
+   },
+   {
+    "year": 2027,
+    "family": "solar",
+    "stage": "announced",
+    "family_label": "Solar",
+    "mw": 22016.7,
+    "units": 164
+   },
+   {
+    "year": 2027,
+    "family": "solar",
+    "stage": "commissioning",
+    "family_label": "Solar",
+    "mw": 494.5,
+    "units": 3
+   },
+   {
+    "year": 2027,
+    "family": "solar",
+    "stage": "permitted",
+    "family_label": "Solar",
+    "mw": 6923.6,
+    "units": 83
+   },
+   {
+    "year": 2027,
+    "family": "solar",
+    "stage": "under_construction",
+    "family_label": "Solar",
+    "mw": 14035.9,
+    "units": 163
+   },
+   {
+    "year": 2027,
+    "family": "storage",
+    "stage": "announced",
+    "family_label": "Storage",
+    "mw": 14458.9,
+    "units": 96
+   },
+   {
+    "year": 2027,
+    "family": "storage",
+    "stage": "commissioning",
+    "family_label": "Storage",
+    "mw": 238.5,
+    "units": 1
+   },
+   {
+    "year": 2027,
+    "family": "storage",
+    "stage": "permitted",
+    "family_label": "Storage",
+    "mw": 2776.2,
+    "units": 23
+   },
+   {
+    "year": 2027,
+    "family": "storage",
+    "stage": "under_construction",
+    "family_label": "Storage",
+    "mw": 8118.3,
+    "units": 74
+   },
+   {
+    "year": 2027,
+    "family": "wind",
+    "stage": "announced",
+    "family_label": "Wind",
+    "mw": 1545.8,
+    "units": 12
+   },
+   {
+    "year": 2027,
+    "family": "wind",
+    "stage": "permitted",
+    "family_label": "Wind",
+    "mw": 816.2,
+    "units": 5
+   },
+   {
+    "year": 2027,
+    "family": "wind",
+    "stage": "under_construction",
+    "family_label": "Wind",
+    "mw": 6570.6,
+    "units": 11
+   },
+   {
+    "year": 2028,
+    "family": "gas_cc",
+    "stage": "announced",
+    "family_label": "Gas, combined cycle",
+    "mw": 7514.2,
+    "units": 19
+   },
+   {
+    "year": 2028,
+    "family": "gas_cc",
+    "stage": "under_construction",
+    "family_label": "Gas, combined cycle",
+    "mw": 2359.8,
+    "units": 5
+   },
+   {
+    "year": 2028,
+    "family": "gas_ct",
+    "stage": "announced",
+    "family_label": "Gas, combustion turbine",
+    "mw": 6176.1,
+    "units": 56
+   },
+   {
+    "year": 2028,
+    "family": "gas_ct",
+    "stage": "permitted",
+    "family_label": "Gas, combustion turbine",
+    "mw": 340.0,
+    "units": 3
+   },
+   {
+    "year": 2028,
+    "family": "gas_ct",
+    "stage": "under_construction",
+    "family_label": "Gas, combustion turbine",
+    "mw": 462.0,
+    "units": 2
+   },
+   {
+    "year": 2028,
+    "family": "gas_engine",
+    "stage": "announced",
+    "family_label": "Gas engines",
+    "mw": 217.2,
+    "units": 12
+   },
+   {
+    "year": 2028,
+    "family": "gas_engine",
+    "stage": "under_construction",
+    "family_label": "Gas engines",
+    "mw": 44.0,
+    "units": 2
+   },
+   {
+    "year": 2028,
+    "family": "geothermal",
+    "stage": "under_construction",
+    "family_label": "Geothermal",
+    "mw": 1.8,
+    "units": 1
+   },
+   {
+    "year": 2028,
+    "family": "hydro",
+    "stage": "announced",
+    "family_label": "Hydro",
+    "mw": 179.3,
+    "units": 33
+   },
+   {
+    "year": 2028,
+    "family": "hydro",
+    "stage": "permitted",
+    "family_label": "Hydro",
+    "mw": 3.8,
+    "units": 1
+   },
+   {
+    "year": 2028,
+    "family": "oil",
+    "stage": "announced",
+    "family_label": "Oil",
+    "mw": 3.0,
+    "units": 1
+   },
+   {
+    "year": 2028,
+    "family": "oil",
+    "stage": "permitted",
+    "family_label": "Oil",
+    "mw": 3.1,
+    "units": 1
+   },
+   {
+    "year": 2028,
+    "family": "other",
+    "stage": "announced",
+    "family_label": "Other",
+    "mw": 50.0,
+    "units": 1
+   },
+   {
+    "year": 2028,
+    "family": "other",
+    "stage": "under_construction",
+    "family_label": "Other",
+    "mw": 28.6,
+    "units": 2
+   },
+   {
+    "year": 2028,
+    "family": "solar",
+    "stage": "announced",
+    "family_label": "Solar",
+    "mw": 20766.3,
+    "units": 109
+   },
+   {
+    "year": 2028,
+    "family": "solar",
+    "stage": "permitted",
+    "family_label": "Solar",
+    "mw": 6342.7,
+    "units": 44
+   },
+   {
+    "year": 2028,
+    "family": "solar",
+    "stage": "under_construction",
+    "family_label": "Solar",
+    "mw": 2965.4,
+    "units": 18
+   },
+   {
+    "year": 2028,
+    "family": "storage",
+    "stage": "announced",
+    "family_label": "Storage",
+    "mw": 12811.0,
+    "units": 70
+   },
+   {
+    "year": 2028,
+    "family": "storage",
+    "stage": "permitted",
+    "family_label": "Storage",
+    "mw": 3056.7,
+    "units": 17
+   },
+   {
+    "year": 2028,
+    "family": "storage",
+    "stage": "under_construction",
+    "family_label": "Storage",
+    "mw": 891.0,
+    "units": 5
+   },
+   {
+    "year": 2028,
+    "family": "wind",
+    "stage": "announced",
+    "family_label": "Wind",
+    "mw": 2833.6,
+    "units": 11
+   },
+   {
+    "year": 2028,
+    "family": "wind",
+    "stage": "permitted",
+    "family_label": "Wind",
+    "mw": 822.5,
+    "units": 2
+   },
+   {
+    "year": 2029,
+    "family": "biomass",
+    "stage": "announced",
+    "family_label": "Biomass",
+    "mw": 103.4,
+    "units": 11
+   },
+   {
+    "year": 2029,
+    "family": "gas_cc",
+    "stage": "announced",
+    "family_label": "Gas, combined cycle",
+    "mw": 6417.6,
+    "units": 18
+   },
+   {
+    "year": 2029,
+    "family": "gas_cc",
+    "stage": "permitted",
+    "family_label": "Gas, combined cycle",
+    "mw": 1585.0,
+    "units": 3
+   },
+   {
+    "year": 2029,
+    "family": "gas_cc",
+    "stage": "under_construction",
+    "family_label": "Gas, combined cycle",
+    "mw": 1445.0,
+    "units": 2
+   },
+   {
+    "year": 2029,
+    "family": "gas_ct",
+    "stage": "announced",
+    "family_label": "Gas, combustion turbine",
+    "mw": 3520.0,
+    "units": 17
+   },
+   {
+    "year": 2029,
+    "family": "gas_ct",
+    "stage": "permitted",
+    "family_label": "Gas, combustion turbine",
+    "mw": 1240.0,
+    "units": 5
+   },
+   {
+    "year": 2029,
+    "family": "gas_engine",
+    "stage": "announced",
+    "family_label": "Gas engines",
+    "mw": 330.0,
+    "units": 18
+   },
+   {
+    "year": 2029,
+    "family": "hydro",
+    "stage": "announced",
+    "family_label": "Hydro",
+    "mw": 72.3,
+    "units": 11
+   },
+   {
+    "year": 2029,
+    "family": "hydro",
+    "stage": "permitted",
+    "family_label": "Hydro",
+    "mw": 2.8,
+    "units": 6
+   },
+   {
+    "year": 2029,
+    "family": "other",
+    "stage": "permitted",
+    "family_label": "Other",
+    "mw": 50.0,
+    "units": 1
+   },
+   {
+    "year": 2029,
+    "family": "solar",
+    "stage": "announced",
+    "family_label": "Solar",
+    "mw": 13787.4,
+    "units": 51
+   },
+   {
+    "year": 2029,
+    "family": "solar",
+    "stage": "permitted",
+    "family_label": "Solar",
+    "mw": 1296.1,
+    "units": 9
+   },
+   {
+    "year": 2029,
+    "family": "solar",
+    "stage": "under_construction",
+    "family_label": "Solar",
+    "mw": 900.0,
+    "units": 3
+   },
+   {
+    "year": 2029,
+    "family": "storage",
+    "stage": "announced",
+    "family_label": "Storage",
+    "mw": 8204.0,
+    "units": 33
+   },
+   {
+    "year": 2029,
+    "family": "storage",
+    "stage": "permitted",
+    "family_label": "Storage",
+    "mw": 200.0,
+    "units": 1
+   },
+   {
+    "year": 2029,
+    "family": "storage",
+    "stage": "under_construction",
+    "family_label": "Storage",
+    "mw": 350.0,
+    "units": 2
+   },
+   {
+    "year": 2029,
+    "family": "wind",
+    "stage": "announced",
+    "family_label": "Wind",
+    "mw": 2004.9,
+    "units": 10
+   },
+   {
+    "year": 2029,
+    "family": "wind",
+    "stage": "under_construction",
+    "family_label": "Wind",
+    "mw": 87.2,
+    "units": 4
+   }
+  ],
+  "retirements": {
+   "planned_by_year": [
+    {
+     "year": 2026,
+     "family": "biomass",
+     "family_label": "Biomass",
+     "mw": 17.1,
+     "units": 13
+    },
+    {
+     "year": 2026,
+     "family": "coal",
+     "family_label": "Coal",
+     "mw": 4119.2,
+     "units": 9
+    },
+    {
+     "year": 2026,
+     "family": "gas_ct",
+     "family_label": "Gas, combustion turbine",
+     "mw": 32.6,
+     "units": 2
+    },
+    {
+     "year": 2026,
+     "family": "gas_engine",
+     "family_label": "Gas engines",
+     "mw": 1.3,
+     "units": 1
+    },
+    {
+     "year": 2026,
+     "family": "gas_steam",
+     "family_label": "Gas steam",
+     "mw": 3710.5,
+     "units": 12
+    },
+    {
+     "year": 2026,
+     "family": "oil",
+     "family_label": "Oil",
+     "mw": 175.1,
+     "units": 7
+    },
+    {
+     "year": 2026,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 1.1,
+     "units": 3
+    },
+    {
+     "year": 2027,
+     "family": "biomass",
+     "family_label": "Biomass",
+     "mw": 12.1,
+     "units": 15
+    },
+    {
+     "year": 2027,
+     "family": "coal",
+     "family_label": "Coal",
+     "mw": 7077.5,
+     "units": 19
+    },
+    {
+     "year": 2027,
+     "family": "gas_cc",
+     "family_label": "Gas, combined cycle",
+     "mw": 6.2,
+     "units": 1
+    },
+    {
+     "year": 2027,
+     "family": "gas_ct",
+     "family_label": "Gas, combustion turbine",
+     "mw": 338.3,
+     "units": 8
+    },
+    {
+     "year": 2027,
+     "family": "gas_steam",
+     "family_label": "Gas steam",
+     "mw": 3617.3,
+     "units": 10
+    },
+    {
+     "year": 2027,
+     "family": "hydro",
+     "family_label": "Hydro",
+     "mw": 3.4,
+     "units": 3
+    },
+    {
+     "year": 2027,
+     "family": "oil",
+     "family_label": "Oil",
+     "mw": 12.0,
+     "units": 6
+    },
+    {
+     "year": 2027,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 4.8,
+     "units": 6
+    },
+    {
+     "year": 2027,
+     "family": "storage",
+     "family_label": "Storage",
+     "mw": 1.0,
+     "units": 1
+    },
+    {
+     "year": 2027,
+     "family": "wind",
+     "family_label": "Wind",
+     "mw": 80.0,
+     "units": 1
+    },
+    {
+     "year": 2028,
+     "family": "biomass",
+     "family_label": "Biomass",
+     "mw": 2.9,
+     "units": 2
+    },
+    {
+     "year": 2028,
+     "family": "coal",
+     "family_label": "Coal",
+     "mw": 12854.9,
+     "units": 19
+    },
+    {
+     "year": 2028,
+     "family": "gas_cc",
+     "family_label": "Gas, combined cycle",
+     "mw": 13.6,
+     "units": 2
+    },
+    {
+     "year": 2028,
+     "family": "gas_ct",
+     "family_label": "Gas, combustion turbine",
+     "mw": 951.7,
+     "units": 15
+    },
+    {
+     "year": 2028,
+     "family": "gas_steam",
+     "family_label": "Gas steam",
+     "mw": 1332.8,
+     "units": 7
+    },
+    {
+     "year": 2028,
+     "family": "hydro",
+     "family_label": "Hydro",
+     "mw": 3.4,
+     "units": 2
+    },
+    {
+     "year": 2028,
+     "family": "oil",
+     "family_label": "Oil",
+     "mw": 44.5,
+     "units": 9
+    },
+    {
+     "year": 2028,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 7.9,
+     "units": 7
+    },
+    {
+     "year": 2029,
+     "family": "biomass",
+     "family_label": "Biomass",
+     "mw": 39.0,
+     "units": 1
+    },
+    {
+     "year": 2029,
+     "family": "coal",
+     "family_label": "Coal",
+     "mw": 3517.6,
+     "units": 7
+    },
+    {
+     "year": 2029,
+     "family": "gas_ct",
+     "family_label": "Gas, combustion turbine",
+     "mw": 500.1,
+     "units": 4
+    },
+    {
+     "year": 2029,
+     "family": "gas_other",
+     "family_label": "Gas, other",
+     "mw": 1.4,
+     "units": 1
+    },
+    {
+     "year": 2029,
+     "family": "gas_steam",
+     "family_label": "Gas steam",
+     "mw": 1981.9,
+     "units": 7
+    },
+    {
+     "year": 2029,
+     "family": "oil",
+     "family_label": "Oil",
+     "mw": 789.3,
+     "units": 10
+    },
+    {
+     "year": 2030,
+     "family": "biomass",
+     "family_label": "Biomass",
+     "mw": 30.4,
+     "units": 2
+    },
+    {
+     "year": 2030,
+     "family": "coal",
+     "family_label": "Coal",
+     "mw": 2934.5,
+     "units": 6
+    },
+    {
+     "year": 2030,
+     "family": "gas_cc",
+     "family_label": "Gas, combined cycle",
+     "mw": 96.3,
+     "units": 4
+    },
+    {
+     "year": 2030,
+     "family": "gas_ct",
+     "family_label": "Gas, combustion turbine",
+     "mw": 695.6,
+     "units": 17
+    },
+    {
+     "year": 2030,
+     "family": "gas_steam",
+     "family_label": "Gas steam",
+     "mw": 812.5,
+     "units": 4
+    },
+    {
+     "year": 2030,
+     "family": "hydro",
+     "family_label": "Hydro",
+     "mw": 9.9,
+     "units": 1
+    },
+    {
+     "year": 2030,
+     "family": "nuclear",
+     "family_label": "Nuclear",
+     "mw": 685.0,
+     "units": 1
+    },
+    {
+     "year": 2030,
+     "family": "oil",
+     "family_label": "Oil",
+     "mw": 159.1,
+     "units": 5
+    },
+    {
+     "year": 2030,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 11.5,
+     "units": 7
+    },
+    {
+     "year": 2031,
+     "family": "coal",
+     "family_label": "Coal",
+     "mw": 3654.6,
+     "units": 7
+    },
+    {
+     "year": 2031,
+     "family": "gas_cc",
+     "family_label": "Gas, combined cycle",
+     "mw": 614.8,
+     "units": 5
+    },
+    {
+     "year": 2031,
+     "family": "gas_ct",
+     "family_label": "Gas, combustion turbine",
+     "mw": 712.4,
+     "units": 10
+    },
+    {
+     "year": 2031,
+     "family": "gas_other",
+     "family_label": "Gas, other",
+     "mw": 1.1,
+     "units": 11
+    },
+    {
+     "year": 2031,
+     "family": "gas_steam",
+     "family_label": "Gas steam",
+     "mw": 1264.4,
+     "units": 3
+    },
+    {
+     "year": 2031,
+     "family": "hydro",
+     "family_label": "Hydro",
+     "mw": 3.4,
+     "units": 3
+    },
+    {
+     "year": 2031,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 13.7,
+     "units": 6
+    },
+    {
+     "year": 2031,
+     "family": "wind",
+     "family_label": "Wind",
+     "mw": 87.0,
+     "units": 2
+    },
+    {
+     "year": 2032,
+     "family": "coal",
+     "family_label": "Coal",
+     "mw": 4276.4,
+     "units": 8
+    },
+    {
+     "year": 2032,
+     "family": "gas_cc",
+     "family_label": "Gas, combined cycle",
+     "mw": 222.0,
+     "units": 7
+    },
+    {
+     "year": 2032,
+     "family": "gas_engine",
+     "family_label": "Gas engines",
+     "mw": 3.7,
+     "units": 2
+    },
+    {
+     "year": 2032,
+     "family": "gas_steam",
+     "family_label": "Gas steam",
+     "mw": 75.0,
+     "units": 1
+    },
+    {
+     "year": 2032,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 3.5,
+     "units": 2
+    },
+    {
+     "year": 2032,
+     "family": "storage",
+     "family_label": "Storage",
+     "mw": 9.9,
+     "units": 1
+    },
+    {
+     "year": 2033,
+     "family": "biomass",
+     "family_label": "Biomass",
+     "mw": 4.2,
+     "units": 3
+    },
+    {
+     "year": 2033,
+     "family": "coal",
+     "family_label": "Coal",
+     "mw": 2111.0,
+     "units": 9
+    },
+    {
+     "year": 2033,
+     "family": "gas_steam",
+     "family_label": "Gas steam",
+     "mw": 1772.6,
+     "units": 3
+    },
+    {
+     "year": 2033,
+     "family": "hydro",
+     "family_label": "Hydro",
+     "mw": 129.2,
+     "units": 21
+    },
+    {
+     "year": 2033,
+     "family": "nuclear",
+     "family_label": "Nuclear",
+     "mw": 593.1,
+     "units": 1
+    },
+    {
+     "year": 2033,
+     "family": "oil",
+     "family_label": "Oil",
+     "mw": 239.4,
+     "units": 12
+    },
+    {
+     "year": 2034,
+     "family": "biomass",
+     "family_label": "Biomass",
+     "mw": 47.2,
+     "units": 2
+    },
+    {
+     "year": 2034,
+     "family": "coal",
+     "family_label": "Coal",
+     "mw": 3378.4,
+     "units": 6
+    },
+    {
+     "year": 2034,
+     "family": "gas_ct",
+     "family_label": "Gas, combustion turbine",
+     "mw": 209.2,
+     "units": 4
+    },
+    {
+     "year": 2034,
+     "family": "gas_steam",
+     "family_label": "Gas steam",
+     "mw": 790.3,
+     "units": 3
+    },
+    {
+     "year": 2034,
+     "family": "hydro",
+     "family_label": "Hydro",
+     "mw": 13.7,
+     "units": 5
+    },
+    {
+     "year": 2034,
+     "family": "nuclear",
+     "family_label": "Nuclear",
+     "mw": 593.1,
+     "units": 1
+    },
+    {
+     "year": 2034,
+     "family": "oil",
+     "family_label": "Oil",
+     "mw": 641.9,
+     "units": 11
+    },
+    {
+     "year": 2035,
+     "family": "gas_ct",
+     "family_label": "Gas, combustion turbine",
+     "mw": 319.8,
+     "units": 3
+    },
+    {
+     "year": 2035,
+     "family": "gas_other",
+     "family_label": "Gas, other",
+     "mw": 5.6,
+     "units": 2
+    },
+    {
+     "year": 2035,
+     "family": "gas_steam",
+     "family_label": "Gas steam",
+     "mw": 4098.5,
+     "units": 6
+    },
+    {
+     "year": 2035,
+     "family": "hydro",
+     "family_label": "Hydro",
+     "mw": 8.8,
+     "units": 5
+    },
+    {
+     "year": 2035,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 31.8,
+     "units": 6
+    },
+    {
+     "year": 2035,
+     "family": "storage",
+     "family_label": "Storage",
+     "mw": 1.7,
+     "units": 2
+    },
+    {
+     "year": 2035,
+     "family": "wind",
+     "family_label": "Wind",
+     "mw": 1.7,
+     "units": 1
+    },
+    {
+     "year": 2036,
+     "family": "gas_other",
+     "family_label": "Gas, other",
+     "mw": 6.2,
+     "units": 2
+    },
+    {
+     "year": 2036,
+     "family": "gas_steam",
+     "family_label": "Gas steam",
+     "mw": 610.7,
+     "units": 2
+    },
+    {
+     "year": 2036,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 9.5,
+     "units": 3
+    },
+    {
+     "year": 2036,
+     "family": "storage",
+     "family_label": "Storage",
+     "mw": 1.0,
+     "units": 1
+    },
+    {
+     "year": 2037,
+     "family": "biomass",
+     "family_label": "Biomass",
+     "mw": 48.0,
+     "units": 4
+    },
+    {
+     "year": 2038,
+     "family": "gas_steam",
+     "family_label": "Gas steam",
+     "mw": 360.0,
+     "units": 1
+    },
+    {
+     "year": 2039,
+     "family": "coal",
+     "family_label": "Coal",
+     "mw": 2200.8,
+     "units": 3
+    },
+    {
+     "year": 2039,
+     "family": "gas_ct",
+     "family_label": "Gas, combustion turbine",
+     "mw": 4.0,
+     "units": 1
+    },
+    {
+     "year": 2039,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 22.5,
+     "units": 3
+    },
+    {
+     "year": 2039,
+     "family": "storage",
+     "family_label": "Storage",
+     "mw": 0.6,
+     "units": 1
+    },
+    {
+     "year": 2040,
+     "family": "gas_ct",
+     "family_label": "Gas, combustion turbine",
+     "mw": 493.2,
+     "units": 4
+    },
+    {
+     "year": 2040,
+     "family": "gas_engine",
+     "family_label": "Gas engines",
+     "mw": 2.5,
+     "units": 2
+    },
+    {
+     "year": 2040,
+     "family": "gas_steam",
+     "family_label": "Gas steam",
+     "mw": 846.0,
+     "units": 2
+    },
+    {
+     "year": 2040,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 4.6,
+     "units": 9
+    },
+    {
+     "year": 2041,
+     "family": "storage",
+     "family_label": "Storage",
+     "mw": 11.0,
+     "units": 1
+    },
+    {
+     "year": 2042,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 20.0,
+     "units": 1
+    },
+    {
+     "year": 2042,
+     "family": "storage",
+     "family_label": "Storage",
+     "mw": 200.0,
+     "units": 2
+    },
+    {
+     "year": 2043,
+     "family": "gas_cc",
+     "family_label": "Gas, combined cycle",
+     "mw": 593.3,
+     "units": 3
+    },
+    {
+     "year": 2043,
+     "family": "wind",
+     "family_label": "Wind",
+     "mw": 79.9,
+     "units": 1
+    },
+    {
+     "year": 2044,
+     "family": "hydro",
+     "family_label": "Hydro",
+     "mw": 2.4,
+     "units": 3
+    },
+    {
+     "year": 2044,
+     "family": "wind",
+     "family_label": "Wind",
+     "mw": 478.0,
+     "units": 1
+    },
+    {
+     "year": 2045,
+     "family": "gas_engine",
+     "family_label": "Gas engines",
+     "mw": 16.1,
+     "units": 3
+    },
+    {
+     "year": 2045,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 7.6,
+     "units": 2
+    },
+    {
+     "year": 2047,
+     "family": "gas_engine",
+     "family_label": "Gas engines",
+     "mw": 2.0,
+     "units": 2
+    },
+    {
+     "year": 2047,
+     "family": "hydro",
+     "family_label": "Hydro",
+     "mw": 23.2,
+     "units": 8
+    },
+    {
+     "year": 2047,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 5.4,
+     "units": 2
+    },
+    {
+     "year": 2048,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 4.5,
+     "units": 1
+    },
+    {
+     "year": 2049,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 16.9,
+     "units": 10
+    },
+    {
+     "year": 2050,
+     "family": "biomass",
+     "family_label": "Biomass",
+     "mw": 16.8,
+     "units": 1
+    },
+    {
+     "year": 2050,
+     "family": "gas_engine",
+     "family_label": "Gas engines",
+     "mw": 10.0,
+     "units": 5
+    },
+    {
+     "year": 2050,
+     "family": "wind",
+     "family_label": "Wind",
+     "mw": 522.0,
+     "units": 1
+    },
+    {
+     "year": 2052,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 11.0,
+     "units": 1
+    },
+    {
+     "year": 2054,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 5.0,
+     "units": 1
+    },
+    {
+     "year": 2055,
+     "family": "storage",
+     "family_label": "Storage",
+     "mw": 200.0,
+     "units": 1
+    },
+    {
+     "year": 2056,
+     "family": "gas_ct",
+     "family_label": "Gas, combustion turbine",
+     "mw": 182.7,
+     "units": 1
+    },
+    {
+     "year": 2056,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 20.0,
+     "units": 1
+    },
+    {
+     "year": 2057,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 65.8,
+     "units": 3
+    },
+    {
+     "year": 2058,
+     "family": "gas_ct",
+     "family_label": "Gas, combustion turbine",
+     "mw": 420.7,
+     "units": 2
+    },
+    {
+     "year": 2058,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 140.0,
+     "units": 1
+    },
+    {
+     "year": 2059,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 5.0,
+     "units": 1
+    },
+    {
+     "year": 2061,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 10.0,
+     "units": 1
+    },
+    {
+     "year": 2063,
+     "family": "solar",
+     "family_label": "Solar",
+     "mw": 1.0,
+     "units": 1
+    },
+    {
+     "year": 2064,
+     "family": "hydro",
+     "family_label": "Hydro",
+     "mw": 3.0,
+     "units": 4
+    },
+    {
+     "year": 2065,
+     "family": "hydro",
+     "family_label": "Hydro",
+     "mw": 1.2,
+     "units": 2
+    },
+    {
+     "year": 2072,
+     "family": "biomass",
+     "family_label": "Biomass",
+     "mw": 20.0,
+     "units": 1
+    }
+   ],
+   "deferred": {
+    "units": 104,
+    "mw": 14218.4,
+    "withdrawn_units": 42,
+    "withdrawn_mw": 6569.5,
+    "median_years": 2.5,
+    "by_family": [
+     {
+      "family": "coal",
+      "mw": 9509.7,
+      "units": 20,
+      "family_label": "Coal"
+     },
+     {
+      "family": "gas_ct",
+      "mw": 2237.7,
+      "units": 29,
+      "family_label": "Gas, combustion turbine"
+     },
+     {
+      "family": "gas_steam",
+      "mw": 1190.2,
+      "units": 7,
+      "family_label": "Gas steam"
+     },
+     {
+      "family": "gas_cc",
+      "mw": 537.3,
+      "units": 3,
+      "family_label": "Gas, combined cycle"
+     },
+     {
+      "family": "oil",
+      "mw": 353.4,
+      "units": 14,
+      "family_label": "Oil"
+     },
+     {
+      "family": "biomass",
+      "mw": 271.4,
+      "units": 18,
+      "family_label": "Biomass"
+     },
+     {
+      "family": "wind",
+      "mw": 87.0,
+      "units": 2,
+      "family_label": "Wind"
+     },
+     {
+      "family": "hydro",
+      "mw": 23.2,
+      "units": 8,
+      "family_label": "Hydro"
+     },
+     {
+      "family": "solar",
+      "mw": 8.5,
+      "units": 3,
+      "family_label": "Solar"
+     }
+    ],
+    "from_vintage": "2025-07",
+    "to_vintage": "2026-07"
+   },
+   "deferred_rows": [
+    {
+     "plant_name": "Cumberland (TN)",
+     "state": "TN",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 1300.0,
+     "year_before": 2026,
+     "year_after": 2034,
+     "deferred_years": 8.0
+    },
+    {
+     "plant_name": "J H Campbell",
+     "state": "MI",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 916.8,
+     "year_before": 2025,
+     "year_after": 2026,
+     "deferred_years": 1.0
+    },
+    {
+     "plant_name": "Intermountain Power Project",
+     "state": "UT",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 820.0,
+     "year_before": 2025,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Transalta Centralia Generation",
+     "state": "WA",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 729.9,
+     "year_before": 2025,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "GREC",
+     "state": "OK",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 594.0,
+     "year_before": 2026,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Miami Fort",
+     "state": "OH",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 557.7,
+     "year_before": 2027,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Miami Fort",
+     "state": "OH",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 557.1,
+     "year_before": 2027,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Craig (CO)",
+     "state": "CO",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 446.4,
+     "year_before": 2025,
+     "year_after": 2026,
+     "deferred_years": 1.0
+    },
+    {
+     "plant_name": "R M Schahfer",
+     "state": "IN",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 423.5,
+     "year_before": 2025,
+     "year_after": 2026,
+     "deferred_years": 1.0
+    },
+    {
+     "plant_name": "R M Schahfer",
+     "state": "IN",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 423.5,
+     "year_before": 2025,
+     "year_after": 2026,
+     "deferred_years": 1.0
+    },
+    {
+     "plant_name": "Comanche (CO)",
+     "state": "CO",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 396.0,
+     "year_before": 2025,
+     "year_after": 2026,
+     "deferred_years": 1.0
+    },
+    {
+     "plant_name": "Eddystone Generating Station",
+     "state": "PA",
+     "technology": "Natural Gas Steam Turbine",
+     "family": "gas_steam",
+     "nameplate_mw": 391.0,
+     "year_before": 2025,
+     "year_after": 2026,
+     "deferred_years": 1.0
+    },
+    {
+     "plant_name": "Eddystone Generating Station",
+     "state": "PA",
+     "technology": "Natural Gas Steam Turbine",
+     "family": "gas_steam",
+     "nameplate_mw": 391.0,
+     "year_before": 2025,
+     "year_after": 2026,
+     "deferred_years": 1.0
+    },
+    {
+     "plant_name": "J H Campbell",
+     "state": "MI",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 378.8,
+     "year_before": 2025,
+     "year_after": 2026,
+     "deferred_years": 1.0
+    },
+    {
+     "plant_name": "Mill Creek (KY)",
+     "state": "KY",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 355.5,
+     "year_before": 2027,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "South Oak Creek",
+     "state": "WI",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 324.0,
+     "year_before": 2026,
+     "year_after": 2027,
+     "deferred_years": 1.0
+    },
+    {
+     "plant_name": "South Oak Creek",
+     "state": "WI",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 317.6,
+     "year_before": 2026,
+     "year_after": 2027,
+     "deferred_years": 1.0
+    },
+    {
+     "plant_name": "J H Campbell",
+     "state": "MI",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 265.2,
+     "year_before": 2025,
+     "year_after": 2026,
+     "deferred_years": 1.0
+    },
+    {
+     "plant_name": "Kingston",
+     "state": "TN",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 200.0,
+     "year_before": 2026,
+     "year_after": 2034,
+     "deferred_years": 8.0
+    },
+    {
+     "plant_name": "Kingston",
+     "state": "TN",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 200.0,
+     "year_before": 2026,
+     "year_after": 2034,
+     "deferred_years": 8.0
+    },
+    {
+     "plant_name": "Kingston",
+     "state": "TN",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 200.0,
+     "year_before": 2026,
+     "year_after": 2034,
+     "deferred_years": 8.0
+    },
+    {
+     "plant_name": "Desert Star Energy Center",
+     "state": "NV",
+     "technology": "Natural Gas Fired Combined Cycle",
+     "family": "gas_cc",
+     "nameplate_mw": 195.5,
+     "year_before": 2027,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Elwood Energy LLC",
+     "state": "IL",
+     "technology": "Natural Gas Fired Combustion Turbine",
+     "family": "gas_ct",
+     "nameplate_mw": 192.0,
+     "year_before": 2026,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Elwood Energy LLC",
+     "state": "IL",
+     "technology": "Natural Gas Fired Combustion Turbine",
+     "family": "gas_ct",
+     "nameplate_mw": 192.0,
+     "year_before": 2026,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Elwood Energy LLC",
+     "state": "IL",
+     "technology": "Natural Gas Fired Combustion Turbine",
+     "family": "gas_ct",
+     "nameplate_mw": 192.0,
+     "year_before": 2026,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Elwood Energy LLC",
+     "state": "IL",
+     "technology": "Natural Gas Fired Combustion Turbine",
+     "family": "gas_ct",
+     "nameplate_mw": 192.0,
+     "year_before": 2026,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Elwood Energy LLC",
+     "state": "IL",
+     "technology": "Natural Gas Fired Combustion Turbine",
+     "family": "gas_ct",
+     "nameplate_mw": 192.0,
+     "year_before": 2026,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Elwood Energy LLC",
+     "state": "IL",
+     "technology": "Natural Gas Fired Combustion Turbine",
+     "family": "gas_ct",
+     "nameplate_mw": 192.0,
+     "year_before": 2026,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Elwood Energy LLC",
+     "state": "IL",
+     "technology": "Natural Gas Fired Combustion Turbine",
+     "family": "gas_ct",
+     "nameplate_mw": 192.0,
+     "year_before": 2026,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Desert Star Energy Center",
+     "state": "NV",
+     "technology": "Natural Gas Fired Combined Cycle",
+     "family": "gas_cc",
+     "nameplate_mw": 170.9,
+     "year_before": 2027,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Desert Star Energy Center",
+     "state": "NV",
+     "technology": "Natural Gas Fired Combined Cycle",
+     "family": "gas_cc",
+     "nameplate_mw": 170.9,
+     "year_before": 2027,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Gadsby",
+     "state": "UT",
+     "technology": "Natural Gas Steam Turbine",
+     "family": "gas_steam",
+     "nameplate_mw": 113.6,
+     "year_before": 2032,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "F B Culley",
+     "state": "IN",
+     "technology": "Conventional Steam Coal",
+     "family": "coal",
+     "nameplate_mw": 103.7,
+     "year_before": 2025,
+     "year_after": 2026,
+     "deferred_years": 1.0
+    },
+    {
+     "plant_name": "Central San Juan Plant",
+     "state": "PR",
+     "technology": "Petroleum Liquids",
+     "family": "oil",
+     "nameplate_mw": 100.0,
+     "year_before": 2025,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Central San Juan Plant",
+     "state": "PR",
+     "technology": "Petroleum Liquids",
+     "family": "oil",
+     "nameplate_mw": 100.0,
+     "year_before": 2025,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Maddox",
+     "state": "NM",
+     "technology": "Natural Gas Fired Combustion Turbine",
+     "family": "gas_ct",
+     "nameplate_mw": 86.9,
+     "year_before": 2026,
+     "year_after": 2034,
+     "deferred_years": 8.0
+    },
+    {
+     "plant_name": "Newman",
+     "state": "TX",
+     "technology": "Natural Gas Steam Turbine",
+     "family": "gas_steam",
+     "nameplate_mw": 81.6,
+     "year_before": 2027,
+     "year_after": 2028,
+     "deferred_years": 1.0
+    },
+    {
+     "plant_name": "Deerhaven Generating Station",
+     "state": "FL",
+     "technology": "Natural Gas Steam Turbine",
+     "family": "gas_steam",
+     "nameplate_mw": 75.0,
+     "year_before": 2027,
+     "year_after": 2032,
+     "deferred_years": 5.0
+    },
+    {
+     "plant_name": "Hopewell Power Station",
+     "state": "VA",
+     "technology": "Wood/Wood Waste Biomass",
+     "family": "biomass",
+     "nameplate_mw": 71.1,
+     "year_before": 2028,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Altavista Power Station",
+     "state": "VA",
+     "technology": "Wood/Wood Waste Biomass",
+     "family": "biomass",
+     "nameplate_mw": 71.1,
+     "year_before": 2028,
+     "year_after": null,
+     "deferred_years": null
+    }
+   ]
+  }
+ },
+ "supply_contract": {
+  "deals": [
+   {
+    "deal_id": "entergy-la-meta-richland-2024",
+    "path": "A1",
+    "buyer": "Meta",
+    "seller": "Entergy Louisiana",
+    "technology": "Three new combined-cycle combustion turbine plants",
+    "mw": 2260,
+    "term_years": null,
+    "state": "LA",
+    "announced_date": "2024-12-06",
+    "stage": "permitted",
+    "company_confirmed": true,
+    "source_name": "Entergy newsroom",
+    "source_url": "https://www.entergy.com/news/entergy-louisiana-power-meta-s-data-center-in-richland-parish",
+    "publish_date": "2024-12-06",
+    "last_checked": "2026-09-18",
+    "caveat": "The 2,260 MW is the combined nameplate capacity of three utility-owned plants Entergy will build on its own system, not a block of capacity sold to Meta under a contract; Entergy has not disclosed how much of the output Meta pays for or on what terms. The Louisiana Public Service Commission approved the certification in August 2025, which is why the row is marked permitted rather than announced.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "entergy-ms-delta-blues-2024",
+    "path": "A1",
+    "buyer": "Undisclosed data-center customer",
+    "seller": "Entergy Mississippi",
+    "technology": "Combined-cycle gas plant (Delta Blues Advanced Power Station)",
+    "mw": 754,
+    "term_years": null,
+    "state": "MS",
+    "announced_date": "2024-11-07",
+    "stage": "under_construction",
+    "company_confirmed": false,
+    "source_name": "Entergy newsroom",
+    "source_url": "https://www.entergy.com/news/entergy-mississippi-breaks-ground-on-delta-blues-advanced-power-station",
+    "publish_date": "2024-11-07",
+    "last_checked": "2026-09-18",
+    "caveat": "Entergy names no data-center customer in this release, so the link to any specific hyperscaler is reporting rather than disclosure. The 754 MW is the plant's rating, serving Entergy Mississippi's whole system; no contracted volume to a data center has been published.",
+    "stale": false,
+    "unconfirmed": true
+   },
+   {
+    "deal_id": "homer-city-energy-campus-2025",
+    "path": "A1",
+    "buyer": "Undisclosed data-center tenants",
+    "seller": "Homer City Redevelopment",
+    "technology": "Seven GE Vernova gas turbines on a former coal site",
+    "mw": 4500,
+    "term_years": null,
+    "state": "PA",
+    "announced_date": "2025-04-02",
+    "stage": "under_construction",
+    "company_confirmed": true,
+    "source_name": "GE Vernova press release",
+    "source_url": "https://www.gevernova.com/news/press-releases/homer-city-redevelopment-kiewit-announce-country-largest-natural-gas-powered-data-center-support-ai-hpc-demand",
+    "publish_date": "2025-04-02",
+    "last_checked": "2026-09-18",
+    "caveat": "This is a generation build, not a signed supply contract: no data-center tenant or offtaker is named, and \"up to 4.5 GW\" is the planned plant capacity rather than capacity anybody has agreed to buy. First turbine deliveries were expected to begin in 2026.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "frontier-shippingport-2025",
+    "path": "A1",
+    "buyer": "Undisclosed data-center partner",
+    "seller": "The Frontier Group of Companies",
+    "technology": "Gas redevelopment of the former Bruce Mansfield coal plant",
+    "mw": null,
+    "term_years": null,
+    "state": "PA",
+    "announced_date": "2025-07-15",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "National Fuel Gas press release",
+    "source_url": "https://investor.nationalfuelgas.com/news-and-events/press-releases/press-releases-details/2025/The-Frontier-Group-of-Companies-to-Transform-Bruce-Mansfield-Power-Plant-into-State-of-the-Art-Natural-Gas-Power-Plant-Supporting-Americas-Energy-Goals-and-Pennsylvanias-Economic-Growth/",
+    "publish_date": "2025-07-15",
+    "last_checked": "2026-09-18",
+    "caveat": "No capacity was disclosed for the new Shippingport plant, so this row carries no megawatt figure. The only capacity numbers in the announcement are the 2.7 GW rating of the retired coal plant and a statement that more than one gigawatt of surplus would go back to PJM; the co-located data-center partner is unnamed.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "msft-constellation-crane-2024",
+    "path": "A3",
+    "buyer": "Microsoft",
+    "seller": "Constellation Energy",
+    "technology": "Restart of Three Mile Island Unit 1 (Crane Clean Energy Center)",
+    "mw": 835,
+    "term_years": 20,
+    "state": "PA",
+    "announced_date": "2024-09-20",
+    "stage": "under_construction",
+    "company_confirmed": true,
+    "source_name": "Constellation Energy press release",
+    "source_url": "http://www.constellationenergy.com/news/2024/Constellation-to-Launch-Crane-Clean-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-The-Grid.html",
+    "publish_date": "2024-09-20",
+    "last_checked": "2026-09-18",
+    "caveat": "The 835 MW is the carbon-free energy Constellation says the restart would add to the grid, not a metered flow to any Microsoft building; the unit last operated at 837 MW before its 2019 shutdown. Restart depends on regulatory approvals and grid work, and the plant was still not generating as of this check.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "google-nextera-duane-arnold-2025",
+    "path": "A3",
+    "buyer": "Google",
+    "seller": "NextEra Energy",
+    "technology": "Restart of the Duane Arnold Energy Center boiling water reactor",
+    "mw": 615,
+    "term_years": 25,
+    "state": "IA",
+    "announced_date": "2025-10-28",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "NextEra Energy newsroom",
+    "source_url": "https://newsroom.nexteraenergy.com/NextEra-Energy-and-Google-Announce-New-Collaboration-to-Accelerate-Nuclear-Energy-Deployment-in-the-U-S?l=12",
+    "publish_date": "2025-10-28",
+    "last_checked": "2026-09-18",
+    "caveat": "The plant has been shut down since 2020 and nothing is being delivered yet; NextEra targets grid delivery by the first quarter of 2029. The 615 MW is the unit's rating, and Google is one of two buyers named, with a rural cooperative taking the remainder.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "google-kairos-master-2024",
+    "path": "A3",
+    "buyer": "Google",
+    "seller": "Kairos Power",
+    "technology": "Fleet of Gen IV fluoride salt-cooled advanced reactors",
+    "mw": 500,
+    "term_years": null,
+    "state": "",
+    "announced_date": "2024-10-14",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Kairos Power press release",
+    "source_url": "https://www.kairospower.com/updates/google-and-kairos-power-partner-to-deploy-500-mw-of-clean-electricity-generation",
+    "publish_date": "2024-10-14",
+    "last_checked": "2026-09-18",
+    "caveat": "This is a master plant development agreement setting up a path to 500 MW by 2035, not a set of executed power purchase agreements; individual PPAs and sites were left to be signed later. No state or specific plant was named at announcement.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "tva-kairos-hermes2-google-2025",
+    "path": "A3",
+    "buyer": "Tennessee Valley Authority",
+    "seller": "Kairos Power",
+    "technology": "Hermes 2 advanced reactor demonstration plant",
+    "mw": 50,
+    "term_years": null,
+    "state": "TN",
+    "announced_date": "2025-08-18",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Kairos Power press release",
+    "source_url": "https://kairospower.com/external_updates/google-kairos-power-tva-collaborate-to-meet-americas-growing-energy-needs",
+    "publish_date": "2025-08-18",
+    "last_checked": "2026-09-18",
+    "caveat": "TVA, not Google, is the contracting purchaser; Google takes the clean-energy attributes and the power reaches its Tennessee and Alabama data centers through TVA's grid. The 50 MW is an \"up to\" figure from a demonstration reactor that is not yet generating, with operations expected in 2030.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "amazon-xenergy-energy-northwest-2024",
+    "path": "A3",
+    "buyer": "Amazon",
+    "seller": "X-energy",
+    "technology": "Xe-100 high-temperature gas-cooled small modular reactors",
+    "mw": 320,
+    "term_years": null,
+    "state": "WA",
+    "announced_date": "2024-10-16",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "X-energy press release",
+    "source_url": "https://x-energy.com/news/amazon-invests-in-x-energy-to-support-advanced-small-modular-nuclear-reactors-and-expand-carbon-free-power/",
+    "publish_date": "2024-10-16",
+    "last_checked": "2026-09-18",
+    "caveat": "The 320 MW is the four-unit first project with Energy Northwest, the only sized commitment in the announcement; the wider \"more than 5 gigawatts by 2039\" is a collaboration target with no projects or contracts attached. Amazon's role here is partly equity: it anchored a roughly $500 million financing round.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "oklo-switch-master-2024",
+    "path": "A3",
+    "buyer": "Switch",
+    "seller": "Oklo",
+    "technology": "Aurora powerhouse fast reactors",
+    "mw": 12000,
+    "term_years": null,
+    "state": "",
+    "announced_date": "2024-12-18",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Oklo newsroom",
+    "source_url": "https://oklo.com/newsroom/news-details/2024/Oklo-and-Switch-Form-Landmark-Strategic-Relationship-to-Deploy-12-Gigawatts-of-Advanced-Nuclear-Power-One-of-the-Largest-Corporate-Clean-Power-Agreements-Ever-Signed/default.aspx",
+    "publish_date": "2024-12-18",
+    "last_checked": "2026-09-18",
+    "caveat": "Oklo describes this as a non-binding master power agreement running through 2044, with binding PPAs to follow as milestones are met, so the 12 GW is an ambition rather than contracted capacity. No sites, dates or first-project size were named, and Oklo had no reactor in operation at announcement.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "meta-oklo-pike-county-2026",
+    "path": "A3",
+    "buyer": "Meta",
+    "seller": "Oklo",
+    "technology": "Aurora powerhouse fast reactors",
+    "mw": 1200,
+    "term_years": null,
+    "state": "OH",
+    "announced_date": "2026-01-09",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Meta newsroom",
+    "source_url": "https://about.fb.com/news/2026/01/meta-nuclear-energy-projects-power-american-ai-leadership/",
+    "publish_date": "2026-01-09",
+    "last_checked": "2026-09-18",
+    "caveat": "Meta states \"up to 1.2 GW\" at a Pike County, Ohio site with power as early as 2030, so the figure is a ceiling on a project that has not been licensed or built. Oklo had no operating reactor when this was announced.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "meta-terrapower-natrium-2026",
+    "path": "A3",
+    "buyer": "Meta",
+    "seller": "TerraPower",
+    "technology": "Natrium sodium-cooled reactors with integrated thermal storage",
+    "mw": 2800,
+    "term_years": null,
+    "state": "",
+    "announced_date": "2026-01-09",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Meta newsroom",
+    "source_url": "https://about.fb.com/news/2026/01/meta-nuclear-energy-projects-power-american-ai-leadership/",
+    "publish_date": "2026-01-09",
+    "last_checked": "2026-09-18",
+    "caveat": "The 2.8 GW is baseload generation capacity across a multi-unit programme stretching to 2035, separate from 1.2 GW of built-in storage; only up to 690 MW has a near-term delivery date, as early as 2032. No sites were named and no Natrium unit is operating.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "amazon-dominion-north-anna-smr-2024",
+    "path": "A3",
+    "buyer": "Amazon",
+    "seller": "Dominion Energy",
+    "technology": "Small modular reactor at the North Anna site",
+    "mw": null,
+    "term_years": null,
+    "state": "VA",
+    "announced_date": "2024-10-16",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Dominion Energy newsroom",
+    "source_url": "https://news.dominionenergy.com/press-releases/press-releases/2024/Dominion-Energy-and-Amazon-to-explore-advancement-of-Small-Modular-Reactor-SMR-nuclear-development-in-Virginia-10-16-2024/default.aspx",
+    "publish_date": "2024-10-16",
+    "last_checked": "2026-09-18",
+    "caveat": "A memorandum of understanding to explore feasibility, with no capacity, price or commitment to build disclosed by either company. Figures of at least 300 MW circulate in coverage of Amazon's wider SMR programme but do not appear in this joint announcement.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "talen-pjm-brandon-shores-rmr-2025",
+    "path": "A4",
+    "buyer": "PJM Interconnection",
+    "seller": "Talen Energy",
+    "technology": "Coal and oil units kept online under reliability-must-run terms",
+    "mw": null,
+    "term_years": null,
+    "state": "MD",
+    "announced_date": "2025-01-27",
+    "stage": "in_service",
+    "company_confirmed": true,
+    "source_name": "Talen Energy press release filed with the SEC",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1622536/000162828025002644/a20250127pressreleasermrse.htm",
+    "publish_date": "2025-01-27",
+    "last_checked": "2026-09-18",
+    "caveat": "No data center is a party to this: it is a settlement among Talen, PJM, Maryland regulators and others that keeps Brandon Shores and H.A. Wagner running to 31 May 2029 while Baltimore-area transmission is upgraded. Talen disclosed the payment rates, $312/MW-day and $137/MW-day, but not the megawatts covered, so the capacity field is left empty.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "georgia-power-2025-irp-coal-extension",
+    "path": "A4",
+    "buyer": "Georgia Power large-load customers",
+    "seller": "Georgia Power",
+    "technology": "Coal units at Plants Bowen and Scherer kept in operation",
+    "mw": 4000,
+    "term_years": null,
+    "state": "GA",
+    "announced_date": "2025-07-15",
+    "stage": "in_service",
+    "company_confirmed": true,
+    "source_name": "Georgia Power press release",
+    "source_url": "https://www.georgiapower.com/news-hub/press-releases/georgia-public-service-commission-approves-plan-to-meet-the-energy-needs-of-a-growing-georgia.html",
+    "publish_date": "2025-07-15",
+    "last_checked": "2026-09-18",
+    "caveat": "This is a state resource-plan approval, not a contract with any data center: the 4,000 MW is the capacity of coal units whose operation is extended through at least 2034, and none of it is assigned to a named customer. Georgia Power's own filings note its data-center load forecasts carry significant potential for overestimation.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "msft-chevron-kilby-2026",
+    "path": "B1",
+    "buyer": "Microsoft",
+    "seller": "Chevron",
+    "technology": "Behind-the-meter gas turbines co-located with the data center",
+    "mw": 2670,
+    "term_years": 20,
+    "state": "TX",
+    "announced_date": "2026-06-22",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Chevron press release filed with the SEC",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/0000093410/000009341026000162/a06302026ex9918-k.htm",
+    "publish_date": "2026-06-22",
+    "last_checked": "2026-09-18",
+    "caveat": "Chevron describes 2.67 GW of behind-the-meter power under a 20-year agreement, but the plant is not built and a final investment decision was still expected by the end of 2026. The capacity is to be phased in modules rather than delivered at once.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "crusoe-gevernova-turbines-2025",
+    "path": "B1",
+    "buyer": "Crusoe",
+    "seller": "GE Vernova",
+    "technology": "29 LM2500XPRESS aeroderivative gas turbine packages",
+    "mw": null,
+    "term_years": null,
+    "state": "",
+    "announced_date": "2025-07-22",
+    "stage": "under_construction",
+    "company_confirmed": true,
+    "source_name": "GE Vernova press release",
+    "source_url": "https://www.gevernova.com/news/press-releases/ge-vernova-crusoe-announce-major-29-unit-aeroderivative-gas-turbine-deliver-ai-data-centers",
+    "publish_date": "2025-07-22",
+    "last_checked": "2026-09-18",
+    "caveat": "This is an equipment order, not a power contract, and GE Vernova gave only a rounded figure, \"nearly 1 GW\" across the 29 units, so no capacity is recorded here. No site or state is named in the announcement, and the two tranches were booked in December 2024 and June 2025.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "xai-memphis-turbines-2025",
+    "path": "B1",
+    "buyer": "xAI",
+    "seller": "xAI on-site generation",
+    "technology": "15 Solar SMT-130 gas turbines at the Colossus site",
+    "mw": 247,
+    "term_years": null,
+    "state": "TN",
+    "announced_date": "2025-07-02",
+    "stage": "permitted",
+    "company_confirmed": false,
+    "source_name": "TechCrunch, reporting the Shelby County Health Department permit",
+    "source_url": "https://techcrunch.com/2025/07/03/xai-gets-permits-for-15-natural-gas-generators-at-memphis-data-center",
+    "publish_date": "2025-07-03",
+    "last_checked": "2026-09-18",
+    "caveat": "The 247 MW is the ceiling written into an air permit, not a contracted supply or a measured output, and the permit treats the units as backup with strict annual run-hour limits. xAI has published nothing itself, and the permit was under appeal by community groups.",
+    "stale": false,
+    "unconfirmed": true
+   },
+   {
+    "deal_id": "solaris-stateline-power-2025",
+    "path": "B1",
+    "buyer": "Undisclosed data-center operator",
+    "seller": "Solaris Energy Infrastructure",
+    "technology": "Distributed gas turbines supplying primary on-site power",
+    "mw": 900,
+    "term_years": 7,
+    "state": "",
+    "announced_date": "2025-04-28",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Solaris Energy Infrastructure press release filed with the SEC",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1697500/000169750025000020/sei-20250428xex99.htm",
+    "publish_date": "2025-04-28",
+    "last_checked": "2026-09-18",
+    "caveat": "Solaris names only \"a major data center client\" and no site or state, so the buyer side of this row is a description rather than a name. The roughly 900 MW is the upsized contract size, up from 500 MW, over an initial seven-year term, and the equipment was still being delivered.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "bloom-aep-gigawatt-2024",
+    "path": "B2",
+    "buyer": "American Electric Power",
+    "seller": "Bloom Energy",
+    "technology": "Solid oxide fuel cells co-located at data-center sites",
+    "mw": 1000,
+    "term_years": null,
+    "state": "",
+    "announced_date": "2024-11-14",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Bloom Energy press release",
+    "source_url": "https://www.bloomenergy.com/news/bloom-energy-announces-gigawatt-fuel-cell-procurement-agreement-with-aep-to-power-ai-data-centers/",
+    "publish_date": "2024-11-14",
+    "last_checked": "2026-09-18",
+    "caveat": "The gigawatt is the ceiling of a supply agreement, not equipment ordered: only 100 MW was firmly ordered at announcement, with further orders left to 2025. AEP is a utility buying the hardware, so the eventual data-center customers were not named and no site or state was given.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "bloom-oracle-msa-2026",
+    "path": "B2",
+    "buyer": "Oracle",
+    "seller": "Bloom Energy",
+    "technology": "Solid oxide fuel cells for on-site data-center power",
+    "mw": 1200,
+    "term_years": null,
+    "state": "",
+    "announced_date": "2026-04-13",
+    "stage": "under_construction",
+    "company_confirmed": true,
+    "source_name": "Bloom Energy press release",
+    "source_url": "https://www.bloomenergy.com/news/bloom-energy-and-oracle-expand-strategic-partnership-to-deploy-up-to-2-8-gw-to-accelerate-ai-infrastructure-build-out/",
+    "publish_date": "2026-04-13",
+    "last_checked": "2026-09-18",
+    "caveat": "The 1.2 GW is the portion actually contracted and being deployed; the headline 2.8 GW is what Oracle \"intends to procure\" under a master services agreement and is not itself an order. Bloom names no individual sites beyond saying the projects are in the United States.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "bloom-brookfield-ai-factories-2025",
+    "path": "B2",
+    "buyer": "Brookfield Asset Management",
+    "seller": "Bloom Energy",
+    "technology": "Solid oxide fuel cells for AI data-center campuses",
+    "mw": null,
+    "term_years": null,
+    "state": "",
+    "announced_date": "2025-10-13",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Bloom Energy press release",
+    "source_url": "https://www.bloomenergy.com/news/brookfield-and-bloom-energy-announce-5-billion-strategic-ai-infrastructure-partnership/",
+    "publish_date": "2025-10-13",
+    "last_checked": "2026-09-18",
+    "caveat": "The only number attached to this partnership is an investment commitment of up to $5 billion, so no fuel-cell capacity is recorded; dollars are not megawatts. The scope is global rather than United States only, and the first named site under discussion was in Europe.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "google-energy-dome-2025",
+    "path": "B3",
+    "buyer": "Google",
+    "seller": "Energy Dome",
+    "technology": "Long-duration CO2 battery storage",
+    "mw": null,
+    "term_years": null,
+    "state": "",
+    "announced_date": "2025-07-25",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Energy Dome press release",
+    "source_url": "https://energydome.com/energy-dome-inks-a-strategic-commercial-agreement-with-google/",
+    "publish_date": "2025-07-25",
+    "last_checked": "2026-09-18",
+    "caveat": "A global commercial framework with a strategic investment attached, carrying no disclosed capacity, no named projects and no United States site at announcement. Storage shifts energy in time rather than adding supply, so nothing here is new generation for a data center.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "energy-dome-srp-coronado-2026",
+    "path": "B3",
+    "buyer": "Salt River Project",
+    "seller": "Energy Dome",
+    "technology": "19 MW, 10-hour CO2 battery at the Coronado Generating Station",
+    "mw": 19,
+    "term_years": 20,
+    "state": "AZ",
+    "announced_date": "2026-06-15",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Energy Dome press release",
+    "source_url": "https://energydome.com/energy-dome-and-srp-to-add-long-duration-energy-storage-project-to-the-grid-expand-google-collaboration/",
+    "publish_date": "2026-06-15",
+    "last_checked": "2026-09-18",
+    "caveat": "Google's role is cost-sharing to help a utility adopt non-lithium storage, not an offtake agreement, and the output is dispatched by Salt River Project onto its grid rather than routed to a Google building. The project is small by data-center standards and is not expected online until 2029.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "redwood-crusoe-sparks-microgrid-2025",
+    "path": "B3",
+    "buyer": "Crusoe",
+    "seller": "Redwood Energy",
+    "technology": "Second-life EV battery microgrid with solar",
+    "mw": 12,
+    "term_years": null,
+    "state": "NV",
+    "announced_date": "2025-06-26",
+    "stage": "in_service",
+    "company_confirmed": true,
+    "source_name": "Crusoe newsroom",
+    "source_url": "https://www.crusoe.ai/resources/newsroom/crusoe-and-redwood-materials-power-the-future-of-ai",
+    "publish_date": "2025-06-26",
+    "last_checked": "2026-09-18",
+    "caveat": "At 12 MW and 63 MWh this powers a modular container-scale deployment, not a hyperscale campus, and the batteries store solar output rather than generate. The companies describe it as the largest second-life battery installation of its kind, which is a claim about reuse rather than about scale.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "amazon-talen-susquehanna-2025",
+    "path": "C1",
+    "buyer": "Amazon Web Services",
+    "seller": "Talen Energy",
+    "technology": "Existing nuclear output from the Susquehanna plant",
+    "mw": 1920,
+    "term_years": 17,
+    "state": "PA",
+    "announced_date": "2025-06-11",
+    "stage": "in_service",
+    "company_confirmed": true,
+    "source_name": "Talen Energy press release filed with the SEC",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1622536/000162828025030559/a20250611pressreleasebusin.htm",
+    "publish_date": "2025-06-11",
+    "last_checked": "2026-09-18",
+    "caveat": "Nothing new is built here: Susquehanna already runs, and the agreement re-papers an existing 2.5 GW plant's output as a front-of-meter supply to Amazon through 2042. The full 1,920 MW is not flowing today, with the ramp expected to complete no later than 2032.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "meta-constellation-clinton-2025",
+    "path": "C1",
+    "buyer": "Meta",
+    "seller": "Constellation Energy",
+    "technology": "Existing nuclear output from the Clinton Clean Energy Center",
+    "mw": 1121,
+    "term_years": 20,
+    "state": "IL",
+    "announced_date": "2025-06-03",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Constellation Energy press release",
+    "source_url": "https://www.constellationenergy.com/news/2025/constellation-meta-sign-20-year-deal-for-clean-reliable-nuclear-energy-in-illinois.html",
+    "publish_date": "2025-06-03",
+    "last_checked": "2026-09-18",
+    "caveat": "This buys the output of a plant that already exists and keeps it running after Illinois ratepayer credits expire; deliveries do not begin until June 2027. Only 30 MW of the total is new energy, coming from planned uprates.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "amazon-vistra-comanche-peak-2025",
+    "path": "C1",
+    "buyer": "Amazon Web Services",
+    "seller": "Vistra",
+    "technology": "Existing nuclear output from the Comanche Peak plant",
+    "mw": 1200,
+    "term_years": 20,
+    "state": "TX",
+    "announced_date": "2025-09-29",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "World Nuclear News, quoting Vistra's fourth-quarter 2025 results call",
+    "source_url": "https://world-nuclear-news.org/articles/ppas-support-extended-operations-at-vistra-plants",
+    "publish_date": "2026-02-27",
+    "last_checked": "2026-09-18",
+    "caveat": "Vistra's own filing of 29 September 2025 described the counterparty only as a large investment-grade company; the chief executive named Amazon Web Services months later on an earnings call. The 1,200 MW is an \"up to\" figure from an existing plant, with deliveries beginning in the fourth quarter of 2027 and reaching full volume by 2032.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "meta-vistra-ohio-nuclear-2026",
+    "path": "C1",
+    "buyer": "Meta",
+    "seller": "Vistra",
+    "technology": "Existing nuclear output from the Perry and Davis-Besse plants",
+    "mw": 2100,
+    "term_years": 20,
+    "state": "OH",
+    "announced_date": "2026-01-09",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Meta newsroom",
+    "source_url": "https://about.fb.com/news/2026/01/meta-nuclear-energy-projects-power-american-ai-leadership/",
+    "publish_date": "2026-01-09",
+    "last_checked": "2026-09-18",
+    "caveat": "Meta describes \"more than 2.1 GW\" from two plants that already operate, so the figure here is the lower bound of that phrasing; Vistra later put the contracted total at 2,176 MW. A further 433 MW of uprates across Perry, Davis-Besse and Beaver Valley in Pennsylvania is contracted separately and is not counted in this row.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "msft-brookfield-framework-2024",
+    "path": "C2",
+    "buyer": "Microsoft",
+    "seller": "Brookfield Renewable",
+    "technology": "New wind and solar capacity under a global framework",
+    "mw": 10500,
+    "term_years": 5,
+    "state": "",
+    "announced_date": "2024-05-01",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Brookfield press release",
+    "source_url": "https://www.globenewswire.com/news-release/2024/05/01/2873042/0/en/Brookfield-and-Microsoft-Collaborating-to-Deliver-Over-10-5-GW-of-New-Renewable-Power-Capacity-Globally.html",
+    "publish_date": "2024-05-01",
+    "last_checked": "2026-09-18",
+    "caveat": "The 10.5 GW spans the United States and Europe, so only part of it belongs to American data centers, and it is a five-year framework for development rather than a set of signed project contracts. Capacity is meant to be delivered between 2026 and 2030, with no projects named at announcement.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "meta-invenergy-791mw-2025",
+    "path": "C2",
+    "buyer": "Meta",
+    "seller": "Invenergy",
+    "technology": "Solar and wind power purchase agreements",
+    "mw": 791,
+    "term_years": null,
+    "state": "multiple",
+    "announced_date": "2025-06-26",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Invenergy press release",
+    "source_url": "https://wwww.invenergy.com/news/invenergy-to-provide-meta-with-nearly-800-mw-supporting-data-center-operations",
+    "publish_date": "2025-06-26",
+    "last_checked": "2026-09-18",
+    "caveat": "These are grid-connected projects in Ohio, Arkansas and Texas whose output Meta buys on paper; the electricity does not travel to a particular building, and the sites do not sit next to Meta's data centers. None was operating at announcement, with commercial operation expected in 2027 and 2028.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "google-fervo-cape-station-2026",
+    "path": "C2",
+    "buyer": "Google",
+    "seller": "Fervo Energy",
+    "technology": "Enhanced geothermal generation at Cape Station",
+    "mw": 396,
+    "term_years": null,
+    "state": "UT",
+    "announced_date": "2026-09-01",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Fervo Energy press release",
+    "source_url": "https://fervoenergy.com/fervo-energy-and-google-sign-396-mw-ppa/",
+    "publish_date": "2026-09-01",
+    "last_checked": "2026-09-18",
+    "caveat": "Deliveries are not expected until 2028 from a project still being drilled, and an optional expansion of roughly 600 MW is not contracted. Enhanced geothermal at this scale has no long operating record, so the 396 MW is a contracted volume rather than demonstrated output.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "google-nvenergy-fervo-ctt-2024",
+    "path": "C2",
+    "buyer": "Google",
+    "seller": "NV Energy",
+    "technology": "Enhanced geothermal supplied through the Clean Transition Tariff",
+    "mw": 115,
+    "term_years": null,
+    "state": "NV",
+    "announced_date": "2024-06-07",
+    "stage": "permitted",
+    "company_confirmed": true,
+    "source_name": "Google blog",
+    "source_url": "https://blog.google/feed/nevada-clean-energy/",
+    "publish_date": "2025-05-13",
+    "last_checked": "2026-09-18",
+    "caveat": "Google does not buy this power directly: NV Energy takes the geothermal output from Fervo's Corsac Station project and Google pays a tariff premium covering the gap against the cheaper resource the utility would otherwise have built. Nevada regulators approved the structure in May 2025 and the plant was not yet generating.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "meta-xgs-new-mexico-2025",
+    "path": "C2",
+    "buyer": "Meta",
+    "seller": "XGS Energy",
+    "technology": "Water-independent next-generation geothermal",
+    "mw": 150,
+    "term_years": null,
+    "state": "NM",
+    "announced_date": "2025-06-12",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "XGS Energy press release",
+    "source_url": "https://www.xgsenergy.com/xgs-energy-and-meta-to-partner-on-150-mw-advanced-geothermal-project/",
+    "publish_date": "2025-06-12",
+    "last_checked": "2026-09-18",
+    "caveat": "The 150 MW is split across two phases, a small first phase and a larger second one, with both only projected to be operational by 2030 and neither sized publicly. Power goes onto the PNM grid rather than to a Meta facility directly, and XGS had no plant of this size in operation.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "deal_id": "google-intersect-tpg-energy-parks-2024",
+    "path": "C2",
+    "buyer": "Google",
+    "seller": "Intersect Power",
+    "technology": "Co-located renewables and storage in industrial energy parks",
+    "mw": null,
+    "term_years": null,
+    "state": "",
+    "announced_date": "2024-12-10",
+    "stage": "announced",
+    "company_confirmed": true,
+    "source_name": "Google blog",
+    "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/new-approach-to-data-center-and-clean-energy-growth/",
+    "publish_date": "2024-12-10",
+    "last_checked": "2026-09-18",
+    "caveat": "No capacity was disclosed, only an intention to build gigawatts of co-located data-center and clean-power capacity, so this row carries no megawatt figure. Google's role is described as anchor offtaker plus investor, and no site, state or first-project size was named.",
+    "stale": false,
+    "unconfirmed": false
+   }
+  ],
+  "mw_by_path_stage": {
+   "A1": {
+    "permitted": 2260.0,
+    "under_construction": 5254.0
+   },
+   "A3": {
+    "under_construction": 835.0,
+    "announced": 17485.0
+   },
+   "A4": {
+    "in_service": 4000.0
+   },
+   "B1": {
+    "announced": 3570.0,
+    "permitted": 247.0
+   },
+   "B2": {
+    "announced": 1000.0,
+    "under_construction": 1200.0
+   },
+   "B3": {
+    "announced": 19.0,
+    "in_service": 12.0
+   },
+   "C1": {
+    "in_service": 1920.0,
+    "announced": 4421.0
+   },
+   "C2": {
+    "announced": 11837.0,
+    "permitted": 115.0
+   }
+  },
+  "deals_without_capacity": {
+   "A1": 1,
+   "A3": 1,
+   "A4": 1,
+   "B1": 1,
+   "B2": 1,
+   "B3": 1,
+   "C2": 1
+  },
+  "utility_pipelines": [
+   {
+    "ticker": "EXC",
+    "quarter": "Q1 2026",
+    "pipeline_gw_total": null,
+    "pipeline_gw_contracted": 18.0,
+    "stage_breakdown": "Company labels: 'High Probability Pipeline' 18 GW at Q4 2025 (1 GW in Q4 2022, 6 GW in Q4 2023, 16 GW in Q4 2024), of which about 45% is secured with Transmission Security Agreements; a separate 'Future Potential Additions' bar of about 43 GW splits into active ComEd study 9+ GW and active Mid-Atlantic study about 6 GW concluding in 2026, plus future ComEd studies 11 GW and 4 GW and future Mid-Atlantic studies 10 GW and 3 GW concluding in 2027. Excludes 1 GW of other large load projects.",
+    "in_service_years": "",
+    "capex_plan_usd_bn": 41.7,
+    "capex_plan_years": "2026-2029",
+    "source_name": "Exelon Q1 2026 earnings presentation (Form 8-K, Exhibit 99.2), slides 4, 5, 13, 18",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1109357/000110935726000061/exc-20260506ex992.htm",
+    "publish_date": "2026-05-06",
+    "last_checked": "2026-09-18",
+    "quote": "Committed data center pipeline of ~18 GW",
+    "caveat": "A pipeline is not a signed contract. Only about 45% of this 18 GW carries a Transmission Security Agreement, and Exelon publishes no absolute megawatt figure for that subset. The two tiers are disjoint and the company never sums them, so adding 18 GW to the 43 GW under study would produce a number Exelon has not stated. No in-service years are given; the 2026 and 2027 dates on the slide are when cluster studies conclude, not when load arrives.",
+    "stale": false,
+    "unconfirmed": false
+   },
+   {
+    "ticker": "EXC",
+    "quarter": "Q2 2026",
+    "pipeline_gw_total": null,
+    "pipeline_gw_contracted": 11.0,
+    "stage_breakdown": "Company labels: 'High Probability Load' about 11 GW, being ComEd about 9 GW plus Mid-Atlantic about 2 GW, described as advanced phases of design or backed by FERC-approved Transmission Security Agreements, about 40% with such agreements backed by about $1B of collateral; 'Future Pipeline' about 25 GW, being ComEd about 17 GW plus Mid-Atlantic about 8 GW, within current or future cluster studies concluding in 2026 and 2027.",
+    "in_service_years": "",
+    "capex_plan_usd_bn": 41.7,
+    "capex_plan_years": "2026-2029",
+    "source_name": "Exelon Q2 2026 earnings presentation (Form 8-K, Exhibit 99.2), slides 4, 10, 15, 18",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1109357/000110935726000077/exc-20260730ex992.htm",
+    "publish_date": "2026-07-30",
+    "last_checked": "2026-09-18",
+    "quote": "~11 GW High Probability Load",
+    "caveat": "This is the same company's own headline cut from 18 GW to about 11 GW in one quarter, and the under-study tier from about 43 GW to about 25 GW, as a collateral requirement removed speculative requests. Read every utility pipeline figure on this page against that: the definition moves, and it moves downward when money is attached. The roughly 4 GW actually under signed agreements appears only in the CFO's spoken remarks, not on any slide.",
+    "stale": false,
+    "unconfirmed": false
+   }
+  ],
+  "status": "ok"
+ },
+ "path_economics": [
+  {
+   "path": "A1",
+   "metric": "overnight_capex",
+   "value": 868,
+   "unit": "USD/kW",
+   "year_dollars": "2023",
+   "vendor_claim": false,
+   "source_name": "EIA / Sargent & Lundy, Capital Cost and Performance Characteristics for Utility-Scale Power Generating Technologies (AEO2025)",
+   "source_url": "https://www.eia.gov/analysis/studies/powerplants/capitalcost/pdf/capital_cost_AEO2025.pdf",
+   "publish_date": "2024-01-10",
+   "last_checked": "2026-09-18",
+   "quote": "The capital costs provided are overnight capital costs in 2023 price levels",
+   "caveat": "An engineering estimate in 2023 dollars for a generic 1,227 MW two-on-one H-class combined-cycle plant, including owner's costs and electrical interconnection but excluding interest during construction. It is not a price anybody was quoted: turbine prices rose steeply after 2023, so it is not comparable with the market-based capital costs in the two rows below.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A1",
+   "metric": "overnight_capex",
+   "value": 1450,
+   "unit": "USD/kW",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "Capital Cost $/kW $1,450 - $2,100",
+   "caveat": "The bottom of Lazard's 2026 range for a new gas combined-cycle plant, in dollars of a year Lazard does not state, so it cannot be put beside EIA's 2023-dollar estimate. Lazard says separately it has seen quotes of $2,400-$2,600/kW for projects completing after 2028, above its own range.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A1",
+   "metric": "overnight_capex",
+   "value": 2100,
+   "unit": "USD/kW",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "Capital Cost $/kW $1,450 - $2,100",
+   "caveat": "The top of Lazard's 2026 range for a new gas combined-cycle plant, for a smaller 725 MW configuration, in dollars of a year Lazard does not state. It is a financing-market number rather than an engineering estimate and is not comparable with EIA's 2023-dollar figure.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A1",
+   "metric": "lcoe",
+   "value": 51,
+   "unit": "USD/MWh",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "higher capital costs, sustained interest rates, tariff pass-through and supply chain repricing",
+   "caveat": "Lazard's low case assumes the plant runs at a 90% capacity factor on $3.45/MMBtu gas, financed 60/40 at 8% debt and 12% equity. It is unsubsidised, carries no capacity payment and no carbon price, and assumes the plant exists: none of the interconnection or turbine-queue delay is priced in.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A1",
+   "metric": "lcoe",
+   "value": 129,
+   "unit": "USD/MWh",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "higher capital costs, sustained interest rates, tariff pass-through and supply chain repricing",
+   "caveat": "Lazard's high case is the same technology run at a 30% capacity factor, which is why the capital component per MWh is nearly four times the low case. A capacity factor assumption, not a cost difference, drives most of the spread, so neither end should be read as the cost of a plant dedicated to a data center.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A1",
+   "metric": "time_to_power",
+   "value": 24,
+   "unit": "months",
+   "year_dollars": "not applicable",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "Construction Time Months 24",
+   "caveat": "Construction time only. It begins when the plant starts being built, and excludes the gas turbine order queue, permitting and the interconnection study process - which are what actually set the date a data center gets power today.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A1",
+   "metric": "capacity_factor",
+   "value": 58.4,
+   "unit": "percent",
+   "year_dollars": "not applicable",
+   "vendor_claim": false,
+   "source_name": "EIA, Electric Power Monthly Table 6.07.A (capacity factors, fossil-fuel generators)",
+   "source_url": "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_6_07_a",
+   "publish_date": "2026-08-26",
+   "last_checked": "2026-09-18",
+   "quote": "Capacity factors are a comparison of net generation with available capacity",
+   "caveat": "The 2025 average for the entire US combined-cycle fleet selling into wholesale markets, which is an economic outcome rather than a technical ceiling. A plant built to serve one data center would be expected to run much harder, so this is not the availability of a dedicated unit. EIA marks 2025 values preliminary.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A1",
+   "metric": "heat_rate",
+   "value": 6266,
+   "unit": "Btu/kWh",
+   "year_dollars": "not applicable",
+   "vendor_claim": false,
+   "source_name": "EIA / Sargent & Lundy, Capital Cost and Performance Characteristics for Utility-Scale Power Generating Technologies (AEO2025)",
+   "source_url": "https://www.eia.gov/analysis/studies/powerplants/capitalcost/pdf/capital_cost_AEO2025.pdf",
+   "publish_date": "2024-01-10",
+   "last_checked": "2026-09-18",
+   "quote": "Net Plant Heat Rate, Higher Heating Value (HHV) Basis",
+   "caveat": "A design figure for a new two-on-one H-class plant on a higher-heating-value basis. It is a new-and-clean full-load number, so it is better than what the plant would average over a year with starts, part-load running and degradation, and it is not comparable with a vendor's lower-heating-value specification.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A1",
+   "metric": "heat_rate",
+   "value": 5342,
+   "unit": "Btu/kWh",
+   "year_dollars": "not applicable",
+   "vendor_claim": true,
+   "source_name": "GE Vernova, 7HA Heavy Duty Gas Turbine factsheet",
+   "source_url": "https://www.gevernova.com/content/dam/gepower-new/global/en_US/downloads/gas-new-site/products/gas-turbines/7ha-fact-sheet-product-specifications.pdf",
+   "publish_date": "2025-09-05",
+   "last_checked": "2026-09-18",
+   "quote": "A 7HA COMBINED CYCLE PLANT, NOW CAPABLE OF >64% EFFICIENCY",
+   "caveat": "A turbine maker's specification for a single 7HA.03 in one-on-one combined cycle at ISO conditions, on a lower-heating-value basis. Lower-heating-value figures are roughly a tenth better than the higher-heating-value basis EIA and Lazard use, so this cannot be placed beside them; the factsheet itself says its information is indicative and not warranted.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A2",
+   "metric": "overnight_capex",
+   "value": 2175,
+   "unit": "USD/kW",
+   "year_dollars": "2023",
+   "vendor_claim": false,
+   "source_name": "EIA / Sargent & Lundy, Capital Cost and Performance Characteristics for Utility-Scale Power Generating Technologies (AEO2025)",
+   "source_url": "https://www.eia.gov/analysis/studies/powerplants/capitalcost/pdf/capital_cost_AEO2025.pdf",
+   "publish_date": "2024-01-10",
+   "last_checked": "2026-09-18",
+   "quote": "The capital costs provided are overnight capital costs in 2023 price levels",
+   "caveat": "Covers 150 MWac of single-axis-tracking solar plus a 50 MW / 200 MWh AC-coupled battery, expressed per kW of solar capacity, in 2023 dollars. A hybrid's cost per kW depends entirely on how much storage is bolted on, so it is not comparable with a standalone solar or standalone battery cost.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A2",
+   "metric": "lcoe",
+   "value": 61,
+   "unit": "USD/MWh",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "higher capital costs, sustained interest rates, tariff pass-through and supply chain repricing",
+   "caveat": "Unsubsidised low case for 100 MW of utility solar paired with a 50 MW four-hour battery, assuming a 30% solar capacity factor and $40/MWh to charge the battery. It excludes the federal investment tax credit, so it is not comparable with the contracted renewable PPA prices under path C2, which are net of that credit.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A2",
+   "metric": "lcoe",
+   "value": 156,
+   "unit": "USD/MWh",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "higher capital costs, sustained interest rates, tariff pass-through and supply chain repricing",
+   "caveat": "Unsubsidised high case for the same solar-plus-storage configuration at a 20% solar capacity factor and higher battery cost. It is a new-build cost of energy, not a delivered firm-power cost: the pairing still does not supply a data center around the clock.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A2",
+   "metric": "time_to_power",
+   "value": 12,
+   "unit": "months",
+   "year_dollars": "not applicable",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "Construction Time Months 12",
+   "caveat": "Construction time only, for the generation and storage plant itself. It excludes land, permitting and the interconnection queue, which for grid-connected solar is by far the longer part of the wait.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A2",
+   "metric": "time_to_power",
+   "value": 61,
+   "unit": "months",
+   "year_dollars": "not applicable",
+   "vendor_claim": false,
+   "source_name": "Lawrence Berkeley National Laboratory, Queued Up: 2026 Edition (slides)",
+   "source_url": "https://www.osti.gov/servlets/purl/3376147",
+   "publish_date": "2026-06-30",
+   "last_checked": "2026-09-18",
+   "quote": "The median project built in 2025 took 61 months",
+   "caveat": "Median months from interconnection request to commercial operation for projects of every technology that came online in 2025, pooled across six ISOs and 19 non-ISO balancing areas. It is not solar-specific, and it counts only projects that finished: of the capacity that entered queues from 2000 to 2020, just 13% had reached operation by the end of 2025.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A2",
+   "metric": "capacity_factor",
+   "value": 24.4,
+   "unit": "percent",
+   "year_dollars": "not applicable",
+   "vendor_claim": false,
+   "source_name": "EIA, Electric Power Monthly Table 6.07.B (capacity factors, non-fossil generators)",
+   "source_url": "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_6_07_b",
+   "publish_date": "2026-08-26",
+   "last_checked": "2026-09-18",
+   "quote": "Capacity factors are a comparison of net generation with available capacity",
+   "caveat": "The 2025 average for the whole US utility-scale solar photovoltaic fleet, which is a resource limit, not a dispatch choice. It is measured against summer capacity and says nothing about when in the day the output arrives, which is the part that matters for a constant data-center load. EIA marks 2025 values preliminary.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A3",
+   "metric": "overnight_capex",
+   "value": 7861,
+   "unit": "USD/kW",
+   "year_dollars": "2023",
+   "vendor_claim": false,
+   "source_name": "EIA / Sargent & Lundy, Capital Cost and Performance Characteristics for Utility-Scale Power Generating Technologies (AEO2025)",
+   "source_url": "https://www.eia.gov/analysis/studies/powerplants/capitalcost/pdf/capital_cost_AEO2025.pdf",
+   "publish_date": "2024-01-10",
+   "last_checked": "2026-09-18",
+   "quote": "The estimate is presented as an overnight cost in 2023 dollars",
+   "caveat": "A 2023-dollar engineering estimate for two AP1000 units on a brownfield site, excluding interest during construction. Vogtle units 3 and 4, the only AP1000s actually built in the US, came in far above estimates of this kind, so treat it as a design-basis cost rather than an achieved one.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A3",
+   "metric": "overnight_capex",
+   "value": 8936,
+   "unit": "USD/kW",
+   "year_dollars": "2023",
+   "vendor_claim": false,
+   "source_name": "EIA / Sargent & Lundy, Capital Cost and Performance Characteristics for Utility-Scale Power Generating Technologies (AEO2025)",
+   "source_url": "https://www.eia.gov/analysis/studies/powerplants/capitalcost/pdf/capital_cost_AEO2025.pdf",
+   "publish_date": "2024-01-10",
+   "last_checked": "2026-09-18",
+   "quote": "The estimate is presented as an overnight cost in 2023 dollars",
+   "caveat": "A 2023-dollar estimate for a six-module, 480 MW small modular reactor plant. No SMR of this design is operating in the United States, so unlike the gas and solar rows in this column there is no built example to check the estimate against.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A3",
+   "metric": "lcoe",
+   "value": 175,
+   "unit": "USD/MWh",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "based on publicly available cost estimates for Vogtle units 3 and 4",
+   "caveat": "The low end reflects the cost attributed to Vogtle unit 4, the second of the pair, where industry estimates suggest roughly 30% was saved by building a repeat unit. It is one project in one state, not a class estimate, and assumes a 94% capacity factor over an 80-year life.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A3",
+   "metric": "lcoe",
+   "value": 255,
+   "unit": "USD/MWh",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "based on publicly available cost estimates for Vogtle units 3 and 4",
+   "caveat": "The high end reflects the cost attributed to Vogtle unit 3, the first-of-a-kind unit, at a $12,300-$17,570/kW capital cost. A first US AP1000 in a generation is close to a worst case, and the figure is not comparable with the restart or SMR points on the same chart.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A3",
+   "metric": "lcoe",
+   "value": 214,
+   "unit": "USD/MWh",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "Estimate is highly illustrative and not directly comparable to other technologies presented herein",
+   "caveat": "Lazard's own words: an illustrative point for selected small modular reactor projects at different stages of development, built from disclosed capital estimates rather than from a completed plant. These projects expect to come online in 2030 or later, so the figure describes intentions, not costs anybody has paid.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A3",
+   "metric": "lcoe",
+   "value": 71,
+   "unit": "USD/MWh",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "Represents the illustrative LCOE of U.S. nuclear facilities which have announced restart",
+   "caveat": "An illustrative cost for restarting three shut reactors, including restart capital and decommissioning costs spread over a 20-year licence period. A restart reuses a site, a grid connection and a licence, so this number answers a different question from the new-build rows above it and should never be read as the cost of new nuclear.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A3",
+   "metric": "time_to_power",
+   "value": 84,
+   "unit": "months",
+   "year_dollars": "not applicable",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "Construction Time Months 84",
+   "caveat": "Construction time only, and an assumption rather than an observation: it excludes licensing, which for a US reactor is measured in years of its own. Vogtle units 3 and 4 took far longer than seven years from first concrete to commercial operation.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A4",
+   "metric": "lcoe",
+   "value": 34,
+   "unit": "USD/MWh",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "Reflects the marginal cost of operating fully depreciated gas, coal and nuclear facilities",
+   "caveat": "The going-forward cost of running an existing, fully depreciated coal plant at a 62% capacity factor on $1.90/MMBtu coal - fuel and operating costs only, with no capital recovery. Keeping a plant past its retirement date usually requires capital spending (environmental retrofits, turbine work) that this figure excludes entirely, as does any reliability-must-run payment.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A4",
+   "metric": "lcoe",
+   "value": 69,
+   "unit": "USD/MWh",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "Reflects the marginal cost of operating fully depreciated gas, coal and nuclear facilities",
+   "caveat": "The same measure at a 34% capacity factor and $2.95/MMBtu coal. Because fixed operating costs are spread over less output, a plant kept alive but run rarely costs roughly twice as much per MWh - which is the usual position of a unit whose retirement has been deferred for reliability.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A4",
+   "metric": "capacity_factor",
+   "value": 48.7,
+   "unit": "percent",
+   "year_dollars": "not applicable",
+   "vendor_claim": false,
+   "source_name": "EIA, Electric Power Monthly Table 6.07.A (capacity factors, fossil-fuel generators)",
+   "source_url": "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_6_07_a",
+   "publish_date": "2026-08-26",
+   "last_checked": "2026-09-18",
+   "quote": "Capacity factors are a comparison of net generation with available capacity",
+   "caveat": "The 2025 average for the whole US coal fleet, which rose from 42.6% in 2024 as load grew. It is a fleet-wide economic outcome; the specific units whose retirements get deferred are usually the older and less efficient ones, which run less than this. EIA marks 2025 values preliminary.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "A4",
+   "metric": "heat_rate",
+   "value": 10777,
+   "unit": "Btu/kWh",
+   "year_dollars": "not applicable",
+   "vendor_claim": false,
+   "source_name": "EIA, Electric Power Annual 2024, Table 8.1 Average Operating Heat Rate for Selected Energy Sources",
+   "source_url": "https://www.eia.gov/electricity/annual/html/epa_08_01.html",
+   "publish_date": "2025-10-16",
+   "last_checked": "2026-09-18",
+   "quote": "Average Operating Heat Rate for Selected Energy Sources, 2014 through 2024",
+   "caveat": "The 2024 fleet-wide average operating heat rate for coal at utility and independent power producer plants, excluding combined heat and power and industrial plants. It is an as-run annual average including part-load operation, so it is not comparable with the new-build design heat rates quoted for gas elsewhere in this column.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "B1",
+   "metric": "overnight_capex",
+   "value": 1606,
+   "unit": "USD/kW",
+   "year_dollars": "2023",
+   "vendor_claim": false,
+   "source_name": "EIA / Sargent & Lundy, Capital Cost and Performance Characteristics for Utility-Scale Power Generating Technologies (AEO2025)",
+   "source_url": "https://www.eia.gov/analysis/studies/powerplants/capitalcost/pdf/capital_cost_AEO2025.pdf",
+   "publish_date": "2024-01-10",
+   "last_checked": "2026-09-18",
+   "quote": "The capital costs provided are overnight capital costs in 2023 price levels",
+   "caveat": "A 2023-dollar estimate for a 211 MW grid-connected simple-cycle plant of four aeroderivative turbines, including owner's costs and electrical interconnection. A behind-the-meter installation avoids the transmission interconnection but adds firm gas supply and site works, so this is not an on-site installed cost.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "B1",
+   "metric": "lcoe",
+   "value": 144,
+   "unit": "USD/MWh",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "higher capital costs, sustained interest rates, tariff pass-through and supply chain repricing",
+   "caveat": "Lazard's gas peaking low case assumes the machine runs only 15% of the year, which is a peaker's duty cycle and the opposite of a data center's. Run the same turbine continuously and the capital component per MWh falls sharply, so this figure should not be read as the cost of on-site baseload generation.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "B1",
+   "metric": "lcoe",
+   "value": 276,
+   "unit": "USD/MWh",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "higher capital costs, sustained interest rates, tariff pass-through and supply chain repricing",
+   "caveat": "The high case assumes a 10% capacity factor on a 250 MW plant. Almost the whole gap between this and the low case is the assumed running hours, not any difference in equipment, and neither case includes a capacity payment, which is how real peakers earn much of their revenue.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "B1",
+   "metric": "capacity_factor",
+   "value": 14.1,
+   "unit": "percent",
+   "year_dollars": "not applicable",
+   "vendor_claim": false,
+   "source_name": "EIA, Electric Power Monthly Table 6.07.A (capacity factors, fossil-fuel generators)",
+   "source_url": "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_6_07_a",
+   "publish_date": "2026-08-26",
+   "last_checked": "2026-09-18",
+   "quote": "Capacity factors are a comparison of net generation with available capacity",
+   "caveat": "The 2025 average for US grid-connected natural gas combustion turbines, which exist to cover peaks and therefore sit idle most of the year. On-site generation for a data center is intended to run continuously, so this fleet number describes a different job done by the same machine. EIA marks 2025 values preliminary.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "B1",
+   "metric": "heat_rate",
+   "value": 9447,
+   "unit": "Btu/kWh",
+   "year_dollars": "not applicable",
+   "vendor_claim": false,
+   "source_name": "EIA / Sargent & Lundy, Capital Cost and Performance Characteristics for Utility-Scale Power Generating Technologies (AEO2025)",
+   "source_url": "https://www.eia.gov/analysis/studies/powerplants/capitalcost/pdf/capital_cost_AEO2025.pdf",
+   "publish_date": "2024-01-10",
+   "last_checked": "2026-09-18",
+   "quote": "Heat Rate, Higher Heating Value (HHV) Basis",
+   "caveat": "A design figure for a new four-unit aeroderivative simple-cycle plant on a higher-heating-value basis. Simple-cycle machines throw away the exhaust heat, which is why this is roughly 50% worse than the combined-cycle figure under path A1; it is not comparable with vendor lower-heating-value specifications.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "B1",
+   "metric": "heat_rate",
+   "value": 7884,
+   "unit": "Btu/kWh",
+   "year_dollars": "not applicable",
+   "vendor_claim": true,
+   "source_name": "GE Vernova, 7HA Heavy Duty Gas Turbine factsheet",
+   "source_url": "https://www.gevernova.com/content/dam/gepower-new/global/en_US/downloads/gas-new-site/products/gas-turbines/7ha-fact-sheet-product-specifications.pdf",
+   "publish_date": "2025-09-05",
+   "last_checked": "2026-09-18",
+   "quote": "SC Net Heat Rate (Btu/kWh, LHV) 7884",
+   "caveat": "A turbine maker's simple-cycle specification for a 430 MW 7HA.03 at ISO conditions on a lower-heating-value basis. It is a large frame machine, not the packaged engine or aeroderivative skid most behind-the-meter projects install, and the lower-heating-value basis makes it look roughly a tenth better than EIA's higher-heating-value estimate above; the factsheet says its information is indicative.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "B2",
+   "metric": "overnight_capex",
+   "value": 7291,
+   "unit": "USD/kW",
+   "year_dollars": "2022",
+   "vendor_claim": false,
+   "source_name": "EIA, Cost and Performance Characteristics of New Generating Technologies, Annual Energy Outlook 2023",
+   "source_url": "https://www.eia.gov/outlooks/aeo/assumptions/pdf/elec_cost_perf.pdf",
+   "publish_date": "2023-03-01",
+   "last_checked": "2026-09-18",
+   "quote": "Overnight costs exclude interest accrued during plant construction and development",
+   "caveat": "EIA's modelling cost for a generic 10 MW fuel cell in 2022 dollars, including a 1.08 technological optimism factor applied to unproven designs. It is four years old and EIA's newer capital cost study does not cover fuel cells at all; it also excludes the gas supply and site work a data-center installation needs, so it is not comparable with a turbine's installed plant cost.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "B2",
+   "metric": "heat_rate",
+   "value": 6469,
+   "unit": "Btu/kWh",
+   "year_dollars": "not applicable",
+   "vendor_claim": false,
+   "source_name": "EIA, Cost and Performance Characteristics of New Generating Technologies, Annual Energy Outlook 2023",
+   "source_url": "https://www.eia.gov/outlooks/aeo/assumptions/pdf/elec_cost_perf.pdf",
+   "publish_date": "2023-03-01",
+   "last_checked": "2026-09-18",
+   "quote": "Cost and performance characteristics of new central station electricity generating technologies",
+   "caveat": "A design assumption for a generic 10 MW fuel cell, implying roughly 53% efficiency - better than a simple-cycle turbine and close to a combined cycle. It is a modelling input rather than measured fleet performance, and fuel cell stacks lose efficiency over their life, which this does not capture.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "B2",
+   "metric": "time_to_power",
+   "value": 90,
+   "unit": "days",
+   "year_dollars": "not applicable",
+   "vendor_claim": true,
+   "source_name": "Bloom Energy, company website",
+   "source_url": "https://www.bloomenergy.com/",
+   "publish_date": "2026-09-18",
+   "last_checked": "2026-09-18",
+   "quote": "installed and operational in as little as 90 days",
+   "caveat": "A vendor's best case, quoted in days rather than the months used elsewhere in this column, and it measures installation - not the time from order, permit or gas service connection, which is what a buyer waits through. The claim sits on an undated marketing page carrying a 2026 copyright and is a target, not a delivered average.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "B3",
+   "metric": "overnight_capex",
+   "value": 1744,
+   "unit": "USD/kW",
+   "year_dollars": "2023",
+   "vendor_claim": false,
+   "source_name": "EIA / Sargent & Lundy, Capital Cost and Performance Characteristics for Utility-Scale Power Generating Technologies (AEO2025)",
+   "source_url": "https://www.eia.gov/analysis/studies/powerplants/capitalcost/pdf/capital_cost_AEO2025.pdf",
+   "publish_date": "2024-01-10",
+   "last_checked": "2026-09-18",
+   "quote": "The capital costs provided are overnight capital costs in 2023 price levels",
+   "caveat": "A 2023-dollar estimate for a 150 MW / 600 MWh lithium-ion system, which EIA also states as $436/kWh. A battery's cost scales with hours of storage, so a per-kW figure only means anything alongside its duration and is not comparable with a generator's per-kW cost. This is also a utility-scale grid installation, not a data-center backup or UPS package.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "B3",
+   "metric": "lcoe",
+   "value": 210,
+   "unit": "USD/MWh",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "Unsubsidized LCOS $/MWh $210 - $292",
+   "caveat": "A levelised cost of storage, not of energy: storage generates nothing, and this figure already includes $40/MWh to buy the power it later discharges. It assumes a 100 MW four-hour standalone system cycled 350 times a year, unsubsidised, so it cannot be compared with any generation row in this column.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "B3",
+   "metric": "lcoe",
+   "value": 292,
+   "unit": "USD/MWh",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "Unsubsidized LCOS $/MWh $210 - $292",
+   "caveat": "The high end of the same four-hour standalone case. Lazard reports storage costs rose this year, reversing earlier declines, which it attributes to tariffs on imported lithium-ion cells - so this figure is a snapshot of a moving tariff position rather than a settled cost.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "C1",
+   "metric": "lcoe",
+   "value": 26,
+   "unit": "USD/MWh",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "Reflects the marginal cost of operating fully depreciated gas, coal and nuclear facilities",
+   "caveat": "The going-forward cost of running an existing large reactor at a 94% capacity factor - fuel, operating costs and decommissioning accrual, with no capital recovery. This is the floor under what an owner would accept, not a contract price: the per-MWh prices in the large data-center nuclear agreements have not been disclosed.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "C1",
+   "metric": "lcoe",
+   "value": 36,
+   "unit": "USD/MWh",
+   "year_dollars": "unstated",
+   "vendor_claim": false,
+   "source_name": "Lazard, Levelized Cost of Energy+ Version 19.0",
+   "source_url": "https://www.lazard.com/media/kcfconhf/lazards-lcoeplus_vf.pdf",
+   "publish_date": "2026-07-13",
+   "last_checked": "2026-09-18",
+   "quote": "Reflects the marginal cost of operating fully depreciated gas, coal and nuclear facilities",
+   "caveat": "The same measure for a smaller 1,175 MW plant with higher fixed operating costs. Both ends describe the owner's cost, so the gap between roughly $30/MWh here and the prices reported around recent data-center nuclear deals is the owner's margin, not a cost of supply.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "C1",
+   "metric": "capacity_factor",
+   "value": 91.0,
+   "unit": "percent",
+   "year_dollars": "not applicable",
+   "vendor_claim": false,
+   "source_name": "EIA, Electric Power Monthly Table 6.07.B (capacity factors, non-fossil generators)",
+   "source_url": "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_6_07_b",
+   "publish_date": "2026-08-26",
+   "last_checked": "2026-09-18",
+   "quote": "Capacity factors are a comparison of net generation with available capacity",
+   "caveat": "The 2025 average for the whole US nuclear fleet, which is the physical availability a buyer is contracting for. It does not mean the data center runs on those electrons: a nuclear PPA is a financial claim on the plant's output while the site still draws from the grid. EIA marks 2025 values preliminary.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "C2",
+   "metric": "lcoe",
+   "value": 35,
+   "unit": "USD/MWh",
+   "year_dollars": "2023",
+   "vendor_claim": false,
+   "source_name": "Lawrence Berkeley National Laboratory, Utility-Scale Solar, 2024 Edition (slides)",
+   "source_url": "https://www.osti.gov/servlets/purl/2467433",
+   "publish_date": "2024-10-01",
+   "last_checked": "2026-09-18",
+   "quote": "$35-$47/MWh for projects elsewhere in the continental United States",
+   "caveat": "A contract price, not a levelised cost: the bundled price of energy and renewable energy credits, levelised over a 20-25 year term in 2023 dollars, for solar PPAs signed in 2021 or later outside the West. It sits below an unsubsidised cost because the 30% investment tax credit is passed through by the seller, so it is not comparable with the Lazard rows in this column.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "C2",
+   "metric": "lcoe",
+   "value": 47,
+   "unit": "USD/MWh",
+   "year_dollars": "2023",
+   "vendor_claim": false,
+   "source_name": "Lawrence Berkeley National Laboratory, Utility-Scale Solar, 2024 Edition (slides)",
+   "source_url": "https://www.osti.gov/servlets/purl/2467433",
+   "publish_date": "2024-10-01",
+   "last_checked": "2026-09-18",
+   "quote": "$35-$47/MWh for projects elsewhere in the continental United States",
+   "caveat": "The top of the same band. These are contracts executed through 2024 and reported in 2023 dollars, so they predate the increase in offered renewable PPA prices through 2025 and 2026; a buyer signing today would not see these numbers.",
+   "stale": false,
+   "unconfirmed": false
+  },
+  {
+   "path": "C2",
+   "metric": "capacity_factor",
+   "value": 34.2,
+   "unit": "percent",
+   "year_dollars": "not applicable",
+   "vendor_claim": false,
+   "source_name": "EIA, Electric Power Monthly Table 6.07.B (capacity factors, non-fossil generators)",
+   "source_url": "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_6_07_b",
+   "publish_date": "2026-08-26",
+   "last_checked": "2026-09-18",
+   "quote": "Capacity factors are a comparison of net generation with available capacity",
+   "caveat": "The 2025 average for the US wind fleet, given because most large corporate renewable PPAs are wind or solar and wind is the higher-output of the two. It is an annual average against summer capacity: the hours the output arrives do not line up with a constant data-center load, and the contract does not change that. EIA marks 2025 values preliminary.",
+   "stale": false,
+   "unconfirmed": false
+  }
+ ],
+ "regions": {
+  "status": "ok",
+  "window": [
+   2026,
+   2031
+  ],
+  "vintage": "2026",
+  "zones": [
+   {
+    "zone": "PJM_RTO",
+    "role": "rto",
+    "start_year": 2026,
+    "end_year": 2031,
+    "peak_mw_start": 156373.0,
+    "peak_mw_end": 191017.0,
+    "peak_growth_mw": 34644.0,
+    "adjustment_mw_start": 11479.0,
+    "adjustment_mw_end": 46648.0,
+    "adjustment_growth_mw": 35169.0,
+    "large_load_share": 1.0151541392448908
+   },
+   {
+    "zone": "DOM",
+    "role": "zone",
+    "start_year": 2026,
+    "end_year": 2031,
+    "peak_mw_start": 25193.0,
+    "peak_mw_end": 33904.0,
+    "peak_growth_mw": 8711.0,
+    "adjustment_mw_start": 7066.0,
+    "adjustment_mw_end": 15829.0,
+    "adjustment_growth_mw": 8763.0,
+    "large_load_share": 1.005969463896223
+   },
+   {
+    "zone": "AEP",
+    "role": "zone",
+    "start_year": 2026,
+    "end_year": 2031,
+    "peak_mw_start": 24635.0,
+    "peak_mw_end": 32333.0,
+    "peak_growth_mw": 7698.0,
+    "adjustment_mw_start": 2699.0,
+    "adjustment_mw_end": 10031.0,
+    "adjustment_growth_mw": 7332.0,
+    "large_load_share": 0.9524551831644583
+   },
+   {
+    "zone": "COMED",
+    "role": "zone",
+    "start_year": 2026,
+    "end_year": 2031,
+    "peak_mw_start": 20847.0,
+    "peak_mw_end": 26264.0,
+    "peak_growth_mw": 5417.0,
+    "adjustment_mw_start": 885.0,
+    "adjustment_mw_end": 6850.0,
+    "adjustment_growth_mw": 5965.0,
+    "large_load_share": 1.1011630053535166
+   },
+   {
+    "zone": "PL",
+    "role": "zone",
+    "start_year": 2026,
+    "end_year": 2031,
+    "peak_mw_start": 7359.0,
+    "peak_mw_end": 13085.0,
+    "peak_growth_mw": 5726.0,
+    "adjustment_mw_start": 189.0,
+    "adjustment_mw_end": 5906.0,
+    "adjustment_growth_mw": 5717.0,
+    "large_load_share": 0.9984282221446036
+   },
+   {
+    "zone": "PS",
+    "role": "zone",
+    "start_year": 2026,
+    "end_year": 2031,
+    "peak_mw_start": 10046.0,
+    "peak_mw_end": 11547.0,
+    "peak_growth_mw": 1501.0,
+    "adjustment_mw_start": 308.0,
+    "adjustment_mw_end": 1933.0,
+    "adjustment_growth_mw": 1625.0,
+    "large_load_share": 1.0826115922718187
+   },
+   {
+    "zone": "BGE",
+    "role": "zone",
+    "start_year": 2026,
+    "end_year": 2031,
+    "peak_mw_start": 6471.0,
+    "peak_mw_end": 6533.0,
+    "peak_growth_mw": 62.0,
+    "adjustment_mw_start": 18.0,
+    "adjustment_mw_end": 243.0,
+    "adjustment_growth_mw": 225.0,
+    "large_load_share": 3.629032258064516
+   },
+   {
+    "zone": "PECO",
+    "role": "zone",
+    "start_year": 2026,
+    "end_year": 2031,
+    "peak_mw_start": 8539.0,
+    "peak_mw_end": 9499.0,
+    "peak_growth_mw": 960.0,
+    "adjustment_mw_start": 17.0,
+    "adjustment_mw_end": 1146.0,
+    "adjustment_growth_mw": 1129.0,
+    "large_load_share": 1.1760416666666667
+   },
+   {
+    "zone": "APS",
+    "role": "zone",
+    "start_year": 2026,
+    "end_year": 2031,
+    "peak_mw_start": 8814.0,
+    "peak_mw_end": 10281.0,
+    "peak_growth_mw": 1467.0,
+    "adjustment_mw_start": 165.0,
+    "adjustment_mw_end": 1557.0,
+    "adjustment_growth_mw": 1392.0,
+    "large_load_share": 0.9488752556237219
+   },
+   {
+    "zone": "ATSI",
+    "role": "zone",
+    "start_year": 2026,
+    "end_year": 2031,
+    "peak_mw_start": 12770.0,
+    "peak_mw_end": 13869.0,
+    "peak_growth_mw": 1099.0,
+    "adjustment_mw_start": 132.0,
+    "adjustment_mw_end": 1302.0,
+    "adjustment_growth_mw": 1170.0,
+    "large_load_share": 1.064604185623294
+   },
+   {
+    "zone": "DAY",
+    "role": "zone",
+    "start_year": 2026,
+    "end_year": 2031,
+    "peak_mw_start": 3357.0,
+    "peak_mw_end": 4694.0,
+    "peak_growth_mw": 1337.0,
+    "adjustment_mw_start": 0.0,
+    "adjustment_mw_end": 1392.0,
+    "adjustment_growth_mw": 1392.0,
+    "large_load_share": 1.0411368735976065
+   },
+   {
+    "zone": "DEOK",
+    "role": "zone",
+    "start_year": 2026,
+    "end_year": 2031,
+    "peak_mw_start": 5323.0,
+    "peak_mw_end": 5398.0,
+    "peak_growth_mw": 75.0,
+    "adjustment_mw_start": 0.0,
+    "adjustment_mw_end": 0.0,
+    "adjustment_growth_mw": 0.0,
+    "large_load_share": 0.0
+   }
+  ],
+  "roles": [
+   {
+    "zone": "AE",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "AEP",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "AEP:AEPOHIO",
+    "role": "subarea",
+    "aggregate": false,
+    "additive_to_rto": false,
+    "note": "a sub-area of AEP, already inside that zone's total",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "AEP:IM",
+    "role": "subarea",
+    "aggregate": false,
+    "additive_to_rto": false,
+    "note": "a sub-area of AEP, already inside that zone's total",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "APS",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "APS:PE",
+    "role": "subarea",
+    "aggregate": false,
+    "additive_to_rto": false,
+    "note": "a sub-area of APS, already inside that zone's total",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "APS:REC",
+    "role": "subarea",
+    "aggregate": false,
+    "additive_to_rto": false,
+    "note": "a sub-area of APS, already inside that zone's total",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "APS:WPP",
+    "role": "subarea",
+    "aggregate": false,
+    "additive_to_rto": false,
+    "note": "a sub-area of APS, already inside that zone's total",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "ATSI",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "ATSI:OHIO",
+    "role": "subarea",
+    "aggregate": false,
+    "additive_to_rto": false,
+    "note": "a sub-area of ATSI, already inside that zone's total",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "ATSI:PP",
+    "role": "subarea",
+    "aggregate": false,
+    "additive_to_rto": false,
+    "note": "a sub-area of ATSI, already inside that zone's total",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "BGE",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "CENTRALMA",
+    "role": "aggregate",
+    "aggregate": true,
+    "additive_to_rto": false,
+    "note": "an aggregate of other rows: a Mid-Atlantic sub-region, inside PJM_MA",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "COMED",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "DAY",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "DEOK",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "DLCO",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "DOM",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "DOM:DOM",
+    "role": "subarea",
+    "aggregate": false,
+    "additive_to_rto": false,
+    "note": "a sub-area of DOM, already inside that zone's total",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "DOM:NVEC",
+    "role": "subarea",
+    "aggregate": false,
+    "additive_to_rto": false,
+    "note": "a sub-area of DOM, already inside that zone's total",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "DOM:ODEC",
+    "role": "subarea",
+    "aggregate": false,
+    "additive_to_rto": false,
+    "note": "a sub-area of DOM, already inside that zone's total",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "DOM:REC",
+    "role": "subarea",
+    "aggregate": false,
+    "additive_to_rto": false,
+    "note": "a sub-area of DOM, already inside that zone's total",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "DPL",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "EASTERNMA",
+    "role": "aggregate",
+    "aggregate": true,
+    "additive_to_rto": false,
+    "note": "an aggregate of other rows: a Mid-Atlantic sub-region, inside PJM_MA",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "EKPC",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "FE_EAST",
+    "role": "aggregate",
+    "aggregate": true,
+    "additive_to_rto": false,
+    "note": "an aggregate of other rows: FirstEnergy's eastern zones (JCPL, METED, PENELEC) combined",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "JCPL_FE_EAST",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "METED_FE_EAST",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "OVEC",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "PECO",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "PEPCO",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "PEPCO:PEPCO",
+    "role": "subarea",
+    "aggregate": false,
+    "additive_to_rto": false,
+    "note": "a sub-area of PEPCO, already inside that zone's total",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "PEPCO:SMECO",
+    "role": "subarea",
+    "aggregate": false,
+    "additive_to_rto": false,
+    "note": "a sub-area of PEPCO, already inside that zone's total",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "PJM_MA",
+    "role": "aggregate",
+    "aggregate": true,
+    "additive_to_rto": false,
+    "note": "an aggregate of other rows: the Mid-Atlantic region",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "PJM_RTO",
+    "role": "rto",
+    "aggregate": true,
+    "additive_to_rto": false,
+    "note": "the RTO total; already contains every zone below it",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "PJM_WEST",
+    "role": "aggregate",
+    "aggregate": true,
+    "additive_to_rto": false,
+    "note": "an aggregate of other rows: the western half of the RTO",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "PL",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "PLGRP",
+    "role": "aggregate",
+    "aggregate": true,
+    "additive_to_rto": false,
+    "note": "an aggregate of other rows: the PPL group, which already contains PL",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "PN_FE_EAST",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "PS",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "RECO",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "SOUTHERNMA",
+    "role": "aggregate",
+    "aggregate": true,
+    "additive_to_rto": false,
+    "note": "an aggregate of other rows: a Mid-Atlantic sub-region, inside PJM_MA",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "UGI",
+    "role": "zone",
+    "aggregate": false,
+    "additive_to_rto": true,
+    "note": "",
+    "first_year": 2026,
+    "last_year": 2046
+   },
+   {
+    "zone": "WESTERNMA",
+    "role": "aggregate",
+    "aggregate": true,
+    "additive_to_rto": false,
+    "note": "an aggregate of other rows: a Mid-Atlantic sub-region, inside PJM_MA",
+    "first_year": 2026,
+    "last_year": 2046
+   }
+  ]
+ },
+ "paths": {
+  "A1": "Grid gas: new combined- and simple-cycle plants",
+  "A2": "Grid solar and storage",
+  "A3": "Grid nuclear: restarts, uprates, SMRs",
+  "A4": "Deferred retirements",
+  "A5": "Transmission and distribution equipment",
+  "B1": "On-site gas: turbines and engines behind the meter",
+  "B2": "On-site fuel cells",
+  "B3": "On-site storage and backup power",
+  "C1": "Existing-nuclear power purchase agreements",
+  "C2": "Renewable power purchase agreements",
+  "U": "Utilities holding the data-center load pipeline"
+ },
+ "family_order": [
+  "solar",
+  "storage",
+  "gas_cc",
+  "gas_ct",
+  "gas_engine",
+  "gas_steam",
+  "gas_other",
+  "wind",
+  "nuclear",
+  "hydro",
+  "geothermal",
+  "biomass",
+  "coal",
+  "oil",
+  "other"
+ ],
+ "family_label": {
+  "solar": "Solar",
+  "storage": "Storage",
+  "gas_cc": "Gas, combined cycle",
+  "gas_ct": "Gas, combustion turbine",
+  "gas_engine": "Gas engines",
+  "gas_steam": "Gas steam",
+  "gas_other": "Gas, other",
+  "wind": "Wind",
+  "nuclear": "Nuclear",
+  "hydro": "Hydro",
+  "geothermal": "Geothermal",
+  "biomass": "Biomass",
+  "coal": "Coal",
+  "oil": "Oil",
+  "other": "Other"
+ },
+ "stage_order": [
+  "announced",
+  "permitted",
+  "under_construction",
+  "commissioning",
+  "in_service"
+ ],
+ "region_definitions": [
+  {
+   "key": "pjm",
+   "label": "PJM",
+   "iso": "PJM",
+   "states": [
+    "VA",
+    "OH",
+    "PA",
+    "MD",
+    "NJ",
+    "IL",
+    "WV",
+    "DE",
+    "DC",
+    "IN",
+    "KY",
+    "MI",
+    "NC",
+    "TN"
+   ],
+   "note": "Dominion's Virginia zone is the largest single data-center load in the country"
+  },
+  {
+   "key": "ercot",
+   "label": "ERCOT",
+   "iso": "ERCOT",
+   "states": [
+    "TX"
+   ],
+   "note": "Texas paused new data-center interconnection in 2026 pending a regulatory audit"
+  },
+  {
+   "key": "southeast",
+   "label": "Southeast",
+   "iso": "",
+   "states": [
+    "GA",
+    "LA",
+    "MS",
+    "AL",
+    "SC"
+   ],
+   "note": "Georgia Power and Entergy Louisiana; the largest new-build gas for data centers"
+  }
+ ],
+ "checks": [
+  {
+   "name": "Generator inventory",
+   "status": "pass",
+   "detail": "32,626 units in the 2026-07 EIA-860M edition"
+  },
+  {
+   "name": "Retail sales",
+   "status": "pass",
+   "detail": "51,480 state-month-sector rows through 2026-06"
+  },
+  {
+   "name": "EIA forecast",
+   "status": "pass",
+   "detail": "STEO 2026-09, 24 annual points"
+  },
+  {
+   "name": "Regional attribution",
+   "status": "pass",
+   "detail": "12 PJM zones with both a summer peak and a large-load adjustment, 2026-2031"
+  },
+  {
+   "name": "Retirement deferrals",
+   "status": "pass",
+   "detail": "104 units, 14,218 MW moved later between 2025-07 and 2026-07"
+  },
+  {
+   "name": "Contracted deals",
+   "status": "pass",
+   "detail": "35 deals across 8 paths, 33 confirmed by a party to them"
+  },
+  {
+   "name": "deals file",
+   "status": "pass",
+   "detail": "deals.json parsed, 35 row(s), updated 2026-09-18"
+  },
+  {
+   "name": "deals rows",
+   "status": "pass",
+   "detail": "35 row(s) sourced, dated and caveated; 2 not company-confirmed"
+  },
+  {
+   "name": "deals freshness",
+   "status": "pass",
+   "detail": "0 of 35 row(s) unchecked for more than 90 days"
+  },
+  {
+   "name": "utility_pipelines file",
+   "status": "pass",
+   "detail": "utility_pipelines.json parsed, 2 row(s), updated 2026-09-18"
+  },
+  {
+   "name": "utility_pipelines rows",
+   "status": "pass",
+   "detail": "2 row(s) sourced, dated and caveated; 0 not company-confirmed"
+  },
+  {
+   "name": "utility_pipelines freshness",
+   "status": "pass",
+   "detail": "0 of 2 row(s) unchecked for more than 90 days"
+  },
+  {
+   "name": "unit_economics file",
+   "status": "pass",
+   "detail": "unit_economics.json parsed, 44 row(s), updated 2026-09-18"
+  },
+  {
+   "name": "unit_economics rows",
+   "status": "pass",
+   "detail": "44 row(s) sourced, dated and caveated; 0 not company-confirmed"
+  },
+  {
+   "name": "unit_economics freshness",
+   "status": "pass",
+   "detail": "0 of 44 row(s) unchecked for more than 90 days"
+  },
+  {
+   "name": "demand_forecasts file",
+   "status": "pass",
+   "detail": "demand_forecasts.json parsed, 33 row(s), updated 2026-09-18"
+  },
+  {
+   "name": "demand_forecasts rows",
+   "status": "pass",
+   "detail": "33 row(s) sourced, dated and caveated; 0 not company-confirmed"
+  },
+  {
+   "name": "demand_forecasts freshness",
+   "status": "pass",
+   "detail": "0 of 33 row(s) unchecked for more than 90 days"
+  },
+  {
+   "name": "deals table",
+   "status": "pass",
+   "detail": "35 row(s) validated against DEALS_SCHEMA"
+  }
+ ],
+ "sources": [
+  {
+   "name": "EIA-860M preliminary monthly generator inventory",
+   "url": "https://www.eia.gov/electricity/data/eia860m/"
+  },
+  {
+   "name": "EIA-861M monthly retail sales and revenue",
+   "url": "https://www.eia.gov/electricity/data/eia861m/"
+  },
+  {
+   "name": "EIA Short-Term Energy Outlook",
+   "url": "https://www.eia.gov/outlooks/steo/"
+  },
+  {
+   "name": "PJM annual load forecast",
+   "url": "https://www.pjm.com/planning/resource-adequacy-planning/load-forecast-dev-process"
+  }
+ ]
+}

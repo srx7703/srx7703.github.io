@@ -1,0 +1,613 @@
+---
+title: "Where the electricity for American data centers is actually coming from"
+summary: "US data-center load growth set against what the grid is building for it, on two bases that disagree: the plant EIA says is under construction, and the capacity operators say they have contracted. Plus the listed companies on each supply path."
+status: live
+domain: ["power", "equities"]
+tools: ["Python", "Polars", "EIA-860M", "EIA-861M", "EIA STEO", "PJM load forecast", "Vega-Lite", "GitHub Actions"]
+featured: true
+order: 3
+started: "2026-09-18"
+---
+import facts from '@data/facts/power_demand.json';
+import additions from '@data/marts/power/additions.json';
+import salesByState from '@data/marts/power/sales_by_state.json';
+import KpiRow from '@components/KpiRow.astro';
+import KpiTile from '@components/KpiTile.astro';
+import ChartCard from '@components/ChartCard.astro';
+import VegaChart from '@components/VegaChart.astro';
+import SourceStamp from '@components/SourceStamp.astro';
+import Section from '@components/Section.astro';
+import DataQuality from '@components/DataQuality.astro';
+import DataTable from '@components/DataTable.astro';
+import FilterBar from '@components/FilterBar.astro';
+import DownloadCsv from '@components/DownloadCsv.astro';
+import Sidenote from '@components/Sidenote.astro';
+import Appendix from '@components/Appendix.astro';
+import { evaluationPlan } from '@lib/prereg';
+import { additionsSpec, foldFamilies } from '@charts/power/additions';
+import { growthAttributionSpec, attributable, zoneLabel } from '@charts/power/growth_attribution';
+import { stateCommercialSpec, completeYears, partialYears, stateLabel } from '@charts/power/state_commercial';
+import { sectorGrowthSpec, sectorRows } from '@charts/power/sector_growth';
+import { dealsByPathSpec, pathRows } from '@charts/power/deals_by_path';
+import { pct, dateUtc } from '@lib/fmt';
+export const valFiles = import.meta.glob('../../../../data/facts/valuation_power.json', { eager: true, import: 'default' });
+export const valuation = Object.values(valFiles)[0] ?? null;
+export const poolFiles = import.meta.glob('../../../../data/marts/valuation/power_companies.json', { eager: true, import: 'default' });
+export const pool = Object.values(poolFiles)[0] ?? [];
+export const plan = evaluationPlan();
+// "a 85%" / "an 8%": the article depends on how the *number* is read aloud, so it is derived
+// from the rendered string rather than written into the sentence.
+export const article = (s) => (/^(8|11|18|1[1-9]\b)/.test(String(s)) ? 'an' : 'a');
+export const gw = (mw) => (mw == null ? '—' : `${(mw / 1000).toFixed(1)} GW`);
+export const twh = (v) => (v == null ? '—' : `${v.toFixed(0)} TWh`);
+export const signed = (v) => (v == null ? '—' : `${v > 0 ? '+' : ''}${v.toFixed(1)}`);
+export const head = facts.headline;
+export const national = facts.demand.national;
+export const steo = facts.demand.steo;
+export const totals = facts.supply_physical.totals;
+export const retire = facts.supply_physical.retirements;
+export const deferred = retire.deferred ?? {};
+export const regions = facts.regions;
+export const contract = facts.supply_contract;
+export const generatedAt = dateUtc(facts.generated_at);
+// The company half is published by the valuation pipeline on its own schedule. Loaded through a glob
+// so a build that runs before its first pass renders "not published yet" instead of failing.
+// Everything the prose asserts about shape is counted here, from the data, so a sentence cannot
+// drift away from the table beneath it.
+export const folded = foldFamilies(additions);
+export const additionYears = totals.years ? `${totals.years[0]} to ${totals.years[1]}` : 'the forecast window';
+export const gasFamilies = Object.keys(totals.by_family_mw ?? {}).filter((f) => f.startsWith('gas_'));
+export const solarStorage = (totals.by_family_mw?.solar ?? 0) + (totals.by_family_mw?.storage ?? 0);
+export const solarStorageShare = totals.total_mw ? solarStorage / totals.total_mw : null;
+export const rto = regions.zones?.find((z) => z.zone === 'PJM_RTO') ?? null;
+export const zonesPlotted = attributable(regions.zones ?? []);
+export const zonesOverOne = zonesPlotted.filter((z) => z.large_load_share > 1);
+export const zonesUnattributed = (regions.zones ?? []).filter((z) => z.adjustment_growth_mw == null);
+export const completeStateYears = completeYears(salesByState);
+export const partialStateYears = partialYears(salesByState);
+export const stateYearsSpan = [...new Set(completeStateYears.map((r) => r.year))].sort((a, b) => a - b);
+export const vaFirst = completeStateYears.find((r) => r.state === 'VA' && r.year === stateYearsSpan[0]);
+export const vaLast = completeStateYears.filter((r) => r.state === 'VA').sort((a, b) => b.year - a.year)[0];
+export const vaMultiple = vaFirst && vaLast ? vaLast.twh / vaFirst.twh : null;
+// The whole-series multiple understates the finding, because Virginia was flat for a decade before
+// it inflected. The comparison that carries the point is the last five years, Virginia against the
+// median of the other states over exactly the same window.
+export const recentWindow = 5;
+export const recentFrom = stateYearsSpan[Math.max(0, stateYearsSpan.length - 1 - recentWindow)];
+export const recentTo = stateYearsSpan[stateYearsSpan.length - 1];
+export const growthOver = (st) => {
+  const a = completeStateYears.find((r) => r.state === st && r.year === recentFrom);
+  const b = completeStateYears.find((r) => r.state === st && r.year === recentTo);
+  return a && b && a.twh ? b.twh / a.twh - 1 : null;
+};
+export const vaRecent = growthOver('VA');
+// The control is the whole country, not the other states on the chart: every one of those was
+// chosen because it has data centers, so comparing Virginia with their median compares one affected
+// state against several others and understates the gap.
+export const nationalCommercial = facts.demand.national_commercial ?? [];
+export const ncAt = (y) => nationalCommercial.find((r) => r.year === y && r.complete_year)?.twh ?? null;
+export const nationalRecent = ncAt(recentFrom) && ncAt(recentTo) ? ncAt(recentTo) / ncAt(recentFrom) - 1 : null;
+export const sectorGrowth = sectorRows(national.ttm_growth_twh ?? {}, national.share_of_growth ?? {});
+export const shrinking = sectorGrowth.filter((s) => s.twh < 0);
+export const dealRows = contract.deals ?? [];
+export const dealPathRows = pathRows(contract.mw_by_path_stage ?? {}, facts.paths);
+export const economics = facts.path_economics ?? [];
+export const forecasts = facts.demand.forecasts ?? [];
+export const pipelines = contract.utility_pipelines ?? [];
+export const undisclosed = Object.values(contract.deals_without_capacity ?? {}).reduce((a, b) => a + b, 0);
+export const pathList = Object.entries(facts.paths).map(([code, label]) => ({
+  code, label,
+  deals: dealRows.filter((d) => d.path === code).length,
+  companies: pool.filter((c) => c.path === code).length,
+  metrics: economics.filter((e) => e.path === code).length,
+}));
+export const familyTable = Object.entries(totals.by_family_mw ?? {}).map(([family, mw]) => ({
+  family: facts.family_label[family] ?? family,
+  mw,
+  share: totals.share_by_family?.[family] ?? null,
+  under_construction: totals.under_construction_by_family_mw?.[family] ?? 0,
+}));
+export const zoneTable = (regions.zones ?? []).map((z) => ({
+  zone: zoneLabel(z.zone),
+  role: z.role,
+  peak_start: z.peak_mw_start,
+  peak_end: z.peak_mw_end,
+  peak_growth: z.peak_growth_mw,
+  large_load_growth: z.adjustment_growth_mw,
+  share: z.large_load_share,
+}));
+export const stateTable = salesByState.map((r) => ({
+  state: stateLabel(r.state),
+  year: r.year,
+  twh: r.twh,
+  complete: r.complete_year ? 'full year' : `${r.months} months`,
+}));
+
+<div class="lede">
+  <p>
+    Over the twelve months to {national.window_end}, American retail electricity sales grew
+    by {twh(national.total_growth_twh)}, and {pct(head.commercial_share_of_us_growth, 0)} of that growth landed in
+    the commercial sector.<Sidenote>EIA does not publish a data-center line. It publishes four billing
+    sectors, and essentially all new data-center load is billed as commercial. The commercial share
+    of growth is therefore an <em>upper bound</em> on the data-center share, not a measurement of it:
+    the same sector holds every office, hospital and supermarket in the country. Those grow with
+    population, a few percent a decade, which is what makes {article(pct(head.commercial_share_of_us_growth, 0))} {pct(head.commercial_share_of_us_growth, 0)} share
+    of national growth remarkable rather than routine.</Sidenote> Meanwhile the plant being built to
+    serve it is not the plant in the press releases. Of the {gw(totals.total_mw)} of generating capacity
+    scheduled to come online from {additionYears}, gas is {pct(head.gas_share_of_planned_additions, 0)};
+    solar and storage together are {pct(solarStorageShare, 0)}.
+  </p>
+  <p>
+    Two things follow, and the rest of this page is about them. The first is that a contract and a
+    turbine are different objects: a data center that signs a nuclear power purchase agreement has
+    bought an attribute, not a wire, and the generator that actually covers its load at 3am is
+    whatever was on the margin. This page reports both answers and shows the gap. The second is that
+    in PJM — the only US grid operator that publishes its own large-load number — data centers
+    account for {pct(head.pjm_large_load_share_of_growth, 0)} of forecast peak growth
+    to {head.pjm_window?.[1]}. Above one hundred percent, because everything else is shrinking.
+  </p>
+</div>
+
+<KpiRow>
+  <KpiTile label="Commercial share of US demand growth" value={pct(head.commercial_share_of_us_growth, 0)} sub={`trailing 12 months to ${national.window_end}, of ${twh(national.total_growth_twh)} total`} />
+  <KpiTile label="Gas share of planned additions" value={pct(head.gas_share_of_planned_additions, 0)} sub={`of ${gw(totals.total_mw)} scheduled ${additionYears}`} />
+  <KpiTile label="Large load as a share of PJM peak growth" value={pct(head.pjm_large_load_share_of_growth, 0)} sub={`${head.pjm_window?.[0]} to ${head.pjm_window?.[1]}, PJM's own adjustment`} />
+  <KpiTile label="Retirements pushed back in a year" value={gw(deferred.mw)} sub={`${deferred.units ?? 0} units, ${deferred.from_vintage} against ${deferred.to_vintage}`} />
+</KpiRow>
+
+<Section id="demand" title="The growth is almost entirely commercial">
+
+Four sectors buy electricity in the United States, and until about 2022 all four moved together
+with the weather and the economy. They no longer do. Over the last twelve months industrial sales
+grew {signed(national.ttm_growth_twh?.industrial)} TWh and residential
+{signed(national.ttm_growth_twh?.residential)} TWh, while commercial sales grew
+{signed(national.ttm_growth_twh?.commercial)} TWh.
+{shrinking.length > 0 && ` ${shrinking.map((s) => s.sector[0].toUpperCase() + s.sector.slice(1)).join(' and ')} sales shrank outright.`}
+
+<ChartCard title={`Commercial sales are ${pct(head.commercial_share_of_us_growth, 0)} of US demand growth`} subtitle={`Change in trailing-twelve-month retail sales by billing sector, ${national.window_start} to ${national.window_end} against the year before. EIA publishes no data-center category; commercial is where that load is billed.`}>
+  <VegaChart id="sector-growth" spec={sectorGrowthSpec(sectorGrowth)} height={200} ariaLabel="Bar chart of change in US retail electricity sales by sector" />
+  <SourceStamp slot="stamp" sources={[facts.sources[1]]} asOf={national.window_end} />
+</ChartCard>
+
+EIA's own forecast says the same thing about what comes next. From {steo.history_through}, the last
+year that is entirely history, to {steo.growth?.ELTCP_US?.to_year}, it has total sales growing
+{' '}{twh(steo.growth?.ELTCP_US?.change_twh)}, of which {twh(steo.growth?.ELCCP_US?.change_twh)} —
+{' '}{pct(steo.commercial_share_of_growth, 0)} — is commercial.<Sidenote>Short-Term Energy Outlook,
+{' '}{steo.vintage} edition. The growth is measured from the last complete year of history rather than
+from the first row of the table, which carries several years of past growth before the forecast
+begins. The history in this file and the history in the retail sales file above are the same numbers
+to a decimal, which is a useful check that both are being read correctly: they are separate
+publications built from separate surveys.</Sidenote>
+
+<DataTable id="steo-table" caption={`EIA Short-Term Energy Outlook ${steo.vintage}: annual electricity sales by sector, TWh`} columns={[
+  { key: 'label', label: 'Series' },
+  { key: 'period', label: 'Year' },
+  { key: 'value', label: 'TWh', format: 'fixed1', align: 'right' },
+]} rows={steo.annual ?? []} />
+
+</Section>
+
+<Section id="fingerprint" title="Where the load is landing">
+
+National totals hide the thing worth seeing. Data centers are not spread across the country; they
+are concentrated in a handful of places, and in those places the commercial sector has stopped
+behaving like a commercial sector.
+
+<ChartCard title={vaRecent != null && nationalRecent != null ? `Virginia's commercial sales grew ${pct(vaRecent, 0)} in ${recentWindow} years, against ${pct(nationalRecent, 0)} nationally` : 'Commercial sales by state'} subtitle={`Commercial-sector retail sales, indexed to ${stateYearsSpan[0]} = 1.0, for the states with the most data-center construction. Complete calendar years only: ${stateYearsSpan[0]} to ${recentTo}.`}>
+  <VegaChart id="state-commercial" spec={stateCommercialSpec(salesByState)} height={300} ariaLabel="Line chart of indexed commercial electricity sales by state" />
+  <SourceStamp slot="stamp" sources={[facts.sources[1]]} asOf={national.window_end} note="a sector, not a meter: commercial also covers offices, hospitals and retail" />
+</ChartCard>
+
+Virginia was flat for a decade and then was not: its commercial sales are
+{' '}{vaMultiple ? `${vaMultiple.toFixed(2)}×` : '—'} their {stateYearsSpan[0]} level, and almost all of
+that came after {recentFrom}. This is a fingerprint and not a measurement, and the distinction
+matters enough to repeat. Nobody publishes metered data-center consumption by state. What is
+published is that one sector in one state grew at a rate its offices and supermarkets cannot
+explain: {pct(vaRecent, 0)} in {recentWindow} years against {pct(nationalRecent, 0)} for the
+commercial sector nationally. The other states plotted here were chosen because they are building
+data centers too, so they are not a control — the country is.
+{partialStateYears.length > 0 && ` The current year is excluded from the chart because EIA's monthly file runs a few months behind; the partial year is in the table below, marked as partial rather than annualised.`}
+
+<FilterBar target="state-table" selects={[{ column: 'state', label: 'State', options: [...new Set(stateTable.map((r) => r.state))] }]} placeholder="Search states…" />
+<DataTable id="state-table" filterKeys={['state']} caption="Commercial-sector retail sales by state and calendar year" columns={[
+  { key: 'state', label: 'State' },
+  { key: 'year', label: 'Year' },
+  { key: 'twh', label: 'TWh', format: 'fixed1', align: 'right' },
+  { key: 'complete', label: 'Coverage' },
+]} rows={stateTable} />
+<DownloadCsv filename="commercial-sales-by-state.csv" rows={stateTable} />
+
+</Section>
+
+<Section id="physical" title="What is actually being built" wide>
+
+Here is the answer nobody quotes. The EIA generator inventory lists every unit in the country with a
+scheduled operating date, and for {additionYears} it comes to {gw(totals.total_mw)} across
+{' '}{totals.units.toLocaleString()} units.
+
+<ChartCard size="full" title={`Gas is ${pct(totals.gas_share, 0)} of what the grid is scheduled to build`} subtitle={`Planned nameplate capacity by fuel and stage, ${additionYears}, from the EIA-860M inventory dated ${facts.inventory_vintage}. Darker segments are further along. Families below one percent of the window are folded into "Other".`}>
+  <VegaChart id="additions" spec={additionsSpec(additions)} height={340} ariaLabel="Stacked bar chart of planned generating capacity by fuel and construction stage" />
+  <SourceStamp slot="stamp" sources={[facts.sources[0]]} asOf={facts.inventory_vintage} note="nameplate capacity, not energy: a gigawatt of solar and a gigawatt of gas do not produce the same megawatt-hours" />
+</ChartCard>
+
+Two qualifications belong next to that chart rather than below it. The first is that nameplate
+capacity is not energy. Solar runs at roughly a quarter of its nameplate over a year and a combined
+cycle plant at more than half, so {pct(solarStorageShare, 0)} of the megawatts is not
+{' '}{pct(solarStorageShare, 0)} of the megawatt-hours. The second is that most of this list is
+aspirational: only {pct(totals.under_construction_share, 0)} of it is under construction or
+commissioning today. Read only the part with steel in the ground and the fuel mix barely moves —
+gas is {pct(totals.gas_share_under_construction, 0)} of it.<Sidenote>Which is the more useful
+number depends on the question. For "what will be generating in 2029", the under-construction
+figure is far more reliable, because a unit with no regulatory approval routinely slips or dies. For
+"what do developers think the market wants", the full planned list is the better read.</Sidenote>
+
+<DataTable id="family-table" caption={`Planned capacity by fuel, ${additionYears}`} columns={[
+  { key: 'family', label: 'Fuel' },
+  { key: 'mw', label: 'Planned MW', format: 'num', align: 'right' },
+  { key: 'share', label: 'Share', format: 'pct', align: 'right' },
+  { key: 'under_construction', label: 'Of which under construction, MW', format: 'num', align: 'right' },
+]} rows={familyTable} />
+<DownloadCsv filename="planned-additions-by-fuel.csv" rows={additions} label="Download the full year-by-stage table" />
+
+</Section>
+
+<Section id="retirements" title="And what stopped closing">
+
+The other way to serve new load is to not retire the plant you have. This does not appear in any
+single EIA file: it only exists between two editions of one. Comparing the
+{' '}{deferred.from_vintage} inventory with the {deferred.to_vintage} one,
+{' '}{deferred.units} units totalling {gw(deferred.mw)} had their retirement date moved later, and
+{' '}{deferred.withdrawn_units} of those — {gw(deferred.withdrawn_mw)} — no longer have a retirement
+date at all.<Sidenote>A unit that actually retired on schedule leaves the inventory, and counting
+its absence as a withdrawn plan would turn every completed retirement into evidence of the
+opposite. Those are excluded. So are the retirements that moved <em>earlier</em>, which are real but
+are not deferrals; the schema refuses a negative deferral outright rather than filing it as a small
+positive one.</Sidenote>
+
+<DataTable id="deferred-family" caption="Deferred retirements by fuel" columns={[
+  { key: 'family_label', label: 'Fuel' },
+  { key: 'units', label: 'Units', format: 'num', align: 'right' },
+  { key: 'mw', label: 'MW', format: 'num', align: 'right' },
+]} rows={deferred.by_family ?? []} />
+
+<FilterBar target="deferred-units" selects={[{ column: 'state', label: 'State', options: [...new Set((retire.deferred_rows ?? []).map((r) => r.state))].sort() }]} placeholder="Search plants…" />
+<DataTable id="deferred-units" filterKeys={['state']} caption={`The largest deferred units. "Withdrawn" means the unit no longer carries any retirement date.`} columns={[
+  { key: 'plant_name', label: 'Plant' },
+  { key: 'state', label: 'State' },
+  { key: 'technology', label: 'Technology' },
+  { key: 'nameplate_mw', label: 'MW', format: 'num', align: 'right' },
+  { key: 'year_before', label: 'Was retiring', align: 'right' },
+  { key: 'year_after', label: 'Now retiring', align: 'right' },
+  { key: 'deferred_years', label: 'Years later', format: 'fixed1', align: 'right' },
+]} rows={retire.deferred_rows ?? []} />
+<DownloadCsv filename="deferred-retirements.csv" rows={retire.deferred_rows ?? []} />
+
+</Section>
+
+<Section id="regions" title="PJM is the only operator that publishes its own number" wide>
+
+Every figure so far is either a national total or a sector proxy. PJM publishes something better: in
+its annual load forecast it states, per zone, how many megawatts it added to the model *because of
+large loads*. That is overwhelmingly data centers, it comes from the operator rather than from a
+buyer's press release, and no other US ISO publishes an equivalent.
+
+<ChartCard size="full" title={rto ? `Large load is ${pct(rto.large_load_share, 0)} of PJM's forecast peak growth` : 'Large load against total peak growth by PJM zone'} subtitle={`Growth in summer peak demand ${regions.window?.[0]} to ${regions.window?.[1]}, against the growth in PJM's own large-load adjustment, from the ${regions.vintage} load forecast. A bar longer than its neighbour means large load grew by more than the system peak did.`}>
+  <VegaChart id="zone-growth" spec={growthAttributionSpec(regions.zones ?? [])} height={360} ariaLabel="Grouped bar chart of peak growth and large-load growth by PJM zone" />
+  <SourceStamp slot="stamp" sources={[facts.sources[3]]} asOf={regions.vintage} note="the RTO row is the sum of the zones below it, never added to them" />
+</ChartCard>
+
+{zonesOverOne.length > 0 && (
+  <p>
+    In {zonesOverOne.length} of the {zonesPlotted.length} zones plotted, including the RTO as a whole,
+    the large-load adjustment grew by more than the total peak did. That is not an error and it has
+    not been clipped: PJM forecasts the rest of its load to shrink slightly on efficiency, so a zone
+    can be growing entirely on data centers while its other customers use less. Read it as "data
+    centers are the growth, and then some", not as a share of a pie.
+  </p>
+)}
+
+{zonesUnattributed.length > 0 && (
+  <p class="muted">
+    {zonesUnattributed.length} zone(s) carry a peak forecast but no published large-load adjustment,
+    so no attribution is drawn for them: {zonesUnattributed.map((z) => zoneLabel(z.zone)).join(', ')}.
+  </p>
+)}
+
+<DataTable id="zone-table" caption={`PJM zones, ${regions.window?.[0]} to ${regions.window?.[1]}. "rto" and "aggregate" rows already contain the zones beneath them.`} columns={[
+  { key: 'zone', label: 'Zone' },
+  { key: 'role', label: 'Role' },
+  { key: 'peak_start', label: `Peak ${regions.window?.[0]}, MW`, format: 'num', align: 'right' },
+  { key: 'peak_end', label: `Peak ${regions.window?.[1]}, MW`, format: 'num', align: 'right' },
+  { key: 'peak_growth', label: 'Peak growth, MW', format: 'num', align: 'right' },
+  { key: 'large_load_growth', label: 'Large-load growth, MW', format: 'num', align: 'right' },
+  { key: 'share', label: 'Share of growth', format: 'pct', align: 'right' },
+]} rows={zoneTable} />
+<DownloadCsv filename="pjm-zone-growth.csv" rows={zoneTable} />
+
+<p class="muted">
+  ERCOT and the Southeast are covered here by retail sales rather than by an operator's own figure,
+  because neither publishes one. That asymmetry is why Texas appears in the state chart above and
+  not in this one.
+</p>
+
+</Section>
+
+<Section id="contract" title="What was signed, which is a different answer" wide>
+
+{dealRows.length > 0 ? (
+  <>
+    <p>
+      The table below is what data-center operators say they have contracted: {dealRows.length} deals,
+      {' '}{contract.confirmed_deals} of them confirmed by a party to the deal rather than reported.
+      It is deliberately not comparable to the EIA chart above, and the reasons are worth stating.
+      Contracted megawatts double-count when a buyer and a seller both announce. They omit
+      everything unannounced. They include attributes bought from plant that already existed, which
+      adds no electricity to the grid at all. And {undisclosed} of these deals disclosed no capacity,
+      so they are in the table and absent from the chart.
+    </p>
+    <ChartCard size="full" title="Contracted capacity by supply path" subtitle={`Disclosed megawatts only, from ${dealRows.length} announcements. This is a record of intent; the EIA chart above is a record of steel. The five stage words are the same on both.`}>
+      <VegaChart id="deals-by-path" spec={dealsByPathSpec(dealPathRows)} height={300} ariaLabel="Stacked bar chart of contracted data-center capacity by supply path" />
+      <SourceStamp slot="stamp" sources={[{ name: 'company announcements, one source per row' }]} asOf={generatedAt} />
+    </ChartCard>
+    <FilterBar target="deals-table" selects={[
+      { column: 'path', label: 'Supply path', options: [...new Set(dealRows.map((d) => d.path))].sort() },
+      { column: 'stage', label: 'Stage', options: facts.stage_order },
+    ]} placeholder="Search buyers, sellers, technologies…" />
+    <DataTable id="deals-table" filterKeys={['path', 'stage']} caption="Every contracted deal, with its source and what the number is not" columns={[
+      { key: 'buyer', label: 'Buyer' },
+      { key: 'seller', label: 'Seller' },
+      { key: 'technology', label: 'Technology' },
+      { key: 'path', label: 'Path' },
+      { key: 'mw', label: 'MW', format: 'num', align: 'right' },
+      { key: 'stage', label: 'Stage' },
+      { key: 'announced_date', label: 'Announced' },
+      { key: 'caveat', label: 'What this is not' },
+      { key: 'source_name', label: 'Source' },
+    ]} rows={dealRows} />
+    <DownloadCsv filename="datacenter-power-deals.csv" rows={dealRows} />
+  </>
+) : (
+  <p>
+    The contract table is curated by hand, one row per announcement read off a primary source, and it
+    is empty in this build. Until it has rows the page shows the physical build only — which is the
+    safer half to be missing, since it is the half nobody disputes. The curation rules, including why
+    a disclosed capacity may never be inferred from a dollar figure, are in
+    {' '}<code>data/reference/power/deals.json</code>.
+  </p>
+)}
+
+{pipelines.length > 0 && (
+  <>
+    <h3>What the utilities say is in their pipeline</h3>
+    <p>
+      The other contract-side number is the one utilities give investors: how many gigawatts of
+      large-load requests they are holding. These are not deals. A request becomes a signed
+      agreement at a rate the utilities themselves do not publish, and at least one of them has cut
+      its own figure sharply on discovering how many requests were speculative.
+    </p>
+    <DataTable id="pipelines-table" caption="Utility large-load pipelines, as disclosed on earnings calls and in decks" columns={[
+      { key: 'ticker', label: 'Company' },
+      { key: 'quarter', label: 'Quarter' },
+      { key: 'pipeline_gw_contracted', label: 'Contracted GW', format: 'fixed1', align: 'right' },
+      { key: 'pipeline_gw_total', label: 'Total pipeline GW', format: 'fixed1', align: 'right' },
+      { key: 'stage_breakdown', label: "The company's own wording" },
+      { key: 'source_name', label: 'Source' },
+    ]} rows={pipelines} />
+    <DownloadCsv filename="utility-large-load-pipelines.csv" rows={pipelines} />
+  </>
+)}
+
+</Section>
+
+<Section id="economics" title="What a megawatt costs on each path" wide>
+
+{economics.length > 0 ? (
+  <>
+    <p>
+      Nobody publishes these paths on one consistent basis, so this table is an assembly of
+      separately published figures rather than a like-for-like comparison. The
+      {' '}<strong>vendor</strong> column is the one to read first: a figure from a company selling
+      that path is not the same kind of object as an independent estimate, and putting them in one
+      column without saying which is which is the standard way this comparison goes wrong.
+    </p>
+    <FilterBar target="economics-table" selects={[
+      { column: 'path', label: 'Supply path', options: [...new Set(economics.map((e) => e.path))].sort() },
+      { column: 'metric', label: 'Metric', options: [...new Set(economics.map((e) => e.metric))].sort() },
+    ]} placeholder="Search…" />
+    <DataTable id="economics-table" filterKeys={['path', 'metric']} caption="Per-path unit economics, each figure with its source, its dollar vintage and what it is not comparable to" columns={[
+      { key: 'path', label: 'Path' },
+      { key: 'metric', label: 'Metric' },
+      { key: 'value', label: 'Value', format: 'num', align: 'right' },
+      { key: 'unit', label: 'Unit' },
+      { key: 'year_dollars', label: '$ year' },
+      { key: 'vendor_claim', label: 'Vendor figure' },
+      { key: 'caveat', label: 'Not comparable to' },
+      { key: 'source_name', label: 'Source' },
+    ]} rows={economics} />
+    <DownloadCsv filename="supply-path-economics.csv" rows={economics} />
+  </>
+) : (
+  <p>
+    The per-path cost comparison is curated by hand and is empty in this build. The rules it will be
+    filled under are in <code>data/reference/power/unit_economics.json</code>; the important one is
+    that every figure carries a flag saying whether it came from a company selling that path.
+  </p>
+)}
+
+{forecasts.length > 0 && (
+  <>
+    <h3>Published estimates of the demand itself</h3>
+    <p>
+      For completeness, the estimates other people have published of US data-center consumption. The
+      {' '}<strong>basis</strong> column exists because these are not all the same kind of number: a
+      level in a year and an increment relative to a base year end up in the same TWh column and get
+      added together if nothing separates them.
+    </p>
+    <DataTable id="forecasts-table" caption="Published estimates of US data-center electricity demand" columns={[
+      { key: 'source', label: 'Source' },
+      { key: 'scenario', label: 'Scenario' },
+      { key: 'geography', label: 'Geography' },
+      { key: 'year', label: 'Year', align: 'right' },
+      { key: 'basis', label: 'Basis' },
+      { key: 'value', label: 'Value', format: 'fixed1', align: 'right' },
+      { key: 'unit', label: 'Unit' },
+      { key: 'caveat', label: 'Excludes' },
+    ]} rows={forecasts} />
+    <DownloadCsv filename="datacenter-demand-estimates.csv" rows={forecasts} />
+  </>
+)}
+
+</Section>
+
+<Section id="companies" title="The listed companies on each path" wide>
+
+{valuation ? (
+  <>
+    <p>
+      {pool.length} listed companies sell into the paths above, priced on consensus earnings for
+      calendar {valuation.years?.[0]} and {valuation.years?.[1]}. The path label on each is the same
+      code the deal table uses, so a reader can go from "who signed what" to "who sells it".
+    </p>
+    <FilterBar target="pool-table" selects={[{ column: 'path', label: 'Supply path', options: [...new Set(pool.map((c) => c.path).filter(Boolean))].sort() }]} placeholder="Search companies…" />
+    <DataTable id="pool-table" filterKeys={['path']} caption="The listed pool, by supply path" columns={[
+      { key: 'name', label: 'Company' },
+      { key: 'ticker', label: 'Listing' },
+      { key: 'path', label: 'Path' },
+      { key: 'purity', label: 'Exposure' },
+      { key: 'fwd_pe_2026', label: `Forward PE ${valuation.years?.[0]}`, format: 'fixed1', align: 'right' },
+      { key: 'fwd_pe_2027', label: `Forward PE ${valuation.years?.[1]}`, format: 'fixed1', align: 'right' },
+    ]} rows={pool} />
+    <DownloadCsv filename="datacenter-power-companies.csv" rows={pool} />
+  </>
+) : (
+  <p>
+    The company pool is priced by the valuation pipeline, which runs on its own schedule and had not
+    published when this page was built. The {Object.keys(facts.paths).length} paths and their
+    company counts are in the table below; the multiples appear here on the next run.
+  </p>
+)}
+
+</Section>
+
+<Appendix>
+
+<Section id="paths" title="The supply paths">
+
+Every deal, every company and every cost figure on this page carries one of these codes. They are
+the page's organising idea: the question is not "gas or nuclear" but which of eleven distinct routes
+a megawatt takes from a generator to a rack, because they differ in who pays, how long they take and
+who books the revenue.
+
+<DataTable id="paths-table" caption="Supply paths, and what this build has on each" columns={[
+  { key: 'code', label: 'Code' },
+  { key: 'label', label: 'Path' },
+  { key: 'deals', label: 'Deals', format: 'num', align: 'right' },
+  { key: 'companies', label: 'Listed companies', format: 'num', align: 'right' },
+  { key: 'metrics', label: 'Cost figures', format: 'num', align: 'right' },
+]} rows={pathList} />
+
+</Section>
+
+<Section id="method" title="Method">
+
+Six public sources, no key and no paywall among them.
+
+The **physical** answer comes from EIA-860M, the preliminary monthly generator inventory. Every unit
+on the Operating, Planned and Canceled sheets is read, its EIA technology string mapped to one of
+fifteen families and its status code to one of five stages. An unmapped technology stops the run
+rather than falling into "other", because EIA adding a row type is news. Puerto Rico ships on its own
+sheets and is excluded, as a separate interconnection.
+
+**Deferred retirements** are a diff between two editions twelve months apart. A unit that actually
+retired is not a deferral; nor is one whose date moved earlier. Both are excluded, and the schema
+enforces the second by refusing a non-positive deferral.
+
+The **demand** answer comes from EIA-861M monthly retail sales, with EIA's own national roll-up used
+rather than a sum of the states, and from the Short-Term Energy Outlook for the forecast. The two
+agree to a decimal on the overlapping history, which is the check that both are being read right.
+
+**Regional attribution** comes from the PJM load forecast: summer peak per zone from one workbook,
+the large-load adjustment from another. The two workbooks spell zones differently and the second
+contains sub-area rows under blank zone cells, so zones are normalised and classified before
+anything is summed — the additive zones reconcile to the RTO total to within a rounding error, which
+is the check on that classification.
+
+The **contract** answer and the **cost** comparison are curated by hand, one row per source, under
+rules that live in the data files themselves. A row may only quote a freely reachable page. A
+capacity may only be what was disclosed, never inferred. Every row carries a caveat written for a
+reader and a date on which somebody last opened the source; after ninety days the page greys it.
+
+<p>
+  <a href="https://github.com/srx7703/srx7703.github.io/tree/main/pipelines/power">Pipeline source</a>
+  {' · '}<a href="https://github.com/srx7703/srx7703.github.io/tree/main/data/reference/power">Curation rules and curated rows</a>
+</p>
+
+</Section>
+
+<Section id="limits" title="What this page cannot tell you">
+
+<ul>
+  <li><strong>It cannot measure data-center consumption.</strong> No public dataset meters it. Every
+  data-center-specific number here is either an operator's published figure or a company's claim,
+  and the sector series are proxies that are named as proxies.</li>
+  <li><strong>Nameplate capacity is not energy.</strong> The additions chart is megawatts. Converting
+  to megawatt-hours needs a capacity factor per family, which would let a modelling choice drive the
+  headline, so the page does not do it.</li>
+  <li><strong>Contracted megawatts are not additional megawatts.</strong> A power purchase agreement
+  with an existing nuclear plant moves an attribute between buyers. It builds nothing.</li>
+  <li><strong>Only PJM publishes a large-load adjustment.</strong> ERCOT and the Southeast are
+  covered by retail sales, which is a weaker instrument, and conclusions there are correspondingly
+  weaker.</li>
+  <li><strong>The planned inventory is not a forecast.</strong> Most of it has no regulatory
+  approval. The page reports the under-construction subset beside it for exactly this reason.</li>
+  <li><strong>The path taxonomy has no bucket for fusion.</strong> Two real agreements — Microsoft
+  with Helion and Google with Commonwealth Fusion — are absent from the contract table because
+  fusion is neither a restart, an uprate, a small modular reactor nor a renewable, and bending one
+  of those codes to fit would hide the gap rather than show it.</li>
+</ul>
+
+</Section>
+
+<Section id="evaluation" title="Evaluation (pre-registered)">
+
+Five claims, each with a direction recorded now so that a later run can prove it wrong, and each
+with the threshold that decides it written into the plan rather than only into the code. The plan is
+<a href={plan.url}>docs/EVALUATION_PLAN.md</a>, hashed at <code>{plan.short}</code>
+{' '}(<a href={plan.history}>history</a>). It was committed the same day as the first run, so the
+honest guarantee is that it cannot change from here without the hash on this page changing and an
+amendment appearing beneath it — not that it predates the data.
+
+<DataTable id="evaluation-table" caption="What this page is betting, and what would falsify it" columns={[
+  { key: 'item', label: '#' },
+  { key: 'claim', label: 'Claim' },
+  { key: 'falsified', label: 'Falsified if' },
+  { key: 'reports', label: 'First reports' },
+]} rows={[
+  { item: 1, claim: 'The physical build and the contracted build rank the supply paths differently',
+    falsified: 'the two orderings correlate above 0.70', reports: 'this run' },
+  { item: 2, claim: 'Commercial-sector growth is concentrated in a handful of states, not general',
+    falsified: 'the top five states fall toward their share of US population', reports: 'this run' },
+  { item: 3, claim: 'Deferred retirements keep growing while load growth continues',
+    falsified: 'the deferred total falls year on year', reports: 'September 2027' },
+  { item: 4, claim: "PJM's large-load share is broad across zones, not one or two",
+    falsified: 'the median zone sits below 0.8, or fewer than a third exceed 1.0', reports: 'this run' },
+  { item: 5, claim: 'A utility pipeline shrinks the quarter collateral is attached to it',
+    falsified: 'pipelines hold or grow when an agreement requirement appears', reports: 'two quarters on file' },
+]} />
+
+The scorer itself is not written yet, so nothing above carries a result on this build. That is a
+gap, and stating it here is better than a page that implies otherwise.
+
+</Section>
+
+<Section id="data-quality" title="Data quality">
+  <DataQuality checks={facts.checks} note={`Generator inventory ${facts.inventory_vintage}; retail sales through ${national.window_end}; PJM load forecast ${regions.vintage}. Published ${generatedAt}.`} />
+</Section>
+
+<Section id="sources" title="Sources">
+  <ul>
+    {facts.sources.map((s) => <li><a href={s.url}>{s.name}</a></li>)}
+  </ul>
+</Section>
+
+</Appendix>

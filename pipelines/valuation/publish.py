@@ -103,6 +103,7 @@ COMPANY_DTYPES: dict[str, pl.DataType] = {
     "name": pl.Utf8,
     "track": pl.Utf8,
     "purity": pl.Utf8,
+    "path": pl.Utf8,
     "market": pl.Utf8,
     "fy_end_month": pl.Int64,
     "segment_line": pl.Utf8,
@@ -536,8 +537,16 @@ def build_track(track: str, data: dict, as_of: date, snapshot_ts: str) -> dict:
     rows = build_rows(companies, data, as_of)
     share_base_artefacts = suppress_share_base_artefacts(rows, companies)
     reference = load_reference(track)
-    share = computed_share(companies, data["ttm"], reference, data["rates"])
-    cited = cited_share(reference)
+    # A track can opt out of the market-share layer (TRACKS[track]["share"] is False) when its companies
+    # sell different products: the power track's turbines, fuel cells and transformers are not one market.
+    has_share = TRACKS[track].get("share", True)
+    # The empty stand-in carries every key the populated one does. A share dict missing a key does not
+    # fail where it is skipped; it fails later, in the facts assembly that reads all of them.
+    share = (computed_share(companies, data["ttm"], reference, data["rates"]) if has_share
+             else {"members": [], "excluded": [], "pool_revenue_usd": 0.0, "n_members": 0,
+                   "top3_share": None, "top5_share": None, "hhi": None,
+                   "basis_counts": {}, "excluded_counts": {}})
+    cited = cited_share(reference) if has_share else []
 
     # Shipments and capacity are rendered on the solid-state page only, so the optical page's count of
     # quoted figures must not include quoted rows it never shows.
@@ -659,7 +668,8 @@ def build_track(track: str, data: dict, as_of: date, snapshot_ts: str) -> dict:
               f"{len(share_base_artefacts)} secondary listing(s) quote a market cap on a different share base "
               f"({', '.join(a['ticker'] for a in share_base_artefacts)}); their trailing multiple is suppressed "
               "rather than published", warn=True),
-        check("Share basis A", share["n_members"] >= 3, _share_basis_detail(share)),
+        check("Share basis A", (not has_share) or share["n_members"] >= 3,
+              _share_basis_detail(share) if has_share else "no market-share layer for this track by design"),
         check("Share adds to one",
               share["n_members"] == 0 or abs(sum(m["share"] for m in share["members"]) - 1.0) < 1e-6,
               "computed shares sum to 1 by construction; this is a float tripwire, not a test of the pool"),

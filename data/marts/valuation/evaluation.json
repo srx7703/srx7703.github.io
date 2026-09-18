@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-18T11:50:57.548372+00:00",
+ "generated_at": "2026-09-18T20:25:19.493822+00:00",
  "plan": "docs/EVALUATION_PLAN.md",
  "snapshot_vintages_written": [],
  "tracks": {
@@ -10,13 +10,13 @@
    },
    "revision_persistence": {
     "status": "not_yet",
-    "why": "5 true-revision vintage dates on file across 34 listings, giving 0 week/four-week windows where 3 are needed. East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions; the weekly snapshot series that replaces it for those listings now covers 33 of them and grows by one date a week"
+    "why": "10 true-revision vintage dates on file across 34 listings, giving 0 week/four-week windows where 3 are needed. East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions; the weekly snapshot series that replaces it for those listings now covers 33 of them and grows by one date a week"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-09-18T11:50:56.605742+00:00",
-    "iqr": 70.57398321841437,
-    "p25": 27.767329828800545,
+    "as_of": "2026-09-18T20:17:52.530960+00:00",
+    "iqr": 70.37372285350308,
+    "p25": 27.96759019371183,
     "p75": 98.34131304721491,
     "median": 47.912876886174104,
     "n_priced": 34,
@@ -25,7 +25,7 @@
    },
    "dual_listing_premium": {
     "status": "partial",
-    "as_of": "2026-09-18T11:50:56.605742+00:00",
+    "as_of": "2026-09-18T20:17:52.530960+00:00",
     "pairs": [
      {
       "name": "YOFC",
@@ -234,14 +234,14 @@
    },
    "revision_persistence": {
     "status": "not_yet",
-    "why": "5 true-revision vintage dates on file across 32 listings, giving 0 week/four-week windows where 3 are needed. East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions; the weekly snapshot series that replaces it for those listings now covers 31 of them and grows by one date a week"
+    "why": "10 true-revision vintage dates on file across 32 listings, giving 0 week/four-week windows where 3 are needed. East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions; the weekly snapshot series that replaces it for those listings now covers 31 of them and grows by one date a week"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-09-18T11:50:56.605742+00:00",
-    "iqr": 25.664534552071682,
+    "as_of": "2026-09-18T20:17:52.530960+00:00",
+    "iqr": 25.498346335982337,
     "p25": 14.003058025762602,
-    "p75": 39.667592577834284,
+    "p75": 39.50140436174494,
     "median": 20.20536429265878,
     "n_priced": 26,
     "n_listings": 34,
@@ -249,7 +249,7 @@
    },
    "dual_listing_premium": {
     "status": "partial",
-    "as_of": "2026-09-18T11:50:56.605742+00:00",
+    "as_of": "2026-09-18T20:17:52.530960+00:00",
     "pairs": [
      {
       "name": "CATL",
@@ -567,6 +567,35 @@
       "Ecopro BM"
      ]
     }
+   }
+  },
+  "power": {
+   "consensus_accuracy": {
+    "status": "not_yet",
+    "why": "the calendar-2026 consensus is scored against reported 2026 results; the last A-share and Japanese filers report in spring 2027, so this runs from May 2027"
+   },
+   "revision_persistence": {
+    "status": "not_yet",
+    "why": "5 true-revision vintage dates on file across 30 listings, giving 0 week/four-week windows where 3 are needed. East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions; the weekly snapshot series that replaces it for those listings now covers 30 of them and grows by one date a week"
+   },
+   "valuation_dispersion": {
+    "status": "partial",
+    "as_of": "2026-09-18T20:17:52.530960+00:00",
+    "iqr": 11.865451231951901,
+    "p25": 19.066744438071876,
+    "p75": 30.932195670023777,
+    "median": 25.217549475882656,
+    "n_priced": 26,
+    "n_listings": 30,
+    "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
+   },
+   "dual_listing_premium": {
+    "status": "not_yet",
+    "why": "no dual-listed issuer in this track has a forward PE on both lines yet"
+   },
+   "share_bases": {
+    "status": "not_yet",
+    "why": "0 cited figures on file for Data-center power; 0 of them name a company in the computed pool, and none states a share or an ordering for 3 of them at once, which is what a rank correlation needs"
    }
   }
  }

@@ -47,6 +47,9 @@ MARKET_FUNDAMENTALS = {
     "kr": "yahoo",
     "tw": "yahoo",
     "uk": "yahoo",
+    "de": "yahoo",
+    "fr": "yahoo",
+    "ch": "yahoo",
 }
 
 
@@ -65,6 +68,7 @@ class Company:
     segment_line: str = "unknown"  # "yes" | "bundled" | "no" | "unknown"
     share_basis: str = "segment"  # "total" | "segment" | "none" — see the module docstring
     share_note: str = ""  # why a "none" company is not a competitor in this market
+    path: str = ""  # supply path code for the power track (see PATHS); empty for other tracks
     note: str = ""
 
     @property
@@ -213,7 +217,70 @@ SSB: list[Company] = [
         share_note="sells cathode material into cell makers"),
 ]
 
-COMPANIES: list[Company] = OPTICAL + SSB
+
+# Supply paths for the data-center power track. A company's path is where its data-center revenue
+# comes from; a diversified group is placed by its relevant segment, never by its whole business.
+PATHS = {
+    "A1": "Grid gas: new combined- and simple-cycle plants",
+    "A2": "Grid solar and storage",
+    "A3": "Grid nuclear: restarts, uprates, SMRs",
+    "A5": "Transmission and distribution equipment",
+    "B1": "On-site gas: turbines and engines behind the meter",
+    "B2": "On-site fuel cells",
+    "B3": "On-site storage and backup power",
+    "C1": "Existing-nuclear power purchase agreements",
+    "U": "Utilities holding the data-center load pipeline",
+}
+
+_NO_SHARE = "the supply paths are different products; a revenue share across them would not be a market share"
+
+
+def _pw(ticker, name, path, purity, market="us", fy=12, **kw) -> Company:
+    return Company(ticker, name, "power", purity, market, fy, path=path, share_basis="none",
+                   share_note=_NO_SHARE, **kw)
+
+
+POWER: list[Company] = [
+    # --- gas turbines and engines (grid and on-site) ---
+    _pw("GEV", "GE Vernova", "A1", "main", note="Power segment: gas turbines and services; also wind and grid"),
+    _pw("ENR.DE", "Siemens Energy", "A1", "main", market="de", fy=9, note="Gas Services segment; FY ends 30 Sept"),
+    _pw("7011.T", "Mitsubishi Heavy Industries", "A1", "partial", market="jp", fy=3, note="Energy Systems: GTCC"),
+    _pw("CAT", "Caterpillar", "B1", "partial", note="Power generation within Energy & Transportation; Solar Turbines"),
+    _pw("CMI", "Cummins", "B1", "partial", note="Power Systems segment: gensets and engines"),
+    _pw("BKR", "Baker Hughes", "B1", "partial", note="Gas Technology Equipment: aeroderivative turbines"),
+    # --- fuel cells ---
+    _pw("BE", "Bloom Energy", "B2", "high"),
+    # --- nuclear: existing fleet, restarts, SMRs, supply chain ---
+    _pw("CEG", "Constellation Energy", "C1", "main", note="largest US nuclear fleet; Crane restart"),
+    _pw("VST", "Vistra", "C1", "main", note="nuclear plus gas fleet; Meta PPA"),
+    _pw("TLN", "Talen Energy", "C1", "main", note="Susquehanna; Amazon PPA"),
+    _pw("OKLO", "Oklo", "A3", "high", note="pre-revenue advanced reactor developer"),
+    _pw("SMR", "NuScale Power", "A3", "high", note="SMR designer; pre-commercial"),
+    _pw("BWXT", "BWX Technologies", "A3", "partial", note="reactor components and fuel"),
+    # --- renewables and storage ---
+    _pw("NEE", "NextEra Energy", "A2", "main", note="largest US renewables developer plus FPL"),
+    _pw("FSLR", "First Solar", "A2", "high"),
+    _pw("FLNC", "Fluence Energy", "B3", "high", fy=9, note="grid storage; FY ends 30 Sept"),
+    _pw("TSLA", "Tesla", "B3", "partial", note="Energy Generation and Storage segment only"),
+    _pw("EOSE", "Eos Energy", "B3", "high", note="zinc long-duration storage; pre-profit"),
+    # --- transmission, distribution and data-center electrical ---
+    _pw("ETN", "Eaton", "A5", "main", note="Electrical Americas"),
+    _pw("VRT", "Vertiv", "A5", "high", note="data-center power and cooling"),
+    _pw("SU.PA", "Schneider Electric", "A5", "main", market="fr", note="Energy Management; data-center segment"),
+    _pw("ABBN.SW", "ABB", "A5", "partial", market="ch", note="Electrification"),
+    _pw("HUBB", "Hubbell", "A5", "partial", note="Utility Solutions"),
+    _pw("PWR", "Quanta Services", "A5", "main", note="grid construction"),
+    _pw("267260.KS", "HD Hyundai Electric", "A5", "main", market="kr", note="transformers; US export share"),
+    # --- backup power ---
+    _pw("GNRC", "Generac", "B3", "partial", note="commercial and industrial gensets"),
+    # --- utilities holding the load pipeline ---
+    _pw("D", "Dominion Energy", "U", "main", note="Virginia; largest disclosed data-center pipeline"),
+    _pw("AEP", "American Electric Power", "U", "main", note="Ohio, Texas; contracted large load"),
+    _pw("SO", "Southern Company", "U", "main", note="Georgia Power"),
+    _pw("ETR", "Entergy", "U", "main", note="Louisiana; Meta Hyperion"),
+]
+
+COMPANIES: list[Company] = OPTICAL + SSB + POWER
 BY_TICKER: dict[str, Company] = {c.ticker: c for c in COMPANIES}
 
 TRACKS = {
@@ -228,6 +295,13 @@ TRACKS = {
         "label": "Solid-state batteries",
         "facts": "valuation_ssb",
         "reference": "share_battery.json",
+    },
+    "power": {
+        "slug": "datacenter-power",
+        "label": "Data-center power",
+        "facts": "valuation_power",
+        "reference": "share_power.json",
+        "share": False,
     },
 }
 
@@ -255,6 +329,8 @@ FX_SERIES = {
     "TWD": ("DEXTAUS", "per_usd"),
     "HKD": ("DEXHKUS", "per_usd"),
     "GBP": ("DEXUSUK", "usd_per"),  # this one is USD per GBP
+    "EUR": ("DEXUSEU", "usd_per"),  # USD per EUR
+    "CHF": ("DEXSZUS", "per_usd"),
     "USD": (None, "identity"),
 }
 

@@ -160,3 +160,77 @@ not listed is not one. No item had resolved when any of these were made.
   was not a clean percent, which excluded every ranking, and now reads rankings too. The
   pre-registration paragraph at the top of this section was rewritten to say what the git history
   actually supports.
+
+## US data-center electricity (project E) — where the increment comes from
+
+One page, two pipelines (`pipelines/power/` for the physical and demand layers, `pipelines/valuation/`
+for the company pool). The generator inventory and retail sales are monthly, the PJM load forecast is
+annual, the curated layers are updated by hand.
+
+**What the history of this file does and does not prove.** This section was committed on 2026-09-18,
+the same day as the first snapshots, the first facts file and the page itself. The rules were
+therefore *not* published before the data they score, and nothing in the git history rules out their
+having been written with the first run's output already visible — indeed items 1 and 3 were written
+knowing the current values, which is exactly why each records an expected direction that a later run
+can falsify. What the history establishes is the same guarantee the valuation section offers:
+**fixed from the second run onward, amendments logged.** The page must claim that and nothing more.
+
+Items 1, 2 and 4 report from the first run. Item 3 needs a second 860M vintage twelve months after
+the first, so it reports from September 2027. Item 5 reports as soon as two quarters of a utility's
+own disclosure are on file. Each unscored item returns the reason it is unscored, built from the
+project's own data.
+
+1. **The physical build is not the contracted build.** For each supply path in
+   `pipelines/power/config.PATHS`, compare its share of contracted megawatts (the curated deal table,
+   disclosed capacity only) with the share of planned EIA capacity attributable to the same
+   technology family. Reported as the rank correlation between the two orderings and the absolute
+   gap per path.
+   Expected direction, recorded now so it can be wrong: the two orderings will disagree, with
+   nuclear ranking far higher on contracts than on construction and solar far higher on construction
+   than on contracts. The page's central claim fails if the rank correlation is above 0.7.
+
+2. **Commercial-sector growth is concentrated, not general.** Each month, the share of national
+   trailing-twelve-month commercial sales growth accounted for by the five states with the largest
+   absolute commercial growth. Reported as that share and as the Herfindahl index of state-level
+   commercial growth.
+   Expected direction: the top five states hold more than half of national commercial growth, and
+   the concentration rises over the scored period. A fall toward the states' share of population
+   would mean the sector proxy has stopped tracking data centers and the page's use of it is wrong.
+
+3. **Deferred retirements keep growing.** Comparing the 860M edition of each September with the one
+   twelve months earlier, the megawatts whose retirement moved later or was withdrawn, and the coal
+   share of them.
+   Expected direction: the deferred total rises year on year while load growth continues. A fall
+   would mean either that the queue has cleared or that the deferrals already taken were enough, and
+   the page's framing of retirements as a supply path would need revising. Baseline, scored
+   identically: the same diff computed for 2019-2020, before the current load growth.
+
+4. **PJM's large-load share is not an artefact of one zone.** Per zone, the large-load adjustment's
+   growth as a share of summer-peak growth over the forecast's first five years. Reported as the
+   distribution across zones and the count above 1.0, never clipped.
+   Expected direction: the median zone sits above 0.8 and at least a third sit above 1.0. If the
+   RTO figure turns out to rest on one or two zones, the page's national framing is too strong and
+   must be narrowed to those zones by name.
+
+5. **Utility pipelines shrink when collateral is attached.** For each utility with two or more
+   quarters in the curated table, the change in its own headline pipeline figure, and whether the
+   quarter introduced a collateral or agreement requirement.
+   Expected direction: a figure defined by signed agreements with money behind it falls relative to
+   one defined by interconnection requests, and the first quarter a utility attaches collateral
+   shows the largest single fall. Exelon's Q1-to-Q2 2026 cut from 18 GW to about 11 GW is the
+   observation that prompted this item and is therefore excluded from the scored sample.
+
+Registered thresholds, written here because a threshold that lives only in code sits outside the
+blob hash the page prints: item 1's rank-correlation failure line is 0.70; item 2's concentration
+uses the top five states and the failure line is the five states' share of US population; item 3
+compares editions exactly twelve months apart (`config.DEFERRAL_COMPARISON_MONTHS`); item 4 uses a
+five-year window from the forecast's first year and the zone must carry both a peak and a published
+adjustment; item 5 counts only utilities with at least two quarters on file.
+
+Scoring code will live in `pipelines/power/evaluate.py` and write to `data/marts/power/evaluation.json`.
+Until a scoring date arrives an item returns `{"status": "not_yet", "why": …}` with the reason built
+from the project's own data.
+
+### Amendments to this section
+
+None yet.

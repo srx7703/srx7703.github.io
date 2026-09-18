@@ -335,6 +335,9 @@ def company_row(
         "name_cn": company.name_cn or None,
         "track": company.track,
         "purity": company.purity,
+        # The supply-path code, shared with the power page's deal table so a reader can go from
+        # "who signed what" to "who sells it". Empty on tracks that have no path taxonomy.
+        "path": company.path or None,
         "market": company.market,
         "fy_end_month": company.fy_end_month,
         "segment_line": company.segment_line,

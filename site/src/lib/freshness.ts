@@ -14,6 +14,7 @@
 import fomc from '@data/facts/fomc.json';
 import midterms from '@data/facts/midterms.json';
 import saas from '@data/facts/saas.json';
+import power from '@data/facts/power_demand.json';
 import optical from '@data/facts/valuation_optical.json';
 import ssb from '@data/facts/valuation_ssb.json';
 
@@ -39,6 +40,15 @@ export const FEEDS: Feed[] = [
     cadence: 'daily; consensus weekly',
     facts: optical,
     keys: ['as_of_price', 'generated_at'],
+  },
+  {
+    id: 'datacenter-power',
+    label: 'Data-center power',
+    cadence: 'weekly',
+    // The generator inventory is monthly and the retail sales file is monthly, so the honest stamp
+    // is when the pipeline last ran rather than a snapshot time that would imply daily data.
+    facts: power,
+    keys: ['generated_at'],
   },
   {
     id: 'solid-state-battery-valuation',

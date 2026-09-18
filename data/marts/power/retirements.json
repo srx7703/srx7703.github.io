@@ -1,0 +1,1304 @@
+{
+ "planned_by_year": [
+  {
+   "year": 2026,
+   "family": "biomass",
+   "family_label": "Biomass",
+   "mw": 17.1,
+   "units": 13
+  },
+  {
+   "year": 2026,
+   "family": "coal",
+   "family_label": "Coal",
+   "mw": 4119.2,
+   "units": 9
+  },
+  {
+   "year": 2026,
+   "family": "gas_ct",
+   "family_label": "Gas, combustion turbine",
+   "mw": 32.6,
+   "units": 2
+  },
+  {
+   "year": 2026,
+   "family": "gas_engine",
+   "family_label": "Gas engines",
+   "mw": 1.3,
+   "units": 1
+  },
+  {
+   "year": 2026,
+   "family": "gas_steam",
+   "family_label": "Gas steam",
+   "mw": 3710.5,
+   "units": 12
+  },
+  {
+   "year": 2026,
+   "family": "oil",
+   "family_label": "Oil",
+   "mw": 175.1,
+   "units": 7
+  },
+  {
+   "year": 2026,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 1.1,
+   "units": 3
+  },
+  {
+   "year": 2027,
+   "family": "biomass",
+   "family_label": "Biomass",
+   "mw": 12.1,
+   "units": 15
+  },
+  {
+   "year": 2027,
+   "family": "coal",
+   "family_label": "Coal",
+   "mw": 7077.5,
+   "units": 19
+  },
+  {
+   "year": 2027,
+   "family": "gas_cc",
+   "family_label": "Gas, combined cycle",
+   "mw": 6.2,
+   "units": 1
+  },
+  {
+   "year": 2027,
+   "family": "gas_ct",
+   "family_label": "Gas, combustion turbine",
+   "mw": 338.3,
+   "units": 8
+  },
+  {
+   "year": 2027,
+   "family": "gas_steam",
+   "family_label": "Gas steam",
+   "mw": 3617.3,
+   "units": 10
+  },
+  {
+   "year": 2027,
+   "family": "hydro",
+   "family_label": "Hydro",
+   "mw": 3.4,
+   "units": 3
+  },
+  {
+   "year": 2027,
+   "family": "oil",
+   "family_label": "Oil",
+   "mw": 12.0,
+   "units": 6
+  },
+  {
+   "year": 2027,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 4.8,
+   "units": 6
+  },
+  {
+   "year": 2027,
+   "family": "storage",
+   "family_label": "Storage",
+   "mw": 1.0,
+   "units": 1
+  },
+  {
+   "year": 2027,
+   "family": "wind",
+   "family_label": "Wind",
+   "mw": 80.0,
+   "units": 1
+  },
+  {
+   "year": 2028,
+   "family": "biomass",
+   "family_label": "Biomass",
+   "mw": 2.9,
+   "units": 2
+  },
+  {
+   "year": 2028,
+   "family": "coal",
+   "family_label": "Coal",
+   "mw": 12854.9,
+   "units": 19
+  },
+  {
+   "year": 2028,
+   "family": "gas_cc",
+   "family_label": "Gas, combined cycle",
+   "mw": 13.6,
+   "units": 2
+  },
+  {
+   "year": 2028,
+   "family": "gas_ct",
+   "family_label": "Gas, combustion turbine",
+   "mw": 951.7,
+   "units": 15
+  },
+  {
+   "year": 2028,
+   "family": "gas_steam",
+   "family_label": "Gas steam",
+   "mw": 1332.8,
+   "units": 7
+  },
+  {
+   "year": 2028,
+   "family": "hydro",
+   "family_label": "Hydro",
+   "mw": 3.4,
+   "units": 2
+  },
+  {
+   "year": 2028,
+   "family": "oil",
+   "family_label": "Oil",
+   "mw": 44.5,
+   "units": 9
+  },
+  {
+   "year": 2028,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 7.9,
+   "units": 7
+  },
+  {
+   "year": 2029,
+   "family": "biomass",
+   "family_label": "Biomass",
+   "mw": 39.0,
+   "units": 1
+  },
+  {
+   "year": 2029,
+   "family": "coal",
+   "family_label": "Coal",
+   "mw": 3517.6,
+   "units": 7
+  },
+  {
+   "year": 2029,
+   "family": "gas_ct",
+   "family_label": "Gas, combustion turbine",
+   "mw": 500.1,
+   "units": 4
+  },
+  {
+   "year": 2029,
+   "family": "gas_other",
+   "family_label": "Gas, other",
+   "mw": 1.4,
+   "units": 1
+  },
+  {
+   "year": 2029,
+   "family": "gas_steam",
+   "family_label": "Gas steam",
+   "mw": 1981.9,
+   "units": 7
+  },
+  {
+   "year": 2029,
+   "family": "oil",
+   "family_label": "Oil",
+   "mw": 789.3,
+   "units": 10
+  },
+  {
+   "year": 2030,
+   "family": "biomass",
+   "family_label": "Biomass",
+   "mw": 30.4,
+   "units": 2
+  },
+  {
+   "year": 2030,
+   "family": "coal",
+   "family_label": "Coal",
+   "mw": 2934.5,
+   "units": 6
+  },
+  {
+   "year": 2030,
+   "family": "gas_cc",
+   "family_label": "Gas, combined cycle",
+   "mw": 96.3,
+   "units": 4
+  },
+  {
+   "year": 2030,
+   "family": "gas_ct",
+   "family_label": "Gas, combustion turbine",
+   "mw": 695.6,
+   "units": 17
+  },
+  {
+   "year": 2030,
+   "family": "gas_steam",
+   "family_label": "Gas steam",
+   "mw": 812.5,
+   "units": 4
+  },
+  {
+   "year": 2030,
+   "family": "hydro",
+   "family_label": "Hydro",
+   "mw": 9.9,
+   "units": 1
+  },
+  {
+   "year": 2030,
+   "family": "nuclear",
+   "family_label": "Nuclear",
+   "mw": 685.0,
+   "units": 1
+  },
+  {
+   "year": 2030,
+   "family": "oil",
+   "family_label": "Oil",
+   "mw": 159.1,
+   "units": 5
+  },
+  {
+   "year": 2030,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 11.5,
+   "units": 7
+  },
+  {
+   "year": 2031,
+   "family": "coal",
+   "family_label": "Coal",
+   "mw": 3654.6,
+   "units": 7
+  },
+  {
+   "year": 2031,
+   "family": "gas_cc",
+   "family_label": "Gas, combined cycle",
+   "mw": 614.8,
+   "units": 5
+  },
+  {
+   "year": 2031,
+   "family": "gas_ct",
+   "family_label": "Gas, combustion turbine",
+   "mw": 712.4,
+   "units": 10
+  },
+  {
+   "year": 2031,
+   "family": "gas_other",
+   "family_label": "Gas, other",
+   "mw": 1.1,
+   "units": 11
+  },
+  {
+   "year": 2031,
+   "family": "gas_steam",
+   "family_label": "Gas steam",
+   "mw": 1264.4,
+   "units": 3
+  },
+  {
+   "year": 2031,
+   "family": "hydro",
+   "family_label": "Hydro",
+   "mw": 3.4,
+   "units": 3
+  },
+  {
+   "year": 2031,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 13.7,
+   "units": 6
+  },
+  {
+   "year": 2031,
+   "family": "wind",
+   "family_label": "Wind",
+   "mw": 87.0,
+   "units": 2
+  },
+  {
+   "year": 2032,
+   "family": "coal",
+   "family_label": "Coal",
+   "mw": 4276.4,
+   "units": 8
+  },
+  {
+   "year": 2032,
+   "family": "gas_cc",
+   "family_label": "Gas, combined cycle",
+   "mw": 222.0,
+   "units": 7
+  },
+  {
+   "year": 2032,
+   "family": "gas_engine",
+   "family_label": "Gas engines",
+   "mw": 3.7,
+   "units": 2
+  },
+  {
+   "year": 2032,
+   "family": "gas_steam",
+   "family_label": "Gas steam",
+   "mw": 75.0,
+   "units": 1
+  },
+  {
+   "year": 2032,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 3.5,
+   "units": 2
+  },
+  {
+   "year": 2032,
+   "family": "storage",
+   "family_label": "Storage",
+   "mw": 9.9,
+   "units": 1
+  },
+  {
+   "year": 2033,
+   "family": "biomass",
+   "family_label": "Biomass",
+   "mw": 4.2,
+   "units": 3
+  },
+  {
+   "year": 2033,
+   "family": "coal",
+   "family_label": "Coal",
+   "mw": 2111.0,
+   "units": 9
+  },
+  {
+   "year": 2033,
+   "family": "gas_steam",
+   "family_label": "Gas steam",
+   "mw": 1772.6,
+   "units": 3
+  },
+  {
+   "year": 2033,
+   "family": "hydro",
+   "family_label": "Hydro",
+   "mw": 129.2,
+   "units": 21
+  },
+  {
+   "year": 2033,
+   "family": "nuclear",
+   "family_label": "Nuclear",
+   "mw": 593.1,
+   "units": 1
+  },
+  {
+   "year": 2033,
+   "family": "oil",
+   "family_label": "Oil",
+   "mw": 239.4,
+   "units": 12
+  },
+  {
+   "year": 2034,
+   "family": "biomass",
+   "family_label": "Biomass",
+   "mw": 47.2,
+   "units": 2
+  },
+  {
+   "year": 2034,
+   "family": "coal",
+   "family_label": "Coal",
+   "mw": 3378.4,
+   "units": 6
+  },
+  {
+   "year": 2034,
+   "family": "gas_ct",
+   "family_label": "Gas, combustion turbine",
+   "mw": 209.2,
+   "units": 4
+  },
+  {
+   "year": 2034,
+   "family": "gas_steam",
+   "family_label": "Gas steam",
+   "mw": 790.3,
+   "units": 3
+  },
+  {
+   "year": 2034,
+   "family": "hydro",
+   "family_label": "Hydro",
+   "mw": 13.7,
+   "units": 5
+  },
+  {
+   "year": 2034,
+   "family": "nuclear",
+   "family_label": "Nuclear",
+   "mw": 593.1,
+   "units": 1
+  },
+  {
+   "year": 2034,
+   "family": "oil",
+   "family_label": "Oil",
+   "mw": 641.9,
+   "units": 11
+  },
+  {
+   "year": 2035,
+   "family": "gas_ct",
+   "family_label": "Gas, combustion turbine",
+   "mw": 319.8,
+   "units": 3
+  },
+  {
+   "year": 2035,
+   "family": "gas_other",
+   "family_label": "Gas, other",
+   "mw": 5.6,
+   "units": 2
+  },
+  {
+   "year": 2035,
+   "family": "gas_steam",
+   "family_label": "Gas steam",
+   "mw": 4098.5,
+   "units": 6
+  },
+  {
+   "year": 2035,
+   "family": "hydro",
+   "family_label": "Hydro",
+   "mw": 8.8,
+   "units": 5
+  },
+  {
+   "year": 2035,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 31.8,
+   "units": 6
+  },
+  {
+   "year": 2035,
+   "family": "storage",
+   "family_label": "Storage",
+   "mw": 1.7,
+   "units": 2
+  },
+  {
+   "year": 2035,
+   "family": "wind",
+   "family_label": "Wind",
+   "mw": 1.7,
+   "units": 1
+  },
+  {
+   "year": 2036,
+   "family": "gas_other",
+   "family_label": "Gas, other",
+   "mw": 6.2,
+   "units": 2
+  },
+  {
+   "year": 2036,
+   "family": "gas_steam",
+   "family_label": "Gas steam",
+   "mw": 610.7,
+   "units": 2
+  },
+  {
+   "year": 2036,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 9.5,
+   "units": 3
+  },
+  {
+   "year": 2036,
+   "family": "storage",
+   "family_label": "Storage",
+   "mw": 1.0,
+   "units": 1
+  },
+  {
+   "year": 2037,
+   "family": "biomass",
+   "family_label": "Biomass",
+   "mw": 48.0,
+   "units": 4
+  },
+  {
+   "year": 2038,
+   "family": "gas_steam",
+   "family_label": "Gas steam",
+   "mw": 360.0,
+   "units": 1
+  },
+  {
+   "year": 2039,
+   "family": "coal",
+   "family_label": "Coal",
+   "mw": 2200.8,
+   "units": 3
+  },
+  {
+   "year": 2039,
+   "family": "gas_ct",
+   "family_label": "Gas, combustion turbine",
+   "mw": 4.0,
+   "units": 1
+  },
+  {
+   "year": 2039,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 22.5,
+   "units": 3
+  },
+  {
+   "year": 2039,
+   "family": "storage",
+   "family_label": "Storage",
+   "mw": 0.6,
+   "units": 1
+  },
+  {
+   "year": 2040,
+   "family": "gas_ct",
+   "family_label": "Gas, combustion turbine",
+   "mw": 493.2,
+   "units": 4
+  },
+  {
+   "year": 2040,
+   "family": "gas_engine",
+   "family_label": "Gas engines",
+   "mw": 2.5,
+   "units": 2
+  },
+  {
+   "year": 2040,
+   "family": "gas_steam",
+   "family_label": "Gas steam",
+   "mw": 846.0,
+   "units": 2
+  },
+  {
+   "year": 2040,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 4.6,
+   "units": 9
+  },
+  {
+   "year": 2041,
+   "family": "storage",
+   "family_label": "Storage",
+   "mw": 11.0,
+   "units": 1
+  },
+  {
+   "year": 2042,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 20.0,
+   "units": 1
+  },
+  {
+   "year": 2042,
+   "family": "storage",
+   "family_label": "Storage",
+   "mw": 200.0,
+   "units": 2
+  },
+  {
+   "year": 2043,
+   "family": "gas_cc",
+   "family_label": "Gas, combined cycle",
+   "mw": 593.3,
+   "units": 3
+  },
+  {
+   "year": 2043,
+   "family": "wind",
+   "family_label": "Wind",
+   "mw": 79.9,
+   "units": 1
+  },
+  {
+   "year": 2044,
+   "family": "hydro",
+   "family_label": "Hydro",
+   "mw": 2.4,
+   "units": 3
+  },
+  {
+   "year": 2044,
+   "family": "wind",
+   "family_label": "Wind",
+   "mw": 478.0,
+   "units": 1
+  },
+  {
+   "year": 2045,
+   "family": "gas_engine",
+   "family_label": "Gas engines",
+   "mw": 16.1,
+   "units": 3
+  },
+  {
+   "year": 2045,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 7.6,
+   "units": 2
+  },
+  {
+   "year": 2047,
+   "family": "gas_engine",
+   "family_label": "Gas engines",
+   "mw": 2.0,
+   "units": 2
+  },
+  {
+   "year": 2047,
+   "family": "hydro",
+   "family_label": "Hydro",
+   "mw": 23.2,
+   "units": 8
+  },
+  {
+   "year": 2047,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 5.4,
+   "units": 2
+  },
+  {
+   "year": 2048,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 4.5,
+   "units": 1
+  },
+  {
+   "year": 2049,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 16.9,
+   "units": 10
+  },
+  {
+   "year": 2050,
+   "family": "biomass",
+   "family_label": "Biomass",
+   "mw": 16.8,
+   "units": 1
+  },
+  {
+   "year": 2050,
+   "family": "gas_engine",
+   "family_label": "Gas engines",
+   "mw": 10.0,
+   "units": 5
+  },
+  {
+   "year": 2050,
+   "family": "wind",
+   "family_label": "Wind",
+   "mw": 522.0,
+   "units": 1
+  },
+  {
+   "year": 2052,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 11.0,
+   "units": 1
+  },
+  {
+   "year": 2054,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 5.0,
+   "units": 1
+  },
+  {
+   "year": 2055,
+   "family": "storage",
+   "family_label": "Storage",
+   "mw": 200.0,
+   "units": 1
+  },
+  {
+   "year": 2056,
+   "family": "gas_ct",
+   "family_label": "Gas, combustion turbine",
+   "mw": 182.7,
+   "units": 1
+  },
+  {
+   "year": 2056,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 20.0,
+   "units": 1
+  },
+  {
+   "year": 2057,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 65.8,
+   "units": 3
+  },
+  {
+   "year": 2058,
+   "family": "gas_ct",
+   "family_label": "Gas, combustion turbine",
+   "mw": 420.7,
+   "units": 2
+  },
+  {
+   "year": 2058,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 140.0,
+   "units": 1
+  },
+  {
+   "year": 2059,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 5.0,
+   "units": 1
+  },
+  {
+   "year": 2061,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 10.0,
+   "units": 1
+  },
+  {
+   "year": 2063,
+   "family": "solar",
+   "family_label": "Solar",
+   "mw": 1.0,
+   "units": 1
+  },
+  {
+   "year": 2064,
+   "family": "hydro",
+   "family_label": "Hydro",
+   "mw": 3.0,
+   "units": 4
+  },
+  {
+   "year": 2065,
+   "family": "hydro",
+   "family_label": "Hydro",
+   "mw": 1.2,
+   "units": 2
+  },
+  {
+   "year": 2072,
+   "family": "biomass",
+   "family_label": "Biomass",
+   "mw": 20.0,
+   "units": 1
+  }
+ ],
+ "deferred": {
+  "units": 104,
+  "mw": 14218.4,
+  "withdrawn_units": 42,
+  "withdrawn_mw": 6569.5,
+  "median_years": 2.5,
+  "by_family": [
+   {
+    "family": "coal",
+    "mw": 9509.7,
+    "units": 20,
+    "family_label": "Coal"
+   },
+   {
+    "family": "gas_ct",
+    "mw": 2237.7,
+    "units": 29,
+    "family_label": "Gas, combustion turbine"
+   },
+   {
+    "family": "gas_steam",
+    "mw": 1190.2,
+    "units": 7,
+    "family_label": "Gas steam"
+   },
+   {
+    "family": "gas_cc",
+    "mw": 537.3,
+    "units": 3,
+    "family_label": "Gas, combined cycle"
+   },
+   {
+    "family": "oil",
+    "mw": 353.4,
+    "units": 14,
+    "family_label": "Oil"
+   },
+   {
+    "family": "biomass",
+    "mw": 271.4,
+    "units": 18,
+    "family_label": "Biomass"
+   },
+   {
+    "family": "wind",
+    "mw": 87.0,
+    "units": 2,
+    "family_label": "Wind"
+   },
+   {
+    "family": "hydro",
+    "mw": 23.2,
+    "units": 8,
+    "family_label": "Hydro"
+   },
+   {
+    "family": "solar",
+    "mw": 8.5,
+    "units": 3,
+    "family_label": "Solar"
+   }
+  ],
+  "from_vintage": "2025-07",
+  "to_vintage": "2026-07"
+ },
+ "deferred_rows": [
+  {
+   "plant_name": "Cumberland (TN)",
+   "state": "TN",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 1300.0,
+   "year_before": 2026,
+   "year_after": 2034,
+   "deferred_years": 8.0
+  },
+  {
+   "plant_name": "J H Campbell",
+   "state": "MI",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 916.8,
+   "year_before": 2025,
+   "year_after": 2026,
+   "deferred_years": 1.0
+  },
+  {
+   "plant_name": "Intermountain Power Project",
+   "state": "UT",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 820.0,
+   "year_before": 2025,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Transalta Centralia Generation",
+   "state": "WA",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 729.9,
+   "year_before": 2025,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "GREC",
+   "state": "OK",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 594.0,
+   "year_before": 2026,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Miami Fort",
+   "state": "OH",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 557.7,
+   "year_before": 2027,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Miami Fort",
+   "state": "OH",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 557.1,
+   "year_before": 2027,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Craig (CO)",
+   "state": "CO",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 446.4,
+   "year_before": 2025,
+   "year_after": 2026,
+   "deferred_years": 1.0
+  },
+  {
+   "plant_name": "R M Schahfer",
+   "state": "IN",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 423.5,
+   "year_before": 2025,
+   "year_after": 2026,
+   "deferred_years": 1.0
+  },
+  {
+   "plant_name": "R M Schahfer",
+   "state": "IN",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 423.5,
+   "year_before": 2025,
+   "year_after": 2026,
+   "deferred_years": 1.0
+  },
+  {
+   "plant_name": "Comanche (CO)",
+   "state": "CO",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 396.0,
+   "year_before": 2025,
+   "year_after": 2026,
+   "deferred_years": 1.0
+  },
+  {
+   "plant_name": "Eddystone Generating Station",
+   "state": "PA",
+   "technology": "Natural Gas Steam Turbine",
+   "family": "gas_steam",
+   "nameplate_mw": 391.0,
+   "year_before": 2025,
+   "year_after": 2026,
+   "deferred_years": 1.0
+  },
+  {
+   "plant_name": "Eddystone Generating Station",
+   "state": "PA",
+   "technology": "Natural Gas Steam Turbine",
+   "family": "gas_steam",
+   "nameplate_mw": 391.0,
+   "year_before": 2025,
+   "year_after": 2026,
+   "deferred_years": 1.0
+  },
+  {
+   "plant_name": "J H Campbell",
+   "state": "MI",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 378.8,
+   "year_before": 2025,
+   "year_after": 2026,
+   "deferred_years": 1.0
+  },
+  {
+   "plant_name": "Mill Creek (KY)",
+   "state": "KY",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 355.5,
+   "year_before": 2027,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "South Oak Creek",
+   "state": "WI",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 324.0,
+   "year_before": 2026,
+   "year_after": 2027,
+   "deferred_years": 1.0
+  },
+  {
+   "plant_name": "South Oak Creek",
+   "state": "WI",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 317.6,
+   "year_before": 2026,
+   "year_after": 2027,
+   "deferred_years": 1.0
+  },
+  {
+   "plant_name": "J H Campbell",
+   "state": "MI",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 265.2,
+   "year_before": 2025,
+   "year_after": 2026,
+   "deferred_years": 1.0
+  },
+  {
+   "plant_name": "Kingston",
+   "state": "TN",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 200.0,
+   "year_before": 2026,
+   "year_after": 2034,
+   "deferred_years": 8.0
+  },
+  {
+   "plant_name": "Kingston",
+   "state": "TN",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 200.0,
+   "year_before": 2026,
+   "year_after": 2034,
+   "deferred_years": 8.0
+  },
+  {
+   "plant_name": "Kingston",
+   "state": "TN",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 200.0,
+   "year_before": 2026,
+   "year_after": 2034,
+   "deferred_years": 8.0
+  },
+  {
+   "plant_name": "Desert Star Energy Center",
+   "state": "NV",
+   "technology": "Natural Gas Fired Combined Cycle",
+   "family": "gas_cc",
+   "nameplate_mw": 195.5,
+   "year_before": 2027,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Elwood Energy LLC",
+   "state": "IL",
+   "technology": "Natural Gas Fired Combustion Turbine",
+   "family": "gas_ct",
+   "nameplate_mw": 192.0,
+   "year_before": 2026,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Elwood Energy LLC",
+   "state": "IL",
+   "technology": "Natural Gas Fired Combustion Turbine",
+   "family": "gas_ct",
+   "nameplate_mw": 192.0,
+   "year_before": 2026,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Elwood Energy LLC",
+   "state": "IL",
+   "technology": "Natural Gas Fired Combustion Turbine",
+   "family": "gas_ct",
+   "nameplate_mw": 192.0,
+   "year_before": 2026,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Elwood Energy LLC",
+   "state": "IL",
+   "technology": "Natural Gas Fired Combustion Turbine",
+   "family": "gas_ct",
+   "nameplate_mw": 192.0,
+   "year_before": 2026,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Elwood Energy LLC",
+   "state": "IL",
+   "technology": "Natural Gas Fired Combustion Turbine",
+   "family": "gas_ct",
+   "nameplate_mw": 192.0,
+   "year_before": 2026,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Elwood Energy LLC",
+   "state": "IL",
+   "technology": "Natural Gas Fired Combustion Turbine",
+   "family": "gas_ct",
+   "nameplate_mw": 192.0,
+   "year_before": 2026,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Elwood Energy LLC",
+   "state": "IL",
+   "technology": "Natural Gas Fired Combustion Turbine",
+   "family": "gas_ct",
+   "nameplate_mw": 192.0,
+   "year_before": 2026,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Desert Star Energy Center",
+   "state": "NV",
+   "technology": "Natural Gas Fired Combined Cycle",
+   "family": "gas_cc",
+   "nameplate_mw": 170.9,
+   "year_before": 2027,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Desert Star Energy Center",
+   "state": "NV",
+   "technology": "Natural Gas Fired Combined Cycle",
+   "family": "gas_cc",
+   "nameplate_mw": 170.9,
+   "year_before": 2027,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Gadsby",
+   "state": "UT",
+   "technology": "Natural Gas Steam Turbine",
+   "family": "gas_steam",
+   "nameplate_mw": 113.6,
+   "year_before": 2032,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "F B Culley",
+   "state": "IN",
+   "technology": "Conventional Steam Coal",
+   "family": "coal",
+   "nameplate_mw": 103.7,
+   "year_before": 2025,
+   "year_after": 2026,
+   "deferred_years": 1.0
+  },
+  {
+   "plant_name": "Central San Juan Plant",
+   "state": "PR",
+   "technology": "Petroleum Liquids",
+   "family": "oil",
+   "nameplate_mw": 100.0,
+   "year_before": 2025,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Central San Juan Plant",
+   "state": "PR",
+   "technology": "Petroleum Liquids",
+   "family": "oil",
+   "nameplate_mw": 100.0,
+   "year_before": 2025,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Maddox",
+   "state": "NM",
+   "technology": "Natural Gas Fired Combustion Turbine",
+   "family": "gas_ct",
+   "nameplate_mw": 86.9,
+   "year_before": 2026,
+   "year_after": 2034,
+   "deferred_years": 8.0
+  },
+  {
+   "plant_name": "Newman",
+   "state": "TX",
+   "technology": "Natural Gas Steam Turbine",
+   "family": "gas_steam",
+   "nameplate_mw": 81.6,
+   "year_before": 2027,
+   "year_after": 2028,
+   "deferred_years": 1.0
+  },
+  {
+   "plant_name": "Deerhaven Generating Station",
+   "state": "FL",
+   "technology": "Natural Gas Steam Turbine",
+   "family": "gas_steam",
+   "nameplate_mw": 75.0,
+   "year_before": 2027,
+   "year_after": 2032,
+   "deferred_years": 5.0
+  },
+  {
+   "plant_name": "Hopewell Power Station",
+   "state": "VA",
+   "technology": "Wood/Wood Waste Biomass",
+   "family": "biomass",
+   "nameplate_mw": 71.1,
+   "year_before": 2028,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Altavista Power Station",
+   "state": "VA",
+   "technology": "Wood/Wood Waste Biomass",
+   "family": "biomass",
+   "nameplate_mw": 71.1,
+   "year_before": 2028,
+   "year_after": null,
+   "deferred_years": null
+  }
+ ]
+}

@@ -1,0 +1,58 @@
+{
+ "kind": "utility_pipelines",
+ "updated": "2026-09-18",
+ "note": "What each utility discloses about its data-center load pipeline, one row per company per quarter. The utilities are the only parties who see the demand before it is built, and they describe it in incompatible ways: some report every interconnection request, some only signed electric service agreements, some a band between the two, and the same company changes its definition between quarters. That inconsistency is the point of this file — it records the disclosure, it does not normalise it. Rules for adding a row. (1) One company, one quarter, one row, sourced from that quarter's earnings call, slide deck, 10-Q or IR page; a journalist's summary of a call is a fallback, not the source. (2) `pipeline_gw_total` and `pipeline_gw_contracted` are only filled when the company gave those two numbers as such. Zero contracted GW is a real disclosure and is recorded as 0, not as null; null means the company did not say. Do not compute one field from another, do not convert MW to GW by eye, and do not carry a figure forward from last quarter. (3) `stage_breakdown` keeps the company's own words for how the pipeline is split, quoted or closely paraphrased, because every company's ladder is different. (4) `quote` is the sentence the numbers came from, verbatim and short, so the next curator can see what was actually claimed. (5) `capex_plan_usd_bn` with `capex_plan_years` is the published capital plan, as published — not a per-year average, not a sum of two overlapping plans. (6) `caveat` says what the number is not: which definition of pipeline this is, whether it is cumulative or incremental, and that a pipeline is demand requested rather than load delivered. Every row needs one. (7) `last_checked` is the day somebody last confirmed the row against `source_url`; after config.REFERENCE_STALE_DAYS days the page greys it. A pipeline number is superseded every quarter, so a stale row here usually means a new row is owed rather than an edit. Never edit last quarter's row to this quarter's number — add a row; the series is the story. Working notes go in `curator_notes`, which pipelines/power/reference.py strips before anything can publish it; any other field containing a marker from WORKING_NOTE_MARKERS in that module is rejected outright.",
+ "row_template": {
+  "ticker": "",
+  "quarter": "",
+  "pipeline_gw_total": null,
+  "pipeline_gw_contracted": null,
+  "stage_breakdown": "",
+  "in_service_years": "",
+  "capex_plan_usd_bn": null,
+  "capex_plan_years": "",
+  "source_name": "",
+  "source_url": "",
+  "publish_date": "",
+  "last_checked": "",
+  "quote": "",
+  "caveat": "",
+  "curator_notes": ""
+ },
+ "rows": [
+  {
+   "ticker": "EXC",
+   "quarter": "Q1 2026",
+   "pipeline_gw_total": null,
+   "pipeline_gw_contracted": 18.0,
+   "stage_breakdown": "Company labels: 'High Probability Pipeline' 18 GW at Q4 2025 (1 GW in Q4 2022, 6 GW in Q4 2023, 16 GW in Q4 2024), of which about 45% is secured with Transmission Security Agreements; a separate 'Future Potential Additions' bar of about 43 GW splits into active ComEd study 9+ GW and active Mid-Atlantic study about 6 GW concluding in 2026, plus future ComEd studies 11 GW and 4 GW and future Mid-Atlantic studies 10 GW and 3 GW concluding in 2027. Excludes 1 GW of other large load projects.",
+   "in_service_years": "",
+   "capex_plan_usd_bn": 41.7,
+   "capex_plan_years": "2026-2029",
+   "source_name": "Exelon Q1 2026 earnings presentation (Form 8-K, Exhibit 99.2), slides 4, 5, 13, 18",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1109357/000110935726000061/exc-20260506ex992.htm",
+   "publish_date": "2026-05-06",
+   "last_checked": "2026-09-18",
+   "quote": "Committed data center pipeline of ~18 GW",
+   "caveat": "A pipeline is not a signed contract. Only about 45% of this 18 GW carries a Transmission Security Agreement, and Exelon publishes no absolute megawatt figure for that subset. The two tiers are disjoint and the company never sums them, so adding 18 GW to the 43 GW under study would produce a number Exelon has not stated. No in-service years are given; the 2026 and 2027 dates on the slide are when cluster studies conclude, not when load arrives.",
+   "curator_notes": "The 18 GW is explicitly carried forward from the Q4 2025 call of 2026-02-12, so Q1 was not a fresh update. IR-site copies of the deck timed out; the EDGAR exhibit is the same document. Filing index 0001109357-26-000061, accepted 2026-05-06 06:56:54."
+  },
+  {
+   "ticker": "EXC",
+   "quarter": "Q2 2026",
+   "pipeline_gw_total": null,
+   "pipeline_gw_contracted": 11.0,
+   "stage_breakdown": "Company labels: 'High Probability Load' about 11 GW, being ComEd about 9 GW plus Mid-Atlantic about 2 GW, described as advanced phases of design or backed by FERC-approved Transmission Security Agreements, about 40% with such agreements backed by about $1B of collateral; 'Future Pipeline' about 25 GW, being ComEd about 17 GW plus Mid-Atlantic about 8 GW, within current or future cluster studies concluding in 2026 and 2027.",
+   "in_service_years": "",
+   "capex_plan_usd_bn": 41.7,
+   "capex_plan_years": "2026-2029",
+   "source_name": "Exelon Q2 2026 earnings presentation (Form 8-K, Exhibit 99.2), slides 4, 10, 15, 18",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1109357/000110935726000077/exc-20260730ex992.htm",
+   "publish_date": "2026-07-30",
+   "last_checked": "2026-09-18",
+   "quote": "~11 GW High Probability Load",
+   "caveat": "This is the same company's own headline cut from 18 GW to about 11 GW in one quarter, and the under-study tier from about 43 GW to about 25 GW, as a collateral requirement removed speculative requests. Read every utility pipeline figure on this page against that: the definition moves, and it moves downward when money is attached. The roughly 4 GW actually under signed agreements appears only in the CFO's spoken remarks, not on any slide.",
+   "curator_notes": "ComEd told FERC on 2026-07-24 it had cancelled a previously approved TSA with PowerHouse Hillwood Holding. The 36 GW combined figure was voiced by an analyst on the call and accepted by the CFO; the company prints no total. Filing index 0001109357-26-000077, accepted 2026-07-30 06:56:06."
+  }
+ ]
+}

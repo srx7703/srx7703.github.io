@@ -1,0 +1,835 @@
+[
+ {
+  "state": "AZ",
+  "year": 2010,
+  "twh": 28.94,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "AZ",
+  "year": 2011,
+  "twh": 29.51,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "AZ",
+  "year": 2012,
+  "twh": 29.69,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "AZ",
+  "year": 2013,
+  "twh": 30.04,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "AZ",
+  "year": 2014,
+  "twh": 29.29,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "AZ",
+  "year": 2015,
+  "twh": 29.28,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "AZ",
+  "year": 2016,
+  "twh": 29.56,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "AZ",
+  "year": 2017,
+  "twh": 29.68,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "AZ",
+  "year": 2018,
+  "twh": 29.68,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "AZ",
+  "year": 2019,
+  "twh": 29.42,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "AZ",
+  "year": 2020,
+  "twh": 29.13,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "AZ",
+  "year": 2021,
+  "twh": 29.99,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "AZ",
+  "year": 2022,
+  "twh": 31.51,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "AZ",
+  "year": 2023,
+  "twh": 32.62,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "AZ",
+  "year": 2024,
+  "twh": 36.1,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "AZ",
+  "year": 2025,
+  "twh": 37.54,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "AZ",
+  "year": 2026,
+  "twh": 19.62,
+  "months": 6,
+  "complete_year": false
+ },
+ {
+  "state": "GA",
+  "year": 2010,
+  "twh": 47.9,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "GA",
+  "year": 2011,
+  "twh": 46.93,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "GA",
+  "year": 2012,
+  "twh": 45.94,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "GA",
+  "year": 2013,
+  "twh": 45.35,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "GA",
+  "year": 2014,
+  "twh": 46.61,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "GA",
+  "year": 2015,
+  "twh": 47.15,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "GA",
+  "year": 2016,
+  "twh": 47.76,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "GA",
+  "year": 2017,
+  "twh": 46.27,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "GA",
+  "year": 2018,
+  "twh": 47.31,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "GA",
+  "year": 2019,
+  "twh": 47.41,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "GA",
+  "year": 2020,
+  "twh": 44.3,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "GA",
+  "year": 2021,
+  "twh": 45.78,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "GA",
+  "year": 2022,
+  "twh": 49.54,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "GA",
+  "year": 2023,
+  "twh": 51.4,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "GA",
+  "year": 2024,
+  "twh": 55.17,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "GA",
+  "year": 2025,
+  "twh": 56.93,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "GA",
+  "year": 2026,
+  "twh": 28.83,
+  "months": 6,
+  "complete_year": false
+ },
+ {
+  "state": "IL",
+  "year": 2010,
+  "twh": 51.44,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "IL",
+  "year": 2011,
+  "twh": 50.47,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "IL",
+  "year": 2012,
+  "twh": 50.81,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "IL",
+  "year": 2013,
+  "twh": 50.47,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "IL",
+  "year": 2014,
+  "twh": 50.62,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "IL",
+  "year": 2015,
+  "twh": 50.32,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "IL",
+  "year": 2016,
+  "twh": 50.91,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "IL",
+  "year": 2017,
+  "twh": 49.99,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "IL",
+  "year": 2018,
+  "twh": 50.76,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "IL",
+  "year": 2019,
+  "twh": 49.28,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "IL",
+  "year": 2020,
+  "twh": 45.49,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "IL",
+  "year": 2021,
+  "twh": 46.92,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "IL",
+  "year": 2022,
+  "twh": 47.12,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "IL",
+  "year": 2023,
+  "twh": 45.58,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "IL",
+  "year": 2024,
+  "twh": 45.24,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "IL",
+  "year": 2025,
+  "twh": 46.35,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "IL",
+  "year": 2026,
+  "twh": 22.27,
+  "months": 6,
+  "complete_year": false
+ },
+ {
+  "state": "LA",
+  "year": 2010,
+  "twh": 24.2,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "LA",
+  "year": 2011,
+  "twh": 24.28,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "LA",
+  "year": 2012,
+  "twh": 24.24,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "LA",
+  "year": 2013,
+  "twh": 24.25,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "LA",
+  "year": 2014,
+  "twh": 24.49,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "LA",
+  "year": 2015,
+  "twh": 25.0,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "LA",
+  "year": 2016,
+  "twh": 24.9,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "LA",
+  "year": 2017,
+  "twh": 24.5,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "LA",
+  "year": 2018,
+  "twh": 24.69,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "LA",
+  "year": 2019,
+  "twh": 24.28,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "LA",
+  "year": 2020,
+  "twh": 22.4,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "LA",
+  "year": 2021,
+  "twh": 22.46,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "LA",
+  "year": 2022,
+  "twh": 23.54,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "LA",
+  "year": 2023,
+  "twh": 23.74,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "LA",
+  "year": 2024,
+  "twh": 23.65,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "LA",
+  "year": 2025,
+  "twh": 23.9,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "LA",
+  "year": 2026,
+  "twh": 11.19,
+  "months": 6,
+  "complete_year": false
+ },
+ {
+  "state": "OH",
+  "year": 2010,
+  "twh": 46.53,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "OH",
+  "year": 2011,
+  "twh": 47.11,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "OH",
+  "year": 2012,
+  "twh": 46.76,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "OH",
+  "year": 2013,
+  "twh": 46.72,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "OH",
+  "year": 2014,
+  "twh": 47.0,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "OH",
+  "year": 2015,
+  "twh": 47.12,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "OH",
+  "year": 2016,
+  "twh": 47.74,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "OH",
+  "year": 2017,
+  "twh": 46.16,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "OH",
+  "year": 2018,
+  "twh": 47.19,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "OH",
+  "year": 2019,
+  "twh": 46.01,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "OH",
+  "year": 2020,
+  "twh": 43.2,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "OH",
+  "year": 2021,
+  "twh": 44.98,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "OH",
+  "year": 2022,
+  "twh": 46.09,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "OH",
+  "year": 2023,
+  "twh": 46.35,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "OH",
+  "year": 2024,
+  "twh": 50.81,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "OH",
+  "year": 2025,
+  "twh": 57.76,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "OH",
+  "year": 2026,
+  "twh": 31.06,
+  "months": 6,
+  "complete_year": false
+ },
+ {
+  "state": "TX",
+  "year": 2010,
+  "twh": 121.47,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "TX",
+  "year": 2011,
+  "twh": 128.21,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "TX",
+  "year": 2012,
+  "twh": 133.1,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "TX",
+  "year": 2013,
+  "twh": 136.52,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "TX",
+  "year": 2014,
+  "twh": 139.43,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "TX",
+  "year": 2015,
+  "twh": 136.32,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "TX",
+  "year": 2016,
+  "twh": 139.1,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "TX",
+  "year": 2017,
+  "twh": 137.49,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "TX",
+  "year": 2018,
+  "twh": 143.52,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "TX",
+  "year": 2019,
+  "twh": 142.0,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "TX",
+  "year": 2020,
+  "twh": 145.17,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "TX",
+  "year": 2021,
+  "twh": 147.84,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "TX",
+  "year": 2022,
+  "twh": 160.72,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "TX",
+  "year": 2023,
+  "twh": 165.79,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "TX",
+  "year": 2024,
+  "twh": 164.23,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "TX",
+  "year": 2025,
+  "twh": 173.81,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "TX",
+  "year": 2026,
+  "twh": 87.62,
+  "months": 6,
+  "complete_year": false
+ },
+ {
+  "state": "VA",
+  "year": 2010,
+  "twh": 48.04,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "VA",
+  "year": 2011,
+  "twh": 47.05,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "VA",
+  "year": 2012,
+  "twh": 46.76,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "VA",
+  "year": 2013,
+  "twh": 47.75,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "VA",
+  "year": 2014,
+  "twh": 47.75,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "VA",
+  "year": 2015,
+  "twh": 48.35,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "VA",
+  "year": 2016,
+  "twh": 49.26,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "VA",
+  "year": 2017,
+  "twh": 50.2,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "VA",
+  "year": 2018,
+  "twh": 52.27,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "VA",
+  "year": 2019,
+  "twh": 53.98,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "VA",
+  "year": 2020,
+  "twh": 53.53,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "VA",
+  "year": 2021,
+  "twh": 58.72,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "VA",
+  "year": 2022,
+  "twh": 68.56,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "VA",
+  "year": 2023,
+  "twh": 73.81,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "VA",
+  "year": 2024,
+  "twh": 78.71,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "VA",
+  "year": 2025,
+  "twh": 83.62,
+  "months": 12,
+  "complete_year": true
+ },
+ {
+  "state": "VA",
+  "year": 2026,
+  "twh": 42.51,
+  "months": 6,
+  "complete_year": false
+ }
+]

@@ -66,6 +66,7 @@ def test_each_registered_key_exists_in_its_facts_file():
             "saas-benchmark": "saas.json",
             "optical-modules-valuation": "valuation_optical.json",
             "solid-state-battery-valuation": "valuation_ssb.json",
+            "datacenter-power": "power_demand.json",
         }.get(pid)
         if facts_name is None:
             problems.append(f"{pid}: no facts file mapped in this test")
