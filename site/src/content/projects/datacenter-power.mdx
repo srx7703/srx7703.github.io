@@ -324,11 +324,25 @@ buyer's press release, and no other US ISO publishes an equivalent.
 ]} rows={zoneTable} />
 <DownloadCsv filename="pjm-zone-growth.csv" rows={zoneTable} />
 
-<p class="muted">
+<p>
   ERCOT and the Southeast are covered here by retail sales rather than by an operator's own figure,
   because neither publishes one. That asymmetry is why Texas appears in the state chart above and
-  not in this one.
+  not in this one, and it is worth being explicit about which states each region means: a claim
+  about "the Southeast" is only as good as the list it was computed over.
 </p>
+
+<DataTable id="regions-table" caption="The three regions this project follows, and what each is measured with" columns={[
+  { key: 'label', label: 'Region' },
+  { key: 'iso', label: 'Grid operator' },
+  { key: 'instrument', label: 'Measured with' },
+  { key: 'states', label: 'States' },
+  { key: 'note', label: 'Why it matters' },
+]} rows={facts.region_definitions.map((r) => ({
+  ...r,
+  iso: r.iso || 'none (vertically integrated utilities)',
+  instrument: r.iso === 'PJM' ? "the operator's own large-load adjustment, plus retail sales" : 'retail sales only',
+  states: r.states.join(', '),
+}))} />
 
 </Section>
 
