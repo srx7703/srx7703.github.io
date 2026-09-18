@@ -6,15 +6,9 @@ import { cardKpis } from '@lib/cardKpis';
 import { miniCharts } from '@lib/minicharts';
 import { changelog } from '@lib/changelog';
 import MarginNote from '@components/MarginNote.astro';
-import midterms from '@data/facts/midterms.json';
-import fomc from '@data/facts/fomc.json';
-import saas from '@data/facts/saas.json';
 import { dateUtc } from '@lib/fmt';
-const stamps = [
-  { label: 'Midterms', ts: midterms.last_snapshot_ts, cadence: 'twice daily' },
-  { label: 'FOMC', ts: fomc.last_snapshot_ts, cadence: 'twice daily' },
-  { label: 'SaaS', ts: saas.last_refresh ?? saas.generated_at, cadence: 'weekly' },
-];
+import { feedStamps } from '@lib/freshness';
+const stamps = feedStamps();
 const projects = (await getCollection('projects')).filter((p) => p.data.featured).sort((a, b) => a.data.order - b.data.order);
 const recent = changelog.slice(0, 3);
 ---
