@@ -1,28 +1,28 @@
 {
  "project": "midterms-2026",
- "generated_at": "2026-09-19T20:41:29+00:00",
+ "generated_at": "2026-09-20T11:37:14+00:00",
  "election_day": "2026-11-03",
  "first_snapshot_ts": "2026-09-16T02:26:10+00:00",
- "last_snapshot_ts": "2026-09-19T20:38:26+00:00",
- "n_snapshots": 12,
- "n_days": 4,
+ "last_snapshot_ts": "2026-09-20T11:33:19+00:00",
+ "n_snapshots": 13,
+ "n_days": 5,
  "markets_tracked": {
-  "kalshi": 20330,
+  "kalshi": 20261,
   "polymarket": 11562
  },
  "quoted_markets_tracked": {
-  "kalshi": 6749,
-  "polymarket": 5178
+  "kalshi": 5874,
+  "polymarket": 5299
  },
  "quoted_definition": "both sides quoted, spread <= 10 cents, any volume",
- "last_full_snapshot_ts": "2026-09-19T11:08:58+00:00",
- "order_books_captured": 6198,
- "tier1_books_latest": 509,
+ "last_full_snapshot_ts": "2026-09-20T11:33:19+00:00",
+ "order_books_captured": 6703,
+ "tier1_books_latest": 505,
  "checks": [
   {
    "name": "Schema",
    "status": "pass",
-   "detail": "pandera schemas validated before every write (12 runs)"
+   "detail": "pandera schemas validated before every write (13 runs)"
   },
   {
    "name": "Probability range",
@@ -53,11 +53,11 @@
  "headline": {
   "bop_dd": {
    "label": "D Senate + D House",
-   "polymarket": 0.595
+   "polymarket": 0.605
   },
   "bop_dr": {
    "label": "D Senate + R House",
-   "polymarket": 0.009
+   "polymarket": 0.0175
   },
   "bop_rd": {
    "label": "R Senate + D House",
@@ -65,92 +65,92 @@
   },
   "bop_rr": {
    "label": "R Senate + R House",
-   "polymarket": 0.085
+   "polymarket": 0.075
   },
   "house_dem": {
    "label": "Democrats win the House",
-   "kalshi": 0.895,
-   "polymarket": 0.905,
-   "spread": 0.01
+   "kalshi": 0.904,
+   "polymarket": 0.935,
+   "spread": 0.031
   },
   "house_rep": {
    "label": "Republicans win the House",
-   "kalshi": 0.105,
-   "polymarket": 0.105,
-   "spread": 0.0
+   "kalshi": 0.0975,
+   "polymarket": 0.065,
+   "spread": -0.0325
   },
   "senate_dem": {
    "label": "Democrats win the Senate",
-   "kalshi": 0.585,
+   "kalshi": 0.595,
    "polymarket": 0.605,
-   "spread": 0.02
+   "spread": 0.01
   },
   "senate_rep": {
    "label": "Republicans win the Senate",
    "kalshi": 0.415,
-   "polymarket": 0.405,
-   "spread": -0.01
+   "polymarket": 0.385,
+   "spread": -0.03
   }
  },
  "top_races_polymarket": [
   {
    "event_slug": "maine-senate-election-winner",
    "title": "Maine Senate Election Winner",
-   "volume_usd": 1432946,
+   "volume_usd": 1433003,
    "markets": 13
   },
   {
    "event_slug": "texas-senate-election-winner",
    "title": "Texas Senate Election Winner",
-   "volume_usd": 1337297,
+   "volume_usd": 1338575,
    "markets": 13
   },
   {
    "event_slug": "alaska-governor-election-winner",
    "title": "Alaska Governor Election Winner  ",
-   "volume_usd": 1301536,
+   "volume_usd": 1314642,
    "markets": 40
   },
   {
    "event_slug": "michigan-senate-election-winner",
    "title": "Michigan Senate Election Winner",
-   "volume_usd": 839598,
+   "volume_usd": 848393,
    "markets": 13
   },
   {
    "event_slug": "wisconsin-governor-winner-2026",
    "title": "Wisconsin Governor Election Winner",
-   "volume_usd": 593697,
+   "volume_usd": 593723,
    "markets": 13
   },
   {
    "event_slug": "alaska-senate-election-winner",
    "title": "Alaska Senate Election Winner",
-   "volume_usd": 540593,
+   "volume_usd": 548413,
    "markets": 29
   },
   {
    "event_slug": "ohio-senate-election-winner",
    "title": "Ohio Senate Election Winner",
-   "volume_usd": 452750,
+   "volume_usd": 484453,
    "markets": 13
   },
   {
    "event_slug": "iowa-senate-election-winner",
    "title": "Iowa Senate Election Winner",
-   "volume_usd": 388702,
+   "volume_usd": 406388,
    "markets": 13
   },
   {
    "event_slug": "nebraska-senate-election-winner",
    "title": "Nebraska Senate Election Winner  ",
-   "volume_usd": 280766,
+   "volume_usd": 288357,
    "markets": 13
   },
   {
    "event_slug": "south-carolina-senate-election-winner",
    "title": "South Carolina Senate Election Winner",
-   "volume_usd": 247545,
+   "volume_usd": 248045,
    "markets": 13
   }
  ],
