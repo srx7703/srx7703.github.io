@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-09-18T20:26:02.268056+00:00",
+ "generated_at": "2026-09-21T13:23:15.526822+00:00",
  "track": "power",
  "label": "Data-center power",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-09-18T20:14:06+00:00",
+ "as_of_price": "2026-09-21T13:22:16+00:00",
  "as_of_estimates": "2026-09-18T20:15:05+00:00",
  "as_of_fx": "2026-09-11",
  "n_listings": 30,
@@ -16,13 +16,13 @@
  "n_thin": 0,
  "n_nm": 4,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 25.217549475882656,
- "median_fwd_pe_next": 19.980800877674163,
+ "median_fwd_pe_this": 25.013108576439734,
+ "median_fwd_pe_next": 19.984719065903928,
  "p25_fwd_pe_this": 19.066744438071876,
- "p75_fwd_pe_this": 30.932195670023777,
- "iqr_fwd_pe_this": 11.865451231951901,
+ "p75_fwd_pe_this": 31.28043475953309,
+ "iqr_fwd_pe_this": 12.213690321461215,
  "median_growth": 0.1801713288921929,
- "median_trailing_pe": 38.665220673552724,
+ "median_trailing_pe": 40.04539655440788,
  "cheapest": {
   "ticker": "FSLR",
   "name": "First Solar",
