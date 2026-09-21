@@ -1,0 +1,22 @@
+{
+ "kind": "denovo",
+ "track": "surgical",
+ "updated": "2026-09-21",
+ "note": "FDA De Novo grants for soft-tissue surgical robots. This file exists because openFDA serves 510(k) and has no De Novo endpoint, so the grants that created the new regulations for the modern entrants cannot be fetched. Rules. (1) One grant per row, read off the FDA's own De Novo database or the decision summary. (2) Record the regulation number the grant created, because the follow-on 510(k)s in that code are what the registry fetcher then picks up. (3) A clearance says who may sell and never how many were sold; the caveat says so.",
+ "row_template": {
+  "grant_id": "",
+  "applicant": "",
+  "device_name": "",
+  "regulation_number": "",
+  "product_code": "",
+  "decision_date": "",
+  "maker": "",
+  "source_name": "",
+  "source_url": "",
+  "publish_date": "",
+  "last_checked": "",
+  "caveat": "",
+  "curator_notes": ""
+ },
+ "rows": []
+}

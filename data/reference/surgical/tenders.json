@@ -1,0 +1,26 @@
+{
+ "kind": "tenders",
+ "track": "surgical",
+ "updated": "2026-09-21",
+ "note": "Chinese public-hospital award records for soft-tissue surgical robots: one row per award, each read off the notice. This is the page's only proprietary dataset and it is a PRICE PANEL, never a shipment series — the portal searches titles only, has no API, rate-limits hard and refuses non-browser agents, and provincial platforms are unreachable from outside China, so coverage is a floor and never a count. Rules. (1) `contract_kind` is REQUIRED: purchase, lease or maintenance. A leasing award names the LEASING COMPANY as winner, leaves the brand column empty and prints a multi-year lease fee where a unit price belongs; without the kind that fee walks into an average selling price. A lease row must therefore have no brand and must say in its caveat that the figure is a lease fee. (2) A maintenance row carries no quantity — a service contract is not a shipment. (3) Keep only 中标/成交公告, never 招标 or 更正, and deduplicate on (hospital, project number): one procurement generates a chain of notices. (4) Quantity and prices are positive or null, never zero. (5) Record the notice URL, and where the figures came from a PDF attachment rather than the HTML, say so in `curator_notes`.",
+ "row_template": {
+  "notice_id": "",
+  "hospital": "",
+  "province": "",
+  "brand": "",
+  "model": "",
+  "maker": "",
+  "quantity": null,
+  "unit_price_cny": null,
+  "total_price_cny": null,
+  "award_date": "",
+  "contract_kind": "",
+  "source_name": "",
+  "source_url": "",
+  "publish_date": "",
+  "last_checked": "",
+  "caveat": "",
+  "curator_notes": ""
+ },
+ "rows": []
+}

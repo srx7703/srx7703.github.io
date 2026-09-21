@@ -1,0 +1,26 @@
+{
+ "kind": "units",
+ "track": "surgical",
+ "updated": "2026-09-21",
+ "note": "Unit figures for soft-tissue surgical robots, one row per company per metric per period. Almost nothing here is fetchable: two companies publish an auditable series and the rest have to be read out of filings by hand. Rules, in order of importance. (1) `basis` is REQUIRED and closed to config.UNIT_BASIS, and it records the COMPANY'S OWN counting rule, not ours. Intuitive PLACES systems, including under operating lease and usage-based terms, and does not split them; Edge Medical reports systems 'installed or delivered'; Surgerii's prospectus reports production and sales as two different rows; MedBot reports orders apart from installs. Four companies, four meanings of the word units. Nothing downstream may sum across bases. (2) `geography` is REQUIRED. Procept's quarterly figures are United States only, and a global count circulates that its own release does not contain; stored without a geography that US number would be set against Intuitive's worldwide fleet and understate Procept. (3) `value` must be positive; a zero is a parse failure, not a count. (4) `placement_model` where the company says, because a leased system and a sold system are not the same event. (5) Every row needs a source URL, a publication date, a `last_checked` date and a `caveat` written for a reader. (6) Never delete a superseded figure; add the new one and let the page show the revision.",
+ "row_template": {
+  "maker": "",
+  "product": "",
+  "metric": "",
+  "basis": "",
+  "period": "",
+  "value": null,
+  "unit": "systems",
+  "geography": "",
+  "placement_model": "",
+  "tier": "",
+  "source_name": "",
+  "source_url": "",
+  "publish_date": "",
+  "last_checked": "",
+  "quote": "",
+  "caveat": "",
+  "curator_notes": ""
+ },
+ "rows": []
+}

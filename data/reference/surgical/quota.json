@@ -1,0 +1,20 @@
+{
+ "kind": "quota",
+ "track": "surgical",
+ "updated": "2026-09-21",
+ "note": "China's provincial licence ceiling for 腹腔内窥镜手术系统 under 大型医用设备配置许可. Rules. (1) This system has NO brand, model, manufacturer or price field anywhere in it, so it can state a denominator and can never state a market share; every caveat must say so. (2) Three numbers must never be conflated and each needs its own source: licences PERMITTED (the national and provincial quota), licences AWARDED (published province by province, never consolidated), and machines INSTALLED (for which no official figure exists at all). (3) The 14th Five-Year Plan quota expired 2025-12-31 and no successor had been published as of 2026-09-21, so any use of it must be date-stamped as lapsed. (4) Only laparoscopic systems are covered; orthopaedic, neurosurgical, vascular and bronchoscopy robots sit outside the regime and have no quota data at all.",
+ "row_template": {
+  "province": "",
+  "plan": "14th",
+  "permitted_total": null,
+  "newly_added": null,
+  "source_name": "",
+  "source_url": "",
+  "publish_date": "",
+  "expires": "",
+  "last_checked": "",
+  "caveat": "",
+  "curator_notes": ""
+ },
+ "rows": []
+}
