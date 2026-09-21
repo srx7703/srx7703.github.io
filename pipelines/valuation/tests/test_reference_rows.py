@@ -27,6 +27,7 @@ RENDERED = {
     # the power track has no market-share layer: its supply paths are different products, so the page
     # renders none of these lists and its curated data lives under pipelines/power/reference
     "power": (),
+    "surgical": (),
 }
 
 # Phrases that address the pipeline's own authors rather than a reader. None of them belongs in a

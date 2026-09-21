@@ -1,0 +1,9 @@
+{
+ "track": "surgical",
+ "updated": "2026-09-21",
+ "note": "Quoted figures for the soft-tissue surgical robot page. This track has NO computed revenue-share layer: a revenue share, an installed-base share and a procedure share rank this pool differently, and the page shows all three separately rather than picking one and calling it the market. The unit data itself lives in data/reference/surgical/units.json under pipelines/surgical, not here. What belongs in this file is third-party market-size and share estimates quoted from free documents — chiefly the industry chapters of Chinese IPO prospectuses, which reproduce a paid consultancy's tables inside a free filing. Every such row must name the consultancy AND the issuer that commissioned it, because these numbers are produced for a party with an interest in them: within a single free prospectus the incumbent's 'global share' is both 83% and 93% depending on whether it counts annual unit sales or cumulative installed base, and one consultancy cut its own single-port forecast by roughly 40% in six months. Those disagreements are content, not noise, and the page shows them side by side rather than choosing.",
+ "segment_revenue": [],
+ "cited_share": [],
+ "shipments": [],
+ "capacity": []
+}

@@ -280,7 +280,47 @@ POWER: list[Company] = [
     _pw("ETR", "Entergy", "U", "main", note="Louisiana; Meta Hyperion"),
 ]
 
-COMPANIES: list[Company] = OPTICAL + SSB + POWER
+_NO_SURGICAL_SHARE = (
+    "a revenue share would rank this pool differently from an installed-base share, and differently again from "
+    "a procedure share; the page shows all three separately rather than picking one and calling it the market"
+)
+
+#: The soft-tissue surgical robot pool: only the LISTED makers, because this list feeds price and consensus
+#: fetching. The full pool including private makers lives in pipelines/surgical/config.MAKERS, and the two are
+#: reconciled by a test so a company cannot be priced here and missing there, or the reverse.
+#:
+#: `purity` carries unusual weight on this page. Intuitive is a single-segment company, so its multiple IS a
+#: surgical-robot multiple; Medtronic and Johnson & Johnson sell one among thousands of products and their
+#: multiples price something else entirely. Drawing them on one axis without saying that would be the page's
+#: easiest lie.
+def _surg(ticker, name, purity, market, **kw) -> Company:
+    return Company(ticker, name, "surgical", purity, market, kw.pop("fy", 12),
+                   share_basis="none", share_note=_NO_SURGICAL_SHARE, **kw)
+
+
+SURGICAL: list[Company] = [
+    # Pure plays: the multiple genuinely prices a surgical robot business.
+    _surg("ISRG", "Intuitive Surgical", "high", "us",
+          note="single reportable segment; the only profitable pure play, and the only company here with a PE"),
+    _surg("PRCT", "Procept BioRobotics", "high", "us", note="loss-making; EV/Sales and EV per system only"),
+    _surg("2675.HK", "Edge Medical", "high", "hk", name_cn="精锋医疗",
+          note="HKEX Chapter 18A '-B' pre-profit listing, so the absence of a PE is a listing-rule fact"),
+    _surg("2252.HK", "MicroPort MedBot", "high", "hk", name_cn="微创医疗机器人",
+          note="suspended from trading since 2026-09-01 with 2026 interim results unpublished; price and "
+               "enterprise value are frozen at 2026-08-31 and the page says so on the chart, not in a footnote"),
+    _surg("058110.KQ", "meerecompany", "main", "kr", note="Revo-i; KOSDAQ-listed operating company"),
+    # Diversified: they sell a soft-tissue robot and disclose nothing about it. Priced on everything else.
+    _surg("0853.HK", "MicroPort Scientific", "partial", "hk", name_cn="微创医疗",
+          note="parent of MedBot; suspended alongside it"),
+    _surg("MDT", "Medtronic", "partial", "us", fy=4,
+          note="Hugo sits inside Medical Surgical with no unit or segment disclosure; an April fiscal year, so "
+               "its estimates need calendar restatement before any comparison"),
+    _surg("JNJ", "Johnson & Johnson", "partial", "us",
+          note="Ottava and Monarch sit inside MedTech with no unit disclosure"),
+]
+
+
+COMPANIES: list[Company] = OPTICAL + SSB + POWER + SURGICAL
 BY_TICKER: dict[str, Company] = {c.ticker: c for c in COMPANIES}
 
 TRACKS = {
@@ -295,6 +335,15 @@ TRACKS = {
         "label": "Solid-state batteries",
         "facts": "valuation_ssb",
         "reference": "share_battery.json",
+    },
+    "surgical": {
+        "slug": "surgical-robots",
+        "label": "Surgical robots",
+        "facts": "valuation_surgical",
+        "reference": "share_surgical.json",
+        # Share here is units, not revenue, and it lives in pipelines/surgical rather than in share.py: an
+        # installed-base share and a revenue share rank this pool differently and that gap is the page's point.
+        "share": False,
     },
     "power": {
         "slug": "datacenter-power",
