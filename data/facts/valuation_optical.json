@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-09-21T14:36:30.928585+00:00",
+ "generated_at": "2026-09-21T21:53:42.996874+00:00",
  "track": "optical",
  "label": "Optical modules",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-09-21T14:32:35+00:00",
- "as_of_estimates": "2026-09-21T14:34:15+00:00",
+ "as_of_price": "2026-09-21T21:52:58+00:00",
+ "as_of_estimates": "2026-09-21T21:53:03+00:00",
  "as_of_fx": "2026-09-11",
  "n_listings": 34,
  "n_issuers": 33,
@@ -793,7 +793,7 @@
   {
    "name": "Trailing earnings",
    "status": "pass",
-   "detail": "30 of 34 listings have positive trailing profit"
+   "detail": "30 of 34 listings have positive trailing profit; 34 have trailing financials at all"
   },
   {
    "name": "Dual-listing share base",

@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-09-21T21:52:14.131056+00:00",
+ "generated_at": "2026-09-21T21:53:42.996874+00:00",
  "track": "surgical",
  "label": "Surgical robots",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-09-21T21:50:44+00:00",
- "as_of_estimates": "2026-09-21T21:50:50+00:00",
+ "as_of_price": "2026-09-21T21:52:58+00:00",
+ "as_of_estimates": "2026-09-21T21:53:03+00:00",
  "as_of_fx": "2026-09-11",
  "n_listings": 8,
  "n_issuers": 8,
@@ -22,7 +22,7 @@
  "p75_fwd_pe_this": 122.24609215891746,
  "iqr_fwd_pe_this": 103.50537491902317,
  "median_growth": 0.10893571806617286,
- "median_trailing_pe": 26.587424699817795,
+ "median_trailing_pe": null,
  "cheapest": {
   "ticker": "MDT",
   "name": "Medtronic",
@@ -83,7 +83,7 @@
   {
    "name": "Publish guard",
    "status": "pass",
-   "detail": "8 listings priced against 0 in the published facts"
+   "detail": "8 listings priced against 8 in the published facts"
   },
   {
    "name": "Price coverage",
@@ -108,12 +108,12 @@
   {
    "name": "Trailing basis",
    "status": "pass",
-   "detail": "3 of 8 listings use the last full fiscal year instead of a trailing twelve months, because no quarterly statement is published for them; the table marks which"
+   "detail": "0 of 8 listings use the last full fiscal year instead of a trailing twelve months, because no quarterly statement is published for them; the table marks which"
   },
   {
    "name": "Trailing earnings",
-   "status": "pass",
-   "detail": "2 of 8 listings have positive trailing profit"
+   "status": "fail",
+   "detail": "no trailing financials for any of 8 listings, so the fundamentals layer is missing rather than the companies being unprofitable"
   },
   {
    "name": "Dual-listing share base",

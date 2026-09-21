@@ -39,9 +39,9 @@
   "revision_30d_as_of": "2026-08-22",
   "revision_90d": 0.034578570078038995,
   "revision_90d_as_of": "2026-06-23",
-  "price_as_of": "2026-09-21T21:50:44+00:00",
+  "price_as_of": "2026-09-21T21:52:58+00:00",
   "price_age_days": 0,
-  "estimates_as_of": "2026-09-21T21:50:50+00:00"
+  "estimates_as_of": "2026-09-21T21:53:03+00:00"
  },
  {
   "ticker": "PRCT",
@@ -83,9 +83,9 @@
   "revision_30d_as_of": "2026-08-22",
   "revision_90d": -0.10918811881188129,
   "revision_90d_as_of": "2026-06-23",
-  "price_as_of": "2026-09-21T21:50:44+00:00",
+  "price_as_of": "2026-09-21T21:52:58+00:00",
   "price_age_days": 0,
-  "estimates_as_of": "2026-09-21T21:50:50+00:00"
+  "estimates_as_of": "2026-09-21T21:53:03+00:00"
  },
  {
   "ticker": "2675.HK",
@@ -101,13 +101,13 @@
   "price_currency": "HKD",
   "market_cap": 13847844864.0,
   "reporting_currency": "CNY",
-  "ttm_net_income": -88607000.0,
-  "ttm_revenue": 455715000.0,
-  "ttm_period_end": "2025-12-31",
-  "ttm_basis": "last_fy",
-  "ttm_n_quarters": 4,
+  "ttm_net_income": null,
+  "ttm_revenue": null,
+  "ttm_period_end": null,
+  "ttm_basis": null,
+  "ttm_n_quarters": null,
   "trailing_pe": null,
-  "trailing_pe_nm": "loss-making over the trailing twelve months",
+  "trailing_pe_nm": "no trailing earnings",
   "eps_2026": 0.20188,
   "eps_2027": 0.54673,
   "estimate_currency": "CNY",
@@ -127,9 +127,9 @@
   "revision_30d_as_of": "2026-08-22",
   "revision_90d": 0.24856206320737217,
   "revision_90d_as_of": "2026-06-23",
-  "price_as_of": "2026-09-21T21:50:44+00:00",
+  "price_as_of": "2026-09-21T21:52:58+00:00",
   "price_age_days": 0,
-  "estimates_as_of": "2026-09-21T21:50:50+00:00"
+  "estimates_as_of": "2026-09-21T21:53:03+00:00"
  },
  {
   "ticker": "2252.HK",
@@ -145,13 +145,13 @@
   "price_currency": "HKD",
   "market_cap": 21843576832.0,
   "reporting_currency": "CNY",
-  "ttm_net_income": -249660000.0,
-  "ttm_revenue": 551069000.0,
-  "ttm_period_end": "2025-12-31",
-  "ttm_basis": "last_fy",
-  "ttm_n_quarters": 4,
+  "ttm_net_income": null,
+  "ttm_revenue": null,
+  "ttm_period_end": null,
+  "ttm_basis": null,
+  "ttm_n_quarters": null,
   "trailing_pe": null,
-  "trailing_pe_nm": "loss-making over the trailing twelve months",
+  "trailing_pe_nm": "no trailing earnings",
   "eps_2026": 0.08729,
   "eps_2027": 0.25988,
   "estimate_currency": "CNY",
@@ -171,9 +171,9 @@
   "revision_30d_as_of": "2026-08-22",
   "revision_90d": -0.02009429726088907,
   "revision_90d_as_of": "2026-06-23",
-  "price_as_of": "2026-09-21T21:50:44+00:00",
+  "price_as_of": "2026-09-21T21:52:58+00:00",
   "price_age_days": 0,
-  "estimates_as_of": "2026-09-21T21:50:50+00:00"
+  "estimates_as_of": "2026-09-21T21:53:03+00:00"
  },
  {
   "ticker": "058110.KQ",
@@ -189,13 +189,13 @@
   "price_currency": "KRW",
   "market_cap": 23990175744.0,
   "reporting_currency": "KRW",
-  "ttm_net_income": 1059758850.0,
-  "ttm_revenue": 13756014370.0,
-  "ttm_period_end": "2026-06-30",
-  "ttm_basis": "ttm",
-  "ttm_n_quarters": 4,
-  "trailing_pe": 22.637391274439462,
-  "trailing_pe_nm": null,
+  "ttm_net_income": null,
+  "ttm_revenue": null,
+  "ttm_period_end": null,
+  "ttm_basis": null,
+  "ttm_n_quarters": null,
+  "trailing_pe": null,
+  "trailing_pe_nm": "no trailing earnings",
   "eps_2026": null,
   "eps_2027": null,
   "estimate_currency": "KRW",
@@ -215,7 +215,7 @@
   "revision_30d_as_of": null,
   "revision_90d": null,
   "revision_90d_as_of": null,
-  "price_as_of": "2026-09-21T21:50:44+00:00",
+  "price_as_of": "2026-09-21T21:52:58+00:00",
   "price_age_days": 0,
   "estimates_as_of": null
  },
@@ -233,13 +233,13 @@
   "price_currency": "HKD",
   "market_cap": 11620112384.0,
   "reporting_currency": "USD",
-  "ttm_net_income": 48519000.0,
-  "ttm_revenue": 994909000.0,
-  "ttm_period_end": "2025-12-31",
-  "ttm_basis": "last_fy",
-  "ttm_n_quarters": 4,
-  "trailing_pe": 30.537458125196125,
-  "trailing_pe_nm": null,
+  "ttm_net_income": null,
+  "ttm_revenue": null,
+  "ttm_period_end": null,
+  "ttm_basis": null,
+  "ttm_n_quarters": null,
+  "trailing_pe": null,
+  "trailing_pe_nm": "no trailing earnings",
   "eps_2026": 0.0459,
   "eps_2027": 0.03327,
   "estimate_currency": "USD",
@@ -259,9 +259,9 @@
   "revision_30d_as_of": "2026-08-22",
   "revision_90d": 0.03146067415730358,
   "revision_90d_as_of": "2026-06-23",
-  "price_as_of": "2026-09-21T21:50:44+00:00",
+  "price_as_of": "2026-09-21T21:52:58+00:00",
   "price_age_days": 0,
-  "estimates_as_of": "2026-09-21T21:50:50+00:00"
+  "estimates_as_of": "2026-09-21T21:53:03+00:00"
  },
  {
   "ticker": "MDT",
@@ -303,9 +303,9 @@
   "revision_30d_as_of": "2026-09-21",
   "revision_90d": null,
   "revision_90d_as_of": null,
-  "price_as_of": "2026-09-21T21:50:44+00:00",
+  "price_as_of": "2026-09-21T21:52:58+00:00",
   "price_age_days": 0,
-  "estimates_as_of": "2026-09-21T21:50:50+00:00"
+  "estimates_as_of": "2026-09-21T21:53:03+00:00"
  },
  {
   "ticker": "JNJ",
@@ -347,8 +347,8 @@
   "revision_30d_as_of": "2026-08-22",
   "revision_90d": -0.043279656755593865,
   "revision_90d_as_of": "2026-06-23",
-  "price_as_of": "2026-09-21T21:50:44+00:00",
+  "price_as_of": "2026-09-21T21:52:58+00:00",
   "price_age_days": 0,
-  "estimates_as_of": "2026-09-21T21:50:50+00:00"
+  "estimates_as_of": "2026-09-21T21:53:03+00:00"
  }
 ]

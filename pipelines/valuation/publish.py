@@ -634,6 +634,9 @@ def build_track(track: str, data: dict, as_of: date, snapshot_ts: str) -> dict:
 
     published = previous_facts(track)
     refused = blocking_regression(facts, published)
+    # Listings for which any trailing financials arrived, whatever they say. This separates a fetch
+    # failure from a pool that is simply loss-making.
+    with_ttm = [r for r in rows if r.get("ttm_revenue") is not None or r.get("ttm_net_income") is not None]
 
     facts["checks"] = [
         check("Publish guard", refused is None,
@@ -659,9 +662,17 @@ def build_track(track: str, data: dict, as_of: date, snapshot_ts: str) -> dict:
               "full fiscal year instead of a trailing twelve months, because no quarterly statement is published "
               "for them; the table marks which",
               warn=any(r.get("ttm_basis") == "last_fy" for r in rows)),
-        check("Trailing earnings", any(r.get("trailing_pe") for r in rows),
-              f"{len([r for r in rows if r.get('trailing_pe')])} of {len(rows)} listings "
-              "have positive trailing profit"),
+        # Two situations produce "nobody has a trailing PE" and only one is a problem. If no listing has any
+        # trailing financials at all, the fundamentals fetch failed and the track must not publish. If the
+        # financials arrived and simply show losses, that is a fact about the market — and on the
+        # surgical-robot track it is the page's central finding, not a fault.
+        check("Trailing earnings", bool(with_ttm),
+              (f"{len([r for r in rows if r.get('trailing_pe')])} of {len(rows)} listings have positive trailing "
+               f"profit; {len(with_ttm)} have trailing financials at all"
+               if with_ttm else
+               f"no trailing financials for any of {len(rows)} listings, so the fundamentals layer is missing "
+               "rather than the companies being unprofitable"),
+              warn=bool(with_ttm) and not any(r.get("trailing_pe") for r in rows)),
         check("Dual-listing share base", not share_base_artefacts,
               f"{len(facts['dual_listings'])} dual-listed issuers; each secondary line's market cap implies the "
               "same share count as its primary" if not share_base_artefacts else

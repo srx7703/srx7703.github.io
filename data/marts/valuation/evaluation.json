@@ -1,9 +1,7 @@
 {
- "generated_at": "2026-09-21T14:36:32.090280+00:00",
+ "generated_at": "2026-09-21T21:55:18.456492+00:00",
  "plan": "docs/EVALUATION_PLAN.md",
- "snapshot_vintages_written": [
-  "/home/runner/work/srx7703.github.io/srx7703.github.io/data/snapshots/valuation/vintages/2026-09-21-snapshot.parquet"
- ],
+ "snapshot_vintages_written": [],
  "tracks": {
   "optical": {
    "consensus_accuracy": {
@@ -16,7 +14,7 @@
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-09-21T14:36:30.928585+00:00",
+    "as_of": "2026-09-21T21:53:42.996874+00:00",
     "iqr": 68.50780190200761,
     "p25": 28.183996991476832,
     "p75": 96.69179889348445,
@@ -27,7 +25,7 @@
    },
    "dual_listing_premium": {
     "status": "partial",
-    "as_of": "2026-09-21T14:36:30.928585+00:00",
+    "as_of": "2026-09-21T21:53:42.996874+00:00",
     "pairs": [
      {
       "name": "YOFC",
@@ -240,7 +238,7 @@
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-09-21T14:36:30.928585+00:00",
+    "as_of": "2026-09-21T21:53:42.996874+00:00",
     "iqr": 25.721574523247735,
     "p25": 14.020426359711568,
     "p75": 39.7420008829593,
@@ -251,7 +249,7 @@
    },
    "dual_listing_premium": {
     "status": "partial",
-    "as_of": "2026-09-21T14:36:30.928585+00:00",
+    "as_of": "2026-09-21T21:53:42.996874+00:00",
     "pairs": [
      {
       "name": "CATL",
@@ -571,6 +569,35 @@
     }
    }
   },
+  "surgical": {
+   "consensus_accuracy": {
+    "status": "not_yet",
+    "why": "the calendar-2026 consensus is scored against reported 2026 results; the last A-share and Japanese filers report in spring 2027, so this runs from May 2027"
+   },
+   "revision_persistence": {
+    "status": "not_yet",
+    "why": "5 true-revision vintage dates on file across 7 listings, giving 0 week/four-week windows where 3 are needed. East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions; the weekly snapshot series that replaces it for those listings now covers 7 of them and grows by one date a week"
+   },
+   "valuation_dispersion": {
+    "status": "partial",
+    "as_of": "2026-09-21T21:53:42.996874+00:00",
+    "iqr": 103.50537491902317,
+    "p25": 18.740717239894295,
+    "p75": 122.24609215891746,
+    "median": 30.797880065624128,
+    "n_priced": 6,
+    "n_listings": 8,
+    "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
+   },
+   "dual_listing_premium": {
+    "status": "not_yet",
+    "why": "no dual-listed issuer in this track has a forward PE on both lines yet"
+   },
+   "share_bases": {
+    "status": "not_yet",
+    "why": "0 cited figures on file for Surgical robots; 0 of them name a company in the computed pool, and none states a share or an ordering for 3 of them at once, which is what a rank correlation needs"
+   }
+  },
   "power": {
    "consensus_accuracy": {
     "status": "not_yet",
@@ -582,7 +609,7 @@
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-09-21T14:36:30.928585+00:00",
+    "as_of": "2026-09-21T21:53:42.996874+00:00",
     "iqr": 12.476235085520766,
     "p25": 19.011274681008395,
     "p75": 31.48750976652916,
