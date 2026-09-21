@@ -1,9 +1,9 @@
 {
  "project": "saas-benchmark",
- "generated_at": "2026-09-16T06:52:27+00:00",
+ "generated_at": "2026-09-21T14:10:27+00:00",
  "first_refresh": "2026-09-16T06:34:15+00:00",
- "last_refresh": "2026-09-16T06:34:15+00:00",
- "n_refreshes": 1,
+ "last_refresh": "2026-09-21T14:10:25+00:00",
+ "n_refreshes": 2,
  "rule_of_40_p25": 42.5,
  "rule_of_40_p75": 52.6,
  "companies": 29,
@@ -114,7 +114,7 @@
   {
    "name": "Freshness",
    "status": "pass",
-   "detail": "latest refresh 0.3 h ago (limit 192 h)"
+   "detail": "latest refresh 0.0 h ago (limit 192 h)"
   }
  ],
  "quarters_total": 1188,
