@@ -1,7 +1,9 @@
 {
- "generated_at": "2026-09-21T13:23:16.576050+00:00",
+ "generated_at": "2026-09-21T14:36:32.090280+00:00",
  "plan": "docs/EVALUATION_PLAN.md",
- "snapshot_vintages_written": [],
+ "snapshot_vintages_written": [
+  "/home/runner/work/srx7703.github.io/srx7703.github.io/data/snapshots/valuation/vintages/2026-09-21-snapshot.parquet"
+ ],
  "tracks": {
   "optical": {
    "consensus_accuracy": {
@@ -10,22 +12,22 @@
    },
    "revision_persistence": {
     "status": "not_yet",
-    "why": "10 true-revision vintage dates on file across 34 listings, giving 0 week/four-week windows where 3 are needed. East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions; the weekly snapshot series that replaces it for those listings now covers 33 of them and grows by one date a week"
+    "why": "no window yet has 10 listings whose consensus moved; 3 windows were dropped for being too quiet"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-09-21T13:23:15.526822+00:00",
+    "as_of": "2026-09-21T14:36:30.928585+00:00",
     "iqr": 68.50780190200761,
     "p25": 28.183996991476832,
     "p75": 96.69179889348445,
-    "median": 47.78993402126142,
+    "median": 48.26195909653997,
     "n_priced": 34,
     "n_listings": 34,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
    },
    "dual_listing_premium": {
     "status": "partial",
-    "as_of": "2026-09-21T13:23:15.526822+00:00",
+    "as_of": "2026-09-21T14:36:30.928585+00:00",
     "pairs": [
      {
       "name": "YOFC",
@@ -234,29 +236,29 @@
    },
    "revision_persistence": {
     "status": "not_yet",
-    "why": "10 true-revision vintage dates on file across 32 listings, giving 0 week/four-week windows where 3 are needed. East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions; the weekly snapshot series that replaces it for those listings now covers 31 of them and grows by one date a week"
+    "why": "no window yet has 10 listings whose consensus moved; 3 windows were dropped for being too quiet"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-09-21T13:23:15.526822+00:00",
-    "iqr": 25.676111990320987,
-    "p25": 14.025292371423955,
-    "p75": 39.70140436174494,
-    "median": 20.25151525731482,
+    "as_of": "2026-09-21T14:36:30.928585+00:00",
+    "iqr": 25.721574523247735,
+    "p25": 14.020426359711568,
+    "p75": 39.7420008829593,
+    "median": 20.27635443806649,
     "n_priced": 26,
     "n_listings": 34,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
    },
    "dual_listing_premium": {
     "status": "partial",
-    "as_of": "2026-09-21T13:23:15.526822+00:00",
+    "as_of": "2026-09-21T14:36:30.928585+00:00",
     "pairs": [
      {
       "name": "CATL",
       "primary": "300750.SZ",
       "secondary": "3750.HK",
-      "primary_pe": 14.334403146524524,
-      "secondary_pe": 20.798640606275487,
+      "primary_pe": 14.314939099674973,
+      "secondary_pe": 20.770399059625134,
       "basis": "both lines on 300750.SZ's consensus for calendar 2026",
       "nm": null,
       "premium": -0.3108009596454364
@@ -576,15 +578,15 @@
    },
    "revision_persistence": {
     "status": "not_yet",
-    "why": "5 true-revision vintage dates on file across 30 listings, giving 0 week/four-week windows where 3 are needed. East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions; the weekly snapshot series that replaces it for those listings now covers 30 of them and grows by one date a week"
+    "why": "10 true-revision vintage dates on file across 30 listings, giving 0 week/four-week windows where 3 are needed. East Money's rebuilt series is excluded because its mean moves with broker coverage, not only with revisions; the weekly snapshot series that replaces it for those listings now covers 30 of them and grows by one date a week"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-09-21T13:23:15.526822+00:00",
-    "iqr": 12.213690321461215,
-    "p25": 19.066744438071876,
-    "p75": 31.28043475953309,
-    "median": 25.013108576439734,
+    "as_of": "2026-09-21T14:36:30.928585+00:00",
+    "iqr": 12.476235085520766,
+    "p25": 19.011274681008395,
+    "p75": 31.48750976652916,
+    "median": 24.959683700908325,
     "n_priced": 26,
     "n_listings": 30,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
