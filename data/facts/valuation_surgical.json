@@ -1,14 +1,14 @@
 {
- "generated_at": "2026-09-21T21:53:42.996874+00:00",
+ "generated_at": "2026-09-22T12:04:42.501920+00:00",
  "track": "surgical",
  "label": "Surgical robots",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-09-21T21:52:58+00:00",
+ "as_of_price": "2026-09-22T12:03:30+00:00",
  "as_of_estimates": "2026-09-21T21:53:03+00:00",
- "as_of_fx": "2026-09-11",
+ "as_of_fx": "2026-09-18",
  "n_listings": 8,
  "n_issuers": 8,
  "n_priced": 8,
@@ -17,12 +17,12 @@
  "n_nm": 2,
  "n_stale_prices": 0,
  "median_fwd_pe_this": 30.797880065624128,
- "median_fwd_pe_next": 28.24988215906957,
- "p25_fwd_pe_this": 18.740717239894295,
- "p75_fwd_pe_this": 122.24609215891746,
- "iqr_fwd_pe_this": 103.50537491902317,
+ "median_fwd_pe_next": 28.24557917519362,
+ "p25_fwd_pe_this": 18.736038799582108,
+ "p75_fwd_pe_this": 126.97506812094095,
+ "iqr_fwd_pe_this": 108.23902932135884,
  "median_growth": 0.10893571806617286,
- "median_trailing_pe": null,
+ "median_trailing_pe": 26.194254568879806,
  "cheapest": {
   "ticker": "MDT",
   "name": "Medtronic",
@@ -33,7 +33,7 @@
  "priciest": {
   "ticker": "2252.HK",
   "name": "MicroPort MedBot",
-  "fwd_pe_2026": 207.53383602121042,
+  "fwd_pe_2026": 207.13239283785956,
   "growth": 1.977202428685989,
   "coverage": "covered"
  },
@@ -108,12 +108,12 @@
   {
    "name": "Trailing basis",
    "status": "pass",
-   "detail": "0 of 8 listings use the last full fiscal year instead of a trailing twelve months, because no quarterly statement is published for them; the table marks which"
+   "detail": "3 of 8 listings use the last full fiscal year instead of a trailing twelve months, because no quarterly statement is published for them; the table marks which"
   },
   {
    "name": "Trailing earnings",
-   "status": "fail",
-   "detail": "no trailing financials for any of 8 listings, so the fundamentals layer is missing rather than the companies being unprofitable"
+   "status": "pass",
+   "detail": "2 of 8 listings have positive trailing profit; 4 have trailing financials at all"
   },
   {
    "name": "Dual-listing share base",
