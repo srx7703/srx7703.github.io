@@ -15,7 +15,7 @@ PAGES = sorted((Path(__file__).resolve().parents[1] / "site/src/content/projects
 
 ALLOW = [
     r"Rule of 40", r"Rule-of-40", r"\b40\b", r"\b80[–-]100 days\b", r"\b0\.5%", r"17:30 UTC", r"\b2[0-9]{3}\b",
-    r"\b(25|50)\+? bps\b", r"[−-]?(25|50)\b", r"\b10-[KQ]\b", r"\b8-K\b", r"20-F", r"S&amp;P 500", r"\b60-day\b",
+    r"\b(25|50)\+? bps\b", r"[−-]?(25|50)\b", r"\b10-[KQ]\b", r"\b8-K\b", r"20-F", r"510\(k\)", r"S&amp;P 500", r"\b60-day\b",
     r"\|z\| = 2", r"\b0\.5\b", r"\b1%\b", r"\b99%\b", r"\b2%\b", r"\b98%\b",
     r"\b(3|6|9)M\b", r"\bQ[1-4]\b", r"\bFY\b", r"\b95%\b", r"\b10 (probability )?bins\b", r"\b(top|Top)-?100\b",
     r"\b(five|four|three|two|one)\b", r"\b6-month\b", r"\bsix-month\b", r"\b(0\.95|0\.85|0\.70|0\.50)\b",

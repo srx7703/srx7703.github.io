@@ -78,6 +78,10 @@ TENDERS_DTYPES: dict[str, pl.DataType] = {
     "total_price_cny": pl.Float64,
     "award_date": pl.Utf8,
     "contract_kind": pl.Utf8,     # purchase | lease | maintenance — a lease fee is not a machine price
+    # Whether the award buys a complete clinical system. A teaching arm, a single component or a simulator
+    # has a price, and it is not the price of a robot; one such row at CNY 1.09m made the panel's spread
+    # look three times wider than it is.
+    "complete_system": pl.Boolean,
     "source_url": pl.Utf8,
     "last_checked": pl.Utf8,
     "caveat": pl.Utf8,
@@ -140,6 +144,7 @@ TENDERS_SCHEMA = pa.DataFrameSchema(
         # A leasing award names the leasing company as winner, leaves the brand blank and prints a multi-year
         # lease fee in the unit-price column. Recording the kind is what stops that fee entering an ASP series.
         "contract_kind": pa.Column(str, pa.Check.isin(["purchase", "lease", "maintenance"])),
+        "complete_system": pa.Column(bool),
         "award_date": _date,
         "source_url": _url,
         "caveat": pa.Column(str, pa.Check.str_length(1)),

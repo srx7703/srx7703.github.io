@@ -234,3 +234,64 @@ from the project's own data.
 ### Amendments to this section
 
 None yet.
+
+## Soft-tissue surgical robots (project F) — disclosure, utilisation and price
+
+One page, two pipelines (`pipelines/surgical/` for units, tenders, quota and clearances;
+`pipelines/valuation/` for the listed pool). One source is fetched and three are curated by hand.
+
+**What the history of this file does and does not prove.** This section was committed on 2026-09-21, the same
+day as the first run and the page. The rules were therefore not published before the data they score, and
+items 1 and 3 were written knowing the current values — which is exactly why each records an expected
+direction a later run can falsify. The guarantee is the same one the other sections offer: **fixed from the
+second run onward, amendments logged.**
+
+Items 1, 2 and 4 report from the first run. Item 3 needs a second year of tender awards, so it reports from
+September 2027. Item 5 needs a maker outside the current two to begin publishing, and may never report —
+which is itself the result.
+
+1. **A system-count share and a procedure share rank this pool differently.** For every company publishing
+   both, its share of disclosed installed systems against its share of disclosed procedures. Reported as the
+   two shares and the gap, per company per year.
+   Expected direction, recorded now so it can be wrong: the incumbent's procedure share exceeds its system
+   share, because its installed base is older and works harder. If the two converge to within 5 points, the
+   page's central argument that a system count is a poor description of this market is weakened and the
+   framing must change.
+
+2. **Utilisation separates the pool, and does not converge.** Procedures per installed system per year, per
+   product, and the ratio between the highest and the lowest.
+   Expected direction: the spread widens or holds. A narrowing spread would mean placement quality is
+   levelling and the incumbent's advantage is in installed base rather than in use, which is a different
+   investment case from the one this page describes.
+
+3. **Domestic Chinese award prices converge on the imported ones.** The ratio of the median domestic award
+   price to the median imported-system award price, by half-year, from the curated panel.
+   Expected direction: the discount narrows as domestic systems add configuration rather than cut price. If
+   it widens instead, the market is in a price war and the unit-share gains it produces are worth less than
+   they look. Registered threshold: measured on purchases only, excluding leases, service contracts, bundled
+   lots and any award whose unit price was derived by division; a half-year with fewer than five qualifying
+   awards on either side is reported as not scored rather than scored thinly.
+
+4. **The licence ceiling binds, or it does not.** Cumulative disclosed installed systems in China against the
+   819-system national permit ceiling, and the date any successor plan appears.
+   Expected direction: no successor plan is published during the scored period and the disclosed installed
+   base stays below the lapsed ceiling. A successor plan appearing, or the ceiling being exceeded without
+   one, both falsify the page's treatment of the quota as a live constraint.
+
+5. **Disclosure quality is itself tracked.** Per company per quarter, the count of distinct auditable unit
+   metrics published, as `publish.disclosure_scorecard` computes it.
+   Expected direction: the count does not improve. Nobody outside the two current disclosers starts
+   publishing units, and no diversified medtech begins reporting surgical robotics as a segment. If somebody
+   does, the page's central finding has a shelf life and the date it expired should be recorded.
+
+Registered thresholds, written here because a threshold living only in code sits outside the blob hash the
+page prints: item 1's convergence line is 5 percentage points; item 3 requires at least five qualifying
+awards per side per half-year and excludes the row classes named above; item 4's ceiling is the 819 figure in
+国卫财务发〔2023〕18号, which expired 2025-12-31; item 5 counts only the metrics in `config.UNIT_BASIS`.
+
+Scoring code will live in `pipelines/surgical/evaluate.py` and write to `data/marts/surgical/evaluation.json`.
+Until a scoring date arrives an item returns `{"status": "not_yet", "why": …}` built from the project's own data.
+
+### Amendments to this section
+
+None yet.

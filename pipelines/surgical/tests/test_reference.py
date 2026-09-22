@@ -35,7 +35,7 @@ def tender_row(**kw) -> dict:
         "notice_id": "ccgp-2026-09-09-changzhi", "hospital": "长治医学院附属和平医院", "province": "山西",
         "brand": "精锋", "model": "MP2000", "maker": "2675.HK", "quantity": 1.0,
         "unit_price_cny": 10980000.0, "total_price_cny": 10980000.0, "award_date": "2026-09-09",
-        "contract_kind": "purchase", "source_name": "中国政府采购网中标公告",
+        "contract_kind": "purchase", "complete_system": True, "source_name": "中国政府采购网中标公告",
         "source_url": "https://www.ccgp.gov.cn/x", "publish_date": "2026-09-09", "last_checked": "2026-09-21",
         "caveat": "One award at one hospital; coverage of this portal is a floor, not a national count.",
     }
@@ -203,3 +203,22 @@ def test_a_row_unchecked_for_too_long_is_flagged_stale_not_dropped():
     assert is_stale("2026-01-01", ref.SPEC, TODAY) is True
     assert is_stale("2026-09-01", ref.SPEC, TODAY) is False
     assert is_stale(None, ref.SPEC, TODAY) is True
+
+
+def test_an_award_that_is_not_a_complete_system_must_say_what_it_bought():
+    """One award at CNY 1.09m bought a teaching arm, and unguarded it made the panel's spread look 3x wider."""
+    got = problems("tenders", tender_row(complete_system=False, caveat="Cheap."))
+    assert any("what it actually bought" in p for p in got)
+
+
+def test_a_properly_explained_partial_award_is_accepted():
+    assert problems("tenders", tender_row(
+        complete_system=False, unit_price_cny=1_094_200,
+        caveat="This buys one research and teaching robotic arm, not a complete clinical platform, so the "
+               "figure is not what a hospital pays for a surgical robot.")) == []
+
+
+def test_complete_system_is_required():
+    row = tender_row()
+    del row["complete_system"]
+    assert "no complete_system" in problems("tenders", row)

@@ -40,7 +40,8 @@
    "publish_date": "2024-06-16",
    "last_checked": "2026-09-21",
    "caveat": "Reported at the time as the lowest da Vinci award price in China, so it is an outlier by construction and must not be used as a typical price. It is hardware only and excludes the instrument and service revenue that dominates da Vinci lifetime economics. This is a media report of the award, not the government award notice itself, so the exact configuration and any bundled terms are not visible.",
-   "curator_notes": "IS4000CN is the China-manufactured da Vinci variant produced through the Intuitive Fuxing (直观复星) joint venture, which is why the report frames it as 国产达芬奇 — relevant if you are classifying domestic versus imported share, since this unit would plausibly count either way depending on the tracker's rule."
+   "curator_notes": "IS4000CN is the China-manufactured da Vinci variant produced through the Intuitive Fuxing (直观复星) joint venture, which is why the report frames it as 国产达芬奇 — relevant if you are classifying domestic versus imported share, since this unit would plausibly count either way depending on the tracker's rule.",
+   "complete_system": true
   },
   {
    "notice_id": "819f9317f16da41d",
@@ -59,7 +60,8 @@
    "publish_date": "2024-06-16",
    "last_checked": "2026-09-21",
    "caveat": "A single award from December 2023, quoted inside a later article as the contrast case to the CNY 13m low — so it sits at the high end by construction, just as the Ruijin figure sits at the low end. Hardware only. Reported secondhand rather than from the award notice, and the configuration behind the price is not stated.",
-   "curator_notes": "The Gansu and Ruijin pair bracket a roughly CNY 13m to CNY 19.8m range for da Vinci awards across six months, which is worth keeping in mind before treating any single award as a reference price."
+   "curator_notes": "The Gansu and Ruijin pair bracket a roughly CNY 13m to CNY 19.8m range for da Vinci awards across six months, which is worth keeping in mind before treating any single award as a reference price.",
+   "complete_system": true
   },
   {
    "notice_id": "a43555724165fb36",
@@ -78,7 +80,8 @@
    "publish_date": "2024-07-26",
    "last_checked": "2026-09-21",
    "caveat": "Described by the source as the lowest domestic four-arm award price at the time, so again an extreme rather than a typical value. The source is a commercial procurement-data vendor's marketing page, not a government award notice, and the brand behind this particular award is not stated on the page. The page's exact publication date is not shown, so the 2024 period is inferred from the award date it reports.",
-   "curator_notes": "The same page carries per-vendor average award prices that are useful for orientation but should be treated as vendor-tracker estimates rather than verified aggregates: 图迈 CNY 15.205m, 精锋 CNY 15.066m, 康多 CNY 10.67m. It also gives 2023 unit counts of da Vinci 36, 上海微创 11, 精锋 5, 康多 5."
+   "curator_notes": "The same page carries per-vendor average award prices that are useful for orientation but should be treated as vendor-tracker estimates rather than verified aggregates: 图迈 CNY 15.205m, 精锋 CNY 15.066m, 康多 CNY 10.67m. It also gives 2023 unit counts of da Vinci 36, 上海微创 11, 精锋 5, 康多 5.",
+   "complete_system": true
   },
   {
    "notice_id": "8ff9da543c9b750d",
@@ -97,7 +100,8 @@
    "publish_date": "2023-06-25",
    "last_checked": "2026-09-21",
    "caveat": "A single award at a single Class-III Grade-A hospital in December 2022, not a list price and not an average. FOUR YEARS OLD as of today — the same source series shows the market average has since fallen sharply. Configuration behind this particular award is not itemised.",
-   "curator_notes": "Prospectus footnote states 信息来源于中国政府采购网, i.e. the state procurement portal, reproduced inside an SSE filing."
+   "curator_notes": "Prospectus footnote states 信息来源于中国政府采购网, i.e. the state procurement portal, reproduced inside an SSE filing.",
+   "complete_system": true
   },
   {
    "notice_id": "460d2694f56ebd13",
@@ -116,7 +120,8 @@
    "publish_date": "2023-06-25",
    "last_checked": "2026-09-21",
    "caveat": "A tier-3 non-Grade-A hospital paying RMB15.0m, RMB1.9m less than the Grade-A hospital three days later. One pair of observations is not a tier discount curve. December 2022 vintage.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "2ecf6e8aa96b4f89",
@@ -135,7 +140,8 @@
    "publish_date": "2023-06-25",
    "last_checked": "2026-09-21",
    "caveat": "THIS IS NOT A ROBOT PRICE. The RMB25.98m is a BUNDLE total covering one laparoscopic system plus one knee-replacement navigation system plus two 3D HD laparoscopes. Anyone quoting RMB25.98m as a Toumai price is wrong. Included here precisely because bundled awards are the main way headline tender prices get inflated. This award bundles more than one device type, so the figure is a package price, not a robot's unit price.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "5b733b3ccf620a6a",
@@ -154,7 +160,8 @@
    "publish_date": "2023-06-25",
    "last_checked": "2026-09-21",
    "caveat": "The most usable row in the table because its configuration IS itemised — console, patient cart, imaging platform, two 3D endoscopes, light source, electrosurgical unit and footswitches. Still a single December 2022 award at one Class-III Grade-A hospital. Edge's own first NMPA approval was December 2022, so this is close to its first commercial award.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "c59248116ded2e97",
@@ -173,7 +180,8 @@
    "publish_date": "2026-09-09",
    "last_checked": "2026-09-21",
    "caveat": "This is one hospital's award price, not a list price and not a national ASP. The notice does not say how many arms, whether a second console is included, how many instruments ship with it, or how long the warranty runs — so it is not comparable to another MP2000 award without those unknowns.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "25d134068a1a79be",
@@ -192,7 +200,8 @@
    "publish_date": "2026-07-17",
    "last_checked": "2026-09-21",
    "caveat": "The model is written IS4000, not IS4000CN — the notice does not say whether this is the imported or the China-manufactured build. Configuration and instrument count are not disclosed, so this is not a da Vinci list price.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "b526e5205e43c0a6",
@@ -211,7 +220,8 @@
    "publish_date": "2026-05-22",
    "last_checked": "2026-09-21",
    "caveat": "This is a provincial volume-tender unit price for two machines bought together, which is why it is the lowest 精锋 price in the panel. It is not what a single hospital buying one unit pays — compare it only to other bulk awards. This award bundles more than one device type, so the figure is a package price, not a robot's unit price. Unit price derived by dividing the award total by 2 units, not a disclosed per-unit figure.",
-   "curator_notes": "Same notice: 分标1 (广西壮族自治区肿瘤防治研究所) was 废标 for fewer than three valid suppliers."
+   "curator_notes": "Same notice: 分标1 (广西壮族自治区肿瘤防治研究所) was 废标 for fewer than three valid suppliers.",
+   "complete_system": true
   },
   {
    "notice_id": "df385c4b2daa62cb",
@@ -230,7 +240,8 @@
    "publish_date": "2026-05-22",
    "last_checked": "2026-09-21",
    "caveat": "At CNY 5.5M this is the cheapest soft-tissue robot award in the panel and sits well below the same vendor's other SR2000 awards (8.83M–11.9M). It is a provincial volume tender, so it is a floor price, not a normal single-hospital price. This award bundles more than one device type, so the figure is a package price, not a robot's unit price.",
-   "curator_notes": "康多 Kangduo is 哈尔滨思哲睿 Sizherui — a different company from 康诺思腾 Cornerstone Robotics."
+   "curator_notes": "康多 Kangduo is 哈尔滨思哲睿 Sizherui — a different company from 康诺思腾 Cornerstone Robotics.",
+   "complete_system": true
   },
   {
    "notice_id": "c975d46a44ec435d",
@@ -249,7 +260,8 @@
    "publish_date": "2026-09-15",
    "last_checked": "2026-09-21",
    "caveat": "At 13.2M this is near the bottom of the da Vinci band in this panel, which almost certainly reflects a leaner configuration rather than a price cut. The notice discloses no arm count, console count, or instrument package.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "cee52b4f6e5a5f04",
@@ -268,7 +280,8 @@
    "publish_date": "2026-08-26",
    "last_checked": "2026-09-21",
    "caveat": "Direct award to the manufacturer with no distributor in between, which may not be how the same vendor prices through a dealer. Configuration is not disclosed.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "88e67beaa616d1f6",
@@ -287,7 +300,8 @@
    "publish_date": "2026-08-13",
    "last_checked": "2026-09-21",
    "caveat": "This is NOT an MT-4000 machine price. The 16.3M is a bundle: the robot plus ten 微觅 3D endoscopes (5x 3DELF00L, 5x 3DELF30L). The notice gives no split, so the robot alone costs less than this figure.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "8b471cdde22c11c8",
@@ -306,7 +320,8 @@
    "publish_date": "2026-07-21",
    "last_checked": "2026-09-21",
    "caveat": "The lowest MT-4000 award in the panel and roughly 40% under the 淄博 MT-4000 bundle. Nothing in the notice explains the gap, so do not read it as a price cut — configuration is undisclosed.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "43501f99565f221b",
@@ -325,7 +340,8 @@
    "publish_date": "2026-07-02",
    "last_checked": "2026-09-21",
    "caveat": "This is the only MT-4000Plus award located. It is not the CNY 10,060,000 MT-4000Plus figure the brief expected — that award was not found on this site, so the two should not be treated as the same transaction.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "e911909fa7fd0472",
@@ -344,7 +360,8 @@
    "publish_date": "2026-09-09",
    "last_checked": "2026-09-21",
    "caveat": "The notice prints no 品牌 column — SR2000 is read as 康多/思哲睿 from the model string alone, which the document does not confirm. The 6.5M is the robot line only; the contract total of 7.195M also buys a C-arm.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "05950342347a6e46",
@@ -363,7 +380,8 @@
    "publish_date": "2026-02-10",
    "last_checked": "2026-09-21",
    "caveat": "14,950,000 recurs three times in this panel across different hospitals and provinces, which suggests a distributor quoting convention rather than three independent price discoveries. Configuration is undisclosed.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "7680f1501f3b5a2b",
@@ -382,7 +400,8 @@
    "publish_date": "2026-02-04",
    "last_checked": "2026-09-21",
    "caveat": "Package 2 only. Package 1 of the same project number bought an Olympus LTF-190-10-3D scope for 626,300 and is not a robot — do not add the two packages together as a robot price.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "074e0cbefcfe8c68",
@@ -401,7 +420,8 @@
    "publish_date": "2026-01-28",
    "last_checked": "2026-09-21",
    "caveat": "The brand and model are NOT in the notice — they sit in an attachment. That the winner is Intuitive Fosun's own China entity implies a da Vinci, but the document does not say so, and Intuitive Fosun also distributes Ion. Treat the model as unread.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "b559a0c974e2281b",
@@ -420,7 +440,8 @@
    "publish_date": "2025-12-29",
    "last_checked": "2026-09-21",
    "caveat": "The (二次) suffix means the first tender round failed — this is a re-run, so the price already reflects one failed attempt. Same 14,950,000 figure and same distributor as two other awards in the panel.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "1f8b0bc170e19f53",
@@ -439,7 +460,8 @@
    "publish_date": "2025-12-31",
    "last_checked": "2026-09-21",
    "caveat": "Direct manufacturer award with no distributor margin, unlike most 精锋 rows here. Configuration undisclosed.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "f25d20c98500ea91",
@@ -458,7 +480,8 @@
    "publish_date": "2025-12-16",
    "last_checked": "2026-09-21",
    "caveat": "Brand and model are not in the notice at all — they are behind a bid-detail attachment. The 8.65M is a contract total and it is not even certain from the HTML that a robot rather than a conventional laparoscopy tower was bought.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "2898b36e701a91df",
@@ -477,7 +500,8 @@
    "publish_date": "2025-12-05",
    "last_checked": "2026-09-21",
    "caveat": "Same hospital ran a separate orthopaedic robot tender four days later — do not conflate the two awards. Configuration undisclosed.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "8588783c8422c21e",
@@ -496,7 +520,8 @@
    "publish_date": "2025-11-18",
    "last_checked": "2026-09-21",
    "caveat": "22M is near the top of the da Vinci band and 69% above the cheapest IS4000CN award here. The notice gives no configuration, so the premium cannot be attributed to dual console, extra arms, or an instrument package.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "98ebcd248912018f",
@@ -515,7 +540,8 @@
    "publish_date": "2026-05-20",
    "last_checked": "2026-09-21",
    "caveat": "The same 唯精 WJ-SR01-200 sold to 邵逸夫医院 for 12.0M three months later — a 46% gap on an identical model string. Neither notice discloses configuration, so this figure is not a WJ-SR01-200 ASP.",
-   "curator_notes": "唯精医疗 Weijing was not on the brief's vendor list; it is a live domestic soft-tissue competitor worth adding."
+   "curator_notes": "唯精医疗 Weijing was not on the brief's vendor list; it is a live domestic soft-tissue competitor worth adding.",
+   "complete_system": true
   },
   {
    "notice_id": "1633df320acabc5c",
@@ -534,7 +560,8 @@
    "publish_date": "2026-04-01",
    "last_checked": "2026-09-21",
    "caveat": "Publication date is 2026-04-01 but the notice itself is dated 2026-03-31 — use the award as a Q1-2026 event, not Q2. Configuration undisclosed.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "5a64ec414ec2c806",
@@ -553,7 +580,8 @@
    "publish_date": "2026-03-13",
    "last_checked": "2026-09-21",
    "caveat": "Bought through a third-party distributor rather than Intuitive Fosun directly, so the figure carries a dealer margin of unknown size. Configuration undisclosed.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "f5df78786430fa97",
@@ -572,7 +600,8 @@
    "publish_date": "2026-09-01",
    "last_checked": "2026-09-21",
    "caveat": "The 「等」 in both the brand and model cells means other items are bundled into the 16,965,000 and the notice does not itemise them. This is the highest 精锋 figure in the panel precisely because it is not a machine-only price.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "e3dcf090c17c3ad1",
@@ -591,7 +620,8 @@
    "publish_date": "2026-07-16",
    "last_checked": "2026-09-21",
    "caveat": "Not a machine-only price: the 10.8M explicitly bundles three years of operations and maintenance service. Brand and model are in an attachment, not the notice.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "ab3a15dd36bbebf8",
@@ -610,7 +640,8 @@
    "publish_date": "2026-06-26",
    "last_checked": "2026-09-21",
    "caveat": "Distributor award, so a dealer margin of unknown size is inside this number. Configuration undisclosed.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "72cd87057d36bed9",
@@ -629,7 +660,8 @@
    "publish_date": "2026-05-11",
    "last_checked": "2026-09-21",
    "caveat": "Highest MT-4000 award in the panel outside the 淄博 bundle and 65% above the 苏州九院 MT-4000. Nothing in the notice explains the spread.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "604a05003cd1aaf1",
@@ -648,7 +680,8 @@
    "publish_date": "2026-04-16",
    "last_checked": "2026-09-21",
    "caveat": "Project number carries a 2025 sequence while the award published in 2026 — the procurement cycle straddles two budget years, so this is not a clean 2026 price point. Configuration undisclosed.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "ec366bba8db141cc",
@@ -667,7 +700,8 @@
    "publish_date": "2026-03-16",
    "last_checked": "2026-09-21",
    "caveat": "The only single-port robot award found in the whole panel. One data point is not a single-port price level, and the notice does not describe the configuration.",
-   "curator_notes": "SP1000 is 精锋's single-port platform; 单孔手术机器人 as a search term returns zero hits, so single-port awards are only reachable via generic keywords."
+   "curator_notes": "SP1000 is 精锋's single-port platform; 单孔手术机器人 as a search term returns zero hits, so single-port awards are only reachable via generic keywords.",
+   "complete_system": true
   },
   {
    "notice_id": "b073d27d8d972158",
@@ -686,7 +720,8 @@
    "publish_date": "2025-12-26",
    "last_checked": "2026-09-21",
    "caveat": "Third occurrence of exactly 14,950,000 in this panel, from a different distributor and province. Repetition points to a quoting convention, so do not treat the three as independent observations of market price.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "2a140b9f22865219",
@@ -705,7 +740,8 @@
    "publish_date": "2025-09-26",
    "last_checked": "2026-09-21",
    "caveat": "Direct award from Intuitive Fosun with no distributor, yet still 43% above the cheapest IS4000CN in the panel — so distributor margin does not explain the da Vinci price spread. Configuration undisclosed.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "239d2a6b1d8352e2",
@@ -724,7 +760,8 @@
    "publish_date": "2025-12-30",
    "last_checked": "2026-09-21",
    "caveat": "Bought by the teaching office (教办) for a telesurgery/teaching configuration, not a routine clinical theatre install. At 11.0M it is double the same vendor's 玉林 award, so it should not be averaged into a clinical SR2000 price.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "fe56b1b7831f5a15",
@@ -743,7 +780,8 @@
    "publish_date": "2025-12-13",
    "last_checked": "2026-09-21",
    "caveat": "ENDOLUMINAL AND NOT A CLINICAL SYSTEM. This buys one research/teaching robotic arm, not a complete navigated-bronchoscopy platform. At CNY 1.09M it is an order of magnitude below every other row and must be excluded from any price average or Ion comparison.",
-   "curator_notes": "朗合医疗 Longwood is the nearest domestic analogue to Intuitive Ion; no clinical Ion or Monarch award was found anywhere on ccgp."
+   "curator_notes": "朗合医疗 Longwood is the nearest domestic analogue to Intuitive Ion; no clinical Ion or Monarch award was found anywhere on ccgp.",
+   "complete_system": false
   },
   {
    "notice_id": "8f5ac222ff1fbb2c",
@@ -762,7 +800,8 @@
    "publish_date": "2025-12-05",
    "last_checked": "2026-09-21",
    "caveat": "MP1000 is 精锋's earlier four-arm platform, not MP2000 — this is the cheapest 精锋 award in the panel because of the generation, not because of a discount. Package 1 of the same contract is a CT scanner and must not be added.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "78095354b7096675",
@@ -781,7 +820,8 @@
    "publish_date": "2025-12-05",
    "last_checked": "2026-09-21",
    "caveat": "The 「等」 after MT-4000 means unlisted items are inside the 12.8M, so this is not a machine-only price. Full technical detail sits in an attachment the notice does not reproduce.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "4766acce5be996b6",
@@ -800,7 +840,8 @@
    "publish_date": "2025-12-23",
    "last_checked": "2026-09-21",
    "caveat": "Distributor award at nearly double the same vendor's 玉林 provincial-tender price for the same SR2000 model. The gap is unexplained in either notice, so neither figure is an SR2000 ASP.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "36f31c32a42f3700",
@@ -819,7 +860,8 @@
    "publish_date": "2026-09-15",
    "last_checked": "2026-09-21",
    "caveat": "Brand and model are not disclosed in the notice — both cells point to a pricing attachment. The price is real but the row cannot be assigned to a vendor.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "ddf7eb70019d8331",
@@ -838,7 +880,8 @@
    "publish_date": "2026-08-24",
    "last_checked": "2026-09-21",
    "caveat": "The project name says 「及附件」 — accessories are inside the 12.0M and are not itemised, which is part of why this sits 46% above the identical model at 威海市立医院. Not a machine-only price.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "5ec87e7347743744",
@@ -857,7 +900,8 @@
    "publish_date": "2026-08-14",
    "last_checked": "2026-09-21",
    "caveat": "The lowest da Vinci award in the panel, and the （三次） suffix says two earlier rounds failed first — the price reflects a third attempt, not a normal first-pass award.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "5dc677974c2daac4",
@@ -876,7 +920,8 @@
    "publish_date": "2026-08-12",
    "last_checked": "2026-09-21",
    "caveat": "Direct manufacturer award at 18.15M in the same province and same quarter as the 浙江省人民医院 award at 13.2M for the same model string — a 38% intra-province, intra-quarter gap that the notices do not explain.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "f5d29126e9cd5c29",
@@ -895,7 +940,8 @@
    "publish_date": "2025-12-19",
    "last_checked": "2026-09-21",
    "caveat": "Includes at least 36 months of free warranty, so part of this price is prepaid service, not hardware. Second tender round after a failed first.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "545a0c2d7fb95d72",
@@ -914,7 +960,8 @@
    "publish_date": "2025-12-03",
    "last_checked": "2026-09-21",
    "caveat": "A distributor award with no configuration detail. The un-rounded figure suggests a bid price rather than a catalogue price.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "82218f09dc4afb56",
@@ -933,7 +980,8 @@
    "publish_date": "2026-01-21",
    "last_checked": "2026-09-21",
    "caveat": "Won by a general trading company rather than a medical-device distributor, which may affect what service is bundled. Configuration undisclosed.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "11ade60afa9b1415",
@@ -952,7 +1000,8 @@
    "publish_date": "2025-10-17",
    "last_checked": "2026-09-21",
    "caveat": "The single highest award in the panel — 2.3x the cheapest IS4000CN — yet the notice prints quantity 1 and gives no configuration. Something unstated (dual console, paediatric instrument set, capital-project scope) is inside this figure; do not use it as a da Vinci ceiling price.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "306f44cd3c417fd7",
@@ -971,7 +1020,8 @@
    "publish_date": "2025-12-04",
    "last_checked": "2026-09-21",
    "caveat": "The 「等」 on MP2000Apex means unlisted extras are bundled in. MP2000Apex is a distinct configuration from plain MP2000, so this should not be pooled with the MP2000 rows.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "0991056203874f76",
@@ -990,7 +1040,8 @@
    "publish_date": "2025-09-29",
    "last_checked": "2026-09-21",
    "caveat": "Explicitly NOT a robot price: the 18.49M also buys a low-temperature plasma steriliser and an automatic washer. The notice gives no line-item split, so the da Vinci portion is unknown and smaller.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "15cfe808771abafb",
@@ -1009,7 +1060,8 @@
    "publish_date": "2025-11-12",
    "last_checked": "2026-09-21",
    "caveat": "Same Shanghai distributor sold an IS4000CN to 同仁医院 for 22.0M six days later. Two awards, one dealer, one city, one week apart, a 69% gap — which is the clearest evidence in this panel that these figures are configuration-dependent, not prices.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "4dbd962243d64829",
@@ -1028,7 +1080,8 @@
    "publish_date": "2025-10-13",
    "last_checked": "2026-09-21",
    "caveat": "SA-1000 is a different 微创 platform from the MT series and appears only once in this panel — the notice does not say what it is, so do not assume port count or indication. Configuration undisclosed.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "436c3a5743fb8b74",
@@ -1047,7 +1100,8 @@
    "publish_date": "2026-03-30",
    "last_checked": "2026-09-21",
    "caveat": "The notice states no model and no surgical specialty — the 规格型号 cell is literally a slash. This row cannot be confirmed as soft-tissue from the document, and 佗道 also sells orthopaedic platforms. Keep it out of any soft-tissue price average until the attachment is read.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "b35600d328c19903",
@@ -1066,7 +1120,8 @@
    "publish_date": "2025-12-27",
    "last_checked": "2026-09-21",
    "caveat": "The notice contradicts itself: the headline award amount is 13,660,000 but the line-item table says 12,880,360, a 779,640 gap. The table figure is used here because it is the itemised robot line; the contract total is the larger number.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "62a61ef4ee076600",
@@ -1085,7 +1140,8 @@
    "publish_date": "2025-11-18",
    "last_checked": "2026-09-21",
    "caveat": "The only 瑞龙诺赋 Ronovo award found in the entire search. One award at a provincial cancer centre is a beachhead, not a price level or a share position.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "c2ec89c438c036b6",
@@ -1104,7 +1160,8 @@
    "publish_date": "2025-11-07",
    "last_checked": "2026-09-21",
    "caveat": "The highest SR2000 award in the panel, 2.2x the 玉林 provincial-tender price for the same model. A top-tier teaching hospital paying the most for the cheapest-positioned domestic brand shows these figures track configuration and buyer, not vendor list price.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "4e844beab4f58d4f",
@@ -1123,7 +1180,8 @@
    "publish_date": "2025-10-11",
    "last_checked": "2026-09-21",
    "caveat": "Second-highest da Vinci award in the panel at a round 21.0M. Round numbers in these tables usually mean a contract cap rather than a computed unit price. Configuration undisclosed.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "29e562f4e62893ea",
@@ -1142,7 +1200,8 @@
    "publish_date": "2025-11-07",
    "last_checked": "2026-09-21",
    "caveat": "This is the rare notice where the robot line (12,077,000) is separable from the contract total (17,600,000) — the extra 5.52M buys unlisted items. Most rows in this panel do not offer that split, which is why headline award amounts systematically overstate machine prices.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "80eef13f148cc481",
@@ -1161,7 +1220,8 @@
    "publish_date": "2025-07-14",
    "last_checked": "2026-09-21",
    "caveat": "A paediatric hospital, but the notice does not indicate any paediatric-specific configuration or instrument set. Configuration undisclosed.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "9162bc7272ba686a",
@@ -1180,7 +1240,8 @@
    "publish_date": "2025-07-11",
    "last_checked": "2026-09-21",
    "caveat": "No 品牌 column is printed; MP2000 is read as 精锋 from the model string alone. At 14.96M this is the highest plain-MP2000 award in the panel, 36% above the same model at 长治和平.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "2fde7b3d423ff5a3",
@@ -1199,7 +1260,8 @@
    "publish_date": "2025-06-17",
    "last_checked": "2026-09-21",
    "caveat": "This is a contract total, not a printed unit price — the notice leaves the 单价 cell empty. At 27.0M for quantity 1 it is the second-highest award here and almost certainly includes an instrument or service package the document does not list.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "1fcd4b69f748dc17",
@@ -1218,7 +1280,8 @@
    "publish_date": "2024-12-10",
    "last_checked": "2026-09-21",
    "caveat": "KD-SR-01 is the earlier 康多 platform, not SR2000 — keep the two generations separate. This is a late-2024 award, so it predates the 2025-26 pricing in most of this panel.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "75f67127cca14bac",
@@ -1237,7 +1300,8 @@
    "publish_date": "2024-11-18",
    "last_checked": "2026-09-21",
    "caveat": "An MT-1000 at 14.9M in late 2024 versus the same MT-1000 at 10.28M in the Guangdong provincial tender ten months later. That is the clearest domestic price-erosion signal in the panel, but two points do not make a trend line.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   },
   {
    "notice_id": "84a596f751a645c7",
@@ -1256,7 +1320,8 @@
    "publish_date": "2025-09-09",
    "last_checked": "2026-09-21",
    "caveat": "Awarded single-source after competitive procurement failed, so there was no price competition behind this number at all. It is the least market-tested figure in the panel.",
-   "curator_notes": ""
+   "curator_notes": "",
+   "complete_system": true
   }
  ]
 }

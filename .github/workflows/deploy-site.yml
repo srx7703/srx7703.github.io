@@ -11,7 +11,7 @@ on:
   # protection against publishing a blanked page lives on the writing side instead — a publish step
   # refuses to replace a good facts file with an emptier one, so there is nothing bad to deploy.
   workflow_run:
-    workflows: [snapshot-predmarkets, refresh-weekly, valuation, power]
+    workflows: [snapshot-predmarkets, refresh-weekly, valuation, power, surgical]
     types: [completed]
   workflow_dispatch:
 

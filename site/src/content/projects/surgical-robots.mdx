@@ -1,0 +1,395 @@
+---
+title: "Surgical robots: what the disclosure gap hides, and what a hospital actually pays"
+summary: "Soft-tissue surgical robots counted the only way free sources allow: who publishes units, how hard those machines work, what Chinese hospitals paid for 65 of them, and why almost none of this pool has a price-earnings ratio."
+status: live
+domain: ["medtech", "equities"]
+tools: ["Python", "Polars", "openFDA", "SEC EDGAR", "HKEXnews", "上交所", "中国政府采购网", "Vega-Lite", "GitHub Actions"]
+featured: true
+order: 4
+started: "2026-09-21"
+---
+import facts from '@data/facts/surgical.json';
+import KpiRow from '@components/KpiRow.astro';
+import KpiTile from '@components/KpiTile.astro';
+import ChartCard from '@components/ChartCard.astro';
+import VegaChart from '@components/VegaChart.astro';
+import SourceStamp from '@components/SourceStamp.astro';
+import Section from '@components/Section.astro';
+import DataQuality from '@components/DataQuality.astro';
+import DataTable from '@components/DataTable.astro';
+import FilterBar from '@components/FilterBar.astro';
+import DownloadCsv from '@components/DownloadCsv.astro';
+import Sidenote from '@components/Sidenote.astro';
+import Appendix from '@components/Appendix.astro';
+import { evaluationPlan } from '@lib/prereg';
+import { disclosureSpec } from '@charts/surgical/disclosure';
+import { utilisationSpec } from '@charts/surgical/utilisation';
+import { tenderPriceSpec, pricedPurchases, makerName } from '@charts/surgical/tender_prices';
+import { installedBaseSpec } from '@charts/surgical/installed_base';
+import { pct, dateUtc } from '@lib/fmt';
+export const valFiles = import.meta.glob('../../../../data/facts/valuation_surgical.json', { eager: true, import: 'default' });
+export const valuation = Object.values(valFiles)[0] ?? null;
+export const poolFiles = import.meta.glob('../../../../data/marts/valuation/surgical_companies.json', { eager: true, import: 'default' });
+export const pool = Object.values(poolFiles)[0] ?? [];
+export const plan = evaluationPlan();
+export const cny = (v) => (v == null ? '—' : `CNY ${(v / 1e6).toFixed(2)}m`);
+export const n = (v) => (v == null ? '—' : v.toLocaleString());
+export const generatedAt = dateUtc(facts.generated_at);
+export const disc = facts.disclosure;
+export const ib = facts.units.installed_base;
+export const util = facts.units.utilisation;
+export const tenders = facts.tenders;
+export const quota = facts.quota;
+export const clear = facts.clearances;
+// Everything the prose asserts is counted here, from the facts, so a sentence cannot drift from its table.
+export const t1 = disc.rows.filter((r) => r.tier === 'T1');
+export const silent = disc.rows.filter((r) => r.n_metrics === 0);
+export const silentListed = silent.filter((r) => r.listed);
+export const leader = ib.rows[0];
+export const challengers = ib.rows.slice(1);
+export const challengerTotal = challengers.reduce((s, r) => s + r.value, 0);
+export const davinci = util.filter((u) => u.product === 'da Vinci').sort((a, b) => a.year.localeCompare(b.year));
+export const dvLatest = davinci[davinci.length - 1];
+export const procept = util.find((u) => u.maker === 'PRCT');
+export const utilRatio = dvLatest && procept ? dvLatest.procedures_per_system / procept.procedures_per_system : null;
+export const priced = pricedPurchases(tenders.rows);
+export const makerStats = Object.entries(tenders.by_maker).map(([name, s]) => ({ name, ...s }));
+export const dearest = makerStats[0];
+export const cheapest = [...makerStats].sort((a, b) => a.median - b.median)[0];
+export const priceSpread = dearest && cheapest ? dearest.median / cheapest.median : null;
+export const quotaRows = [...(quota.rows ?? [])].map((r) => ({ ...r, headroom: r.permitted_total - r.newly_added }));
+export const newCodes = Object.entries(clear.product_codes).filter(([c]) => ['SAQ', 'SCV', 'SDD', 'SIR'].includes(c));
+export const newCodeCount = newCodes.reduce((s, [c]) => s + (clear.by_product_code[c] ?? 0), 0);
+export const legacyCount = clear.by_product_code.NAY ?? 0;
+export const scorecardRows = disc.rows.map((r) => ({
+  name: r.status ? `${r.name} (${r.status})` : r.name,
+  tier: r.tier, tier_label: r.tier_label, region: r.region,
+  products: r.products.join(', '),
+  publishes: r.metrics_published.join(', ') || 'nothing',
+  latest: r.latest_period ?? '—',
+}));
+export const tenderRows = priced.map((r) => ({
+  hospital: r.hospital, province: r.province, brand: r.brand, model: r.model,
+  maker: makerName(r.maker, r.brand),
+  price_m: r.unit_price_cny / 1e6, quantity: r.quantity, award_date: r.award_date, caveat: r.caveat,
+}));
+export const utilRows = util.map((u) => ({
+  name: u.name, product: u.product, year: u.year,
+  geography: u.geography === 'us' ? 'United States only' : 'Worldwide',
+  procedures: u.procedures, installed_base: u.installed_base, per_system: u.procedures_per_system,
+}));
+export const poolRows = pool.map((c) => ({
+  name: c.name, ticker: c.ticker, purity: c.purity,
+  pe: c.fwd_pe_2026, nm: c.fwd_pe_2026_nm, cap: c.market_cap,
+}));
+export const withPe = poolRows.filter((c) => c.pe != null);
+// A nominal multiple on a company scraping breakeven is not a valuation signal. The page counts a PE as
+// meaningful only below this, and says so rather than quietly dropping the 150x and 207x rows.
+export const PE_MEANINGFUL = 100;
+export const pureplays = poolRows.filter((c) => c.purity === 'high');
+export const realPe = pureplays.filter((c) => c.pe != null && c.pe < PE_MEANINGFUL);
+export const nominalPe = pureplays.filter((c) => c.pe != null && c.pe >= PE_MEANINGFUL);
+export const utilSentence = [
+  dvLatest && `da Vinci ran ${dvLatest.procedures_per_system.toFixed(0)} procedures per system in ${dvLatest.year}`,
+  procept && `against ${procept.procedures_per_system.toFixed(0)} for Procept in the United States`,
+  utilRatio && `a ${utilRatio.toFixed(1)}-fold difference`,
+].filter(Boolean).join(', ');
+export const priceSentence = `${tenders.n_purchases} Chinese hospital awards give a median of ${cny(tenders.overall.median)} per system and a range from ${cny(tenders.overall.min)} to ${cny(tenders.overall.max)}`;
+
+<div class="lede">
+  <p>
+    Twenty-one companies sell a soft-tissue surgical robot. {disc.n_disclosing} of them publish any unit figure
+    at all, and only {t1.length} publish one on a schedule you could build a series
+    from.<Sidenote>Intuitive Surgical and Procept BioRobotics. Everything else on this page that looks like a
+    time series comes from those two, from a Chinese listing rule, or from a prospectus filed once.</Sidenote>
+    {silentListed.length} of the silent ones are listed companies that sell a robot and report no segment for
+    it, so a reader working only from American filings sees a market with one company in it.
+  </p>
+  <p>
+    That gap is this page's subject. What survives it is narrow and, I think, more useful than a market-share
+    pie: how hard each installed machine actually works, and what a hospital actually paid. On the first,
+    {' '}{utilSentence}. On the second, {priceSentence}.
+  </p>
+</div>
+
+<KpiRow>
+  <KpiTile label="Makers publishing any unit figure" value={`${disc.n_disclosing} of ${disc.n_makers}`} sub={`${disc.n_silent} publish none; ${silentListed.length} of those are listed`} />
+  <KpiTile label="da Vinci procedures per system" value={dvLatest ? dvLatest.procedures_per_system.toFixed(0) : '—'} sub={dvLatest ? `in ${dvLatest.year}, worldwide` : ''} />
+  <KpiTile label="Median Chinese award price" value={cny(tenders.overall.median)} sub={`${tenders.n_purchases} priced awards; ${tenders.n_partial} excluded as not a complete system`} />
+  <KpiTile label="Pure-plays with a usable PE" value={`${realPe.length} of ${pureplays.length}`} sub={`${nominalPe.length} price above ${PE_MEANINGFUL}x on near-breakeven earnings; the rest are loss-making or suspended`} />
+</KpiRow>
+
+<Section id="disclosure" title="Almost nobody tells you how many they sold" wide>
+
+The companies in this pool fall into five tiers by what they disclose, and the tiers do not follow size or
+nationality. They follow the rules each company is bound by. Hong Kong and Shanghai listing rules compel a
+unit table that no American filer produces, so the Chinese challengers publish more about their shipments
+than Medtronic or Johnson & Johnson publish about theirs.
+
+<ChartCard size="full" title={`${disc.n_silent} of ${disc.n_makers} makers publish no unit figure at all`} subtitle="Count of distinct auditable unit metrics each company publishes: installed base, placements, procedures, production, units sold or orders. Faded bars are companies at zero.">
+  <VegaChart id="surg-disclosure" spec={disclosureSpec(disc.rows)} height={430} ariaLabel="Bar chart of how many unit metrics each surgical robot maker publishes" />
+  <SourceStamp slot="stamp" sources={[facts.sources[1], facts.sources[2]]} asOf={generatedAt} note="a company at zero is drawn at zero only on this chart, where zero means it tells nobody" />
+</ChartCard>
+
+<p>
+  Zero is drawn here and nowhere else on the page. On any other chart a company with no disclosure is absent,
+  because a bar at zero on an installed-base chart reads as "sells none" rather than "says nothing". This is
+  the one chart where zero is the measurement.
+</p>
+
+<DataTable id="scorecard" caption="Every maker in scope, what it sells and what it discloses" columns={[
+  { key: 'name', label: 'Company' },
+  { key: 'tier_label', label: 'Disclosure regime' },
+  { key: 'region', label: 'Home market' },
+  { key: 'products', label: 'Products' },
+  { key: 'publishes', label: 'Publishes' },
+  { key: 'latest', label: 'Latest' },
+]} rows={scorecardRows} />
+<DownloadCsv filename="surgical-disclosure-scorecard.csv" rows={scorecardRows} />
+
+</Section>
+
+<Section id="installed" title="What the disclosing companies say they have installed">
+
+Five companies published an installed base. Their numbers are below, and the share beside each one is a share
+of those five, not of the market. No free source gives total installed systems worldwide and none gives China
+at all, so a market share would have to be invented.<Sidenote>The denominator problem is worse than it looks.
+Intuitive publishes no geographic split of its installed base anywhere, and its China joint venture is
+unlisted, so even the country breakdown that every commentator quotes has no primary source behind
+it.</Sidenote>
+
+{ib.mixed_geography && (
+  <p>
+    These figures also do not share a world. {ib.rows.filter((r) => r.geography === 'us').map((r) => r.name).join(' and ')}
+    {' '}report the United States only; the rest report worldwide. Ranking them against each other understates
+    the American ones by their entire overseas fleet, so the page marks each bar with what it covers rather
+    than quietly stacking them.
+  </p>
+)}
+
+<ChartCard title={leader ? `${leader.name} is ${pct(leader.share_of_disclosed, 0)} of what the disclosing companies published` : 'Disclosed installed base'} subtitle={`Log scale: the disclosed pool spans three orders of magnitude, and on a linear axis every challenger is a line of zero width. ${ib.n_silent} makers in scope published nothing.`}>
+  <VegaChart id="surg-installed" spec={installedBaseSpec(ib.rows)} height={230} ariaLabel="Bar chart of disclosed installed base by company, log scale" />
+  <SourceStamp slot="stamp" sources={[facts.sources[1], facts.sources[2]]} asOf={generatedAt} note="a share of the five companies that disclosed, never a market share" />
+</ChartCard>
+
+<p>
+  The four challengers together disclosed {n(challengerTotal)} systems against {leader && n(leader.value)} for
+  the incumbent. Read that as the gap between companies that publish, not as the gap between companies that
+  exist: the makers inside Medtronic and Johnson &amp; Johnson are absent from it entirely.
+</p>
+
+</Section>
+
+<Section id="utilisation" title="The number that separates a franchise from a fleet of idle machines">
+
+An installed base counts machines. A procedure count measures work. The ratio between them, procedures per
+installed system per year, is the only figure here that tells you whether a robot placement turned into a
+business, and it is the single reason a system-count share is a poor description of this market.
+
+<ChartCard title={utilRatio ? `A da Vinci does ${utilRatio.toFixed(1)}x the annual work of a Procept system` : 'Procedures per installed system'} subtitle="Computed only where one company published both figures for the same product, the same year and the same geography. Dashed lines cover the United States only.">
+  <VegaChart id="surg-utilisation" spec={utilisationSpec(util)} height={300} ariaLabel="Line chart of procedures per installed system per year by product" />
+  <SourceStamp slot="stamp" sources={[facts.sources[1]]} asOf={generatedAt} note="annual procedures over the year-end base, so it understates a system in service all year" />
+</ChartCard>
+
+<p>
+  Three constraints keep this chart honest and each one removes rows. The two figures must come from the same
+  company, because a consultant's installed base divided into a company's procedure count is a number neither
+  source stands behind. They must cover the same product, because Intuitive sells two and dividing Ion's
+  procedures by the da Vinci base gives an answer an order of magnitude wrong. And they must cover the same
+  geography, because Procept reports the United States only. What survives is {util.length} company-years.
+</p>
+
+<DataTable id="util-table" caption="Every utilisation figure the page can compute, with both sides of the ratio" columns={[
+  { key: 'name', label: 'Company' },
+  { key: 'product', label: 'Product' },
+  { key: 'year', label: 'Year' },
+  { key: 'geography', label: 'Covers' },
+  { key: 'procedures', label: 'Procedures', format: 'num', align: 'right' },
+  { key: 'installed_base', label: 'Installed base', format: 'num', align: 'right' },
+  { key: 'per_system', label: 'Per system', format: 'fixed1', align: 'right' },
+]} rows={utilRows} />
+
+<p class="muted">
+  Intuitive redefined this metric mid-series. Through 2025-Q2 its releases report da Vinci procedures; from
+  2025-Q3 they report da Vinci and Ion combined. The annual figures above are taken from the 10-K, which keeps
+  the products apart, but any growth rate quoted from a quarterly release straddles two different populations.
+</p>
+
+</Section>
+
+<Section id="prices" title="What a Chinese hospital actually paid" wide>
+
+This is the page's only proprietary dataset: {tenders.n_total} award notices, each opened and read, each naming
+a hospital, a brand, a model, a quantity and a price. No company publishes these. They exist because Chinese
+public hospitals must post procurement results, and nobody assembles them.
+
+<ChartCard size="full" title={priceSpread ? `The dearest manufacturer's median award is ${priceSpread.toFixed(1)}x the cheapest` : 'Award prices by manufacturer'} subtitle={`One tick per award, diamond at the median. ${tenders.n_purchases} complete systems bought outright. Leases, service contracts and ${tenders.n_partial} award that bought a teaching arm rather than a clinical system are recorded and excluded, because none of their prices is what a robot costs.`}>
+  <VegaChart id="surg-prices" spec={tenderPriceSpec(tenders.rows)} height={300} ariaLabel="Dot plot of Chinese hospital award prices per surgical robot by manufacturer" />
+  <SourceStamp slot="stamp" sources={[facts.sources[4]]} asOf={generatedAt} note="each award individually cited; this portal's coverage is a floor, never a national count" />
+</ChartCard>
+
+<p>
+  <strong>What this spread is not.</strong> {tenders.configuration_caveat} Two awards to the same
+  manufacturer can differ by a factor of three because one bought a four-arm system with two consoles and a
+  full instrument package and the other did not. Nothing in the public record says which.
+</p>
+
+<FilterBar target="tender-table" selects={[
+  { column: 'maker', label: 'Manufacturer', options: [...new Set(tenderRows.map((r) => r.maker))].sort() },
+  { column: 'province', label: 'Province', options: [...new Set(tenderRows.map((r) => r.province).filter(Boolean))].sort() },
+]} placeholder="Search hospitals, brands, models…" />
+<DataTable id="tender-table" filterKeys={['maker', 'province']} caption="Every award, with what its price is not" columns={[
+  { key: 'hospital', label: 'Hospital' },
+  { key: 'province', label: 'Province' },
+  { key: 'maker', label: 'Manufacturer' },
+  { key: 'model', label: 'Model' },
+  { key: 'quantity', label: 'Units', format: 'num', align: 'right' },
+  { key: 'price_m', label: 'CNY m per system', format: 'fixed1', align: 'right' },
+  { key: 'award_date', label: 'Awarded' },
+  { key: 'caveat', label: 'Caveat' },
+]} rows={tenderRows} />
+<DownloadCsv filename="china-surgical-robot-awards.csv" rows={tenderRows} />
+
+</Section>
+
+<Section id="quota" title="China caps how many of these a hospital may own" wide>
+
+Laparoscopic surgical robots sit under China's large-medical-equipment licensing regime, which sets a national
+and provincial ceiling on how many may be installed. It is the only hard denominator anywhere in this project,
+and it comes with two limits that matter more than the number itself.
+
+<p>
+  It carries no brand, model, manufacturer or price field, so it can bound an installed base and can never
+  state a vendor share. And the plan it comes from expired on {quota.expires} with no successor published, so
+  the {n(quota.national_permitted)} permitted nationally is a lapsed ceiling rather than a current
+  one.<Sidenote>The thirty-two provincial rows sum to exactly the {n(quota.published_total)} and the
+  {' '}{n(quota.national_newly_added)} newly added that the same document reports nationally. That arithmetic
+  is checked on every build; it is the only independent validation available on this extraction.</Sidenote>
+</p>
+
+<DataTable id="quota-table" caption={`Provincial licence ceiling for laparoscopic systems, 14th Five-Year Plan, expired ${quota.expires}`} columns={[
+  { key: 'province', label: 'Province' },
+  { key: 'permitted_total', label: 'Permitted', format: 'num', align: 'right' },
+  { key: 'newly_added', label: 'Of which new', format: 'num', align: 'right' },
+  { key: 'headroom', label: 'Pre-existing', format: 'num', align: 'right' },
+]} rows={quotaRows} />
+<DownloadCsv filename="china-laparoscopic-robot-quota.csv" rows={quotaRows} />
+
+</Section>
+
+<Section id="companies" title="Why this is not a price-earnings page">
+
+{valuation ? (
+  <>
+    <p>
+      {poolRows.length} of these makers are listed and {withPe.length} produce a forward price-earnings ratio
+      at all. Of the {pureplays.length} pure-plays, {realPe.length} has one you could act on: the other
+      {' '}{nominalPe.length} price above {PE_MEANINGFUL} times earnings that are barely positive, which is a
+      number rather than a valuation, and one of those is suspended from trading with its interim results
+      unpublished. Worse, the two cheapest multiples in the whole table belong to diversified medtechs where a
+      surgical robot is a rounding error, so those ratios price something else entirely.
+    </p>
+    <DataTable id="pool-table" caption="The listed pool. Exposure says whether the multiple prices a robot business." columns={[
+      { key: 'name', label: 'Company' },
+      { key: 'ticker', label: 'Listing' },
+      { key: 'purity', label: 'Exposure' },
+      { key: 'pe', label: `Forward PE ${valuation.years?.[0]}`, format: 'fixed1', align: 'right' },
+      { key: 'nm', label: 'Why not' },
+    ]} rows={poolRows} />
+    <DownloadCsv filename="surgical-robot-listings.csv" rows={poolRows} />
+    <p class="muted">
+      Intuitive publishes no earnings guidance of any kind, only procedure growth and margin ranges, so even
+      its forward multiple rests on a consensus this site does not have a free primary source for. The
+      valuation frame this pool actually supports is enterprise value per installed system, which needs the
+      unit layer above, and which is why the unit work came first.
+    </p>
+  </>
+) : (
+  <p>The listed pool is priced by the valuation pipeline, which had not published when this page was built.</p>
+)}
+
+</Section>
+
+<Appendix>
+
+<Section id="scope" title="Scope, and what it costs">
+
+Soft tissue only: laparoscopic, endoluminal, microsurgery and soft-tissue resection. Orthopaedic, radiotherapy,
+dental and vascular robots are out. The boundary is a judgement and it has a price worth naming, so every
+exclusion is recorded with its reason rather than left implicit.
+
+<DataTable id="excluded" caption="Companies excluded from the pool, and why" columns={[
+  { key: 'name', label: 'Company' },
+  { key: 'ticker', label: 'Listing' },
+  { key: 'why', label: 'Reason' },
+]} rows={facts.scope.excluded_companies} />
+
+</Section>
+
+<Section id="method" title="Method">
+
+Four sources, one of them machine-readable and three of them read by hand.
+
+**openFDA** gives the competitive set and nothing else: not one field in a clearance record relates to volume.
+It is structurally convenient here, because the FDA wrote new regulations for the modern entrants between 2024
+and 2026 while the incumbent stayed in the legacy code, so the challenger field is {newCodeCount} records
+across four new product codes against {legacyCount} in the old one. The De Novo grants that created those
+regulations are curated by hand, because openFDA serves 510(k) and has no De Novo endpoint at all.
+
+**Unit figures** come from primary filings: SEC 8-K and 10-K for the American disclosers, HKEXnews interim and
+annual reports for the Hong Kong listings, and Shanghai prospectuses for the applicants. Every row records the
+company's own counting rule, because five companies here publish a number each calls "units" while counting
+five different things, and nothing on this page sums across them.
+
+**Award prices** are read one notice at a time from the Chinese government procurement portal. That portal
+searches titles and not bodies, has no interface for machines, rate-limits aggressively and cannot be reached
+from outside the country for several provinces, so this is a hand-built price panel and never a shipment
+series.
+
+**The quota** is one official table, extracted in full and reconciled against its own national totals.
+
+<p>
+  <a href="https://github.com/srx7703/srx7703.github.io/tree/main/pipelines/surgical">Pipeline source</a>
+  {' · '}<a href="https://github.com/srx7703/srx7703.github.io/tree/main/data/reference/surgical">Curated rows and the rules they obey</a>
+</p>
+
+</Section>
+
+<Section id="limits" title="What this page cannot tell you">
+
+<ul>
+  <li><strong>It cannot give you market share.</strong> No free source states total installed systems
+  worldwide, and none states China at all. Every share here is a share of the companies that disclosed, with
+  the count of silent ones printed next to it.</li>
+  <li><strong>It cannot compare the five unit bases.</strong> Installed base, placements, production, units
+  sold and procedures are five different quantities. They are stored apart and never added.</li>
+  <li><strong>A placement is not a sale.</strong> Roughly half of Intuitive's placements each quarter are
+  operating leases, an increasing share of them usage-based, and the company does not split them.</li>
+  <li><strong>Placements are not the change in installed base either.</strong> A fifth to a third of each
+  quarter's placements are absorbed by retirements and trade-ins that no filing discloses.</li>
+  <li><strong>The award prices are not a price list.</strong> No notice discloses arm count, console count,
+  instrument package or warranty, so a cheaper award may simply be a smaller machine.</li>
+  <li><strong>Tender coverage is a floor.</strong> Private and military hospitals are absent, as are purchases
+  funded outside the government procurement regime.</li>
+</ul>
+
+</Section>
+
+<Section id="evaluation" title="Evaluation (pre-registered)">
+
+The claims this page will be scored against are hashed in
+<a href={plan.url}>docs/EVALUATION_PLAN.md</a> at <code>{plan.short}</code> (<a href={plan.history}>history</a>).
+It was committed the same day as the first run, so the guarantee is that it cannot change from here without
+the hash on this page changing and an amendment appearing beneath it, not that it predates the data.
+
+</Section>
+
+<Section id="data-quality" title="Data quality">
+  <DataQuality checks={facts.checks} note={`Published ${generatedAt}. Every curated row carries a source URL, a publication date, a re-check date and a caveat, and a single bad row refuses the whole file.`} />
+</Section>
+
+<Section id="sources" title="Sources">
+  <ul>{facts.sources.map((s) => <li><a href={s.url}>{s.name}</a></li>)}</ul>
+</Section>
+
+</Appendix>

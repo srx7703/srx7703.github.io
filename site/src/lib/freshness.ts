@@ -15,6 +15,7 @@ import fomc from '@data/facts/fomc.json';
 import midterms from '@data/facts/midterms.json';
 import saas from '@data/facts/saas.json';
 import power from '@data/facts/power_demand.json';
+import surgical from '@data/facts/surgical.json';
 import optical from '@data/facts/valuation_optical.json';
 import ssb from '@data/facts/valuation_ssb.json';
 
@@ -48,6 +49,15 @@ export const FEEDS: Feed[] = [
     // The generator inventory is monthly and the retail sales file is monthly, so the honest stamp
     // is when the pipeline last ran rather than a snapshot time that would imply daily data.
     facts: power,
+    keys: ['generated_at'],
+  },
+  {
+    id: 'surgical-robots',
+    label: 'Surgical robots',
+    cadence: 'weekly',
+    // Unit figures arrive with quarterly filings and the tender panel is hand-curated, so the honest stamp is
+    // when the pipeline last assembled them rather than a snapshot time implying a live feed.
+    facts: surgical,
     keys: ['generated_at'],
   },
   {

@@ -276,7 +276,11 @@ def tender_panel(tenders: list[dict]) -> dict:
     A leasing award prints a multi-year fee where a unit price belongs, so letting it into an average would drag
     the average toward a number that is not a price.
     """
-    purchases = [t for t in tenders if t.get("contract_kind") == "purchase" and t.get("unit_price_cny")]
+    # A complete clinical system, bought outright, with a disclosed price. A lease fee, a service contract
+    # and a teaching arm all have prices and none of them is what a robot costs.
+    purchases = [t for t in tenders
+                 if t.get("contract_kind") == "purchase" and t.get("unit_price_cny")
+                 and t.get("complete_system") is not False]
     # Grouped by maker, not by the brand string the notice happened to use. Procurement officers write the
     # same manufacturer four ways — 图迈, 微创图迈, 精锋, 深圳精锋 — and grouping on the raw text splits one
     # vendor's price history into several thin, misleading samples.
@@ -302,6 +306,7 @@ def tender_panel(tenders: list[dict]) -> dict:
         "n_purchases": len(purchases),
         "n_leases": sum(1 for t in tenders if t.get("contract_kind") == "lease"),
         "n_maintenance": sum(1 for t in tenders if t.get("contract_kind") == "maintenance"),
+        "n_partial": sum(1 for t in tenders if t.get("complete_system") is False),
         "by_maker": {
             (makers[m].name if m in makers else m): {**stats(v), "brand_key": m}
             for m, v in sorted(by_maker.items(), key=lambda kv: -len(kv[1]))

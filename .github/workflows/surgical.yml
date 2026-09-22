@@ -1,0 +1,99 @@
+name: surgical
+
+on:
+  schedule:
+    # Only one source here is fetched at all: openFDA, which changes when a clearance is granted, a
+    # few times a month at most. Everything else is curated by hand from filings that arrive
+    # quarterly. Weekly is therefore already more often than the data moves, and its real job is to
+    # re-run the curated layer's validation so a row whose source went stale is caught within a week.
+    - cron: "41 8 * * 3"   # Wednesdays 08:41 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: surgical
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: astral-sh/setup-uv@v10.1.0
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --frozen --no-dev
+
+      # Each fetch is continue-on-error and publish runs anyway. The three sources fail
+      # independently — EIA moves files between /xls/ and /archive/xls/, PJM renames its workbooks
+      # each January — and one being unreachable must cost the page that section with a failed check
+      # beside it, not the whole page. Last month's snapshot stays with an honest "as of" stamp.
+      - name: FDA clearance registry
+        id: registry
+        continue-on-error: true
+        run: uv run python -m pipelines.surgical.registry
+
+      # The curated layer is hand-edited, so it is validated on every run rather than only when
+      # somebody remembers. A row that lost its source URL fails here, before it reaches the page.
+      # The curated layer carries almost every number this page prints, and it is hand-edited, so it is
+      # revalidated on every run rather than only when somebody remembers. A row that lost its source URL
+      # or went unchecked for ninety days is caught here, before it reaches the page.
+      - name: Validate the curated reference files
+        id: reference
+        continue-on-error: true
+        run: uv run python -m pipelines.surgical.reference
+
+      - name: Rebuild marts and facts
+        id: publish
+        if: always()
+        continue-on-error: true
+        run: uv run python -m pipelines.surgical.publish
+
+      # Same split as the valuation workflow, for the same reason: data/raw and data/snapshots are
+      # the append-only archive and a month that has rolled off EIA's site cannot be re-fetched, so
+      # they are committed even on a bad run. data/facts and data/marts are what the page renders,
+      # and a publish that died part-way can blank a section; that must not reach main, where
+      # deploy-site would rebuild the live page from it.
+      - name: Commit and push data
+        if: always()
+        run: |
+          git config user.name "portfolio-bot"
+          git config user.email "portfolio-bot@users.noreply.github.com"
+          if [ "${{ steps.publish.outcome }}" = "success" ]; then
+            git add data/
+          else
+            echo "::warning::publish did not succeed; committing the archive only and leaving data/facts and data/marts as they were"
+            git add data/raw data/snapshots
+            git checkout -- data/facts data/marts 2>/dev/null || true
+          fi
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            exit 0
+          fi
+          git commit -m "data(surgical): weekly refresh $(date -u +'%Y-%m-%d %H:%M UTC')"
+          for i in 1 2 3; do
+            git rebase --abort 2>/dev/null || true
+            git pull --rebase -X theirs origin main && git push origin HEAD:main && exit 0
+            echo "push attempt $i failed; retrying"
+            sleep 15
+          done
+          exit 1
+
+      # Every continue-on-error step must be named here or its failure is invisible: the step's
+      # conclusion goes green and only `outcome` remembers what happened.
+      - name: Surface step failures
+        if: >
+          always() && (
+          steps.registry.outcome == 'failure' || steps.reference.outcome == 'failure' ||
+          steps.publish.outcome == 'failure' )
+        run: |
+          echo "::error::a surgical step failed (registry=${{ steps.registry.outcome }}, reference=${{ steps.reference.outcome }}, publish=${{ steps.publish.outcome }})"
+          exit 1

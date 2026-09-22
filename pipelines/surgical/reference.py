@@ -87,6 +87,21 @@ def _maintenance_has_no_units(row: dict) -> list[str]:
     return [] if row.get("quantity") is None else ["a maintenance contract must not carry a machine quantity"]
 
 
+def _partial_purchase_says_so(row: dict) -> list[str]:
+    """An award that is not a complete clinical system must say what it actually bought.
+
+    The panel contains a research and teaching robotic arm at CNY 1.09m and a training simulator. Both are
+    real awards with real prices, and neither is what a hospital pays for a surgical robot. They stay in the
+    table because their existence is informative, they are excluded from every price statistic, and their
+    caveat has to name what the money bought so a reader scanning the table is not misled by the row itself.
+    """
+    if row.get("complete_system") is not False:
+        return []
+    caveat = str(row.get("caveat") or "")
+    return [] if len(caveat) > 40 else [
+        "an award that is not a complete system must say in its caveat what it actually bought"]
+
+
 def _quota_numbers_agree(row: dict) -> list[str]:
     """Newly added licences cannot exceed the total permitted."""
     total, new = row.get("permitted_total"), row.get("newly_added")
@@ -113,6 +128,7 @@ TENDER_RULES: tuple[Validator, ...] = (
     positive_number("total_price_cny"),
     _lease_is_not_a_price,
     _maintenance_has_no_units,
+    _partial_purchase_says_so,
 )
 
 QUOTA_RULES: tuple[Validator, ...] = (_quota_numbers_agree,)
@@ -123,7 +139,8 @@ SPEC = CurationSpec(
     identity={
         "units": ("maker", "metric", "basis", "period", "value", "geography", "tier", "source_kind",
                   "last_checked"),
-        "tenders": ("notice_id", "hospital", "contract_kind", "award_date", "last_checked"),
+        "tenders": ("notice_id", "hospital", "contract_kind", "award_date", "complete_system",
+                    "last_checked"),
         "quota": ("province", "plan", "permitted_total", "newly_added"),
         "denovo": ("grant_id", "applicant", "device_name", "decision_date"),
     },
