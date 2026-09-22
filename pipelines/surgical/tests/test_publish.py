@@ -286,3 +286,31 @@ def test_an_award_with_no_attributable_maker_is_counted_not_hidden():
     rows = [{**tender("purchase", 9_000_000, brand=""), "maker": "", "notice_id": "z"}]
     got = publish.tender_panel(rows)
     assert got["unattributed"] == 1
+
+
+# --- what the adversarial re-read of every source turned up -----------------------
+
+
+def test_the_procedure_definition_break_is_carried_into_the_facts():
+    """Two different populations either side of 2025-Q3; a reader must not be able to miss it."""
+    assert cfg.PROCEDURE_DEFINITION_BREAK == "2025-Q3"
+    assert "da Vinci and Ion" in cfg.PROCEDURE_BREAK_NOTE
+
+
+def test_placements_are_never_derivable_from_the_installed_base_delta():
+    """In 2026-Q1 the base grew 289 while 431 systems were placed; the gap is undisclosed retirements."""
+    rows = [u2("ISRG", "da Vinci", "installed_base", 11106, "2025-Q4"),
+            u2("ISRG", "da Vinci", "installed_base", 11395, "2026-Q1"),
+            u2("ISRG", "da Vinci", "placements", 431, "2026-Q1")]
+    by_basis = publish.units_by_basis(rows)
+    delta = 11395 - 11106
+    placed = by_basis["placements"][0]["value"]
+    assert delta != placed
+    assert "never" in cfg.PLACEMENTS_NOT_DELTA_NOTE.lower()
+
+
+def test_the_price_panel_carries_the_configuration_warning():
+    """No notice discloses arm or console count, so the spread is not pricing power."""
+    got = publish.tender_panel([tender("purchase", 10_980_000)])
+    assert "configuration" in got["configuration_caveat"] or "arm count" in got["configuration_caveat"]
+    assert "pricing power" in got["configuration_caveat"]

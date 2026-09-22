@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-22T00:17:53.339430+00:00",
+ "generated_at": "2026-09-22T00:18:42.854347+00:00",
  "scope": {
   "includes": [
    "laparoscopic multi-port",
@@ -3799,6 +3799,15 @@
     "caveat": "Annual procedures over the year-end installed base for the same product and the same geography. The base grew during the year, so this understates the rate a system in service all year actually achieved."
    }
   ],
+  "definition_breaks": [
+   {
+    "maker": "ISRG",
+    "metric": "procedures",
+    "from_period": "2025-Q3",
+    "note": "From 2025-Q3 Intuitive's headline procedure growth combines da Vinci and Ion; before that it was da Vinci alone. The two are different populations and the series is not continuous across that quarter."
+   }
+  ],
+  "placements_note": "A quarter's placements exceed the change in installed base, because retirements and trade-ins are netted out and never disclosed. Neither series may be derived from the other.",
   "disagreements": [
    {
     "maker": "ISRG",
@@ -5143,7 +5152,8 @@
    "max": 29980000.0,
    "median": 12980000.0
   },
-  "caveat": "Coverage of this portal is a floor and never a count: it searches titles only, omits private and military hospitals, and misses purchases funded outside the government procurement regime. These are individually cited prices, not a national shipment series."
+  "caveat": "Coverage of this portal is a floor and never a count: it searches titles only, omits private and military hospitals, and misses purchases funded outside the government procurement regime. These are individually cited prices, not a national shipment series.",
+  "configuration_caveat": "Not one award notice discloses arm count, console count, instrument package or warranty term. The spread between the cheapest and the dearest system therefore cannot be read as vendor pricing power; a cheaper award may simply be a smaller configuration."
  },
  "quota": {
   "status": "ok",
@@ -11115,6 +11125,11 @@
    "name": "No market share claimed",
    "status": "warn",
    "detail": "no free source gives total installed systems worldwide, and none gives China at all, so every share here is a share of the disclosed pool with the silent companies counted beside it"
+  },
+  {
+   "name": "Procedure series is not continuous",
+   "status": "warn",
+   "detail": "Intuitive redefined its headline procedure metric at 2025-Q3: before, da Vinci alone; after, da Vinci and Ion combined. The page breaks the growth line there rather than drawing through two different populations"
   },
   {
    "name": "Sources agree",

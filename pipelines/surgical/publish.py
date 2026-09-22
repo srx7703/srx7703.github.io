@@ -311,6 +311,12 @@ def tender_panel(tenders: list[dict]) -> dict:
         "caveat": ("Coverage of this portal is a floor and never a count: it searches titles only, omits private "
                    "and military hospitals, and misses purchases funded outside the government procurement "
                    "regime. These are individually cited prices, not a national shipment series."),
+        # The warning that survived the adversarial re-read of all 65 notices, and the one most likely to be
+        # ignored: the spread between the cheapest and dearest award is not a measure of pricing power.
+        "configuration_caveat": ("Not one award notice discloses arm count, console count, instrument package "
+                                 "or warranty term. The spread between the cheapest and the dearest system "
+                                 "therefore cannot be read as vendor pricing power; a cheaper award may simply "
+                                 "be a smaller configuration."),
     }
 
 
@@ -406,6 +412,10 @@ def build() -> dict:
               "no free source gives total installed systems worldwide, and none gives China at all, so every "
               "share here is a share of the disclosed pool with the silent companies counted beside it",
               warn=True),
+        check("Procedure series is not continuous", False,
+              f"Intuitive redefined its headline procedure metric at {cfg.PROCEDURE_DEFINITION_BREAK}: before, "
+              "da Vinci alone; after, da Vinci and Ion combined. The page breaks the growth line there rather "
+              "than drawing through two different populations", warn=True),
         check("Sources agree", not disagreements,
               f"{len(disagreements)} figure(s) where a consultant's estimate differs from the company's own "
               f"disclosure for the same product, period and geography; the page shows both"
@@ -419,6 +429,10 @@ def build() -> dict:
                   "excluded_companies": list(cfg.EXCLUDED)},
         "disclosure": scorecard,
         "units": {"by_basis": units_by_basis(units), "installed_base": installed, "utilisation": util,
+                  "definition_breaks": [{"maker": "ISRG", "metric": "procedures",
+                                         "from_period": cfg.PROCEDURE_DEFINITION_BREAK,
+                                         "note": cfg.PROCEDURE_BREAK_NOTE}],
+                  "placements_note": cfg.PLACEMENTS_NOT_DELTA_NOTE,
                   "disagreements": disagreements, "n_third_party": len(units) - len(own),
                   "basis_definitions": cfg.UNIT_BASIS, "placement_models": cfg.PLACEMENT_MODEL},
         "tenders": panel,

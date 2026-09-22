@@ -85,6 +85,24 @@ UNIT_BASIS = {
 #: Bases that may share a y-axis. Anything else goes on its own chart with its own label.
 COMPARABLE_BASES = ("installed_base",)
 
+#: The quarter Intuitive redefined its headline procedure metric. Through 2025-Q2 the release says
+#: "Worldwide da Vinci procedures grew approximately N%"; from 2025-Q3 it says "Worldwide procedures
+#: (da Vinci and Ion combined) grew approximately N%". A growth series stitched across this boundary compares
+#: two different populations, so the page breaks the line here rather than drawing through it.
+PROCEDURE_DEFINITION_BREAK = "2025-Q3"
+PROCEDURE_BREAK_NOTE = (
+    "From 2025-Q3 Intuitive's headline procedure growth combines da Vinci and Ion; before that it was da Vinci "
+    "alone. The two are different populations and the series is not continuous across that quarter."
+)
+
+#: Placements and the change in installed base are different quantities and neither can be derived from the
+#: other. Over 2023-2026 roughly a fifth to a third of each quarter's placements were absorbed by retirements
+#: and trade-ins that no filing discloses: in 2026-Q1 the base grew 289 while 431 systems were placed.
+PLACEMENTS_NOT_DELTA_NOTE = (
+    "A quarter's placements exceed the change in installed base, because retirements and trade-ins are netted "
+    "out and never disclosed. Neither series may be derived from the other."
+)
+
 #: Stock metrics are a level at an instant; flow metrics are an amount over a span. The distinction decides
 #: whether two differently-labelled periods describe the same fact: for an installed base, "2024" and
 #: "2024-Q4" and "2024-12-31" are all end-2024 and are directly comparable, while for procedures a year and a
