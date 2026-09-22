@@ -85,6 +85,20 @@ UNIT_BASIS = {
 #: Bases that may share a y-axis. Anything else goes on its own chart with its own label.
 COMPARABLE_BASES = ("installed_base",)
 
+#: Stock metrics are a level at an instant; flow metrics are an amount over a span. The distinction decides
+#: whether two differently-labelled periods describe the same fact: for an installed base, "2024" and
+#: "2024-Q4" and "2024-12-31" are all end-2024 and are directly comparable, while for procedures a year and a
+#: quarter are different quantities and comparing them would understate the year by about four.
+STOCK_METRICS = ("installed_base", "orders")
+FLOW_METRICS = ("placements", "procedures", "production", "units_sold", "installed_or_delivered", "patients")
+
+
+def period_instant(metric: str, period: str) -> str:
+    """The comparison key for one period. Stocks collapse to their year; flows keep their exact span."""
+    if metric in STOCK_METRICS:
+        return period[:4]
+    return period
+
 # ---------------------------------------------------------------------------------------------
 # Placement model — why a "shipment" is ambiguous
 # ---------------------------------------------------------------------------------------------
@@ -122,6 +136,11 @@ class Maker:
     products: tuple[str, ...] = ()
     note: str = ""
     status: str = ""          # "suspended", "delisted", "dissolved" — printed on the page, never silently dropped
+    #: The world a maker's own unit figures cover. This is a property of its disclosure regime, not of any one
+    #: row, and it is declared rather than sniffed out of wording: Intuitive reports worldwide and Procept
+    #: reports the United States only, every quarter, and a row that silently inherited the wrong one would set
+    #: a US installed base against a worldwide procedure count and invent a utilisation figure.
+    reporting_geography: str = "global"
     unit_bases: tuple[str, ...] = field(default_factory=tuple)
 
 
@@ -138,7 +157,7 @@ MAKERS: tuple[Maker, ...] = (
                "is audited. Places systems under lease and usage-based terms as well as sale and does not split "
                "them, so 'placed' is not 'sold'."),
     Maker("PRCT", "Procept BioRobotics", tier="T1", pure_play=True,
-          products=("HYDROS", "AquaBeam"),
+          products=("HYDROS", "AquaBeam"), reporting_geography="us",
           unit_bases=("installed_base", "placements", "procedures"),
           note="soft-tissue resection in urology. Quarterly figures are US-only; a global count circulates that "
                "is not in the release."),

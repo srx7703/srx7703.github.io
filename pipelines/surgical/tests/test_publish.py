@@ -176,3 +176,97 @@ def test_a_quota_that_does_not_reconcile_says_so():
 
 def test_a_missing_quota_is_missing_rather_than_zero():
     assert publish.quota_view([])["status"] == "missing"
+
+
+# --- regressions found by real data on the first load -----------------------------
+# Every test below corresponds to a wrong number this module actually produced before the fix.
+
+
+def u2(maker, product, metric, value, period, *, geography="global", source_kind="company", tier="T1"):
+    return {
+        "maker": maker, "product": product, "metric": metric, "basis": metric, "period": period,
+        "value": float(value), "unit": "systems", "geography": geography, "tier": tier,
+        "source_kind": source_kind, "placement_model": "", "source_name": "s",
+        "source_url": "https://example.org/x", "publish_date": "2026-01-01",
+        "last_checked": "2026-09-21", "quote": "", "caveat": "c",
+    }
+
+
+def test_utilisation_never_crosses_products():
+    """Ion procedures over the da Vinci installed base gave 2.6 procedures per system per year."""
+    rows = [
+        u2("ISRG", "da Vinci", "installed_base", 9902, "2024-Q4"),
+        u2("ISRG", "Ion", "installed_base", 805, "2024-Q4"),
+        u2("ISRG", "Ion", "procedures", 95500, "2024"),
+    ]
+    got = {(r["product"], r["year"]): r["procedures_per_system"] for r in publish.utilisation(rows)}
+    assert got == {("Ion", "2024"): round(95500 / 805, 1)}
+
+
+def test_utilisation_refuses_a_quarterly_procedure_count():
+    """A quarter's procedures over a year-end base understates the rate by about four."""
+    rows = [u2("ISRG", "Ion", "installed_base", 805, "2024-Q4"),
+            u2("ISRG", "Ion", "procedures", 25000, "2024-Q3")]
+    assert publish.utilisation(rows) == []
+
+
+def test_utilisation_uses_the_year_end_base_not_the_first_quarter():
+    rows = [u2("ISRG", "da Vinci", "installed_base", 8887, "2024-Q1"),
+            u2("ISRG", "da Vinci", "installed_base", 9902, "2024-Q4"),
+            u2("ISRG", "da Vinci", "procedures", 2683000, "2024")]
+    assert publish.utilisation(rows)[0]["installed_base"] == 9902.0
+
+
+def test_a_third_party_estimate_never_enters_a_ratio():
+    """A consultant's installed base divided into a company's procedure count is a number nobody stands behind."""
+    rows = [u2("ISRG", "da Vinci", "installed_base", 9629, "2024", source_kind="third_party"),
+            u2("ISRG", "da Vinci", "procedures", 2683000, "2024")]
+    assert publish.utilisation(publish.company_reported(rows)) == []
+
+
+def test_a_third_party_estimate_never_enters_the_installed_base_total():
+    rows = [u2("ISRG", "da Vinci", "installed_base", 11710, "2026-Q2"),
+            u2("ISRG", "da Vinci", "installed_base", 9629, "2024", source_kind="third_party")]
+    got = publish.latest_installed_base(publish.company_reported(rows))
+    assert got["total_disclosed"] == 11710.0
+
+
+# --- the disagreement, which is a finding rather than a defect --------------------
+
+
+def test_a_stock_is_compared_across_differently_labelled_periods():
+    """Intuitive writes 2024-Q4 and the consultant writes 2024; both mean end-2024 for an installed base."""
+    rows = [u2("ISRG", "da Vinci", "installed_base", 9902, "2024-Q4"),
+            u2("ISRG", "da Vinci", "installed_base", 9629, "2024", source_kind="third_party")]
+    got = publish.source_disagreements(rows)
+    assert len(got) == 1
+    assert got[0]["company_value"] == 9902.0 and got[0]["third_party_value"] == 9629.0
+    assert got[0]["gap"] == -273.0
+    assert round(got[0]["gap_pct"], 4) == round(-273 / 9902, 4)
+
+
+def test_the_company_side_of_a_disagreement_is_the_year_end_reading():
+    rows = [u2("ISRG", "da Vinci", "installed_base", 8887, "2024-Q1"),
+            u2("ISRG", "da Vinci", "installed_base", 9902, "2024-Q4"),
+            u2("ISRG", "da Vinci", "installed_base", 9629, "2024", source_kind="third_party")]
+    assert publish.source_disagreements(rows)[0]["company_value"] == 9902.0
+
+
+def test_a_flow_is_not_collapsed_across_periods():
+    """A year of procedures and a quarter of procedures are different quantities, never a disagreement."""
+    rows = [u2("ISRG", "da Vinci", "procedures", 2683000, "2024"),
+            u2("ISRG", "da Vinci", "procedures", 670000, "2024-Q3", source_kind="third_party")]
+    assert publish.source_disagreements(rows) == []
+
+
+def test_agreeing_sources_are_not_reported_as_a_disagreement():
+    rows = [u2("ISRG", "da Vinci", "installed_base", 9902, "2024-Q4"),
+            u2("ISRG", "da Vinci", "installed_base", 9902, "2024", source_kind="third_party")]
+    assert publish.source_disagreements(rows) == []
+
+
+def test_stock_and_flow_are_declared_and_disjoint():
+    assert not set(cfg.STOCK_METRICS) & set(cfg.FLOW_METRICS)
+    assert set(cfg.STOCK_METRICS) | set(cfg.FLOW_METRICS) == set(cfg.UNIT_BASIS)
+    assert cfg.period_instant("installed_base", "2024-Q4") == "2024"
+    assert cfg.period_instant("procedures", "2024-Q4") == "2024-Q4"

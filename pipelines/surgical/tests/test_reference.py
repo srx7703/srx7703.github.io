@@ -20,7 +20,7 @@ def unit_row(**kw) -> dict:
     row = {
         "maker": "ISRG", "product": "da Vinci", "metric": "installed_base", "basis": "installed_base",
         "period": "2026-Q2", "value": 11710.0, "unit": "systems", "geography": "global",
-        "placement_model": "mixed", "tier": "T1",
+        "placement_model": "mixed", "tier": "T1", "source_kind": "company",
         "source_name": "Intuitive Q2 2026 earnings release", "source_url": "https://www.sec.gov/x",
         "publish_date": "2026-07-22", "last_checked": "2026-09-21",
         "quote": "da Vinci installed base of 11,710 systems",
@@ -86,6 +86,15 @@ def test_a_unit_figure_without_a_basis_is_rejected():
 
 def test_an_invented_basis_is_rejected_rather_than_bucketed():
     assert any("not one of" in p for p in problems("units", unit_row(basis="systems_shipped")))
+
+
+def test_a_unit_figure_without_a_source_kind_is_rejected():
+    """Whose number it is decides whether it may enter a ratio, so it cannot be left to a default."""
+    assert "no source_kind" in problems("units", unit_row(source_kind=""))
+
+
+def test_an_invented_source_kind_is_rejected():
+    assert any("not one of" in p for p in problems("units", unit_row(source_kind="estimate")))
 
 
 def test_a_unit_figure_without_a_geography_is_rejected():

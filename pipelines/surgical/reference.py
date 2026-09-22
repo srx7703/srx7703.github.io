@@ -100,6 +100,7 @@ UNIT_RULES: tuple[Validator, ...] = (
     one_of("basis", UNIT_BASIS),
     one_of("geography", GEOGRAPHIES),
     one_of("tier", TIER_ORDER),
+    one_of("source_kind", ("company", "third_party")),
     one_of("placement_model", PLACEMENT_MODEL, required=False),
     positive_number("value", allow_null=False),
     _geography_required_for_unit,
@@ -120,7 +121,8 @@ SPEC = CurationSpec(
     track="surgical",
     kinds=("units", "tenders", "quota", "denovo"),
     identity={
-        "units": ("maker", "metric", "basis", "period", "value", "geography", "tier", "last_checked"),
+        "units": ("maker", "metric", "basis", "period", "value", "geography", "tier", "source_kind",
+                  "last_checked"),
         "tenders": ("notice_id", "hospital", "contract_kind", "award_date", "last_checked"),
         "quota": ("province", "plan", "permitted_total", "newly_added"),
         "denovo": ("grant_id", "applicant", "device_name", "decision_date"),

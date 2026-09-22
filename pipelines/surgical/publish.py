@@ -109,6 +109,54 @@ def disclosure_scorecard(units: list[dict]) -> dict:
 # ---------------------------------------------------------------------------------------------
 
 
+def source_disagreements(units: list[dict]) -> list[dict]:
+    """Where a company's own figure and a third party's estimate of that company differ.
+
+    This is a finding, not a defect to resolve quietly. At 2024-12-31 Intuitive's own 8-K puts the da Vinci
+    installed base at 9,902 systems; Frost & Sullivan, in the industry chapter of a competitor's IPO
+    prospectus, puts it at 9,629 for the same date. Much of the Chinese market-sizing literature is built on
+    the second number. The page shows both and the gap between them.
+    """
+    grouped: dict[tuple, dict[str, dict]] = defaultdict(dict)
+    for r in units:
+        # An installed base is a level at an instant, so a source writing "2024" and one writing "2024-Q4"
+        # are describing the same fact and must be compared. A procedure count is a flow, where they are not.
+        instant = cfg.period_instant(r["metric"], r["period"])
+        key = (r["maker"], r.get("product") or "", r["metric"], instant, r["geography"])
+        kind = r.get("source_kind") or "company"
+        # Within a stock collapsed to its year, the comparable reading is the year-end one. Taking whichever
+        # row happened to come first compared a consultant's end-2024 figure against Intuitive's Q1.
+        prev = grouped[key].get(kind)
+        if prev is None or r["period"] > prev["period"]:
+            grouped[key][kind] = r
+    makers = _maker_index()
+    out = []
+    for (maker, product, metric, instant, geo), by_kind in sorted(grouped.items()):
+        own, third = by_kind.get("company"), by_kind.get("third_party")
+        if own is None or third is None or own["value"] == third["value"]:
+            continue
+        out.append({
+            "maker": maker, "name": makers[maker].name if maker in makers else maker,
+            "product": product, "metric": metric, "period": instant, "geography": geo,
+            "company_period": own["period"], "third_party_period": third["period"],
+            "company_value": own["value"], "company_source": own["source_name"],
+            "third_party_value": third["value"], "third_party_source": third["source_name"],
+            "gap": round(third["value"] - own["value"], 1),
+            "gap_pct": round((third["value"] - own["value"]) / own["value"], 4) if own["value"] else None,
+        })
+    return out
+
+
+def company_reported(units: list[dict]) -> list[dict]:
+    """Only figures a company published about itself. Everything computed uses these.
+
+    A third party's estimate is kept in the table and shown beside the company's own, but it never enters a
+    ratio: an installed base from one source divided into a procedure count from another is a number neither
+    source stands behind.
+    """
+    return [r for r in units if (r.get("source_kind") or "company") == "company"]
+
+
 def units_by_basis(units: list[dict]) -> dict[str, list[dict]]:
     """One series per basis. Bases are never merged, so the page cannot add production to installed base."""
     out: dict[str, list[dict]] = defaultdict(list)
@@ -162,28 +210,57 @@ def utilisation(units: list[dict]) -> list[dict]:
     """Procedures per installed system per year: the bridge between an installed-base share and a procedure
     share, and the number that separates a franchise from a fleet of idle machines.
 
-    Only computed where the same maker published both figures for the same year on the same geography. Mixing a
-    worldwide procedure count with a US-only installed base would manufacture a utilisation figure out of a
-    mismatch.
+    Three conditions, and every one of them was added because dropping it produced a wrong number from real
+    data on the first run:
+
+    **Same product.** Intuitive sells two, and dividing Ion's procedures by da Vinci's installed base gave 2.6
+    procedures per system per year for 2024 — a figure that would have read as catastrophic idleness and was
+    purely a mismatch.
+
+    **Annual over annual.** A quarterly procedure count over a year-end installed base understates utilisation
+    by roughly four. Only a period that is a bare year counts as annual.
+
+    **Same geography.** Procept reports the United States only; a worldwide procedure count over a US installed
+    base would invent a number.
+
+    The installed base used is the year-end reading, taken from the bare year where a company publishes one and
+    otherwise from that year's Q4.
     """
-    procedures = {(r["maker"], r["period"][:4], r["geography"]): r
-                  for r in units if r["metric"] == "procedures"}
-    installed = {(r["maker"], r["period"][:4], r["geography"]): r
-                 for r in units if r["metric"] == "installed_base"}
+    def year_of(period: str) -> str:
+        return period[:4]
+
+    annual_procedures = {
+        (r["maker"], r.get("product") or "", year_of(r["period"]), r["geography"]): r
+        for r in units if r["metric"] == "procedures" and len(r["period"]) == 4
+    }
+    # Year-end installed base: a bare year if the company gives one, else that year's Q4 reading.
+    year_end: dict[tuple, dict] = {}
+    for r in units:
+        if r["metric"] != "installed_base":
+            continue
+        period = r["period"]
+        is_year, is_q4 = len(period) == 4, period.endswith("-Q4")
+        if not (is_year or is_q4):
+            continue
+        key = (r["maker"], r.get("product") or "", year_of(period), r["geography"])
+        if is_year or key not in year_end:
+            year_end[key] = r
+
     makers = _maker_index()
     out = []
-    for key, proc in sorted(procedures.items()):
-        base = installed.get(key)
+    for key, proc in sorted(annual_procedures.items()):
+        base = year_end.get(key)
         if base is None or not base["value"]:
             continue
-        maker, year, geo = key
+        maker, product, year, geo = key
         out.append({
             "maker": maker, "name": makers[maker].name if maker in makers else maker,
-            "year": year, "geography": geo,
+            "product": product, "year": year, "geography": geo,
             "procedures": proc["value"], "installed_base": base["value"],
             "procedures_per_system": round(proc["value"] / base["value"], 1),
-            "caveat": ("Both figures are the company's own and cover the same geography and year; a ratio across "
-                       "mismatched bases is not computed."),
+            "caveat": ("Annual procedures over the year-end installed base for the same product and the same "
+                       "geography. The base grew during the year, so this understates the rate a system in "
+                       "service all year actually achieved."),
         })
     return out
 
@@ -275,8 +352,12 @@ def build() -> dict:
     denovo = curated.get("denovo", [])
 
     scorecard = disclosure_scorecard(units)
-    installed = latest_installed_base(units)
-    util = utilisation(units)
+    # Every computed figure uses only what a company said about itself; third-party estimates are displayed
+    # beside them and never divided into them.
+    own = company_reported(units)
+    installed = latest_installed_base(own)
+    util = utilisation(own)
+    disagreements = source_disagreements(units)
     panel = tender_panel(tenders)
     quota_facts = quota_view(quota)
 
@@ -316,6 +397,10 @@ def build() -> dict:
               "no free source gives total installed systems worldwide, and none gives China at all, so every "
               "share here is a share of the disclosed pool with the silent companies counted beside it",
               warn=True),
+        check("Sources agree", not disagreements,
+              f"{len(disagreements)} figure(s) where a consultant's estimate differs from the company's own "
+              f"disclosure for the same product, period and geography; the page shows both"
+              if disagreements else "no company figure is contradicted by a third-party estimate", warn=True),
         *curated_checks,
     ]
 
@@ -325,6 +410,7 @@ def build() -> dict:
                   "excluded_companies": list(cfg.EXCLUDED)},
         "disclosure": scorecard,
         "units": {"by_basis": units_by_basis(units), "installed_base": installed, "utilisation": util,
+                  "disagreements": disagreements, "n_third_party": len(units) - len(own),
                   "basis_definitions": cfg.UNIT_BASIS, "placement_models": cfg.PLACEMENT_MODEL},
         "tenders": panel,
         "quota": quota_facts,

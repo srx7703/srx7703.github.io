@@ -54,6 +54,10 @@ UNITS_DTYPES: dict[str, pl.DataType] = {
     "geography": pl.Utf8,         # global | us | cn | ex-cn — Procept's quarterly figures are US only
     "placement_model": pl.Utf8,   # a key of config.PLACEMENT_MODEL
     "tier": pl.Utf8,
+    # Whose number this is. A company's own filing and a consultant's estimate OF that company are different
+    # kinds of fact and the page must never silently pick one: at 2024-12-31 Intuitive's own 8-K says 9,902
+    # da Vinci systems and Frost & Sullivan, in a competitor's IPO prospectus, says 9,629 for the same date.
+    "source_kind": pl.Utf8,
     "source_name": pl.Utf8,
     "source_url": pl.Utf8,
     "publish_date": pl.Utf8,
@@ -119,6 +123,7 @@ UNITS_SCHEMA = pa.DataFrameSchema(
         "geography": pa.Column(str, pa.Check.isin(["global", "us", "cn", "ex-cn", "eu", "jp", "kr"])),
         "placement_model": pa.Column(str, pa.Check.isin(list(PLACEMENT_MODEL)), nullable=True),
         "tier": pa.Column(str, pa.Check.isin(list(TIER_ORDER))),
+        "source_kind": pa.Column(str, pa.Check.isin(["company", "third_party"])),
         "source_url": _url,
         "caveat": pa.Column(str, pa.Check.str_length(1)),
     },
