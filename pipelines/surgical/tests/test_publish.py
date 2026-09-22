@@ -143,7 +143,7 @@ def test_only_purchases_enter_the_price_statistics():
     assert got["n_leases"] == 1 and got["n_maintenance"] == 1
     assert got["overall"]["n"] == 2
     assert got["overall"]["max"] == 19_800_000
-    assert set(got["by_brand"]) == {"精锋", "达芬奇"}
+    assert set(got["by_maker"]) == {"精锋", "达芬奇"}
 
 
 def test_a_purchase_with_no_disclosed_price_is_kept_but_not_priced():
@@ -154,7 +154,7 @@ def test_a_purchase_with_no_disclosed_price_is_kept_but_not_priced():
 
 def test_an_empty_panel_has_no_statistics_rather_than_zeros():
     got = publish.tender_panel([])
-    assert got["overall"] is None and got["by_brand"] == {}
+    assert got["overall"] is None and got["by_maker"] == {}
 
 
 # --- quota ------------------------------------------------------------------------
@@ -270,3 +270,19 @@ def test_stock_and_flow_are_declared_and_disjoint():
     assert set(cfg.STOCK_METRICS) | set(cfg.FLOW_METRICS) == set(cfg.UNIT_BASIS)
     assert cfg.period_instant("installed_base", "2024-Q4") == "2024"
     assert cfg.period_instant("procedures", "2024-Q4") == "2024-Q4"
+
+
+def test_prices_group_by_maker_not_by_the_brand_string():
+    """Procurement officers write one manufacturer four ways; grouping on raw text splits its price history."""
+    rows = [{**tender("purchase", 11_000_000, brand="图迈"), "maker": "2252.HK", "notice_id": "a"},
+            {**tender("purchase", 13_660_000, brand="微创图迈"), "maker": "2252.HK", "notice_id": "b"},
+            {**tender("purchase", 10_980_000, brand="精锋"), "maker": "2675.HK", "notice_id": "c"}]
+    got = publish.tender_panel(rows)
+    assert set(got["by_maker"]) == {"MicroPort MedBot", "Edge Medical"}
+    assert got["by_maker"]["MicroPort MedBot"]["n"] == 2
+
+
+def test_an_award_with_no_attributable_maker_is_counted_not_hidden():
+    rows = [{**tender("purchase", 9_000_000, brand=""), "maker": "", "notice_id": "z"}]
+    got = publish.tender_panel(rows)
+    assert got["unattributed"] == 1

@@ -277,10 +277,15 @@ def tender_panel(tenders: list[dict]) -> dict:
     the average toward a number that is not a price.
     """
     purchases = [t for t in tenders if t.get("contract_kind") == "purchase" and t.get("unit_price_cny")]
-    by_brand: dict[str, list[float]] = defaultdict(list)
+    # Grouped by maker, not by the brand string the notice happened to use. Procurement officers write the
+    # same manufacturer four ways — 图迈, 微创图迈, 精锋, 深圳精锋 — and grouping on the raw text splits one
+    # vendor's price history into several thin, misleading samples.
+    makers = _maker_index()
+    by_maker: dict[str, list[float]] = defaultdict(list)
     for t in purchases:
-        if t.get("brand"):
-            by_brand[t["brand"]].append(float(t["unit_price_cny"]))
+        key = t.get("maker") or t.get("brand")
+        if key:
+            by_maker[key].append(float(t["unit_price_cny"]))
 
     def stats(values: list[float]) -> dict:
         s = sorted(values)
@@ -297,7 +302,11 @@ def tender_panel(tenders: list[dict]) -> dict:
         "n_purchases": len(purchases),
         "n_leases": sum(1 for t in tenders if t.get("contract_kind") == "lease"),
         "n_maintenance": sum(1 for t in tenders if t.get("contract_kind") == "maintenance"),
-        "by_brand": {b: stats(v) for b, v in sorted(by_brand.items(), key=lambda kv: -len(kv[1]))},
+        "by_maker": {
+            (makers[m].name if m in makers else m): {**stats(v), "brand_key": m}
+            for m, v in sorted(by_maker.items(), key=lambda kv: -len(kv[1]))
+        },
+        "unattributed": sum(1 for t in purchases if not (t.get("maker") or t.get("brand"))),
         "overall": stats([float(t["unit_price_cny"]) for t in purchases]) if purchases else None,
         "caveat": ("Coverage of this portal is a floor and never a count: it searches titles only, omits private "
                    "and military hospitals, and misses purchases funded outside the government procurement "
