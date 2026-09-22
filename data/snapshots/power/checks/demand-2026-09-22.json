@@ -1,0 +1,42 @@
+{
+ "snapshot_ts": "2026-09-22T13:28:41+00:00",
+ "source": "all",
+ "checks": [
+  {
+   "name": "EIA-861M freshness",
+   "status": "pass",
+   "detail": "latest month 2026-06, 83 days past its end (limit 90)"
+  },
+  {
+   "name": "EIA-861M sector coverage",
+   "status": "pass",
+   "detail": "5/5 sectors in 2026-06"
+  },
+  {
+   "name": "EIA-861M state coverage",
+   "status": "pass",
+   "detail": "51 states reporting in 2026-06"
+  },
+  {
+   "name": "EIA-861M national cross-check",
+   "status": "pass",
+   "detail": "990 synthesised US rows; worst deviation from US-YTD 9.97e-07 at 2021-11 transportation over 990 month-sectors (tolerance 5e-04)"
+  },
+  {
+   "name": "STEO vintage",
+   "status": "pass",
+   "detail": "edition 2026-09, 0 month(s) behind 2026-09"
+  },
+  {
+   "name": "STEO series coverage",
+   "status": "pass",
+   "detail": "7/7 consumption series"
+  },
+  {
+   "name": "STEO annual roll-up",
+   "status": "pass",
+   "detail": "504 monthly rows over 6 years -> 6 complete years (2022-2027)"
+  }
+ ],
+ "errors": []
+}

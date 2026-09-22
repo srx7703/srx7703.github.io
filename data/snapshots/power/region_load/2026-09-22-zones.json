@@ -1,0 +1,403 @@
+{
+ "iso": "PJM",
+ "vintage": "2026",
+ "snapshot_ts": "2026-09-22T13:28:43.952934+00:00",
+ "zones": [
+  {
+   "zone": "AE",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "AEP",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "AEP:AEPOHIO",
+   "role": "subarea",
+   "aggregate": false,
+   "additive_to_rto": false,
+   "note": "a sub-area of AEP, already inside that zone's total",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "AEP:IM",
+   "role": "subarea",
+   "aggregate": false,
+   "additive_to_rto": false,
+   "note": "a sub-area of AEP, already inside that zone's total",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "APS",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "APS:PE",
+   "role": "subarea",
+   "aggregate": false,
+   "additive_to_rto": false,
+   "note": "a sub-area of APS, already inside that zone's total",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "APS:REC",
+   "role": "subarea",
+   "aggregate": false,
+   "additive_to_rto": false,
+   "note": "a sub-area of APS, already inside that zone's total",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "APS:WPP",
+   "role": "subarea",
+   "aggregate": false,
+   "additive_to_rto": false,
+   "note": "a sub-area of APS, already inside that zone's total",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "ATSI",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "ATSI:OHIO",
+   "role": "subarea",
+   "aggregate": false,
+   "additive_to_rto": false,
+   "note": "a sub-area of ATSI, already inside that zone's total",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "ATSI:PP",
+   "role": "subarea",
+   "aggregate": false,
+   "additive_to_rto": false,
+   "note": "a sub-area of ATSI, already inside that zone's total",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "BGE",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "CENTRALMA",
+   "role": "aggregate",
+   "aggregate": true,
+   "additive_to_rto": false,
+   "note": "an aggregate of other rows: a Mid-Atlantic sub-region, inside PJM_MA",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "COMED",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "DAY",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "DEOK",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "DLCO",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "DOM",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "DOM:DOM",
+   "role": "subarea",
+   "aggregate": false,
+   "additive_to_rto": false,
+   "note": "a sub-area of DOM, already inside that zone's total",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "DOM:NVEC",
+   "role": "subarea",
+   "aggregate": false,
+   "additive_to_rto": false,
+   "note": "a sub-area of DOM, already inside that zone's total",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "DOM:ODEC",
+   "role": "subarea",
+   "aggregate": false,
+   "additive_to_rto": false,
+   "note": "a sub-area of DOM, already inside that zone's total",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "DOM:REC",
+   "role": "subarea",
+   "aggregate": false,
+   "additive_to_rto": false,
+   "note": "a sub-area of DOM, already inside that zone's total",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "DPL",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "EASTERNMA",
+   "role": "aggregate",
+   "aggregate": true,
+   "additive_to_rto": false,
+   "note": "an aggregate of other rows: a Mid-Atlantic sub-region, inside PJM_MA",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "EKPC",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "FE_EAST",
+   "role": "aggregate",
+   "aggregate": true,
+   "additive_to_rto": false,
+   "note": "an aggregate of other rows: FirstEnergy's eastern zones (JCPL, METED, PENELEC) combined",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "JCPL_FE_EAST",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "METED_FE_EAST",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "OVEC",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "PECO",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "PEPCO",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "PEPCO:PEPCO",
+   "role": "subarea",
+   "aggregate": false,
+   "additive_to_rto": false,
+   "note": "a sub-area of PEPCO, already inside that zone's total",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "PEPCO:SMECO",
+   "role": "subarea",
+   "aggregate": false,
+   "additive_to_rto": false,
+   "note": "a sub-area of PEPCO, already inside that zone's total",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "PJM_MA",
+   "role": "aggregate",
+   "aggregate": true,
+   "additive_to_rto": false,
+   "note": "an aggregate of other rows: the Mid-Atlantic region",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "PJM_RTO",
+   "role": "rto",
+   "aggregate": true,
+   "additive_to_rto": false,
+   "note": "the RTO total; already contains every zone below it",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "PJM_WEST",
+   "role": "aggregate",
+   "aggregate": true,
+   "additive_to_rto": false,
+   "note": "an aggregate of other rows: the western half of the RTO",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "PL",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "PLGRP",
+   "role": "aggregate",
+   "aggregate": true,
+   "additive_to_rto": false,
+   "note": "an aggregate of other rows: the PPL group, which already contains PL",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "PN_FE_EAST",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "PS",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "RECO",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "SOUTHERNMA",
+   "role": "aggregate",
+   "aggregate": true,
+   "additive_to_rto": false,
+   "note": "an aggregate of other rows: a Mid-Atlantic sub-region, inside PJM_MA",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "UGI",
+   "role": "zone",
+   "aggregate": false,
+   "additive_to_rto": true,
+   "note": "",
+   "first_year": 2026,
+   "last_year": 2046
+  },
+  {
+   "zone": "WESTERNMA",
+   "role": "aggregate",
+   "aggregate": true,
+   "additive_to_rto": false,
+   "note": "an aggregate of other rows: a Mid-Atlantic sub-region, inside PJM_MA",
+   "first_year": 2026,
+   "last_year": 2046
+  }
+ ]
+}
