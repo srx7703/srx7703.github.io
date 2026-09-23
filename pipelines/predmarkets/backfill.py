@@ -3,9 +3,13 @@
 Usage:
     uv run python -m pipelines.predmarkets.backfill --set fomc
 
-Writes data/snapshots/predmarkets/<set>/history/<platform>.parquet (overwritten each run; git keeps
-prior versions). Rows: platform, market_id, date, price (YES, 0-1), volume, open_interest.
-Polymarket: CLOB /prices-history (interval=max, fidelity=1440 minutes). Kalshi: daily candlesticks.
+Merges into data/snapshots/predmarkets/<set>/history/<platform>.parquet on (platform, market_id,
+date): this run's rows win a shared key and every other stored row is kept, so a fetch that fails
+or 404s never deletes history. Stored rows outlive the fetch window, so a change to how rows are
+derived (e.g. the date label) means migrating the file, not deleting it.
+Rows: platform, market_id, date, price (YES, 0-1), volume, open_interest.
+Polymarket: CLOB /prices-history (interval=max, fidelity=1440 minutes). Kalshi: daily candlesticks,
+from /historical for markets settled before Kalshi's historical cutoff (the live endpoint 404s them).
 """
 
 from __future__ import annotations
@@ -14,7 +18,10 @@ import argparse
 import logging
 import sys
 from datetime import UTC, datetime
+from functools import partial
+from pathlib import Path
 
+import httpx
 import pandera.polars as pa
 import polars as pl
 
@@ -27,6 +34,8 @@ from pipelines.predmarkets.polymarket import PolymarketClient
 
 log = logging.getLogger("predmarkets.backfill")
 
+HIST_KEY = ["platform", "market_id", "date"]
+
 HIST_SCHEMA = pa.DataFrameSchema(
     {
         "platform": pa.Column(str, pa.Check.isin(["polymarket", "kalshi"])),
@@ -34,7 +43,7 @@ HIST_SCHEMA = pa.DataFrameSchema(
         "date": pa.Column(str, pa.Check.str_matches(r"^\d{4}-\d{2}-\d{2}$")),
         "price": pa.Column(float, pa.Check.in_range(0.0, 1.0)),
     },
-    unique=["platform", "market_id", "date"],
+    unique=HIST_KEY,
 )
 
 HIST_DTYPES: dict[str, pl.DataType] = {
@@ -73,38 +82,76 @@ def backfill_polymarket(dim: pl.DataFrame) -> pl.DataFrame:
     return df.unique(subset=["market_id", "date"], keep="last", maintain_order=True)
 
 
+def _utc(s: str | None) -> datetime | None:
+    try:
+        dt = datetime.fromisoformat(s) if s else None
+    except ValueError:
+        return None
+    return dt.replace(tzinfo=UTC) if dt and dt.tzinfo is None else dt
+
+
+def kalshi_candle_row(k: dict, market_id: str) -> dict | None:
+    """One daily candle as a history row, or None if nothing traded that day. Reads both schemas:
+    live `price.close_dollars` / `volume_fp` / `open_interest_fp`, historical `price.close` /
+    `volume` / `open_interest`."""
+    price = k.get("price") or {}
+    close = price.get("close_dollars", price.get("close"))
+    if close is None:
+        return None
+    return {
+        "platform": "kalshi",
+        "market_id": market_id,
+        "date": datetime.fromtimestamp(int(k["end_period_ts"]), UTC).strftime("%Y-%m-%d"),
+        "price": float(close),
+        "volume": float(k.get("volume_fp", k.get("volume")) or 0),
+        "open_interest": float(k.get("open_interest_fp", k.get("open_interest")) or 0),
+    }
+
+
+def _kalshi_candles(c: KalshiClient, r: dict, cutoff: datetime | None, window: dict) -> list[dict]:
+    """Live candles, or historical ones for a market that closed before the cutoff. The dim knows the
+    close time but the cutoff is on settlement time, so a 404 from the first endpoint tries the other."""
+    live = partial(c.candlesticks, r["series"], r["market_id"], **window)
+    archived = partial(c.historical_candlesticks, r["market_id"], **window)
+    closed = _utc(r["end_date"])
+    first, second = (archived, live) if cutoff and closed and closed < cutoff else (live, archived)
+    try:
+        return first().get("candlesticks") or []
+    except httpx.HTTPStatusError as exc:
+        if exc.response.status_code != 404:
+            raise
+    return second().get("candlesticks") or []
+
+
 def backfill_kalshi(dim: pl.DataFrame, days: int = 400) -> pl.DataFrame:
     c = KalshiClient()
     c.http.min_interval = 0.3  # candlesticks are rate-limited harder than list endpoints
     now = int(datetime.now(UTC).timestamp())
+    window = {"start_ts": now - days * 86400, "end_ts": now, "period_interval": 1440}
+    try:
+        cutoff = _utc(c.historical_cutoff().get("market_settled_ts"))
+    except Exception as exc:  # noqa: BLE001 - without it every market tries the live endpoint first
+        log.warning("historical cutoff unavailable: %s", exc)
+        cutoff = None
     rows: list[dict] = []
     markets = dim.filter(pl.col("platform") == "kalshi")
     for r in markets.iter_rows(named=True):
         try:
-            cs = (
-                c.candlesticks(
-                    r["series"], r["market_id"], start_ts=now - days * 86400, end_ts=now, period_interval=1440
-                ).get("candlesticks")
-                or []
-            )
+            parsed = [kalshi_candle_row(k, r["market_id"]) for k in _kalshi_candles(c, r, cutoff, window)]
         except Exception as exc:  # noqa: BLE001
             log.warning("candlesticks failed %s: %s", r["market_id"], exc)
             continue
-        for k in cs:
-            close = (k.get("price") or {}).get("close_dollars")
-            if close is None:
-                continue
-            rows.append(
-                {
-                    "platform": "kalshi",
-                    "market_id": r["market_id"],
-                    "date": datetime.fromtimestamp(int(k["end_period_ts"]), UTC).strftime("%Y-%m-%d"),
-                    "price": float(close),
-                    "volume": float(k.get("volume_fp") or 0),
-                    "open_interest": float(k.get("open_interest_fp") or 0),
-                }
-            )
+        rows += [row for row in parsed if row]
     return pl.DataFrame(rows, schema=HIST_DTYPES).unique(subset=["market_id", "date"], keep="last", maintain_order=True)
+
+
+def merge_history(new: pl.DataFrame, path: Path) -> pl.DataFrame:
+    """Stored rows plus this run's, one per (platform, market_id, date), this run winning a shared key.
+    A market this run could not fetch keeps every row it already had."""
+    if not path.exists():
+        return new
+    old = pl.read_parquet(path).select(list(HIST_DTYPES)).cast(HIST_DTYPES)
+    return pl.concat([old, new]).unique(subset=HIST_KEY, keep="last", maintain_order=True).sort(HIST_KEY)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -118,16 +165,22 @@ def main(argv: list[str] | None = None) -> int:
         log.error("no dimension for set %s; run the snapshot first", args.set)
         return 1
     out = SNAP_DIR / "predmarkets" / args.set / "history"
-    if args.platform in ("all", "polymarket"):
-        pm = backfill_polymarket(dim)
-        HIST_SCHEMA.validate(pm)
-        write_parquet(pm, out / "polymarket.parquet")
-        log.info("polymarket history: %d rows, %d markets", pm.height, pm["market_id"].n_unique())
-    if args.platform in ("all", "kalshi"):
-        kx = backfill_kalshi(dim)
-        HIST_SCHEMA.validate(kx)
-        write_parquet(kx, out / "kalshi.parquet")
-        log.info("kalshi history: %d rows, %d markets", kx.height, kx["market_id"].n_unique())
+    for platform, fetch in (("polymarket", backfill_polymarket), ("kalshi", backfill_kalshi)):
+        if args.platform not in ("all", platform):
+            continue
+        path = out / f"{platform}.parquet"
+        new = fetch(dim)
+        merged = merge_history(new, path)
+        HIST_SCHEMA.validate(merged)
+        write_parquet(merged, path)
+        log.info(
+            "%s history: fetched %d rows for %d markets; stored %d rows for %d markets",
+            platform,
+            new.height,
+            new["market_id"].n_unique(),
+            merged.height,
+            merged["market_id"].n_unique(),
+        )
     return 0
 
 

@@ -60,6 +60,34 @@ class KalshiClient:
             {"start_ts": start_ts, "end_ts": end_ts, "period_interval": period_interval},
         )
 
+    # Markets settled before the historical cutoff (it trails today by about two months) move to the
+    # /historical endpoints: the live candlesticks 404 and /events stops nesting them.
+    def historical_cutoff(self) -> dict:
+        """`market_settled_ts`: markets settled before it are served by the /historical endpoints only."""
+        return self.http.get_json("/historical/cutoff")
+
+    def historical_candlesticks(self, ticker: str, *, start_ts: int, end_ts: int, period_interval: int = 1440) -> dict:
+        """Candles of an archived market. Field names differ from the live endpoint: `price.close`,
+        `volume`, `open_interest` instead of `price.close_dollars`, `volume_fp`, `open_interest_fp`."""
+        return self.http.get_json(
+            f"/historical/markets/{ticker}/candlesticks",
+            {"start_ts": start_ts, "end_ts": end_ts, "period_interval": period_interval},
+        )
+
+    def iter_historical_markets(self, *, event_ticker: str, limit: int = 200, max_pages: int = 50) -> Iterator[dict]:
+        """Markets (with `result`) of an event settled before the cutoff."""
+        cursor: str | None = None
+        for _ in range(max_pages):
+            params: dict[str, Any] = {"event_ticker": event_ticker, "limit": limit}
+            if cursor:
+                params["cursor"] = cursor
+            resp = self.http.get_json("/historical/markets", params)
+            markets = resp.get("markets") or []
+            yield from markets
+            cursor = resp.get("cursor")
+            if not cursor or not markets:
+                break
+
 
 def _f(x: Any) -> float | None:
     if x is None or x == "":

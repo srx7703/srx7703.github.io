@@ -16,6 +16,9 @@ manual dispatch.
 | Kalshi | `GET /events?status=open&with_nested_markets=true&limit=200&cursor=` | universe scan / per-series events |
 | Kalshi | `GET /markets/{ticker}/orderbook?depth=` | tier-1 order books |
 | Kalshi | `GET /series/{series}/markets/{ticker}/candlesticks` | backfill (not used by the snapshotter) |
+| Kalshi | `GET /historical/cutoff` | `market_settled_ts`: markets settled before it (about two months back) are served only by `/historical` |
+| Kalshi | `GET /historical/markets/{ticker}/candlesticks` | backfill of archived markets (fields `price.close`, `volume`, `open_interest`) |
+| Kalshi | `GET /historical/markets?event_ticker=&cursor=` | results of archived events, which `/events?status=settled` lists without markets |
 
 Tag ids (Polymarket, discovered 2026-09-15): midterms=102289, senate-midterms=104093,
 governor-midterms=104094, fomc=100478, fed-rates=100196.
@@ -84,14 +87,20 @@ Pipeline: `pipelines/sec/ingest.py` + `transform.py`, weekly (`refresh-weekly.ym
 # Data model — FOMC decision markets
 
 - `data/snapshots/predmarkets/fomc/history/<platform>.parquet` — daily backfilled prices
-  (Polymarket `prices-history`, Kalshi candlesticks), refreshed weekly.
+  (Polymarket `prices-history`, Kalshi candlesticks), refreshed weekly by merging on
+  (platform, market_id, date): new rows win a shared key and no stored row is dropped, so a failed or
+  404'd fetch keeps the market's history. Kalshi markets settled before the historical cutoff are
+  fetched from `/historical`.
 - `pipelines/predmarkets/fomc.py` maps both platforms to one meeting/outcome grid
   (cut50, cut25, hold, hike25, hike50), rolls up to cut/hold/hike for charts, and scores resolved
   meetings with the multi-outcome Brier score (0 = perfect, 2 = certain and wrong) of the last snapshot
   taken before 17:30 UTC on decision day (fallback: last daily history point before decision day).
 - `data/snapshots/predmarkets/<set>/resolutions.json` — append-only store of settled tier-1 markets
   (Kalshi `result`, Polymarket closed 1/0 prices), captured by every full run so results survive the
-  markets leaving the open listings. Also the basis for scoring the midterms after November 3.
+  markets leaving the open listings. Kalshi events settled before the historical cutoff are read from
+  `/historical/markets`, once per event, so the store also holds older settlements of the tier-1 series
+  (e.g. 2024 races for the midterms set); scoring looks results up by market id.
+  Also the basis for scoring the midterms after November 3.
 - Outputs: `data/marts/predmarkets/fomc_history.json`, `fomc_meetings.json`, `data/facts/fomc.json`.
 
 # Case study — stat-arb 2019–2020

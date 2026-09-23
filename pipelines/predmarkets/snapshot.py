@@ -147,6 +147,20 @@ def _safe_series(client: kx.KalshiClient, series: str) -> list[dict]:
         return []
 
 
+def _settled_markets(client: kx.KalshiClient, ev: dict, recorded: set[str]) -> list[dict]:
+    """Markets of a settled Kalshi event. Events settled before Kalshi's historical cutoff come back
+    from /events without their markets; fetch those from /historical/markets, once per event."""
+    if ev.get("markets"):
+        return ev["markets"]
+    if ev.get("event_ticker") in recorded:
+        return []
+    try:
+        return list(client.iter_historical_markets(event_ticker=ev["event_ticker"]))
+    except Exception as exc:  # noqa: BLE001
+        log.warning("historical markets failed for %s: %s", ev.get("event_ticker"), exc)
+        return []
+
+
 def capture_resolutions(ms: MarketSet, set_dir: Path, snapshot_ts: str) -> dict:
     """Append-only record of settled tier-1 markets (both platforms), so results survive the
     markets dropping out of the open/active listings. Read by the scoring code."""
@@ -160,10 +174,11 @@ def capture_resolutions(ms: MarketSet, set_dir: Path, snapshot_ts: str) -> dict:
     if sfile.exists():
         series |= set(json.loads(sfile.read_text())["series"])
     kc = kx.KalshiClient()
+    recorded = {r.get("event_id") for r in markets.values() if r["platform"] == "kalshi"}
     for s in sorted(series):
         try:
             for ev in kc.iter_events(status="settled", series_ticker=s):
-                for m in ev.get("markets") or []:
+                for m in _settled_markets(kc, ev, recorded):
                     res = (m.get("result") or "").lower()
                     if res not in ("yes", "no"):
                         continue
