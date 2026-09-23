@@ -2804,14 +2804,14 @@
   "platform": "kalshi",
   "date": "2026-09-23",
   "side": "hike",
-  "prob": 0.51
+  "prob": 0.67
  },
  {
   "meeting": "2026-10",
   "platform": "kalshi",
   "date": "2026-09-23",
   "side": "hold",
-  "prob": 0.475
+  "prob": 0.35
  },
  {
   "meeting": "2026-10",
@@ -4848,14 +4848,14 @@
   "platform": "polymarket",
   "date": "2026-09-23",
   "side": "hike",
-  "prob": 0.5445
+  "prob": 0.6535
  },
  {
   "meeting": "2026-10",
   "platform": "polymarket",
   "date": "2026-09-23",
   "side": "hold",
-  "prob": 0.455
+  "prob": 0.345
  },
  {
   "meeting": "2026-12",
@@ -7676,7 +7676,7 @@
   "platform": "kalshi",
   "date": "2026-09-23",
   "side": "hike",
-  "prob": 0.68
+  "prob": 0.71
  },
  {
   "meeting": "2026-12",
@@ -8824,14 +8824,14 @@
   "platform": "polymarket",
   "date": "2026-09-23",
   "side": "cut",
-  "prob": 0.014
+  "prob": 0.0175
  },
  {
   "meeting": "2026-12",
   "platform": "polymarket",
   "date": "2026-09-23",
   "side": "hike",
-  "prob": 0.6955
+  "prob": 0.7154999999999999
  },
  {
   "meeting": "2026-12",
@@ -10476,21 +10476,21 @@
   "platform": "kalshi",
   "date": "2026-09-23",
   "side": "cut",
-  "prob": 0.06
+  "prob": 0.045
  },
  {
   "meeting": "2027-01",
   "platform": "kalshi",
   "date": "2026-09-23",
   "side": "hike",
-  "prob": 0.34
+  "prob": 0.385
  },
  {
   "meeting": "2027-01",
   "platform": "kalshi",
   "date": "2026-09-23",
   "side": "hold",
-  "prob": 0.5549999999999999
+  "prob": 0.555
  },
  {
   "meeting": "2027-01",
@@ -11631,14 +11631,14 @@
   "platform": "polymarket",
   "date": "2026-09-23",
   "side": "cut",
-  "prob": 0.0875
+  "prob": 0.085
  },
  {
   "meeting": "2027-01",
   "platform": "polymarket",
   "date": "2026-09-23",
   "side": "hike",
-  "prob": 0.3405
+  "prob": 0.341
  },
  {
   "meeting": "2027-01",
@@ -12772,13 +12772,13 @@
   "platform": "kalshi",
   "date": "2026-09-23",
   "side": "hike",
-  "prob": 0.43
+  "prob": 0.47000000000000003
  },
  {
   "meeting": "2027-03",
   "platform": "kalshi",
   "date": "2026-09-23",
   "side": "hold",
-  "prob": 0.475
+  "prob": 0.46499999999999997
  }
 ]
