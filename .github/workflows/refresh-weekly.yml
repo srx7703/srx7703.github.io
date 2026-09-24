@@ -2,7 +2,7 @@ name: refresh-weekly
 
 on:
   schedule:
-    - cron: "17 7 * * 1"   # Mondays 07:17 UTC: SEC XBRL refresh, FOMC history backfill, marts + facts
+    - cron: "17 7 * * 1"   # Mondays 07:17 UTC: SEC XBRL refresh, FOMC history backfill + archive, marts + facts, macro layer
   workflow_dispatch:
 
 permissions:
@@ -42,6 +42,12 @@ jobs:
         continue-on-error: true
         run: uv run python -m pipelines.predmarkets.backfill --set fomc
 
+      # decision markets that closed before the snapshot pipeline saw them; a no-op once all are stored
+      - name: FOMC closed-meeting archive
+        id: archive
+        continue-on-error: true
+        run: uv run python -m pipelines.predmarkets.archive
+
       - name: Rebuild marts and facts
         id: publish
         continue-on-error: true
@@ -49,6 +55,11 @@ jobs:
           uv run python -m pipelines.predmarkets.publish
           uv run python -m pipelines.statarb.publish
           uv run python -m pipelines.finllm.publish
+
+      - name: FOMC macro layer and release event study
+        id: macro
+        continue-on-error: true
+        run: uv run python -m pipelines.macro.build
 
       - name: Commit and push data
         if: always()
@@ -71,7 +82,7 @@ jobs:
           exit 1
 
       - name: Surface step failures
-        if: steps.sec.outcome == 'failure' || steps.backfill.outcome == 'failure' || steps.publish.outcome == 'failure'
+        if: steps.sec.outcome == 'failure' || steps.backfill.outcome == 'failure' || steps.archive.outcome == 'failure' || steps.publish.outcome == 'failure' || steps.macro.outcome == 'failure'
         run: |
-          echo "::error::a refresh step failed (sec=${{ steps.sec.outcome }}, backfill=${{ steps.backfill.outcome }}, publish=${{ steps.publish.outcome }})"
+          echo "::error::a refresh step failed (sec=${{ steps.sec.outcome }}, backfill=${{ steps.backfill.outcome }}, archive=${{ steps.archive.outcome }}, publish=${{ steps.publish.outcome }}, macro=${{ steps.macro.outcome }})"
           exit 1

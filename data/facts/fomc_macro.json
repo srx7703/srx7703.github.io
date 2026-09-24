@@ -1,0 +1,660 @@
+{
+ "project": "fomc-markets",
+ "generated_at": "2026-09-24T00:09:39+00:00",
+ "window": {
+  "from": "2025-01-01",
+  "to": "2026-09-23"
+ },
+ "forward_from": "2026-09-24",
+ "series": {
+  "DFEDTARU": {
+   "label": "Federal funds target range, upper bound",
+   "last": "2026-09-23"
+  },
+  "DGS2": {
+   "label": "2-year Treasury yield",
+   "last": "2026-09-22"
+  },
+  "T5YIE": {
+   "label": "5-year breakeven inflation",
+   "last": "2026-09-23"
+  },
+  "T5YIFR": {
+   "label": "5-year, 5-year forward inflation expectation",
+   "last": "2026-09-23"
+  },
+  "DCOILWTICO": {
+   "label": "WTI crude oil, Cushing",
+   "last": "2026-09-22"
+  },
+  "DCOILBRENTEU": {
+   "label": "Brent crude oil, Europe",
+   "last": "2026-09-22"
+  }
+ },
+ "claims": {
+  "series": "IC4WSA",
+  "n_first_prints": 92,
+  "last_release": "2026-09-17"
+ },
+ "overlay": {
+  "coverage": {
+   "polymarket": {
+    "days": 631,
+    "with_next2": 630,
+    "first_next2": "2025-01-01"
+   },
+   "kalshi": {
+    "days": 631,
+    "with_next2": 412,
+    "first_next2": "2025-08-05"
+   }
+  },
+  "oil_move": 0.05,
+  "gap_bps": 5.0,
+  "endpoints": {
+   "implied_polymarket": [
+    4.37,
+    4.31
+   ],
+   "implied_polymarket_low": {
+    "value": 3.55,
+    "date": "2025-12-18"
+   },
+   "target": [
+    4.5,
+    4.0
+   ],
+   "dgs2": [
+    4.25,
+    4.71
+   ],
+   "wti": [
+    73.79,
+    96.41
+   ]
+  },
+  "in_sample": {
+   "from": "2025-01-01",
+   "to": "2026-09-23",
+   "n_days_2y": 414,
+   "corr_daily_change_vs_2y": 0.564,
+   "n_days_oil": 410,
+   "corr_daily_change_vs_wti": 0.175,
+   "wti_5pct_days": 32,
+   "wti_5pct_same_direction": 21,
+   "n_days_both_platforms": 411,
+   "mean_abs_platform_gap_bps": 1.01,
+   "share_days_gap_over_5bps": 0.005
+  },
+  "forward": null
+ },
+ "decisions": [
+  {
+   "meeting": "2025-01",
+   "date": "2025-01-29"
+  },
+  {
+   "meeting": "2025-03",
+   "date": "2025-03-19"
+  },
+  {
+   "meeting": "2025-05",
+   "date": "2025-05-07"
+  },
+  {
+   "meeting": "2025-06",
+   "date": "2025-06-18"
+  },
+  {
+   "meeting": "2025-07",
+   "date": "2025-07-30"
+  },
+  {
+   "meeting": "2025-09",
+   "date": "2025-09-17"
+  },
+  {
+   "meeting": "2025-10",
+   "date": "2025-10-29"
+  },
+  {
+   "meeting": "2025-12",
+   "date": "2025-12-10"
+  },
+  {
+   "meeting": "2026-01",
+   "date": "2026-01-28"
+  },
+  {
+   "meeting": "2026-03",
+   "date": "2026-03-18"
+  },
+  {
+   "meeting": "2026-04",
+   "date": "2026-04-29"
+  },
+  {
+   "meeting": "2026-06",
+   "date": "2026-06-17"
+  },
+  {
+   "meeting": "2026-07",
+   "date": "2026-07-29"
+  },
+  {
+   "meeting": "2026-09",
+   "date": "2026-09-16"
+  }
+ ],
+ "releases_on_axis": [
+  {
+   "release": "jobs",
+   "date": "2025-01-10"
+  },
+  {
+   "release": "cpi",
+   "date": "2025-01-15"
+  },
+  {
+   "release": "jobs",
+   "date": "2025-02-07"
+  },
+  {
+   "release": "cpi",
+   "date": "2025-02-12"
+  },
+  {
+   "release": "jobs",
+   "date": "2025-03-07"
+  },
+  {
+   "release": "cpi",
+   "date": "2025-03-12"
+  },
+  {
+   "release": "jobs",
+   "date": "2025-04-04"
+  },
+  {
+   "release": "cpi",
+   "date": "2025-04-10"
+  },
+  {
+   "release": "jobs",
+   "date": "2025-05-02"
+  },
+  {
+   "release": "cpi",
+   "date": "2025-05-13"
+  },
+  {
+   "release": "jobs",
+   "date": "2025-06-06"
+  },
+  {
+   "release": "cpi",
+   "date": "2025-06-11"
+  },
+  {
+   "release": "jobs",
+   "date": "2025-07-03"
+  },
+  {
+   "release": "cpi",
+   "date": "2025-07-15"
+  },
+  {
+   "release": "jobs",
+   "date": "2025-08-01"
+  },
+  {
+   "release": "cpi",
+   "date": "2025-08-12"
+  },
+  {
+   "release": "jobs",
+   "date": "2025-09-05"
+  },
+  {
+   "release": "cpi",
+   "date": "2025-09-11"
+  },
+  {
+   "release": "cpi",
+   "date": "2025-10-24"
+  },
+  {
+   "release": "jobs",
+   "date": "2025-11-20"
+  },
+  {
+   "release": "jobs",
+   "date": "2025-12-16"
+  },
+  {
+   "release": "cpi",
+   "date": "2025-12-18"
+  },
+  {
+   "release": "jobs",
+   "date": "2026-01-09"
+  },
+  {
+   "release": "cpi",
+   "date": "2026-01-13"
+  },
+  {
+   "release": "jobs",
+   "date": "2026-02-11"
+  },
+  {
+   "release": "cpi",
+   "date": "2026-02-13"
+  },
+  {
+   "release": "jobs",
+   "date": "2026-03-06"
+  },
+  {
+   "release": "cpi",
+   "date": "2026-03-11"
+  },
+  {
+   "release": "jobs",
+   "date": "2026-04-03"
+  },
+  {
+   "release": "cpi",
+   "date": "2026-04-10"
+  },
+  {
+   "release": "jobs",
+   "date": "2026-05-08"
+  },
+  {
+   "release": "cpi",
+   "date": "2026-05-12"
+  },
+  {
+   "release": "jobs",
+   "date": "2026-06-05"
+  },
+  {
+   "release": "cpi",
+   "date": "2026-06-10"
+  },
+  {
+   "release": "jobs",
+   "date": "2026-07-02"
+  },
+  {
+   "release": "cpi",
+   "date": "2026-07-14"
+  },
+  {
+   "release": "jobs",
+   "date": "2026-08-07"
+  },
+  {
+   "release": "cpi",
+   "date": "2026-08-12"
+  },
+  {
+   "release": "jobs",
+   "date": "2026-09-04"
+  },
+  {
+   "release": "cpi",
+   "date": "2026-09-11"
+  }
+ ],
+ "archive_from": "2025-01",
+ "event_study": {
+  "platform": "polymarket",
+  "complete_quotes": {
+   "polymarket": 53,
+   "kalshi": 23
+  },
+  "window_min": {
+   "pre": 10,
+   "post": 20,
+   "close_et": "16:00"
+  },
+  "next_k": 2,
+  "primary": {
+   "cpi": "KXCPI",
+   "jobs": "KXPAYROLLS",
+   "pce": "KXPCECORE"
+  },
+  "ladders": {
+   "KXCPI": "CPI, month on month",
+   "KXCPICORE": "Core CPI, month on month",
+   "KXPAYROLLS": "Nonfarm payrolls, monthly change",
+   "KXU3": "Unemployment rate",
+   "KXPCECORE": "Core PCE prices, month on month"
+  },
+  "n_events": 53,
+  "official_releases": {
+   "cpi": 20,
+   "jobs": 20,
+   "pce": 19
+  },
+  "unmatched": [
+   {
+    "release": "cpi",
+    "t0": 1761309000,
+    "date_et": "2025-10-24",
+    "reason": "no ladder trading at T0 - 10 min; KXCPI-25SEP closed 9 days earlier"
+   },
+   {
+    "release": "jobs",
+    "t0": 1763645400,
+    "date_et": "2025-11-20",
+    "reason": "no ladder trading at T0 - 10 min; KXPAYROLLS-25OCT closed 13 days earlier"
+   },
+   {
+    "release": "pce",
+    "t0": 1746021600,
+    "date_et": "2025-04-30",
+    "reason": "no ladder trading at T0 - 10 min; KXPCECORE-25MAR closed 1.6 hours earlier"
+   },
+   {
+    "release": "pce",
+    "t0": 1764946800,
+    "date_et": "2025-12-05",
+    "reason": "no ladder trading at T0 - 10 min; KXPCECORE-25OCT closed 9 days earlier"
+   },
+   {
+    "release": "pce",
+    "t0": 1769094000,
+    "date_et": "2026-01-22",
+    "reason": "no ladder trading at T0 - 10 min; KXPCECORE-25NOV closed 34 days earlier"
+   },
+   {
+    "release": "pce",
+    "t0": 1771594200,
+    "date_et": "2026-02-20",
+    "reason": "no ladder trading at T0 - 10 min; KXPCECORE-25DEC closed 22 days earlier"
+   }
+  ],
+  "stats": {
+   "platform": "polymarket",
+   "placebo": {
+    "n": 137,
+    "median_abs_bps": 0.05,
+    "p90_abs_bps": 0.37,
+    "clock_et": "08:30",
+    "by_platform": {
+     "polymarket": {
+      "n": 137,
+      "median_abs_bps": 0.05,
+      "p90_abs_bps": 0.37
+     },
+     "kalshi": {
+      "n": 137,
+      "median_abs_bps": 0.0,
+      "p90_abs_bps": 0.3
+     }
+    }
+   },
+   "by_release": {
+    "cpi": {
+     "n_events": 19,
+     "sign": {
+      "n": 19,
+      "same": 12,
+      "share": 0.632
+     },
+     "sign_other_platform": {
+      "n": 16,
+      "same": 13,
+      "share": 0.812
+     },
+     "median_abs_bps": 0.82,
+     "share_above_placebo_p90": 0.737,
+     "slope": {
+      "n": 19,
+      "slope": 21.356,
+      "se": 4.291,
+      "t": 4.977,
+      "r2": 0.593
+     },
+     "platform_corr": 0.974,
+     "platform_same_sign": {
+      "n": 16,
+      "same": 12,
+      "share": 0.75
+     },
+     "close_same_sign": {
+      "n": 19,
+      "same": 15,
+      "share": 0.789
+     }
+    },
+    "jobs": {
+     "n_events": 19,
+     "sign": {
+      "n": 18,
+      "same": 13,
+      "share": 0.722
+     },
+     "sign_other_platform": {
+      "n": 19,
+      "same": 14,
+      "share": 0.737
+     },
+     "median_abs_bps": 2.96,
+     "share_above_placebo_p90": 0.789,
+     "slope": {
+      "n": 19,
+      "slope": 0.025,
+      "se": 0.011,
+      "t": 2.365,
+      "r2": 0.248
+     },
+     "platform_corr": 0.946,
+     "platform_same_sign": {
+      "n": 18,
+      "same": 16,
+      "share": 0.889
+     },
+     "close_same_sign": {
+      "n": 18,
+      "same": 17,
+      "share": 0.944
+     }
+    },
+    "pce": {
+     "n_events": 15,
+     "sign": {
+      "n": 15,
+      "same": 7,
+      "share": 0.467
+     },
+     "sign_other_platform": {
+      "n": 12,
+      "same": 7,
+      "share": 0.583
+     },
+     "median_abs_bps": 0.3,
+     "share_above_placebo_p90": 0.333,
+     "slope": {
+      "n": 15,
+      "slope": -1.295,
+      "se": 2.563,
+      "t": -0.505,
+      "r2": 0.019
+     },
+     "platform_corr": 0.385,
+     "platform_same_sign": {
+      "n": 12,
+      "same": 10,
+      "share": 0.833
+     },
+     "close_same_sign": {
+      "n": 15,
+      "same": 10,
+      "share": 0.667
+     }
+    },
+    "all": {
+     "n_events": 53,
+     "sign": {
+      "n": 52,
+      "same": 32,
+      "share": 0.615
+     },
+     "sign_other_platform": {
+      "n": 47,
+      "same": 34,
+      "share": 0.723
+     },
+     "median_abs_bps": 0.76,
+     "share_above_placebo_p90": 0.642,
+     "slope": null,
+     "platform_corr": 0.94,
+     "platform_same_sign": {
+      "n": 46,
+      "same": 38,
+      "share": 0.826
+     },
+     "close_same_sign": {
+      "n": 52,
+      "same": 42,
+      "share": 0.808
+     }
+    }
+   },
+   "mean_path": {
+    "hawkish": {
+     "n": 28,
+     "m5": 1.01,
+     "m20": 1.24,
+     "m60": 1.25
+    },
+    "dovish": {
+     "n": 25,
+     "m5": -0.83,
+     "m20": -1.22,
+     "m60": -1.39
+    }
+   }
+  }
+ },
+ "sources": [
+  {
+   "name": "FRED (St. Louis Fed)",
+   "url": "https://fred.stlouisfed.org/"
+  },
+  {
+   "name": "ALFRED vintages (St. Louis Fed)",
+   "url": "https://alfred.stlouisfed.org/"
+  },
+  {
+   "name": "BLS release schedule",
+   "url": "https://www.bls.gov/schedule/2026/home.htm"
+  },
+  {
+   "name": "BEA release schedule",
+   "url": "https://www.bea.gov/news/schedule"
+  },
+  {
+   "name": "Kalshi public trade API v2",
+   "url": "https://docs.kalshi.com/"
+  },
+  {
+   "name": "Polymarket CLOB API",
+   "url": "https://docs.polymarket.com/"
+  }
+ ],
+ "preregistered": {
+  "from": "2026-09-24",
+  "final_on": "2027-09-22",
+  "claims": [
+   {
+    "id": "oil",
+    "label": "On days WTI moves 5% or more, the two-meeting expectation moves the same way",
+    "threshold": "share > 0.5",
+    "min_n": 8,
+    "n": 0,
+    "value": null,
+    "status": "collecting"
+   },
+   {
+    "id": "treasury",
+    "label": "Daily changes in the implied rate and the 2-year yield correlate",
+    "threshold": "correlation > 0.3",
+    "min_n": 60,
+    "n": 0,
+    "value": null,
+    "status": "collecting"
+   },
+   {
+    "id": "cpi",
+    "label": "The CPI surprise and the 20-minute move in the expectation have the same sign",
+    "threshold": "share > 0.6",
+    "min_n": 6,
+    "n": 0,
+    "value": null,
+    "status": "collecting"
+   },
+   {
+    "id": "platforms",
+    "label": "Polymarket and Kalshi two-meeting expectations stay within 5 bps",
+    "threshold": "share of days over 5 bps < 0.1",
+    "min_n": 60,
+    "n": 0,
+    "value": null,
+    "status": "collecting"
+   }
+  ]
+ },
+ "checks": [
+  {
+   "name": "FRED series",
+   "status": "pass",
+   "detail": "all fetched"
+  },
+  {
+   "name": "Market data current",
+   "status": "pass",
+   "detail": "DFEDTARU 2026-09-23, DGS2 2026-09-22, T5YIE 2026-09-23, T5YIFR 2026-09-23, DCOILWTICO 2026-09-22, DCOILBRENTEU 2026-09-22"
+  },
+  {
+   "name": "Claims as first printed",
+   "status": "pass",
+   "detail": "92 weekly first prints from ALFRED vintages, each dated by its release day"
+  },
+  {
+   "name": "Rolling expectation coverage",
+   "status": "pass",
+   "detail": "polymarket: 630/631 days; kalshi: 412/631 days"
+  },
+  {
+   "name": "Release calendar ahead",
+   "status": "pass",
+   "detail": "official calendar runs to 2026-12-23; extend it from the BLS and BEA schedules each December"
+  },
+  {
+   "name": "Release matching",
+   "status": "pass",
+   "detail": "53 of 59 releases matched to a Kalshi ladder still trading ten minutes before; dropped: cpi 2025-10-24 (no ladder trading at T0 - 10 min; KXCPI-25SEP closed 9 days earlier); jobs 2025-11-20 (no ladder trading at T0 - 10 min; KXPAYROLLS-25OCT closed 13 days earlier); pce 2025-04-30 (no ladder trading at T0 - 10 min; KXPCECORE-25MAR closed 1.6 hours earlier); pce 2025-12-05 (no ladder trading at T0 - 10 min; KXPCECORE-25OCT closed 9 days earlier); pce 2026-01-22 (no ladder trading at T0 - 10 min; KXPCECORE-25NOV closed 34 days earlier); pce 2026-02-20 (no ladder trading at T0 - 10 min; KXPCECORE-25DEC closed 22 days earlier)"
+  },
+  {
+   "name": "Consensus and print",
+   "status": "pass",
+   "detail": "53/53 events have a ladder mean and a print"
+  },
+  {
+   "name": "Quote coverage",
+   "status": "pass",
+   "detail": "events with a minute price for every outcome of the next two meetings: polymarket 53/53, kalshi 23/53 (statistics use polymarket)"
+  },
+  {
+   "name": "Placebo windows",
+   "status": "pass",
+   "detail": "137 quiet-day windows on polymarket"
+  }
+ ]
+}

@@ -101,7 +101,45 @@ Pipeline: `pipelines/sec/ingest.py` + `transform.py`, weekly (`refresh-weekly.ym
   `/historical/markets`, once per event, so the store also holds older settlements of the tier-1 series
   (e.g. 2024 races for the midterms set); scoring looks results up by market id.
   Also the basis for scoring the midterms after November 3.
-- Outputs: `data/marts/predmarkets/fomc_history.json`, `fomc_meetings.json`, `data/facts/fomc.json`.
+- `data/snapshots/predmarkets/fomc/archive/` — decision markets that closed before the snapshot
+  pipeline first saw them (the January 2025 to July 2026 meetings), written by
+  `pipelines/predmarkets/archive.py`: `markets.parquet` (platform, market_id, meeting, bucket, yes_token,
+  result, source) and `daily.parquet` (platform, market_id, ts, price, src). `ts` is the raw epoch second;
+  `src` is `daily` / `hourly_fill` (Polymarket) or `trade` / `quote_mid` (Kalshi; the mid only when the
+  spread is at most 10 cents). A closed market's history does not change, so stored markets are skipped.
+- Price time: `fomc.daily_prices` dates every price by the New York day it was observed. The backfill's
+  `date` is the UTC date of the bar timestamp (`backfill.backfill_polymarket`, `backfill.kalshi_candle_row`),
+  one day late for both platforms, and is shifted back a day at read time; archive rows use the New York
+  date of `ts - 1 s`; snapshots use the New York date of `snapshot_ts`. The stored files are not rewritten.
+- Kalshi outcomes are mapped by ticker suffix (`C26` cut50, `C25` cut25, `H0` hold, `H25` hike25, `H26`
+  hike50); the outcome labels were reworded twice ("No cut/hike", "No change", "Fed maintains rate").
+- Outputs: `data/marts/predmarkets/fomc_history.json` (every open meeting), `fomc_meetings.json`,
+  `data/facts/fomc.json`.
+
+# Data model — FOMC macro layer and release event study
+
+Written by `pipelines/macro/build.py` (config in `pipelines/macro/config.py`).
+
+- `data/snapshots/macro/fred_daily.parquet` — FRED daily series (series, date, value) from the keyless
+  graph CSV: `DFEDTARU`, `DGS2`, `T5YIE`, `T5YIFR`, `DCOILWTICO`, `DCOILBRENTEU`. Merged; new rows win.
+- `data/snapshots/macro/claims_first_print.parquet` — `IC4WSA` as first published (series, week_end,
+  release_date, value), from ALFRED multi-vintage CSVs (at most 12 vintages per request; the parser
+  rejects a response whose columns differ from the request). Merged; the stored first print is kept.
+- `pipelines/macro/release_calendar.csv` — official release times (CPI, jobs, PPI, ECI from the BLS
+  schedule; PCE and GDP from the BEA schedule), maintained by hand each December because BLS refuses
+  scripted downloads of its calendar.
+- `data/snapshots/macro/ladders.json` — settled Kalshi release ladders (`KXCPI`, `KXCPICORE`,
+  `KXPAYROLLS`, `KXU3`, `KXPCECORE`) since January 2025, trimmed to strike, result, value and close time.
+- `data/snapshots/macro/consensus.json` — per release and ladder: the ladder mean at T0 - 10 min,
+  the first print (from `expiration_value` when it agrees with the settled results, else from the
+  results), the surprise and the per-strike quotes used.
+- `data/snapshots/macro/events/<release>_<date>.parquet`, `placebo/<date>.parquet` — one-minute quotes
+  (platform, market_id, ts, bid, ask, trade, price) for the decision markets of the next two meetings,
+  from an hour before the window (plus each market's last earlier quote) to 16:00 New York time. Written
+  only when every market fetched, so a partial fetch is retried on the next run.
+- Outputs: `data/marts/predmarkets/fomc_macro_daily.json` (date, panel, series, value, segment),
+  `fomc_event_study.json` (one row per release), `fomc_event_paths.json` (mean path by release type,
+  surprise sign, platform and minute), `data/facts/fomc_macro.json`.
 
 # Case study — stat-arb 2019–2020
 

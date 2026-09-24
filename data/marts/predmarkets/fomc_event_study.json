@@ -1,0 +1,2017 @@
+[
+ {
+  "key": "cpi_2025-01-15",
+  "release": "cpi",
+  "date": "2025-01-15",
+  "t0_utc": "2025-01-15T13:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2025-01",
+   "2025-03"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.376,
+  "actual": 0.4,
+  "surprise": 0.024,
+  "hawkish_surprise": 0.024,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.277,
+    "actual": 0.2,
+    "surprise": -0.077,
+    "hawkish_surprise": -0.077
+   }
+  },
+  "n_strikes": 4,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.13,
+   "d_close": 0.0,
+   "d_post_next1": 0.13,
+   "level_pre": null,
+   "coverage": "2/10"
+  },
+  "polymarket": {
+   "d_post": -1.18,
+   "d_close": -2.2,
+   "d_post_next1": 0.1,
+   "level_pre": -5.7,
+   "coverage": "9/9"
+  }
+ },
+ {
+  "key": "cpi_2025-02-12",
+  "release": "cpi",
+  "date": "2025-02-12",
+  "t0_utc": "2025-02-12T13:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2025-03",
+   "2025-05"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.3215,
+  "actual": 0.5,
+  "surprise": 0.1785,
+  "hawkish_surprise": 0.1785,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.311,
+    "actual": 0.4,
+    "surprise": 0.089,
+    "hawkish_surprise": 0.089
+   }
+  },
+  "n_strikes": 5,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.5,
+   "d_close": 0.62,
+   "d_post_next1": 0.5,
+   "level_pre": null,
+   "coverage": "2/10"
+  },
+  "polymarket": {
+   "d_post": 1.64,
+   "d_close": 1.97,
+   "d_post_next1": 0.57,
+   "level_pre": -5.2,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "cpi_2025-03-12",
+  "release": "cpi",
+  "date": "2025-03-12",
+  "t0_utc": "2025-03-12T12:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2025-03",
+   "2025-05"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.309,
+  "actual": 0.2,
+  "surprise": -0.109,
+  "hawkish_surprise": -0.109,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.3155,
+    "actual": 0.2,
+    "surprise": -0.1155,
+    "hawkish_surprise": -0.1155
+   }
+  },
+  "n_strikes": 5,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.25,
+   "d_close": 0.25,
+   "d_post_next1": 0.25,
+   "level_pre": null,
+   "coverage": "3/10"
+  },
+  "polymarket": {
+   "d_post": -0.03,
+   "d_close": 0.6,
+   "d_post_next1": 0.25,
+   "level_pre": -11.8,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "cpi_2025-04-10",
+  "release": "cpi",
+  "date": "2025-04-10",
+  "t0_utc": "2025-04-10T12:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2025-05",
+   "2025-06"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.055,
+  "actual": -0.1,
+  "surprise": -0.155,
+  "hawkish_surprise": -0.155,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.2105,
+    "actual": 0.1,
+    "surprise": -0.1105,
+    "hawkish_surprise": -0.1105
+   }
+  },
+  "n_strikes": 5,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -1.75,
+   "d_close": -3.75,
+   "d_post_next1": -1.75,
+   "level_pre": null,
+   "coverage": "5/10"
+  },
+  "polymarket": {
+   "d_post": -2.33,
+   "d_close": -5.01,
+   "d_post_next1": -1.25,
+   "level_pre": -18.2,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "cpi_2025-05-13",
+  "release": "cpi",
+  "date": "2025-05-13",
+  "t0_utc": "2025-05-13T12:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2025-06",
+   "2025-07"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.274,
+  "actual": 0.2,
+  "surprise": -0.074,
+  "hawkish_surprise": -0.074,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.281,
+    "actual": 0.2,
+    "surprise": -0.081,
+    "hawkish_surprise": -0.081
+   }
+  },
+  "n_strikes": 7,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -0.13,
+   "d_close": -0.25,
+   "d_post_next1": -0.13,
+   "level_pre": null,
+   "coverage": "5/10"
+  },
+  "polymarket": {
+   "d_post": -1.03,
+   "d_close": 0.06,
+   "d_post_next1": -0.28,
+   "level_pre": -10.1,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "cpi_2025-06-11",
+  "release": "cpi",
+  "date": "2025-06-11",
+  "t0_utc": "2025-06-11T12:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2025-06",
+   "2025-07"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.179,
+  "actual": 0.1,
+  "surprise": -0.079,
+  "hawkish_surprise": -0.079,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.277,
+    "actual": 0.1,
+    "surprise": -0.177,
+    "hawkish_surprise": -0.177
+   }
+  },
+  "n_strikes": 7,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.0,
+   "d_close": -0.13,
+   "d_post_next1": 0.0,
+   "level_pre": null,
+   "coverage": "5/10"
+  },
+  "polymarket": {
+   "d_post": -0.41,
+   "d_close": -1.08,
+   "d_post_next1": -0.04,
+   "level_pre": -3.4,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "cpi_2025-07-15",
+  "release": "cpi",
+  "date": "2025-07-15",
+  "t0_utc": "2025-07-15T12:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2025-07",
+   "2025-09"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.2405,
+  "actual": 0.3,
+  "surprise": 0.0595,
+  "hawkish_surprise": 0.0595,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.208,
+    "actual": 0.2,
+    "surprise": -0.008,
+    "hawkish_surprise": -0.008
+   }
+  },
+  "n_strikes": 8,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.75,
+   "d_close": 0.75,
+   "d_post_next1": 0.75,
+   "level_pre": null,
+   "coverage": "5/10"
+  },
+  "polymarket": {
+   "d_post": -0.42,
+   "d_close": 0.5,
+   "d_post_next1": 0.61,
+   "level_pre": -14.3,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "cpi_2025-08-12",
+  "release": "cpi",
+  "date": "2025-08-12",
+  "t0_utc": "2025-08-12T12:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2025-09",
+   "2025-10"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.2565,
+  "actual": 0.2,
+  "surprise": -0.0565,
+  "hawkish_surprise": -0.0565,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.3165,
+    "actual": 0.3,
+    "surprise": -0.0165,
+    "hawkish_surprise": -0.0165
+   }
+  },
+  "n_strikes": 6,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -1.25,
+   "d_close": -2.37,
+   "d_post_next1": -1.25,
+   "level_pre": -38.1,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": -1.58,
+   "d_close": -1.43,
+   "d_post_next1": -1.73,
+   "level_pre": -37.5,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "cpi_2025-09-11",
+  "release": "cpi",
+  "date": "2025-09-11",
+  "t0_utc": "2025-09-11T12:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2025-09",
+   "2025-10"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.3205,
+  "actual": 0.4,
+  "surprise": 0.0795,
+  "hawkish_surprise": 0.0795,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.309,
+    "actual": 0.3,
+    "surprise": -0.009,
+    "hawkish_surprise": -0.009
+   }
+  },
+  "n_strikes": 6,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 1.75,
+   "d_close": 1.25,
+   "d_post_next1": 1.75,
+   "level_pre": -48.0,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": 2.38,
+   "d_close": 2.15,
+   "d_post_next1": 1.45,
+   "level_pre": -50.1,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "cpi_2025-12-18",
+  "release": "cpi",
+  "date": "2025-12-18",
+  "t0_utc": "2025-12-18T13:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2026-01",
+   "2026-03"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.235,
+  "actual": 0.2,
+  "surprise": -0.035,
+  "hawkish_surprise": -0.035,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.2275,
+    "actual": 0.2,
+    "surprise": -0.0275,
+    "hawkish_surprise": -0.0275
+   }
+  },
+  "n_strikes": 5,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -1.63,
+   "d_close": -1.5,
+   "d_post_next1": -1.38,
+   "level_pre": -16.6,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": -2.13,
+   "d_close": -3.06,
+   "d_post_next1": -1.25,
+   "level_pre": -17.0,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "cpi_2026-01-13",
+  "release": "cpi",
+  "date": "2026-01-13",
+  "t0_utc": "2026-01-13T13:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2026-01",
+   "2026-03"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.32,
+  "actual": 0.3,
+  "surprise": -0.02,
+  "hawkish_surprise": -0.02,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.3335,
+    "actual": 0.2,
+    "surprise": -0.1335,
+    "hawkish_surprise": -0.1335
+   }
+  },
+  "n_strikes": 6,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -0.0,
+   "d_close": 1.25,
+   "d_post_next1": 0.25,
+   "level_pre": -8.5,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": 0.12,
+   "d_close": 0.56,
+   "d_post_next1": 0.25,
+   "level_pre": -9.0,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "cpi_2026-02-13",
+  "release": "cpi",
+  "date": "2026-02-13",
+  "t0_utc": "2026-02-13T13:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2026-03",
+   "2026-04"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.2745,
+  "actual": 0.2,
+  "surprise": -0.0745,
+  "hawkish_surprise": -0.0745,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.309,
+    "actual": 0.3,
+    "surprise": -0.009,
+    "hawkish_surprise": -0.009
+   }
+  },
+  "n_strikes": 6,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -1.13,
+   "d_close": -1.25,
+   "d_post_next1": 0.12,
+   "level_pre": -8.2,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": -0.76,
+   "d_close": -0.46,
+   "d_post_next1": 0.0,
+   "level_pre": -7.1,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "cpi_2026-03-11",
+  "release": "cpi",
+  "date": "2026-03-11",
+  "t0_utc": "2026-03-11T12:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2026-03",
+   "2026-04"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.254,
+  "actual": 0.3,
+  "surprise": 0.046,
+  "hawkish_surprise": 0.046,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.24,
+    "actual": 0.2,
+    "surprise": -0.04,
+    "hawkish_surprise": -0.04
+   }
+  },
+  "n_strikes": 6,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.25,
+   "d_close": 0.5,
+   "d_post_next1": 0.0,
+   "level_pre": -2.9,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": 0.04,
+   "d_close": -0.02,
+   "d_post_next1": 0.1,
+   "level_pre": -2.6,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "cpi_2026-04-10",
+  "release": "cpi",
+  "date": "2026-04-10",
+  "t0_utc": "2026-04-10T12:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2026-04",
+   "2026-06"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.902,
+  "actual": 0.9,
+  "surprise": -0.002,
+  "hawkish_surprise": -0.002,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.262,
+    "actual": 0.2,
+    "surprise": -0.062,
+    "hawkish_surprise": -0.062
+   }
+  },
+  "n_strikes": 15,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -0.25,
+   "d_close": 0.0,
+   "d_post_next1": 0.0,
+   "level_pre": -2.8,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": 0.3,
+   "d_close": 0.3,
+   "d_post_next1": 0.3,
+   "level_pre": -2.4,
+   "coverage": "9/9"
+  }
+ },
+ {
+  "key": "cpi_2026-05-12",
+  "release": "cpi",
+  "date": "2026-05-12",
+  "t0_utc": "2026-05-12T12:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2026-06",
+   "2026-07"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.6055,
+  "actual": 0.6,
+  "surprise": -0.0055,
+  "hawkish_surprise": -0.0055,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.3735,
+    "actual": 0.4,
+    "surprise": 0.0265,
+    "hawkish_surprise": 0.0265
+   }
+  },
+  "n_strikes": 12,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.0,
+   "d_close": -0.62,
+   "d_post_next1": 0.0,
+   "level_pre": null,
+   "coverage": "9/10"
+  },
+  "polymarket": {
+   "d_post": 0.08,
+   "d_close": 0.36,
+   "d_post_next1": 0.05,
+   "level_pre": -2.0,
+   "coverage": "10/10"
+  }
+ },
+ {
+  "key": "cpi_2026-06-10",
+  "release": "cpi",
+  "date": "2026-06-10",
+  "t0_utc": "2026-06-10T12:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2026-06",
+   "2026-07"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.493,
+  "actual": 0.5,
+  "surprise": 0.007,
+  "hawkish_surprise": 0.007,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.2441,
+    "actual": 0.2,
+    "surprise": -0.0441,
+    "hawkish_surprise": -0.0441
+   }
+  },
+  "n_strikes": 13,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -0.12,
+   "d_close": 0.13,
+   "d_post_next1": 0.0,
+   "level_pre": 0.4,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": -0.55,
+   "d_close": -0.31,
+   "d_post_next1": -0.05,
+   "level_pre": 1.1,
+   "coverage": "10/10"
+  }
+ },
+ {
+  "key": "cpi_2026-07-14",
+  "release": "cpi",
+  "date": "2026-07-14",
+  "t0_utc": "2026-07-14T12:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2026-07",
+   "2026-09"
+  ],
+  "primary": "KXCPI",
+  "consensus": -0.138,
+  "actual": -0.4,
+  "surprise": -0.262,
+  "hawkish_surprise": -0.262,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.2255,
+    "actual": 0.0,
+    "surprise": -0.2255,
+    "hawkish_surprise": -0.2255
+   }
+  },
+  "n_strikes": 9,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -8.12,
+   "d_close": -8.12,
+   "d_post_next1": -6.38,
+   "level_pre": null,
+   "coverage": "8/10"
+  },
+  "polymarket": {
+   "d_post": -9.06,
+   "d_close": -10.08,
+   "d_post_next1": -6.75,
+   "level_pre": 20.0,
+   "coverage": "10/10"
+  }
+ },
+ {
+  "key": "cpi_2026-08-12",
+  "release": "cpi",
+  "date": "2026-08-12",
+  "t0_utc": "2026-08-12T12:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2026-09",
+   "2026-10"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.083,
+  "actual": 0.1,
+  "surprise": 0.017,
+  "hawkish_surprise": 0.017,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.1925,
+    "actual": 0.2,
+    "surprise": 0.0075,
+    "hawkish_surprise": 0.0075
+   }
+  },
+  "n_strikes": 10,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -0.12,
+   "d_close": 0.63,
+   "d_post_next1": -0.75,
+   "level_pre": 12.8,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": -0.82,
+   "d_close": -0.34,
+   "d_post_next1": -0.82,
+   "level_pre": 12.7,
+   "coverage": "10/10"
+  }
+ },
+ {
+  "key": "cpi_2026-09-11",
+  "release": "cpi",
+  "date": "2026-09-11",
+  "t0_utc": "2026-09-11T12:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2026-09",
+   "2026-10"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.3418,
+  "actual": 0.4,
+  "surprise": 0.0582,
+  "hawkish_surprise": 0.0582,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.2115,
+    "actual": 0.3,
+    "surprise": 0.0885,
+    "hawkish_surprise": 0.0885
+   }
+  },
+  "n_strikes": 13,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 5.0,
+   "d_close": 6.38,
+   "d_post_next1": 4.75,
+   "level_pre": 21.9,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": 5.14,
+   "d_close": 6.77,
+   "d_post_next1": 5.05,
+   "level_pre": 22.8,
+   "coverage": "10/10"
+  }
+ },
+ {
+  "key": "jobs_2025-01-10",
+  "release": "jobs",
+  "date": "2025-01-10",
+  "t0_utc": "2025-01-10T13:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2025-01",
+   "2025-03"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 195.46,
+  "actual": 256.0,
+  "surprise": 60.54,
+  "hawkish_surprise": 60.54,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.2325,
+    "actual": 4.1,
+    "surprise": -0.1325,
+    "hawkish_surprise": 0.1325
+   }
+  },
+  "n_strikes": 7,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.75,
+   "d_close": 1.0,
+   "d_post_next1": 0.75,
+   "level_pre": null,
+   "coverage": "3/10"
+  },
+  "polymarket": {
+   "d_post": 3.65,
+   "d_close": 4.06,
+   "d_post_next1": 0.39,
+   "level_pre": -10.2,
+   "coverage": "9/9"
+  }
+ },
+ {
+  "key": "jobs_2025-02-07",
+  "release": "jobs",
+  "date": "2025-02-07",
+  "t0_utc": "2025-02-07T13:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2025-03",
+   "2025-05"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 218.28,
+  "actual": 143.0,
+  "surprise": -75.28,
+  "hawkish_surprise": -75.28,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.1365,
+    "actual": 4.0,
+    "surprise": -0.1365,
+    "hawkish_surprise": 0.1365
+   }
+  },
+  "n_strikes": 7,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 1.0,
+   "d_close": 1.25,
+   "d_post_next1": 1.0,
+   "level_pre": null,
+   "coverage": "4/10"
+  },
+  "polymarket": {
+   "d_post": 1.77,
+   "d_close": 2.84,
+   "d_post_next1": 1.09,
+   "level_pre": -10.2,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "jobs_2025-03-07",
+  "release": "jobs",
+  "date": "2025-03-07",
+  "t0_utc": "2025-03-07T13:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2025-03",
+   "2025-05"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 130.5,
+  "actual": 151.0,
+  "surprise": 20.5,
+  "hawkish_surprise": 20.5,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.0725,
+    "actual": 4.1,
+    "surprise": 0.0275,
+    "hawkish_surprise": -0.0275
+   }
+  },
+  "n_strikes": 7,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 1.0,
+   "d_close": 1.5,
+   "d_post_next1": 1.0,
+   "level_pre": null,
+   "coverage": "4/10"
+  },
+  "polymarket": {
+   "d_post": 2.58,
+   "d_close": 3.5,
+   "d_post_next1": 0.77,
+   "level_pre": -14.3,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "jobs_2025-04-04",
+  "release": "jobs",
+  "date": "2025-04-04",
+  "t0_utc": "2025-04-04T12:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2025-05",
+   "2025-06"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 139.25,
+  "actual": 228.0,
+  "surprise": 88.75,
+  "hawkish_surprise": 88.75,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.1685,
+    "actual": 4.2,
+    "surprise": 0.0315,
+    "hawkish_surprise": -0.0315
+   }
+  },
+  "n_strikes": 7,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -0.25,
+   "d_close": 2.5,
+   "d_post_next1": -0.25,
+   "level_pre": null,
+   "coverage": "3/10"
+  },
+  "polymarket": {
+   "d_post": -0.01,
+   "d_close": 2.74,
+   "d_post_next1": 1.55,
+   "level_pre": -27.7,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "jobs_2025-05-02",
+  "release": "jobs",
+  "date": "2025-05-02",
+  "t0_utc": "2025-05-02T12:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2025-05",
+   "2025-06"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 125.125,
+  "actual": 177.0,
+  "surprise": 51.875,
+  "hawkish_surprise": 51.875,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.247,
+    "actual": 4.2,
+    "surprise": -0.047,
+    "hawkish_surprise": 0.047
+   }
+  },
+  "n_strikes": 7,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 1.13,
+   "d_close": 1.13,
+   "d_post_next1": 1.13,
+   "level_pre": null,
+   "coverage": "5/10"
+  },
+  "polymarket": {
+   "d_post": 3.54,
+   "d_close": 5.05,
+   "d_post_next1": 1.01,
+   "level_pre": -15.0,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "jobs_2025-06-06",
+  "release": "jobs",
+  "date": "2025-06-06",
+  "t0_utc": "2025-06-06T12:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2025-06",
+   "2025-07"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 134.0,
+  "actual": 139.0,
+  "surprise": 5.0,
+  "hawkish_surprise": 5.0,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.233,
+    "actual": 4.2,
+    "surprise": -0.033,
+    "hawkish_surprise": 0.033
+   }
+  },
+  "n_strikes": 7,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.5,
+   "d_close": 0.5,
+   "d_post_next1": 0.5,
+   "level_pre": null,
+   "coverage": "5/10"
+  },
+  "polymarket": {
+   "d_post": 3.14,
+   "d_close": 3.45,
+   "d_post_next1": 0.21,
+   "level_pre": -6.7,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "jobs_2025-07-03",
+  "release": "jobs",
+  "date": "2025-07-03",
+  "t0_utc": "2025-07-03T12:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2025-07",
+   "2025-09"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 90.875,
+  "actual": 147.0,
+  "surprise": 56.125,
+  "hawkish_surprise": 56.125,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.3035,
+    "actual": 4.1,
+    "surprise": -0.2035,
+    "hawkish_surprise": 0.2035
+   }
+  },
+  "n_strikes": 7,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 4.88,
+   "d_close": 4.75,
+   "d_post_next1": 4.88,
+   "level_pre": null,
+   "coverage": "5/10"
+  },
+  "polymarket": {
+   "d_post": 7.97,
+   "d_close": 9.54,
+   "d_post_next1": 4.83,
+   "level_pre": -25.5,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "jobs_2025-08-01",
+  "release": "jobs",
+  "date": "2025-08-01",
+  "t0_utc": "2025-08-01T12:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2025-09",
+   "2025-10"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 121.6875,
+  "actual": 73.0,
+  "surprise": -48.6875,
+  "hawkish_surprise": -48.6875,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.174,
+    "actual": 4.2,
+    "surprise": 0.026,
+    "hawkish_surprise": -0.026
+   }
+  },
+  "n_strikes": 8,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -10.62,
+   "d_close": -12.0,
+   "d_post_next1": -10.62,
+   "level_pre": null,
+   "coverage": "5/10"
+  },
+  "polymarket": {
+   "d_post": -9.46,
+   "d_close": -15.25,
+   "d_post_next1": -7.89,
+   "level_pre": -23.0,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "jobs_2025-09-05",
+  "release": "jobs",
+  "date": "2025-09-05",
+  "t0_utc": "2025-09-05T12:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2025-09",
+   "2025-10"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 74.5,
+  "actual": 22.0,
+  "surprise": -52.5,
+  "hawkish_surprise": -52.5,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.277,
+    "actual": 4.3,
+    "surprise": 0.023,
+    "hawkish_surprise": -0.023
+   }
+  },
+  "n_strikes": 10,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -4.37,
+   "d_close": -4.87,
+   "d_post_next1": -1.25,
+   "level_pre": -38.6,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": -3.95,
+   "d_close": -4.42,
+   "d_post_next1": -0.28,
+   "level_pre": -39.5,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "jobs_2025-12-16",
+  "release": "jobs",
+  "date": "2025-12-16",
+  "t0_utc": "2025-12-16T13:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2026-01",
+   "2026-03"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 57.75,
+  "actual": 64.0,
+  "surprise": 6.25,
+  "hawkish_surprise": 6.25,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.4815,
+    "actual": 4.6,
+    "surprise": 0.1185,
+    "hawkish_surprise": -0.1185
+   }
+  },
+  "n_strikes": 10,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -0.75,
+   "d_close": -0.75,
+   "d_post_next1": -0.75,
+   "level_pre": -15.2,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": -0.63,
+   "d_close": -1.03,
+   "d_post_next1": -0.5,
+   "level_pre": -15.9,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "jobs_2026-01-09",
+  "release": "jobs",
+  "date": "2026-01-09",
+  "t0_utc": "2026-01-09T13:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2026-01",
+   "2026-03"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 77.6625,
+  "actual": 50.0,
+  "surprise": -27.6625,
+  "hawkish_surprise": -27.6625,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.547,
+    "actual": 4.4,
+    "surprise": -0.147,
+    "hawkish_surprise": 0.147
+   }
+  },
+  "n_strikes": 13,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 3.0,
+   "d_close": 4.38,
+   "d_post_next1": 1.75,
+   "level_pre": -12.5,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": 2.96,
+   "d_close": 3.29,
+   "d_post_next1": 1.16,
+   "level_pre": -12.1,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "jobs_2026-02-11",
+  "release": "jobs",
+  "date": "2026-02-11",
+  "t0_utc": "2026-02-11T13:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2026-03",
+   "2026-04"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 44.0625,
+  "actual": 130.0,
+  "surprise": 85.9375,
+  "hawkish_surprise": 85.9375,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.5005,
+    "actual": 4.3,
+    "surprise": -0.2005,
+    "hawkish_surprise": 0.2005
+   }
+  },
+  "n_strikes": 13,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 5.25,
+   "d_close": 6.38,
+   "d_post_next1": 3.5,
+   "level_pre": null,
+   "coverage": "8/10"
+  },
+  "polymarket": {
+   "d_post": 3.97,
+   "d_close": 5.15,
+   "d_post_next1": 2.3,
+   "level_pre": -12.4,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "jobs_2026-03-06",
+  "release": "jobs",
+  "date": "2026-03-06",
+  "t0_utc": "2026-03-06T13:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2026-03",
+   "2026-04"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 54.8375,
+  "actual": -92.0,
+  "surprise": -146.8375,
+  "hawkish_surprise": -146.8375,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.336,
+    "actual": 4.4,
+    "surprise": 0.064,
+    "hawkish_surprise": -0.064
+   }
+  },
+  "n_strikes": 13,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -0.75,
+   "d_close": -1.63,
+   "d_post_next1": 0.0,
+   "level_pre": -2.8,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": -1.04,
+   "d_close": -0.79,
+   "d_post_next1": -0.18,
+   "level_pre": -2.6,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "jobs_2026-04-03",
+  "release": "jobs",
+  "date": "2026-04-03",
+  "t0_utc": "2026-04-03T12:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2026-04",
+   "2026-06"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 65.325,
+  "actual": 178.0,
+  "surprise": 112.675,
+  "hawkish_surprise": 112.675,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.407,
+    "actual": 4.3,
+    "surprise": -0.107,
+    "hawkish_surprise": 0.107
+   }
+  },
+  "n_strikes": 16,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.62,
+   "d_close": 0.62,
+   "d_post_next1": 0.0,
+   "level_pre": -2.2,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": -0.04,
+   "d_close": -0.01,
+   "d_post_next1": 0.0,
+   "level_pre": -0.9,
+   "coverage": "9/9"
+  }
+ },
+ {
+  "key": "jobs_2026-05-08",
+  "release": "jobs",
+  "date": "2026-05-08",
+  "t0_utc": "2026-05-08T12:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2026-06",
+   "2026-07"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 62.7875,
+  "actual": 115.0,
+  "surprise": 52.2125,
+  "hawkish_surprise": 52.2125,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.2975,
+    "actual": 4.3,
+    "surprise": 0.0025,
+    "hawkish_surprise": -0.0025
+   }
+  },
+  "n_strikes": 19,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -0.12,
+   "d_close": 0.0,
+   "d_post_next1": -0.12,
+   "level_pre": null,
+   "coverage": "9/10"
+  },
+  "polymarket": {
+   "d_post": 0.09,
+   "d_close": 0.35,
+   "d_post_next1": 0.1,
+   "level_pre": -1.6,
+   "coverage": "10/10"
+  }
+ },
+ {
+  "key": "jobs_2026-06-05",
+  "release": "jobs",
+  "date": "2026-06-05",
+  "t0_utc": "2026-06-05T12:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2026-06",
+   "2026-07"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 85.8625,
+  "actual": 172.0,
+  "surprise": 86.1375,
+  "hawkish_surprise": 86.1375,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.324,
+    "actual": 4.3,
+    "surprise": -0.024,
+    "hawkish_surprise": 0.024
+   }
+  },
+  "n_strikes": 17,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.25,
+   "d_close": 1.0,
+   "d_post_next1": 0.25,
+   "level_pre": null,
+   "coverage": "8/10"
+  },
+  "polymarket": {
+   "d_post": 0.0,
+   "d_close": -0.03,
+   "d_post_next1": 0.0,
+   "level_pre": 0.4,
+   "coverage": "10/10"
+  }
+ },
+ {
+  "key": "jobs_2026-07-02",
+  "release": "jobs",
+  "date": "2026-07-02",
+  "t0_utc": "2026-07-02T12:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2026-07",
+   "2026-09"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 117.8125,
+  "actual": 57.0,
+  "surprise": -60.8125,
+  "hawkish_surprise": -60.8125,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.3065,
+    "actual": 4.2,
+    "surprise": -0.1065,
+    "hawkish_surprise": 0.1065
+   }
+  },
+  "n_strikes": 15,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -1.75,
+   "d_close": -4.0,
+   "d_post_next1": -1.5,
+   "level_pre": null,
+   "coverage": "8/10"
+  },
+  "polymarket": {
+   "d_post": -1.54,
+   "d_close": -3.85,
+   "d_post_next1": -1.49,
+   "level_pre": 10.5,
+   "coverage": "10/10"
+  }
+ },
+ {
+  "key": "jobs_2026-08-07",
+  "release": "jobs",
+  "date": "2026-08-07",
+  "t0_utc": "2026-08-07T12:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2026-09",
+   "2026-10"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 68.7375,
+  "actual": -23.0,
+  "surprise": -91.7375,
+  "hawkish_surprise": -91.7375,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.21,
+    "actual": 4.1,
+    "surprise": -0.11,
+    "hawkish_surprise": 0.11
+   }
+  },
+  "n_strikes": 13,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -4.12,
+   "d_close": -3.88,
+   "d_post_next1": -4.5,
+   "level_pre": 15.9,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": -3.93,
+   "d_close": -3.48,
+   "d_post_next1": -4.28,
+   "level_pre": 16.5,
+   "coverage": "10/10"
+  }
+ },
+ {
+  "key": "jobs_2026-09-04",
+  "release": "jobs",
+  "date": "2026-09-04",
+  "t0_utc": "2026-09-04T12:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2026-09",
+   "2026-10"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 39.825,
+  "actual": 162.0,
+  "surprise": 122.175,
+  "hawkish_surprise": 122.175,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.1545,
+    "actual": 4.1,
+    "surprise": -0.0545,
+    "hawkish_surprise": 0.0545
+   }
+  },
+  "n_strikes": 19,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 2.75,
+   "d_close": 2.25,
+   "d_post_next1": 2.75,
+   "level_pre": 17.0,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": 3.85,
+   "d_close": 2.99,
+   "d_post_next1": 3.5,
+   "level_pre": 15.6,
+   "coverage": "10/10"
+  }
+ },
+ {
+  "key": "pce_2025-01-31",
+  "release": "pce",
+  "date": "2025-01-31",
+  "t0_utc": "2025-01-31T13:30:00Z",
+  "title": "Personal Income and Outlays, December 2024",
+  "meetings": [
+   "2025-03",
+   "2025-05"
+  ],
+  "primary": "KXPCECORE",
+  "consensus": 0.19,
+  "actual": 0.2,
+  "surprise": 0.01,
+  "hawkish_surprise": 0.01,
+  "secondary": {},
+  "n_strikes": 3,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.25,
+   "d_close": 0.25,
+   "d_post_next1": 0.25,
+   "level_pre": null,
+   "coverage": "2/10"
+  },
+  "polymarket": {
+   "d_post": 0.21,
+   "d_close": 0.04,
+   "d_post_next1": 0.23,
+   "level_pre": -11.4,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "pce_2025-02-28",
+  "release": "pce",
+  "date": "2025-02-28",
+  "t0_utc": "2025-02-28T13:30:00Z",
+  "title": "Personal Income and Outlays, January 2025",
+  "meetings": [
+   "2025-03",
+   "2025-05"
+  ],
+  "primary": "KXPCECORE",
+  "consensus": 0.277,
+  "actual": 0.3,
+  "surprise": 0.023,
+  "hawkish_surprise": 0.023,
+  "secondary": {},
+  "n_strikes": 4,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.13,
+   "d_close": 0.0,
+   "d_post_next1": 0.13,
+   "level_pre": null,
+   "coverage": "2/10"
+  },
+  "polymarket": {
+   "d_post": 0.83,
+   "d_close": 0.29,
+   "d_post_next1": -0.01,
+   "level_pre": -8.8,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "pce_2025-03-28",
+  "release": "pce",
+  "date": "2025-03-28",
+  "t0_utc": "2025-03-28T12:30:00Z",
+  "title": "Personal Income and Outlays, February 2025",
+  "meetings": [
+   "2025-05",
+   "2025-06"
+  ],
+  "primary": "KXPCECORE",
+  "consensus": 0.342,
+  "actual": 0.4,
+  "surprise": 0.058,
+  "hawkish_surprise": 0.058,
+  "secondary": {},
+  "n_strikes": 4,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.5,
+   "d_close": -1.12,
+   "d_post_next1": 0.5,
+   "level_pre": null,
+   "coverage": "3/10"
+  },
+  "polymarket": {
+   "d_post": -0.5,
+   "d_close": -1.53,
+   "d_post_next1": 0.25,
+   "level_pre": -18.4,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "pce_2025-05-30",
+  "release": "pce",
+  "date": "2025-05-30",
+  "t0_utc": "2025-05-30T12:30:00Z",
+  "title": "Personal Income and Outlays, April 2025",
+  "meetings": [
+   "2025-06",
+   "2025-07"
+  ],
+  "primary": "KXPCECORE",
+  "consensus": 0.1335,
+  "actual": 0.1,
+  "surprise": -0.0335,
+  "hawkish_surprise": -0.0335,
+  "secondary": {},
+  "n_strikes": 5,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.25,
+   "d_close": 0.25,
+   "d_post_next1": 0.25,
+   "level_pre": null,
+   "coverage": "5/10"
+  },
+  "polymarket": {
+   "d_post": 0.3,
+   "d_close": -0.33,
+   "d_post_next1": 0.0,
+   "level_pre": -6.6,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "pce_2025-06-27",
+  "release": "pce",
+  "date": "2025-06-27",
+  "t0_utc": "2025-06-27T12:30:00Z",
+  "title": "Personal Income and Outlays, May 2025",
+  "meetings": [
+   "2025-07",
+   "2025-09"
+  ],
+  "primary": "KXPCECORE",
+  "consensus": 0.1555,
+  "actual": 0.2,
+  "surprise": 0.0445,
+  "hawkish_surprise": 0.0445,
+  "secondary": {},
+  "n_strikes": 5,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.0,
+   "d_close": 0.75,
+   "d_post_next1": 0.0,
+   "level_pre": null,
+   "coverage": "5/10"
+  },
+  "polymarket": {
+   "d_post": 0.35,
+   "d_close": 1.66,
+   "d_post_next1": 0.6,
+   "level_pre": -23.9,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "pce_2025-07-31",
+  "release": "pce",
+  "date": "2025-07-31",
+  "t0_utc": "2025-07-31T12:30:00Z",
+  "title": "Personal Income and Outlays, June 2025",
+  "meetings": [
+   "2025-09",
+   "2025-10"
+  ],
+  "primary": "KXPCECORE",
+  "consensus": 0.2935,
+  "actual": 0.3,
+  "surprise": 0.0065,
+  "hawkish_surprise": 0.0065,
+  "secondary": {},
+  "n_strikes": 5,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.0,
+   "d_close": 0.25,
+   "d_post_next1": 0.0,
+   "level_pre": null,
+   "coverage": "5/10"
+  },
+  "polymarket": {
+   "d_post": 0.34,
+   "d_close": 0.01,
+   "d_post_next1": -0.03,
+   "level_pre": -23.4,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "pce_2025-08-29",
+  "release": "pce",
+  "date": "2025-08-29",
+  "t0_utc": "2025-08-29T12:30:00Z",
+  "title": "Personal Income and Outlays, July 2025",
+  "meetings": [
+   "2025-09",
+   "2025-10"
+  ],
+  "primary": "KXPCECORE",
+  "consensus": 0.287,
+  "actual": 0.3,
+  "surprise": 0.013,
+  "hawkish_surprise": 0.013,
+  "secondary": {},
+  "n_strikes": 5,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -1.25,
+   "d_close": -0.37,
+   "d_post_next1": -0.5,
+   "level_pre": -34.5,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": -0.75,
+   "d_close": -1.15,
+   "d_post_next1": -0.9,
+   "level_pre": -35.0,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "pce_2025-09-26",
+  "release": "pce",
+  "date": "2025-09-26",
+  "t0_utc": "2025-09-26T12:30:00Z",
+  "title": "Personal Income and Outlays, August 2025",
+  "meetings": [
+   "2025-10",
+   "2025-12"
+  ],
+  "primary": "KXPCECORE",
+  "consensus": 0.2295,
+  "actual": 0.2,
+  "surprise": -0.0295,
+  "hawkish_surprise": -0.0295,
+  "secondary": {},
+  "n_strikes": 5,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -0.5,
+   "d_close": -1.12,
+   "d_post_next1": -0.25,
+   "level_pre": -39.2,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": 0.48,
+   "d_close": -0.2,
+   "d_post_next1": -0.03,
+   "level_pre": -40.3,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "pce_2026-03-13",
+  "release": "pce",
+  "date": "2026-03-13",
+  "t0_utc": "2026-03-13T12:30:00Z",
+  "title": "Personal Income and Outlays, January 2026",
+  "meetings": [
+   "2026-03",
+   "2026-04"
+  ],
+  "primary": "KXPCECORE",
+  "consensus": 0.404,
+  "actual": 0.4,
+  "surprise": -0.004,
+  "hawkish_surprise": -0.004,
+  "secondary": {},
+  "n_strikes": 5,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -0.13,
+   "d_close": -0.12,
+   "d_post_next1": 0.0,
+   "level_pre": -1.5,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": -0.05,
+   "d_close": -0.08,
+   "d_post_next1": 0.0,
+   "level_pre": -1.6,
+   "coverage": "8/8"
+  }
+ },
+ {
+  "key": "pce_2026-04-09",
+  "release": "pce",
+  "date": "2026-04-09",
+  "t0_utc": "2026-04-09T12:30:00Z",
+  "title": "Personal Income and Outlays, February 2026",
+  "meetings": [
+   "2026-04",
+   "2026-06"
+  ],
+  "primary": "KXPCECORE",
+  "consensus": 0.3795,
+  "actual": 0.4,
+  "surprise": 0.0205,
+  "hawkish_surprise": 0.0205,
+  "secondary": {},
+  "n_strikes": 6,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -0.12,
+   "d_close": -0.12,
+   "d_post_next1": 0.0,
+   "level_pre": null,
+   "coverage": "9/10"
+  },
+  "polymarket": {
+   "d_post": -0.03,
+   "d_close": -0.22,
+   "d_post_next1": -0.03,
+   "level_pre": -1.7,
+   "coverage": "9/9"
+  }
+ },
+ {
+  "key": "pce_2026-04-30",
+  "release": "pce",
+  "date": "2026-04-30",
+  "t0_utc": "2026-04-30T12:30:00Z",
+  "title": "Personal Income and Outlays, March 2026",
+  "meetings": [
+   "2026-06",
+   "2026-07"
+  ],
+  "primary": "KXPCECORE",
+  "consensus": 0.2705,
+  "actual": 0.3,
+  "surprise": 0.0295,
+  "hawkish_surprise": 0.0295,
+  "secondary": {},
+  "n_strikes": 5,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.25,
+   "d_close": 0.37,
+   "d_post_next1": 0.25,
+   "level_pre": -4.0,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": 0.01,
+   "d_close": -0.14,
+   "d_post_next1": 0.01,
+   "level_pre": -2.3,
+   "coverage": "10/10"
+  }
+ },
+ {
+  "key": "pce_2026-05-28",
+  "release": "pce",
+  "date": "2026-05-28",
+  "t0_utc": "2026-05-28T12:30:00Z",
+  "title": "Personal Income and Outlays, April 2026",
+  "meetings": [
+   "2026-06",
+   "2026-07"
+  ],
+  "primary": "KXPCECORE",
+  "consensus": 0.3065,
+  "actual": 0.2,
+  "surprise": -0.1065,
+  "hawkish_surprise": -0.1065,
+  "secondary": {},
+  "n_strikes": 3,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.0,
+   "d_close": 0.25,
+   "d_post_next1": 0.0,
+   "level_pre": -0.9,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": 0.04,
+   "d_close": -0.06,
+   "d_post_next1": 0.03,
+   "level_pre": -0.4,
+   "coverage": "10/10"
+  }
+ },
+ {
+  "key": "pce_2026-06-25",
+  "release": "pce",
+  "date": "2026-06-25",
+  "t0_utc": "2026-06-25T12:30:00Z",
+  "title": "Personal Income and Outlays, May 2026",
+  "meetings": [
+   "2026-07",
+   "2026-09"
+  ],
+  "primary": "KXPCECORE",
+  "consensus": 0.343,
+  "actual": 0.3,
+  "surprise": -0.043,
+  "hawkish_surprise": -0.043,
+  "secondary": {},
+  "n_strikes": 5,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -0.25,
+   "d_close": -1.63,
+   "d_post_next1": -0.25,
+   "level_pre": null,
+   "coverage": "9/10"
+  },
+  "polymarket": {
+   "d_post": -0.15,
+   "d_close": -1.7,
+   "d_post_next1": -0.13,
+   "level_pre": 12.7,
+   "coverage": "10/10"
+  }
+ },
+ {
+  "key": "pce_2026-07-30",
+  "release": "pce",
+  "date": "2026-07-30",
+  "t0_utc": "2026-07-30T12:30:00Z",
+  "title": "Personal Income and Outlays, June 2026",
+  "meetings": [
+   "2026-09",
+   "2026-10"
+  ],
+  "primary": "KXPCECORE",
+  "consensus": 0.183,
+  "actual": 0.1,
+  "surprise": -0.083,
+  "hawkish_surprise": -0.083,
+  "secondary": {},
+  "n_strikes": 5,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.5,
+   "d_close": -0.12,
+   "d_post_next1": 0.13,
+   "level_pre": 17.0,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": 0.1,
+   "d_close": -0.9,
+   "d_post_next1": 0.1,
+   "level_pre": 16.8,
+   "coverage": "10/10"
+  }
+ },
+ {
+  "key": "pce_2026-08-26",
+  "release": "pce",
+  "date": "2026-08-26",
+  "t0_utc": "2026-08-26T12:30:00Z",
+  "title": "Personal Income and Outlays, July 2026",
+  "meetings": [
+   "2026-09",
+   "2026-10"
+  ],
+  "primary": "KXPCECORE",
+  "consensus": 0.2295,
+  "actual": 0.2,
+  "surprise": -0.0295,
+  "hawkish_surprise": -0.0295,
+  "secondary": {},
+  "n_strikes": 4,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 0.25,
+   "d_close": 0.5,
+   "d_post_next1": 0.25,
+   "level_pre": null,
+   "coverage": "9/10"
+  },
+  "polymarket": {
+   "d_post": 0.83,
+   "d_close": 0.88,
+   "d_post_next1": 0.83,
+   "level_pre": 12.1,
+   "coverage": "10/10"
+  }
+ }
+]

@@ -1,6 +1,6 @@
 ---
 title: "FOMC decisions: what Polymarket and Kalshi expect, and how they score"
-summary: "Daily odds for every upcoming Federal Reserve rate decision on both platforms, the implied rate path, and a running scorecard once each meeting resolves."
+summary: "Daily odds for every upcoming Federal Reserve rate decision on both platforms, the priced rate path beside the 2-year yield, oil and jobless claims, a minute-by-minute event study of CPI, jobs and PCE releases, and a running scorecard."
 status: live
 domain: ["macro", "prediction markets"]
 tools: ["Python", "Polars", "Polymarket API", "Kalshi API", "Vega-Lite", "GitHub Actions"]
@@ -9,6 +9,8 @@ order: 2
 started: "2026-09-16"
 ---
 import facts from '@data/facts/fomc.json';
+import macro from '@data/facts/fomc_macro.json';
+import eventRows from '@data/marts/predmarkets/fomc_event_study.json';
 import KpiRow from '@components/KpiRow.astro';
 import KpiTile from '@components/KpiTile.astro';
 import ChartCard from '@components/ChartCard.astro';
@@ -23,6 +25,8 @@ import { evaluationPlan } from '@lib/prereg';
 import DownloadCsv from '@components/DownloadCsv.astro';
 import { fomcHistorySpec } from '@charts/fomc/history';
 import { fomcPathSpec } from '@charts/fomc/path';
+import { fomcMacroPanelSpec } from '@charts/fomc/macro';
+import { fomcEventScatterSpec, fomcEventPathSpec } from '@charts/fomc/events';
 import { pct, pts, num, dateUtc, dayUtc, daysUntil } from '@lib/fmt';
 
 export const nextRaw = facts.next_meeting;
@@ -34,10 +38,37 @@ export const asOf = dateUtc(facts.last_snapshot_ts);
 export const sideName = { cut: 'a cut', hold: 'no change', hike: 'a hike' };
 export const plan = evaluationPlan();
 export const pathTitle = facts.meetings.filter((m) => m.agree).map((m) => `${sideName[m.platforms.polymarket.modal_side]} on ${dayUtc(m.decision_date)}`);
+export const openMeetings = (facts.open_meetings ?? []).filter((m) => m.platforms.includes('kalshi'));
+export const modalOf = (r) => (r ? ['cut', 'hold', 'hike'].reduce((a, b) => ((r[b] ?? 0) > (r[a] ?? 0) ? b : a), 'hold') : null);
+export const kxModal = openMeetings.map((m) => modalOf(m.latest?.kalshi));
+export const modalParts = [['hold', 'no change'], ['hike', 'a hike'], ['cut', 'a cut']].map(([k, w]) => [w, kxModal.filter((x) => x === k).length]).filter(([, n]) => n > 0).map(([w, n]) => `${w} at ${n}`);
+export const monthYear = (d) => new Date(`${d}T00:00:00Z`).toLocaleDateString('en-US', { timeZone: 'UTC', month: 'long', year: 'numeric' });
+export const fx = (x, d = 2) => (x == null ? '—' : Number(x).toFixed(d));
+export const bps = (x, d = 1) => (x == null ? '—' : `${x > 0 ? '+' : x < 0 ? '−' : ''}${Math.abs(Number(x)).toFixed(d)} bps`);
+export const ov = macro.overlay;
+export const ins = ov.in_sample;
+export const ends = ov.endpoints;
+export const macroCtx = { start: macro.window.from, end: macro.window.to, decisions: macro.decisions.map((d) => d.date) };
+export const panels = [{ id: 'rate', h: 190, label: 'Policy rate, market-implied rate and 2-year Treasury yield' }, { id: 'inflation', h: 150, label: 'Inflation compensation' }, { id: 'oil', h: 150, label: 'Crude oil' }, { id: 'claims', h: 130, label: 'Initial jobless claims, first print' }];
+export const ev = macro.event_study;
+export const st = ev?.stats;
+export const allSt = st?.by_release?.all;
+export const relLabel = { cpi: 'CPI', jobs: 'Jobs report', pce: 'PCE' };
+export const relInline = { cpi: 'CPI', jobs: 'the jobs report', pce: 'PCE' };
+export const pfName = { polymarket: 'Polymarket', kalshi: 'Kalshi' };
+export const mainPf = ev?.platform ?? 'polymarket';
+export const otherPf = mainPf === 'polymarket' ? 'kalshi' : 'polymarket';
+export const signPhrase = (k) => `${relInline[k]} in ${st?.by_release?.[k]?.sign?.same ?? '—'} of ${st?.by_release?.[k]?.sign?.n ?? '—'}`;
+export const evSorted = [...eventRows].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.release < b.release ? -1 : 1));
+export const yMax = Math.max(4, Math.ceil(1.1 * Math.max(st?.placebo?.p90_abs_bps ?? 0, ...eventRows.map((e) => Math.abs(e[mainPf]?.d_post ?? 0)))));
+export const evCsv = eventRows.map((e) => ({ release: e.release, date: e.date, t0_utc: e.t0_utc, ladder: e.primary, consensus: e.consensus, actual: e.actual, surprise: e.surprise, kalshi_move_20m_bps: e.kalshi?.d_post, kalshi_move_to_1600_bps: e.kalshi?.d_close, kalshi_move_20m_next_meeting_bps: e.kalshi?.d_post_next1, polymarket_move_20m_bps: e.polymarket?.d_post, polymarket_move_to_1600_bps: e.polymarket?.d_close, kalshi_quotes: e.kalshi?.coverage, polymarket_quotes: e.polymarket?.coverage }));
+export const pre = macro.preregistered;
+export const claimStatus = { collecting: 'collecting', holding: 'holding', failing: 'failing' };
 
 <div class="lede">
   <p>{next ? (next.agree ? `For the ${dayUtc(next.decision_date)} decision, both platforms make ${sideName[pm.modal_side]} the modal outcome: ${pct(pm.modal_prob, 1)} on Polymarket and ${pct(kx.modal_prob, 1)} on Kalshi. The probability-weighted expected move is ${pm.expected_bps} bps on Polymarket and ${kx.expected_bps} bps on Kalshi.` : `For the ${dayUtc(next.decision_date)} decision the platforms disagree on the modal outcome: Polymarket has ${sideName[pm.modal_side]} at ${pct(pm.modal_prob, 1)}, Kalshi has ${sideName[kx.modal_side]} at ${pct(kx.modal_prob, 1)}. The probability-weighted expected move is ${pm.expected_bps} bps on Polymarket and ${kx.expected_bps} bps on Kalshi.`) : 'No upcoming meeting is currently listed on both platforms.'}<Sidenote>The modal outcome is the bucket with the highest quoted probability. Both platforms list five buckets per meeting (cut 50+, cut 25, hold, hike 25, hike 50+); the charts roll them up to cut, hold and hike.</Sidenote><Sidenote>Expected move = Σ probability × basis points, with cut 50+ = −50, cut 25 = −25, hold = 0, hike 25 = +25 and hike 50+ = +50. Bucket probabilities are used as quoted, not renormalised.</Sidenote></p>
   <p>History runs from {dayUtc(facts.history_from)} via each platform's own price history, and both platforms are snapshotted twice a day from here on.<Sidenote>Before {dayUtc(facts.first_snapshot_ts)} the series comes from Polymarket's price-history endpoint and Kalshi's candlesticks; from then on the snapshot pipeline adds two observations a day, with order books.</Sidenote></p>
+  <p>Further down: every meeting still listed, the priced rate path since {monthYear(macro.window.from)} beside the 2-year yield, inflation compensation, oil and jobless claims, and an event study of {ev ? num(ev.n_events) : 'the'} CPI, jobs and PCE releases, read minute by minute.</p>
 </div>
 
 <PipelineStatus lastSnapshot={facts.last_snapshot_ts} firstSnapshot={facts.first_snapshot_ts} nSnapshots={facts.n_snapshots} nDays={facts.n_days} workflow="snapshot-predmarkets.yml" cadence="twice daily" />
@@ -51,7 +82,7 @@ export const pathTitle = facts.meetings.filter((m) => m.agree).map((m) => `${sid
 )}
 
 {next && (
-  <ChartCard size="full" title={next.agree ? `Both platforms have converged on ${sideName[pm.modal_side]} for ${dayUtc(next.decision_date)}` : `The platforms disagree on ${dayUtc(next.decision_date)}: ${sideName[pm.modal_side]} on Polymarket, ${sideName[kx.modal_side]} on Kalshi`} subtitle={`Daily probability of a cut, no change or a hike at the next meeting, by platform, since ${dayUtc(facts.history_from)}; dashed line = decision day; last value labelled`}>
+  <ChartCard size="full" title={next.agree ? `Both platforms have converged on ${sideName[pm.modal_side]} for ${dayUtc(next.decision_date)}` : `The platforms disagree on ${dayUtc(next.decision_date)}: ${sideName[pm.modal_side]} on Polymarket, ${sideName[kx.modal_side]} on Kalshi`} subtitle={`Daily probability of a cut, no change or a hike at the next meeting, by platform, since ${dayUtc(facts.chart_from ?? facts.history_from)}; dashed line = decision day; last value labelled; a line breaks where no day had every outcome priced`}>
     <div class="grid-2">
       <VegaChart id="fomc-pm" spec={fomcHistorySpec(next.meeting, 'polymarket', true, next.decision_date)} ariaLabel="Line chart of cut, hold and hike probabilities on Polymarket over time" />
       <VegaChart id="fomc-kx" spec={fomcHistorySpec(next.meeting, 'kalshi', true, next.decision_date)} ariaLabel="Line chart of cut, hold and hike probabilities on Kalshi over time" />
@@ -92,6 +123,30 @@ export const pathTitle = facts.meetings.filter((m) => m.agree).map((m) => `${sid
   <SourceStamp slot="stamp" sources={facts.sources.slice(0, 2)} asOf={asOf} />
 </ChartCard>
 
+{openMeetings.length > 0 && (
+  <ChartCard size="full" title={`Most likely outcome on Kalshi: ${modalParts.join(', ')} of the ${openMeetings.length} meetings it lists`} subtitle="Daily probability of a cut, no change or a hike at each meeting still open on Kalshi, from the day it was listed; one panel per decision, nearest first. Lines break on days when the outcome prices did not add up to a distribution, which happens most on the distant, thinly traded meetings. Polymarket lists fewer meetings; its latest numbers are in the table">
+    <div class="grid-2">
+      {openMeetings.map((m, i) => (
+        <VegaChart id={`fomc-meeting-${m.meeting}`} spec={fomcHistorySpec(m.meeting, 'kalshi', i === 0, undefined, { height: 150, title: `Decision on ${dayUtc(m.decision_date)}`, yTitle: 'Probability' })} height={210} ariaLabel={`Line chart of Kalshi cut, hold and hike probabilities for the ${dayUtc(m.decision_date)} meeting`} />
+      ))}
+    </div>
+    <details>
+      <summary>Table view (latest day, both platforms)</summary>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Decision</th><th class="num">Kalshi: cut</th><th class="num">hold</th><th class="num">hike</th><th class="num">Polymarket: cut</th><th class="num">hold</th><th class="num">hike</th></tr></thead>
+          <tbody>
+            {openMeetings.map((m) => (
+              <tr><td>{dayUtc(m.decision_date)}</td><td class="num">{pct(m.latest?.kalshi?.cut, 1)}</td><td class="num">{pct(m.latest?.kalshi?.hold, 1)}</td><td class="num">{pct(m.latest?.kalshi?.hike, 1)}</td><td class="num">{pct(m.latest?.polymarket?.cut, 1)}</td><td class="num">{pct(m.latest?.polymarket?.hold, 1)}</td><td class="num">{pct(m.latest?.polymarket?.hike, 1)}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <SourceStamp slot="stamp" sources={facts.sources.slice(0, 2)} asOf={asOf} />
+  </ChartCard>
+)}
+
 <Section id="scorecard" title="Scorecard">
   <div class="prose">
     {facts.scorecard.length === 0 ? (
@@ -111,13 +166,121 @@ export const pathTitle = facts.meetings.filter((m) => m.agree).map((m) => `${sid
   </div>
 </Section>
 
+<Section id="macro" title="The priced path beside rates, oil and claims">
+  <div class="prose">
+    <p>The top panel puts the market's expected rate on one axis with the Fed's target and the 2-year Treasury yield, because all three are in percent. The expected rate is the target's upper bound plus the probability-weighted move Polymarket prices for the next two meetings. It breaks at each decision, where the two-meeting window rolls forward.<Sidenote>Kalshi gives the same series to within {fx(ins.mean_abs_platform_gap_bps)} bps on average over the {num(ins.n_days_both_platforms)} days both platforms had every outcome of the next two meetings priced. Kalshi listed each 2025 meeting only once the previous one had passed, so its two-meeting series starts on {dayUtc(ov.coverage.kalshi.first_next2)}.</Sidenote> The other panels keep their own axes. Nothing is indexed, standardised or drawn against a second axis.</p>
+  </div>
+</Section>
+
+<ChartCard size="full" title={ends.implied_polymarket_low?.value != null ? `The priced rate fell from ${fx(ends.implied_polymarket[0])}% to ${fx(ends.implied_polymarket_low.value)}% by ${monthYear(ends.implied_polymarket_low.date)} and is back at ${fx(ends.implied_polymarket[1])}%, with the 2-year yield at ${fx(ends.dgs2[1])}%` : `The priced rate, the target and the 2-year yield since ${monthYear(macro.window.from)}`} subtitle="One time axis, prices dated by the New York day they were observed. Dashed rules: FOMC decisions. Ticks along the floor of the top panel: CPI and jobs-report days. Claims are the 4-week average as first published, drawn from the day it came out">
+  {panels.map((p) => (
+    <VegaChart id={`fomc-macro-${p.id}`} spec={fomcMacroPanelSpec(p.id, p.id === 'rate' ? { ...macroCtx, releases: macro.releases_on_axis, height: p.h } : { ...macroCtx, height: p.h })} height={p.h + 60} ariaLabel={`Line chart: ${p.label}, daily, ${dayUtc(macro.window.from)} to ${dayUtc(macro.window.to)}`} />
+  ))}
+  <p><DownloadCsv filename="fomc_macro_daily.csv" src="/data/marts/predmarkets/fomc_macro_daily.json" label="Download the four panels (CSV)" /></p>
+  <SourceStamp slot="stamp" sources={[facts.sources[0], ...macro.sources.slice(0, 2)]} asOf={dayUtc(macro.window.to)} />
+</ChartCard>
+
+<div class="prose">
+  <p><strong>What moved together, descriptively.</strong> Over {num(ins.n_days_2y)} trading days from {dayUtc(ins.from)} to {dayUtc(ins.to)}, the daily change in the priced rate correlated {fx(ins.corr_daily_change_vs_2y)} with the daily change in the 2-year yield and {fx(ins.corr_daily_change_vs_wti)} with the percentage change in WTI. On the {num(ins.wti_5pct_days)} days WTI moved {pct(ov.oil_move)} or more, the two-meeting expectation moved the same way on {num(ins.wti_5pct_same_direction)}.<Sidenote>Changes are taken between consecutive trading days inside one two-meeting window, so the jump when the window rolls past a decision never counts as a move. Changes, not levels: two unrelated series that both trend will often show a level correlation above one half.</Sidenote> Polymarket and Kalshi differed by more than {num(ov.gap_bps)} bps on {pct(ins.share_days_gap_over_5bps, 1)} of the days both were fully priced.</p>
+  <p>None of this is a test: the window was examined while this page was designed. The claims that will be tested are registered in the evaluation plan and are scored only on data from {dayUtc(pre.from)} on (see the appendix).</p>
+  <p><strong>What this figure cannot tell you.</strong></p>
+  <ul>
+    <li>Two series that drift the same way look related whatever drives them. Shapes on a shared time axis are not evidence.</li>
+    <li>Dating a price by its source's label instead of the New York day it was observed moves it by a day, which is enough to flip the sign of a daily correlation.</li>
+    <li>Revised data make the past look more predictable than it was, which is why claims are drawn as first printed.</li>
+    <li>Releases that land together cannot be told apart: CPI and weekly claims can share a morning, payrolls and the unemployment rate are one report, and in 2026 PCE has come out alongside GDP.</li>
+  </ul>
+</div>
+
+{ev && (
+  <Section id="event-study" title="Scheduled releases: does the priced path move on the surprise?">
+    <div class="prose">
+      <p>A release scheduled weeks ahead is news nobody can trade on early, so the minutes around it are the one place a move in the priced path can be pinned on the data. For each CPI, jobs and PCE release since {monthYear(macro.window.from)}, the expected move over the next two meetings is read from {pfName[mainPf]}'s minute prices {ev.window_min.pre} minutes before the official release time and {ev.window_min.post} minutes after, and again at {ev.window_min.close_et} New York time, with {pfName[otherPf]}'s beside it.<Sidenote>{pfName[mainPf]} carries the statistics because its minute prices cover every outcome of both meetings at {ev.complete_quotes[mainPf]} of {ev.n_events} releases, against {ev.complete_quotes[otherPf]} for {pfName[otherPf]}: Kalshi listed each 2025 meeting only once the previous one had passed, and its thin outcomes often went hours without a quote. The choice was made on that coverage, before the summary statistics were computed.</Sidenote><Sidenote>The consensus is the market's own. Kalshi lists a ladder of "above x" contracts on every release; their prices {ev.window_min.pre} minutes before the release trace a distribution whose mean is the expected print. Survey consensus from Bloomberg or Reuters is paid.</Sidenote> The surprise is the first print minus that ladder mean, and a hotter CPI or PCE print or stronger payrolls counts as hawkish.</p>
+    </div>
+  </Section>
+)}
+
+{ev && (
+  <KpiRow>
+    <KpiTile label="Releases studied" value={num(ev.n_events)} sub={`CPI ${st.by_release.cpi.n_events} · jobs ${st.by_release.jobs.n_events} · PCE ${st.by_release.pce.n_events} · ${ev.unmatched.length} dropped`} />
+    <KpiTile label="Moved with the surprise" value={`${allSt.sign.same} of ${allSt.sign.n}`} sub={`${pct(allSt.sign.share)} of releases, ${pfName[mainPf]}, first ${ev.window_min.post} minutes · ${pfName[otherPf]} ${allSt.sign_other_platform.same} of ${allSt.sign_other_platform.n}`} />
+    <KpiTile label="Median move in the window" value={`${fx(allSt.median_abs_bps, 2)} bps`} sub={`vs ${fx(st.placebo.median_abs_bps, 2)} bps in the same half hour on ${num(st.placebo.n)} quiet days, ${pfName[mainPf]}`} />
+  </KpiRow>
+)}
+
+{ev && (
+  <ChartCard size="full" title={`The priced path moved with the surprise for ${signPhrase('cpi')} releases, ${signPhrase('jobs')}, ${signPhrase('pce')}`} subtitle={`Surprise (first print minus the Kalshi ladder mean ${ev.window_min.pre} minutes before) against the change in expected bps over the next two meetings from ${ev.window_min.pre} minutes before to ${ev.window_min.post} after, ${pfName[mainPf]}. Grey band: where ${pct(0.9)} of moves fell in the same half hour on ${num(st.placebo.n)} quiet days`}>
+    <div class="grid-2">
+      {['cpi', 'jobs', 'pce'].map((r) => (
+        <VegaChart id={`fomc-ev-${r}`} spec={fomcEventScatterSpec(r, st.placebo.p90_abs_bps, yMax, mainPf)} height={280} ariaLabel={`Scatter of ${relLabel[r]} surprises against the move in the priced path`} />
+      ))}
+    </div>
+    <SourceStamp slot="stamp" sources={macro.sources.slice(2, 5)} asOf={dayUtc(macro.window.to)} />
+  </ChartCard>
+)}
+
+{ev && st.mean_path && (
+  <ChartCard title={`After a hawkish surprise the priced path is ${bps(st.mean_path.hawkish.m20)} ${ev.window_min.post} minutes on, on average; after a dovish one, ${bps(st.mean_path.dovish.m20)}`} subtitle={`Mean change in expected bps over the next two meetings, measured from ${ev.window_min.pre} minutes before each release, ${pfName[mainPf]}, all release types, by the sign of the surprise (${st.mean_path.hawkish.n} hawkish, ${st.mean_path.dovish.n} dovish)`}>
+    <VegaChart id="fomc-ev-path" spec={fomcEventPathSpec('all', ev.window_min.pre, ev.window_min.post, mainPf)} height={280} ariaLabel="Line chart of the mean change in the priced path around releases, hawkish versus dovish surprises" />
+    <SourceStamp slot="stamp" sources={macro.sources.slice(4, 5)} asOf={dayUtc(macro.window.to)} />
+  </ChartCard>
+)}
+
+{ev && (
+  <div class="prose">
+    <details>
+      <summary>Every release: consensus, print and the move on both platforms</summary>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Release day</th><th>Release</th><th class="num">Ladder mean</th><th class="num">First print</th><th class="num">Surprise</th><th class="num">{pfName[mainPf]}, {ev.window_min.post} min</th><th class="num">{pfName[mainPf]}, to {ev.window_min.close_et}</th><th class="num">Next meeting only</th><th class="num">{pfName[otherPf]}, {ev.window_min.post} min</th><th class="num">Outcomes quoted ({pfName[mainPf]} / {pfName[otherPf]})</th></tr></thead>
+          <tbody>
+            {evSorted.map((e) => (
+              <tr><td>{dayUtc(e.date)}</td><td>{relLabel[e.release]}</td><td class="num">{e.consensus ?? '—'}</td><td class="num">{e.actual ?? '—'}</td><td class="num">{e.surprise == null ? '—' : `${e.surprise > 0 ? '+' : ''}${e.surprise}`}</td><td class="num">{bps(e[mainPf]?.d_post)}</td><td class="num">{bps(e[mainPf]?.d_close)}</td><td class="num">{bps(e[mainPf]?.d_post_next1)}</td><td class="num">{bps(e[otherPf]?.d_post)}</td><td class="num">{e[mainPf]?.coverage ?? '—'} / {e[otherPf]?.coverage ?? '—'}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p>Units: CPI and PCE in percentage points of the monthly change, payrolls in thousands of jobs. {ev.ladders.KXCPICORE} and the {ev.ladders.KXU3.toLowerCase()} are read the same way and are in the CSV.</p>
+    </details>
+    <details>
+      <summary>By release type: sign agreement, slope, size against quiet days, and the two platforms</summary>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Release</th><th class="num">Events</th><th class="num">Same sign ({pfName[mainPf]})</th><th class="num">Same sign ({pfName[otherPf]})</th><th class="num">Slope (bps per unit of surprise)</th><th class="num">Median move</th><th class="num">Above the quiet-day band</th><th class="num">Correlation between platforms</th><th class="num">16:00 same sign as {ev.window_min.post} min</th></tr></thead>
+          <tbody>
+            {['cpi', 'jobs', 'pce', 'all'].map((k) => {
+              const b = st.by_release[k];
+              return (
+                <tr><td>{k === 'all' ? 'All releases' : relLabel[k]}</td><td class="num">{b.n_events}</td><td class="num">{b.sign.n ? `${b.sign.same} of ${b.sign.n}` : '—'}</td><td class="num">{b.sign_other_platform?.n ? `${b.sign_other_platform.same} of ${b.sign_other_platform.n}` : '—'}</td><td class="num">{b.slope ? `${fx(b.slope.slope, 1)} ± ${fx(b.slope.se, 1)} (n ${b.slope.n})` : '—'}</td><td class="num">{b.median_abs_bps == null ? '—' : `${fx(b.median_abs_bps, 1)} bps`}</td><td class="num">{pct(b.share_above_placebo_p90)}</td><td class="num">{fx(b.platform_corr)}</td><td class="num">{b.close_same_sign.n ? `${b.close_same_sign.same} of ${b.close_same_sign.n}` : '—'}</td></tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <p>Slopes are ordinary least squares with a conventional standard error, per release type because the surprises are in different units. With samples this small a slope is a description of these releases, not an estimate to lean on.</p>
+    </details>
+    <details>
+      <summary>Releases left out ({ev.unmatched.length})</summary>
+      <ul>
+        {ev.unmatched.map((u) => (<li>{relLabel[u.release]}, {dayUtc(u.date_et)}: {u.reason}</li>))}
+      </ul>
+      <p>In each case the ladder had stopped trading before the release, so there is no consensus to measure the surprise against. Most of these releases were postponed by the 2025 government shutdown after Kalshi had closed the ladder at the original time.</p>
+    </details>
+    <p><DownloadCsv filename="fomc_release_event_study.csv" rows={evCsv} label="Download the event study (CSV)" /></p>
+  </div>
+)}
+
 <Appendix>
 
 <Section id="method" title="Method">
   <div class="prose">
     <p><strong>Question.</strong> How far ahead, and how accurately, do prediction markets price Federal Reserve decisions, and do the two venues disagree?</p>
     <p><strong>Data.</strong> Every "Fed decision in &lt;month&gt;" event on Polymarket and every <code>KXFEDDECISION</code> event on Kalshi ({num(facts.decision_markets)} markets), plus the rate-level, hike-count and dot-plot markets on both. Daily history is backfilled from Polymarket's price-history endpoint and Kalshi's candlesticks; from September 16, 2026 the snapshot pipeline adds two observations a day including order books.</p>
-    <p><strong>Definitions.</strong> Both platforms list the same five outcomes per meeting; they are mapped to one grid (cut 50+, cut 25, hold, hike 25, hike 50+) and rolled up to cut / hold / hike for charts. Probability = order-book mid where quoted, else the displayed price. Expected move = Σ probability × bps. Decision dates follow the Fed's published calendar; 2027 dates are provisional.</p>
+    <p><strong>Definitions.</strong> Both platforms list the same five outcomes per meeting; they are mapped to one grid (cut 50+, cut 25, hold, hike 25, hike 50+) and rolled up to cut / hold / hike for charts. Kalshi outcomes are keyed on the ticker suffix, because the outcome labels were reworded twice in 2024–25. Probability = order-book mid where quoted, else the displayed price. Expected move = Σ probability × bps. Decision dates follow the Fed's published calendar; 2027 dates are provisional.</p>
+    <p><strong>Meetings that closed before tracking began.</strong> The snapshot pipeline started on September 16, 2026 and only sees open markets, so the {facts.archive?.meetings?.length ?? '—'} meetings from {facts.archive?.meetings?.length ? monthYear(`${facts.archive.meetings[0]}-01`) : '—'} to {facts.archive?.meetings?.length ? monthYear(`${facts.archive.meetings.at(-1)}-01`) : '—'} were recovered from each platform's archive: Polymarket's closed events under both of its naming schemes, and Kalshi's settled events through its historical endpoints, which serve anything settled more than about two months ago under different field names. A Kalshi day without a trade uses the bid/ask midpoint when the spread is at most 10 cents; a day missing from Polymarket's daily series is refilled from hourly prices. The recovered meetings feed the price history only; the scorecard still starts with the first meeting the snapshot pipeline saw.</p>
+    <p><strong>Price time.</strong> Every daily price is dated by the New York day it was observed. The platforms' own daily history is stamped at the end of the day in UTC terms (Polymarket at midnight UTC, which is the previous evening in New York; Kalshi at midnight New York time, the next UTC date), so those points move back one day; snapshots keep their own time.</p>
+    <p><strong>The macro panels.</strong> The target's upper bound, the 2-year yield, the 5-year breakeven and 5-year, 5-year forward inflation rates, and WTI and Brent crude come from FRED; prices and the target are never revised. Jobless claims are revised, so the 4-week average is read from ALFRED's archive of past vintages: each week's first published value, drawn from the day it was published. The priced rate on day D is the target on D + 1 (it changes the day after a decision) plus the two-meeting expected move from D's evening price; a meeting counts only on days all of its outcomes are priced, carried forward at most three days.</p>
+    <p><strong>The event study.</strong> Release times come from the BLS and BEA published calendars, not from the Kalshi ladder, whose close stayed at the original time for releases the 2025 shutdown postponed; a release is used only if its ladder was still trading {ev?.window_min?.pre ?? '—'} minutes before. Minute prices come from both platforms (Kalshi: the bid/ask midpoint when the spread is at most 10 cents, otherwise the last trade; Polymarket: its minute price series), carried forward through minutes without a quote; the statistics use {pfName[mainPf]}, chosen on quote coverage before they were computed. The expected move, not the probability of a hike, is measured: through 2025 the hike probability sat near zero at every meeting and its changes measured nothing. Placebo windows are the same clock half hour on weekdays with no CPI, jobs, PCE, PPI, GDP or ECI release, no FOMC decision that day or the day before, and not a Thursday (weekly claims), taking every second such day.</p>
   </div>
 </Section>
 
@@ -131,21 +294,35 @@ export const pathTitle = facts.meetings.filter((m) => m.agree).map((m) => `${sid
       <li><strong>Cross-platform:</strong> the daily gap in P(hike) and whether it closes into the meeting.</li>
     </ul>
     <p>Market reaction (Treasury yields and equity moves on decision day versus the surprise) is planned once a market-data key is configured; it is not part of this page yet.</p>
+    <p><strong>Forward claims for the macro layer</strong> (amendment of 2026-09-23 in the same file). Everything before {dayUtc(pre.from)} was examined while the overlay and the event study were designed, so the statistics above are descriptive. These four claims are scored only on data from {dayUtc(pre.from)} on; each reads "collecting" until it has its minimum sample, and the verdicts are final on {dayUtc(pre.final_on)}.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Claim</th><th>Passes if</th><th class="num">Minimum sample</th><th class="num">So far</th><th class="num">Value</th><th>Status</th></tr></thead>
+        <tbody>
+          {pre.claims.map((c) => (
+            <tr><td>{c.label}</td><td>{c.threshold}</td><td class="num">{c.min_n}</td><td class="num">{c.n}</td><td class="num">{c.value ?? '—'}</td><td>{claimStatus[c.status]}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   </div>
 </Section>
 
 <Section id="data-quality" title="Data quality">
-  <DataQuality checks={facts.checks} note="Backfilled history and live snapshots are merged by market and date, with the snapshot winning on the same day." />
+  <DataQuality checks={facts.checks} note="Backfilled history, the closed-meeting archive and live snapshots are merged by market and New York date, the snapshot winning on the same day." />
+  <p class="dq-summary">Macro layer and event study:</p>
+  <DataQuality checks={macro.checks} note={`Built ${dateUtc(macro.generated_at)}.`} />
 </Section>
 
 <Section id="build-notes" title="Build notes">
   <div class="prose">
-    <p>Built end to end with Claude Code on the same pipeline as the midterms tracker; the outcome-mapping module and the scorecard logic were added for this page. The author chose the outcome grid, the bps weights, the scoring cutoff and the baselines. Source: <a href="https://github.com/srx7703/srx7703.github.io">github.com/srx7703/srx7703.github.io</a>.</p>
+    <p>Built end to end with Claude Code on the same pipeline as the midterms tracker; the outcome-mapping module and the scorecard logic were added for this page. The author chose the outcome grid, the bps weights, the scoring cutoff and the baselines. For the macro layer the author chose the indicators (oil in, gold out) and asked for the event study; Claude Code proposed the windows, the ladder consensus and the placebo design, which the author approved before the study was run. Source: <a href="https://github.com/srx7703/srx7703.github.io">github.com/srx7703/srx7703.github.io</a>.</p>
   </div>
 </Section>
 
 <Section id="changelog" title="Changelog">
   <ul class="prose">
+    <li><strong>2026-09-23</strong> — probability charts draw only days on which every outcome has a price (a market's last price carried at most {facts.chart_rules?.carry_days ?? '—'} days) and the outcome probabilities add up to between {facts.chart_rules?.sum_band?.[0] ?? '—'} and {facts.chart_rules?.sum_band?.[1] ?? '—'}, and break their lines elsewhere; thinly traded Kalshi outcomes had made the daily sums jump. Every open meeting charted; the {facts.archive?.meetings?.length ?? '—'} meetings that closed before tracking began recovered from both platforms' archives; daily prices re-dated to the New York day they were observed (the platforms' own daily history had run a day late); macro panels and the release event study added; four forward claims added to the evaluation plan (amendment of 2026-09-23). Fixes: Kalshi outcomes keyed on the ticker suffix, Polymarket's pre-2025 question wording.</li>
     <li><strong>2026-09-16</strong> — page v0: history backfill, next-meeting probabilities, implied path, scorecard scaffold.</li>
   </ul>
 </Section>

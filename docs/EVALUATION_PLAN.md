@@ -30,6 +30,47 @@ logged in the Changelog of that page with the reason.
 - Cross-platform: daily gap in P(hike); whether it closes into the meeting.
 - Bucket probabilities are used as quoted (not normalised); their sum is reported alongside.
 
+### FOMC amendment, 2026-09-23 — macro overlay and release event study
+
+Added with the page's macro overlay (policy rate, 2-year yield, inflation compensation, oil, jobless
+claims) and the release event study, before any of the data it scores exists.
+
+**What is and is not pre-registered.** Everything from January 2025 to September 23, 2026 was looked at
+while the overlay and the event study were designed; a preview on 2026-09-22 found that dating prices by
+their source label instead of the New York time they were observed flipped the sign of a correlation.
+Statistics on that window are descriptive and the page labels them so. Only the four claims below are
+pre-registered, only on data from **September 24, 2026** on. The page shows each as "collecting" until it
+has its minimum sample, then "holding" or "failing" on the running tally; the verdicts are final on
+**September 22, 2027**.
+
+Definitions. *Two-meeting expectation*: Σ probability × bps over the next two FOMC decisions after day D,
+from the evening price on D (New York time), Polymarket unless stated. *Implied rate*: the target's upper
+bound on D + 1 (FRED `DFEDTARU`; it changes the day after a decision) plus the two-meeting expectation.
+Daily changes are taken only between consecutive trading days inside one two-meeting window.
+
+1. **Oil.** On days WTI (FRED `DCOILWTICO`) moves 5% or more from the previous trading day, the
+   two-meeting expectation moves the same way on more than half of them. Minimum 8 such days.
+2. **Treasuries.** Daily changes in the implied rate and in the 2-year yield (FRED `DGS2`) correlate
+   above 0.3. Minimum 60 trading days.
+3. **CPI.** The CPI surprise (first print minus the Kalshi ladder mean at T0 − 10 min) and the change in
+   the Polymarket two-meeting expectation from T0 − 10 min to T0 + 20 min have the same sign in more than
+   60% of releases where both are non-zero. Minimum 6 releases.
+4. **Platforms.** The Polymarket and Kalshi two-meeting expectations differ by more than 5 bps on fewer
+   than 10% of the days both have a complete outcome set. Minimum 60 days.
+
+A fifth claim, that gold is not a Fed signal, was drafted on 2026-09-22 and dropped on 2026-09-23 along
+with gold itself, before any forward data existed.
+
+Event-study rules fixed here. T0 is the release time on the BLS and BEA published calendars, not the
+Kalshi ladder's close. A release is used only if its ladder was still trading at T0 − 10 min. The
+surprise is the first print minus the ladder mean at T0 − 10 min; the headline number is CPI m/m for
+CPI, nonfarm payrolls for the jobs report and core PCE m/m for PCE. Reactions are read at T0 + 20 min and
+at 16:00 New York time on Polymarket's one-minute prices, with Kalshi's alongside as a replication:
+Kalshi listed each 2025 meeting only once the previous one had passed and its thin outcomes often went
+hours without a quote, so its next-two-meeting set is incomplete at most 2025 releases. Placebo: the same
+08:20–08:50 window on weekdays with no CPI, jobs, PCE, PPI, GDP or ECI release, no FOMC decision that day
+or the day before, not a Thursday; every second such day; both platforms.
+
 ## Optical modules and solid-state batteries (projects C and D) — valuation and share
 
 Two pages, one pipeline (`pipelines/valuation/`). Prices are captured daily, consensus weekly.

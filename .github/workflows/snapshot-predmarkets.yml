@@ -60,6 +60,14 @@ jobs:
         continue-on-error: true
         run: uv run python -m pipelines.predmarkets.publish
 
+      # FRED/ALFRED panels and the release event study; incremental (one-minute quotes are cached per
+      # release), so the daily full run only fetches releases and placebo days it has not seen
+      - name: FOMC macro layer
+        id: macro
+        if: steps.scope.outputs.scope == 'full'
+        continue-on-error: true
+        run: uv run python -m pipelines.macro.build
+
       - name: Commit and push data
         if: always()
         run: |
@@ -81,7 +89,7 @@ jobs:
           exit 1
 
       - name: Surface failures
-        if: steps.snap.outcome == 'failure' || steps.publish.outcome == 'failure'
+        if: steps.snap.outcome == 'failure' || steps.publish.outcome == 'failure' || steps.macro.outcome == 'failure'
         run: |
-          echo "::error::snapshot=${{ steps.snap.outcome }} publish=${{ steps.publish.outcome }} (data that was produced has been committed)"
+          echo "::error::snapshot=${{ steps.snap.outcome }} publish=${{ steps.publish.outcome }} macro=${{ steps.macro.outcome }} (data that was produced has been committed)"
           exit 1
