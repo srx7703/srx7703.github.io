@@ -27,20 +27,233 @@
    "detail": "80 decision markets mapped to meeting x outcome"
   },
   {
+   "name": "Outcome probabilities sum to one",
+   "status": "pass",
+   "detail": "96.4% of 5,684 fully priced meeting-days sum to between 0.9 and 1.1 (median 1.007); summed within one outcome: polymarket 2025-01 cut50 (2 markets)"
+  },
+  {
+   "name": "Closed-meeting archive",
+   "status": "pass",
+   "detail": "13 meetings closed before the first snapshot; all have a priced outcome set on both platforms"
+  },
+  {
    "name": "Freshness",
    "status": "pass",
-   "detail": "latest snapshot 0.0 h ago (limit 14 h)"
+   "detail": "latest snapshot 3.9 h ago (limit 14 h)"
   }
  ],
- "generated_at": "2026-09-23T21:32:25+00:00",
+ "generated_at": "2026-09-24T01:25:50+00:00",
  "first_snapshot_ts": "2026-09-16T02:27:56+00:00",
  "last_snapshot_ts": "2026-09-23T21:31:23+00:00",
  "n_snapshots": 20,
  "n_days": 8,
- "history_from": "2025-10-01",
+ "history_from": "2025-09-29",
+ "chart_from": "2025-09-29",
+ "chart_rules": {
+  "carry_days": 7,
+  "sum_band": [
+   0.85,
+   1.15
+  ]
+ },
+ "archive": {
+  "meetings": [
+   "2025-01",
+   "2025-03",
+   "2025-05",
+   "2025-06",
+   "2025-07",
+   "2025-09",
+   "2025-10",
+   "2025-12",
+   "2026-01",
+   "2026-03",
+   "2026-04",
+   "2026-06",
+   "2026-07"
+  ],
+  "from": "2024-11-07",
+  "markets": {
+   "polymarket": 55,
+   "kalshi": 65
+  }
+ },
+ "open_meetings": [
+  {
+   "meeting": "2026-10",
+   "decision_date": "2026-10-28",
+   "platforms": [
+    "polymarket",
+    "kalshi"
+   ],
+   "latest": {
+    "polymarket": {
+     "date": "2026-09-23",
+     "cut": 0.008,
+     "hold": 0.345,
+     "hike": 0.6535
+    },
+    "kalshi": {
+     "date": "2026-09-23",
+     "cut": 0.01,
+     "hold": 0.35,
+     "hike": 0.67
+    }
+   }
+  },
+  {
+   "meeting": "2026-12",
+   "decision_date": "2026-12-09",
+   "platforms": [
+    "polymarket",
+    "kalshi"
+   ],
+   "latest": {
+    "polymarket": {
+     "date": "2026-09-23",
+     "cut": 0.0175,
+     "hold": 0.275,
+     "hike": 0.7155
+    },
+    "kalshi": {
+     "date": "2026-09-23",
+     "cut": 0.02,
+     "hold": 0.275,
+     "hike": 0.71
+    }
+   }
+  },
+  {
+   "meeting": "2027-01",
+   "decision_date": "2027-01-27",
+   "platforms": [
+    "polymarket",
+    "kalshi"
+   ],
+   "latest": {
+    "polymarket": {
+     "date": "2026-09-23",
+     "cut": 0.085,
+     "hold": 0.565,
+     "hike": 0.341
+    },
+    "kalshi": {
+     "date": "2026-09-23",
+     "cut": 0.045,
+     "hold": 0.555,
+     "hike": 0.385
+    }
+   }
+  },
+  {
+   "meeting": "2027-03",
+   "decision_date": "2027-03-17",
+   "platforms": [
+    "kalshi"
+   ],
+   "latest": {
+    "kalshi": {
+     "date": "2026-09-23",
+     "cut": 0.04,
+     "hold": 0.465,
+     "hike": 0.47
+    }
+   }
+  },
+  {
+   "meeting": "2027-04",
+   "decision_date": "2027-04-28",
+   "platforms": [
+    "kalshi"
+   ],
+   "latest": {
+    "kalshi": {
+     "date": "2026-09-23",
+     "cut": 0.195,
+     "hold": 0.63,
+     "hike": 0.21
+    }
+   }
+  },
+  {
+   "meeting": "2027-06",
+   "decision_date": "2027-06-09",
+   "platforms": [
+    "kalshi"
+   ],
+   "latest": {
+    "kalshi": {
+     "date": "2026-09-22",
+     "cut": 0.215,
+     "hold": 0.63,
+     "hike": 0.29
+    }
+   }
+  },
+  {
+   "meeting": "2027-07",
+   "decision_date": "2027-07-28",
+   "platforms": [
+    "kalshi"
+   ],
+   "latest": {
+    "kalshi": {
+     "date": "2026-09-23",
+     "cut": 0.135,
+     "hold": 0.76,
+     "hike": 0.195
+    }
+   }
+  },
+  {
+   "meeting": "2027-09",
+   "decision_date": "2027-09-15",
+   "platforms": [
+    "kalshi"
+   ],
+   "latest": {
+    "kalshi": {
+     "date": "2026-09-22",
+     "cut": 0.2,
+     "hold": 0.635,
+     "hike": 0.305
+    }
+   }
+  },
+  {
+   "meeting": "2027-10",
+   "decision_date": "2027-10-27",
+   "platforms": [
+    "kalshi"
+   ],
+   "latest": {
+    "kalshi": {
+     "date": "2026-09-23",
+     "cut": 0.21,
+     "hold": 0.635,
+     "hike": 0.3
+    }
+   }
+  },
+  {
+   "meeting": "2027-12",
+   "decision_date": "2027-12-08",
+   "platforms": [
+    "kalshi"
+   ],
+   "latest": {
+    "kalshi": {
+     "date": "2026-09-13",
+     "cut": 0.16,
+     "hold": 0.77,
+     "hike": 0.17
+    }
+   }
+  }
+ ],
  "markets_tracked": {
-  "polymarket": 243,
-  "kalshi": 557
+  "kalshi": 557,
+  "polymarket": 243
  },
  "decision_markets": 80,
  "next_meeting": {
