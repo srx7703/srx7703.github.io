@@ -74,10 +74,15 @@ DAILY_SCHEMA = pa.DataFrameSchema(
         "platform": pa.Column(str, pa.Check.isin(["polymarket", "kalshi"])),
         "market_id": pa.Column(str),
         "ts": pa.Column(int, pa.Check.gt(1_600_000_000)),
-        "price": pa.Column(float, pa.Check.in_range(0.0, 1.0)),
-        "src": pa.Column(str, pa.Check.isin(["daily", "hourly_fill", "trade", "quote_mid"])),
+        # null only on a `no_price` row: a Kalshi candle whose book changed to one with no usable price
+        "price": pa.Column(float, pa.Check.in_range(0.0, 1.0), nullable=True),
+        "src": pa.Column(str, pa.Check.isin(["daily", "hourly_fill", "trade", "quote_mid", "no_price"])),
     },
     unique=["platform", "market_id", "ts"],
+    checks=pa.Check(
+        lambda data: data.lazyframe.select(pl.col("price").is_null() == (pl.col("src") == "no_price")),
+        error="price must be null exactly on no_price rows",
+    ),
 )
 
 
@@ -216,7 +221,13 @@ def candle_price(k: dict) -> tuple[float | None, str | None]:
     return None, None
 
 
-def kalshi_daily(kc: KalshiClient, market_id: str, source: str, start_ts: int, end_ts: int) -> list[dict]:
+def kalshi_daily(
+    kc: KalshiClient, market_id: str, source: str, start_ts: int, end_ts: int, *, keep_unpriced: bool = False
+) -> list[dict]:
+    """Daily rows for one market. With `keep_unpriced`, a candle with no usable price is kept as a
+    `no_price` row: Kalshi emits a candle only when the book changes (across 860 multi-day gaps in the
+    open markets, the book reopened exactly where it had closed every time), so these rows plus the
+    priced ones are a complete record of when a market's price was known and when it stopped being."""
     if source == "historical":
         resp = kc.historical_candlesticks(market_id, start_ts=start_ts, end_ts=end_ts, period_interval=1440)
     else:
@@ -224,7 +235,9 @@ def kalshi_daily(kc: KalshiClient, market_id: str, source: str, start_ts: int, e
     rows = []
     for k in resp.get("candlesticks") or []:
         price, src = candle_price(k)
-        if price is not None:
+        if price is None and keep_unpriced:
+            price, src = None, "no_price"
+        if src is not None:
             rows.append(
                 {
                     "platform": "kalshi",
@@ -238,13 +251,14 @@ def kalshi_daily(kc: KalshiClient, market_id: str, source: str, start_ts: int, e
 
 
 def kalshi_daily_any(kc: KalshiClient, market_id: str, start_ts: int, end_ts: int) -> list[dict]:
-    """`kalshi_daily` for a market whose endpoint is not known: live first, the archive on a 404."""
+    """`kalshi_daily` (keeping unpriced candles) for a market whose endpoint is not known: live first,
+    the archive on a 404."""
     try:
-        return kalshi_daily(kc, market_id, "live", start_ts, end_ts)
+        return kalshi_daily(kc, market_id, "live", start_ts, end_ts, keep_unpriced=True)
     except httpx.HTTPStatusError as exc:
         if exc.response is None or exc.response.status_code != 404:
             raise
-        return kalshi_daily(kc, market_id, "historical", start_ts, end_ts)
+        return kalshi_daily(kc, market_id, "historical", start_ts, end_ts, keep_unpriced=True)
 
 
 def refresh_live_kalshi(kc: KalshiClient, live: pl.DataFrame, days: int = 400) -> tuple[pl.DataFrame, list[str]]:

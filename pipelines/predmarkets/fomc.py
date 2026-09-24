@@ -286,24 +286,66 @@ PLATFORMS = ("polymarket", "kalshi")
 CARRY_DAYS = 7
 #: A charted day's outcome probabilities must add up to within this band.
 SUM_BAND = (0.85, 1.15)
+#: The shortest run of consecutive usable days that is drawn.
+MIN_RUN = 3
 
 
-def complete_days(prices: pl.DataFrame, grid: pl.DataFrame, carry: int = CARRY_DAYS) -> pl.DataFrame:
-    """Daily prices carried forward per market (at most `carry` days), kept only on days when every
-    outcome of the meeting has a price and the prices sum to within `SUM_BAND`, plus `seg`: a counter
-    that moves on at each gap, so a chart can break its line instead of drawing straight across weeks
-    with no usable day. Prices are left as quoted, not renormalised."""
+def kalshi_book_days() -> pl.DataFrame:
+    """Every New York day on which an open Kalshi market's book changed (platform, market_id, date,
+    priced), from `archive/kalshi_open_daily.parquet`. `priced` is False when the new book had no usable
+    price. Between two such days the book did not move."""
+    path = ARCHIVE_DIR / "kalshi_open_daily.parquet"
+    if not path.exists():
+        return pl.DataFrame(schema={"platform": pl.Utf8, "market_id": pl.Utf8, "date": pl.Utf8, "priced": pl.Boolean})
+    return (
+        pl.read_parquet(path)
+        .select(
+            "platform", "market_id", ny_date(pl.col("ts")).alias("date"), pl.col("price").is_not_null().alias("priced")
+        )
+        .unique(subset=["platform", "market_id", "date"], keep="last")
+    )
+
+
+def complete_days(
+    prices: pl.DataFrame,
+    grid: pl.DataFrame,
+    carry: int = CARRY_DAYS,
+    book: pl.DataFrame | None = None,
+    min_run: int = MIN_RUN,
+) -> pl.DataFrame:
+    """Daily prices carried forward per market, kept only on days when every outcome of the meeting has
+    a price and the prices sum to within `SUM_BAND`, plus `seg`: a counter that moves on at each gap, so
+    a chart can tell drawn runs apart from the days between them. Prices are left as quoted, not
+    renormalised.
+
+    A market with a complete record of its book changes in `book` (an open Kalshi market) carries its
+    last price for as long as the book does not change, however long that is: no change means no new
+    price. Every market, this one included, carries its last price at most `carry` days past a change.
+    """
     if prices.height == 0:
         return prices.with_columns(pl.lit(0).alias("seg"))
+    stops: dict[tuple[str, str], list] = {}
+    exact: set[tuple[str, str]] = set()
+    if book is not None and book.height:
+        exact = set(zip(book["platform"].to_list(), book["market_id"].to_list(), strict=True))
+        for (pf, mid), g in book.filter(~pl.col("priced")).group_by(["platform", "market_id"]):
+            stops[(pf, mid)] = sorted(g["date"].str.to_date().to_list())
     filled = (
         prices.with_columns(pl.col("date").str.to_date().alias("d"))
         .sort("platform", "market_id", "d")
         .group_by("platform", "market_id", "meeting", "bucket", maintain_order=True)
         .agg(pl.col("d"), pl.col("price"))
         .with_columns(
-            pl.struct("d", "price")
+            pl.struct("platform", "market_id", "d", "price")
             .map_elements(
-                lambda x: _carry(x["d"], x["price"], carry),
+                lambda x: _carry(
+                    x["d"],
+                    x["price"],
+                    carry,
+                    stops.get((x["platform"], x["market_id"]), [])
+                    if (x["platform"], x["market_id"]) in exact
+                    else None,
+                ),
                 return_dtype=pl.List(pl.Struct({"d": pl.Date, "price": pl.Float64})),
             )
             .alias("rows")
@@ -324,6 +366,12 @@ def complete_days(prices: pl.DataFrame, grid: pl.DataFrame, carry: int = CARRY_D
         .with_columns(
             (pl.col("d").diff().dt.total_days().fill_null(1) > 1).cum_sum().over("platform", "meeting").alias("seg")
         )
+        # a run shorter than MIN_RUN days between gaps is usually stale prices that happened to add up, not
+        # a market: it is dropped, and the chart's dotted line crosses it with the gap around it
+        .filter(pl.len().over("platform", "meeting", "seg") >= min_run)
+        .with_columns(
+            (pl.col("d").diff().dt.total_days().fill_null(1) > 1).cum_sum().over("platform", "meeting").alias("seg")
+        )
         .select("platform", "meeting", "d", "seg")
     )
     return (
@@ -333,15 +381,27 @@ def complete_days(prices: pl.DataFrame, grid: pl.DataFrame, carry: int = CARRY_D
     )
 
 
-def _carry(days: list, prices: list, carry: int) -> list[dict]:
+def _carry(days: list, prices: list, carry: int, stops: list | None = None) -> list[dict]:
+    """Each observed day plus its price carried forward, never past the market's last observation.
+
+    Without `stops`: at most `carry` days. With `stops` (the days the market's book changed to one with
+    no usable price): up to the next observation while the book stays unchanged, and once it has turned
+    unusable, still at most `carry` days, as for any other market. The two rules are unioned, so a
+    complete book record only ever adds days.
+    """
     out: list[dict] = []
     for i, (d, p) in enumerate(zip(days, prices, strict=True)):
         out.append({"d": d, "price": p})
         nxt = days[i + 1] if i + 1 < len(days) else None
+        if nxt is None:
+            break
+        capped = d + timedelta(days=carry + 1)
+        until = min(nxt, capped)
+        if stops is not None:
+            later = [s for s in stops if d < s < nxt]
+            until = min(nxt, max(later[0], capped)) if later else nxt
         k = 1
-        while k <= carry and (nxt is None or d + timedelta(days=k) < nxt):
-            if nxt is None:
-                break  # never carry past a market's last observation
+        while d + timedelta(days=k) < until:
             out.append({"d": d + timedelta(days=k), "price": p})
             k += 1
     return out
@@ -508,7 +568,7 @@ def build() -> dict:
     # chart data: 3-way roll-up daily series for every meeting still open on either platform, on
     # complete days only (see `complete_days`), with `seg` numbering the runs between gaps
     roll = (
-        complete_days(prices.filter(pl.col("meeting").is_in(open_meetings)), grid)
+        complete_days(prices.filter(pl.col("meeting").is_in(open_meetings)), grid, book=kalshi_book_days())
         .with_columns(pl.col("bucket").replace_strict(ROLLUP, default=None).alias("side"))
         .group_by("meeting", "platform", "date", "seg", "side")
         .agg(pl.col("price").sum().round(4).alias("prob"))
@@ -543,7 +603,12 @@ def build() -> dict:
         "n_days": len({s[:10] for s in snapshots}),
         "history_from": live_prices["date"].min(),
         "chart_from": roll.filter(pl.col("meeting") == upcoming[0])["date"].min() if upcoming and roll.height else None,
-        "chart_rules": {"carry_days": CARRY_DAYS, "sum_band": list(SUM_BAND)},
+        "chart_rules": {
+            "carry_days": CARRY_DAYS,
+            "sum_band": list(SUM_BAND),
+            "min_run": MIN_RUN,
+            "kalshi_carry": "until the book changes",
+        },
         "archive": {
             "meetings": sorted(arch["meeting"].unique().to_list()),
             "from": arch["date"].min(),

@@ -46,3 +46,30 @@ def test_polymarket_gaps_are_refilled_in_windows_of_at_most_seven_days():
     assert len(fills) == 18 + 39
     # each fill is the last hourly point at or before 00:00 UTC of the missing day
     assert all(r["ts"] % 86400 == 0 for r in fills)
+
+
+class _KC:
+    def candlesticks(self, series, ticker, **kw):
+        return {
+            "candlesticks": [
+                {"end_period_ts": 1_767_000_000, "price": {"close_dollars": "0.30"}},
+                {
+                    "end_period_ts": 1_767_086_400,
+                    "price": {},
+                    "yes_bid": {"close_dollars": "0.10"},
+                    "yes_ask": {"close_dollars": "0.40"},
+                },
+            ]
+        }
+
+
+def test_unpriced_candles_are_kept_as_no_price_rows_only_when_asked():
+    rows = archive.kalshi_daily(_KC(), "K", "live", 0, 1, keep_unpriced=True)
+    assert [(r["price"], r["src"]) for r in rows] == [(0.30, "trade"), (None, "no_price")]
+    assert [r["src"] for r in archive.kalshi_daily(_KC(), "K", "live", 0, 1)] == ["trade"]
+    archive.DAILY_SCHEMA.validate(
+        __import__("polars").DataFrame(
+            [{"platform": "kalshi", "market_id": "K", **{k: r[k] for k in ("ts", "price", "src")}} for r in rows],
+            schema=archive.DAILY_COLS,
+        )
+    )

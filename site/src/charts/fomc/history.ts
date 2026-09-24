@@ -38,7 +38,10 @@ export function fomcHistorySpec(
         mark: { type: 'rule', strokeDash: [4, 4] },
         encoding: { x: { field: 'date', type: 'temporal' }, color: { value: tok('ink-3') } },
       }] : []),
-      // `seg` breaks the line where no day had every outcome priced, rather than drawing across the gap
+      // dotted underlay: joins the drawn days across a gap, so the eye can follow the series without the
+      // gap being mistaken for data (a day is drawn solid only when every outcome had a usable price)
+      { mark: { type: 'line', strokeWidth: 1.5, strokeDash: [2, 3], opacity: 0.6, clip: true } },
+      // solid runs: `seg` starts a new run after each gap
       { mark: { type: 'line', strokeWidth: 2, strokeJoin: 'round', strokeCap: 'round', clip: true }, encoding: { detail: { field: 'seg' } } },
       {
         transform: [{ joinaggregate: [{ op: 'max', field: 'date', as: 'last' }] }, { filter: 'datum.date == datum.last' }],

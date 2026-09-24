@@ -39,10 +39,10 @@
   {
    "name": "Freshness",
    "status": "pass",
-   "detail": "latest snapshot 0.0 h ago (limit 14 h)"
+   "detail": "latest snapshot 6.6 h ago (limit 14 h)"
   }
  ],
- "generated_at": "2026-09-24T11:59:50+00:00",
+ "generated_at": "2026-09-24T18:32:54+00:00",
  "first_snapshot_ts": "2026-09-16T02:27:56+00:00",
  "last_snapshot_ts": "2026-09-24T11:58:35+00:00",
  "n_snapshots": 22,
@@ -54,7 +54,9 @@
   "sum_band": [
    0.85,
    1.15
-  ]
+  ],
+  "min_run": 3,
+  "kalshi_carry": "until the book changes"
  },
  "archive": {
   "meetings": [
@@ -183,10 +185,10 @@
    ],
    "latest": {
     "kalshi": {
-     "date": "2026-09-24",
-     "cut": 0.235,
-     "hold": 0.585,
-     "hike": 0.31
+     "date": "2026-09-22",
+     "cut": 0.215,
+     "hold": 0.63,
+     "hike": 0.29
     }
    }
   },
@@ -213,10 +215,10 @@
    ],
    "latest": {
     "kalshi": {
-     "date": "2026-09-22",
+     "date": "2026-09-15",
      "cut": 0.2,
      "hold": 0.635,
-     "hike": 0.305
+     "hike": 0.295
     }
    }
   },
@@ -228,10 +230,10 @@
    ],
    "latest": {
     "kalshi": {
-     "date": "2026-09-24",
-     "cut": 0.195,
-     "hold": 0.64,
-     "hike": 0.31
+     "date": "2026-09-22",
+     "cut": 0.245,
+     "hold": 0.625,
+     "hike": 0.27
     }
    }
   },
@@ -252,8 +254,8 @@
   }
  ],
  "markets_tracked": {
-  "kalshi": 557,
-  "polymarket": 268
+  "polymarket": 268,
+  "kalshi": 557
  },
  "decision_markets": 80,
  "next_meeting": {

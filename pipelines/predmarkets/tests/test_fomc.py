@@ -165,8 +165,43 @@ def test_complete_days_carries_thin_outcomes_and_breaks_at_real_gaps():
     )
     got = fomc.complete_days(prices, grid)
     days = sorted(set(got["date"].to_list()))
-    # hold carries 01-02 forward to 01-09 and hike 01-01 to 01-08: complete through 01-08, then a gap
-    assert days[0] == "2026-01-01" and days[-2] == "2026-01-08" and days[-1] == "2026-01-21"
-    segs = dict(zip(got["date"].to_list(), got["seg"].to_list(), strict=True))
-    assert segs["2026-01-08"] != segs["2026-01-21"]
+    # hold carries 01-02 forward to 01-09 and hike 01-01 to 01-08: complete through 01-08, then a gap; the
+    # lone complete day 01-21 is shorter than MIN_RUN and is not drawn
+    assert days[0] == "2026-01-01" and days[-1] == "2026-01-08" and "2026-01-21" not in days
+    assert got["seg"].n_unique() == 1
     assert got.filter((pl.col("date") == "2026-01-05") & (pl.col("market_id") == "K"))["price"].item() == 0.1
+
+
+def test_an_open_kalshi_book_is_carried_until_it_changes():
+    grid = pl.DataFrame({"platform": ["kalshi"], "market_id": ["H"], "meeting": ["2027-06"], "bucket": ["hold"]})
+    prices = pl.DataFrame(
+        {
+            "platform": ["kalshi"] * 3,
+            "market_id": ["H"] * 3,
+            "meeting": ["2027-06"] * 3,
+            "bucket": ["hold"] * 3,
+            "date": ["2026-01-01", "2026-02-01", "2026-03-01"],
+            "price": [1.0, 1.0, 1.0],
+        }
+    )
+    # no candle between Jan 1 and Feb 1: the book did not move, so Jan 1's price stands all month;
+    # on Feb 12 the book changed to one with no usable price: Feb 1's price stands until then and, as for
+    # any market, at most a week past Feb 1, so it covers Feb 2-11 and stops before Feb 12
+    book = pl.DataFrame(
+        {
+            "platform": ["kalshi"] * 4,
+            "market_id": ["H"] * 4,
+            "date": ["2026-01-01", "2026-02-01", "2026-02-12", "2026-03-01"],
+            "priced": [True, True, False, True],
+        }
+    )
+    days = set(fomc.complete_days(prices, grid, book=book, min_run=1)["date"].to_list())
+    assert {"2026-01-15", "2026-01-31", "2026-02-11"} <= days
+    assert "2026-02-12" not in days and "2026-02-20" not in days
+    # a book that turns unusable two days in still gets the week everyone gets
+    early = book.with_columns(pl.Series("date", ["2026-01-01", "2026-02-01", "2026-02-03", "2026-03-01"]))
+    days = set(fomc.complete_days(prices, grid, book=early, min_run=1)["date"].to_list())
+    assert "2026-02-08" in days and "2026-02-09" not in days
+    # without the book record the same market is carried at most CARRY_DAYS days
+    capped = set(fomc.complete_days(prices, grid, min_run=1)["date"].to_list())
+    assert "2026-01-08" in capped and "2026-01-09" not in capped
