@@ -1,9 +1,9 @@
 {
  "project": "fomc-markets",
- "generated_at": "2026-09-24T01:51:27+00:00",
+ "generated_at": "2026-09-24T12:00:58+00:00",
  "window": {
   "from": "2025-01-01",
-  "to": "2026-09-23"
+  "to": "2026-09-24"
  },
  "forward_from": "2026-09-24",
  "series": {
@@ -40,13 +40,13 @@
  "overlay": {
   "coverage": {
    "polymarket": {
-    "days": 631,
-    "with_next2": 630,
+    "days": 632,
+    "with_next2": 631,
     "first_next2": "2025-01-01"
    },
    "kalshi": {
-    "days": 631,
-    "with_next2": 412,
+    "days": 632,
+    "with_next2": 413,
     "first_next2": "2025-08-05"
    }
   },
@@ -87,7 +87,19 @@
    "mean_abs_platform_gap_bps": 1.0,
    "share_days_gap_over_5bps": 0.005
   },
-  "forward": null
+  "forward": {
+   "from": "2026-09-24",
+   "to": "2026-09-24",
+   "n_days_2y": 0,
+   "corr_daily_change_vs_2y": null,
+   "n_days_oil": 0,
+   "corr_daily_change_vs_wti": null,
+   "wti_5pct_days": 0,
+   "wti_5pct_same_direction": 0,
+   "n_days_both_platforms": 1,
+   "mean_abs_platform_gap_bps": 0.34,
+   "share_days_gap_over_5bps": 0.0
+  }
  },
  "decisions": [
   {
@@ -604,8 +616,8 @@
     "label": "Polymarket and Kalshi two-meeting expectations stay within 5 bps",
     "threshold": "share of days over 5 bps < 0.1",
     "min_n": 60,
-    "n": 0,
-    "value": null,
+    "n": 1,
+    "value": 0.0,
     "status": "collecting"
    }
   ]
@@ -629,7 +641,7 @@
   {
    "name": "Rolling expectation coverage",
    "status": "pass",
-   "detail": "polymarket: 630/631 days; kalshi: 412/631 days"
+   "detail": "polymarket: 631/632 days; kalshi: 413/632 days"
   },
   {
    "name": "Release calendar ahead",

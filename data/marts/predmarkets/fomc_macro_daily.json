@@ -7294,6 +7294,20 @@
   "segment": "2026-10"
  },
  {
+  "date": "2026-09-24",
+  "panel": "rate",
+  "series": "implied_polymarket",
+  "value": 4.3534,
+  "segment": "2026-10"
+ },
+ {
+  "date": "2026-09-24",
+  "panel": "rate",
+  "series": "implied_kalshi",
+  "value": 4.35,
+  "segment": "2026-10"
+ },
+ {
   "date": "2025-01-01",
   "panel": "rate",
   "series": "target",
