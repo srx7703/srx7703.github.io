@@ -122,9 +122,10 @@ export function fomcMacroPanelSpec(panel: MacroPanel, ctx: Ctx) {
   if (lineKeys.length) {
     layers.push({
       transform: [{ filter: `indexof(${JSON.stringify(lineKeys)}, datum.series) >= 0` }],
+      // one continuous line; at a decision the two-meeting window rolls forward a meeting, so a step on a
+      // dashed decision rule is the window moving, which the figure's subtitle says
       mark: { type: 'line', strokeWidth: 2, strokeJoin: 'round', strokeCap: 'round' },
-      // `segment` breaks the implied-rate line at each decision, where the two-meeting window rolls on
-      encoding: { x, color, detail: { field: 'segment' } },
+      encoding: { x, color },
     });
   }
   if (stepKeys.length) {
