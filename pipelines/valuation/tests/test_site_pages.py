@@ -350,9 +350,11 @@ def test_disclaimer_is_above_the_first_chart():
 
 def test_pages_render_the_pre_registered_scorer_output():
     """`evaluation.json` was rendered nowhere, so every "not yet, because…" was addressed to nobody."""
-    from pipelines.valuation.evaluate import build
+    # score_tracks, not build: build rewrites data/marts/valuation/evaluation.json and can add snapshot
+    # vintages under data/snapshots/, so every local test run left a data change waiting to be committed
+    from pipelines.valuation.evaluate import score_tracks
 
-    keys = sorted(next(iter(build()["tracks"].values())))
+    keys = sorted(next(iter(score_tracks().values())))
     for track in TRACKS:
         text = page(track)
         assert "marts/valuation/evaluation.json" in text, f"{track}: nothing reads the scorer's output"

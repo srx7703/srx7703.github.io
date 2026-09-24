@@ -749,30 +749,41 @@ def share_bases(track: str, track_facts: dict) -> dict:
 # ---------------------------------------------------------------------------------------------
 
 
-def build() -> dict:
-    now = utc_now()
-    captured = capture_snapshot_vintages()
+def score_tracks() -> dict[str, dict]:
+    """Every item for every track, scored from what is already on disk. Reads only.
+
+    The writing is ``build``'s: it captures the snapshot vintages first and saves the result as the
+    mart. Keeping the two apart is what lets the page tests score the real data without rewriting the
+    committed ``evaluation.json`` or adding a vintage file to the repository's ``data/``.
+    """
     vintages = read.by_ticker(read.load_history("vintages", limit_dates=60))
-    out: dict = {
-        "generated_at": now.isoformat(),
-        "plan": "docs/EVALUATION_PLAN.md",
-        "snapshot_vintages_written": captured,
-        "tracks": {},
-    }
+    tracks: dict[str, dict] = {}
     for track in TRACKS:
         facts_path = MARTS_DIR.parent / "facts" / f"valuation_{track}.json"
         if not facts_path.exists():
-            out["tracks"][track] = {"status": "not_yet", "why": "the track has not been published yet"}
+            tracks[track] = {"status": "not_yet", "why": "the track has not been published yet"}
             continue
         track_facts = json.loads(facts_path.read_text(encoding="utf-8"))
         tickers = {c.ticker for c in COMPANIES if c.track == track}
-        out["tracks"][track] = {
+        tracks[track] = {
             "consensus_accuracy": consensus_accuracy(),
             "revision_persistence": revision_persistence({t: v for t, v in vintages.items() if t in tickers}),
             "valuation_dispersion": valuation_dispersion(track_facts),
             "dual_listing_premium": dual_listing_premium(track_facts),
             "share_bases": share_bases(track, track_facts),
         }
+    return tracks
+
+
+def build() -> dict:
+    now = utc_now()
+    captured = capture_snapshot_vintages()
+    out: dict = {
+        "generated_at": now.isoformat(),
+        "plan": "docs/EVALUATION_PLAN.md",
+        "snapshot_vintages_written": captured,
+        "tracks": score_tracks(),
+    }
     write_json(out, MART_DIR / "evaluation.json")
     return out
 
