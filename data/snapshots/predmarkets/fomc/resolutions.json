@@ -7710,7 +7710,73 @@
    "result": "yes",
    "settled_ts": "2026-09-23 21:53:28+00",
    "recorded_at": "2026-09-24T01:48:34+00:00"
+  },
+  "polymarket:4890274": {
+   "platform": "polymarket",
+   "market_id": "4890274",
+   "event_id": "956927",
+   "event_slug": "how-high-will-10-year-treasury-yield-go-in-september",
+   "outcome_yes": null,
+   "question": "Will the 10-year Treasury yield hit 5.17% in September?",
+   "result": "yes",
+   "settled_ts": "2026-09-24 21:53:17+00",
+   "recorded_at": "2026-09-25T12:00:34+00:00"
+  },
+  "polymarket:4890275": {
+   "platform": "polymarket",
+   "market_id": "4890275",
+   "event_id": "956927",
+   "event_slug": "how-high-will-10-year-treasury-yield-go-in-september",
+   "outcome_yes": null,
+   "question": "Will the 10-year Treasury yield hit 5.15% in September?",
+   "result": "yes",
+   "settled_ts": "2026-09-24 21:53:17+00",
+   "recorded_at": "2026-09-25T12:00:34+00:00"
+  },
+  "polymarket:4178724": {
+   "platform": "polymarket",
+   "market_id": "4178724",
+   "event_id": "956929",
+   "event_slug": "how-high-will-30-year-treasury-yield-go-before-2027",
+   "outcome_yes": null,
+   "question": "Will the 30-year Treasury yield hit 5.45% before 2027?",
+   "result": "yes",
+   "settled_ts": "2026-09-24 21:53:17+00",
+   "recorded_at": "2026-09-25T12:00:34+00:00"
+  },
+  "polymarket:4178763": {
+   "platform": "polymarket",
+   "market_id": "4178763",
+   "event_id": "956933",
+   "event_slug": "how-high-will-30-year-treasury-yield-go-in-september",
+   "outcome_yes": null,
+   "question": "Will the 30-year Treasury yield hit 5.42% in September?",
+   "result": "yes",
+   "settled_ts": "2026-09-24 21:53:18+00",
+   "recorded_at": "2026-09-25T12:00:34+00:00"
+  },
+  "polymarket:4178764": {
+   "platform": "polymarket",
+   "market_id": "4178764",
+   "event_id": "956933",
+   "event_slug": "how-high-will-30-year-treasury-yield-go-in-september",
+   "outcome_yes": null,
+   "question": "Will the 30-year Treasury yield hit 5.45% in September?",
+   "result": "yes",
+   "settled_ts": "2026-09-24 21:53:17+00",
+   "recorded_at": "2026-09-25T12:00:34+00:00"
+  },
+  "polymarket:4178747": {
+   "platform": "polymarket",
+   "market_id": "4178747",
+   "event_id": "956931",
+   "event_slug": "how-high-will-5-year-treasury-yield-go-before-2027",
+   "outcome_yes": null,
+   "question": "Will the 5-year Treasury yield hit 5.00% before 2027?",
+   "result": "yes",
+   "settled_ts": "2026-09-24 21:53:17+00",
+   "recorded_at": "2026-09-25T12:00:34+00:00"
   }
  },
- "updated_at": "2026-09-24T11:58:35+00:00"
+ "updated_at": "2026-09-25T12:00:34+00:00"
 }

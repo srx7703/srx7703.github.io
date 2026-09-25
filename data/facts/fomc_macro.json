@@ -1,27 +1,27 @@
 {
  "project": "fomc-markets",
- "generated_at": "2026-09-24T12:00:58+00:00",
+ "generated_at": "2026-09-25T12:02:53+00:00",
  "window": {
   "from": "2025-01-01",
-  "to": "2026-09-24"
+  "to": "2026-09-25"
  },
  "forward_from": "2026-09-24",
  "series": {
   "DFEDTARU": {
    "label": "Federal funds target range, upper bound",
-   "last": "2026-09-23"
+   "last": "2026-09-24"
   },
   "DGS2": {
    "label": "2-year Treasury yield",
-   "last": "2026-09-22"
+   "last": "2026-09-23"
   },
   "T5YIE": {
    "label": "5-year breakeven inflation",
-   "last": "2026-09-23"
+   "last": "2026-09-24"
   },
   "T5YIFR": {
    "label": "5-year, 5-year forward inflation expectation",
-   "last": "2026-09-23"
+   "last": "2026-09-24"
   },
   "DCOILWTICO": {
    "label": "WTI crude oil, Cushing",
@@ -34,19 +34,19 @@
  },
  "claims": {
   "series": "IC4WSA",
-  "n_first_prints": 92,
-  "last_release": "2026-09-17"
+  "n_first_prints": 93,
+  "last_release": "2026-09-24"
  },
  "overlay": {
   "coverage": {
    "polymarket": {
-    "days": 632,
-    "with_next2": 631,
+    "days": 633,
+    "with_next2": 632,
     "first_next2": "2025-01-01"
    },
    "kalshi": {
-    "days": 632,
-    "with_next2": 413,
+    "days": 633,
+    "with_next2": 414,
     "first_next2": "2025-08-05"
    }
   },
@@ -67,7 +67,7 @@
    ],
    "dgs2": [
     4.25,
-    4.71
+    4.85
    ],
    "wti": [
     73.79,
@@ -77,8 +77,8 @@
   "in_sample": {
    "from": "2025-01-01",
    "to": "2026-09-23",
-   "n_days_2y": 414,
-   "corr_daily_change_vs_2y": 0.564,
+   "n_days_2y": 415,
+   "corr_daily_change_vs_2y": 0.569,
    "n_days_oil": 410,
    "corr_daily_change_vs_wti": 0.175,
    "wti_5pct_days": 32,
@@ -89,15 +89,15 @@
   },
   "forward": {
    "from": "2026-09-24",
-   "to": "2026-09-24",
+   "to": "2026-09-25",
    "n_days_2y": 0,
    "corr_daily_change_vs_2y": null,
    "n_days_oil": 0,
    "corr_daily_change_vs_wti": null,
    "wti_5pct_days": 0,
    "wti_5pct_same_direction": 0,
-   "n_days_both_platforms": 1,
-   "mean_abs_platform_gap_bps": 0.34,
+   "n_days_both_platforms": 2,
+   "mean_abs_platform_gap_bps": 0.21,
    "share_days_gap_over_5bps": 0.0
   }
  },
@@ -616,7 +616,7 @@
     "label": "Polymarket and Kalshi two-meeting expectations stay within 5 bps",
     "threshold": "share of days over 5 bps < 0.1",
     "min_n": 60,
-    "n": 1,
+    "n": 2,
     "value": 0.0,
     "status": "collecting"
    }
@@ -631,17 +631,17 @@
   {
    "name": "Market data current",
    "status": "pass",
-   "detail": "DFEDTARU 2026-09-23, DGS2 2026-09-22, T5YIE 2026-09-23, T5YIFR 2026-09-23, DCOILWTICO 2026-09-22, DCOILBRENTEU 2026-09-22"
+   "detail": "DFEDTARU 2026-09-24, DGS2 2026-09-23, T5YIE 2026-09-24, T5YIFR 2026-09-24, DCOILWTICO 2026-09-22, DCOILBRENTEU 2026-09-22"
   },
   {
    "name": "Claims as first printed",
    "status": "pass",
-   "detail": "92 weekly first prints from ALFRED vintages, each dated by its release day"
+   "detail": "93 weekly first prints from ALFRED vintages, each dated by its release day"
   },
   {
    "name": "Rolling expectation coverage",
    "status": "pass",
-   "detail": "polymarket: 631/632 days; kalshi: 413/632 days"
+   "detail": "polymarket: 632/633 days; kalshi: 414/633 days"
   },
   {
    "name": "Release calendar ahead",

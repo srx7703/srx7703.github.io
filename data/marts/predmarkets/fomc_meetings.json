@@ -6,20 +6,20 @@
    "polymarket": {
     "buckets": {
      "cut50": 0.0025,
-     "cut25": 0.0055,
+     "cut25": 0.0045,
      "hold": 0.325,
      "hike25": 0.665,
-     "hike50": 0.0095
+     "hike50": 0.0105
     },
-    "expected_bps": 16.8,
+    "expected_bps": 16.9,
     "sum_prob": 1.0075,
     "rollup": {
-     "cut": 0.008,
+     "cut": 0.007,
      "hold": 0.325,
-     "hike": 0.6745
+     "hike": 0.6755
     },
     "modal_side": "hike",
-    "modal_prob": 0.6745
+    "modal_prob": 0.6755
    },
    "kalshi": {
     "buckets": {
@@ -41,7 +41,7 @@
    }
   },
   "agree": true,
-  "gap_hike_pt": -1.5
+  "gap_hike_pt": -1.4
  },
  {
   "meeting": "2026-12",
@@ -50,20 +50,20 @@
    "polymarket": {
     "buckets": {
      "cut50": 0.0045,
-     "cut25": 0.014,
+     "cut25": 0.0165,
      "hold": 0.265,
      "hike25": 0.715,
-     "hike50": 0.0205
+     "hike50": 0.0225
     },
-    "expected_bps": 18.3,
-    "sum_prob": 1.019,
+    "expected_bps": 18.4,
+    "sum_prob": 1.0235,
     "rollup": {
-     "cut": 0.0185,
+     "cut": 0.021,
      "hold": 0.265,
-     "hike": 0.7355
+     "hike": 0.7375
     },
     "modal_side": "hike",
-    "modal_prob": 0.7355
+    "modal_prob": 0.7375
    },
    "kalshi": {
     "buckets": {
@@ -85,7 +85,7 @@
    }
   },
   "agree": true,
-  "gap_hike_pt": 1.6
+  "gap_hike_pt": 1.8
  },
  {
   "meeting": "2027-01",
@@ -93,18 +93,18 @@
   "platforms": {
    "polymarket": {
     "buckets": {
-     "cut50": 0.03,
+     "cut50": 0.0295,
      "cut25": 0.05,
      "hold": 0.565,
      "hike25": 0.315,
-     "hike50": 0.0255
+     "hike50": 0.026
     },
-    "expected_bps": 6.4,
+    "expected_bps": 6.5,
     "sum_prob": 0.9855,
     "rollup": {
-     "cut": 0.08,
+     "cut": 0.0795,
      "hold": 0.565,
-     "hike": 0.3405
+     "hike": 0.341
     },
     "modal_side": "hold",
     "modal_prob": 0.565
@@ -114,22 +114,22 @@
      "cut50": 0.005,
      "cut25": 0.025,
      "hold": 0.545,
-     "hike25": 0.375,
+     "hike25": 0.345,
      "hike50": 0.015
     },
-    "expected_bps": 9.2,
-    "sum_prob": 0.965,
+    "expected_bps": 8.5,
+    "sum_prob": 0.935,
     "rollup": {
      "cut": 0.03,
      "hold": 0.545,
-     "hike": 0.39
+     "hike": 0.36
     },
     "modal_side": "hold",
     "modal_prob": 0.545
    }
   },
   "agree": true,
-  "gap_hike_pt": -4.9
+  "gap_hike_pt": -1.9
  },
  {
   "meeting": "2027-03",
@@ -145,21 +145,21 @@
    },
    "kalshi": {
     "buckets": {
-     "cut50": 0.005,
+     "cut50": 0.055,
      "cut25": 0.035,
-     "hold": 0.425,
-     "hike25": 0.575,
+     "hold": 0.39,
+     "hike25": 0.565,
      "hike50": 0.005
     },
-    "expected_bps": 13.5,
-    "sum_prob": 1.045,
+    "expected_bps": 10.7,
+    "sum_prob": 1.05,
     "rollup": {
-     "cut": 0.04,
-     "hold": 0.425,
-     "hike": 0.58
+     "cut": 0.09,
+     "hold": 0.39,
+     "hike": 0.57
     },
     "modal_side": "hike",
-    "modal_prob": 0.58
+    "modal_prob": 0.57
    }
   },
   "agree": false
