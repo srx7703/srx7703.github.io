@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-09-28T14:31:05.097393+00:00",
+ "generated_at": "2026-09-28T16:02:09.728137+00:00",
  "track": "surgical",
  "label": "Surgical robots",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-09-28T14:30:01+00:00",
- "as_of_estimates": "2026-09-21T21:53:03+00:00",
+ "as_of_price": "2026-09-28T15:58:07+00:00",
+ "as_of_estimates": "2026-09-28T15:59:56+00:00",
  "as_of_fx": "2026-09-18",
  "n_listings": 8,
  "n_issuers": 8,
@@ -16,25 +16,25 @@
  "n_thin": 0,
  "n_nm": 2,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 31.463663867527437,
- "median_fwd_pe_next": 28.72318464743585,
- "p25_fwd_pe_this": 18.80105989079857,
- "p75_fwd_pe_this": 118.61666130287367,
- "iqr_fwd_pe_this": 99.8156014120751,
+ "median_fwd_pe_this": 31.52443994582552,
+ "median_fwd_pe_next": 28.77776812997782,
+ "p25_fwd_pe_this": 18.800834123120733,
+ "p75_fwd_pe_this": 118.64727510970056,
+ "iqr_fwd_pe_this": 99.84644098657982,
  "median_growth": 0.10893571806617286,
- "median_trailing_pe": 26.06995423017539,
+ "median_trailing_pe": 30.52617044438611,
  "cheapest": {
   "ticker": "MDT",
   "name": "Medtronic",
-  "fwd_pe_2026": 15.14931325172989,
+  "fwd_pe_2026": 15.092670680088478,
   "growth": 0.07486603173586026,
   "coverage": "covered"
  },
  "priciest": {
   "ticker": "2252.HK",
   "name": "MicroPort MedBot",
-  "fwd_pe_2026": 207.13239283785956,
-  "growth": 1.977202428685989,
+  "fwd_pe_2026": 223.07941481575278,
+  "growth": 2.148426896977175,
   "coverage": "covered"
  },
  "nm_reasons": [
@@ -113,7 +113,7 @@
   {
    "name": "Trailing earnings",
    "status": "pass",
-   "detail": "2 of 8 listings have positive trailing profit; 4 have trailing financials at all"
+   "detail": "5 of 8 listings have positive trailing profit; 8 have trailing financials at all"
   },
   {
    "name": "Dual-listing share base",
