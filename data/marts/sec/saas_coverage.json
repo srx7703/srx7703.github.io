@@ -38,50 +38,50 @@
    ]
   },
   "quarters": {
-   "revenue": 73,
-   "cogs": 73,
-   "gross_profit": 73,
-   "op_income": 73,
-   "net_income": 73,
-   "ocf": 71,
-   "capex": 71,
-   "sbc": 71,
-   "snm": 73,
-   "gna": 73,
-   "diluted_shares": 55
+   "revenue": 74,
+   "cogs": 74,
+   "gross_profit": 74,
+   "op_income": 74,
+   "net_income": 74,
+   "ocf": 72,
+   "capex": 72,
+   "sbc": 72,
+   "snm": 74,
+   "gna": 74,
+   "diluted_shares": 56
   },
   "reconciliation": {
    "revenue": {
-    "pairs": 47,
-    "agree": 47
+    "pairs": 48,
+    "agree": 48
    },
    "cogs": {
+    "pairs": 37,
+    "agree": 37
+   },
+   "gross_profit": {
+    "pairs": 48,
+    "agree": 48
+   },
+   "op_income": {
     "pairs": 36,
     "agree": 36
    },
-   "gross_profit": {
-    "pairs": 47,
-    "agree": 47
-   },
-   "op_income": {
-    "pairs": 35,
-    "agree": 35
-   },
    "net_income": {
-    "pairs": 47,
-    "agree": 47
+    "pairs": 48,
+    "agree": 48
    },
    "sbc": {
-    "pairs": 13,
-    "agree": 13
+    "pairs": 14,
+    "agree": 14
    },
    "snm": {
-    "pairs": 35,
-    "agree": 35
+    "pairs": 36,
+    "agree": 36
    },
    "gna": {
-    "pairs": 35,
-    "agree": 35
+    "pairs": 36,
+    "agree": 36
    }
   }
  },

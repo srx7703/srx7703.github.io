@@ -1,6 +1,6 @@
 {
  "project": "midterms-2026",
- "generated_at": "2026-09-28T14:11:27+00:00",
+ "generated_at": "2026-09-28T15:34:29+00:00",
  "election_day": "2026-11-03",
  "first_snapshot_ts": "2026-09-16T02:26:10+00:00",
  "last_snapshot_ts": "2026-09-28T14:07:52+00:00",
@@ -47,7 +47,7 @@
   {
    "name": "Freshness",
    "status": "pass",
-   "detail": "latest snapshot 0.1 h ago (limit 14 h)"
+   "detail": "latest snapshot 1.4 h ago (limit 14 h)"
   }
  ],
  "headline": {

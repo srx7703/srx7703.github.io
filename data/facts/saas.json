@@ -1,15 +1,15 @@
 {
  "project": "saas-benchmark",
- "generated_at": "2026-09-21T14:10:27+00:00",
+ "generated_at": "2026-09-28T15:29:43+00:00",
  "first_refresh": "2026-09-16T06:34:15+00:00",
- "last_refresh": "2026-09-21T14:10:25+00:00",
- "n_refreshes": 2,
+ "last_refresh": "2026-09-28T15:29:40+00:00",
+ "n_refreshes": 3,
  "rule_of_40_p25": 42.5,
- "rule_of_40_p75": 52.6,
+ "rule_of_40_p75": 52.8,
  "companies": 29,
  "companies_scored": 27,
- "latest_quarter_end_max": "2026-07-31",
- "latest_quarter_end_min": "2026-05-29",
+ "latest_quarter_end_max": "2026-08-28",
+ "latest_quarter_end_min": "2026-06-30",
  "median_rev_growth": 0.2109,
  "median_gross_margin": 0.7729,
  "median_op_margin": 0.0755,
@@ -85,8 +85,8 @@
   }
  ],
  "reconciliation": {
-  "pairs": 5505,
-  "agree": 5380,
+  "pairs": 5513,
+  "agree": 5388,
   "rate": 0.9773,
   "tolerance": "0.5%"
  },
@@ -109,7 +109,7 @@
   {
    "name": "Reconciliation",
    "status": "pass",
-   "detail": "5,380 of 5,505 direct-vs-derived quarters agree within 0.5%"
+   "detail": "5,388 of 5,513 direct-vs-derived quarters agree within 0.5%"
   },
   {
    "name": "Freshness",
@@ -117,7 +117,7 @@
    "detail": "latest refresh 0.0 h ago (limit 192 h)"
   }
  ],
- "quarters_total": 1188,
+ "quarters_total": 1189,
  "missing_metrics": {},
  "missing_latest": {
   "INTU": [
