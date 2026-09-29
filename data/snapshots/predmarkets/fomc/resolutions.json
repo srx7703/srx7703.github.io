@@ -7776,7 +7776,84 @@
    "result": "yes",
    "settled_ts": "2026-09-24 21:53:17+00",
    "recorded_at": "2026-09-25T12:00:34+00:00"
+  },
+  "polymarket:677025": {
+   "platform": "polymarket",
+   "market_id": "677025",
+   "event_id": "79104",
+   "event_slug": "how-high-will-10-year-treasury-yield-go-before-2027",
+   "outcome_yes": null,
+   "question": "Will the 10-year Treasury yield hit 5.2% before 2027?",
+   "result": "yes",
+   "settled_ts": "2026-09-28 21:51:47+00",
+   "recorded_at": "2026-09-29T13:05:32+00:00"
+  },
+  "polymarket:4890276": {
+   "platform": "polymarket",
+   "market_id": "4890276",
+   "event_id": "956927",
+   "event_slug": "how-high-will-10-year-treasury-yield-go-in-september",
+   "outcome_yes": null,
+   "question": "Will the 10-year Treasury yield hit 5.20% in September?",
+   "result": "yes",
+   "settled_ts": "2026-09-28 21:51:47+00",
+   "recorded_at": "2026-09-29T13:05:32+00:00"
+  },
+  "polymarket:4178725": {
+   "platform": "polymarket",
+   "market_id": "4178725",
+   "event_id": "956929",
+   "event_slug": "how-high-will-30-year-treasury-yield-go-before-2027",
+   "outcome_yes": null,
+   "question": "Will the 30-year Treasury yield hit 5.50% before 2027?",
+   "result": "yes",
+   "settled_ts": "2026-09-28 21:51:47+00",
+   "recorded_at": "2026-09-29T13:05:32+00:00"
+  },
+  "polymarket:4178726": {
+   "platform": "polymarket",
+   "market_id": "4178726",
+   "event_id": "956929",
+   "event_slug": "how-high-will-30-year-treasury-yield-go-before-2027",
+   "outcome_yes": null,
+   "question": "Will the 30-year Treasury yield hit 5.55% before 2027?",
+   "result": "yes",
+   "settled_ts": "2026-09-28 21:52:45+00",
+   "recorded_at": "2026-09-29T13:05:32+00:00"
+  },
+  "polymarket:4178765": {
+   "platform": "polymarket",
+   "market_id": "4178765",
+   "event_id": "956933",
+   "event_slug": "how-high-will-30-year-treasury-yield-go-in-september",
+   "outcome_yes": null,
+   "question": "Will the 30-year Treasury yield hit 5.50% in September?",
+   "result": "yes",
+   "settled_ts": "2026-09-28 21:51:47+00",
+   "recorded_at": "2026-09-29T13:05:32+00:00"
+  },
+  "polymarket:4178766": {
+   "platform": "polymarket",
+   "market_id": "4178766",
+   "event_id": "956933",
+   "event_slug": "how-high-will-30-year-treasury-yield-go-in-september",
+   "outcome_yes": null,
+   "question": "Will the 30-year Treasury yield hit 5.55% in September?",
+   "result": "yes",
+   "settled_ts": "2026-09-28 21:51:47+00",
+   "recorded_at": "2026-09-29T13:05:32+00:00"
+  },
+  "polymarket:4890731": {
+   "platform": "polymarket",
+   "market_id": "4890731",
+   "event_id": "956935",
+   "event_slug": "how-high-will-5-year-treasury-yield-go-in-september",
+   "outcome_yes": null,
+   "question": "Will the 5-year Treasury yield hit 5.05% in September?",
+   "result": "yes",
+   "settled_ts": "2026-09-28 21:51:47+00",
+   "recorded_at": "2026-09-29T13:05:32+00:00"
   }
  },
- "updated_at": "2026-09-28T14:10:17+00:00"
+ "updated_at": "2026-09-29T13:05:32+00:00"
 }

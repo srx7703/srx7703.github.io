@@ -49,8 +49,8 @@
   "platform": "polymarket",
   "markets": 11549,
   "quoted_markets": 5259,
-  "volume": 60670087.312907085,
-  "volume_24h": 686392.6741190001,
+  "volume": 60670087.312907174,
+  "volume_24h": 686392.674119,
   "volume_unit": "usd"
  },
  {
@@ -85,8 +85,8 @@
   "platform": "polymarket",
   "markets": 11549,
   "quoted_markets": 5182,
-  "volume": 61536516.99093902,
-  "volume_24h": 821149.3076790003,
+  "volume": 61536516.990939036,
+  "volume_24h": 821149.3076790028,
   "volume_unit": "usd"
  },
  {
@@ -121,8 +121,8 @@
   "platform": "polymarket",
   "markets": 11562,
   "quoted_markets": 5178,
-  "volume": 63340270.19236906,
-  "volume_24h": 977683.5120219998,
+  "volume": 63340270.19236891,
+  "volume_24h": 977683.5120220025,
   "volume_unit": "usd"
  },
  {
@@ -157,8 +157,8 @@
   "platform": "polymarket",
   "markets": 11562,
   "quoted_markets": 5107,
-  "volume": 65408339.301189095,
-  "volume_24h": 1077462.9838669996,
+  "volume": 65408339.3011889,
+  "volume_24h": 1077462.9838669999,
   "volume_unit": "usd"
  },
  {
@@ -184,8 +184,8 @@
   "platform": "kalshi",
   "markets": 20252,
   "quoted_markets": 7154,
-  "volume": 228012045.44999987,
-  "volume_24h": 5168567.729999994,
+  "volume": 228012045.45000005,
+  "volume_24h": 5168567.729999999,
   "volume_unit": "contracts"
  },
  {
@@ -193,8 +193,8 @@
   "platform": "polymarket",
   "markets": 11606,
   "quoted_markets": 5195,
-  "volume": 68790193.65625513,
-  "volume_24h": 1399913.2726129992,
+  "volume": 68790193.65625483,
+  "volume_24h": 1399913.2726130025,
   "volume_unit": "usd"
  },
  {
@@ -221,7 +221,7 @@
   "markets": 20501,
   "quoted_markets": 2566,
   "volume": 240377592.32999974,
-  "volume_24h": 5894339.5799999945,
+  "volume_24h": 5894339.579999993,
   "volume_unit": "contracts"
  },
  {
@@ -229,8 +229,8 @@
   "platform": "polymarket",
   "markets": 11682,
   "quoted_markets": 5294,
-  "volume": 71565201.58471702,
-  "volume_24h": 1143133.8416660007,
+  "volume": 71565201.58471689,
+  "volume_24h": 1143133.841666002,
   "volume_unit": "usd"
  },
  {
@@ -256,8 +256,8 @@
   "platform": "kalshi",
   "markets": 20520,
   "quoted_markets": 7562,
-  "volume": 246581811.13000003,
-  "volume_24h": 2847428.7500000014,
+  "volume": 246581811.1299998,
+  "volume_24h": 2847428.7499999986,
   "volume_unit": "contracts"
  },
  {
@@ -265,8 +265,8 @@
   "platform": "polymarket",
   "markets": 11683,
   "quoted_markets": 5279,
-  "volume": 73318580.94481999,
-  "volume_24h": 633267.7323860005,
+  "volume": 73318580.94482008,
+  "volume_24h": 633267.7323859992,
   "volume_unit": "usd"
  },
  {
@@ -285,6 +285,24 @@
   "quoted_markets": 5336,
   "volume": 74082149.80334,
   "volume_24h": 722262.4583509997,
+  "volume_unit": "usd"
+ },
+ {
+  "snapshot_ts": "2026-09-29T13:02:51+00:00",
+  "platform": "kalshi",
+  "markets": 20853,
+  "quoted_markets": 8003,
+  "volume": 252225782.5599999,
+  "volume_24h": 3271796.919999997,
+  "volume_unit": "contracts"
+ },
+ {
+  "snapshot_ts": "2026-09-29T13:02:51+00:00",
+  "platform": "polymarket",
+  "markets": 11706,
+  "quoted_markets": 5326,
+  "volume": 74768838.30685608,
+  "volume_24h": 696850.8613589983,
   "volume_unit": "usd"
  }
 ]
