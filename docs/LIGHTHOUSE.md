@@ -16,6 +16,7 @@ Insights was rate-limited from the build machine on 2026-09-16, so these are loc
 | 2026-09-16 (restyle, final) | / | 99 | 100 | 100 | 100 | weight-only Newsreader (58 KB) + IBM Plex Sans (45 KB), both preloaded |
 | 2026-09-16 (restyle, final) | /projects/fomc-markets/ | 99 | 100 | 100 | 100 | |
 | 2026-09-16 (restyle, final) | /projects/saas-benchmark/ | 94 | 100 | 100 | 100 | LCP 2.7 s; the 151 KB document (inlined benchmark table) is the next lever |
+| 2026-09-29 | /projects/memory-cycles/ | 99 | 100 | 100 | 100 | cloud session, Chromium 1194, served gzip-compressed with `serve`; 85 on an uncompressed server (the surgical page scores the same there) after moving two CSV downloads to `src` URLs and compacting the calendar spec (590 KB → 336 KB of HTML) |
 
 Remaining accessibility deductions were link colour contrast (4.2:1); the light-theme accent was
 darkened to 6.3:1 in the following commit. The 2026-09-16 restyle (paper ground, serif text, ink links)

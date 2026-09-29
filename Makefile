@@ -1,4 +1,4 @@
-.PHONY: setup test lint snapshot snapshot-midterms snapshot-fomc backfill sec valuation valuation-daily publish site all
+.PHONY: setup test lint snapshot snapshot-midterms snapshot-fomc backfill sec valuation valuation-daily memcycle memcycle-freeze publish site all
 
 setup:            ## install python deps (uv) and site deps (npm)
 	uv sync
@@ -41,10 +41,17 @@ valuation-daily:  ## the weekday run: prices and FX only, then rebuild the pages
 	-uv run python -m pipelines.valuation.prices
 	uv run python -m pipelines.valuation.publish
 
+memcycle:         ## memory-chip price cycles: ECOS raw -> snapshot -> marts and facts (no network)
+	uv run python -m pipelines.memcycle.publish
+
+memcycle-freeze:  ## LOCAL ONLY: check the frozen stock-side table against the local closes (needs MEMCYCLE_INPUTS)
+	uv run python -m pipelines.memcycle.freeze --check
+
 publish:          ## rebuild every mart and facts file from the snapshots
 	uv run python -m pipelines.predmarkets.publish
 	uv run python -m pipelines.statarb.publish
 	uv run python -m pipelines.finllm.publish
+	uv run python -m pipelines.memcycle.publish
 	uv run python -m pipelines.valuation.publish
 	uv run python -m pipelines.valuation.evaluate
 

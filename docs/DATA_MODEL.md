@@ -154,6 +154,29 @@ and per-item / paired marts for the charts. Nothing is recomputed.
 
 ---
 
+# Case study — memory-chip price cycles
+
+Frozen case study (`pipelines/memcycle/`), no scheduled workflow. Rules: `docs/EVALUATION_PLAN.md`
+section G, translating `docs/prereg/memory-cycles/`.
+
+| Layer | Path | In git |
+|---|---|---|
+| Raw | `data/raw/memcycle/ecos/2026-09-28/1316/*.json.gz` — ECOS 402Y016 responses (sample key, ten rows per page), item list and pull log | yes (BOK: reuse with attribution) |
+| Snapshot | `data/snapshots/memcycle/ecos_402Y016.parquet` — `item_code, item_name, basis, month, value, unit, weight, retrieved_at, preliminary`; key `(item_code, basis, month)`; DRAM and flash, bases C/D/W | yes |
+| Frozen | `data/case_studies/memcycle/frozen/company_cycles_derived.csv` — one row per company × price peak: months, leads, ratios, flags; no close columns (strict pandera schema) | yes |
+| Manifest | `data/case_studies/memcycle/inputs_manifest.json` — sha256, rows and coverage of every local input; `q3_versions.json` — the Q3 verdict at each research commit | yes |
+| Local only | `MEMCYCLE_INPUTS` on the owner's machine — month-end closes, benchmark indices, FRED FX | **no** (vendor terms) |
+
+Marts (`data/marts/memcycle/`): `price_index` (contract-currency index from each series' start, the only
+level-valued table), `turns` (ten registered runs), `calendar` (phases, numbered cycles, the deletion log,
+deleted rallies, sensitivity), `leads` (stock-peak month and lead per company-cycle, sample membership and
+the exclusion reason), `multiples` (up-leg ratios only), `evaluation`. Facts: `data/facts/memcycle.json`.
+
+`publish.py` refuses to write if the recomputed calendar's peaks differ from those the frozen rows were
+measured against, or if the recomputed Q3 differs from the last research version. `freeze.py` rebuilds the
+frozen table and manifest locally, applying the input fixes (Elpida full series, Qimonda merge, KRX official
+closes) in memory; `tests/test_reconcile.py` has a local tier that checks it byte for byte.
+
 # Data model — valuation (optical modules and solid-state batteries)
 
 Pipeline: `pipelines/valuation/`. Runs via GitHub Actions (`valuation.yml`): prices and FX on
