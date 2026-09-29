@@ -4,8 +4,8 @@
    "year": 2026,
    "family": "biomass",
    "family_label": "Biomass",
-   "mw": 17.1,
-   "units": 13
+   "mw": 15.6,
+   "units": 10
   },
   {
    "year": 2026,
@@ -13,13 +13,6 @@
    "family_label": "Coal",
    "mw": 4119.2,
    "units": 9
-  },
-  {
-   "year": 2026,
-   "family": "gas_ct",
-   "family_label": "Gas, combustion turbine",
-   "mw": 32.6,
-   "units": 2
   },
   {
    "year": 2026,
@@ -81,15 +74,15 @@
    "year": 2027,
    "family": "gas_steam",
    "family_label": "Gas steam",
-   "mw": 3617.3,
-   "units": 10
+   "mw": 3236.5,
+   "units": 9
   },
   {
    "year": 2027,
    "family": "hydro",
    "family_label": "Hydro",
-   "mw": 3.4,
-   "units": 3
+   "mw": 2.9,
+   "units": 2
   },
   {
    "year": 2027,
@@ -102,8 +95,8 @@
    "year": 2027,
    "family": "solar",
    "family_label": "Solar",
-   "mw": 4.8,
-   "units": 6
+   "mw": 3.8,
+   "units": 4
   },
   {
    "year": 2027,
@@ -151,8 +144,8 @@
    "year": 2028,
    "family": "gas_steam",
    "family_label": "Gas steam",
-   "mw": 1332.8,
-   "units": 7
+   "mw": 1713.6,
+   "units": 8
   },
   {
    "year": 2028,
@@ -172,8 +165,8 @@
    "year": 2028,
    "family": "solar",
    "family_label": "Solar",
-   "mw": 7.9,
-   "units": 7
+   "mw": 8.9,
+   "units": 9
   },
   {
    "year": 2029,
@@ -228,8 +221,8 @@
    "year": 2030,
    "family": "coal",
    "family_label": "Coal",
-   "mw": 2934.5,
-   "units": 6
+   "mw": 3791.3,
+   "units": 7
   },
   {
    "year": 2030,
@@ -835,16 +828,16 @@
   }
  ],
  "deferred": {
-  "units": 104,
-  "mw": 14218.4,
-  "withdrawn_units": 42,
-  "withdrawn_mw": 6569.5,
-  "median_years": 2.5,
+  "units": 102,
+  "mw": 13566.4,
+  "withdrawn_units": 39,
+  "withdrawn_mw": 5536.7,
+  "median_years": 2.0,
   "by_family": [
    {
     "family": "coal",
-    "mw": 9509.7,
-    "units": 20,
+    "mw": 8689.7,
+    "units": 19,
     "family_label": "Coal"
    },
    {
@@ -855,8 +848,8 @@
    },
    {
     "family": "gas_steam",
-    "mw": 1190.2,
-    "units": 7,
+    "mw": 1571.0,
+    "units": 8,
     "family_label": "Gas steam"
    },
    {
@@ -872,21 +865,21 @@
     "family_label": "Oil"
    },
    {
-    "family": "biomass",
-    "mw": 271.4,
-    "units": 18,
-    "family_label": "Biomass"
-   },
-   {
     "family": "wind",
     "mw": 87.0,
     "units": 2,
     "family_label": "Wind"
    },
    {
+    "family": "biomass",
+    "mw": 58.1,
+    "units": 15,
+    "family_label": "Biomass"
+   },
+   {
     "family": "hydro",
-    "mw": 23.2,
-    "units": 8,
+    "mw": 23.7,
+    "units": 9,
     "family_label": "Hydro"
    },
    {
@@ -896,8 +889,8 @@
     "family_label": "Solar"
    }
   ],
-  "from_vintage": "2025-07",
-  "to_vintage": "2026-07"
+  "from_vintage": "2025-08",
+  "to_vintage": "2026-08"
  },
  "deferred_rows": [
   {
@@ -919,16 +912,6 @@
    "year_before": 2025,
    "year_after": 2026,
    "deferred_years": 1.0
-  },
-  {
-   "plant_name": "Intermountain Power Project",
-   "state": "UT",
-   "technology": "Conventional Steam Coal",
-   "family": "coal",
-   "nameplate_mw": 820.0,
-   "year_before": 2025,
-   "year_after": null,
-   "deferred_years": null
   },
   {
    "plant_name": "Transalta Centralia Generation",
@@ -1028,6 +1011,16 @@
    "nameplate_mw": 391.0,
    "year_before": 2025,
    "year_after": 2026,
+   "deferred_years": 1.0
+  },
+  {
+   "plant_name": "Cherokee",
+   "state": "CO",
+   "technology": "Natural Gas Steam Turbine",
+   "family": "gas_steam",
+   "nameplate_mw": 380.8,
+   "year_before": 2027,
+   "year_after": 2028,
    "deferred_years": 1.0
   },
   {
@@ -1281,22 +1274,22 @@
    "deferred_years": 5.0
   },
   {
-   "plant_name": "Hopewell Power Station",
-   "state": "VA",
-   "technology": "Wood/Wood Waste Biomass",
-   "family": "biomass",
-   "nameplate_mw": 71.1,
-   "year_before": 2028,
+   "plant_name": "Gadsby",
+   "state": "UT",
+   "technology": "Natural Gas Steam Turbine",
+   "family": "gas_steam",
+   "nameplate_mw": 69.0,
+   "year_before": 2032,
    "year_after": null,
    "deferred_years": null
   },
   {
-   "plant_name": "Altavista Power Station",
-   "state": "VA",
-   "technology": "Wood/Wood Waste Biomass",
-   "family": "biomass",
-   "nameplate_mw": 71.1,
-   "year_before": 2028,
+   "plant_name": "Gadsby",
+   "state": "UT",
+   "technology": "Natural Gas Steam Turbine",
+   "family": "gas_steam",
+   "nameplate_mw": 69.0,
+   "year_before": 2032,
    "year_after": null,
    "deferred_years": null
   }
