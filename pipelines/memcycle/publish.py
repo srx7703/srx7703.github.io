@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import logging
 import math
@@ -288,6 +289,28 @@ def multiple_rows(rows: list[dict]) -> list[dict]:
 # ---------------------------------------------------------------------------------------------
 
 
+def local_verification() -> dict | None:
+    """The owner's last run of the local tier, and whether it still covers the committed frozen files."""
+    if not cfg.LOCAL_VERIFICATION_PATH.exists():
+        return None
+    v = json.loads(cfg.LOCAL_VERIFICATION_PATH.read_text())
+    current = (hashlib.sha256(cfg.FROZEN_PATH.read_bytes()).hexdigest() == v["frozen_sha256"]
+               and hashlib.sha256(cfg.MANIFEST_PATH.read_bytes()).hexdigest() == v["manifest_sha256"])
+    return {"verified_on": v["verified_on"], "result": v["result"], "current": current}
+
+
+def local_verification_check() -> dict:
+    v = local_verification()
+    if v is None:
+        return check("Local reproduction", False, "the local tier has not been run against the owner's closes yet",
+                     warn=True)
+    ok = v["result"] == "pass" and v["current"]
+    detail = (f"freeze.py rebuilt the frozen table byte for byte from the local closes and every manifest hash "
+              f"matched, on {v['verified_on']}" if ok else
+              f"the {v['verified_on']} local run does not cover the committed frozen files; re-run the local tier")
+    return check("Local reproduction", ok, detail, warn=not ok)
+
+
 def regression_guard(all_runs: list[dict], rows: list[dict], q3: dict, versions: dict) -> list[dict]:
     """Raise if the frozen rows no longer match the calendar or the registered verdict; else return checks."""
     problems = []
@@ -451,6 +474,7 @@ def build(run_dir: Path | None = None) -> dict:
               f"the main verdict is '{q3['main_pure']['verdict']}' in all {len(versions['versions'])} recorded "
               "research versions"),
         file_fingerprint(cfg.FROZEN_PATH, "frozen stock-side table"),
+        local_verification_check(),
         check("No closes in the public tables", True,
               "the frozen table passes a strict schema with no close, index-level or rebased column"),
         check("Local inputs", set(missing_inputs) <= no_data_files,
@@ -492,6 +516,7 @@ def build(run_dir: Path | None = None) -> dict:
         "q3_versions": {"n": len(versions["versions"]), "all_falsified": all_falsified,
                         "commits": [v["research_commit"] for v in versions["versions"]]},
         "robustness": {"flips_to_inconclusive": flips, "post_hoc": True},
+        "local_verification": local_verification(),
         "multiples": {
             "n_rows": len(mult),
             "truncated": [{"label": m["label"], "price_peak": m["price_peak"], "multiple": m["multiple"],

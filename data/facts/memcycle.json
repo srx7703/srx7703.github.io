@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-29T01:46:40+00:00",
+ "generated_at": "2026-09-29T17:59:16+00:00",
  "last_updated": "2026-09-29",
  "status": "in-progress",
  "frozen": true,
@@ -347,6 +347,11 @@
   "flips_to_inconclusive": 3,
   "post_hoc": true
  },
+ "local_verification": {
+  "verified_on": "2026-09-29",
+  "result": "pass",
+  "current": true
+ },
  "multiples": {
   "n_rows": 99,
   "truncated": [
@@ -480,6 +485,11 @@
    "name": "Frozen input",
    "status": "pass",
    "detail": "frozen stock-side table sha256 6c067ce4b379, 37,942 bytes"
+  },
+  {
+   "name": "Local reproduction",
+   "status": "pass",
+   "detail": "freeze.py rebuilt the frozen table byte for byte from the local closes and every manifest hash matched, on 2026-09-29"
   },
   {
    "name": "No closes in the public tables",

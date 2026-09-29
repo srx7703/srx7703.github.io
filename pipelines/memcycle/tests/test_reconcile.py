@@ -120,3 +120,9 @@ def test_manifest_hashes_match_the_local_inputs():
     new = freeze.manifest(freeze.Inputs(Path(MEMCYCLE_INPUTS)), old["research_repo_head"],
                           old["research_scripts_sha256"])
     assert new["inputs"] == old["inputs"]
+
+
+def test_local_verification_covers_the_committed_frozen_files():
+    """The owner's recorded local run binds to these exact files; a changed frozen table makes it stale."""
+    v = publish.local_verification()
+    assert v is not None and v["result"] == "pass" and v["current"]

@@ -1,0 +1,12 @@
+{
+ "note": "Result of the local tier, run by the owner on their machine against MEMCYCLE_INPUTS. It binds to the exact frozen table and manifest below; if either file changes, publish.py marks this verification stale until the local tier is re-run.",
+ "verified_on": "2026-09-29",
+ "by": "owner (Song Ruoxuan)",
+ "commands": [
+  "python -m pipelines.memcycle.freeze --check",
+  "pytest pipelines/memcycle/tests/test_reconcile.py"
+ ],
+ "result": "pass",
+ "frozen_sha256": "6c067ce4b3795c3d929ff48a42c344109332db0d83c134c09cae610088d24aff",
+ "manifest_sha256": "12f515b5b51bcb64856d739a2e168348086a26feaa7ce9f61645790c850d7bfe"
+}

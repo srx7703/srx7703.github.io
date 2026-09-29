@@ -166,6 +166,7 @@ CASE_DIR = DATA_DIR / "case_studies" / SLUG
 FROZEN_PATH = CASE_DIR / "frozen" / "company_cycles_derived.csv"
 MANIFEST_PATH = CASE_DIR / "inputs_manifest.json"
 Q3_VERSIONS_PATH = CASE_DIR / "q3_versions.json"
+LOCAL_VERIFICATION_PATH = CASE_DIR / "local_verification.json"  # the owner's run of the local tier
 MART_DIR = MARTS_DIR / SLUG
 FACTS_PATH = FACTS_DIR / "memcycle.json"
 # stock-side columns that are close levels; the frozen export drops them (vendor terms, public repo)
