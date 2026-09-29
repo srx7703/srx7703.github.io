@@ -172,7 +172,7 @@ FACTS_PATH = FACTS_DIR / "memcycle.json"
 CLOSE_COLUMNS = ("stock_peak_close", "stock_trough_close", "upleg_low_close")
 
 SOURCES = [
-    {"name": "Bank of Korea ECOS, table 402Y016 (export price index by item). Source: Bank of Korea ECOS",
+    {"name": "Bank of Korea ECOS, table 402Y016 (export price index by item)",
      "url": "https://ecos.bok.or.kr/"},
     {"name": "Stock-side results derived locally from exchange and vendor month-end closes (not redistributed)",
      "url": "https://github.com/srx7703/srx7703.github.io/blob/main/data/case_studies/memcycle/inputs_manifest.json"},

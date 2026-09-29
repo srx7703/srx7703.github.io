@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-29T01:34:46+00:00",
+ "generated_at": "2026-09-29T01:46:40+00:00",
  "last_updated": "2026-09-29",
  "status": "in-progress",
  "frozen": true,
@@ -499,7 +499,7 @@
  ],
  "sources": [
   {
-   "name": "Bank of Korea ECOS, table 402Y016 (export price index by item). Source: Bank of Korea ECOS",
+   "name": "Bank of Korea ECOS, table 402Y016 (export price index by item)",
    "url": "https://ecos.bok.or.kr/"
   },
   {
