@@ -1,0 +1,68 @@
+{
+ "plan": "docs/EVALUATION_PLAN.md",
+ "section": "G",
+ "items": [
+  {
+   "id": "calendar",
+   "status": "resolved",
+   "kind": "descriptive",
+   "result": "6 complete DRAM cycles, 6 flash"
+  },
+  {
+   "id": "Q3",
+   "status": "resolved",
+   "verdict": "falsified",
+   "result": {
+    "main_pure": {
+     "n": 33,
+     "share_lead_ge1": 0.424,
+     "median_lead": -2,
+     "share_lead_3_to_9": 0.333,
+     "verdict": "falsified"
+    },
+    "sens_dram_makers_only": {
+     "n": 30,
+     "share_lead_ge1": 0.433,
+     "median_lead": -1.0,
+     "share_lead_3_to_9": 0.333,
+     "verdict": "falsified"
+    },
+    "diversified_dram": {
+     "n": 19,
+     "share_lead_ge1": 0.368,
+     "median_lead": -5,
+     "share_lead_3_to_9": 0.263,
+     "verdict": "falsified"
+    },
+    "nand_panel": {
+     "n": 20,
+     "share_lead_ge1": 0.15,
+     "median_lead": -8.0,
+     "share_lead_3_to_9": 0.05,
+     "verdict": "falsified"
+    }
+   }
+  },
+  {
+   "id": "multiples",
+   "status": "resolved",
+   "kind": "descriptive",
+   "result": "99 rows"
+  },
+  {
+   "id": "Q6",
+   "status": "not_yet",
+   "why": "needs quarterly capex and memory revenue for the pool (OpenDART for Samsung and SK hynix); the out-of-sample window starts 2016Q1 and nothing has been computed."
+  },
+  {
+   "id": "Q7",
+   "status": "not_yet",
+   "why": "needs industry revenue and pooled margins by cycle; the stock-drawdown measure also needs the local closes. Not blind: the price data had been seen before registration."
+  },
+  {
+   "id": "Q8",
+   "status": "not_yet",
+   "why": "the next DRAM price peak is not confirmed: the index is still at its high in 2026-08, the last month published. Deadline 2028-12-31."
+  }
+ ]
+}

@@ -1,0 +1,917 @@
+{
+ "phases": [
+  {
+   "product": "DRAM",
+   "from": "1995-07",
+   "from_kind": "P",
+   "to": "2003-06",
+   "to_kind": "T",
+   "months": 95,
+   "change": -0.9913,
+   "to_confirmed": true
+  },
+  {
+   "product": "DRAM",
+   "from": "2003-06",
+   "from_kind": "T",
+   "to": "2004-04",
+   "to_kind": "P",
+   "months": 10,
+   "change": 0.6527,
+   "to_confirmed": true
+  },
+  {
+   "product": "DRAM",
+   "from": "2004-04",
+   "from_kind": "P",
+   "to": "2006-03",
+   "to_kind": "T",
+   "months": 23,
+   "change": -0.6214,
+   "to_confirmed": true
+  },
+  {
+   "product": "DRAM",
+   "from": "2006-03",
+   "from_kind": "T",
+   "to": "2006-09",
+   "to_kind": "P",
+   "months": 6,
+   "change": 0.36,
+   "to_confirmed": true
+  },
+  {
+   "product": "DRAM",
+   "from": "2006-09",
+   "from_kind": "P",
+   "to": "2009-01",
+   "to_kind": "T",
+   "months": 28,
+   "change": -0.912,
+   "to_confirmed": true
+  },
+  {
+   "product": "DRAM",
+   "from": "2009-01",
+   "from_kind": "T",
+   "to": "2010-05",
+   "to_kind": "P",
+   "months": 16,
+   "change": 1.7606,
+   "to_confirmed": true
+  },
+  {
+   "product": "DRAM",
+   "from": "2010-05",
+   "from_kind": "P",
+   "to": "2012-12",
+   "to_kind": "T",
+   "months": 31,
+   "change": -0.8183,
+   "to_confirmed": true
+  },
+  {
+   "product": "DRAM",
+   "from": "2012-12",
+   "from_kind": "T",
+   "to": "2014-09",
+   "to_kind": "P",
+   "months": 21,
+   "change": 1.0424,
+   "to_confirmed": true
+  },
+  {
+   "product": "DRAM",
+   "from": "2014-09",
+   "from_kind": "P",
+   "to": "2016-07",
+   "to_kind": "T",
+   "months": 22,
+   "change": -0.4389,
+   "to_confirmed": true
+  },
+  {
+   "product": "DRAM",
+   "from": "2016-07",
+   "from_kind": "T",
+   "to": "2018-07",
+   "to_kind": "P",
+   "months": 24,
+   "change": 0.8198,
+   "to_confirmed": true
+  },
+  {
+   "product": "DRAM",
+   "from": "2018-07",
+   "from_kind": "P",
+   "to": "2020-10",
+   "to_kind": "T",
+   "months": 27,
+   "change": -0.573,
+   "to_confirmed": true
+  },
+  {
+   "product": "DRAM",
+   "from": "2020-10",
+   "from_kind": "T",
+   "to": "2021-07",
+   "to_kind": "P",
+   "months": 9,
+   "change": 0.2995,
+   "to_confirmed": true
+  },
+  {
+   "product": "DRAM",
+   "from": "2021-07",
+   "from_kind": "P",
+   "to": "2023-08",
+   "to_kind": "T",
+   "months": 25,
+   "change": -0.5975,
+   "to_confirmed": true
+  },
+  {
+   "product": "DRAM",
+   "from": "2023-08",
+   "from_kind": "T",
+   "to": "2026-08",
+   "to_kind": "P",
+   "months": 36,
+   "change": 4.7114,
+   "to_confirmed": false
+  },
+  {
+   "product": "NAND",
+   "from": "2000-10",
+   "from_kind": "P",
+   "to": "2007-02",
+   "to_kind": "T",
+   "months": 76,
+   "change": -0.9789,
+   "to_confirmed": true
+  },
+  {
+   "product": "NAND",
+   "from": "2007-02",
+   "from_kind": "T",
+   "to": "2007-08",
+   "to_kind": "P",
+   "months": 6,
+   "change": 0.9153,
+   "to_confirmed": true
+  },
+  {
+   "product": "NAND",
+   "from": "2007-08",
+   "from_kind": "P",
+   "to": "2008-11",
+   "to_kind": "T",
+   "months": 15,
+   "change": -0.8195,
+   "to_confirmed": true
+  },
+  {
+   "product": "NAND",
+   "from": "2008-11",
+   "from_kind": "T",
+   "to": "2009-10",
+   "to_kind": "P",
+   "months": 11,
+   "change": 1.9319,
+   "to_confirmed": true
+  },
+  {
+   "product": "NAND",
+   "from": "2009-10",
+   "from_kind": "P",
+   "to": "2012-06",
+   "to_kind": "T",
+   "months": 32,
+   "change": -0.6611,
+   "to_confirmed": true
+  },
+  {
+   "product": "NAND",
+   "from": "2012-06",
+   "from_kind": "T",
+   "to": "2013-06",
+   "to_kind": "P",
+   "months": 12,
+   "change": 0.3753,
+   "to_confirmed": true
+  },
+  {
+   "product": "NAND",
+   "from": "2013-06",
+   "from_kind": "P",
+   "to": "2016-06",
+   "to_kind": "T",
+   "months": 36,
+   "change": -0.5231,
+   "to_confirmed": true
+  },
+  {
+   "product": "NAND",
+   "from": "2016-06",
+   "from_kind": "T",
+   "to": "2017-10",
+   "to_kind": "P",
+   "months": 16,
+   "change": 0.7785,
+   "to_confirmed": true
+  },
+  {
+   "product": "NAND",
+   "from": "2017-10",
+   "from_kind": "P",
+   "to": "2019-06",
+   "to_kind": "T",
+   "months": 20,
+   "change": -0.5678,
+   "to_confirmed": true
+  },
+  {
+   "product": "NAND",
+   "from": "2019-06",
+   "from_kind": "T",
+   "to": "2020-03",
+   "to_kind": "P",
+   "months": 9,
+   "change": 0.2967,
+   "to_confirmed": true
+  },
+  {
+   "product": "NAND",
+   "from": "2020-03",
+   "from_kind": "P",
+   "to": "2023-07",
+   "to_kind": "T",
+   "months": 40,
+   "change": -0.6044,
+   "to_confirmed": true
+  },
+  {
+   "product": "NAND",
+   "from": "2023-07",
+   "from_kind": "T",
+   "to": "2024-06",
+   "to_kind": "P",
+   "months": 11,
+   "change": 1.2648,
+   "to_confirmed": true
+  },
+  {
+   "product": "NAND",
+   "from": "2024-06",
+   "from_kind": "P",
+   "to": "2025-02",
+   "to_kind": "T",
+   "months": 8,
+   "change": -0.4259,
+   "to_confirmed": true
+  },
+  {
+   "product": "NAND",
+   "from": "2025-02",
+   "from_kind": "T",
+   "to": "2026-08",
+   "to_kind": "P",
+   "months": 18,
+   "change": 3.3816,
+   "to_confirmed": false
+  }
+ ],
+ "cycles": {
+  "DRAM": [
+   {
+    "cycle": 0,
+    "trough": null,
+    "peak": "1995-07",
+    "next_trough": "2003-06",
+    "up_months": null,
+    "up_change": null,
+    "down_months": 95,
+    "down_change": -0.9913,
+    "peak_confirmed": true,
+    "complete": false
+   },
+   {
+    "cycle": 1,
+    "trough": "2003-06",
+    "peak": "2004-04",
+    "next_trough": "2006-03",
+    "up_months": 10,
+    "up_change": 0.6527,
+    "down_months": 23,
+    "down_change": -0.6214,
+    "peak_confirmed": true,
+    "complete": true
+   },
+   {
+    "cycle": 2,
+    "trough": "2006-03",
+    "peak": "2006-09",
+    "next_trough": "2009-01",
+    "up_months": 6,
+    "up_change": 0.36,
+    "down_months": 28,
+    "down_change": -0.912,
+    "peak_confirmed": true,
+    "complete": true
+   },
+   {
+    "cycle": 3,
+    "trough": "2009-01",
+    "peak": "2010-05",
+    "next_trough": "2012-12",
+    "up_months": 16,
+    "up_change": 1.7606,
+    "down_months": 31,
+    "down_change": -0.8183,
+    "peak_confirmed": true,
+    "complete": true
+   },
+   {
+    "cycle": 4,
+    "trough": "2012-12",
+    "peak": "2014-09",
+    "next_trough": "2016-07",
+    "up_months": 21,
+    "up_change": 1.0424,
+    "down_months": 22,
+    "down_change": -0.4389,
+    "peak_confirmed": true,
+    "complete": true
+   },
+   {
+    "cycle": 5,
+    "trough": "2016-07",
+    "peak": "2018-07",
+    "next_trough": "2020-10",
+    "up_months": 24,
+    "up_change": 0.8198,
+    "down_months": 27,
+    "down_change": -0.573,
+    "peak_confirmed": true,
+    "complete": true
+   },
+   {
+    "cycle": 6,
+    "trough": "2020-10",
+    "peak": "2021-07",
+    "next_trough": "2023-08",
+    "up_months": 9,
+    "up_change": 0.2995,
+    "down_months": 25,
+    "down_change": -0.5975,
+    "peak_confirmed": true,
+    "complete": true
+   },
+   {
+    "cycle": 7,
+    "trough": "2023-08",
+    "peak": "2026-08",
+    "next_trough": null,
+    "up_months": 36,
+    "up_change": 4.7114,
+    "down_months": null,
+    "down_change": null,
+    "peak_confirmed": false,
+    "complete": false
+   }
+  ],
+  "NAND": [
+   {
+    "cycle": 0,
+    "trough": null,
+    "peak": "2000-10",
+    "next_trough": "2007-02",
+    "up_months": null,
+    "up_change": null,
+    "down_months": 76,
+    "down_change": -0.9789,
+    "peak_confirmed": true,
+    "complete": false
+   },
+   {
+    "cycle": 1,
+    "trough": "2007-02",
+    "peak": "2007-08",
+    "next_trough": "2008-11",
+    "up_months": 6,
+    "up_change": 0.9153,
+    "down_months": 15,
+    "down_change": -0.8195,
+    "peak_confirmed": true,
+    "complete": true
+   },
+   {
+    "cycle": 2,
+    "trough": "2008-11",
+    "peak": "2009-10",
+    "next_trough": "2012-06",
+    "up_months": 11,
+    "up_change": 1.9319,
+    "down_months": 32,
+    "down_change": -0.6611,
+    "peak_confirmed": true,
+    "complete": true
+   },
+   {
+    "cycle": 3,
+    "trough": "2012-06",
+    "peak": "2013-06",
+    "next_trough": "2016-06",
+    "up_months": 12,
+    "up_change": 0.3753,
+    "down_months": 36,
+    "down_change": -0.5231,
+    "peak_confirmed": true,
+    "complete": true
+   },
+   {
+    "cycle": 4,
+    "trough": "2016-06",
+    "peak": "2017-10",
+    "next_trough": "2019-06",
+    "up_months": 16,
+    "up_change": 0.7785,
+    "down_months": 20,
+    "down_change": -0.5678,
+    "peak_confirmed": true,
+    "complete": true
+   },
+   {
+    "cycle": 5,
+    "trough": "2019-06",
+    "peak": "2020-03",
+    "next_trough": "2023-07",
+    "up_months": 9,
+    "up_change": 0.2967,
+    "down_months": 40,
+    "down_change": -0.6044,
+    "peak_confirmed": true,
+    "complete": true
+   },
+   {
+    "cycle": 6,
+    "trough": "2023-07",
+    "peak": "2024-06",
+    "next_trough": "2025-02",
+    "up_months": 11,
+    "up_change": 1.2648,
+    "down_months": 8,
+    "down_change": -0.4259,
+    "peak_confirmed": true,
+    "complete": true
+   },
+   {
+    "cycle": 7,
+    "trough": "2025-02",
+    "peak": "2026-08",
+    "next_trough": null,
+    "up_months": 18,
+    "up_change": 3.3816,
+    "down_months": null,
+    "down_change": null,
+    "peak_confirmed": false,
+    "complete": false
+   }
+  ]
+ },
+ "deletions": [
+  {
+   "product": "DRAM",
+   "order": 1,
+   "step": "duration",
+   "from": "2014-01",
+   "from_kind": "P",
+   "to": "2014-04",
+   "to_kind": "T",
+   "months": 3,
+   "change": -0.0261,
+   "margin_log": 0.0113
+  },
+  {
+   "product": "DRAM",
+   "order": 2,
+   "step": "duration",
+   "from": "2020-01",
+   "from_kind": "T",
+   "to": "2020-05",
+   "to_kind": "P",
+   "months": 4,
+   "change": 0.083,
+   "margin_log": 0.0367
+  },
+  {
+   "product": "DRAM",
+   "order": 3,
+   "step": "duration",
+   "from": "1998-07",
+   "from_kind": "T",
+   "to": "1999-02",
+   "to_kind": "P",
+   "months": 7,
+   "change": 0.2174,
+   "margin_log": 0.0437
+  },
+  {
+   "product": "DRAM",
+   "order": 4,
+   "step": "duration",
+   "from": "2012-01",
+   "from_kind": "T",
+   "to": "2012-06",
+   "to_kind": "P",
+   "months": 5,
+   "change": 0.2717,
+   "margin_log": 0.023
+  },
+  {
+   "product": "DRAM",
+   "order": 5,
+   "step": "duration",
+   "from": "2008-01",
+   "from_kind": "T",
+   "to": "2008-07",
+   "to_kind": "P",
+   "months": 6,
+   "change": 0.3014,
+   "margin_log": 0.1574
+  },
+  {
+   "product": "DRAM",
+   "order": 6,
+   "step": "duration",
+   "from": "2000-03",
+   "from_kind": "T",
+   "to": "2000-08",
+   "to_kind": "P",
+   "months": 5,
+   "change": 0.5231,
+   "margin_log": 0.005
+  },
+  {
+   "product": "DRAM",
+   "order": 7,
+   "step": "duration",
+   "from": "1999-06",
+   "from_kind": "T",
+   "to": "1999-11",
+   "to_kind": "P",
+   "months": 5,
+   "change": 0.7715,
+   "margin_log": 0.6779
+  },
+  {
+   "product": "DRAM",
+   "order": 8,
+   "step": "duration",
+   "from": "2001-10",
+   "from_kind": "T",
+   "to": "2002-03",
+   "to_kind": "P",
+   "months": 5,
+   "change": 2.4895,
+   "margin_log": null
+  },
+  {
+   "product": "DRAM",
+   "order": 9,
+   "step": "amplitude",
+   "from": "2024-07",
+   "from_kind": "P",
+   "to": "2025-02",
+   "to_kind": "T",
+   "months": 7,
+   "change": -0.0931,
+   "margin_log": null
+  },
+  {
+   "product": "NAND",
+   "order": 1,
+   "step": "duration",
+   "from": "2014-04",
+   "from_kind": "T",
+   "to": "2014-08",
+   "to_kind": "P",
+   "months": 4,
+   "change": 0.0558,
+   "margin_log": 0.1855
+  },
+  {
+   "product": "NAND",
+   "order": 2,
+   "step": "duration",
+   "from": "2002-02",
+   "from_kind": "T",
+   "to": "2002-05",
+   "to_kind": "P",
+   "months": 3,
+   "change": 0.2823,
+   "margin_log": null
+  },
+  {
+   "product": "NAND",
+   "order": 3,
+   "step": "amplitude",
+   "from": "2020-12",
+   "from_kind": "T",
+   "to": "2021-07",
+   "to_kind": "P",
+   "months": 7,
+   "change": 0.1724,
+   "margin_log": 0.0588
+  }
+ ],
+ "deleted_rallies": [
+  {
+   "product": "DRAM",
+   "order": 3,
+   "from": "1998-07",
+   "to": "1999-02",
+   "months": 7,
+   "change": 0.2174,
+   "under_min_phase": false,
+   "margin_log": 0.0437
+  },
+  {
+   "product": "DRAM",
+   "order": 4,
+   "from": "2012-01",
+   "to": "2012-06",
+   "months": 5,
+   "change": 0.2717,
+   "under_min_phase": true,
+   "margin_log": 0.023
+  },
+  {
+   "product": "DRAM",
+   "order": 5,
+   "from": "2008-01",
+   "to": "2008-07",
+   "months": 6,
+   "change": 0.3014,
+   "under_min_phase": false,
+   "margin_log": 0.1574
+  },
+  {
+   "product": "DRAM",
+   "order": 6,
+   "from": "2000-03",
+   "to": "2000-08",
+   "months": 5,
+   "change": 0.5231,
+   "under_min_phase": true,
+   "margin_log": 0.005
+  },
+  {
+   "product": "DRAM",
+   "order": 7,
+   "from": "1999-06",
+   "to": "1999-11",
+   "months": 5,
+   "change": 0.7715,
+   "under_min_phase": true,
+   "margin_log": 0.6779
+  },
+  {
+   "product": "DRAM",
+   "order": 8,
+   "from": "2001-10",
+   "to": "2002-03",
+   "months": 5,
+   "change": 2.4895,
+   "under_min_phase": true,
+   "margin_log": null
+  },
+  {
+   "product": "NAND",
+   "order": 2,
+   "from": "2002-02",
+   "to": "2002-05",
+   "months": 3,
+   "change": 0.2823,
+   "under_min_phase": true,
+   "margin_log": null
+  }
+ ],
+ "sensitivity": [
+  {
+   "product": "DRAM",
+   "basis": "C",
+   "basis_name": "contract currency",
+   "amp": 0.2,
+   "n_turns": 15,
+   "n_peaks_confirmed": 7,
+   "shifts": [],
+   "added": [],
+   "dropped": [],
+   "identical": true
+  },
+  {
+   "product": "DRAM",
+   "basis": "C",
+   "basis_name": "contract currency",
+   "amp": 0.3,
+   "n_turns": 13,
+   "n_peaks_confirmed": 6,
+   "shifts": [],
+   "added": [],
+   "dropped": [
+    "T2020-10",
+    "P2021-07"
+   ],
+   "identical": false
+  },
+  {
+   "product": "DRAM",
+   "basis": "C",
+   "basis_name": "contract currency",
+   "amp": 0.0,
+   "n_turns": 17,
+   "n_peaks_confirmed": 8,
+   "shifts": [],
+   "added": [
+    "P2024-07",
+    "T2025-02"
+   ],
+   "dropped": [],
+   "identical": false
+  },
+  {
+   "product": "DRAM",
+   "basis": "D",
+   "basis_name": "US dollar",
+   "amp": 0.2,
+   "n_turns": 15,
+   "n_peaks_confirmed": 7,
+   "shifts": [],
+   "added": [],
+   "dropped": [],
+   "identical": true
+  },
+  {
+   "product": "DRAM",
+   "basis": "W",
+   "basis_name": "Korean won",
+   "amp": 0.2,
+   "n_turns": 15,
+   "n_peaks_confirmed": 7,
+   "shifts": [
+    {
+     "kind": "P",
+     "main": "1995-07",
+     "this": "1995-09",
+     "months": 2
+    },
+    {
+     "kind": "P",
+     "main": "2010-05",
+     "this": "2010-06",
+     "months": 1
+    },
+    {
+     "kind": "P",
+     "main": "2014-09",
+     "this": "2014-11",
+     "months": 2
+    },
+    {
+     "kind": "T",
+     "main": "2016-07",
+     "this": "2016-08",
+     "months": 1
+    },
+    {
+     "kind": "T",
+     "main": "2020-10",
+     "this": "2020-12",
+     "months": 2
+    },
+    {
+     "kind": "P",
+     "main": "2021-07",
+     "this": "2021-09",
+     "months": 2
+    },
+    {
+     "kind": "T",
+     "main": "2023-08",
+     "this": "2023-07",
+     "months": -1
+    },
+    {
+     "kind": "P",
+     "main": "2026-08",
+     "this": "2026-07",
+     "months": -1
+    }
+   ],
+   "added": [],
+   "dropped": [],
+   "identical": false
+  },
+  {
+   "product": "NAND",
+   "basis": "C",
+   "basis_name": "contract currency",
+   "amp": 0.2,
+   "n_turns": 15,
+   "n_peaks_confirmed": 7,
+   "shifts": [],
+   "added": [],
+   "dropped": [],
+   "identical": true
+  },
+  {
+   "product": "NAND",
+   "basis": "C",
+   "basis_name": "contract currency",
+   "amp": 0.3,
+   "n_turns": 13,
+   "n_peaks_confirmed": 6,
+   "shifts": [],
+   "added": [],
+   "dropped": [
+    "T2019-06",
+    "P2020-03"
+   ],
+   "identical": false
+  },
+  {
+   "product": "NAND",
+   "basis": "C",
+   "basis_name": "contract currency",
+   "amp": 0.0,
+   "n_turns": 17,
+   "n_peaks_confirmed": 8,
+   "shifts": [],
+   "added": [
+    "T2020-12",
+    "P2021-07"
+   ],
+   "dropped": [],
+   "identical": false
+  },
+  {
+   "product": "NAND",
+   "basis": "D",
+   "basis_name": "US dollar",
+   "amp": 0.2,
+   "n_turns": 15,
+   "n_peaks_confirmed": 7,
+   "shifts": [],
+   "added": [],
+   "dropped": [],
+   "identical": true
+  },
+  {
+   "product": "NAND",
+   "basis": "W",
+   "basis_name": "Korean won",
+   "amp": 0.2,
+   "n_turns": 17,
+   "n_peaks_confirmed": 8,
+   "shifts": [
+    {
+     "kind": "T",
+     "main": "2008-11",
+     "this": "2008-09",
+     "months": -2
+    },
+    {
+     "kind": "T",
+     "main": "2012-06",
+     "this": "2012-05",
+     "months": -1
+    },
+    {
+     "kind": "T",
+     "main": "2016-06",
+     "this": "2016-07",
+     "months": 1
+    },
+    {
+     "kind": "P",
+     "main": "2020-03",
+     "this": "2020-04",
+     "months": 1
+    },
+    {
+     "kind": "P",
+     "main": "2024-06",
+     "this": "2024-07",
+     "months": 1
+    }
+   ],
+   "added": [
+    "T2020-12",
+    "P2022-05"
+   ],
+   "dropped": [],
+   "identical": false
+  }
+ ]
+}
