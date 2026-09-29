@@ -30,6 +30,8 @@ addopts = "-q"
 [tool.ruff]
 line-length = 120
 target-version = "py312"
+# research code kept verbatim as the reference for the memcycle port (see docs/memcycle/HANDOFF.md); not linted
+extend-exclude = ["pipelines/memcycle/research_ref"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]

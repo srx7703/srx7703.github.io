@@ -1,0 +1,145 @@
+{
+ "note": "Q3 as computed at each research commit; rules registered at e72dacd (13:11 -07:00), first computed at 5c64b64, roster corrected to the registered list at 134c642/f308ad8.",
+ "versions": [
+  {
+   "research_commit": "5c64b64",
+   "committed_at": "2026-09-28T17:02:23-07:00",
+   "subject": "Phase 1 v0: price calendar, company peak timing, rendered tables (pre-review)",
+   "q3": {
+    "main_pure": {
+     "n": 35,
+     "share_lead_ge1": 0.429,
+     "median_lead": 0,
+     "share_lead_3_to_9": 0.314,
+     "verdict": "falsified"
+    },
+    "sens_dram_makers_only": {
+     "n": 32,
+     "share_lead_ge1": 0.438,
+     "median_lead": 0.0,
+     "share_lead_3_to_9": 0.312,
+     "verdict": "falsified"
+    },
+    "diversified_dram": {
+     "n": 24,
+     "share_lead_ge1": 0.292,
+     "median_lead": -10.5,
+     "share_lead_3_to_9": 0.208,
+     "verdict": "falsified"
+    },
+    "nand_panel": {
+     "n": 26,
+     "share_lead_ge1": 0.115,
+     "median_lead": -8.0,
+     "share_lead_3_to_9": 0.038,
+     "verdict": "falsified"
+    }
+   }
+  },
+  {
+   "research_commit": "26a7377",
+   "committed_at": "2026-09-28T17:29:36-07:00",
+   "subject": "Apply data-verifier fixes: full Elpida closes, KRX official closes after 2026-09-14",
+   "q3": {
+    "main_pure": {
+     "n": 36,
+     "share_lead_ge1": 0.417,
+     "median_lead": -1.0,
+     "share_lead_3_to_9": 0.306,
+     "verdict": "falsified"
+    },
+    "sens_dram_makers_only": {
+     "n": 33,
+     "share_lead_ge1": 0.424,
+     "median_lead": 0,
+     "share_lead_3_to_9": 0.303,
+     "verdict": "falsified"
+    },
+    "diversified_dram": {
+     "n": 24,
+     "share_lead_ge1": 0.292,
+     "median_lead": -10.5,
+     "share_lead_3_to_9": 0.208,
+     "verdict": "falsified"
+    },
+    "nand_panel": {
+     "n": 26,
+     "share_lead_ge1": 0.115,
+     "median_lead": -8.0,
+     "share_lead_3_to_9": 0.038,
+     "verdict": "falsified"
+    }
+   }
+  },
+  {
+   "research_commit": "134c642",
+   "committed_at": "2026-09-28T17:47:33-07:00",
+   "subject": "Review fixes: registered company scope (ProMOS out, Infineon to 2006-04), listing/delisting completeness, intramonth auxiliary multiple, USD-series multiple, table flags",
+   "q3": {
+    "main_pure": {
+     "n": 33,
+     "share_lead_ge1": 0.424,
+     "median_lead": -2,
+     "share_lead_3_to_9": 0.333,
+     "verdict": "falsified"
+    },
+    "sens_dram_makers_only": {
+     "n": 30,
+     "share_lead_ge1": 0.433,
+     "median_lead": -1.0,
+     "share_lead_3_to_9": 0.333,
+     "verdict": "falsified"
+    },
+    "diversified_dram": {
+     "n": 19,
+     "share_lead_ge1": 0.368,
+     "median_lead": -5,
+     "share_lead_3_to_9": 0.263,
+     "verdict": "falsified"
+    },
+    "nand_panel": {
+     "n": 26,
+     "share_lead_ge1": 0.115,
+     "median_lead": -8.0,
+     "share_lead_3_to_9": 0.038,
+     "verdict": "falsified"
+    }
+   }
+  },
+  {
+   "research_commit": "f308ad8",
+   "committed_at": "2026-09-28T18:02:44-07:00",
+   "subject": "Review fixes (4): registered Q3 sample (ProMOS out, PSC delisting, IFX to 2006-04, WDC out of NAND, Toshiba reported missing); refresh report tables",
+   "q3": {
+    "main_pure": {
+     "n": 33,
+     "share_lead_ge1": 0.424,
+     "median_lead": -2,
+     "share_lead_3_to_9": 0.333,
+     "verdict": "falsified"
+    },
+    "sens_dram_makers_only": {
+     "n": 30,
+     "share_lead_ge1": 0.433,
+     "median_lead": -1.0,
+     "share_lead_3_to_9": 0.333,
+     "verdict": "falsified"
+    },
+    "diversified_dram": {
+     "n": 19,
+     "share_lead_ge1": 0.368,
+     "median_lead": -5,
+     "share_lead_3_to_9": 0.263,
+     "verdict": "falsified"
+    },
+    "nand_panel": {
+     "n": 20,
+     "share_lead_ge1": 0.15,
+     "median_lead": -8.0,
+     "share_lead_3_to_9": 0.05,
+     "verdict": "falsified"
+    }
+   }
+  }
+ ]
+}
