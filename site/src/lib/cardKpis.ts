@@ -5,6 +5,7 @@ import statarb from '@data/facts/statarb.json';
 import finllm from '@data/facts/finllm.json';
 import optical from '@data/facts/valuation_optical.json';
 import ssb from '@data/facts/valuation_ssb.json';
+import memcycle from '@data/facts/memcycle.json';
 import { pct } from './fmt';
 
 /** One headline number per project for the cards, always read from facts. */
@@ -22,4 +23,8 @@ export const cardKpis: Record<string, { label: string; value: string }> = {
   'solid-state-battery-valuation': ssb.median_fwd_pe_this != null
     ? { label: `median forward PE, calendar ${ssb.years[0]}`, value: `${ssb.median_fwd_pe_this.toFixed(1)}x` }
     : { label: 'listings tracked', value: String(ssb.n_listings) },
+  'memory-cycles': {
+    label: `of pure-play stocks peaked before DRAM contract prices; registered test ${memcycle.q3.main_pure.verdict}`,
+    value: pct(memcycle.q3.main_pure.share_lead_ge1, 1),
+  },
 };

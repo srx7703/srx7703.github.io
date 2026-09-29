@@ -1,0 +1,357 @@
+---
+title: "Memory-chip price cycles: do the stocks peak first?"
+summary: "DRAM and flash contract-price cycles dated from Korean export prices by a rule registered before the stock side was computed. The one scored claim, that memory stocks peak one to three quarters before contract prices, is falsified: they peak around the same month."
+status: in-progress
+domain: ["semiconductors", "equities", "pre-registration"]
+tools: ["Python", "Polars", "pandera", "Bank of Korea ECOS", "Vega-Lite"]
+featured: false
+order: 5
+started: "2026-09-29"
+---
+import facts from '@data/facts/memcycle.json';
+import priceIndex from '@data/marts/memcycle/price_index.json';
+import turns from '@data/marts/memcycle/turns.json';
+import calendar from '@data/marts/memcycle/calendar.json';
+import leads from '@data/marts/memcycle/leads.json';
+import multiples from '@data/marts/memcycle/multiples.json';
+import evaluation from '@data/marts/memcycle/evaluation.json';
+import KpiRow from '@components/KpiRow.astro';
+import KpiTile from '@components/KpiTile.astro';
+import ChartCard from '@components/ChartCard.astro';
+import VegaChart from '@components/VegaChart.astro';
+import SourceStamp from '@components/SourceStamp.astro';
+import Section from '@components/Section.astro';
+import DataQuality from '@components/DataQuality.astro';
+import DataTable from '@components/DataTable.astro';
+import FilterBar from '@components/FilterBar.astro';
+import DownloadCsv from '@components/DownloadCsv.astro';
+import Sidenote from '@components/Sidenote.astro';
+import Appendix from '@components/Appendix.astro';
+import { evaluationPlan } from '@lib/prereg';
+import { calendarSpec } from '@charts/memcycle/calendar';
+import { uplegSpec } from '@charts/memcycle/upleg';
+import { leadsSpec } from '@charts/memcycle/leads';
+import { pct, dayUtc } from '@lib/fmt';
+export const plan = evaluationPlan();
+export const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+export const ym = (m) => (m ? `${MONTHS[Number(m.slice(5, 7)) - 1]} ${m.slice(0, 4)}` : '—');
+export const signed = (x) => (x > 0 ? `+${x}` : x < 0 ? `−${Math.abs(x)}` : '0');
+export const rise = (x) => `+${Math.round(x * 100)}%`;
+export const fall = (x) => `−${Math.round(Math.abs(x) * 100)}%`;
+export const mult = (x) => (x == null ? '—' : `${x.toFixed(1)}x`);
+export const asOf = `ECOS ${ym(facts.ecos.last_month)} (preliminary), retrieved ${dayUtc(facts.ecos.retrieved_at)}`;
+export const d = facts.calendar.DRAM;
+export const n = facts.calendar.NAND;
+export const q3 = facts.q3.main_pure;
+export const rule = facts.q3_rule;
+export const verdictWord = { holds: 'Holds', falsified: 'Falsified', inconclusive: 'Inconclusive' };
+export const band = rule.median_band;
+export const ecosSource = [facts.sources[0]];
+export const bothSources = facts.sources;
+export const lead = facts.leading_decline;
+export const rallies = facts.deleted_rallies;
+export const dramRallies = rallies.filter((r) => r.product === 'DRAM');
+export const shortRallies = rallies.filter((r) => r.product === 'DRAM' && r.under_min_phase && r.from < lead.rule_trough);
+export const knife = facts.knife_edge;
+export const cyclesTable = ['DRAM', 'NAND'].flatMap((p) => calendar.cycles[p].map((c) => ({
+  product: p === 'DRAM' ? 'DRAM' : 'Flash', cycle: c.cycle, trough: c.trough ?? 'before the series', peak: c.peak,
+  status: !c.peak_confirmed ? 'rising; peak not confirmed' : c.complete ? 'complete' : c.cycle === 0 ? 'no dated trough before the peak' : 'falling',
+  next_trough: c.next_trough ?? '—', up_months: c.up_months, up_change: c.up_change, down_months: c.down_months, down_change: c.down_change,
+})));
+export const sensTable = calendar.sensitivity.map((s) => ({
+  product: s.product === 'DRAM' ? 'DRAM' : 'Flash', basis: s.basis_name, threshold: pct(s.amp, 0), turns: s.n_turns,
+  differs: s.identical ? 'identical to the main rule' : [
+    s.shifts.length ? `moved: ${s.shifts.map((x) => `${x.kind}${x.main}→${x.this}`).join(', ')}` : '',
+    s.added.length ? `added: ${s.added.join(', ')}` : '',
+    s.dropped.length ? `dropped: ${s.dropped.join(', ')}` : '',
+  ].filter(Boolean).join('; '),
+}));
+export const groupRows = Object.values(facts.q3).map((g) => ({
+  sample: g.label, n: g.n, share: g.share_lead_ge1, median: g.median_lead, in_band: g.share_lead_3_to_9,
+  verdict: verdictWord[g.verdict],
+}));
+export const listed = leads.filter((r) => r.excluded_because !== 'no data in window');
+export const notListed = leads.length - listed.length;
+export const leadRows = listed.map((r) => ({
+  company: r.label, group: r.group, product: r.product === 'DRAM' ? 'DRAM' : 'Flash', price_peak: r.price_peak,
+  stock_peak: r.stock_peak_month ?? '—', lead: r.lead_months, lead_intramonth: r.lead_months_intramonth,
+  in_sample: r.in_main ? 'main verdict' : r.in_nand_panel ? 'NAND panel' : r.in_diversified ? 'diversified' : '—',
+  excluded_because: r.excluded_because ?? '',
+}));
+export const multRows = multiples.filter((m) => m.product === 'DRAM' && !m.truncated_by_listing).map((m) => ({
+  company: m.label, group: m.group, price_peak: m.price_peak_confirmed ? m.price_peak : `${m.price_peak} (running)`,
+  low: m.upleg_low_month, stock_peak: m.stock_peak_month, multiple: m.multiple, intramonth: m.multiple_intramonth,
+  usd: m.multiple_usd, bench: m.bench1, excess: m.excess1,
+  note: m.spans_2000_bubble ? 'window starts before 2000' : '',
+}));
+export const truncated = facts.multiples.truncated;
+export const mu = facts.multiples.micron_current;
+export const dramLeads = leads.filter((r) => r.product === 'DRAM' && (r.in_main || r.in_diversified));
+export const flips = facts.robustness.flips_to_inconclusive;
+
+<div class="lede">
+  <p>
+    The Bank of Korea's export price index for DRAM<Sidenote>ECOS table {facts.ecos.table}, item {facts.ecos.items.DRAM}: the price Korean exporters invoice, in the currency of the contract, indexed to 2020 = 100. It is a contract-price series, so it moves later and more smoothly than the spot prices traders quote.</Sidenote>
+    has gone through {d.n_complete_cycles} complete cycles, trough to peak to trough, since {ym(d.first_complete_trough)}.
+    The count comes from a turning-point rule registered before any stock data was compared with it.
+    The index is now {pct(d.current.change, 0)} above its {ym(d.current.trough)} trough, measured to {ym(d.last_month)}. That month is simply the last one published; prices were still rising in it.
+  </p>
+  <p>
+    The one claim this page scores is that memory stocks peak one to three quarters before contract prices do. It is <strong>{q3.verdict}</strong>.
+    Across {q3.n} pure-play company-cycles, {pct(q3.share_lead_ge1, 1)} of stocks peaked at least a month before the price,<Sidenote>The lead is the price-peak month minus the stock-peak month, using month-end closes. A positive lead means the stock topped first. The contract-currency basis removes the won's swings; the dollar and won bases are sensitivity checks.</Sidenote>
+    and the median lead was {signed(q3.median_lead)} months.
+    Read that as stocks topping out around the same month as contract prices, not quarters ahead.
+  </p>
+</div>
+
+<p class="muted">Public data only; nothing here is investment advice.</p>
+
+<KpiRow>
+  <KpiTile label="Complete DRAM contract-price cycles" value={String(d.n_complete_cycles)} sub={`trough to peak to trough, since ${ym(d.first_complete_trough)}, by the registered rule`} />
+  <KpiTile label="Stocks peak before prices (registered test)" value={verdictWord[q3.verdict]} sub={`${pct(q3.share_lead_ge1, 1)} of ${q3.n} pure-play company-cycles led by a month or more`} tone="negative" />
+  <KpiTile label="Current DRAM upswing" value={rise(d.current.change)} sub={`from the ${ym(d.current.trough)} trough to ${ym(d.last_month)}; not a confirmed peak`} />
+</KpiRow>
+
+<Section id="calendar" title="The calendar, and what the rule leaves out" wide>
+
+The rule is a simplified Bry–Boschan procedure on the log of the index, with no smoothing. It needs rises and
+falls of at least {pct(facts.rule.amp_main, 0)}, phases of at least {facts.rule.min_phase} months and cycles of
+at least {facts.rule.min_cycle} months. Those constraints make the calendar reproducible, and they cost
+something visible, so the figure shows the rallies the rule removed.
+
+<ChartCard size="full" title={`${d.n_complete_cycles} complete DRAM cycles since ${ym(d.first_complete_trough)}; the duration rule removed ${dramRallies.length} other rises of ${pct(facts.rule.amp_main, 0)} or more`} subtitle={`Korean export price index, contract-currency basis, 2020 = 100, monthly, log scale (the DRAM index spans ${d.index_span_orders.toFixed(1)} orders of magnitude). Grey bands: rising phases the rule dates. Orange bands: rises of at least ${pct(facts.rule.amp_main, 0)} that the duration step removed. Hollow triangle: the last month published, not a confirmed peak. Flash before ${facts.ecos.flash_nor_until.slice(0, 4)} is grey because the item was then mostly NOR.`}>
+  <VegaChart id="mem-calendar" spec={calendarSpec(priceIndex, calendar.phases, turns, rallies)} height={440} ariaLabel="Two stacked line charts, DRAM and flash, of the contract-price index on a log scale with the dated rising phases shaded and the removed short rallies marked" />
+  <SourceStamp slot="stamp" sources={ecosSource} asOf={asOf} />
+</ChartCard>
+
+<p>
+  The rule dates one decline of {d.leading_decline_months} months, from {ym(d.leading_peak)} to {ym(lead.rule_trough)}, a fall of {fall(d.leading_decline_change)}.
+  Inside it were {shortRallies.length} real contract-price rallies:
+  {' '}{shortRallies.map((r) => `${ym(r.from)} to ${ym(r.to)} (${rise(r.change)})`).join(', ')}.
+  Each lasted under {facts.rule.min_phase} months, so the rule deleted it.
+  Whether those years hold a cycle of their own is a knife edge. At one step the rule removed the {ym(knife.from)}–{ym(knife.to)} phase instead of the next-smallest violating phase, and the two differed by {pct(knife.margin_pct, 1)}. With the {ym(knife.to)} index value a little more than that higher, the other phase would have gone and the calendar would carry one more cycle.<Sidenote>The margin is the gap in log change between the smallest and the second-smallest violating phase at that deletion. The deletion order is logged by the pipeline and matches correction 3 of the pre-registration.</Sidenote>
+</p>
+
+<p>
+  The rule's {ym(lead.rule_trough)} trough is not the low of that decline either. The index bottomed in {ym(lead.index_min_month)}, {pct(Math.abs(lead.index_min_vs_rule_trough), 0)} lower. The rule skips that month because the {ym(shortRallies[shortRallies.length - 1]?.from)} rally that followed it was too short to count.
+  And the {ym(d.leading_peak)} peak exists only because the series is started in {facts.calendar.DRAM.series_start.slice(0, 4)}. Before then the DRAM item moves in rare steps and cannot be dated.
+</p>
+
+<DataTable id="cycles-table" caption="Every cycle the registered rule dates, DRAM and flash" columns={[
+  { key: 'product', label: 'Item' },
+  { key: 'cycle', label: 'Cycle', format: 'num', align: 'right' },
+  { key: 'trough', label: 'Trough' },
+  { key: 'peak', label: 'Peak' },
+  { key: 'next_trough', label: 'Next trough' },
+  { key: 'up_months', label: 'Months up', format: 'num', align: 'right' },
+  { key: 'up_change', label: 'Rise', format: 'pct', align: 'right' },
+  { key: 'down_months', label: 'Months down', format: 'num', align: 'right' },
+  { key: 'down_change', label: 'Fall', format: 'pct', align: 'right' },
+  { key: 'status', label: 'Status' },
+]} rows={cyclesTable} />
+<DownloadCsv filename="memory-price-cycles.csv" rows={cyclesTable} />
+
+<p>
+  The registered sensitivity runs move few turns. A {pct(facts.rule.amp_sens[0], 0)} threshold merges the two most recent short DRAM cycles into one. A {pct(facts.rule.amp_sens[1], 0)} threshold, the duration rule alone, adds back the small dip that the main rule removes at the amplitude step. The won basis shifts turns by a month or two, which is the currency moving and not the contract price.
+</p>
+
+<DataTable id="sensitivity-table" caption={`Registered sensitivity: each run against the main rule (contract currency, ${pct(facts.rule.amp_main, 0)})`} columns={[
+  { key: 'product', label: 'Item' },
+  { key: 'basis', label: 'Basis' },
+  { key: 'threshold', label: 'Threshold' },
+  { key: 'turns', label: 'Turns', format: 'num', align: 'right' },
+  { key: 'differs', label: 'Difference from the main rule' },
+]} rows={sensTable} />
+<DownloadCsv filename="memory-price-cycles-sensitivity.csv" rows={sensTable} />
+
+</Section>
+
+<Section id="upswings" title="How long the upswings lasted, and how far they went">
+
+<ChartCard title={`The running DRAM upswing is the largest rise the rule dates: ${rise(d.current.change)} in ${d.current.months} months`} subtitle={`Each rising phase of the registered calendar: months from trough to peak against the percentage rise of the contract-price index. Hollow: the running upswing, measured to ${ym(d.last_month)}.`}>
+  <VegaChart id="mem-upleg" spec={uplegSpec(calendar.phases)} height={300} ariaLabel="Scatter plot of months against percentage rise for every rising phase of the DRAM and flash contract-price index" />
+  <SourceStamp slot="stamp" sources={ecosSource} asOf={asOf} />
+</ChartCard>
+
+<p>
+  A completed DRAM upswing has a median length of {d.median_up_months} months and a median rise of {rise(d.median_up_change)}. The median completed downswing lasts {d.median_down_months} months and gives back {fall(d.median_down_change)}.
+  Rises are measured on price levels, and levels fall by a large fraction every year as memory gets cheaper to make. Dating on levels therefore shortens upswings and lengthens downswings. A detrended calendar would differ, but it was chosen after the data was seen, so it is not shown here.
+</p>
+
+<p>
+  The stocks' up-leg multiples below are descriptive and score nothing. Each is the stock-peak month-end close over the lowest close since the previous price peak.
+  On that basis Micron's current up-leg is {mult(mu.multiple)} ({ym(mu.low_month)} to {ym(mu.peak_month)}), and {mult(mu.intramonth)} on intramonth lows and highs, the basis media usually quote.
+  {truncated.length} rows are left out because they are measured from a listing month rather than a cycle low:
+  {' '}{truncated.filter((t) => t.multiple > 2).map((t) => `${t.label} (${mult(t.multiple)} from ${ym(t.first_month)})`).join(', ')}, and {truncated.filter((t) => t.multiple <= 2).length} others that listed at or after the peak they would be compared with.
+  The registered window starts at the previous price peak. For the {ym(d.first_complete_trough)} cycle that is {ym(d.leading_peak)}, so {facts.multiples.n_spanning_2000} rows span the dot-com bubble; the table marks them.
+</p>
+
+<FilterBar target="multiples-table" selects={[
+  { column: 'group', label: 'Group', options: ['pure', 'diversified'] },
+]} placeholder="Search companies…" />
+<DataTable id="multiples-table" filterKeys={['group']} caption="Up-leg multiples on the DRAM calendar: month-end, intramonth, in dollars, and over the local benchmark" columns={[
+  { key: 'company', label: 'Company' },
+  { key: 'group', label: 'Group' },
+  { key: 'price_peak', label: 'Price peak' },
+  { key: 'low', label: 'Low' },
+  { key: 'stock_peak', label: 'Stock peak' },
+  { key: 'multiple', label: 'Month-end', format: 'fixed1', align: 'right' },
+  { key: 'intramonth', label: 'Intramonth', format: 'fixed1', align: 'right' },
+  { key: 'usd', label: 'In USD', format: 'fixed1', align: 'right' },
+  { key: 'bench', label: 'Benchmark' },
+  { key: 'excess', label: 'Excess', format: 'fixed1', align: 'right' },
+  { key: 'note', label: 'Note' },
+]} rows={multRows} />
+<DownloadCsv filename="memory-upleg-multiples.csv" src="/data/marts/memcycle/multiples.json" />
+
+</Section>
+
+<Section id="q3" title="Do the stocks peak first? Registered test: falsified" wide>
+
+<ChartCard size="full" title={`Memory stocks peaked around the same month as contract prices: median lead ${signed(q3.median_lead)} months`} subtitle={`Months between each company's highest month-end close and the confirmed DRAM price peak it is paired with; positive means the stock peaked first. Rows are the confirmed DRAM price peaks. Shaded: the registered band of ${band[0]}–${band[1]} months. Filled: the ${q3.n} pure-play company-cycles in the verdict. Hollow: the ${facts.q3.diversified_dram.n} diversified ones, shown only. Company-cycles with an incomplete window are left out.`}>
+  <VegaChart id="mem-leads" spec={leadsSpec(dramLeads, band)} height={300} ariaLabel="Strip chart of stock-peak lead in months for each company at each DRAM price peak, pure plays filled and diversified companies hollow" />
+  <SourceStamp slot="stamp" sources={bothSources} asOf={asOf} note="stock side frozen at registration; closes are not redistributed" />
+</ChartCard>
+
+<p>
+  The registered test needed at least {pct(rule.holds_share, 0)} of pure-play company-cycles to lead by a month or more, with a median lead of {band[0]} to {band[1]} months, for the claim to hold. Fewer than {pct(rule.falsify_share, 0)} leading falsifies it.
+  The result is {pct(q3.share_lead_ge1, 1)} leading, with a median of {signed(q3.median_lead)}.
+  Every other sample gives the same verdict: DRAM makers alone, the diversified group, and the NAND panel against the flash calendar.
+  The verdict was the same in all {facts.q3_versions.n} recorded research versions, including the one after the roster was corrected to the registered list.
+</p>
+
+<DataTable id="q3-table" caption="The registered verdict and the samples shown beside it" columns={[
+  { key: 'sample', label: 'Sample' },
+  { key: 'n', label: 'Company-cycles', format: 'num', align: 'right' },
+  { key: 'share', label: 'Led by a month or more', format: 'pct', align: 'right' },
+  { key: 'median', label: 'Median lead, months', format: 'num', align: 'right' },
+  { key: 'in_band', label: `Led by ${band[0]}–${band[1]} months`, format: 'pct', align: 'right' },
+  { key: 'verdict', label: 'Verdict' },
+]} rows={groupRows} />
+<DownloadCsv filename="memory-q3-verdict.csv" rows={groupRows} />
+
+<FilterBar target="leads-table" selects={[
+  { column: 'product', label: 'Calendar', options: ['DRAM', 'Flash'] },
+  { column: 'group', label: 'Group', options: ['pure', 'diversified', 'unregistered'] },
+]} placeholder="Search companies…" />
+<DataTable id="leads-table" filterKeys={['product', 'group']} caption="Every company-cycle: stock-peak month, lead, and why a row is outside a sample" columns={[
+  { key: 'company', label: 'Company' },
+  { key: 'group', label: 'Group' },
+  { key: 'product', label: 'Calendar' },
+  { key: 'price_peak', label: 'Price peak' },
+  { key: 'stock_peak', label: 'Stock peak' },
+  { key: 'lead', label: 'Lead', format: 'num', align: 'right' },
+  { key: 'lead_intramonth', label: 'Lead, intramonth high', format: 'num', align: 'right' },
+  { key: 'in_sample', label: 'Counts in' },
+  { key: 'excluded_because', label: 'Left out because' },
+]} rows={leadRows} />
+<DownloadCsv filename="memory-stock-leads.csv" src="/data/marts/memcycle/leads.json" />
+<p class="muted">{notListed} company-cycles in which the company was not yet or no longer listed are left out of the table; the download has every row.</p>
+
+</Section>
+
+<Section id="robustness" title="Robustness (not pre-registered)">
+
+<p>
+  This section was added after the verdict was seen, and nothing in it changes the verdict.
+  The falsification is not wide. If {flips} of the {q3.n} pure-play company-cycles that did not lead had led instead, the leading share would reach {pct(rule.falsify_share, 0)} and the result would be inconclusive rather than falsified.
+  Whether to show more post-hoc views here, such as a split at the industry's consolidation, is left to the owner's review.
+</p>
+
+</Section>
+
+<Appendix>
+
+<Section id="scope" title="Scope">
+
+<p>
+  Two contract-price series: DRAM from {ym(d.series_start)} and flash from {ym(n.series_start)}. The flash item was mostly NOR before {facts.ecos.flash_nor_until.slice(0, 4)}, so its early cycles are not NAND cycles.
+  {facts.n_companies_registered} companies are registered. The {facts.n_pure} pure plays enter the verdict; Samsung, Infineon before its memory spin-off, Western Digital, Seagate and Toshiba are shown only. Toshiba has no clean price history after its take-private and is reported as missing rather than dropped.
+</p>
+<p>
+  The question was prompted by a video from 美投讲美股 on past memory upcycles (<a href={facts.video.url}>“{facts.video.title}”</a>, {facts.video.date}).
+</p>
+
+</Section>
+
+<Section id="method" title="Method">
+
+**Price calendar.** The raw ECOS responses from the registration pull are committed. The pipeline parses them
+into a snapshot and runs the registered rule ten ways: contract currency at three thresholds, plus the dollar
+and won bases at the main threshold, for both items. Every turn and every phase is checked against the research
+outputs before anything is written.
+
+**Stock side.** Month-end closes, adjusted for splits and capital reductions, come from exchange and vendor
+sources whose terms forbid redistribution. They were used on the owner's machine to compute each company's
+peak, trough, lead and multiples in each cycle, and only those derived months, leads, ratios and flags were
+committed. The page is rebuilt from that frozen table. A guard refuses to publish if the recomputed price
+calendar ever disagrees with the peaks the frozen table was measured against.
+
+**Checks on the closes** (done locally, before registration). Every extreme was compared with a second source,
+with official anchors from Micron's 10-K ranges, the Taiwan Stock Exchange and KRX. Korean closes in the month
+after KRX opened its after-market session are the official regular-session closes. Elpida's full series was
+rebuilt from daily tables and cross-checked.
+
+<p>
+  <a href="https://github.com/srx7703/srx7703.github.io/tree/main/pipelines/memcycle">Pipeline source</a>
+  {' · '}<a href="https://github.com/srx7703/srx7703.github.io/blob/main/data/case_studies/memcycle/inputs_manifest.json">Hashes of every local input</a>
+</p>
+
+</Section>
+
+<Section id="limits" title="Limits">
+
+<ul>
+  <li><strong>Contract prices lag spot prices.</strong> Spot DRAM prices have peaked months before this index in recent cycles. A lead measured against spot prices would be longer.</li>
+  <li><strong>Turns are uncertain by a quarter in recent years.</strong> Contract prices now reset mostly once a quarter, so a turn dated to one month may belong to the months around it.</li>
+  <li><strong>Levels, not detrended values.</strong> Dating a series that falls steeply every year on its levels makes upswings shorter. A detrended calendar was not registered and is not shown.</li>
+  <li><strong>{d.up_legs_at_min_phase.length + n.up_legs_at_min_phase.length} rising phases sit exactly at the minimum length.</strong> The DRAM rise to {ym(d.up_legs_at_min_phase[0])} and the flash rise to {ym(n.up_legs_at_min_phase[0])} last exactly {facts.rule.min_phase} months. One month shorter and the rule would delete them.</li>
+  <li><strong>A stock high can be booked to the wrong cycle.</strong> The stock-peak window runs to the next price trough, so a high made early in the next rally counts against the previous peak.</li>
+  <li><strong>The stock side cannot be re-verified in CI.</strong> The closes stay local. What is public is their hashes, the derived table and the tests that bind them.</li>
+</ul>
+
+</Section>
+
+<Section id="evaluation" title="Evaluation (pre-registered)">
+
+<p>
+  The rules were registered in Chinese, in <a href={`https://github.com/srx7703/srx7703.github.io/blob/main/${facts.prereg.path}`}>a file</a> that entered this repo with its {facts.prereg.blobs.length} original commits. The last commit is blob <code>{facts.prereg.blobs[facts.prereg.blobs.length - 1].blob}</code>. Section G of <a href={plan.url}>docs/EVALUATION_PLAN.md</a> translates them, at <code>{plan.short}</code> (<a href={plan.history}>history</a>).
+  The commit dates were recorded by a private repo and become publicly checkable only from this branch's first push. The Q3 roster was corrected after the result was seen; the verdict was the same before and after. Q3 and Q7 are therefore not blind tests; only Q6 and Q8 look forward.
+</p>
+
+<DataTable id="evaluation-table" caption="Registered items and their status" columns={[
+  { key: 'id', label: 'Item' },
+  { key: 'status', label: 'Status' },
+  { key: 'detail', label: 'Result or reason' },
+]} rows={evaluation.items.map((i) => ({ id: i.id, status: i.verdict ? `${i.status}: ${i.verdict}` : i.status, detail: i.why ?? (typeof i.result === 'string' ? i.result : 'see the verdict table') }))} />
+
+</Section>
+
+<Section id="data-quality" title="Data quality">
+  <DataQuality checks={facts.checks} note="Frozen at registration. The price side is recomputed from the raw ECOS responses on every build; the stock side is a fingerprinted table." />
+</Section>
+
+<Section id="sources" title="Sources">
+  <ul>
+    {facts.sources.map((s) => <li><a href={s.url}>{s.name}</a></li>)}
+    <li><a href={facts.video.url}>{facts.video.channel}, “{facts.video.title}”</a> (inspiration only; nothing on this page is taken from it)</li>
+  </ul>
+</Section>
+
+<Section id="build-notes" title="Build notes">
+
+The author designed the question, registered the rules in Chinese, collected and verified the closes on their
+own machine, and made the calls listed as owner decisions in the project plan. Claude Code wrote the
+research code under review, then, in a cloud session without access to any close, ported it into this
+pipeline. It added the tests that tie the port to the research outputs, built the charts and wrote this page.
+An independent review agent rewrote the dating rule from the Chinese text and matched every turn.
+
+</Section>
+
+<Section id="changelog" title="Changelog">
+  <ul>
+    <li><strong>2026-09-29</strong> — first version, in progress: calendar and Q3 frozen at the registration pull.</li>
+  </ul>
+</Section>
+
+</Appendix>

@@ -10,6 +10,7 @@ import tcRows from '@data/marts/statarb/tc_sensitivity.json';
 import finllm from '@data/facts/finllm.json';
 import opticalCompanies from '@data/marts/valuation/optical_companies.json';
 import ssbCompanies from '@data/marts/valuation/ssb_companies.json';
+import memIndex from '@data/marts/memcycle/price_index.json';
 
 export type Pt = [number, number];
 export type MiniSpec =
@@ -90,6 +91,17 @@ function valuationScatter(rows: ValRow[], label: string): MiniSpec {
   };
 }
 
+/** The DRAM contract-price index on a log scale, the calendar the page dates. */
+function memcycle(): MiniSpec {
+  const rows = (memIndex as { product: string; month: string; value: number }[]).filter((r) => r.product === 'DRAM');
+  const points = rows.map((r): Pt => [Date.parse(`${r.month}-01`), Math.log10(r.value)]);
+  const ys = points.map((p) => p[1]);
+  return {
+    kind: 'lines', series: [{ name: 'DRAM', color: '--series-a', points }], y: [Math.min(...ys), Math.max(...ys)],
+    label: 'DRAM export contract-price index on a log scale, monthly since the series start the rule uses',
+  };
+}
+
 export const miniCharts: Record<string, MiniSpec> = {
   'midterms-2026': midterms(),
   'fomc-markets': fomc(),
@@ -104,4 +116,5 @@ export const miniCharts: Record<string, MiniSpec> = {
     ssbCompanies as ValRow[],
     'Forward PE against expected earnings growth for each listed solid-state battery company',
   ),
+  'memory-cycles': memcycle(),
 };
