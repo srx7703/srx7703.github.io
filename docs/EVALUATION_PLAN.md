@@ -336,3 +336,130 @@ Until a scoring date arrives an item returns `{"status": "not_yet", "why": …}`
 ### Amendments to this section
 
 None yet.
+
+## Memory-chip price cycles (project G) — contract-price calendar and stock timing
+
+A frozen case study (`pipelines/memcycle/`), with no scheduled workflow. The price side is recomputed from
+the Bank of Korea's ECOS raw responses on every build. The stock side comes from month-end closes that
+vendor terms forbid redistributing, so it is computed on the owner's machine and only months, leads,
+ratios and flags enter the repo.
+
+**The authoritative text is Chinese and it predates this section.** The rules were registered in
+`docs/prereg/memory-cycles/预注册_周期定时与检验规则_20260928.md`. That file came into this repo with its
+five original commits, and its git blob ids are the same as in the owner's private research repo:
+
+| blob | committed | what it added |
+|---|---|---|
+| `9f90587a` | 2026-09-28 13:11 −07:00 | rules and Q3/Q6/Q7/Q8 criteria |
+| `4b4a9e94` | 2026-09-28 14:59 −07:00 | implementation notes 1–3 |
+| `77fdbb45` | 2026-09-28 15:00 −07:00 | implementation notes 4–6, Q3 sample boundaries |
+| `e4a15ecd` | 2026-09-28 17:33 −07:00 | corrections after the independent rule review |
+| `bedd0de4` | 2026-09-28 18:02 −07:00 | Q3 roster as registered |
+
+This section translates those rules and adds nothing to them. Where the two differ, the Chinese file wins.
+
+**What the history does and does not prove.** The commit dates were self-reported by a private repo. They
+become publicly checkable only from the first push of this branch, so they are evidence of order, not proof
+of it. The prereg's §0 lists what had been seen before registration.
+
+- The price calendar rule was fixed before the calendar was computed. It is not blind: an informal scan
+  of the same index had already been made.
+- Implementation notes 1–3 are not blind either (correction 3). The first trial run happened after the new
+  data had been downloaded.
+- Q3 was computed after registration. Its sample was then corrected to match the registered roster, after
+  the result had been seen (correction 4). `data/case_studies/memcycle/q3_versions.json` records the verdict
+  at every research commit, and it is "falsified" in all four versions. The page shows that history in
+  full.
+- Q7 is not blind, because the price data had been seen.
+- Only Q6 and Q8 are forward tests.
+
+**Merging.** The branch reaches `main` by fast-forward or `git rebase --committer-date-is-author-date`. It is
+never squashed, because squashing would replace the five registration commits with one dated at merge.
+
+### Items
+
+1. **Price-cycle calendar** (descriptive, resolved). ECOS table `402Y016`, DRAM item `30911201AA` from
+   1995-01 and flash item `30911202AA` from 2000-01. The main basis is contract currency (C); the US dollar
+   (D) and Korean won (W) bases are sensitivity checks. The rule is a simplified Bry–Boschan on log levels
+   with no smoothing:
+   - candidates are extremes of a 13-month window, 6 months either side, with ties going to the earliest month;
+   - peaks and troughs alternate;
+   - every phase lasts at least 6 months and every cycle at least 15 months;
+   - every rise is at least +20% and every fall at least −20%.
+
+   Durations are resolved before amplitudes. Each violation removes the two ends of the smallest violating
+   phase, and the rule then returns to the alternation step. Thresholds of 30% and 0% are the registered
+   sensitivity. A turn within 6 months of the last observation is unconfirmed. One cycle is trough, peak,
+   trough.
+
+2. **Q3: stocks peak one to three quarters before contract prices** (resolved: **falsified**). A stock peak
+   is the highest month-end close in (T(k−1), T(k)]. The lead is the price-peak month minus the stock-peak
+   month. The sample is the pure-play company-cycles with a confirmed price peak, a preceding trough and a
+   complete window.
+   - **Holds** if at least 60% lead by 1 month or more and the median lead is between 3 and 9 months.
+   - **Falsified** if fewer than 50% lead by 1 month or more.
+   - **Inconclusive** otherwise.
+
+   The same rule is reported separately for DRAM makers only, for the diversified group and for the NAND
+   panel against the flash calendar. None of these enters the verdict. Infineon counts until 2006-04.
+   ProMOS is not on the registered list. Toshiba is registered but has no data, and it is reported as
+   missing.
+
+3. **Up-leg multiples** (descriptive). The multiple is the stock-peak close divided by the lowest month-end
+   close from the previous price peak up to the stock peak. The auxiliary basis is intramonth low to high.
+   Excess is the stock's multiple over the local benchmark's multiple on the same two months. A row whose
+   low falls within three months of a listing after the previous price peak is flagged and left out of any
+   comparison.
+
+4. **Q6: a capex-to-revenue warning threshold** (not yet). The candidate thresholds are the 50th to 90th
+   percentiles, in steps of 5, of the pool's trailing-four-quarter capex over memory revenue on data to
+   2015Q4. The threshold is chosen by Youden's J, with ties going to the lower one. The event is a DRAM
+   price peak 4 to 8 quarters later. It is scored out of sample from 2016Q1 and falsified if precision is no
+   more than the base rate plus 10 percentage points, or if recall is below 50%.
+
+5. **Q7: smaller swings after consolidation** (not yet; not blind). Three measures are each split at 2013,
+   the year of Micron's acquisition of Elpida: the pure-play basket's peak-to-trough drawdown, DRAM industry
+   revenue, and the pool's operating margin. A measure has "shrunk" if the later median is below the earlier
+   one. The three are reported side by side and never pooled.
+
+6. **Q8: the next downturn is shallower** (not yet; forward, deadline 2028-12-31). A new peak is confirmed
+   when the index has spent 6 months below it and has fallen 20%. Two measures cover the 12 months after it:
+   the index's largest fall and the worst quarterly fall in industry revenue. Each is compared with its
+   historical median.
+   - **Holds** if both are below their medians.
+   - **Falsified** if either reaches its median.
+   - **Not scored** if data is missing.
+
+Registered constants. This list is checked against `pipelines/memcycle/config.py` by
+`pipelines/memcycle/tests/test_plan.py`, because a threshold that lives only in code sits outside the blob
+hash the page prints:
+
+- `HALF_WINDOW = 6`
+- `MIN_PHASE = 6`
+- `MIN_CYCLE = 15`
+- `AMP_MAIN = 0.20`
+- `AMP_SENS = (0.30, 0.0)`
+- `SERIES_START = {DRAM: 1995-01, flash: 2000-01}`
+- `LEAD_MIN = 1`
+- `Q3_HOLDS_SHARE = 0.60`
+- `Q3_MEDIAN_BAND = (3, 9)`
+- `Q3_FALSIFY_SHARE = 0.50`
+- `INFINEON_LAST_MONTH = 2006-04`
+- `Q6_PERCENTILES = 50..90 step 5`
+- `Q6_TRAIN_END = 2015Q4`
+- `Q6_TEST_START = 2016Q1`
+- `Q6_HORIZON_QUARTERS = (4, 8)`
+- `Q6_PRECISION_MARGIN = 0.10`
+- `Q6_MIN_RECALL = 0.50`
+- `Q7_SPLIT_YEAR = 2013`
+- `Q8_CONFIRM_MONTHS = 6`
+- `Q8_CONFIRM_FALL = 0.20`
+- `Q8_WINDOW_MONTHS = 12`
+- `Q8_DEADLINE = 2028-12-31`
+
+Scoring code lives in `pipelines/memcycle/evaluate.py` and writes `data/marts/memcycle/evaluation.json`.
+Q6, Q7 and Q8 return `{"status": "not_yet", "why": …}` until their data exists.
+
+### Amendments to this section
+
+None yet. Amendments to the rules are made in the Chinese file first, by the owner, and then imported here.
