@@ -7,41 +7,41 @@
     "buckets": {
      "cut50": 0.0025,
      "cut25": 0.0045,
-     "hold": 0.555,
-     "hike25": 0.435,
-     "hike50": 0.0065
+     "hold": 0.65,
+     "hike25": 0.335,
+     "hike50": 0.0055
     },
-    "expected_bps": 11.0,
-    "sum_prob": 1.0035,
+    "expected_bps": 8.4,
+    "sum_prob": 0.9975,
     "rollup": {
      "cut": 0.007,
-     "hold": 0.555,
-     "hike": 0.4415
+     "hold": 0.65,
+     "hike": 0.3405
     },
     "modal_side": "hold",
-    "modal_prob": 0.555
+    "modal_prob": 0.65
    },
    "kalshi": {
     "buckets": {
      "cut50": 0.005,
      "cut25": 0.005,
-     "hold": 0.555,
-     "hike25": 0.425,
+     "hold": 0.65,
+     "hike25": 0.34,
      "hike50": 0.005
     },
-    "expected_bps": 10.5,
-    "sum_prob": 0.995,
+    "expected_bps": 8.4,
+    "sum_prob": 1.005,
     "rollup": {
      "cut": 0.01,
-     "hold": 0.555,
-     "hike": 0.43
+     "hold": 0.65,
+     "hike": 0.345
     },
     "modal_side": "hold",
-    "modal_prob": 0.555
+    "modal_prob": 0.65
    }
   },
   "agree": true,
-  "gap_hike_pt": 1.2
+  "gap_hike_pt": -0.4
  },
  {
   "meeting": "2026-12",
@@ -50,42 +50,42 @@
    "polymarket": {
     "buckets": {
      "cut50": 0.0045,
-     "cut25": 0.0115,
-     "hold": 0.205,
-     "hike25": 0.755,
-     "hike50": 0.0165
+     "cut25": 0.0085,
+     "hold": 0.245,
+     "hike25": 0.745,
+     "hike50": 0.0135
     },
-    "expected_bps": 19.2,
-    "sum_prob": 0.9925,
+    "expected_bps": 18.9,
+    "sum_prob": 1.0165,
     "rollup": {
-     "cut": 0.016,
-     "hold": 0.205,
-     "hike": 0.7715
+     "cut": 0.013,
+     "hold": 0.245,
+     "hike": 0.7585
     },
     "modal_side": "hike",
-    "modal_prob": 0.7715
+    "modal_prob": 0.7585
    },
    "kalshi": {
     "buckets": {
      "cut50": 0.005,
      "cut25": 0.015,
      "hold": 0.215,
-     "hike25": 0.745,
+     "hike25": 0.735,
      "hike50": 0.025
     },
-    "expected_bps": 19.2,
-    "sum_prob": 1.005,
+    "expected_bps": 19.0,
+    "sum_prob": 0.995,
     "rollup": {
      "cut": 0.02,
      "hold": 0.215,
-     "hike": 0.77
+     "hike": 0.76
     },
     "modal_side": "hike",
-    "modal_prob": 0.77
+    "modal_prob": 0.76
    }
   },
   "agree": true,
-  "gap_hike_pt": 0.1
+  "gap_hike_pt": -0.2
  },
  {
   "meeting": "2027-01",
@@ -93,43 +93,43 @@
   "platforms": {
    "polymarket": {
     "buckets": {
-     "cut50": 0.0275,
-     "cut25": 0.045,
-     "hold": 0.465,
+     "cut50": 0.0165,
+     "cut25": 0.04,
+     "hold": 0.475,
      "hike25": 0.465,
-     "hike50": 0.0175
+     "hike50": 0.0215
     },
-    "expected_bps": 10.0,
-    "sum_prob": 1.02,
+    "expected_bps": 10.9,
+    "sum_prob": 1.018,
     "rollup": {
-     "cut": 0.0725,
-     "hold": 0.465,
-     "hike": 0.4825
+     "cut": 0.0565,
+     "hold": 0.475,
+     "hike": 0.4865
     },
     "modal_side": "hike",
-    "modal_prob": 0.4825
+    "modal_prob": 0.4865
    },
    "kalshi": {
     "buckets": {
      "cut50": 0.005,
      "cut25": 0.015,
-     "hold": 0.425,
-     "hike25": 0.505,
+     "hold": 0.45,
+     "hike25": 0.485,
      "hike50": 0.015
     },
-    "expected_bps": 12.8,
-    "sum_prob": 0.965,
+    "expected_bps": 12.2,
+    "sum_prob": 0.97,
     "rollup": {
      "cut": 0.02,
-     "hold": 0.425,
-     "hike": 0.52
+     "hold": 0.45,
+     "hike": 0.5
     },
     "modal_side": "hike",
-    "modal_prob": 0.52
+    "modal_prob": 0.5
    }
   },
   "agree": true,
-  "gap_hike_pt": -3.8
+  "gap_hike_pt": -1.4
  },
  {
   "meeting": "2027-03",
@@ -146,20 +146,20 @@
    "kalshi": {
     "buckets": {
      "cut50": 0.065,
-     "cut25": 0.05,
-     "hold": 0.355,
-     "hike25": 0.555,
+     "cut25": 0.045,
+     "hold": 0.38,
+     "hike25": 0.56,
      "hike50": 0.015
     },
-    "expected_bps": 10.1,
-    "sum_prob": 1.04,
+    "expected_bps": 10.4,
+    "sum_prob": 1.065,
     "rollup": {
-     "cut": 0.115,
-     "hold": 0.355,
-     "hike": 0.57
+     "cut": 0.11,
+     "hold": 0.38,
+     "hike": 0.575
     },
     "modal_side": "hike",
-    "modal_prob": 0.57
+    "modal_prob": 0.575
    }
   },
   "agree": false

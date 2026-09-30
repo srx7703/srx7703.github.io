@@ -7367,14 +7367,28 @@
   "date": "2026-09-29",
   "panel": "rate",
   "series": "implied_polymarket",
-  "value": 4.3684,
+  "value": 4.3015,
   "segment": "2026-10"
  },
  {
   "date": "2026-09-29",
   "panel": "rate",
   "series": "implied_kalshi",
-  "value": 4.3725,
+  "value": 4.2975,
+  "segment": "2026-10"
+ },
+ {
+  "date": "2026-09-30",
+  "panel": "rate",
+  "series": "implied_polymarket",
+  "value": 4.2727,
+  "segment": "2026-10"
+ },
+ {
+  "date": "2026-09-30",
+  "panel": "rate",
+  "series": "implied_kalshi",
+  "value": 4.2738,
   "segment": "2026-10"
  },
  {
@@ -11837,6 +11851,13 @@
   "segment": null
  },
  {
+  "date": "2026-09-30",
+  "panel": "rate",
+  "series": "target",
+  "value": 4.0,
+  "segment": null
+ },
+ {
   "date": "2025-01-02",
   "panel": "rate",
   "series": "dgs2",
@@ -14872,6 +14893,13 @@
   "panel": "rate",
   "series": "dgs2",
   "value": 4.81,
+  "segment": null
+ },
+ {
+  "date": "2026-09-28",
+  "panel": "rate",
+  "series": "dgs2",
+  "value": 4.92,
   "segment": null
  },
  {
@@ -17920,6 +17948,13 @@
   "segment": null
  },
  {
+  "date": "2026-09-29",
+  "panel": "inflation",
+  "series": "t5yie",
+  "value": 2.34,
+  "segment": null
+ },
+ {
   "date": "2025-01-02",
   "panel": "inflation",
   "series": "t5yifr",
@@ -20962,6 +20997,13 @@
   "panel": "inflation",
   "series": "t5yifr",
   "value": 2.35,
+  "segment": null
+ },
+ {
+  "date": "2026-09-29",
+  "panel": "inflation",
+  "series": "t5yifr",
+  "value": 2.36,
   "segment": null
  },
  {
