@@ -5567,6 +5567,78 @@
    }
   ]
  },
+ "KXPCECORE-26AUG": {
+  "series": "KXPCECORE",
+  "event": "KXPCECORE-26AUG",
+  "close_ts": 1790771100,
+  "source": "live",
+  "markets": [
+   {
+    "ticker": "KXPCECORE-26AUG-T0.0",
+    "floor_strike": 0,
+    "strike_type": "greater",
+    "result": "yes",
+    "expiration_value": "0.2",
+    "close_time": "2026-09-30T12:25:00Z"
+   },
+   {
+    "ticker": "KXPCECORE-26AUG-T0.1",
+    "floor_strike": 0.1,
+    "strike_type": "greater",
+    "result": "yes",
+    "expiration_value": "0.2",
+    "close_time": "2026-09-30T12:25:00Z"
+   },
+   {
+    "ticker": "KXPCECORE-26AUG-T0.2",
+    "floor_strike": 0.2,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "0.2",
+    "close_time": "2026-09-30T12:25:00Z"
+   },
+   {
+    "ticker": "KXPCECORE-26AUG-T0.3",
+    "floor_strike": 0.3,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "0.2",
+    "close_time": "2026-09-30T12:25:00Z"
+   },
+   {
+    "ticker": "KXPCECORE-26AUG-T0.4",
+    "floor_strike": 0.4,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "0.2",
+    "close_time": "2026-09-30T12:25:00Z"
+   },
+   {
+    "ticker": "KXPCECORE-26AUG-T0.5",
+    "floor_strike": 0.5,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "0.2",
+    "close_time": "2026-09-30T12:25:00Z"
+   },
+   {
+    "ticker": "KXPCECORE-26AUG-T0.6",
+    "floor_strike": 0.6,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "0.2",
+    "close_time": "2026-09-30T12:25:00Z"
+   },
+   {
+    "ticker": "KXPCECORE-26AUG-T0.7",
+    "floor_strike": 0.7,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "0.2",
+    "close_time": "2026-09-30T12:25:00Z"
+   }
+  ]
+ },
  "KXPCECORE-26FEB": {
   "series": "KXPCECORE",
   "event": "KXPCECORE-26FEB",

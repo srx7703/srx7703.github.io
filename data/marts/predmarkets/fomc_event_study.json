@@ -2013,5 +2013,38 @@
    "level_pre": 12.1,
    "coverage": "10/10"
   }
+ },
+ {
+  "key": "pce_2026-09-30",
+  "release": "pce",
+  "date": "2026-09-30",
+  "t0_utc": "2026-09-30T12:30:00Z",
+  "title": "Personal Income and Outlays, August 2026",
+  "meetings": [
+   "2026-10",
+   "2026-12"
+  ],
+  "primary": "KXPCECORE",
+  "consensus": 0.341,
+  "actual": 0.2,
+  "surprise": -0.141,
+  "hawkish_surprise": -0.141,
+  "secondary": {},
+  "n_strikes": 7,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -2.75,
+   "d_close": -2.75,
+   "d_post_next1": -2.5,
+   "level_pre": null,
+   "coverage": "9/10"
+  },
+  "polymarket": {
+   "d_post": -2.8,
+   "d_close": -2.7,
+   "d_post_next1": -2.8,
+   "level_pre": 30.1,
+   "coverage": "10/10"
+  }
  }
 ]
