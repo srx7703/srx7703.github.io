@@ -1,28 +1,28 @@
 {
  "project": "midterms-2026",
- "generated_at": "2026-10-02T22:15:44+00:00",
+ "generated_at": "2026-10-03T11:51:42+00:00",
  "election_day": "2026-11-03",
  "first_snapshot_ts": "2026-09-16T02:26:10+00:00",
- "last_snapshot_ts": "2026-10-02T22:12:37+00:00",
- "n_snapshots": 38,
- "n_days": 17,
+ "last_snapshot_ts": "2026-10-03T11:47:43+00:00",
+ "n_snapshots": 39,
+ "n_days": 18,
  "markets_tracked": {
-  "kalshi": 20899,
-  "polymarket": 11735
+  "kalshi": 20898,
+  "polymarket": 11701
  },
  "quoted_markets_tracked": {
-  "kalshi": 8185,
-  "polymarket": 5231
+  "kalshi": 8208,
+  "polymarket": 5242
  },
  "quoted_definition": "both sides quoted, spread <= 10 cents, any volume",
- "last_full_snapshot_ts": "2026-10-02T12:47:35+00:00",
- "order_books_captured": 19044,
- "tier1_books_latest": 478,
+ "last_full_snapshot_ts": "2026-10-03T11:47:43+00:00",
+ "order_books_captured": 19525,
+ "tier1_books_latest": 481,
  "checks": [
   {
    "name": "Schema",
    "status": "pass",
-   "detail": "pandera schemas validated before every write (38 runs)"
+   "detail": "pandera schemas validated before every write (39 runs)"
   },
   {
    "name": "Probability range",
@@ -57,100 +57,100 @@
   },
   "bop_dr": {
    "label": "D Senate + R House",
-   "polymarket": 0.008
+   "polymarket": 0.0055
   },
   "bop_rd": {
    "label": "R Senate + D House",
-   "polymarket": 0.295
+   "polymarket": 0.285
   },
   "bop_rr": {
    "label": "R Senate + R House",
-   "polymarket": 0.075
+   "polymarket": 0.065
   },
   "house_dem": {
    "label": "Democrats win the House",
-   "kalshi": 0.9175,
-   "polymarket": 0.925,
-   "spread": 0.0075
+   "kalshi": 0.9185,
+   "polymarket": 0.935,
+   "spread": 0.0165
   },
   "house_rep": {
    "label": "Republicans win the House",
-   "kalshi": 0.084,
-   "polymarket": 0.075,
-   "spread": -0.009
+   "kalshi": 0.0845,
+   "polymarket": 0.065,
+   "spread": -0.0195
   },
   "senate_dem": {
    "label": "Democrats win the Senate",
-   "kalshi": 0.625,
+   "kalshi": 0.635,
    "polymarket": 0.645,
-   "spread": 0.02
+   "spread": 0.01
   },
   "senate_rep": {
    "label": "Republicans win the Senate",
-   "kalshi": 0.375,
+   "kalshi": 0.355,
    "polymarket": 0.355,
-   "spread": -0.02
+   "spread": 0.0
   }
  },
  "top_races_polymarket": [
   {
    "event_slug": "maine-senate-election-winner",
    "title": "Maine Senate Election Winner",
-   "volume_usd": 2073874,
+   "volume_usd": 2076879,
    "markets": 13
   },
   {
    "event_slug": "texas-senate-election-winner",
    "title": "Texas Senate Election Winner",
-   "volume_usd": 1746155,
+   "volume_usd": 1863311,
    "markets": 13
   },
   {
    "event_slug": "alaska-governor-election-winner",
    "title": "Alaska Governor Election Winner  ",
-   "volume_usd": 1390020,
+   "volume_usd": 1393818,
    "markets": 40
   },
   {
    "event_slug": "michigan-senate-election-winner",
    "title": "Michigan Senate Election Winner",
-   "volume_usd": 1248922,
+   "volume_usd": 1249620,
    "markets": 13
   },
   {
    "event_slug": "alaska-senate-election-winner",
    "title": "Alaska Senate Election Winner",
-   "volume_usd": 1082515,
+   "volume_usd": 1105756,
    "markets": 29
   },
   {
    "event_slug": "ohio-senate-election-winner",
    "title": "Ohio Senate Election Winner",
-   "volume_usd": 1013824,
+   "volume_usd": 1026547,
    "markets": 13
   },
   {
    "event_slug": "iowa-senate-election-winner",
    "title": "Iowa Senate Election Winner",
-   "volume_usd": 705530,
-   "markets": 13
-  },
-  {
-   "event_slug": "wisconsin-governor-winner-2026",
-   "title": "Wisconsin Governor Election Winner",
-   "volume_usd": 700522,
+   "volume_usd": 708574,
    "markets": 13
   },
   {
    "event_slug": "kansas-senate-election-winner",
    "title": "Kansas Senate Election Winner",
-   "volume_usd": 540439,
+   "volume_usd": 702449,
+   "markets": 13
+  },
+  {
+   "event_slug": "wisconsin-governor-winner-2026",
+   "title": "Wisconsin Governor Election Winner",
+   "volume_usd": 700958,
    "markets": 13
   },
   {
    "event_slug": "south-carolina-senate-election-winner",
    "title": "South Carolina Senate Election Winner",
-   "volume_usd": 524805,
+   "volume_usd": 538867,
    "markets": 13
   }
  ],

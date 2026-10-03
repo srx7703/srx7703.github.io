@@ -4919,6 +4919,118 @@
    }
   ]
  },
+ "KXPAYROLLS-26SEP": {
+  "series": "KXPAYROLLS",
+  "event": "KXPAYROLLS-26SEP",
+  "close_ts": 1790944140,
+  "source": "live",
+  "markets": [
+   {
+    "ticker": "KXPAYROLLS-26SEP-T-25000",
+    "floor_strike": -25000,
+    "strike_type": "greater",
+    "result": "yes",
+    "expiration_value": "29,000",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXPAYROLLS-26SEP-T0",
+    "floor_strike": 0,
+    "strike_type": "greater",
+    "result": "yes",
+    "expiration_value": "29,000",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXPAYROLLS-26SEP-T10000",
+    "floor_strike": 10000,
+    "strike_type": "greater",
+    "result": "yes",
+    "expiration_value": "29,000",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXPAYROLLS-26SEP-T20000",
+    "floor_strike": 20000,
+    "strike_type": "greater",
+    "result": "yes",
+    "expiration_value": "29,000",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXPAYROLLS-26SEP-T30000",
+    "floor_strike": 30000,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "29,000",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXPAYROLLS-26SEP-T40000",
+    "floor_strike": 40000,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "29,000",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXPAYROLLS-26SEP-T50000",
+    "floor_strike": 50000,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "29,000",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXPAYROLLS-26SEP-T60000",
+    "floor_strike": 60000,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "29,000",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXPAYROLLS-26SEP-T70000",
+    "floor_strike": 70000,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "29,000",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXPAYROLLS-26SEP-T80000",
+    "floor_strike": 80000,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "29,000",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXPAYROLLS-26SEP-T90000",
+    "floor_strike": 90000,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "29,000",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXPAYROLLS-26SEP-T100000",
+    "floor_strike": 100000,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "29,000",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXPAYROLLS-26SEP-T125000",
+    "floor_strike": 125000,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "29,000",
+    "close_time": "2026-10-02T12:29:00Z"
+   }
+  ]
+ },
  "KXPCECORE-24DEC": {
   "series": "KXPCECORE",
   "event": "KXPCECORE-24DEC",
@@ -7556,6 +7668,126 @@
     "result": "yes",
     "expiration_value": "4.3",
     "close_time": "2026-06-05T12:29:00Z"
+   }
+  ]
+ },
+ "KXU3-26SEP": {
+  "series": "KXU3",
+  "event": "KXU3-26SEP",
+  "close_ts": 1790944140,
+  "source": "live",
+  "markets": [
+   {
+    "ticker": "KXU3-26SEP-T3.7",
+    "floor_strike": 3.7,
+    "strike_type": "greater",
+    "result": "yes",
+    "expiration_value": "4.2%",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXU3-26SEP-T3.8",
+    "floor_strike": 3.8,
+    "strike_type": "greater",
+    "result": "yes",
+    "expiration_value": "4.2%",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXU3-26SEP-T3.9",
+    "floor_strike": 3.9,
+    "strike_type": "greater",
+    "result": "yes",
+    "expiration_value": "4.2%",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXU3-26SEP-T4.0",
+    "floor_strike": 4,
+    "strike_type": "greater",
+    "result": "yes",
+    "expiration_value": "4.2%",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXU3-26SEP-T4.1",
+    "floor_strike": 4.1,
+    "strike_type": "greater",
+    "result": "yes",
+    "expiration_value": "4.2%",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXU3-26SEP-T4.2",
+    "floor_strike": 4.2,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "4.2%",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXU3-26SEP-T4.3",
+    "floor_strike": 4.3,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "4.2%",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXU3-26SEP-T4.4",
+    "floor_strike": 4.4,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "4.2%",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXU3-26SEP-T4.5",
+    "floor_strike": 4.5,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "4.2%",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXU3-26SEP-T4.6",
+    "floor_strike": 4.6,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "4.2%",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXU3-26SEP-T4.7",
+    "floor_strike": 4.7,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "4.2%",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXU3-26SEP-T4.8",
+    "floor_strike": 4.8,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "4.2%",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXU3-26SEP-T4.9",
+    "floor_strike": 4.9,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "4.2%",
+    "close_time": "2026-10-02T12:29:00Z"
+   },
+   {
+    "ticker": "KXU3-26SEP-T5.0",
+    "floor_strike": 5,
+    "strike_type": "greater",
+    "result": "no",
+    "expiration_value": "4.2%",
+    "close_time": "2026-10-02T12:29:00Z"
    }
   ]
  }

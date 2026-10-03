@@ -1520,6 +1520,46 @@
   }
  },
  {
+  "key": "jobs_2026-10-02",
+  "release": "jobs",
+  "date": "2026-10-02",
+  "t0_utc": "2026-10-02T12:30:00Z",
+  "title": "Employment Situation",
+  "meetings": [
+   "2026-10",
+   "2026-12"
+  ],
+  "primary": "KXPAYROLLS",
+  "consensus": 78.425,
+  "actual": 29.0,
+  "surprise": -49.425,
+  "hawkish_surprise": -49.425,
+  "secondary": {
+   "KXU3": {
+    "consensus": 4.1135,
+    "actual": 4.2,
+    "surprise": 0.0865,
+    "hawkish_surprise": -0.0865
+   }
+  },
+  "n_strikes": 13,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": -2.87,
+   "d_close": -1.5,
+   "d_post_next1": -2.75,
+   "level_pre": null,
+   "coverage": "9/10"
+  },
+  "polymarket": {
+   "d_post": -2.78,
+   "d_close": -0.65,
+   "d_post_next1": -2.25,
+   "level_pre": 23.2,
+   "coverage": "10/10"
+  }
+ },
+ {
   "key": "pce_2025-01-31",
   "release": "pce",
   "date": "2025-01-31",
