@@ -1,0 +1,120 @@
+{
+ "apiVersion": "1",
+ "jobs": [
+  {
+   "id": "5d8abedc-0001",
+   "title": "Strategic Initiatives",
+   "department": "All Departments",
+   "team": "Business Operations",
+   "employmentType": "FullTime",
+   "location": "San Francisco HQ",
+   "secondaryLocations": [],
+   "publishedAt": "2026-06-03T18:24:47.526+00:00",
+   "isListed": true,
+   "isRemote": false,
+   "workplaceType": "Hybrid",
+   "address": {
+    "postalAddress": {
+     "addressCountry": "United States",
+     "addressLocality": "San Francisco HQ"
+    }
+   },
+   "jobUrl": "https://jobs.ashbyhq.com/plaid/5d8abedc-0001",
+   "applyUrl": "https://jobs.ashbyhq.com/plaid/5d8abedc-0001/application",
+   "descriptionHtml": "<p>FIXTURE DESCRIPTION TEXT - must never be persisted</p>",
+   "descriptionPlain": "FIXTURE DESCRIPTION TEXT - must never be persisted"
+  },
+  {
+   "id": "5d8abedc-0002",
+   "title": "Software Engineer - Payments",
+   "department": "Engineering",
+   "team": "Payments",
+   "employmentType": "FullTime",
+   "location": "New York",
+   "secondaryLocations": [],
+   "publishedAt": "2026-06-03T18:24:47.526+00:00",
+   "isListed": true,
+   "isRemote": false,
+   "workplaceType": "Hybrid",
+   "address": {
+    "postalAddress": {
+     "addressCountry": "United States",
+     "addressLocality": "New York"
+    }
+   },
+   "jobUrl": "https://jobs.ashbyhq.com/plaid/5d8abedc-0002",
+   "applyUrl": "https://jobs.ashbyhq.com/plaid/5d8abedc-0002/application",
+   "descriptionHtml": "<p>FIXTURE DESCRIPTION TEXT - must never be persisted</p>",
+   "descriptionPlain": "FIXTURE DESCRIPTION TEXT - must never be persisted"
+  },
+  {
+   "id": "5d8abedc-0003",
+   "title": "Financial Crimes Compliance Manager",
+   "department": "Risk",
+   "team": "Compliance",
+   "employmentType": "FullTime",
+   "location": "London",
+   "secondaryLocations": [],
+   "publishedAt": "2026-06-03T18:24:47.526+00:00",
+   "isListed": true,
+   "isRemote": false,
+   "workplaceType": "Hybrid",
+   "address": {
+    "postalAddress": {
+     "addressCountry": "United Kingdom",
+     "addressLocality": "London"
+    }
+   },
+   "jobUrl": "https://jobs.ashbyhq.com/plaid/5d8abedc-0003",
+   "applyUrl": "https://jobs.ashbyhq.com/plaid/5d8abedc-0003/application",
+   "descriptionHtml": "<p>FIXTURE DESCRIPTION TEXT - must never be persisted</p>",
+   "descriptionPlain": "FIXTURE DESCRIPTION TEXT - must never be persisted"
+  },
+  {
+   "id": "5d8abedc-0004",
+   "title": "Solutions Engineer",
+   "department": "Sales",
+   "team": "Solutions",
+   "employmentType": "FullTime",
+   "location": "Remote - US",
+   "secondaryLocations": [],
+   "publishedAt": "2026-06-03T18:24:47.526+00:00",
+   "isListed": true,
+   "isRemote": true,
+   "workplaceType": "Remote",
+   "address": {
+    "postalAddress": {
+     "addressCountry": "United States",
+     "addressLocality": "Remote - US"
+    }
+   },
+   "jobUrl": "https://jobs.ashbyhq.com/plaid/5d8abedc-0004",
+   "applyUrl": "https://jobs.ashbyhq.com/plaid/5d8abedc-0004/application",
+   "descriptionHtml": "<p>FIXTURE DESCRIPTION TEXT - must never be persisted</p>",
+   "descriptionPlain": "FIXTURE DESCRIPTION TEXT - must never be persisted"
+  },
+  {
+   "id": "5d8abedc-0005",
+   "title": "Unlisted Role",
+   "department": "Engineering",
+   "team": "Infra",
+   "employmentType": "FullTime",
+   "location": "Seattle",
+   "secondaryLocations": [],
+   "publishedAt": "2026-06-03T18:24:47.526+00:00",
+   "isListed": false,
+   "isRemote": false,
+   "workplaceType": "Onsite",
+   "address": {
+    "postalAddress": {
+     "addressCountry": "United States",
+     "addressLocality": "Seattle"
+    }
+   },
+   "jobUrl": "https://jobs.ashbyhq.com/plaid/5d8abedc-0005",
+   "applyUrl": "https://jobs.ashbyhq.com/plaid/5d8abedc-0005/application",
+   "descriptionHtml": "<p>FIXTURE DESCRIPTION TEXT - must never be persisted</p>",
+   "descriptionPlain": "FIXTURE DESCRIPTION TEXT - must never be persisted"
+  }
+ ]
+}

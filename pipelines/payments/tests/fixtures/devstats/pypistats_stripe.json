@@ -1,0 +1,26 @@
+{
+ "data": [
+  {
+   "category": "with_mirrors",
+   "date": "2026-09-01",
+   "downloads": 612000
+  },
+  {
+   "category": "without_mirrors",
+   "date": "2026-09-01",
+   "downloads": 598321
+  },
+  {
+   "category": "with_mirrors",
+   "date": "2026-09-02",
+   "downloads": 640102
+  },
+  {
+   "category": "without_mirrors",
+   "date": "2026-09-02",
+   "downloads": 620877
+  }
+ ],
+ "package": "stripe",
+ "type": "overall_downloads"
+}

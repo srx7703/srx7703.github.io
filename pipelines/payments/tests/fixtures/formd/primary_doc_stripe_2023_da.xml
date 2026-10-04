@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<edgarSubmission>
+  <schemaVersion>X0708</schemaVersion>
+  <submissionType>D/A</submissionType>
+  <testOrLive>LIVE</testOrLive>
+  <primaryIssuer>
+    <cik>0001691342</cik>
+    <entityName>Stripe, Inc.</entityName>
+    <issuerAddress>
+      <street1>354 Oyster Point Boulevard</street1>
+      <city>SOUTH SAN FRANCISCO</city>
+      <stateOrCountry>CA</stateOrCountry>
+      <stateOrCountryDescription>CALIFORNIA</stateOrCountryDescription>
+      <zipCode>94080</zipCode>
+    </issuerAddress>
+    <jurisdictionOfInc>DELAWARE</jurisdictionOfInc>
+    <entityType>Corporation</entityType>
+  </primaryIssuer>
+  <offeringData>
+    <industryGroup><industryGroupType>Other</industryGroupType></industryGroup>
+    <issuerSize><revenueRange>Decline to Disclose</revenueRange></issuerSize>
+    <federalExemptionsExclusions><item>06b</item></federalExemptionsExclusions>
+    <typeOfFiling>
+      <newOrAmendment>
+        <isAmendment>true</isAmendment>
+        <previousAccessionNumber>0001691342-23-000001</previousAccessionNumber>
+      </newOrAmendment>
+      <dateOfFirstSale><value>2023-03-15</value></dateOfFirstSale>
+    </typeOfFiling>
+    <durationOfOffering><moreThanOneYear>false</moreThanOneYear></durationOfOffering>
+    <minimumInvestmentAccepted>0</minimumInvestmentAccepted>
+    <offeringSalesAmounts>
+      <totalOfferingAmount>6869866984</totalOfferingAmount>
+      <totalAmountSold>6869866984</totalAmountSold>
+      <totalRemaining>0</totalRemaining>
+    </offeringSalesAmounts>
+    <investors>
+      <hasNonAccreditedInvestors>false</hasNonAccreditedInvestors>
+      <totalNumberAlreadyInvested>103</totalNumberAlreadyInvested>
+    </investors>
+  </offeringData>
+</edgarSubmission>

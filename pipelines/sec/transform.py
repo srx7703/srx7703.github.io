@@ -1,7 +1,11 @@
 """Turn XBRL duration facts into clean quarterly series, TTM metrics and the benchmark table.
 
 Usage:
-    uv run python -m pipelines.sec.transform
+    uv run python -m pipelines.sec.transform [--universe saas|payments]
+
+The default (saas) build reads ONLY data/snapshots/sec/facts/<T>.parquet for T in config.TICKERS: a stray
+parquet from another universe or an ad-hoc --tickers run cannot leak into the benchmark. The payments
+universe is built by pipelines/sec/transform_payments.py from its own snapshot directory.
 
 Writes:
     data/marts/sec/saas_quarterly.parquet        one row per ticker x quarter_end x metric (quarterly, ttm)
@@ -21,10 +25,12 @@ Facts from several tags for one metric are merged, higher-priority tag winning o
 
 from __future__ import annotations
 
+import argparse
 import json
 import logging
 import sys
 from datetime import date
+from pathlib import Path
 
 import pandera.polars as pa
 import polars as pl
@@ -32,7 +38,7 @@ import polars as pl
 from pipelines.common.checks import check, freshness, non_null, uniqueness
 from pipelines.common.log import setup_logging
 from pipelines.common.storage import FACTS_DIR, MARTS_DIR, SNAP_DIR, utc_now, write_json
-from pipelines.sec.config import TAG_MAP
+from pipelines.sec.config import TAG_MAP, UNIVERSES
 
 log = logging.getLogger("sec.transform")
 
@@ -59,7 +65,9 @@ def _days(a: str, b: str) -> int:
     return (date.fromisoformat(b) - date.fromisoformat(a)).days
 
 
-def merge_metric_facts(df: pl.DataFrame, metric: str) -> tuple[dict[tuple[str, str], float], list[str]]:
+def merge_metric_facts(
+    df: pl.DataFrame, metric: str, tag_map: dict[str, tuple[tuple[str, ...], str]] | None = None
+) -> tuple[dict[tuple[str, str], float], list[str]]:
     """Merge duration facts across the metric's fallback tags: (start, end) -> value.
 
     Tags are applied in priority order and never overwrite a span already filled, so a company that
@@ -68,7 +76,7 @@ def merge_metric_facts(df: pl.DataFrame, metric: str) -> tuple[dict[tuple[str, s
     spans: dict[tuple[str, str], float] = {}
     used: list[str] = []
     sub = df.filter(pl.col("metric") == metric)
-    for tag in TAG_MAP[metric][0]:
+    for tag in (tag_map or TAG_MAP)[metric][0]:
         rows = sub.filter(pl.col("tag") == tag)
         if rows.height == 0:
             continue
@@ -137,12 +145,23 @@ def yoy(values: pl.DataFrame, col: str) -> pl.DataFrame:
     return values.join(joined.select("ticker", "quarter_end", f"{col}_prev"), on=["ticker", "quarter_end"], how="left")
 
 
-def build() -> dict:
-    facts_dir = SNAP_DIR / "sec" / "facts"
-    companies = json.loads((SNAP_DIR / "sec" / "companies.json").read_text())["companies"]
+def universe_fact_files(facts_dir: Path, tickers: tuple[str, ...]) -> list[Path]:
+    """The universe's facts parquets, in the same (sorted) order the build has always used."""
+    members = set(tickers)
+    return [p for p in sorted(facts_dir.glob("*.parquet")) if p.stem in members]
+
+
+def build(snap_dir: Path | None = None, marts_dir: Path | None = None, facts_out: Path | None = None) -> dict:
+    """SaaS benchmark build. Paths default to the repo's data/ tree; tests pass a tmp marts/facts dir."""
+    universe = UNIVERSES["saas"]
+    snap_root = (snap_dir or SNAP_DIR) / universe.snap_subdir
+    marts_root = marts_dir or MARTS_DIR
+    facts_root = facts_out or FACTS_DIR
+    facts_dir = snap_root / "facts"
+    companies = json.loads((snap_root / "companies.json").read_text())["companies"]
     rows: list[dict] = []
     coverage: dict[str, dict] = {}
-    for path in sorted(facts_dir.glob("*.parquet")):
+    for path in universe_fact_files(facts_dir, universe.tickers):
         ticker = path.stem
         df = pl.read_parquet(path)
         cov: dict = {
@@ -222,11 +241,11 @@ def build() -> dict:
         .sort("rule_of_40", descending=True, nulls_last=True)
     )
 
-    (MARTS_DIR / "sec").mkdir(parents=True, exist_ok=True)
-    quarterly.write_parquet(MARTS_DIR / "sec" / "saas_quarterly.parquet")
-    write_json(wide.to_dicts(), MARTS_DIR / "sec" / "saas_ttm.json")
-    write_json(latest.to_dicts(), MARTS_DIR / "sec" / "saas_latest.json")
-    write_json(coverage, MARTS_DIR / "sec" / "saas_coverage.json")
+    (marts_root / "sec").mkdir(parents=True, exist_ok=True)
+    quarterly.write_parquet(marts_root / "sec" / "saas_quarterly.parquet")
+    write_json(wide.to_dicts(), marts_root / "sec" / "saas_ttm.json")
+    write_json(latest.to_dicts(), marts_root / "sec" / "saas_latest.json")
+    write_json(coverage, marts_root / "sec" / "saas_coverage.json")
 
     scored = latest.filter(pl.col("rule_of_40").is_not_null())
     recon_pairs = sum(r.get("pairs", 0) for c in coverage.values() for r in c["reconciliation"].values())
@@ -256,7 +275,7 @@ def build() -> dict:
             "fcf_margin": round(r["fcf_margin"], 4),
         }
 
-    log_path = SNAP_DIR / "sec" / "refresh_log.jsonl"
+    log_path = snap_root / "refresh_log.jsonl"
     refreshes = [json.loads(x) for x in log_path.read_text().splitlines() if x.strip()] if log_path.exists() else []
     r40 = scored["rule_of_40"].drop_nulls()
     facts = {
@@ -311,12 +330,19 @@ def build() -> dict:
             }
         ],
     }
-    write_json(facts, FACTS_DIR / "saas.json")
+    write_json(facts, facts_root / "saas.json")
     return facts
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--universe", choices=sorted(UNIVERSES), default="saas")
+    args = ap.parse_args(argv)
     setup_logging()
+    if args.universe == "payments":
+        from pipelines.sec.transform_payments import main as payments_main
+
+        return payments_main()
     f = build()
     log.info(
         "saas facts: companies=%s scored=%s median growth=%s median fcf=%s rule40 pass=%s recon=%s missing=%s",

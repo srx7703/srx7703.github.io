@@ -1,0 +1,123 @@
+{
+ "took": 100,
+ "timed_out": false,
+ "hits": {
+  "total": {
+   "value": 4,
+   "relation": "eq"
+  },
+  "max_score": 10.0,
+  "hits": [
+   {
+    "_index": "edgar_file",
+    "_id": "0001712345-21-000001:primary_doc.xml",
+    "_score": 10.0,
+    "_source": {
+     "ciks": [
+      "0001712345"
+     ],
+     "period_ending": null,
+     "display_names": [
+      "Brex Inc. (CIK 0001712345)"
+     ],
+     "root_forms": [
+      "D"
+     ],
+     "file_date": "2021-05-10",
+     "form": "D",
+     "adsh": "0001712345-21-000001",
+     "file_type": "D",
+     "biz_states": [
+      "CA"
+     ],
+     "items": [
+      "06B"
+     ]
+    }
+   },
+   {
+    "_index": "edgar_file",
+    "_id": "0001712345-22-000001:primary_doc.xml",
+    "_score": 10.0,
+    "_source": {
+     "ciks": [
+      "0001712345"
+     ],
+     "period_ending": null,
+     "display_names": [
+      "Brex Inc. (CIK 0001712345)"
+     ],
+     "root_forms": [
+      "D"
+     ],
+     "file_date": "2022-01-11",
+     "form": "D/A",
+     "adsh": "0001712345-22-000001",
+     "file_type": "D/A",
+     "biz_states": [
+      "CA"
+     ],
+     "items": [
+      "06B"
+     ]
+    }
+   },
+   {
+    "_index": "edgar_file",
+    "_id": "0001899999-22-000003:primary_doc.xml",
+    "_score": 10.0,
+    "_source": {
+     "ciks": [
+      "0001899999"
+     ],
+     "period_ending": null,
+     "display_names": [
+      "Brex Secondary Fund I, LLC (CIK 0001899999)"
+     ],
+     "root_forms": [
+      "D"
+     ],
+     "file_date": "2022-03-01",
+     "form": "D",
+     "adsh": "0001899999-22-000003",
+     "file_type": "D",
+     "biz_states": [
+      "CA"
+     ],
+     "items": [
+      "06B"
+     ]
+    }
+   },
+   {
+    "_index": "edgar_file",
+    "_id": "0001999999-23-000001:primary_doc.xml",
+    "_score": 10.0,
+    "_source": {
+     "ciks": [
+      "0001999999",
+      "0001712345"
+     ],
+     "period_ending": null,
+     "display_names": [
+      "Some Fund LP (CIK 0001999999)",
+      "Brex Inc. (CIK 0001712345)"
+     ],
+     "root_forms": [
+      "D"
+     ],
+     "file_date": "2023-02-01",
+     "form": "D",
+     "adsh": "0001999999-23-000001",
+     "file_type": "D",
+     "biz_states": [
+      "CA"
+     ],
+     "items": [
+      "06B"
+     ]
+    }
+   }
+  ]
+ }
+}

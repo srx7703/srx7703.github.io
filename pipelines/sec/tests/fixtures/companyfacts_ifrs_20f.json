@@ -1,0 +1,207 @@
+{
+ "_comment": "Synthetic test fixture in the shape of the SEC XBRL API response; values are illustrative, not filed numbers.",
+ "cik": 2003292,
+ "entityName": "Klarna Group plc",
+ "facts": {
+  "dei": {
+   "EntityCommonStockSharesOutstanding": {
+    "label": "Entity Common Stock, Shares Outstanding",
+    "units": {
+     "shares": [
+      {
+       "end": "2026-02-20",
+       "val": 377507910,
+       "accn": "0002003292-26-000007",
+       "fy": 2025,
+       "fp": "FY",
+       "form": "20-F",
+       "filed": "2026-02-26"
+      }
+     ]
+    }
+   }
+  },
+  "ifrs-full": {
+   "Revenue": {
+    "label": "Revenue",
+    "description": "The income arising in the course of an entity's ordinary activities.",
+    "units": {
+     "USD": [
+      {
+       "start": "2024-01-01",
+       "end": "2024-12-31",
+       "val": 2811000000,
+       "accn": "0002003292-26-000007",
+       "fy": 2025,
+       "fp": "FY",
+       "form": "20-F",
+       "filed": "2026-02-26",
+       "frame": "CY2024"
+      },
+      {
+       "start": "2025-01-01",
+       "end": "2025-12-31",
+       "val": 3500000000,
+       "accn": "0002003292-26-000007",
+       "fy": 2025,
+       "fp": "FY",
+       "form": "20-F",
+       "filed": "2026-02-26",
+       "frame": "CY2025"
+      },
+      {
+       "start": "2024-01-01",
+       "end": "2024-06-30",
+       "val": 1300000000,
+       "accn": "0002003292-25-000031",
+       "fy": 2025,
+       "fp": "H1",
+       "form": "6-K",
+       "filed": "2025-08-14"
+      },
+      {
+       "start": "2025-01-01",
+       "end": "2025-06-30",
+       "val": 1520000000,
+       "accn": "0002003292-26-000040",
+       "fy": 2026,
+       "fp": "H1",
+       "form": "6-K",
+       "filed": "2026-08-13"
+      },
+      {
+       "start": "2026-01-01",
+       "end": "2026-06-30",
+       "val": 2000000000,
+       "accn": "0002003292-26-000040",
+       "fy": 2026,
+       "fp": "H1",
+       "form": "6-K",
+       "filed": "2026-08-13"
+      },
+      {
+       "start": "2025-01-01",
+       "end": "2025-06-30",
+       "val": 1500000000,
+       "accn": "0001628280-25-041000",
+       "fy": 2025,
+       "fp": "H1",
+       "form": "F-1",
+       "filed": "2025-09-02"
+      }
+     ],
+     "SEK": [
+      {
+       "start": "2024-01-01",
+       "end": "2024-12-31",
+       "val": 29600000000,
+       "accn": "0002003292-26-000007",
+       "fy": 2025,
+       "fp": "FY",
+       "form": "20-F",
+       "filed": "2026-02-26"
+      }
+     ]
+    }
+   },
+   "ProfitLoss": {
+    "label": "Profit (loss)",
+    "units": {
+     "USD": [
+      {
+       "start": "2024-01-01",
+       "end": "2024-12-31",
+       "val": 21000000,
+       "accn": "0002003292-26-000007",
+       "fy": 2025,
+       "fp": "FY",
+       "form": "20-F",
+       "filed": "2026-02-26"
+      },
+      {
+       "start": "2025-01-01",
+       "end": "2025-12-31",
+       "val": -250000000,
+       "accn": "0002003292-26-000007",
+       "fy": 2025,
+       "fp": "FY",
+       "form": "20-F",
+       "filed": "2026-02-26"
+      },
+      {
+       "start": "2025-01-01",
+       "end": "2025-06-30",
+       "val": -150000000,
+       "accn": "0002003292-26-000040",
+       "fy": 2026,
+       "fp": "H1",
+       "form": "6-K",
+       "filed": "2026-08-13"
+      },
+      {
+       "start": "2026-01-01",
+       "end": "2026-06-30",
+       "val": -90000000,
+       "accn": "0002003292-26-000040",
+       "fy": 2026,
+       "fp": "H1",
+       "form": "6-K",
+       "filed": "2026-08-13"
+      }
+     ]
+    }
+   },
+   "CashFlowsFromUsedInOperatingActivities": {
+    "label": "Cash flows from (used in) operating activities",
+    "units": {
+     "USD": [
+      {
+       "start": "2025-01-01",
+       "end": "2025-12-31",
+       "val": 400000000,
+       "accn": "0002003292-26-000007",
+       "fy": 2025,
+       "fp": "FY",
+       "form": "20-F",
+       "filed": "2026-02-26"
+      }
+     ]
+    }
+   },
+   "PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities": {
+    "label": "Purchase of PP&E",
+    "units": {
+     "USD": [
+      {
+       "start": "2025-01-01",
+       "end": "2025-12-31",
+       "val": 20000000,
+       "accn": "0002003292-26-000007",
+       "fy": 2025,
+       "fp": "FY",
+       "form": "20-F",
+       "filed": "2026-02-26"
+      }
+     ]
+    }
+   },
+   "CashAndCashEquivalents": {
+    "label": "Cash and cash equivalents",
+    "units": {
+     "USD": [
+      {
+       "end": "2025-12-31",
+       "val": 3000000000,
+       "accn": "0002003292-26-000007",
+       "fy": 2025,
+       "fp": "FY",
+       "form": "20-F",
+       "filed": "2026-02-26",
+       "frame": "CY2025Q4I"
+      }
+     ]
+    }
+   }
+  }
+ }
+}
