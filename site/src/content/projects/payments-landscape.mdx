@@ -13,7 +13,6 @@ import takeRates from '@data/marts/payments/take_rates.json';
 import takeRatesRefused from '@data/marts/payments/take_rates_refused.json';
 import privateRefused from '@data/marts/payments/private_take_rates_refused.json';
 import shareLenses from '@data/marts/payments/share_lenses.json';
-import shareHhi from '@data/marts/payments/share_pool_hhi.json';
 import ledgerTimeline from '@data/marts/payments/ledger_timeline.json';
 import privateIntervals from '@data/marts/payments/private_intervals.json';
 import eventsJson from '@data/marts/payments/events.json';
@@ -32,28 +31,31 @@ import SourceStamp from '@components/SourceStamp.astro';
 import Section from '@components/Section.astro';
 import DataQuality from '@components/DataQuality.astro';
 import DataTable from '@components/DataTable.astro';
-import FilterBar from '@components/FilterBar.astro';
+import FilterBar from '@components/FilterBar.astro'; // not rendered (the dictionary is a UrlTable); kept so the shared stylesheet chunks, and so every other page's HTML, stay as they were
+import UrlTable from '@components/UrlTable.astro';
 import DownloadCsv from '@components/DownloadCsv.astro';
 import Sidenote from '@components/Sidenote.astro';
 import Appendix from '@components/Appendix.astro';
 import { evaluationPlan } from '@lib/prereg';
+import { changelog } from '@lib/changelog';
+import { urlSpec, DATA_BASE, DICTIONARY_FILE } from '@charts/payments/external';
 import { pct, num, dayUtc } from '@lib/fmt';
 import { companyPoints, companyControls, companyTableRows, companyFindings, fmtPct, fmtQPct } from '@charts/payments/company_data';
-import { companySeriesSpec, companySeriesSubtitle } from '@charts/payments/company_series';
-import { companyScatterSpec, companyScatterFinding, companyScatterSubtitle } from '@charts/payments/company_scatter';
+import { companySeriesSubtitle } from '@charts/payments/company_series';
+import { companyScatterFinding, companyScatterSubtitle } from '@charts/payments/company_scatter';
 import { shareControls, shareTableRows, shareBarRows, displayPeriods, SEGMENT_LABEL, LENS_LABEL } from '@charts/payments/share_data';
-import { shareBarsSpec, shareBarsFinding, shareBarsSubtitle } from '@charts/payments/share_bars';
-import { shareDumbbellSpec, shareDumbbellFinding, shareDumbbellSubtitle } from '@charts/payments/share_dumbbell';
+import { shareBarsFinding, shareBarsSubtitle } from '@charts/payments/share_bars';
+import { shareDumbbellFinding, shareDumbbellSubtitle } from '@charts/payments/share_dumbbell';
 import { ADOPTION_CONTROLS, ADOPTION_URLS, ADOPTION_CI_SOURCE, WEB_COMPANIES, NPM_COMPANIES, JOBS_COMPANIES, ADOPTION_COMPANIES, BOARD_COMPANY } from '@charts/payments/adoption_shared';
 import { webCoverageSpec, webCoverageFinding, webCoverageSubtitle } from '@charts/payments/adoption_web';
 import { npmIndexSpec, npmIndexFinding, npmIndexSubtitle } from '@charts/payments/adoption_npm';
 import { hiringSpec, hiringFinding, hiringSubtitle, JOB_FUNCTION_LABEL } from '@charts/payments/adoption_jobs';
 import { ledgerPoints, ledgerControls, ledgerTableRows, LEDGER_TABLE_COLUMNS, LEDGER_METRICS, fmtValue, metricLabel } from '@charts/payments/ledger_data';
-import { ledgerIntervalSpec, ledgerIntervalFinding, ledgerIntervalSubtitle } from '@charts/payments/ledger_intervals';
-import { eventsSpec, eventsFinding, eventsSubtitle } from '@charts/payments/events';
+import { ledgerIntervalFinding, ledgerIntervalSubtitle } from '@charts/payments/ledger_intervals';
+import { eventsFinding, eventsSubtitle } from '@charts/payments/events';
 import { waterfallFacetSpec, waterfallFinding, waterfallSubtitle, WATERFALL_ORDER, WATERFALL_LABEL } from '@charts/payments/waterfall';
-import { productsSpec, productsFinding, productsSubtitle } from '@charts/payments/products';
-import { sensitivitySpec, sensitivityFinding, sensitivitySubtitle } from '@charts/payments/sensitivity';
+import { productsFinding, productsSubtitle } from '@charts/payments/products';
+import { sensitivityFinding, sensitivitySubtitle } from '@charts/payments/sensitivity';
 
 export const plan = evaluationPlan();
 export const V = facts.values;
@@ -267,7 +269,6 @@ export const GRID_SOURCE = { q4: [S[0]], q7_wise: [S[0]], q7_fsb: [S[3]], q8: [S
 export const referenceFiles = facts.checks.filter((c) => / file$/.test(c.name)).length;
 export const martCount = Object.keys(facts.marts).length;
 export const dagTitle = `${S.length} kinds of public source reach this page through ${referenceFiles} curated files, ${martCount} marts and one validation gate`;
-export const dictRows = metricDictionary.map((r) => ({ ...r, source: r.source_url ? `<a href="${r.source_url}" title="${(r.source_name ?? '').replace(/"/g, '&quot;')}">source</a>` : (r.source_name ?? '—') }));
 export const martUrl = (name) => `/data/marts/${facts.marts[name]}`;
 export const uniq = (xs) => [...new Set(xs.filter(Boolean))].sort();
 export const reportedRows = reportedUnconfirmed.map((r) => ({
@@ -280,7 +281,10 @@ export const reportedRows = reportedUnconfirmed.map((r) => ({
   caveat: r.caveat ?? '',
 }));
 export const warnChecks = facts.checks.filter((c) => c.status === 'warn').length;
-export const failChecks = facts.checks.filter((c) => c.status === 'fail').length;
+export const dqCiWarn = facts.checks.filter((c) => c.status === 'warn' && /CI run/.test(c.detail)).length;
+export const dqOtherWarn = warnChecks - dqCiWarn;
+export const dqFailed = facts.checks.filter((c) => c.status === 'fail').map((c) => c.name);
+export const pageLog = changelog.filter((e) => e.project === 'payments-landscape');
 
 <div class="lede">
   <p>
@@ -354,12 +358,12 @@ with a single headline ratio, the first of those it files, and the table says wh
 <DashboardControls group="company" controls={companyCtl} table="company-table" label="Company explorer controls" />
 
 <ChartCard title={seriesTitles.default} subtitle={companySeriesSubtitle(points)}>
-  <VegaChart id="company-series" group="company" titles={seriesTitles} spec={companySeriesSpec(points)} height={300} ariaLabel="Line chart of the selected company's filed volume, revenue or take rate by period, with its segment peers in grey" />
+  <VegaChart id="company-series" group="company" titles={seriesTitles} spec={urlSpec('company-series')} height={300} ariaLabel="Line chart of the selected company's filed volume, revenue or take rate by period, with its segment peers in grey" />
   <SourceStamp slot="stamp" sources={[S[0]]} asOf={takeAsOf} note="per-row filing links in the table below" />
 </ChartCard>
 
 <ChartCard title={scatterF.title} subtitle={companyScatterSubtitle(points)}>
-  <VegaChart id="company-scatter" group="company" spec={companyScatterSpec(points)} height={360} ariaLabel="Log-log scatter of filed volume against revenue for each company's latest quarter, with iso take-rate lines" />
+  <VegaChart id="company-scatter" group="company" spec={urlSpec('company-scatter')} height={360} ariaLabel="Log-log scatter of filed volume against revenue for each company's latest quarter, with iso take-rate lines" />
   <SourceStamp slot="stamp" sources={[S[0]]} asOf={takeAsOf} note="US dollar filers only; companies in other currencies are listed, not plotted" />
 </ChartCard>
 
@@ -419,12 +423,12 @@ all, so its only lens is the pool of {acqPoolHhi?.n_members ?? '—'} disclosers
 <DashboardControls group="share" controls={shareCtl} table="share-table" label="Share lens controls" />
 
 <ChartCard title={shareTitles.default} subtitle={shareBarsSubtitle()}>
-  <VegaChart id="share-bars" group="share" titles={shareTitles} spec={shareBarsSpec(shareLenses, shareHhi)} height={260} ariaLabel="Bar chart of company shares under the selected segment and lens, with the reason for every company without a share" />
+  <VegaChart id="share-bars" group="share" titles={shareTitles} spec={urlSpec('share-bars')} height={260} ariaLabel="Bar chart of company shares under the selected segment and lens, with the reason for every company without a share" />
   <SourceStamp slot="stamp" sources={[S[0], S[1]]} asOf={sharePeriods[sharePeriods.length - 1] ?? published} note="a share of its own lens's denominator; lenses are never added" />
 </ChartCard>
 
 <ChartCard title={dumbTitles.default} subtitle={shareDumbbellSubtitle()}>
-  <VegaChart id="share-dumbbell" group="share" titles={dumbTitles} titleKeys={['segment']} spec={shareDumbbellSpec(shareLenses)} height={220} ariaLabel="Dumbbell chart of each company's share through the disclosed-pool and official-denominator lenses" />
+  <VegaChart id="share-dumbbell" group="share" titles={dumbTitles} titleKeys={['segment']} spec={urlSpec('share-dumbbell')} height={220} ariaLabel="Dumbbell chart of each company's share through the disclosed-pool and official-denominator lenses" />
   <SourceStamp slot="stamp" sources={[S[0], S[1]]} asOf={sharePeriods[sharePeriods.length - 1] ?? published} />
 </ChartCard>
 
@@ -512,12 +516,12 @@ what Stripe reports, which it does not.</Sidenote> Ramp's take rate can only be 
 <DashboardControls group="ledger" controls={ledgerCtl} table="ledger-table" label="Private ledger controls" />
 
 <ChartCard title={ledgerTitles.default} subtitle={ledgerIntervalSubtitle()}>
-  <VegaChart id="ledger-intervals" group="ledger" titles={ledgerTitles} spec={ledgerIntervalSpec(ledgerPts)} height={300} ariaLabel="Interval chart of every public figure about each private company, by date, log scale" />
+  <VegaChart id="ledger-intervals" group="ledger" titles={ledgerTitles} spec={urlSpec('ledger-intervals')} height={300} ariaLabel="Interval chart of every public figure about each private company, by date, log scale" />
   <SourceStamp slot="stamp" sources={[{ name: 'company statements and counterparty filings, one link per row in the table below' }]} asOf={ledgerAsOf} />
 </ChartCard>
 
 <ChartCard title={eventsF.title} subtitle={eventsSubtitle()}>
-  <VegaChart id="ledger-events" group="ledger" spec={eventsSpec(eventsJson)} height={420} ariaLabel="Timeline of listings, acquisitions and priced rounds for the companies on this page" />
+  <VegaChart id="ledger-events" group="ledger" spec={urlSpec('ledger-events')} height={420} ariaLabel="Timeline of listings, acquisitions and priced rounds for the companies on this page" />
   <SourceStamp slot="stamp" sources={[S[0], { name: 'company announcements' }]} asOf={eventsAsOf} note="press-reported prices are in the reported, unconfirmed table, never here" />
 </ChartCard>
 
@@ -551,7 +555,7 @@ statement lines. A step nobody publishes is drawn as a dashed gap rather than es
 </ul>
 
 <ChartCard size="full" title={productsF.title} subtitle={productsSubtitle()}>
-  <VegaChart id="products" spec={productsSpec(productsJson)} height={720} ariaLabel="Dot matrix of the product lines each payments company sells, grouped by segment" />
+  <VegaChart id="products" spec={urlSpec('products')} height={720} ariaLabel="Dot matrix of the product lines each payments company sells, grouped by segment" />
   <SourceStamp slot="stamp" sources={[{ name: 'company product pages and launch releases, one link per row' }]} asOf={productsAsOf} />
 </ChartCard>
 
@@ -568,7 +572,7 @@ range of possible next readings, so a reader can see in advance which outcome wo
   const f = sensitivityFinding(sensitivityJson, key);
   return (
     <ChartCard title={f.title} subtitle={sensitivitySubtitle(key)}>
-      <VegaChart id={`sensitivity-${key}`} spec={sensitivitySpec(sensitivityJson, key)} height={260} ariaLabel={`Sensitivity dot chart for the ${key} grid`} />
+      <VegaChart id={`sensitivity-${key}`} spec={urlSpec(`sensitivity-${key}`)} height={260} ariaLabel={`Sensitivity dot chart for the ${key} grid`} />
       <SourceStamp slot="stamp" sources={GRID_SOURCE[key]} asOf={waterfallAsOf} note="scenarios, not forecasts" />
     </ChartCard>
   );
@@ -632,11 +636,10 @@ stopping the others.
 Every metric in every mart, with its formula or definition, unit, and the companies it can and cannot be compared
 across.
 
-<FilterBar target="dictionary-table" selects={[
+<UrlTable id="dictionary-table" src={`${DATA_BASE}/${DICTIONARY_FILE}.json`} total={metricDictionary.length} caption={`Metric dictionary: ${counts.metrics_in_dictionary} metrics`} selects={[
   { column: 'dataset', label: 'Dataset', options: uniq(metricDictionary.map((r) => r.dataset)) },
   { column: 'metric_kind', label: 'Kind', options: uniq(metricDictionary.map((r) => r.metric_kind)) },
-]} placeholder="Search metrics, definitions, sources…" />
-<DataTable id="dictionary-table" filterKeys={['dataset', 'metric_kind']} caption={`Metric dictionary: ${counts.metrics_in_dictionary} metrics`} columns={[
+]} placeholder="Search metrics, definitions, sources…" columns={[
   { key: 'metric', label: 'Metric' },
   { key: 'dataset', label: 'Dataset' },
   { key: 'scope', label: 'Scope' },
@@ -646,22 +649,8 @@ across.
   { key: 'comparable', label: 'Comparable across' },
   { key: 'mart', label: 'Used in' },
   { key: 'source', label: 'Source' },
-]} rows={dictRows} />
+]} />
 <DownloadCsv filename="payments-metric-dictionary.csv" src={martUrl('metric_dictionary')} />
-
-<h3>Data quality</h3>
-
-export const dqCiWarn = facts.checks.filter((c) => c.status === 'warn' && /CI run/.test(c.detail)).length;
-export const dqOtherWarn = warnChecks - dqCiWarn;
-export const dqFailed = facts.checks.filter((c) => c.status === 'fail').map((c) => c.name);
-
-Every publish validates each table against a pandera schema before it writes anything, then runs the checks
-below: ranges, key uniqueness, qualifiers carried from inputs to outputs, reconciliation of computed lines against
-the filed or stated figures, freshness of each curated file, and a regression guard that refuses to overwrite the
-last good run if a new run would lose most of the companies it covers. A failed schema blocks the write; the
-checks are recorded with the facts and listed here as they stood at the last publish.{dqCiWarn > 0 ? ` ${dqCiWarn} ${dqCiWarn === 1 ? 'warning is a source' : 'warnings are sources'} that only exist after the scheduled CI run; the views and questions that depend on ${dqCiWarn === 1 ? 'it' : 'them'} say so and wait.` : ''}{dqOtherWarn > 0 ? ` ${dqOtherWarn} other ${dqOtherWarn === 1 ? 'check is a warning' : 'checks are warnings'}; see the table.` : ''}{dqFailed.length > 0 ? ` ${dqFailed.length} ${dqFailed.length === 1 ? 'check failed' : 'checks failed'} (${dqFailed.join(', ')}); the affected sections say so.` : ''}
-
-<DataQuality checks={facts.checks} note={`Published ${published}; questions registered ${facts.registered}.`} />
 
 <h3>Reproduce it</h3>
 
@@ -841,6 +830,18 @@ state, so a question that reads them is graded on what was said, not on an audit
 
 </Section>
 
+<Section id="data-quality" title="Data quality">
+
+Every publish validates each table against a pandera schema before it writes anything, then runs the checks
+below: ranges, key uniqueness, qualifiers carried from inputs to outputs, reconciliation of computed lines against
+the filed or stated figures, freshness of each curated file, and a regression guard that refuses to overwrite the
+last good run if a new run would lose most of the companies it covers. A failed schema blocks the write; the
+checks are recorded with the facts and listed here as they stood at the last publish.{dqCiWarn > 0 ? ` ${dqCiWarn} ${dqCiWarn === 1 ? 'warning is a source' : 'warnings are sources'} that only exist after the scheduled CI run; the views and questions that depend on ${dqCiWarn === 1 ? 'it' : 'them'} say so and wait.` : ''}{dqOtherWarn > 0 ? ` ${dqOtherWarn} other ${dqOtherWarn === 1 ? 'check is a warning' : 'checks are warnings'}; see the table.` : ''}{dqFailed.length > 0 ? ` ${dqFailed.length} ${dqFailed.length === 1 ? 'check failed' : 'checks failed'} (${dqFailed.join(', ')}); the affected sections say so.` : ''}
+
+<DataQuality checks={facts.checks} note={`Published ${published}; questions registered ${facts.registered}.`} />
+
+</Section>
+
 <Section id="build-notes" title="Build notes">
 
 <p><strong>What Claude Code executed.</strong> The page was built by Claude Code agents working from a written
@@ -895,6 +896,12 @@ their reason. They are never drawn on a chart and never feed a calculation.
     Per-row links for every curated number are in the tables above and in the marts. HTTP Archive data is reused
     with attribution; npm and job-board data are stored as counts only.
   </p>
+</Section>
+
+<Section id="changelog" title="Changelog">
+  <ul class="prose">
+    {pageLog.map((e) => <li><strong>{e.date}</strong> — {e.text}</li>)}
+  </ul>
 </Section>
 
 </Appendix>
