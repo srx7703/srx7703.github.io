@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1090 484" class="dag" role="img" aria-labelledby="dag-title dag-desc">
+<title id="dag-title">How the payments data is built</title>
+<desc id="dag-desc">Left to right. Published by others: SEC filings, IR releases, Company statements, Official totals, Rate sheets, benchmarks, Product and deal pages, HTTP Archive, npm and PyPI, Greenhouse, Ashby, SEC EDGAR APIs. Stored as read: kpi_disclosures_*.json, private_metrics.json, denominators.json, waterfall_inputs.json, products, events .json, data/raw/payments/, job counts only. Transform: economics.py, ledger.py, share.py, publish.py (curated), webtech.py, devstats.py, jobs.py, formd.py. Marts (data/marts/payments): waterfall_lines, take_rates, ledger_timeline, share_lenses, products, events, metric_dictionary, CI views. Grade and gate: evaluate.py, pandera gate, regression guard. Published: facts/payments.json, this page. Dashed boxes exist only after the scheduled CI run.</desc>
+<style>
+.dag{font-family:var(--font-sans,system-ui,sans-serif);width:100%;min-width:760px;height:auto;display:block}
+.dag .col{font-size:11px;font-weight:600;fill:var(--ink)}
+.dag .step{font-size:9.5px;font-style:italic;fill:var(--ink-3)}
+.dag .box{fill:var(--bg);stroke:var(--border-strong);stroke-width:1}
+.dag .box.ci{stroke-dasharray:4 3;stroke:var(--ink-3)}
+.dag .lbl{font-size:10.5px;fill:var(--ink)}
+.dag .sub{font-size:9px;fill:var(--ink-3)}
+.dag .edge{fill:none;stroke:var(--ink-3);stroke-width:0.9;opacity:0.75}
+.dag .edge.ci{stroke-dasharray:3 3}
+.dag .head{fill:var(--ink-3)}
+.dag .legend{font-size:9.5px;fill:var(--ink-3)}
+</style>
+<defs><marker id="dag-arrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L6,3 L0,6 z" class="head"/></marker></defs>
+<text class="col" x="10" y="18">Published by others</text>
+<text class="col" x="194" y="18">Stored as read</text>
+<text class="col" x="378" y="18">Transform</text>
+<text class="col" x="562" y="18">Marts (data/marts/payments)</text>
+<text class="col" x="746" y="18">Grade and gate</text>
+<text class="col" x="930" y="18">Published</text>
+<text class="step" x="177" y="36" text-anchor="middle">read, dated, tagged</text>
+<text class="step" x="361" y="36" text-anchor="middle">validated, qualifier kept</text>
+<text class="step" x="545" y="36" text-anchor="middle">computed</text>
+<text class="step" x="729" y="36" text-anchor="middle">graded, checked</text>
+<text class="step" x="913" y="36" text-anchor="middle">written, templated</text>
+<g>
+<path class="edge" d="M160,75 C175.5,75 175.5,119 191,119" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M160,75 C175.5,75 175.5,251 191,251" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M160,119 C175.5,119 175.5,163 191,163" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M160,163 C175.5,163 175.5,207 191,207" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M160,207 C175.5,207 175.5,251 191,251" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M160,251 C175.5,251 175.5,295 191,295" marker-end="url(#dag-arrow)"/>
+<path class="edge ci" d="M160,295 C175.5,295 175.5,339 191,339" marker-end="url(#dag-arrow)"/>
+<path class="edge ci" d="M160,339 C175.5,339 175.5,339 191,339" marker-end="url(#dag-arrow)"/>
+<path class="edge ci" d="M160,427 C175.5,427 175.5,339 191,339" marker-end="url(#dag-arrow)"/>
+<path class="edge ci" d="M160,383 C175.5,383 175.5,383 191,383" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M344,119 C359.5,119 359.5,141 375,141" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M344,119 C359.5,119 359.5,185 375,185" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M344,163 C359.5,163 359.5,141 375,141" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M344,207 C359.5,207 359.5,185 375,185" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M344,251 C359.5,251 359.5,97 375,97" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M344,295 C359.5,295 359.5,229 375,229" marker-end="url(#dag-arrow)"/>
+<path class="edge ci" d="M344,339 C359.5,339 359.5,273 375,273" marker-end="url(#dag-arrow)"/>
+<path class="edge ci" d="M344,339 C359.5,339 359.5,317 375,317" marker-end="url(#dag-arrow)"/>
+<path class="edge ci" d="M344,339 C359.5,339 359.5,405 375,405" marker-end="url(#dag-arrow)"/>
+<path class="edge ci" d="M344,383 C359.5,383 359.5,361 375,361" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M528,97 C543.5,97 543.5,119 559,119" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M528,141 C543.5,141 543.5,163 559,163" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M528,141 C543.5,141 543.5,207 559,207" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M528,185 C543.5,185 543.5,251 559,251" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M528,229 C543.5,229 543.5,295 559,295" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M528,229 C543.5,229 543.5,339 559,339" marker-end="url(#dag-arrow)"/>
+<path class="edge ci" d="M528,273 C543.5,273 543.5,383 559,383" marker-end="url(#dag-arrow)"/>
+<path class="edge ci" d="M528,317 C543.5,317 543.5,383 559,383" marker-end="url(#dag-arrow)"/>
+<path class="edge ci" d="M528,361 C543.5,361 543.5,383 559,383" marker-end="url(#dag-arrow)"/>
+<path class="edge ci" d="M528,405 C543.5,405 543.5,383 559,383" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M712,119 C727.5,119 727.5,207 743,207" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M712,163 C727.5,163 727.5,207 743,207" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M712,207 C727.5,207 727.5,207 743,207" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M712,251 C727.5,251 727.5,207 743,207" marker-end="url(#dag-arrow)"/>
+<path class="edge ci" d="M712,383 C727.5,383 727.5,207 743,207" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M712,119 C727.5,119 727.5,251 743,251" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M712,163 C727.5,163 727.5,251 743,251" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M712,207 C727.5,207 727.5,251 743,251" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M712,251 C727.5,251 727.5,251 743,251" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M712,295 C727.5,295 727.5,251 743,251" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M712,339 C727.5,339 727.5,251 743,251" marker-end="url(#dag-arrow)"/>
+<path class="edge ci" d="M712,383 C727.5,383 727.5,251 743,251" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M760,224 L760,232" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M760,268 L760,276" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M896,295 C911.5,295 911.5,229 927,229" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M896,295 C911.5,295 911.5,273 927,273" marker-end="url(#dag-arrow)"/>
+<path class="edge" d="M944,246 L944,254" marker-end="url(#dag-arrow)"/>
+</g>
+<g><rect class="box" x="10" y="58" width="150" height="34"/><text class="lbl" x="17" y="72">SEC filings, IR releases</text><text class="sub" x="17" y="85">8-K, 10-Q, 20-F, letters</text></g>
+<g><rect class="box" x="10" y="102" width="150" height="34"/><text class="lbl" x="17" y="116">Company statements</text><text class="sub" x="17" y="129">newsrooms, round releases</text></g>
+<g><rect class="box" x="10" y="146" width="150" height="34"/><text class="lbl" x="17" y="160">Official totals</text><text class="sub" x="17" y="173">Fed FEDS Note, Census, FRED</text></g>
+<g><rect class="box" x="10" y="190" width="150" height="34"/><text class="lbl" x="17" y="204">Rate sheets, benchmarks</text><text class="sub" x="17" y="217">Visa interchange, FSB KPIs</text></g>
+<g><rect class="box" x="10" y="234" width="150" height="34"/><text class="lbl" x="17" y="248">Product and deal pages</text><text class="sub" x="17" y="261">launches, acquisitions</text></g>
+<g><rect class="box ci" x="10" y="278" width="150" height="34"/><text class="lbl" x="17" y="292">HTTP Archive</text><text class="sub" x="17" y="305">Tech Report API, monthly</text></g>
+<g><rect class="box ci" x="10" y="322" width="150" height="34"/><text class="lbl" x="17" y="336">npm and PyPI</text><text class="sub" x="17" y="349">download counts</text></g>
+<g><rect class="box ci" x="10" y="366" width="150" height="34"/><text class="lbl" x="17" y="380">Greenhouse, Ashby</text><text class="sub" x="17" y="393">public job boards</text></g>
+<g><rect class="box ci" x="10" y="410" width="150" height="34"/><text class="lbl" x="17" y="424">SEC EDGAR APIs</text><text class="sub" x="17" y="437">Form D, XBRL facts</text></g>
+<g><rect class="box" x="194" y="102" width="150" height="34"/><text class="lbl" x="201" y="116">kpi_disclosures_*.json</text><text class="sub" x="201" y="129">reference, hand-verified</text></g>
+<g><rect class="box" x="194" y="146" width="150" height="34"/><text class="lbl" x="201" y="160">private_metrics.json</text><text class="sub" x="201" y="173">reference, with qualifier</text></g>
+<g><rect class="box" x="194" y="190" width="150" height="34"/><text class="lbl" x="201" y="204">denominators.json</text><text class="sub" x="201" y="217">reference</text></g>
+<g><rect class="box" x="194" y="234" width="150" height="34"/><text class="lbl" x="201" y="248">waterfall_inputs.json</text><text class="sub" x="201" y="261">reference</text></g>
+<g><rect class="box" x="194" y="278" width="150" height="34"/><text class="lbl" x="201" y="292">products, events .json</text><text class="sub" x="201" y="305">reference</text></g>
+<g><rect class="box ci" x="194" y="322" width="150" height="34"/><text class="lbl" x="201" y="336">data/raw/payments/</text><text class="sub" x="201" y="349">json.gz, append-only</text></g>
+<g><rect class="box ci" x="194" y="366" width="150" height="34"/><text class="lbl" x="201" y="380">job counts only</text><text class="sub" x="201" y="393">no posting text kept</text></g>
+<g><rect class="box" x="378" y="80" width="150" height="34"/><text class="lbl" x="385" y="94">economics.py</text><text class="sub" x="385" y="107">per-$100 books, bands</text></g>
+<g><rect class="box" x="378" y="124" width="150" height="34"/><text class="lbl" x="385" y="138">ledger.py</text><text class="sub" x="385" y="151">take rates, private ledger</text></g>
+<g><rect class="box" x="378" y="168" width="150" height="34"/><text class="lbl" x="385" y="182">share.py</text><text class="sub" x="385" y="195">lenses, never summed</text></g>
+<g><rect class="box" x="378" y="212" width="150" height="34"/><text class="lbl" x="385" y="226">publish.py (curated)</text><text class="sub" x="385" y="239">matrix, timeline, dictionary</text></g>
+<g><rect class="box ci" x="378" y="256" width="150" height="34"/><text class="lbl" x="385" y="270">webtech.py</text><text class="sub" x="385" y="283">coverage, 3-crawl mean</text></g>
+<g><rect class="box ci" x="378" y="300" width="150" height="34"/><text class="lbl" x="385" y="314">devstats.py</text><text class="sub" x="385" y="327">pinned SDK whitelist</text></g>
+<g><rect class="box ci" x="378" y="344" width="150" height="34"/><text class="lbl" x="385" y="358">jobs.py</text><text class="sub" x="385" y="371">title to function</text></g>
+<g><rect class="box ci" x="378" y="388" width="150" height="34"/><text class="lbl" x="385" y="402">formd.py</text><text class="sub" x="385" y="415">raise notices</text></g>
+<g><rect class="box" x="562" y="102" width="150" height="34"/><text class="lbl" x="569" y="116">waterfall_lines</text><text class="sub" x="569" y="129">+ sensitivity</text></g>
+<g><rect class="box" x="562" y="146" width="150" height="34"/><text class="lbl" x="569" y="160">take_rates</text><text class="sub" x="569" y="173">+ refusals with reasons</text></g>
+<g><rect class="box" x="562" y="190" width="150" height="34"/><text class="lbl" x="569" y="204">ledger_timeline</text><text class="sub" x="569" y="217">+ latest, private_intervals</text></g>
+<g><rect class="box" x="562" y="234" width="150" height="34"/><text class="lbl" x="569" y="248">share_lenses</text><text class="sub" x="569" y="261">+ share_pool_hhi</text></g>
+<g><rect class="box" x="562" y="278" width="150" height="34"/><text class="lbl" x="569" y="292">products, events</text><text class="sub" x="569" y="305">chartable rows only</text></g>
+<g><rect class="box" x="562" y="322" width="150" height="34"/><text class="lbl" x="569" y="336">metric_dictionary</text><text class="sub" x="569" y="349">+ reported_unconfirmed</text></g>
+<g><rect class="box ci" x="562" y="366" width="150" height="34"/><text class="lbl" x="569" y="380">CI views</text><text class="sub" x="569" y="393">webtech, devstats, jobs, formd</text></g>
+<g><rect class="box" x="746" y="190" width="150" height="34"/><text class="lbl" x="753" y="204">evaluate.py</text><text class="sub" x="753" y="217">Q1-Q9 as registered</text></g>
+<g><rect class="box" x="746" y="234" width="150" height="34"/><text class="lbl" x="753" y="248">pandera gate</text><text class="sub" x="753" y="261">a failure blocks the write</text></g>
+<g><rect class="box" x="746" y="278" width="150" height="34"/><text class="lbl" x="753" y="292">regression guard</text><text class="sub" x="753" y="305">keeps last good run</text></g>
+<g><rect class="box" x="930" y="212" width="150" height="34"/><text class="lbl" x="937" y="226">facts/payments.json</text><text class="sub" x="937" y="239">KPIs, values, checks</text></g>
+<g><rect class="box" x="930" y="256" width="150" height="34"/><text class="lbl" x="937" y="270">this page</text><text class="sub" x="937" y="283">prose templated, charts</text></g>
+<rect class="box ci" x="10" y="463" width="22" height="11"/>
+<text class="legend" x="40" y="472">written only by the scheduled CI run; absent from a local build, and the page says so where it is missing</text>
+</svg>

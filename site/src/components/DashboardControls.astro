@@ -1,0 +1,188 @@
+---
+/**
+ * Filter row for one dashboard group. Every <VegaChart group={group}> on the page whose spec
+ * declares a top-level, unbound Vega-Lite param with a control's `name` is driven through
+ * `view.signal(name, value).runAsync()`. State lives in the URL query as `?<group>.<name>=<value>`
+ * (read on load, written with history.replaceState). An optional linked table (DataTable id or
+ * ids) hides rows whose `data-<name>` attribute does not match the current value; rows without
+ * that attribute are left alone.
+ *
+ * Selection-dependent titles: any element with `data-dash-group="<group>"` and
+ * `data-dash-titles='{"<v1>|<v2>": "title", …, "default": "title"}'` gets its title rewritten on
+ * load and on every change, so a figure never states a finding about a view the reader is not
+ * looking at. Keys are the current control values joined with '|' in `controls` order, or in the
+ * order of the space-separated control names in `data-dash-keys` when present; a missing key
+ * falls back to `default`, else the title is left as built. The element itself is the title when
+ * it is a heading or `.figure__title`; otherwise the `.figure__title` of its enclosing <figure>
+ * (so `<VegaChart group titles={map}>` inside a ChartCard works without touching ChartCard).
+ *
+ * Controls render as a native radio <fieldset> (default for up to 4 options) or a native
+ * <select>. Without JavaScript the row stays hidden and a sentence states the default view.
+ */
+type Value = string | number | boolean;
+interface Option { value: Value; label: string }
+interface Control {
+  name: string;          // Vega-Lite param / signal name, also the URL key suffix and data-<name> on table rows
+  label: string;
+  options: Option[];
+  default: Value;
+  type?: 'radio' | 'select'; // default: radio when options.length <= 4, else select
+}
+interface Props {
+  group: string;
+  controls: Control[];
+  table?: string | string[];
+  label?: string;        // accessible name for the whole row
+}
+const { group, controls, table, label = 'Dashboard controls' } = Astro.props;
+const tables = table == null ? [] : Array.isArray(table) ? table : [table];
+const uid = `dash-${group}`;
+const kind = (c: Control) => c.type ?? (c.options.length <= 4 ? 'radio' : 'select');
+const defaultLabel = (c: Control) => c.options.find((o) => o.value === c.default)?.label ?? String(c.default);
+const config = controls.map((c) => ({ name: c.name, default: c.default, values: c.options.map((o) => o.value) }));
+---
+<form class="dash" id={uid} data-group={group} data-tables={tables.join(' ')} data-config={JSON.stringify(config)} aria-label={label} hidden>
+  {controls.map((c) => kind(c) === 'radio' ? (
+    <fieldset class="dash__field" data-control={c.name}>
+      <legend class="dash__label">{c.label}</legend>
+      <span class="dash__options">
+        {c.options.map((o, i) => (
+          <label class="dash__radio">
+            <input type="radio" name={`${uid}-${c.name}`} value={String(o.value)} data-index={i} checked={o.value === c.default} />
+            {o.label}
+          </label>
+        ))}
+      </span>
+    </fieldset>
+  ) : (
+    <label class="dash__field dash__select" data-control={c.name}>
+      <span class="dash__label">{c.label}</span>
+      <select name={`${uid}-${c.name}`}>
+        {c.options.map((o, i) => <option value={String(o.value)} data-index={i} selected={o.value === c.default}>{o.label}</option>)}
+      </select>
+    </label>
+  ))}
+</form>
+<noscript><p class="muted dash__nojs">The interactive controls need JavaScript; the charts below show the default view ({controls.map((c) => `${c.label}: ${defaultLabel(c)}`).join('; ')}).</p></noscript>
+<script>
+  type Value = string | number | boolean;
+  interface Cfg { name: string; default: Value; values: Value[] }
+  interface Dash { state: Record<string, Value>; views: Map<string, any> }
+
+  const registry = (): Record<string, Dash> => ((window as any).__dash ??= {});
+
+  document.querySelectorAll<HTMLFormElement>('form.dash').forEach((form) => {
+    const group = form.dataset.group || '';
+    const cfg: Cfg[] = JSON.parse(form.dataset.config || '[]');
+    const dash: Dash = (registry()[group] ??= { state: {}, views: new Map() });
+    const tableIds = (form.dataset.tables || '').split(' ').filter(Boolean);
+
+    // Initial state: URL query value if it is one of the options, else the default.
+    const params = new URLSearchParams(location.search);
+    for (const c of cfg) {
+      const raw = params.get(`${group}.${c.name}`);
+      const hit = raw == null ? undefined : c.values.find((v) => String(v) === raw);
+      dash.state[c.name] = hit !== undefined ? hit : c.default;
+    }
+
+    const syncInputs = () => {
+      for (const c of cfg) {
+        const idx = c.values.findIndex((v) => v === dash.state[c.name]);
+        form.querySelectorAll<HTMLInputElement | HTMLOptionElement>(`[data-control="${c.name}"] [data-index]`).forEach((el) => {
+          const on = Number(el.dataset.index) === idx;
+          if (el instanceof HTMLInputElement) el.checked = on; else el.selected = on;
+        });
+      }
+    };
+
+    const writeUrl = () => {
+      const q = new URLSearchParams(location.search);
+      for (const c of cfg) {
+        const key = `${group}.${c.name}`;
+        if (dash.state[c.name] === c.default) q.delete(key); else q.set(key, String(dash.state[c.name]));
+      }
+      const s = q.toString();
+      history.replaceState(history.state, '', `${location.pathname}${s ? `?${s}` : ''}${location.hash}`);
+    };
+
+    const hasSignal = (view: any, name: string) => {
+      try { view.signal(name); return true; } catch { return false; }
+    };
+
+    const applyCharts = (names: string[]) => {
+      dash.views.forEach((view) => {
+        let touched = false;
+        for (const n of names) if (hasSignal(view, n)) { view.signal(n, dash.state[n]); touched = true; }
+        if (touched) view.runAsync().catch((e: unknown) => console.error('dashboard update failed', group, e));
+      });
+    };
+
+    const applyTables = () => {
+      for (const id of tableIds) {
+        const t = document.getElementById(id) as HTMLTableElement | null;
+        Array.from(t?.tBodies[0]?.rows ?? []).forEach((tr) => {
+          const out = cfg.some((c) => {
+            const a = tr.getAttribute(`data-${c.name.toLowerCase()}`);
+            return a != null && a !== String(dash.state[c.name]);
+          });
+          tr.classList.toggle('dash-out', out);
+        });
+      }
+    };
+
+    const titleTarget = (el: HTMLElement): HTMLElement | null =>
+      el.matches('h1,h2,h3,h4,h5,h6,.figure__title') ? el
+        : el.closest('figure')?.querySelector<HTMLElement>('.figure__title') ?? el.querySelector<HTMLElement>('.figure__title');
+
+    const applyTitles = () => {
+      document.querySelectorAll<HTMLElement>('[data-dash-titles]').forEach((el) => {
+        if (el.dataset.dashGroup !== group) return;
+        let map: Record<string, string>;
+        try { map = JSON.parse(el.dataset.dashTitles || '{}'); } catch { return; }
+        const keys = (el.dataset.dashKeys || '').split(' ').filter(Boolean);
+        const names = keys.length ? keys.filter((k) => k in dash.state) : cfg.map((c) => c.name);
+        const key = names.map((n) => String(dash.state[n])).join('|');
+        const title = map[key] ?? map.default;
+        const target = titleTarget(el);
+        if (title != null && target && target.textContent !== title) target.textContent = title;
+      });
+    };
+
+    form.addEventListener('change', (e) => {
+      const field = (e.target as HTMLElement).closest<HTMLElement>('[data-control]');
+      const c = cfg.find((x) => x.name === field?.dataset.control);
+      if (!c) return;
+      const target = e.target as HTMLInputElement | HTMLSelectElement;
+      const idx = target instanceof HTMLSelectElement
+        ? Number(target.selectedOptions[0]?.dataset.index)
+        : Number((target as HTMLInputElement).dataset.index);
+      if (!(idx >= 0 && idx < c.values.length)) return;
+      dash.state[c.name] = c.values[idx];
+      writeUrl();
+      applyCharts([c.name]);
+      applyTables();
+      applyTitles();
+    });
+    form.addEventListener('submit', (e) => e.preventDefault());
+
+    syncInputs();
+    applyCharts(cfg.map((c) => c.name)); // charts rendered before this ran
+    applyTables();
+    applyTitles();
+    form.hidden = false;
+  });
+</script>
+<style>
+  .dash { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4); align-items: baseline; margin: 0 0 var(--s-3); font-family: var(--font-sans); font-size: var(--fs-sm); color: var(--ink-2); }
+  .dash[hidden] { display: none; }
+  .dash__field { display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-2); align-items: baseline; margin: 0; padding: 0; border: 0; min-width: 0; }
+  .dash__label { float: left; padding: 0; color: var(--ink-3); }
+  .dash__options { display: inline-flex; flex-wrap: wrap; gap: var(--s-1) var(--s-3); }
+  .dash__radio { display: inline-flex; gap: 0.35em; align-items: baseline; color: var(--ink); cursor: pointer; }
+  .dash__radio input { accent-color: var(--ink); margin: 0; }
+  .dash__radio input:focus-visible, .dash select:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .dash select { font: inherit; font-size: var(--fs-sm); color: var(--ink); background: transparent; border: 1px dashed var(--border-strong); border-radius: 0; padding: 0.3em 0.6em; max-width: 100%; }
+  .dash select option { color: var(--ink); background: var(--bg); }
+  .dash__nojs { font-family: var(--font-sans); font-size: var(--fs-sm); }
+  :global(tr.dash-out) { display: none; }
+</style>
