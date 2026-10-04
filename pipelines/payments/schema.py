@@ -58,6 +58,7 @@ EVENTS_DTYPES: dict[str, pl.DataType] = {
     "event_date": pl.Utf8, "company": pl.Utf8, "segment": pl.Utf8, "event_kind": pl.Utf8, "counterparty": pl.Utf8,
     "target": pl.Utf8, "value": pl.Float64, "unit": pl.Utf8, "qualifier": pl.Utf8, "metric_kind": pl.Utf8,
     "tag": pl.Utf8, "stale": pl.Boolean, "source_name": pl.Utf8, "source_url": pl.Utf8, "caveat": pl.Utf8,
+    "deal": pl.Utf8,
 }
 EVENTS_SCHEMA = pa.DataFrameSchema(
     {
@@ -69,6 +70,8 @@ EVENTS_SCHEMA = pa.DataFrameSchema(
                                                      if k not in config.NEVER_CHARTED_KINDS]), nullable=True),
         "tag": pa.Column(str, pa.Check.isin(CHARTABLE_TAGS)), "stale": pa.Column(pl.Boolean),
         "source_name": pa.Column(str), "source_url": _URL, "caveat": pa.Column(str, nullable=True),
+        # ``acquirer:target`` from the curated id: a signing and its closing share one deal.
+        "deal": pa.Column(str, nullable=True),
     },
     unique=EVENTS_KEY, strict=True, coerce=False,
     checks=[pa.Check(_value_iff_qualifier, error="a value needs a qualifier")],

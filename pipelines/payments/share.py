@@ -357,11 +357,13 @@ NO_DENOMINATOR = {
 
 FEDS_SERIES = "fed_feds_note_bnpl_2026"
 FEDS_TOTAL = "us_bnpl_issuance_total"
-FEDS_COMPANY = {"affirm": "Affirm", "afterpay_block": "Afterpay", "klarna": "Klarna", "paypal": "PayPal Pay Later",
-                "sezzle": "Sezzle", "zip": "Zip"}
+#: Provider labels as the Fed prints them. Table 2's "Afterpay/Block" row is Block as a whole: Afterpay pay-in-4
+#: plus Cash App Borrow short-term loans, so it is never relabelled as Afterpay alone.
+FEDS_COMPANY = {"affirm": "Affirm", "afterpay_block": "Afterpay/Block", "klarna": "Klarna",
+                "paypal": "PayPal Pay Later", "sezzle": "Sezzle", "zip": "Zip"}
 FEDS_BASIS = ("Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider "
               "total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global "
-              "figures by Fed staff")
+              "figures by Fed staff; Afterpay/Block is Block's Afterpay plus Cash App Borrow loans")
 #: Figure 1b prints whole-percent shares and table 2 prints $ billions to one decimal, so a share recomputed
 #: from the table may sit up to half a percentage point (plus the table's own rounding) from the printed one.
 FEDS_ROUNDING_PP = 0.5

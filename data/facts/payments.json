@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-04T09:11:59+00:00",
+ "generated_at": "2026-10-04T11:00:49+00:00",
  "slug": "payments-landscape",
  "registered": "2026-10-03",
  "kpis": [
@@ -23,7 +23,7 @@
    "period": "FY2025",
    "source_url": "https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html",
    "as_of": "2025-12-31",
-   "note": "Afterpay; Fed FEDS Note table of six providers, 2025 issuance, not the whole market"
+   "note": "Afterpay/Block (Afterpay plus Cash App Borrow loans); Fed FEDS Note table of six providers, 2025 issuance, not the whole market"
   },
   {
    "id": "stripe_volume",
@@ -50,7 +50,7 @@
   },
   "hhi.disclosed_pool.B_bnpl_gmv": {
    "value": 5905.110304,
-   "qualifier": "=",
+   "qualifier": "~",
    "unit": "index (0-10,000)",
    "period": "2026-Q1",
    "as_of": null,
@@ -85,7 +85,7 @@
    "period": "FY2025",
    "as_of": null,
    "source_url": null,
-   "members": "Affirm, Afterpay, Klarna, PayPal Pay Later, Sezzle, Zip",
+   "members": "Affirm, Afterpay/Block, Klarna, PayPal Pay Later, Sezzle, Zip",
    "n_members": 6
   },
   "interval.Airwallex.take_rate:revenue_per_transaction_volume": {
@@ -464,16 +464,16 @@
    "period": "FY2025",
    "as_of": "2025-12-31",
    "source_url": "https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html",
-   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff"
+   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff; Afterpay/Block is Block's Afterpay plus Cash App Borrow loans"
   },
-  "share.official.fed_feds_note_bnpl_2026.Afterpay": {
+  "share.official.fed_feds_note_bnpl_2026.Afterpay/Block": {
    "value": 0.342693,
    "qualifier": "=",
    "unit": "share_of_official_total",
    "period": "FY2025",
    "as_of": "2025-12-31",
    "source_url": "https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html",
-   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff"
+   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff; Afterpay/Block is Block's Afterpay plus Cash App Borrow loans"
   },
   "share.official.fed_feds_note_bnpl_2026.Klarna": {
    "value": 0.152521,
@@ -482,7 +482,7 @@
    "period": "FY2025",
    "as_of": "2025-12-31",
    "source_url": "https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html",
-   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff"
+   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff; Afterpay/Block is Block's Afterpay plus Cash App Borrow loans"
   },
   "share.official.fed_feds_note_bnpl_2026.PayPal Pay Later": {
    "value": 0.169113,
@@ -491,7 +491,7 @@
    "period": "FY2025",
    "as_of": "2025-12-31",
    "source_url": "https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html",
-   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff"
+   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff; Afterpay/Block is Block's Afterpay plus Cash App Borrow loans"
   },
   "share.official.fed_feds_note_bnpl_2026.Sezzle": {
    "value": 0.024888,
@@ -500,7 +500,7 @@
    "period": "FY2025",
    "as_of": "2025-12-31",
    "source_url": "https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html",
-   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff"
+   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff; Afterpay/Block is Block's Afterpay plus Cash App Borrow loans"
   },
   "share.official.fed_feds_note_bnpl_2026.Zip": {
    "value": 0.046586,
@@ -509,7 +509,7 @@
    "period": "FY2025",
    "as_of": "2025-12-31",
    "source_url": "https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html",
-   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff"
+   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff; Afterpay/Block is Block's Afterpay plus Cash App Borrow loans"
   },
   "share.pool.A_payment_volume.Block/Square": {
    "value": 0.095967,
@@ -553,7 +553,7 @@
   },
   "share.pool.B_bnpl_gmv.Affirm": {
    "value": 0.250049,
-   "qualifier": "=",
+   "qualifier": "~",
    "unit": "share_of_disclosed_pool",
    "period": "2026-Q1",
    "as_of": null,
@@ -561,7 +561,7 @@
   },
   "share.pool.B_bnpl_gmv.Klarna": {
    "value": 0.72624,
-   "qualifier": "=",
+   "qualifier": "~",
    "unit": "share_of_disclosed_pool",
    "period": "2026-Q1",
    "as_of": null,
@@ -569,7 +569,7 @@
   },
   "share.pool.B_bnpl_gmv.Sezzle": {
    "value": 0.023711,
-   "qualifier": "=",
+   "qualifier": "~",
    "unit": "share_of_disclosed_pool",
    "period": "2026-Q1",
    "as_of": null,
@@ -706,7 +706,7 @@
   },
   "take_rate.Navan.usage_revenue_per_gbv": {
    "value": 7.033333,
-   "qualifier": "=",
+   "qualifier": "~",
    "unit": "percent",
    "period": "FY2027-Q2",
    "as_of": "2026-07-31",
@@ -742,7 +742,7 @@
   },
   "take_rate.Sezzle.revenue_per_gmv": {
    "value": 11.514077,
-   "qualifier": "=",
+   "qualifier": "~",
    "unit": "percent",
    "period": "2026-Q2",
    "as_of": "2026-06-30",
@@ -1163,6 +1163,8 @@
    "priced_round": 9,
    "tender": 3
   },
+  "acquisition_deals": 10,
+  "acquisition_deals_no_value": 4,
   "metrics_in_dictionary": 235,
   "share_rows": 207,
   "share_refusals": 56,
@@ -1177,7 +1179,7 @@
   "companies": [
    "Adyen",
    "Affirm",
-   "Afterpay",
+   "Afterpay/Block",
    "Airwallex",
    "BILL",
    "Block/Square",
@@ -1704,7 +1706,7 @@
   {
    "name": "Take-rate qualifiers",
    "status": "pass",
-   "detail": "12 of 162 take rates carry a bound or ~ from their inputs"
+   "detail": "21 of 162 take rates carry a bound or ~ from their inputs"
   },
   {
    "name": "Share key uniqueness",

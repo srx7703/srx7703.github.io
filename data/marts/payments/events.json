@@ -14,7 +14,8 @@
   "stale": false,
   "source_name": "Stripe newsroom: Stripe completes Bridge acquisition",
   "source_url": "https://stripe.com/newsroom/news/stripe-completes-bridge-acquisition",
-  "caveat": "Stripe states only that the acquisition closed on this date; it did not disclose a price. The deal was first announced in October 2024."
+  "caveat": "Stripe states only that the acquisition closed on this date; it did not disclose a price. The deal was first announced in October 2024.",
+  "deal": "stripe:bridge"
  },
  {
   "event_date": "2025-02-27",
@@ -31,7 +32,8 @@
   "stale": false,
   "source_name": "Stripe newsroom: tender offer for current and former employees (February 2025)",
   "source_url": "https://stripe.com/newsroom/news/employee-liquidity-feb-2025",
-  "caveat": "Secondary tender valuation in US dollars (Stripe also gives EUR 87.3B). No new primary capital; the size of the tender was not disclosed."
+  "caveat": "Secondary tender valuation in US dollars (Stripe also gives EUR 87.3B). No new primary capital; the size of the tender was not disclosed.",
+  "deal": "stripe:tender"
  },
  {
   "event_date": "2025-03-26",
@@ -48,7 +50,8 @@
   "stale": false,
   "source_name": "Business Wire: Mercury announces $300 million Series C at $3.5 billion valuation",
   "source_url": "https://www.businesswire.com/news/home/20250326427283/en/Mercury-Announces-%24300-Million-Series-C-Round-at-%243.5-Billion-Valuation",
-  "caveat": "Post-money valuation in US dollars. The $300M round included secondary shares; Mercury did not split primary from secondary in the release."
+  "caveat": "Post-money valuation in US dollars. The $300M round included secondary shares; Mercury did not split primary from secondary in the release.",
+  "deal": null
  },
  {
   "event_date": "2025-04-17",
@@ -65,7 +68,8 @@
   "stale": false,
   "source_name": "Global Payments IR: agreements to acquire Worldpay and divest Issuer Solutions",
   "source_url": "https://investors.globalpayments.com/news-events/press-releases/detail/469/global-payments-announces-agreements-to-acquire-worldpay",
-  "caveat": "Enterprise value in US dollars. This is the other leg of the Worldpay swap: FIS pays partly with its Worldpay stake."
+  "caveat": "Enterprise value in US dollars. This is the other leg of the Worldpay swap: FIS pays partly with its Worldpay stake.",
+  "deal": "fis:issuer_solutions"
  },
  {
   "event_date": "2025-04-17",
@@ -82,7 +86,8 @@
   "stale": false,
   "source_name": "Global Payments IR: agreements to acquire Worldpay and divest Issuer Solutions",
   "source_url": "https://investors.globalpayments.com/news-events/press-releases/detail/469/global-payments-announces-agreements-to-acquire-worldpay",
-  "caveat": "Announced headline value in US dollars, including anticipated tax assets (the net price is $22.7B). Paid partly with the Issuer Solutions business, so it is not an all-cash outlay."
+  "caveat": "Announced headline value in US dollars, including anticipated tax assets (the net price is $22.7B). Paid partly with the Issuer Solutions business, so it is not an all-cash outlay.",
+  "deal": "globalpayments:worldpay"
  },
  {
   "event_date": "2025-05-06",
@@ -99,7 +104,8 @@
   "stale": false,
   "source_name": "Corpay IR: Corpay invests alongside TPG to acquire AvidXchange",
   "source_url": "https://investor.corpay.com/news-releases/news-release-details/corpay-invests-alongside-tpg-acquire-avidxchange",
-  "caveat": "Announced take-private value in US dollars. Corpay is a minority investor (33%) with an option to acquire 100%, not the sole buyer."
+  "caveat": "Announced take-private value in US dollars. Corpay is a minority investor (33%) with an option to acquire 100%, not the sole buyer.",
+  "deal": "avidxchange:take_private"
  },
  {
   "event_date": "2025-05-21",
@@ -116,7 +122,8 @@
   "stale": false,
   "source_name": "Airwallex newsroom: $300 million at a $6.2 billion valuation",
   "source_url": "https://www.airwallex.com/global/newsroom/airwallex-raises-usd300-million-at-a-usd6-2-billion-valuation-to-build-the-future-of-global-banking",
-  "caveat": "Valuation in US dollars. Half of the $300M round was secondary, so primary capital raised was $150M."
+  "caveat": "Valuation in US dollars. Half of the $300M round was secondary, so primary capital raised was $150M.",
+  "deal": null
  },
  {
   "event_date": "2025-06-04",
@@ -133,7 +140,8 @@
   "stale": false,
   "source_name": "Circle IR: pricing of upsized initial public offering",
   "source_url": "https://investor.circle.com/news/news-details/2025/Circle-Announces-Pricing-of-Upsized-Initial-Public-Offering/default.aspx",
-  "caveat": "Gross IPO proceeds in US dollars, computed from the pricing release; 14.8M shares were sold by Circle and 19.2M by selling stockholders. Not a market value. Trading began on the NYSE on 2025-06-05."
+  "caveat": "Gross IPO proceeds in US dollars, computed from the pricing release; 14.8M shares were sold by Circle and 19.2M by selling stockholders. Not a market value. Trading began on the NYSE on 2025-06-05.",
+  "deal": null
  },
  {
   "event_date": "2025-06-11",
@@ -150,7 +158,8 @@
   "stale": false,
   "source_name": "Chime IR: pricing of initial public offering",
   "source_url": "https://investors.chime.com/news-releases/news-release-details/chime-announces-pricing-initial-public-offering",
-  "caveat": "Gross IPO proceeds in US dollars, computed from the pricing release. Chime is a consumer neobank peer, outside the companies tracked on this page. Not a market value."
+  "caveat": "Gross IPO proceeds in US dollars, computed from the pricing release. Chime is a consumer neobank peer, outside the companies tracked on this page. Not a market value.",
+  "deal": null
  },
  {
   "event_date": "2025-06-17",
@@ -167,7 +176,8 @@
   "stale": false,
   "source_name": "PR Newswire: Ramp raises $200M Series E at $16B valuation",
   "source_url": "https://www.prnewswire.com/news-releases/ramp-raises-200m-series-e-at-16b-valuation-as-companies-of-all-sizes-choose-ai-powered-finance-platform-302483377.html",
-  "caveat": "Valuation in US dollars as stated by Ramp; the round was capped at $200M."
+  "caveat": "Valuation in US dollars as stated by Ramp; the round was capped at $200M.",
+  "deal": null
  },
  {
   "event_date": "2025-07-03",
@@ -184,7 +194,8 @@
   "stale": false,
   "source_name": "Shift4 IR: Shift4 completes acquisition of Global Blue",
   "source_url": "https://investors.shift4.com/news-events/press-releases/detail/267/shift4-completes-acquisition-of-global-blue",
-  "caveat": "Completion of the tender offer; Shift4 states a per-share price ($7.50) but this release gives no total deal value. A squeeze-out of the remaining shares followed on 2025-08-18."
+  "caveat": "Completion of the tender offer; Shift4 states a per-share price ($7.50) but this release gives no total deal value. A squeeze-out of the remaining shares followed on 2025-08-18.",
+  "deal": "shift4:globalblue"
  },
  {
   "event_date": "2025-07-30",
@@ -201,7 +212,8 @@
   "stale": false,
   "source_name": "PR Newswire: Ramp raises $500 million at $22.5 billion valuation",
   "source_url": "https://www.prnewswire.com/news-releases/ramp-raises-500-million-at-22-5-billion-valuation-to-accelerate-ai-and-build-the-future-of-finance-302516953.html",
-  "caveat": "Valuation in US dollars as stated by Ramp, six weeks after the $16B Series E."
+  "caveat": "Valuation in US dollars as stated by Ramp, six weeks after the $16B Series E.",
+  "deal": null
  },
  {
   "event_date": "2025-09-09",
@@ -218,7 +230,8 @@
   "stale": false,
   "source_name": "Klarna IR: pricing of its initial public offering",
   "source_url": "https://investors.klarna.com/News--Events/news/news-details/2025/Klarna-Announces-Pricing-of-its-Initial-Public-Offering-6ecaa93d7/default.aspx",
-  "caveat": "Gross IPO proceeds in US dollars, computed from the pricing release. Only 5,000,000 shares were sold by Klarna; the rest by selling shareholders, so most proceeds did not go to the company. Not a market value. NYSE trading began 2025-09-10."
+  "caveat": "Gross IPO proceeds in US dollars, computed from the pricing release. Only 5,000,000 shares were sold by Klarna; the rest by selling shareholders, so most proceeds did not go to the company. Not a market value. NYSE trading began 2025-09-10.",
+  "deal": null
  },
  {
   "event_date": "2025-09-26",
@@ -235,7 +248,8 @@
   "stale": false,
   "source_name": "Checkout.com newsroom: employee share buy back and a new $12bn valuation",
   "source_url": "https://www.checkout.com/newsroom/checkout-com-accelerates-towards-full-year-profitability-and-announces-employee-share-buy-back-and-a-new-12bn-valuation",
-  "caveat": "Valuation in US dollars for a company-run employee buy-back, not a round priced by outside investors; the size of the buy-back was not disclosed."
+  "caveat": "Valuation in US dollars for a company-run employee buy-back, not a round priced by outside investors; the size of the buy-back was not disclosed.",
+  "deal": "checkout:buyback"
  },
  {
   "event_date": "2025-10-29",
@@ -252,7 +266,8 @@
   "stale": false,
   "source_name": "Navan IR: pricing of initial public offering",
   "source_url": "https://investors.navan.com/news-releases/news-release-details/navan-announces-pricing-initial-public-offering",
-  "caveat": "Gross IPO proceeds in US dollars, computed from the pricing release; 30.0M shares sold by Navan, 6.9M by existing holders. Not a market value. Nasdaq trading began 2025-10-30."
+  "caveat": "Gross IPO proceeds in US dollars, computed from the pricing release; 30.0M shares sold by Navan, 6.9M by existing holders. Not a market value. Nasdaq trading began 2025-10-30.",
+  "deal": null
  },
  {
   "event_date": "2025-11-17",
@@ -269,7 +284,8 @@
   "stale": false,
   "source_name": "PR Newswire: Ramp reaches $32 billion valuation",
   "source_url": "https://www.prnewswire.com/news-releases/ramp-reaches-32-billion-valuation-doubling-revenue-and-customers-in-past-year-302616510.html",
-  "caveat": "Valuation in US dollars as stated by Ramp; it covers both a $300M primary round and an employee tender, whose size was not disclosed."
+  "caveat": "Valuation in US dollars as stated by Ramp; it covers both a $300M primary round and an employee tender, whose size was not disclosed.",
+  "deal": null
  },
  {
   "event_date": "2025-12-08",
@@ -286,7 +302,8 @@
   "stale": false,
   "source_name": "Airwallex newsroom: $330M Series G at $8B valuation",
   "source_url": "https://www.airwallex.com/global/newsroom/awx-raises-usd330m-series-g-at-usd8b-valuation-establishes-sf-as-dual-global-hq",
-  "caveat": "Valuation in US dollars as stated by Airwallex."
+  "caveat": "Valuation in US dollars as stated by Airwallex.",
+  "deal": null
  },
  {
   "event_date": "2026-01-09",
@@ -303,7 +320,8 @@
   "stale": false,
   "source_name": "Global Payments Form 8-K (Jan 12, 2026), Introductory Note",
   "source_url": "https://investors.globalpayments.com/financial-information/all-sec-filings/content/0001104659-26-002705/tm262856d1_8k.htm",
-  "caveat": "The 8-K dates completion to January 9, 2026; Global Payments announced it in a press release on January 12, 2026. Price basis: $24.25B Worldpay and $13.5B Issuer Solutions enterprise valuations, subject to adjustments."
+  "caveat": "The 8-K dates completion to January 9, 2026; Global Payments announced it in a press release on January 12, 2026. Price basis: $24.25B Worldpay and $13.5B Issuer Solutions enterprise valuations, subject to adjustments.",
+  "deal": "globalpayments:worldpay"
  },
  {
   "event_date": "2026-01-22",
@@ -320,7 +338,8 @@
   "stale": false,
   "source_name": "Capital One IR: Capital One to acquire Brex",
   "source_url": "https://investor.capitalone.com/news-releases/news-release-details/capital-one-acquire-brex",
-  "caveat": "Headline value at signing in US dollars, part stock and part cash; consideration at closing differs with Capital One's share price and adjustments."
+  "caveat": "Headline value at signing in US dollars, part stock and part cash; consideration at closing differs with Capital One's share price and adjustments.",
+  "deal": "capitalone:brex"
  },
  {
   "event_date": "2026-02-24",
@@ -337,7 +356,8 @@
   "stale": false,
   "source_name": "Stripe newsroom: 2025 annual letter and tender offer",
   "source_url": "https://stripe.com/newsroom/news/stripe-2025-update",
-  "caveat": "Secondary tender valuation in US dollars (Stripe also gives EUR 135B). No new primary capital; the tender size was not disclosed."
+  "caveat": "Secondary tender valuation in US dollars (Stripe also gives EUR 135B). No new primary capital; the tender size was not disclosed.",
+  "deal": "stripe:tender"
  },
  {
   "event_date": "2026-03-17",
@@ -354,7 +374,8 @@
   "stale": false,
   "source_name": "Mastercard press release: Mastercard to acquire BVNK",
   "source_url": "https://www.mastercard.com/global/en/news-and-trends/press/2026/march/Mastercard-to-acquire-BVNK-to-connect-on-chain-payments-and-fiat-rails.html",
-  "caveat": "An upper bound in US dollars ('up to'): about $1.5B fixed plus up to $300M in contingent payments. Do not chart as a point price."
+  "caveat": "An upper bound in US dollars ('up to'): about $1.5B fixed plus up to $300M in contingent payments. Do not chart as a point price.",
+  "deal": "mastercard:bvnk"
  },
  {
   "event_date": "2026-04-07",
@@ -371,7 +392,8 @@
   "stale": false,
   "source_name": "Capital One newsroom: Capital One completes acquisition of Brex",
   "source_url": "https://www.capitalone.com/about/newsroom/capital-one-completes-acquisition-of-brex/",
-  "caveat": "Completion date only; this release gives no closing consideration. Brex is part of Capital One from this date."
+  "caveat": "Completion date only; this release gives no closing consideration. Brex is part of Capital One from this date.",
+  "deal": "capitalone:brex"
  },
  {
   "event_date": "2026-05-11",
@@ -388,7 +410,8 @@
   "stale": false,
   "source_name": "Wise Owner Relations: Wise debuts US listing on Nasdaq",
   "source_url": "https://owners.wise.com/news-releases/news-release-details/wise-debuts-us-listing-nasdaq",
-  "caveat": "A listing move via a scheme of arrangement, not an IPO: no offering size or price is stated in the release. Wise is a 20-F filer reporting in US GAAP after the move."
+  "caveat": "A listing move via a scheme of arrangement, not an IPO: no offering size or price is stated in the release. Wise is a 20-F filer reporting in US GAAP after the move.",
+  "deal": null
  },
  {
   "event_date": "2026-05-20",
@@ -405,7 +428,8 @@
   "stale": false,
   "source_name": "Business Wire: Mercury raises $200 million Series D at $5.2B valuation",
   "source_url": "https://www.businesswire.com/news/home/20260520511817/en/Mercury-Raises-%24200-Million-Series-D-at-%245.2B-Valuation",
-  "caveat": "Valuation in US dollars as stated by Mercury; the release does not say pre- or post-money."
+  "caveat": "Valuation in US dollars as stated by Mercury; the release does not say pre- or post-money.",
+  "deal": null
  },
  {
   "event_date": "2026-06-04",
@@ -422,7 +446,8 @@
   "stale": false,
   "source_name": "PR Newswire: Ramp raises Series F at $44 billion valuation",
   "source_url": "https://www.prnewswire.com/news-releases/ramp-raises-series-f-at-44-billion-valuation-302791103.html",
-  "caveat": "Valuation in US dollars as stated by Ramp. Press reports of later talks at about $60B are not company-confirmed and are not recorded here as an event."
+  "caveat": "Valuation in US dollars as stated by Ramp. Press reports of later talks at about $60B are not company-confirmed and are not recorded here as an event.",
+  "deal": null
  },
  {
   "event_date": "2026-06-15",
@@ -439,7 +464,8 @@
   "stale": false,
   "source_name": "Nuvei: Nuvei to acquire Payoneer for $2.75 billion",
   "source_url": "https://www.nuvei.com/posts/nuvei-to-acquire-payoneer-for-2-75-billion-creating-a-leading-global-platform-for-local-and-cross-border-commerce",
-  "caveat": "Approximate equity value in US dollars as stated in the joint release; expected to close in mid-2027 subject to shareholder and regulatory approval."
+  "caveat": "Approximate equity value in US dollars as stated in the joint release; expected to close in mid-2027 subject to shareholder and regulatory approval.",
+  "deal": "nuvei:payoneer"
  },
  {
   "event_date": "2026-06-25",
@@ -456,7 +482,8 @@
   "stale": false,
   "source_name": "Airwallex newsroom: $320 million Series H, valuation hits $11 billion",
   "source_url": "https://www.airwallex.com/global/newsroom/airwallex-secures-320-million-in-series-h-funding-valuation-hits-11-billion",
-  "caveat": "Valuation in US dollars as stated by Airwallex. Some press dated the news 2026-06-26 (Asia time); the release is dated 25 June 2026."
+  "caveat": "Valuation in US dollars as stated by Airwallex. Some press dated the news 2026-06-26 (Asia time); the release is dated 25 June 2026.",
+  "deal": null
  },
  {
   "event_date": "2026-08-03",
@@ -473,7 +500,8 @@
   "stale": false,
   "source_name": "BVNK press: Mastercard completes acquisition of BVNK",
   "source_url": "https://www.bvnk.com/press/mastercard-completes-acquisition-of-bvnk-to-advance-global-stablecoin-capabilities",
-  "caveat": "Completion date only; the closing release states no price. BVNK is part of Mastercard from this date."
+  "caveat": "Completion date only; the closing release states no price. BVNK is part of Mastercard from this date.",
+  "deal": "mastercard:bvnk"
  },
  {
   "event_date": "2026-08-19",
@@ -490,7 +518,8 @@
   "stale": false,
   "source_name": "Stripe newsroom: Stripe agrees to acquire OpenRouter",
   "source_url": "https://stripe.com/newsroom/news/stripe-agrees-to-acquire-openrouter",
-  "caveat": "Signing date; Stripe did not disclose a price. OpenRouter is an AI-infrastructure target, not a payments company."
+  "caveat": "Signing date; Stripe did not disclose a price. OpenRouter is an AI-infrastructure target, not a payments company.",
+  "deal": "stripe:openrouter"
  },
  {
   "event_date": "2026-09-30",
@@ -507,6 +536,7 @@
   "stale": false,
   "source_name": "Stripe newsroom: Stripe agrees to acquire Parafin",
   "source_url": "https://stripe.com/newsroom/news/stripe-agrees-to-acquire-parafin",
-  "caveat": "Signing date; no price disclosed, and closing is expected 'in the coming months' subject to regulatory clearances."
+  "caveat": "Signing date; no price disclosed, and closing is expected 'in the coming months' subject to regulatory clearances.",
+  "deal": "stripe:parafin"
  }
 ]

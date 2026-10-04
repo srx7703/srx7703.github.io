@@ -1,7 +1,7 @@
 import { VL_SCHEMA, series } from '../theme';
 import {
   type Source, type NpmRow, ADOPTION_PARAMS, NPM_SIDE,
-  namedData, reasonLayer, lookupExpr, emptyExpr, emptyReason, lit, rowsOf,
+  namedData, reasonTitle, lookupExpr, emptyExpr, emptyReason, lit, rowsOf,
 } from './adoption_shared';
 
 const NAME = 'npm_src';
@@ -35,6 +35,7 @@ export function npmIndexSpec(source: Source<NpmRow>, opts: { source?: string; co
   ].join(' : ');
   return {
     $schema: VL_SCHEMA,
+    title: reasonTitle(reason),
     height: 260,
     params: ADOPTION_PARAMS(opts),
     data: namedData(source, NAME),
@@ -74,21 +75,24 @@ export function npmIndexSpec(source: Source<NpmRow>, opts: { source?: string; co
           },
         ],
       },
-      reasonLayer(reason),
     ],
     padding: { right: 70 },
   };
 }
 
 /** Finding for the figure title: fastest index at the last month within the slice (client SDKs by default, server SDKs for the broader slice). */
-export function npmIndexFinding(source?: Source<NpmRow>, slice: 'registered' | 'descriptive' | string = 'registered') {
+export function npmIndexFinding(source?: Source<NpmRow>, slice: 'registered' | 'descriptive' | string = 'registered', ciRan = false) {
   const key = slice === 'descriptive' ? 'descriptive' : 'registered';
   const kind = key === 'descriptive' ? 'server SDK' : 'browser SDK';
   const rows = rowsOf(source).filter((r) => r.side === NPM_SIDE[key] && r.index != null);
   const last = rows.reduce((m, r) => (r.period > m ? r.period : m), '');
   const atLast = rows.filter((r) => r.period === last).sort((a, b) => (b.index ?? 0) - (a.index ?? 0));
   if (!atLast.length) {
-    return { title: 'Developer downloads of the payment SDKs, indexed', ready: false, last: null, top: null, base: null };
+    // The status is the finding (ciRan = facts.ci_sources.devstats).
+    const title = ciRan
+      ? `The ${kind} download file in this build has no indexed rows, so no SDK trend is read here`
+      : 'SDK download trends are not published yet: the first scheduled npm run has not landed';
+    return { title, ready: false, last: null, top: null, base: null };
   }
   const top = atLast[0];
   const month = new Date(`${last}T00:00:00Z`).toLocaleDateString('en-US', { timeZone: 'UTC', month: 'short', year: 'numeric' });

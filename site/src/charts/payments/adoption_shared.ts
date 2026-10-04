@@ -6,7 +6,7 @@
  * webtech / devstats / jobs pipelines, so a local build usually has none of them. Each spec therefore
  * takes a `source` that is either the mart's URL (the normal case: the charts load it by URL), the rows
  * themselves, or `null` when the page knows the mart is absent (`facts.ci_sources.<name> === false`).
- * A missing or empty file never draws an empty chart: a text layer states why, using `indata()` and
+ * A missing or empty file never draws an empty chart: the chart's title states why, using `indata()` and
  * `data()` against the named source dataset, because Vega's aggregate emits nothing on empty input.
  *
  * Group `adoption`, two controls (unbound top-level params of the same names in every spec):
@@ -100,23 +100,21 @@ export function namedData<T>(source: Source<T>, name: string) {
 export const lit = (s: string) => `'${s.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n')}'`;
 
 /**
- * A layer that prints the string `reasonExpr` evaluates to, unless it is empty. It carries its own
- * one-row dataset, so it renders even when the chart's data is empty or failed to load. Keep each
- * line of a reason under about 34 characters (phone width) and break longer ones with '\n' (no automatic wrapping). `yExpr`
- * places it (default: the middle of the plot; pass e.g. '12' to keep dimmed data readable below it).
+ * The chart's own title, set to the string `reasonExpr` evaluates to (empty: no reason). It sits above
+ * the plot, anchored to the left edge of the whole chart (axis labels included), so it never lands on
+ * axis labels, axis titles or point labels however narrow the plot gets. Keep each line of a reason
+ * under about 34 characters (phone width) and break longer ones with '\n'.
  */
-export function reasonLayer(reasonExpr: string, yExpr = 'height / 2') {
+export function reasonTitle(reasonExpr: string) {
   return {
-    data: { values: [{ _reason: 1 }] },
-    transform: [{ calculate: reasonExpr, as: 'reason' }, { filter: "datum.reason != ''" }],
-    mark: {
-      type: 'text', align: 'center', baseline: 'middle', fontSize: 12, fontStyle: 'italic',
-      color: tok('ink-2'), x: { expr: 'width / 2' }, y: { expr: yExpr },
-      limit: { expr: 'max(210, width - 8)' }, lineBreak: '\n', lineHeight: 16,
-    },
-    encoding: { text: { field: 'reason', type: 'nominal' } },
+    text: { expr: `split(${reasonExpr}, '\\n')` },
+    anchor: 'start', frame: 'bounds', orient: 'top', offset: 6,
+    fontSize: 12, fontStyle: 'italic', fontWeight: 'normal', color: tok('ink-2'), lineHeight: 16, limit: 0,
   };
 }
+
+/** A y-axis `labelExpr` that blanks the band labels while a reason is shown (so the reason has the room). */
+export const labelsUnlessReason = (reasonExpr: string) => `(${reasonExpr}) != '' ? '' : datum.label`;
 
 /** A Vega expression mapping a param to a value through a JS record (object literal lookup). */
 export const lookupExpr = (map: Record<string, string>, param: string) =>
@@ -126,7 +124,7 @@ export const lookupExpr = (map: Record<string, string>, param: string) =>
 export const emptyExpr = (name: string) => `length(data(${lit(name)})) == 0`;
 
 export const emptyReason = (what: string) =>
-  `Not on this build yet:\n${what} comes from\na scheduled CI run.`;
+  `Not on this build yet:\n${what} comes\nfrom a scheduled CI run.`;
 
 /** Rows from a source passed as rows (titles and tables are computed at build time only from rows). */
 export const rowsOf = <T>(source: Source<T> | undefined): T[] => (Array.isArray(source) ? source : []);

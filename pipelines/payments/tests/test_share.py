@@ -441,7 +441,7 @@ def test_real_feds_table(real):
     feds = real.hhi.filter(pl.col("pool") == s.FEDS_SERIES).row(0, named=True)
     assert feds["n_members"] == 6 and 2300 < feds["hhi"] < 2500  # PLAN §3 reads about 2,400
     assert {c["name"]: c["status"] for c in real.checks}["FEDS shares reconcile"] == "pass"
-    afterpay = real.long.filter((pl.col("pool") == s.FEDS_SERIES) & (pl.col("company") == "Afterpay"))
+    afterpay = real.long.filter((pl.col("pool") == s.FEDS_SERIES) & (pl.col("company") == "Afterpay/Block"))
     assert afterpay["value"][0] == pytest.approx(53.7 / 156.7, abs=1e-3)
 
 

@@ -166,6 +166,15 @@ def products_mart(rows: list[dict]) -> pl.DataFrame:
     return schema.validate("products", df.sort(schema.PRODUCTS_KEY))
 
 
+def deal_key(r: dict) -> str | None:
+    """``acquirer:target`` from a curated event id (``capitalone:brex:announce`` -> ``capitalone:brex``).
+
+    A signing and its closing share this key, so counts of deals do not double-count them.
+    """
+    parts = str(r.get("id") or "").split(":")
+    return ":".join(parts[:2]) if len(parts) >= 3 else None
+
+
 def events_mart(rows: list[dict]) -> pl.DataFrame:
     recs = []
     for r in rows:
@@ -179,7 +188,7 @@ def events_mart(rows: list[dict]) -> pl.DataFrame:
                      "qualifier": r.get("qualifier") if v is not None else None,
                      "metric_kind": r.get("metric_kind") if v is not None else None, "tag": r["tag"],
                      "stale": bool(r.get("stale")), "source_name": r.get("source_name") or "",
-                     "source_url": r["source_url"], "caveat": r.get("caveat")})
+                     "source_url": r["source_url"], "caveat": r.get("caveat"), "deal": deal_key(r)})
     df = pl.DataFrame(recs, schema=schema.EVENTS_DTYPES) if recs else pl.DataFrame(schema=schema.EVENTS_DTYPES)
     return schema.validate("events", df.sort(["event_date", "company", "event_kind", "counterparty"]))
 
@@ -465,6 +474,8 @@ def kpis(tables: dict[str, pl.DataFrame], vals: dict[str, dict]) -> pl.DataFrame
     if feds:
         k, x = max(feds.items(), key=lambda kv: kv[1]["value"])
         company = k.rsplit(".", 1)[1]
+        if company == share.FEDS_COMPANY["afterpay_block"]:
+            company += " (Afterpay plus Cash App Borrow loans)"
         cands.append({**x, "id": "bnpl_leader_share",
                       "label": "Largest provider's share of 2025 US BNPL issuance among the six largest providers "
                                "(Fed estimate)",
@@ -525,11 +536,22 @@ def counts(tables: dict[str, pl.DataFrame], results: list[evaluate.Result]) -> d
         "products_with_launch_date": prod.filter(pl.col("launch_date").is_not_null()).height,
         "events": ev.height,
         "events_by_kind": {k: n for k, n in sorted(ev.group_by("event_kind").len().iter_rows())},
+        **_deal_counts(ev),
         "metrics_in_dictionary": tables["metric_dictionary"].height,
         "share_rows": tables["share_lenses"].height,
         "share_refusals": tables["share_lenses"].filter(pl.col("role").is_in(["refused", "excluded"])).height,
         "scoreboard": {s: sum(r.status == s for r in results) for s in config.STATUSES},
     }
+
+
+def _deal_counts(ev: pl.DataFrame) -> dict[str, int]:
+    """Acquisitions counted as deals (signing and closing once), and deals with no dollar value in any row."""
+    acq = ev.filter((pl.col("event_kind") == "acquisition") & ~pl.col("stale"))
+    if not acq.height:
+        return {"acquisition_deals": 0, "acquisition_deals_no_value": 0}
+    acq = acq.with_columns(pl.coalesce("deal", pl.concat_str(["company", "counterparty"], separator=":")).alias("_k"))
+    per = acq.group_by("_k").agg(((pl.col("unit") == "USD") & pl.col("value").is_not_null()).any().alias("has"))
+    return {"acquisition_deals": per.height, "acquisition_deals_no_value": per.filter(~pl.col("has")).height}
 
 
 # --- checks -------------------------------------------------------------------------------------------

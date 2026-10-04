@@ -39,7 +39,7 @@ export function shareDumbbellSpec(rows: ShareRow[], opts: { segment?: string; le
     axis: { labelLimit: 140, labelFontSize: 11, ticks: false, domain: false, grid: true, gridColor: tok('grid') },
   };
   const x = {
-    field: 'value', type: 'quantitative', title: 'Share of each lens\'s own denominator',
+    field: 'value', type: 'quantitative', title: ['Share of each lens\'s', 'own denominator'],
     scale: { domain: [0, 1] }, axis: { format: '.0%', tickCount: 5 },
   };
   return {
@@ -69,7 +69,7 @@ export function shareDumbbellSpec(rows: ShareRow[], opts: { segment?: string; le
           x,
           color: {
             field: 'lens_label', type: 'nominal', scale: { domain: LENS_DOMAIN, range: LENS_RANGE },
-            legend: { title: null, orient: 'top', direction: 'horizontal', symbolType: 'circle' },
+            legend: { title: null, orient: 'top', direction: 'vertical', columns: 1, symbolType: 'circle', labelLimit: 230 },
           },
           opacity: { condition: { test: 'datum.is_lens', value: 1 }, value: 0.55 },
           order: { field: 'is_lens', type: 'ordinal' },

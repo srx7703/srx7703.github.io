@@ -189,14 +189,18 @@ export function companyTableRows(points: CompanyPoint[]) {
 /** Findings for the explorer's figure titles; numbers are computed here, never typed. */
 export function companyFindings(points: CompanyPoint[]) {
   const latest = latestPoints(points);
-  const sorted = [...latest].sort((a, b) => a.take_rate_pct - b.take_rate_pct);
+  // The range is read within one ratio kind (gross take rate: revenue over volume); net take rates and
+  // margins are different ratios and are never ranked against it.
+  const gross = latest.filter((p) => p.ratio_kind === 'gross_take_rate');
+  const sorted = [...gross].sort((a, b) => a.take_rate_pct - b.take_rate_pct);
   const lo = sorted[0];
   const hi = sorted[sorted.length - 1];
   const spread = lo && hi ? hi.take_rate_pct / lo.take_rate_pct : null;
   return {
     companies: latest.length,
-    low: lo ? { company: lo.company, take_rate_pct: lo.take_rate_pct, period: lo.period } : null,
-    high: hi ? { company: hi.company, take_rate_pct: hi.take_rate_pct, period: hi.period } : null,
+    gross: gross.length,
+    low: lo ? { company: lo.company, take_rate_pct: lo.take_rate_pct, period: lo.period, qualifier: lo.qualifier } : null,
+    high: hi ? { company: hi.company, take_rate_pct: hi.take_rate_pct, period: hi.period, qualifier: hi.qualifier } : null,
     spread,
     currencies: [...new Set(latest.map((p) => p.currency))].sort(),
     nonQuarterly: latest.filter((p) => p.cadence !== 'quarter').map((p) => p.company).sort(),
@@ -205,3 +209,7 @@ export function companyFindings(points: CompanyPoint[]) {
 
 export const fmtPct = (pct: number): string =>
   `${pct >= 1 ? pct.toFixed(1) : pct.toFixed(2)}%`;
+
+/** fmtPct with the point's qualifier: `~` when an input was rounded (e.g. GMV stated only to $0.1 billion). */
+export const fmtQPct = (p: { take_rate_pct: number; qualifier?: string | null }): string =>
+  `${p.qualifier && p.qualifier !== '=' ? p.qualifier : ''}${fmtPct(p.take_rate_pct)}`;

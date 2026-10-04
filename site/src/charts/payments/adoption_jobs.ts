@@ -1,7 +1,7 @@
 import { VL_SCHEMA, series, tok } from '../theme';
 import {
   type Source, type JobsRow, ADOPTION_PARAMS, BOARD_COMPANY,
-  namedData, reasonLayer, lookupExpr, emptyExpr, emptyReason, lit, rowsOf,
+  namedData, reasonTitle, labelsUnlessReason, lookupExpr, emptyExpr, emptyReason, lit, rowsOf,
 } from './adoption_shared';
 
 const NAME = 'jobs_src';
@@ -47,8 +47,11 @@ export function hiringSpec(source: Source<JobsRow>, opts: { source?: string; com
     `company != 'all' && !indata(${lit(NAME)}, 'board', ${board}) ? 'No snapshot of ' + company + '\\'s\\njob board in the current file.'`,
     "''",
   ].join(' : ');
+  // While a reason is shown there are no bars, so the band labels give way to it.
+  Object.assign(y.axis, { labelExpr: labelsUnlessReason(reason) });
   return {
     $schema: VL_SCHEMA,
+    title: reasonTitle(reason),
     height: { step: 26 },
     params: ADOPTION_PARAMS(opts),
     data: namedData(source, NAME),
@@ -102,13 +105,12 @@ export function hiringSpec(source: Source<JobsRow>, opts: { source?: string; com
           ],
         },
       },
-      reasonLayer(reason),
     ],
   };
 }
 
 /** Finding for the default view (Stripe): the largest function's share of its latest postings. */
-export function hiringFinding(source?: Source<JobsRow>, company = 'Stripe') {
+export function hiringFinding(source?: Source<JobsRow>, company = 'Stripe', ciRan = false) {
   const token = COMPANY_BOARD[company];
   const rows = rowsOf(source).filter((r) => r.board === token);
   const last = rows.reduce((m, r) => (r.snapshot_date > m ? r.snapshot_date : m), '');
@@ -116,7 +118,11 @@ export function hiringFinding(source?: Source<JobsRow>, company = 'Stripe') {
   const total = latest.reduce((s, r) => s + r.postings, 0);
   const top = [...latest].sort((a, b) => b.postings - a.postings)[0];
   if (!top || !total) {
-    return { title: `What ${company} is hiring for, by function`, ready: false, last: null, top: null, share: null };
+    // The status is the finding (ciRan = facts.ci_sources.jobs).
+    const title = ciRan
+      ? `${company}'s job board is not in this build's snapshot file, so its hiring is not shown`
+      : `${company}'s hiring is not published yet: the first scheduled job-board snapshot has not landed`;
+    return { title, ready: false, last: null, top: null, share: null };
   }
   const share = top.postings / total;
   return {

@@ -1,5 +1,5 @@
 import { VL_SCHEMA, series, tok } from '../theme';
-import { lit, lookupExpr, reasonLayer } from './adoption_shared';
+import { lit, lookupExpr, reasonTitle } from './adoption_shared';
 import {
   type LedgerPoint, type LedgerMetric, LEDGER_METRICS, LEDGER_PARAMS,
 } from './ledger_data';
@@ -14,6 +14,21 @@ const AXIS_LABEL_EXPR = "metric == 'take_rate' ? format(datum.value, '.2~f') + '
 
 /** 1-2-5 ticks across every decade a ledger family can span (0.01% to $10T); Vega keeps those in the domain. */
 const LOG_TICKS = Array.from({ length: 16 }, (_, i) => i - 2).flatMap((k) => [1, 2, 5].map((m) => +(m * 10 ** k).toPrecision(1)));
+
+/**
+ * Which side of its mark the latest figure's label goes, decided from the room on each side at the
+ * current plot width (the scale has 14px padding at each end; the right padding adds 16px of room).
+ * The label goes right if it fits there, else left if it fits there, else to the roomier side; when
+ * the full tag does not fit on the chosen side, the ' · <month>' suffix is dropped (it is in the
+ * tooltip), so a date is never cut mid-word.
+ */
+const LABEL_SIDE = [
+  { filter: 'datum.latest && datum.start != null && datum.end != null' },
+  { calculate: 'width + 16 - (14 + datum.f_end * (width - 28)) - 4', as: 'room_r' },
+  { calculate: '14 + datum.f_start * (width - 28) - 4', as: 'room_l' },
+  { calculate: 'datum.room_r >= datum.w_tag || (datum.room_l < datum.w_tag && datum.room_r >= datum.room_l)', as: 'lab_right' },
+  { calculate: '(datum.lab_right ? datum.room_r : datum.room_l) >= datum.w_tag ? datum.tag : datum.label', as: 'lab_text' },
+];
 
 /**
  * Private ledger, interval chart: every public number about each private company, one row per
@@ -38,8 +53,8 @@ export function ledgerIntervalSpec(points: LedgerPoint[], opts: { company?: stri
     const k = `${p.company}|${p.family}`;
     if (!lastDate.has(k) || p.date > (lastDate.get(k) as string)) lastDate.set(k, p.date);
   });
-  // Each family's extent on the log axis decides which side of its mark a label goes: marks in the
-  // right part of the axis are labelled on their left, so no label runs off the plot on a phone.
+  // Each family's extent on the log axis places a mark as a fraction of the plot, so LABEL_SIDE can
+  // choose the side of its label from the room at the rendered width (no label runs off on a phone).
   const extent = new Map<string, [number, number]>();
   points.forEach((p) => {
     const vs = [p.lo, p.hi, p.point].filter((v): v is number => v != null && v > 0).map(Math.log);
@@ -52,10 +67,13 @@ export function ledgerIntervalSpec(points: LedgerPoint[], opts: { company?: stri
     const month = new Date(`${p.date}T00:00:00Z`).toLocaleDateString('en-US', { timeZone: 'UTC', month: 'short', year: 'numeric' });
     const start = p.lo ?? p.point; const end = p.hi ?? p.point;
     const [a, b] = extent.get(p.family) as [number, number];
-    const frac = b > a && end ? (Math.log(end) - a) / (b - a) : 0;
+    const fracOf = (v: number | null) => (b > a && v ? (Math.log(v) - a) / (b - a) : 0);
+    const tag = `${p.label} · ${month}`;
     return {
       ...p, key, latest, level: latest ? (p.point ?? p.lo) : null, start, end,
-      label_left: frac > 0.55, tag: `${p.label} · ${month}`,
+      f_start: fracOf(start), f_end: fracOf(end), tag,
+      // Estimated rendered widths at 10.5px Plex Sans (about 0.5em a character), for the side choice.
+      w_tag: Math.ceil(tag.length * 5.3),
     };
   });
   const on = "(company == 'all' || datum.company == company)";
@@ -90,6 +108,7 @@ export function ledgerIntervalSpec(points: LedgerPoint[], opts: { company?: stri
   ].join(' : ');
   return {
     $schema: VL_SCHEMA,
+    title: reasonTitle(reason),
     height: { step: 38 },
     params: LEDGER_PARAMS(opts),
     data: { values, name: NAME },
@@ -136,25 +155,24 @@ export function ledgerIntervalSpec(points: LedgerPoint[], opts: { company?: stri
           },
           {
             // The latest figure as stated, above its mark and running right ...
-            transform: [{ filter: 'datum.latest && datum.end != null && !datum.label_left' }],
+            transform: [...LABEL_SIDE, { filter: 'datum.lab_right' }],
             mark: { type: 'text', align: 'left', baseline: 'bottom', dx: 2, dy: -7, fontSize: 10.5 },
             encoding: {
-              x: { ...xBase, field: 'end' }, text: { field: 'tag', type: 'nominal' },
+              x: { ...xBase, field: 'end' }, text: { field: 'lab_text', type: 'nominal' },
               color: { condition: { test: on, value: tok('ink-2') }, value: series.neutral },
             },
           },
           {
-            // ... or running left when the mark sits in the right part of the axis.
-            transform: [{ filter: 'datum.latest && datum.start != null && datum.label_left' }],
+            // ... or running left when there is more room on that side of the mark.
+            transform: [...LABEL_SIDE, { filter: '!datum.lab_right' }],
             mark: { type: 'text', align: 'right', baseline: 'bottom', dx: -2, dy: -7, fontSize: 10.5 },
             encoding: {
-              x: { ...xBase, field: 'start' }, text: { field: 'tag', type: 'nominal' },
+              x: { ...xBase, field: 'start' }, text: { field: 'lab_text', type: 'nominal' },
               color: { condition: { test: on, value: tok('ink-2') }, value: series.neutral },
             },
           },
         ],
       },
-      reasonLayer(reason, '14'),
     ],
     padding: { right: 20 },
   };
@@ -173,13 +191,21 @@ export function ledgerIntervalFinding(points: LedgerPoint[], metric: LedgerMetri
   }
   const level = (p: LedgerPoint) => p.point ?? p.lo ?? 0;
   const ranked = [...latest.values()].sort((a, b) => level(b) - level(a));
-  const top = ranked[0];
+  // Only company-stated figures are ranked: a derived band or a counterparty filing is drawn, never
+  // named as a company's figure in the title.
+  const stated = ranked.filter((p) => p.shape === 'stated');
+  const top = stated[0];
   const name = METRIC_NAME[metric] ?? metric;
-  if (!top) return { title: `No private company has a public ${name} figure`, companies: 0, bounds: 0, top: null };
+  if (!ranked.length) return { title: `No private company has a public ${name} figure`, companies: 0, bounds: 0, derived: 0, top: null };
   const bounds = ranked.filter((p) => p.arrow != null || p.interval).length;
+  const derived = ranked.length - stated.length;
+  const tail = `${bounds} of ${ranked.length} latest figures are bounds, not points`
+    + (derived ? `, and ${derived} ${derived === 1 ? 'is' : 'are'} derived or from a counterparty and not ranked` : '');
+  if (!top) return { title: `No private company states a ${name} figure itself; ${tail}`, companies: ranked.length, bounds, derived, top: null };
+  const month = new Date(`${top.date}T00:00:00Z`).toLocaleDateString('en-US', { timeZone: 'UTC', month: 'short', year: 'numeric' });
   return {
-    title: `${top.company} has the largest latest ${name} figure among the private companies (${top.label}); ${bounds} of ${ranked.length} latest figures are bounds, not points`,
-    companies: ranked.length, bounds, top,
+    title: `${top.company} states the largest latest ${name} figure among the private companies: ${top.label}, ${top.metric_label.toLowerCase()}, as of ${month}; ${tail}`,
+    companies: ranked.length, bounds, derived, top,
   };
 }
 

@@ -1,5 +1,5 @@
 import { VL_SCHEMA, series, tok } from '../theme';
-import { type CompanyPoint, defaultCompany, latestPoints, fmtPct } from './company_data';
+import { type CompanyPoint, defaultCompany, latestPoints, fmtPct, fmtQPct } from './company_data';
 
 /** Iso-take-rate lines, as fractions of volume. */
 export const ISO_RATES = [0.001, 0.003, 0.01, 0.03, 0.1];
@@ -67,8 +67,8 @@ export function companyScatterSpec(points: CompanyPoint[], opts: { company?: str
   const xScale = { type: 'log', domain: [x0, x1], nice: false };
   const yScale = { type: 'log', domain: [y0, y1], nice: false };
   const moneyLabel = "'$' + replace(format(datum.value, '~s'), 'G', 'B')";
-  const x = { field: 'volume', type: 'quantitative', scale: xScale, title: 'Volume in the latest quarter (US$, log scale)', axis: { labelExpr: moneyLabel, tickCount: 5, grid: false } };
-  const y = { field: 'revenue', type: 'quantitative', scale: yScale, title: 'Revenue line in the quarter (US$, log scale)', axis: { labelExpr: moneyLabel, tickCount: 5, grid: false } };
+  const x = { field: 'volume', type: 'quantitative', scale: xScale, title: 'Quarterly volume (US$, log)', axis: { labelExpr: moneyLabel, tickCount: 5, grid: false } };
+  const y = { field: 'revenue', type: 'quantitative', scale: yScale, title: 'Quarterly revenue line (US$, log)', axis: { labelExpr: moneyLabel, tickCount: 5, grid: false } };
   return {
     $schema: VL_SCHEMA,
     height: 340,
@@ -138,7 +138,7 @@ export function companyScatterFinding(points: CompanyPoint[]) {
   const hi = gross[gross.length - 1];
   const spread = lo && hi ? hi.take_rate_pct / lo.take_rate_pct : null;
   const title = lo && hi && spread
-    ? `Gross take rates run from ${fmtPct(lo.take_rate_pct)} (${lo.company}) to ${fmtPct(hi.take_rate_pct)} (${hi.company}), a ${Math.round(spread)}-fold range`
+    ? `Gross take rates run from ${fmtQPct(lo)} (${lo.company}) to ${fmtQPct(hi)} (${hi.company}), ${lo.qualifier !== '=' || hi.qualifier !== '=' ? 'about ' : ''}a ${Math.round(spread)}-fold range`
     : 'Volume against revenue, latest quarter';
   return { title, plotted: plotted.length, excluded, low: lo ?? null, high: hi ?? null, spread };
 }

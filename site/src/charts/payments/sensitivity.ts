@@ -29,29 +29,29 @@ export const SENSITIVITY_GRIDS: Record<string, Grid> = {
     question: 'Q4', scenario: (s) => s.startsWith('rewards_share|') || s === 'base', outputs: ['net_interchange_usd_per_100'],
     seriesOf: (r) => (r.scenario === 'base' ? 'Observed (BILL, latest quarter)'
       : `Gross take cut ${r.scenario.split('gross_cut_')[1]?.replace('bps', ' bps') ?? ''}`),
-    x: 'Rewards share of card transaction fees (%)', y: 'Net interchange after rewards, $ per $100',
+    x: 'Rewards share of card fees (%)', y: 'Net interchange after rewards, $ per $100',
     base: (r) => r.scenario === 'base',
   },
   q7_wise: {
     question: 'Q7', scenario: (s) => s === 'wise_next_take_rate', outputs: ['change_vs_fy2026_usd_per_100'],
     seriesOf: () => 'Wise next reported take rate',
-    x: 'Wise take rate in the next half-year report (%)', y: 'Change against FY2026, $ per $100',
+    x: 'Wise next take rate (%)', y: 'Change against FY2026, $ per $100',
   },
   q7_fsb: {
     question: 'Q7', scenario: (s) => s === 'fsb_2026_avg_cost', outputs: ['fsb_avg_cost_usd_per_100'],
     seriesOf: () => 'FSB 2026 average cost',
-    x: 'FSB 2026 average cost of a B2B MSME payment (%)', y: 'Industry average cost, $ per $100',
+    x: 'FSB 2026 avg cost (%)', y: 'Industry average cost, $ per $100',
   },
   q8: {
     question: 'Q8', scenario: (s) => s === 'commercial_cnp_cut', outputs: ['interchange_usd_per_100'],
     seriesOf: () => 'Visa commercial CNP rate',
-    x: 'Cut to the Visa commercial card-not-present rate (bps)', y: 'Interchange, $ per $100',
+    x: 'Visa commercial CNP cut (bps)', y: 'Interchange, $ per $100',
   },
   q8_bill: {
     question: 'Q8', scenario: (s) => s === 'commercial_cnp_cut',
     outputs: ['bill_net_interchange_rewards_fixed_usd_per_100', 'bill_net_interchange_rewards_share_fixed_usd_per_100'],
     seriesOf: (r) => OUTPUT_LABEL[r.output] ?? r.output,
-    x: 'Cut to the Visa commercial card-not-present rate (bps)', y: 'BILL net interchange after rewards, $ per $100',
+    x: 'Visa commercial CNP cut (bps)', y: 'BILL net interchange after rewards, $ per $100',
   },
 };
 export type GridKey = keyof typeof SENSITIVITY_GRIDS;
@@ -123,12 +123,15 @@ export function sensitivitySpec(rows: SensitivityRow[], key: GridKey) {
   const zones = here.length ? gridZones(here, lo, hi).map((z) => ({ ...z, lo: Math.max(lo, z.lo), hi: Math.min(hi, z.hi), label: z.cls === 'holds' ? 'holds' : 'refuted' })) : [];
   const seriesNames = [...new Set(pts.filter((p) => !p.base).map((p) => p.series))];
   const range = [series.a, series.b, series.c, series.neutral].slice(0, Math.max(1, seriesNames.length));
-  const x = { field: 'input_value', type: 'quantitative', title: g.x, scale: { zero: false, nice: false, padding: 10 }, axis: { tickCount: 6 } };
+  const x = { field: 'input_value', type: 'quantitative', title: g.x, scale: { zero: false, nice: false, padding: 10 }, axis: { tickCount: 6, titleLimit: 230 } };
   const y = { field: 'output_value', type: 'quantitative', title: g.y, scale: { domain: [lo, hi], nice: false, zero: false }, axis: { format: '$.2f', tickCount: 5 } };
   const color = {
     field: 'series', type: 'nominal', scale: { domain: seriesNames, range },
-    legend: seriesNames.length > 1 ? { title: null, orient: 'top', direction: 'horizontal', labelLimit: 220 } : null,
+    legend: seriesNames.length > 1 ? { title: null, orient: 'top', direction: 'vertical', columns: 1, labelLimit: 230 } : null,
   };
+  // One legend only. The dot stroke and dot fill carry the same legend definition, so Vega-Lite merges
+  // them into one stacked legend; the line colour would draw a second copy, so it has none.
+  const lineColor = { ...color, legend: null };
   return {
     $schema: VL_SCHEMA,
     height: 240,
@@ -157,7 +160,7 @@ export function sensitivitySpec(rows: SensitivityRow[], key: GridKey) {
           {
             transform: [{ filter: '!datum.base' }],
             mark: { type: 'line', strokeWidth: 1.2, opacity: 0.6 },
-            encoding: { x, y, color, detail: { field: 'series', type: 'nominal' } },
+            encoding: { x, y, color: lineColor, detail: { field: 'series', type: 'nominal' } },
           },
           {
             transform: [{ filter: '!datum.base' }],
@@ -165,7 +168,7 @@ export function sensitivitySpec(rows: SensitivityRow[], key: GridKey) {
             encoding: {
               x, y,
               stroke: color,
-              fill: { condition: { test: "datum.cls == 'holds' || datum.cls == 'info'", field: 'series', type: 'nominal', scale: { domain: seriesNames, range } }, value: 'transparent' },
+              fill: { condition: { test: "datum.cls == 'holds' || datum.cls == 'info'", field: 'series', type: 'nominal', scale: { domain: seriesNames, range }, legend: color.legend }, value: 'transparent' },
               shape: { field: 'cls', type: 'nominal', scale: { domain: ['holds', 'neither', 'refuted', 'info'], range: ['circle', 'circle', 'cross', 'circle'] }, legend: null },
               size: { condition: { test: "datum.cls == 'info'", value: 24 }, value: 60 },
               tooltip: [
@@ -239,6 +242,7 @@ export function sensitivityFinding(rows: SensitivityRow[], key: GridKey) {
 
 export function sensitivitySubtitle(key: GridKey): string {
   const g = SENSITIVITY_GRIDS[key];
-  return `${g.y} for each registered input on the ${g.question} grid. Filled circle: holds; hollow: neither; cross: refuted; small dot: not graded. `
+  return `${g.y} for each registered input on the ${g.question} grid. Filled circle: holds; hollow: neither; cross: refuted; small dot: not graded`
+    + `${g.base ? '; ink diamond: the observed case' : ''}. The y-axis does not start at zero. `
     + 'Green band: the registered "holds" zone; red band: the refutation zone, both from the evaluation plan. These are scenarios, not forecasts.';
 }

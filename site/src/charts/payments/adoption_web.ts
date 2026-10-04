@@ -1,7 +1,7 @@
 import { VL_SCHEMA, series } from '../theme';
 import {
   type Source, type WebRow, ADOPTION_PARAMS, WEB_SLICE, WEB_COMPANIES,
-  namedData, reasonLayer, lookupExpr, emptyExpr, emptyReason, lit, rowsOf,
+  namedData, reasonTitle, lookupExpr, emptyExpr, emptyReason, lit, rowsOf,
 } from './adoption_shared';
 
 const NAME = 'web_src';
@@ -38,6 +38,7 @@ export function webCoverageSpec(source: Source<WebRow>, opts: { source?: string;
   ].join(' : ');
   return {
     $schema: VL_SCHEMA,
+    title: reasonTitle(reason),
     height: 260,
     params: ADOPTION_PARAMS(opts),
     data: namedData(source, NAME),
@@ -79,16 +80,15 @@ export function webCoverageSpec(source: Source<WebRow>, opts: { source?: string;
           },
         ],
       },
-      reasonLayer(reason),
     ],
   };
 }
 
 /**
  * Finding for the figure title at the default view (registered slice), computed from the rows when the
- * page has them at build time; otherwise a title that says the series is not published yet.
+ * page has them at build time; otherwise a title that states the status (`ciRan` = facts.ci_sources.webtech).
  */
-export function webCoverageFinding(source?: Source<WebRow>, slice: 'registered' | 'descriptive' | string = 'registered') {
+export function webCoverageFinding(source?: Source<WebRow>, slice: 'registered' | 'descriptive' | string = 'registered', ciRan = false) {
   const key = slice === 'descriptive' ? 'descriptive' : 'registered';
   const where = key === 'descriptive' ? 'US websites overall' : 'top-10k US websites';
   const rows = rowsOf(source).filter((r) => r.slice === WEB_SLICE[key] && r.rolling_mean_3m != null);
@@ -97,7 +97,11 @@ export function webCoverageFinding(source?: Source<WebRow>, slice: 'registered' 
   const s = at('Stripe');
   const p = at('PayPal');
   if (s == null || p == null) {
-    return { title: key === 'descriptive' ? 'Stripe against PayPal across all US websites' : 'Stripe against PayPal on the top US websites', ready: false, last: null, stripe: null, paypal: null };
+    // The status is the finding: say why there is no comparison yet (facts.ci_sources.webtech).
+    const title = ciRan
+      ? `Web coverage on ${where} is not in this build's HTTP Archive file, so Stripe and PayPal are not compared here`
+      : 'Web coverage is not published yet: the first scheduled HTTP Archive run has not landed';
+    return { title, ready: false, last: null, stripe: null, paypal: null };
   }
   const lead = s >= p ? 'Stripe' : 'PayPal';
   const lag = lead === 'Stripe' ? 'PayPal' : 'Stripe';
