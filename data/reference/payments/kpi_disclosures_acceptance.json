@@ -2945,7 +2945,7 @@
       "company": "Shopify",
       "metric": "gross_payments_volume",
       "period": "2026-Q1",
-      "value": 67099999999.99999,
+      "value": 67100000000,
       "unit": "USD",
       "qualifier": "=",
       "metric_kind": "filed_volume",
@@ -3464,7 +3464,7 @@
       "tag": "V",
       "chartable": true,
       "company_confirmed": true,
-      "caveat": "Half-year total in euros, not a quarter. volume is gross processed value, of which Adyen keeps roughly 16-17 basis points as net revenue.",
+      "caveat": "Half-year total in euros, not a quarter. volume is gross processed value, of which Adyen keeps roughly 15-17 basis points as net revenue (net revenue divided by processed volume, by half year).",
       "curator_notes": "Read 'Processed volume was €803.8 billion' in the key metrics bullets.",
       "segment": "A",
       "currency": "EUR"
@@ -3510,7 +3510,7 @@
       "tag": "V",
       "chartable": true,
       "company_confirmed": true,
-      "caveat": "Half-year total in euros, not a quarter. Adyen notes a single large-volume customer exit depressed 2025 growth; volume is gross processed value, of which Adyen keeps roughly 16-17 basis points as net revenue.",
+      "caveat": "Half-year total in euros, not a quarter. Adyen notes a single large-volume customer exit depressed 2025 growth; volume is gross processed value, of which Adyen keeps roughly 15-17 basis points as net revenue (net revenue divided by processed volume, by half year).",
       "curator_notes": "Read 'Processed volume was €745.3 billion' in the key metrics bullets.",
       "segment": "A",
       "currency": "EUR"
@@ -3556,7 +3556,7 @@
       "tag": "V",
       "chartable": true,
       "company_confirmed": true,
-      "caveat": "Half-year total in euros, not a quarter. Adyen notes a single large-volume customer exit depressed 2025 growth; volume is gross processed value, of which Adyen keeps roughly 16-17 basis points as net revenue.",
+      "caveat": "Half-year total in euros, not a quarter. Adyen notes a single large-volume customer exit depressed 2025 growth; volume is gross processed value, of which Adyen keeps roughly 15-17 basis points as net revenue (net revenue divided by processed volume, by half year).",
       "curator_notes": "Read 'Processed volume was €649.0 billion' in the key metrics bullets.",
       "segment": "A",
       "currency": "EUR"
@@ -3602,7 +3602,7 @@
       "tag": "V",
       "chartable": true,
       "company_confirmed": true,
-      "caveat": "Half-year total in euros, not a quarter. Adyen notes a single large-volume customer inflated 2024 volume; volume is gross processed value, of which Adyen keeps roughly 16-17 basis points as net revenue.",
+      "caveat": "Half-year total in euros, not a quarter. Adyen notes a single large-volume customer inflated 2024 volume; volume is gross processed value, of which Adyen keeps roughly 15-17 basis points as net revenue (net revenue divided by processed volume, by half year).",
       "curator_notes": "Read 'Processed volume was €666.4 billion' in the key metrics bullets.",
       "segment": "A",
       "currency": "EUR"
@@ -3648,7 +3648,7 @@
       "tag": "V",
       "chartable": true,
       "company_confirmed": true,
-      "caveat": "Half-year total in euros, not a quarter. Adyen notes a single large-volume customer inflated 2024 volume; volume is gross processed value, of which Adyen keeps roughly 16-17 basis points as net revenue.",
+      "caveat": "Half-year total in euros, not a quarter. Adyen notes a single large-volume customer inflated 2024 volume; volume is gross processed value, of which Adyen keeps roughly 15-17 basis points as net revenue (net revenue divided by processed volume, by half year).",
       "curator_notes": "Read 'Processed volume was €619.5 billion' in the key metrics bullets.",
       "segment": "A",
       "currency": "EUR"
@@ -3694,7 +3694,7 @@
       "tag": "V",
       "chartable": true,
       "company_confirmed": true,
-      "caveat": "Half-year total in euros, not a quarter. volume is gross processed value, of which Adyen keeps roughly 16-17 basis points as net revenue.",
+      "caveat": "Half-year total in euros, not a quarter. volume is gross processed value, of which Adyen keeps roughly 15-17 basis points as net revenue (net revenue divided by processed volume, by half year).",
       "curator_notes": "Read 'Processed volume was €544.1 billion' in the key metrics bullets.",
       "segment": "A",
       "currency": "EUR"
@@ -3740,7 +3740,7 @@
       "tag": "V",
       "chartable": true,
       "company_confirmed": true,
-      "caveat": "Half-year total in euros, not a quarter. volume is gross processed value, of which Adyen keeps roughly 16-17 basis points as net revenue.",
+      "caveat": "Half-year total in euros, not a quarter. volume is gross processed value, of which Adyen keeps roughly 15-17 basis points as net revenue (net revenue divided by processed volume, by half year).",
       "curator_notes": "Read 'Processed volume was €426.0 billion' in the key metrics bullets.",
       "segment": "A",
       "currency": "EUR"

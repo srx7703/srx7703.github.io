@@ -741,8 +741,8 @@
       "tag": "V",
       "chartable": true,
       "company_confirmed": false,
-      "caveat": "Brex's customer deposits held at partner banks and money-market funds do not appear on this balance sheet line. Source is Capital One's filing; values are provisional as of June 30, 2026.",
-      "curator_notes": "Read 'Preliminary fair value of liabilities assumed(3) 1,322'; footnote (3) '$1.1 billion of outstanding debt that was paid off immediately'.",
+      "caveat": "Includes $1.1 billion of Brex debt paid off immediately after closing. The filing does not break down the remaining liabilities or say how Brex customer funds held at partner banks are treated. Source is Capital One's filing; values are provisional as of June 30, 2026.",
+      "curator_notes": "Read 'Preliminary fair value of liabilities assumed(3) 1,322'; footnote (3) '$1.1 billion of outstanding debt that was paid off immediately'. Re-read 2026-10-03 on R10.htm Table 2.1; no statement on Brex customer deposits anywhere in Note 2.",
       "segment": "C",
       "currency": "USD"
     },
@@ -1315,8 +1315,8 @@
       "tag": "V",
       "chartable": true,
       "company_confirmed": true,
-      "caveat": "Annualized run rate at the end of Q3 2025; Mercury has not stated a later figure. Mercury earns mostly interest on customer deposits held at partner banks, so the figure moves with interest rates.",
-      "curator_notes": "Read 'In Q3 2025, Mercury reached $650 million in annualized revenue'. The annual letter (mercury.com/blog/annual-letter-2025) says 'as of September 2025, we hit $650M in annualized revenue'.",
+      "caveat": "Annualized run rate at the end of Q3 2025 (the annual letter says 'as of September 2025'); Mercury has not stated a later figure. Annualized, not trailing twelve months.",
+      "curator_notes": "Read 'In Q3 2025, Mercury reached $650 million in annualized revenue'. The annual letter (mercury.com/blog/annual-letter-2025) says 'as of September 2025, we hit $650M in annualized revenue'. Re-read Series D release 2026-10-03: 'In Q3 2025, Mercury reached $650 million in annualized revenue'. No revenue-mix statement in the release.",
       "segment": "C",
       "currency": "USD"
     },
@@ -1426,7 +1426,7 @@
       "qualifier": ">",
       "metric_kind": "stated_volume",
       "status": "current",
-      "definition": "Customers choosing Mercury, as stated by the company (includes personal-banking users).",
+      "definition": "Customers choosing Mercury, as stated by the company ('more than 300,000 customers choose Mercury'); the release does not say whether Mercury Personal users are included.",
       "source_name": "Mercury via Business Wire: Series D release",
       "source_url": "https://www.businesswire.com/news/home/20260520511817/en/Mercury-Raises-%24200-Million-Series-D-at-%245.2B-Valuation",
       "publish_date": "2026-05-20",
@@ -1435,8 +1435,8 @@
       "tag": "V",
       "chartable": true,
       "company_confirmed": true,
-      "caveat": "A lower bound ('more than 300,000'); includes individuals using Mercury Personal, not only businesses.",
-      "curator_notes": "Read 'Today, more than 300,000 customers choose Mercury'.",
+      "caveat": "A lower bound ('more than 300,000'). Mercury does not say whether personal-banking (Mercury Personal) users are counted, so do not compare it with business-only customer counts.",
+      "curator_notes": "Re-read 2026-10-03: 'Today, more than 300,000 customers choose Mercury, including one in three U.S. startups' (para after CEO quote). Release separately mentions customers using Mercury for business and personal finances and the Mercury Personal expansion, but does not tie them to the 300,000 count.",
       "segment": "C"
     },
     {

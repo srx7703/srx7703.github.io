@@ -269,7 +269,7 @@
    "waterfall": "corporate_card_bill",
    "segment": "C",
    "definition": "Visa interchange reimbursement fee, Commercial Card Not Present, Purchasing and Corporate T&E fee program (table 'E Visa U.S.A. Corporate and Purchasing Interchange Fees'). Visa: fees are paid to cardholder financial institutions; merchants pay merchant discount to their own financial institution.",
-   "caveat": "Visa's published US interchange rate effective April 18, 2026: 2.70% plus $0.10 per transaction, paid by the acquirer to the card issuer. This is the rate registered question Q8 tracks. It covers Visa corporate and purchasing cards (including fleet), not Visa Business small-business cards. Interchange is not the merchant's price; network assessment fees and the acquirer's markup sit on top. Rates vary by card product and qualification.",
+   "caveat": "Visa's published US interchange rate effective April 18, 2026: 2.70% plus $0.10 per transaction, paid by the acquirer to the card issuer. It covers Visa corporate and purchasing cards (including fleet), not Visa Business small-business cards. Interchange is not the merchant's price; network assessment fees and the acquirer's markup sit on top. Rates vary by card product and qualification.",
    "source_name": "Visa USA Interchange Reimbursement Fees (Visa Supplemental Requirements, 18 April 2026)",
    "source_url": "https://usa.visa.com/content/dam/VCOM/download/merchants/visa-usa-interchange-reimbursement-fees.pdf",
    "publish_date": "2026-04-18",
@@ -290,7 +290,7 @@
    "waterfall": "corporate_card_bill",
    "segment": "C",
    "definition": "Visa interchange reimbursement fee, Commercial Card Not Present, Purchasing and Corporate T&E fee program (table 'E Visa U.S.A. Corporate and Purchasing Interchange Fees'). Visa: fees are paid to cardholder financial institutions; merchants pay merchant discount to their own financial institution.",
-   "caveat": "Visa's published US interchange rate effective April 18, 2026: 2.70% plus $0.10 per transaction, paid by the acquirer to the card issuer. This is the rate registered question Q8 tracks. It covers Visa corporate and purchasing cards (including fleet), not Visa Business small-business cards. Interchange is not the merchant's price; network assessment fees and the acquirer's markup sit on top. Rates vary by card product and qualification.",
+   "caveat": "Visa's published US interchange rate effective April 18, 2026: 2.70% plus $0.10 per transaction, paid by the acquirer to the card issuer. It covers Visa corporate and purchasing cards (including fleet), not Visa Business small-business cards. Interchange is not the merchant's price; network assessment fees and the acquirer's markup sit on top. Rates vary by card product and qualification.",
    "source_name": "Visa USA Interchange Reimbursement Fees (Visa Supplemental Requirements, 18 April 2026)",
    "source_url": "https://usa.visa.com/content/dam/VCOM/download/merchants/visa-usa-interchange-reimbursement-fees.pdf",
    "publish_date": "2026-04-18",
@@ -944,7 +944,7 @@
    "value": 1.28,
    "unit": "USD_per_100",
    "definition": "Computed: (Spend and Expense transaction fees - rewards expense) / Spend and Expense TPV x 100 = (184.6 - 94.0) / 7,100 x 100.",
-   "caveat": "Computed: about $1.28 per $100 of card spend left after rewards, before credit losses, processing and funding costs. This is the reading registered question Q4 tests (1.0-1.6% band).",
+   "caveat": "Computed: about $1.28 per $100 of card spend left after rewards, before credit losses, processing and funding costs. TPV rounding applies.",
    "curator_notes": "C from V inputs. 90.6/7100 = 1.276%.",
    "source_name": "BILL Holdings Form 8-K Ex. 99.1, Fourth Quarter and Fiscal Year 2026 Financial Results",
    "source_url": "https://www.sec.gov/Archives/edgar/data/1786352/000162828026057932/bill-20260630xexx991.htm",
@@ -1305,13 +1305,13 @@
   },
   {
    "company": "Wise",
-   "metric": "H1 FY2027 cross-border take rate (registered question Q7)",
+   "metric": "H1 FY2027 cross-border take rate",
    "why": "Not yet published; H1 FY27 results are due after this check. Q1 FY27 (0.50%) is the latest figure.",
    "source_url": "https://www.sec.gov/Archives/edgar/data/2099039/000119312526306087/d40450dex991.htm"
   },
   {
    "company": "FSB",
-   "metric": "2026 average cost of B2B (MSME) cross-border payments (registered question Q7)",
+   "metric": "2026 average cost of B2B (MSME) cross-border payments",
    "why": "The 2026 progress report with KPI results is not yet published; the FSB 2026 work programme schedules it for November 2026 (seen in a search extract). The 2025 report is the latest.",
    "source_url": "https://www.fsb.org/uploads/P030226.pdf"
   }
