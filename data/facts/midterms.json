@@ -1,10 +1,10 @@
 {
  "project": "midterms-2026",
- "generated_at": "2026-10-04T12:34:35+00:00",
+ "generated_at": "2026-10-04T21:25:49+00:00",
  "election_day": "2026-11-03",
  "first_snapshot_ts": "2026-09-16T02:26:10+00:00",
- "last_snapshot_ts": "2026-10-04T12:30:37+00:00",
- "n_snapshots": 41,
+ "last_snapshot_ts": "2026-10-04T21:22:37+00:00",
+ "n_snapshots": 42,
  "n_days": 19,
  "markets_tracked": {
   "kalshi": 20907,
@@ -16,13 +16,13 @@
  },
  "quoted_definition": "both sides quoted, spread <= 10 cents, any volume",
  "last_full_snapshot_ts": "2026-10-04T12:30:37+00:00",
- "order_books_captured": 20488,
- "tier1_books_latest": 482,
+ "order_books_captured": 20972,
+ "tier1_books_latest": 484,
  "checks": [
   {
    "name": "Schema",
    "status": "pass",
-   "detail": "pandera schemas validated before every write (41 runs)"
+   "detail": "pandera schemas validated before every write (42 runs)"
   },
   {
    "name": "Probability range",
@@ -57,7 +57,7 @@
   },
   "bop_dr": {
    "label": "D Senate + R House",
-   "polymarket": 0.0055
+   "polymarket": 0.006
   },
   "bop_rd": {
    "label": "R Senate + D House",
@@ -65,92 +65,92 @@
   },
   "bop_rr": {
    "label": "R Senate + R House",
-   "polymarket": 0.065
+   "polymarket": 0.075
   },
   "house_dem": {
    "label": "Democrats win the House",
-   "kalshi": 0.9185,
-   "polymarket": 0.935,
-   "spread": 0.0165
+   "kalshi": 0.918,
+   "polymarket": 0.925,
+   "spread": 0.007
   },
   "house_rep": {
    "label": "Republicans win the House",
-   "kalshi": 0.0815,
+   "kalshi": 0.082,
    "polymarket": 0.075,
-   "spread": -0.0065
+   "spread": -0.007
   },
   "senate_dem": {
    "label": "Democrats win the Senate",
-   "kalshi": 0.625,
-   "polymarket": 0.645,
+   "kalshi": 0.635,
+   "polymarket": 0.655,
    "spread": 0.02
   },
   "senate_rep": {
    "label": "Republicans win the Senate",
-   "kalshi": 0.375,
+   "kalshi": 0.365,
    "polymarket": 0.345,
-   "spread": -0.03
+   "spread": -0.02
   }
  },
  "top_races_polymarket": [
   {
    "event_slug": "maine-senate-election-winner",
    "title": "Maine Senate Election Winner",
-   "volume_usd": 2084703,
+   "volume_usd": 2106270,
    "markets": 13
   },
   {
    "event_slug": "texas-senate-election-winner",
    "title": "Texas Senate Election Winner",
-   "volume_usd": 2017942,
+   "volume_usd": 2046790,
    "markets": 13
   },
   {
    "event_slug": "alaska-governor-election-winner",
    "title": "Alaska Governor Election Winner  ",
-   "volume_usd": 1394471,
+   "volume_usd": 1398221,
    "markets": 40
   },
   {
    "event_slug": "michigan-senate-election-winner",
    "title": "Michigan Senate Election Winner",
-   "volume_usd": 1258128,
+   "volume_usd": 1297708,
    "markets": 13
   },
   {
    "event_slug": "alaska-senate-election-winner",
    "title": "Alaska Senate Election Winner",
-   "volume_usd": 1113189,
+   "volume_usd": 1115569,
    "markets": 29
   },
   {
    "event_slug": "ohio-senate-election-winner",
    "title": "Ohio Senate Election Winner",
-   "volume_usd": 1037223,
+   "volume_usd": 1043020,
    "markets": 13
   },
   {
    "event_slug": "kansas-senate-election-winner",
    "title": "Kansas Senate Election Winner",
-   "volume_usd": 748671,
+   "volume_usd": 754589,
    "markets": 13
   },
   {
    "event_slug": "iowa-senate-election-winner",
    "title": "Iowa Senate Election Winner",
-   "volume_usd": 721228,
+   "volume_usd": 724190,
    "markets": 13
   },
   {
    "event_slug": "wisconsin-governor-winner-2026",
    "title": "Wisconsin Governor Election Winner",
-   "volume_usd": 701157,
+   "volume_usd": 701216,
    "markets": 13
   },
   {
    "event_slug": "south-carolina-senate-election-winner",
    "title": "South Carolina Senate Election Winner",
-   "volume_usd": 604031,
+   "volume_usd": 624675,
    "markets": 13
   }
  ],
