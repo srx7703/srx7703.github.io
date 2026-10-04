@@ -1,0 +1,38 @@
+[
+ {
+  "company": "Airwallex",
+  "ratio": "revenue_per_transaction_volume",
+  "period": "2025-10",
+  "reason": "qualifiers bound the ratio from opposite sides (> over >)"
+ },
+ {
+  "company": "Checkout.com",
+  "ratio": "net_revenue_per_tpv",
+  "period": "2026-09",
+  "reason": "no total_payment_volume for this period"
+ },
+ {
+  "company": "Checkout.com",
+  "ratio": "net_revenue_per_tpv",
+  "period": "FY2025",
+  "reason": "no annualized_net_revenue for this period"
+ },
+ {
+  "company": "Mercury",
+  "ratio": "revenue_per_transaction_volume",
+  "period": "FY2025",
+  "reason": "no revenue for this period"
+ },
+ {
+  "company": "Ramp",
+  "ratio": "revenue_per_purchase_volume",
+  "period": "2025-07",
+  "reason": "no annualized_revenue for this period"
+ },
+ {
+  "company": "Ramp",
+  "ratio": "revenue_per_purchase_volume",
+  "period": "2025-11",
+  "reason": "qualifiers bound the ratio from opposite sides (> over >)"
+ }
+]

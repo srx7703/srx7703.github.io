@@ -1,0 +1,62 @@
+[
+ {
+  "company": "Affirm",
+  "ratio": "revenue_per_gmv",
+  "period": "FY2025",
+  "reason": "no Total revenue, net for this period"
+ },
+ {
+  "company": "Affirm",
+  "ratio": "revenue_per_gmv",
+  "period": "FY2026-Q4",
+  "reason": "GMV not chartable (tag S)"
+ },
+ {
+  "company": "Affirm",
+  "ratio": "rltc_per_gmv",
+  "period": "FY2025",
+  "reason": "no Revenue less transaction costs for this period"
+ },
+ {
+  "company": "Affirm",
+  "ratio": "rltc_per_gmv",
+  "period": "FY2026",
+  "reason": "no Revenue less transaction costs for this period"
+ },
+ {
+  "company": "Affirm",
+  "ratio": "rltc_per_gmv",
+  "period": "FY2026-Q4",
+  "reason": "GMV not chartable (tag S)"
+ },
+ {
+  "company": "BILL",
+  "ratio": "revenue_per_tpv",
+  "period": "FY2025",
+  "reason": "no Total payment volume for this period"
+ },
+ {
+  "company": "BILL",
+  "ratio": "revenue_per_tpv",
+  "period": "FY2026",
+  "reason": "no Total payment volume for this period"
+ },
+ {
+  "company": "Flywire",
+  "ratio": "net_revenue_per_tpv",
+  "period": "FY2025",
+  "reason": "no Total payment volume for this period"
+ },
+ {
+  "company": "Marqeta",
+  "ratio": "net_revenue_per_tpv",
+  "period": "FY2025",
+  "reason": "no Net revenue for this period"
+ },
+ {
+  "company": "Sezzle",
+  "ratio": "revenue_per_gmv",
+  "period": "FY2025",
+  "reason": "no GMV for this period"
+ }
+]

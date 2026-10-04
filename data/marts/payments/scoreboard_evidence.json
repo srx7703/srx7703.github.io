@@ -1,0 +1,162 @@
+[
+ {
+  "id": "Q1",
+  "label": "Stripe share of disclosed volume, upper bound",
+  "value": 0.863636,
+  "qualifier": "<",
+  "unit": "fraction",
+  "period": "FY2025",
+  "source_url": null,
+  "note": "upper bound of an interval; PayPal enters as [0, full TPV] because TPV includes Venmo/P2P; NOT INFORMATIVE: Adyen, Airwallex, Checkout.com entered at 0 (no comparable calendar-year volume), so this bound is inflated by missing data and is not graded"
+ },
+ {
+  "id": "Q1",
+  "label": "Stripe share with PayPal at full TPV (context, not graded)",
+  "value": 0.475716,
+  "qualifier": "<",
+  "unit": "fraction",
+  "period": "FY2025",
+  "source_url": null,
+  "note": null
+ },
+ {
+  "id": "Q3",
+  "label": "Affirm GMV growth, latest charted quarter (already seen)",
+  "value": 34.883721,
+  "qualifier": "=",
+  "unit": "percent",
+  "period": "FY2026-Q3 vs FY2025-Q3",
+  "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026032105/affirmfq326shareholderle.htm",
+  "note": null
+ },
+ {
+  "id": "Q4",
+  "label": "BILL net interchange after rewards (already seen)",
+  "value": 1.276056,
+  "qualifier": "=",
+  "unit": "percent of card volume",
+  "period": "FY2026-Q4",
+  "source_url": "https://www.sec.gov/Archives/edgar/data/1786352/000162828026057932/bill-20260630xexx991.htm",
+  "note": null
+ },
+ {
+  "id": "Q5",
+  "label": "Affirm merchant and card-network revenue per $100",
+  "value": 2.876338,
+  "qualifier": "=",
+  "unit": "usd_per_100",
+  "period": "FY2026",
+  "source_url": null,
+  "note": null
+ },
+ {
+  "id": "Q5",
+  "label": "Affirm revenue less transaction costs per $100",
+  "value": 4.153319,
+  "qualifier": "=",
+  "unit": "usd_per_100",
+  "period": "FY2026",
+  "source_url": null,
+  "note": null
+ },
+ {
+  "id": "Q6",
+  "label": "Brex implied annual card spend, lower end",
+  "value": 6610555555.56,
+  "qualifier": ">",
+  "unit": "USD",
+  "period": "2026-04-07",
+  "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+  "note": "20-45 days of card receivables (section H, Q6)"
+ },
+ {
+  "id": "Q6",
+  "label": "Brex implied annual card spend, upper end",
+  "value": 14873750000.0,
+  "qualifier": "<",
+  "unit": "USD",
+  "period": "2026-04-07",
+  "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+  "note": "20-45 days of card receivables (section H, Q6)"
+ },
+ {
+  "id": "Q6",
+  "label": "Brex implied net interchange, lower end",
+  "value": 84615111.1111,
+  "qualifier": ">",
+  "unit": "USD",
+  "period": "2026-04-07",
+  "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+  "note": "20-45 days of card receivables (section H, Q6); net interchange 1.28% of spend as at BILL"
+ },
+ {
+  "id": "Q6",
+  "label": "Brex implied net interchange, upper end",
+  "value": 190384000.0,
+  "qualifier": "<",
+  "unit": "USD",
+  "period": "2026-04-07",
+  "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+  "note": "20-45 days of card receivables (section H, Q6); net interchange 1.28% of spend as at BILL"
+ },
+ {
+  "id": "Q7",
+  "label": "Wise take rate change FY2025 to FY2026 (already seen)",
+  "value": -0.06,
+  "qualifier": "=",
+  "unit": "percentage points",
+  "period": "FY2026 vs FY2025",
+  "source_url": "https://owners.wise.com/news-releases/news-release-details/wise-group-plc-reports-full-year-2026-financial-results",
+  "note": null
+ },
+ {
+  "id": "Q7",
+  "label": "FSB average MSME B2B cost (already seen)",
+  "value": 1.6,
+  "qualifier": "=",
+  "unit": "percent",
+  "period": "2025",
+  "source_url": "https://www.fsb.org/uploads/P091025-1.pdf",
+  "note": null
+ },
+ {
+  "id": "Q7",
+  "label": "Wise take rate FY2027-Q1 (context, not the graded half-year)",
+  "value": 0.5,
+  "qualifier": "=",
+  "unit": "percent",
+  "period": "FY2027-Q1",
+  "source_url": "https://www.sec.gov/Archives/edgar/data/2099039/000119312526306087/d40450dex991.htm",
+  "note": null
+ },
+ {
+  "id": "Q8",
+  "label": "Visa Commercial CNP ad valorem rate",
+  "value": 2.7,
+  "qualifier": "=",
+  "unit": "percent",
+  "period": "2026-04-18",
+  "source_url": "https://usa.visa.com/content/dam/VCOM/download/merchants/visa-usa-interchange-reimbursement-fees.pdf",
+  "note": null
+ },
+ {
+  "id": "Q9",
+  "label": "Roster companies announced as acquired in the 12 months before registration",
+  "value": 3.0,
+  "qualifier": "=",
+  "unit": "companies",
+  "period": null,
+  "source_url": null,
+  "note": "BVNK, Brex, Payoneer"
+ },
+ {
+  "id": "Q9",
+  "label": "Qualifying acquisitions announced since registration",
+  "value": 0.0,
+  "qualifier": "=",
+  "unit": "companies",
+  "period": "to 2026-10-04",
+  "source_url": null,
+  "note": null
+ }
+]

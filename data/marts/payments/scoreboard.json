@@ -1,0 +1,110 @@
+[
+ {
+  "id": "Q1",
+  "title": "Developer mindshare is more concentrated than money",
+  "status": "collecting",
+  "reason": "npm download counts (devstats) exist only after a CI run; none on disk yet",
+  "graded": "monthly; 2027-02 (Stripe's next annual letter)",
+  "next_grading": "2027-02",
+  "already_seen": "download share 84-90% depending on the whitelist; volume share about 32% (computed)",
+  "inputs": "devstats (npm client SDKs, CI only); share.q1_volume_share (curated KPI and private ledger)",
+  "ci_only": true,
+  "inputs_present": false
+ },
+ {
+  "id": "Q2",
+  "title": "The top of the web is changing hands",
+  "status": "collecting",
+  "reason": "HTTP Archive counts (webtech) exist only after a CI run; none on disk yet",
+  "graded": "2027-03",
+  "next_grading": "2027-03",
+  "already_seen": "Stripe 522, PayPal 478 (2026-08 crawl)",
+  "inputs": "webtech (HTTP Archive Tech Report, US, top-10k origins, mobile; CI only)",
+  "ci_only": true,
+  "inputs_present": false
+ },
+ {
+  "id": "Q3",
+  "title": "BNPL share is moving to Affirm",
+  "status": "collecting",
+  "reason": "pair 1: Affirm FY2027-Q1 GMV not published yet; pair 1: Klarna US GMV for 2026-Q3 and 2025-Q3 not in the curated KPI file (Klarna's curated GMV row is global); pair 2: Affirm FY2027-Q2 GMV not published yet; pair 2: Klarna US GMV for 2026-Q4 and 2025-Q4 not in the curated KPI file (Klarna's curated GMV row is global)",
+  "graded": "2026-11; 2027-02",
+  "next_grading": "2026-11",
+  "already_seen": "+36% against +27%; Affirm's GMV includes small Canada and UK volumes",
+  "inputs": "curated KPI file: Affirm GMV (fiscal quarters), Klarna US GMV (calendar quarters)",
+  "ci_only": false,
+  "inputs_present": false
+ },
+ {
+  "id": "Q4",
+  "title": "Corporate-card net interchange settles at 1.0-1.6% of card volume",
+  "status": "collecting",
+  "reason": "no quarter ending on or after 2026-09-30 in the waterfall inputs yet (BILL's first net-of-rewards quarter)",
+  "graded": "2026-11; 2027-02",
+  "next_grading": "2026-11",
+  "already_seen": "BILL gross 2.60%, rewards 51% of interchange, net about 1.28% (computed)",
+  "inputs": "economics waterfall: net interchange after rewards per US spend-management issuer and quarter",
+  "ci_only": false,
+  "inputs_present": false
+ },
+ {
+  "id": "Q5",
+  "title": "BNPL is a lending business",
+  "status": "collecting",
+  "reason": "Klarna does not disclose a merchant/credit split (no Klarna per-$100 waterfall in the curated inputs); undecidable if still absent after 2026-11",
+  "graded": "2026-11",
+  "next_grading": "2026-11",
+  "already_seen": "Affirm 4.15 against Klarna 1.22 per $100 kept (computed, different periods)",
+  "inputs": "economics waterfalls: Affirm FY2026 per-$100 lines; a Klarna merchant/credit split",
+  "ci_only": false,
+  "inputs_present": false
+ },
+ {
+  "id": "Q6",
+  "title": "Brex earns less than half of its revenue from card interchange",
+  "status": "collecting",
+  "reason": "no Capital One disclosure of Brex net interchange and revenue yet; the revenue denominator is a secondary-source figure, listed only in the reported, unconfirmed table and never used in a computed number",
+  "graded": "2027-02 (Capital One FY2026 10-K)",
+  "next_grading": "2027-02",
+  "already_seen": "$815M of loans in Capital One's purchase-price allocation -> $6.6-14.9B of card spend -> $85-190M of net interchange, against about $700M of stated annualised revenue (secondary source)",
+  "inputs": "ledger private_intervals (Q6 chain); a Capital One disclosure of Brex net interchange and revenue",
+  "ci_only": false,
+  "inputs_present": false
+ },
+ {
+  "id": "Q7",
+  "title": "Cross-border: challengers cut price, the industry average does not move",
+  "status": "collecting",
+  "reason": "Wise H1 FY27 take rate not in the waterfall inputs yet; FSB 2026 average cost not in the waterfall inputs yet",
+  "graded": "2026-10 to 2026-11",
+  "next_grading": "2026-10",
+  "already_seen": "Wise 0.58% to 0.52%; FSB 1.5% in 2023, 1.6% in 2024 and 2025",
+  "inputs": "waterfall inputs: Wise take rate (FY2026, H1 FY27), FSB average MSME B2B cost (2026)",
+  "ci_only": false,
+  "inputs_present": false
+ },
+ {
+  "id": "Q8",
+  "title": "Commercial-card interchange does not fall after the settlement",
+  "status": "collecting",
+  "reason": "the settlement has no final approval yet (fairness hearing 2026-11-16); graded on the first Visa sheet effective after it",
+  "graded": "after the fairness hearing (2026-11-16); the spring 2027 Visa sheet",
+  "next_grading": "2026-11",
+  "already_seen": "2.70% + $0.10, effective 2026-04-18",
+  "inputs": "waterfall inputs: Visa US Commercial Card-Not-Present rate by sheet",
+  "ci_only": false,
+  "inputs_present": false
+ },
+ {
+  "id": "Q9",
+  "title": "Consolidation continues (a calibration item)",
+  "status": "collecting",
+  "reason": "0 of 2 so far; the window runs to 2027-09-30 (independent roster companies valued below $5B; Payoneer excluded)",
+  "graded": "2027-09-30",
+  "next_grading": "2027-09-30",
+  "already_seen": "3-4 roster deals in the past 12 months",
+  "inputs": "curated events (acquisition announcements)",
+  "ci_only": false,
+  "inputs_present": true
+ }
+]
