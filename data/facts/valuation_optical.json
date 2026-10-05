@@ -1,33 +1,33 @@
 {
- "generated_at": "2026-10-05T15:18:28.731910+00:00",
+ "generated_at": "2026-10-05T16:27:00.131375+00:00",
  "track": "optical",
  "label": "Optical modules",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-10-05T15:17:24+00:00",
- "as_of_estimates": "2026-09-28T15:59:56+00:00",
+ "as_of_price": "2026-10-05T16:23:00+00:00",
+ "as_of_estimates": "2026-10-05T16:24:49+00:00",
  "as_of_fx": "2026-09-25",
  "n_listings": 34,
  "n_issuers": 33,
  "n_priced": 34,
  "n_with_consensus": 34,
- "n_thin": 5,
+ "n_thin": 4,
  "n_nm": 0,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 51.17345588146404,
- "median_fwd_pe_next": 34.20420056096733,
- "p25_fwd_pe_this": 28.734383563940654,
- "p75_fwd_pe_this": 88.87711906428719,
- "iqr_fwd_pe_this": 60.14273550034653,
- "median_growth": 0.6934019712034238,
- "median_trailing_pe": 88.71143183714962,
+ "median_fwd_pe_this": 51.48262160085032,
+ "median_fwd_pe_next": 33.997663275461065,
+ "p25_fwd_pe_this": 28.848902523913374,
+ "p75_fwd_pe_this": 88.66749023819878,
+ "iqr_fwd_pe_this": 59.81858771428541,
+ "median_growth": 0.6992732416654759,
+ "median_trailing_pe": 88.92713647894564,
  "cheapest": {
   "ticker": "600060.SS",
   "name": "Hisense Visual",
-  "fwd_pe_2026": 12.76431718061674,
-  "growth": 0.11943220753793438,
+  "fwd_pe_2026": 12.750967741935485,
+  "growth": 0.11870967741935479,
   "coverage": "covered"
  },
  "priciest": {
@@ -783,7 +783,7 @@
   {
    "name": "Analyst depth",
    "status": "pass",
-   "detail": "5 of 34 listings are covered by fewer than three analysts"
+   "detail": "4 of 34 listings are covered by fewer than three analysts"
   },
   {
    "name": "Trailing basis",

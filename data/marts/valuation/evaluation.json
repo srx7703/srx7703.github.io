@@ -1,7 +1,9 @@
 {
- "generated_at": "2026-10-05T15:18:30.049298+00:00",
+ "generated_at": "2026-10-05T16:27:01.510100+00:00",
  "plan": "docs/EVALUATION_PLAN.md",
- "snapshot_vintages_written": [],
+ "snapshot_vintages_written": [
+  "/home/runner/work/srx7703.github.io/srx7703.github.io/data/snapshots/valuation/vintages/2026-10-05-snapshot.parquet"
+ ],
  "tracks": {
   "optical": {
    "consensus_accuracy": {
@@ -10,22 +12,22 @@
    },
    "revision_persistence": {
     "status": "not_yet",
-    "why": "no window yet has 10 listings whose consensus moved; 6 windows were dropped for being too quiet"
+    "why": "no window yet has 10 listings whose consensus moved; 11 windows were dropped for being too quiet"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-10-05T15:18:28.731910+00:00",
-    "iqr": 60.14273550034653,
-    "p25": 28.734383563940654,
-    "p75": 88.87711906428719,
-    "median": 51.17345588146404,
+    "as_of": "2026-10-05T16:27:00.131375+00:00",
+    "iqr": 59.81858771428541,
+    "p25": 28.848902523913374,
+    "p75": 88.66749023819878,
+    "median": 51.48262160085032,
     "n_priced": 34,
     "n_listings": 34,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
    },
    "dual_listing_premium": {
     "status": "partial",
-    "as_of": "2026-10-05T15:18:28.731910+00:00",
+    "as_of": "2026-10-05T16:27:00.131375+00:00",
     "pairs": [
      {
       "name": "YOFC",
@@ -234,45 +236,45 @@
    },
    "revision_persistence": {
     "status": "not_yet",
-    "why": "no window yet has 10 listings whose consensus moved; 6 windows were dropped for being too quiet"
+    "why": "no window yet has 10 listings whose consensus moved; 11 windows were dropped for being too quiet"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-10-05T15:18:28.731910+00:00",
-    "iqr": 30.96605110474718,
-    "p25": 13.379392307771113,
-    "p75": 44.34544341251829,
-    "median": 20.075865037885116,
+    "as_of": "2026-10-05T16:27:00.131375+00:00",
+    "iqr": 31.239058361639216,
+    "p25": 13.184803125189879,
+    "p75": 44.4238614868291,
+    "median": 19.989048326350073,
     "n_priced": 26,
     "n_listings": 34,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
    },
    "dual_listing_premium": {
     "status": "partial",
-    "as_of": "2026-10-05T15:18:28.731910+00:00",
+    "as_of": "2026-10-05T16:27:00.131375+00:00",
     "pairs": [
      {
       "name": "CATL",
       "primary": "300750.SZ",
       "secondary": "3750.HK",
-      "primary_pe": 14.026327570873043,
-      "secondary_pe": 19.927310574895714,
+      "primary_pe": 14.04801544215225,
+      "secondary_pe": 19.95812269906046,
       "basis": "both lines on 300750.SZ's consensus for calendar 2026",
       "nm": null,
-      "premium": -0.296125409489863
+      "premium": -0.2961254094898631
      },
      {
       "name": "BYD",
       "primary": "002594.SZ",
       "secondary": "1211.HK",
-      "primary_pe": 19.416683758133985,
-      "secondary_pe": 14.775810793995944,
+      "primary_pe": 19.44299661597106,
+      "secondary_pe": 14.79583449184739,
       "basis": "both lines on 002594.SZ's consensus for calendar 2026",
       "nm": null,
-      "premium": 0.3140858413010965
+      "premium": 0.31408584130109674
      }
     ],
-    "median_premium": 0.008980215905616762,
+    "median_premium": 0.008980215905616817,
     "note": "the premium is the A line over the H line on identical reported earnings"
    },
    "share_bases": {
@@ -576,15 +578,15 @@
    },
    "revision_persistence": {
     "status": "not_yet",
-    "why": "no window yet has 10 listings whose consensus moved; 3 windows were dropped for being too quiet"
+    "why": "no window yet has 10 listings whose consensus moved; 6 windows were dropped for being too quiet"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-10-05T15:18:28.731910+00:00",
-    "iqr": 98.36781343115774,
-    "p25": 18.373940346610055,
-    "p75": 116.7417537777678,
-    "median": 30.054283564122102,
+    "as_of": "2026-10-05T16:27:00.131375+00:00",
+    "iqr": 98.43476688304051,
+    "p25": 18.396741010196997,
+    "p75": 116.83150789323751,
+    "median": 30.279393122235412,
     "n_priced": 6,
     "n_listings": 8,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
@@ -604,16 +606,63 @@
     "why": "the calendar-2026 consensus is scored against reported 2026 results; the last A-share and Japanese filers report in spring 2027, so this runs from May 2027"
    },
    "revision_persistence": {
-    "status": "not_yet",
-    "why": "no window yet has 10 listings whose consensus moved; 3 windows were dropped for being too quiet"
+    "status": "partial",
+    "periods_used": 1,
+    "periods_dropped_as_quiet": 6,
+    "n_transitions": 29,
+    "step_days": 7,
+    "horizon_days": 28,
+    "matrix": {
+     "up": {
+      "up": 2,
+      "unchanged": 7,
+      "down": 2
+     },
+     "unchanged": {
+      "up": 5,
+      "unchanged": 7,
+      "down": 5
+     },
+     "down": {
+      "up": 0,
+      "unchanged": 0,
+      "down": 1
+     }
+    },
+    "row_shares": {
+     "up": {
+      "up": 0.18181818181818182,
+      "unchanged": 0.6363636363636364,
+      "down": 0.18181818181818182
+     },
+     "unchanged": {
+      "up": 0.29411764705882354,
+      "unchanged": 0.4117647058823529,
+      "down": 0.29411764705882354
+     },
+     "down": {
+      "up": 0.0,
+      "unchanged": 0.0,
+      "down": 1.0
+     }
+    },
+    "chi_square": {
+     "statistic": 4.070855614973262,
+     "df": 4,
+     "p_value": 0.39650150788607497,
+     "min_expected": 0.2413793103448276,
+     "reliable": false,
+     "why": "the thinnest expected cell is 0.24, below 5; the asymptotic p-value is not dependable at that count"
+    },
+    "note": "a short history, and the same listing contributes to overlapping windows, so the transitions are not independent observations and the p-value is optimistic. Reported as a description of what has happened, not as evidence of persistence"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-10-05T15:18:28.731910+00:00",
-    "iqr": 12.648822343493684,
-    "p25": 18.802734724266685,
-    "p75": 31.45155706776037,
-    "median": 24.46135401878666,
+    "as_of": "2026-10-05T16:27:00.131375+00:00",
+    "iqr": 12.589471696463523,
+    "p25": 18.89011207712991,
+    "p75": 31.479583773593433,
+    "median": 24.45789799239396,
     "n_priced": 26,
     "n_listings": 30,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
