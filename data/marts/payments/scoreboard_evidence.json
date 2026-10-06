@@ -1,6 +1,36 @@
 [
  {
   "id": "Q1",
+  "label": "Stripe share of client-SDK npm downloads",
+  "value": 0.837097,
+  "qualifier": "=",
+  "unit": "fraction",
+  "period": "2026-09-01",
+  "source_url": null,
+  "note": null
+ },
+ {
+  "id": "Q1",
+  "label": "Download share / volume-share upper bound",
+  "value": null,
+  "qualifier": null,
+  "unit": "ratio",
+  "period": "2026-09-01",
+  "source_url": null,
+  "note": "a lower bound on the ratio to the true volume share; the registered test grades it"
+ },
+ {
+  "id": "Q1",
+  "label": "Graded months in a row below the refutation bar",
+  "value": 0.0,
+  "qualifier": "=",
+  "unit": "months",
+  "period": "2026-09-01",
+  "source_url": null,
+  "note": null
+ },
+ {
+  "id": "Q1",
   "label": "Stripe share of disclosed volume, upper bound",
   "value": 0.503125,
   "qualifier": "<",
@@ -18,6 +48,26 @@
   "period": "FY2025",
   "source_url": null,
   "note": null
+ },
+ {
+  "id": "Q2",
+  "label": "Stripe lead over PayPal, baseline (3-crawl mean)",
+  "value": 27.0,
+  "qualifier": "=",
+  "unit": "origins",
+  "period": "2026-08",
+  "source_url": null,
+  "note": null
+ },
+ {
+  "id": "Q2",
+  "label": "PayPal minus Stripe, all US origins (context, not graded)",
+  "value": 57330.333333,
+  "qualifier": "=",
+  "unit": "origins",
+  "period": "2026-08",
+  "source_url": null,
+  "note": "section H also says PayPal still leads across all US origins; its refutation clause grades only the top-10k slice"
  },
  {
   "id": "Q3",

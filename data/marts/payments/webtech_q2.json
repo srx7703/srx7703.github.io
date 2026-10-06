@@ -1,0 +1,2612 @@
+[
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2020-01-01",
+  "origins": 7813,
+  "total_origins": 810755,
+  "share": 0.009636696659286714,
+  "rolling_mean_3m": null
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2020-02-01",
+  "origins": 8872,
+  "total_origins": 918757,
+  "share": 0.009656525065931471,
+  "rolling_mean_3m": null
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2020-03-01",
+  "origins": 8817,
+  "total_origins": 893175,
+  "share": 0.009871525736837685,
+  "rolling_mean_3m": 8500.666666666666
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2020-04-01",
+  "origins": 9988,
+  "total_origins": 953632,
+  "share": 0.010473641824099862,
+  "rolling_mean_3m": 9225.666666666666
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2020-05-01",
+  "origins": 10228,
+  "total_origins": 981103,
+  "share": 0.010425001248594693,
+  "rolling_mean_3m": 9677.666666666666
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2020-06-01",
+  "origins": 10966,
+  "total_origins": 1022655,
+  "share": 0.01072306887464492,
+  "rolling_mean_3m": 10394.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2020-07-01",
+  "origins": 11605,
+  "total_origins": 1088145,
+  "share": 0.010664938955745787,
+  "rolling_mean_3m": 10933.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2020-08-01",
+  "origins": 11257,
+  "total_origins": 1069215,
+  "share": 0.010528284769667466,
+  "rolling_mean_3m": 11276.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2020-09-01",
+  "origins": 11784,
+  "total_origins": 1124355,
+  "share": 0.01048067558733674,
+  "rolling_mean_3m": 11548.666666666666
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2020-10-01",
+  "origins": 11690,
+  "total_origins": 1132773,
+  "share": 0.010319808116895441,
+  "rolling_mean_3m": 11577.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2020-11-01",
+  "origins": 11460,
+  "total_origins": 1077664,
+  "share": 0.010634112302164682,
+  "rolling_mean_3m": 11644.666666666666
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2020-12-01",
+  "origins": 11906,
+  "total_origins": 1094584,
+  "share": 0.010877191700225839,
+  "rolling_mean_3m": 11685.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2021-01-01",
+  "origins": 12302,
+  "total_origins": 1157845,
+  "share": 0.010624910933674197,
+  "rolling_mean_3m": 11889.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2021-02-01",
+  "origins": 11670,
+  "total_origins": 1125169,
+  "share": 0.010371775262205056,
+  "rolling_mean_3m": 11959.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2021-03-01",
+  "origins": 12550,
+  "total_origins": 1194736,
+  "share": 0.010504412690334936,
+  "rolling_mean_3m": 12174.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2021-04-01",
+  "origins": 11649,
+  "total_origins": 1139889,
+  "share": 0.010219416101041417,
+  "rolling_mean_3m": 11956.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2021-05-01",
+  "origins": 11558,
+  "total_origins": 1200747,
+  "share": 0.009625674684175767,
+  "rolling_mean_3m": 11919.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2021-06-01",
+  "origins": 13036,
+  "total_origins": 1189108,
+  "share": 0.010962839372033491,
+  "rolling_mean_3m": 12081.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2021-07-01",
+  "origins": 18220,
+  "total_origins": 1165833,
+  "share": 0.015628310401232425,
+  "rolling_mean_3m": 14271.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2021-08-01",
+  "origins": 17497,
+  "total_origins": 1137485,
+  "share": 0.01538218086392348,
+  "rolling_mean_3m": 16251.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2021-09-01",
+  "origins": 17720,
+  "total_origins": 1157491,
+  "share": 0.015308974324638378,
+  "rolling_mean_3m": 17812.333333333332
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2021-10-01",
+  "origins": 28163,
+  "total_origins": 1156886,
+  "share": 0.024343798783976987,
+  "rolling_mean_3m": 21126.666666666668
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2021-11-01",
+  "origins": 70537,
+  "total_origins": 1143191,
+  "share": 0.061701850346967395,
+  "rolling_mean_3m": 38806.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2021-12-01",
+  "origins": 68144,
+  "total_origins": 1111238,
+  "share": 0.06132259695942723,
+  "rolling_mean_3m": 55614.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2022-01-01",
+  "origins": 71025,
+  "total_origins": 1178430,
+  "share": 0.060270868867900514,
+  "rolling_mean_3m": 69902.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2022-02-01",
+  "origins": 78795,
+  "total_origins": 1169184,
+  "share": 0.0673931562525659,
+  "rolling_mean_3m": 72654.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2022-03-01",
+  "origins": 79405,
+  "total_origins": 1209720,
+  "share": 0.06563915616836954,
+  "rolling_mean_3m": 76408.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2022-04-01",
+  "origins": 78947,
+  "total_origins": 1240456,
+  "share": 0.06364353108856743,
+  "rolling_mean_3m": 79049.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2022-05-01",
+  "origins": 87631,
+  "total_origins": 1283818,
+  "share": 0.06825811758364503,
+  "rolling_mean_3m": 81994.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2022-06-01",
+  "origins": 85060,
+  "total_origins": 1244469,
+  "share": 0.06835043701369821,
+  "rolling_mean_3m": 83879.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2022-07-01",
+  "origins": 92981,
+  "total_origins": 1360369,
+  "share": 0.06834983743381391,
+  "rolling_mean_3m": 88557.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2022-08-01",
+  "origins": 106411,
+  "total_origins": 1603573,
+  "share": 0.06635868775540621,
+  "rolling_mean_3m": 94817.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2022-09-01",
+  "origins": 107607,
+  "total_origins": 1616039,
+  "share": 0.06658688311358822,
+  "rolling_mean_3m": 102333.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2022-10-01",
+  "origins": 107612,
+  "total_origins": 1600657,
+  "share": 0.06722989372488922,
+  "rolling_mean_3m": 107210.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2022-11-01",
+  "origins": 112895,
+  "total_origins": 1566488,
+  "share": 0.07206885721435466,
+  "rolling_mean_3m": 109371.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2022-12-01",
+  "origins": 111591,
+  "total_origins": 1541578,
+  "share": 0.07238751461165117,
+  "rolling_mean_3m": 110699.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2023-01-01",
+  "origins": 117275,
+  "total_origins": 1676681,
+  "share": 0.06994473009475267,
+  "rolling_mean_3m": 113920.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2023-02-01",
+  "origins": 117809,
+  "total_origins": 1662903,
+  "share": 0.07084538304398993,
+  "rolling_mean_3m": 115558.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2023-03-01",
+  "origins": 116865,
+  "total_origins": 1680657,
+  "share": 0.06953530672826162,
+  "rolling_mean_3m": 117316.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2023-04-01",
+  "origins": 113445,
+  "total_origins": 1653626,
+  "share": 0.06860378344317276,
+  "rolling_mean_3m": 116039.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2023-05-01",
+  "origins": 113490,
+  "total_origins": 1684399,
+  "share": 0.06737714757607906,
+  "rolling_mean_3m": 114600.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2023-06-01",
+  "origins": 113029,
+  "total_origins": 1680673,
+  "share": 0.06725222574528181,
+  "rolling_mean_3m": 113321.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2023-07-01",
+  "origins": 113182,
+  "total_origins": 1686483,
+  "share": 0.06711126053449694,
+  "rolling_mean_3m": 113233.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2023-08-01",
+  "origins": 114886,
+  "total_origins": 1706407,
+  "share": 0.06732625921014154,
+  "rolling_mean_3m": 113699.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2023-09-01",
+  "origins": 117105,
+  "total_origins": 1694786,
+  "share": 0.06909721935394793,
+  "rolling_mean_3m": 115057.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2023-10-01",
+  "origins": 117666,
+  "total_origins": 1657715,
+  "share": 0.07098083808133485,
+  "rolling_mean_3m": 116552.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2023-11-01",
+  "origins": 125956,
+  "total_origins": 1637845,
+  "share": 0.07690349208868971,
+  "rolling_mean_3m": 120242.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2023-12-01",
+  "origins": 121433,
+  "total_origins": 1539773,
+  "share": 0.0788642221937909,
+  "rolling_mean_3m": 121685.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2024-01-01",
+  "origins": 121714,
+  "total_origins": 1619375,
+  "share": 0.07516109610189116,
+  "rolling_mean_3m": 123034.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2024-02-01",
+  "origins": 117197,
+  "total_origins": 1588836,
+  "share": 0.07376280497168997,
+  "rolling_mean_3m": 120114.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2024-03-01",
+  "origins": 116394,
+  "total_origins": 1576481,
+  "share": 0.07383152730670398,
+  "rolling_mean_3m": 118435.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2024-04-01",
+  "origins": 117831,
+  "total_origins": 1580698,
+  "share": 0.07454365096938188,
+  "rolling_mean_3m": 117140.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2024-05-01",
+  "origins": 115469,
+  "total_origins": 1548209,
+  "share": 0.07458230768584861,
+  "rolling_mean_3m": 116564.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2024-06-01",
+  "origins": 113758,
+  "total_origins": 1533423,
+  "share": 0.07418566175151932,
+  "rolling_mean_3m": 115686.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2024-07-01",
+  "origins": 112681,
+  "total_origins": 1514026,
+  "share": 0.07442474567807951,
+  "rolling_mean_3m": 113969.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2024-08-01",
+  "origins": 85749,
+  "total_origins": 1538615,
+  "share": 0.055731290803742325,
+  "rolling_mean_3m": 104062.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2024-09-01",
+  "origins": 116345,
+  "total_origins": 1544248,
+  "share": 0.07534087789007983,
+  "rolling_mean_3m": 104925.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2024-10-01",
+  "origins": 117518,
+  "total_origins": 1506092,
+  "share": 0.07802843385397439,
+  "rolling_mean_3m": 106537.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2024-11-01",
+  "origins": 122675,
+  "total_origins": 1466758,
+  "share": 0.083636837160595,
+  "rolling_mean_3m": 118846.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2024-12-01",
+  "origins": 118966,
+  "total_origins": 1407930,
+  "share": 0.08449709857734404,
+  "rolling_mean_3m": 119719.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2025-01-01",
+  "origins": 117202,
+  "total_origins": 1492710,
+  "share": 0.07851625566921908,
+  "rolling_mean_3m": 119614.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2025-02-01",
+  "origins": 115469,
+  "total_origins": 1504888,
+  "share": 0.0767292981271696,
+  "rolling_mean_3m": 117212.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2025-03-01",
+  "origins": 113469,
+  "total_origins": 1478758,
+  "share": 0.07673263644220353,
+  "rolling_mean_3m": 115380.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2025-04-01",
+  "origins": 112431,
+  "total_origins": 1456293,
+  "share": 0.07720355725118502,
+  "rolling_mean_3m": 113789.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2025-05-01",
+  "origins": 110906,
+  "total_origins": 1416706,
+  "share": 0.07828441469154504,
+  "rolling_mean_3m": 112268.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2025-06-01",
+  "origins": 108642,
+  "total_origins": 1392939,
+  "share": 0.07799480092093049,
+  "rolling_mean_3m": 110659.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2025-07-01",
+  "origins": 110419,
+  "total_origins": 1430281,
+  "share": 0.07720091366661516,
+  "rolling_mean_3m": 109989.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2025-08-01",
+  "origins": 114312,
+  "total_origins": 1478572,
+  "share": 0.07731243388891444,
+  "rolling_mean_3m": 111124.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2025-09-01",
+  "origins": 114416,
+  "total_origins": 1448916,
+  "share": 0.07896662056323486,
+  "rolling_mean_3m": 113049.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2025-10-01",
+  "origins": 114570,
+  "total_origins": 1418482,
+  "share": 0.08076944226292614,
+  "rolling_mean_3m": 114432.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2025-11-01",
+  "origins": 120689,
+  "total_origins": 1379799,
+  "share": 0.08746853708402456,
+  "rolling_mean_3m": 116558.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2025-12-01",
+  "origins": 117903,
+  "total_origins": 1319204,
+  "share": 0.08937434998681022,
+  "rolling_mean_3m": 117720.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2026-01-01",
+  "origins": 115595,
+  "total_origins": 1394221,
+  "share": 0.08291009818386037,
+  "rolling_mean_3m": 118062.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2026-02-01",
+  "origins": 116325,
+  "total_origins": 1429728,
+  "share": 0.08136162962465587,
+  "rolling_mean_3m": 116607.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2026-03-01",
+  "origins": 115361,
+  "total_origins": 1414057,
+  "share": 0.08158157698027732,
+  "rolling_mean_3m": 115760.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2026-04-01",
+  "origins": 118404,
+  "total_origins": 1422973,
+  "share": 0.08320888730847317,
+  "rolling_mean_3m": 116696.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2026-05-01",
+  "origins": 117142,
+  "total_origins": 1404928,
+  "share": 0.0833793617893586,
+  "rolling_mean_3m": 116969.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2026-06-01",
+  "origins": 113858,
+  "total_origins": 1366842,
+  "share": 0.08330004492106623,
+  "rolling_mean_3m": 116468.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2026-07-01",
+  "origins": 115438,
+  "total_origins": 1373375,
+  "share": 0.08405424592700464,
+  "rolling_mean_3m": 115479.33333333333
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "PayPal",
+  "date": "2026-08-01",
+  "origins": 114203,
+  "total_origins": 1372892,
+  "share": 0.08318425629984004,
+  "rolling_mean_3m": 114499.66666666667
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2020-01-01",
+  "origins": 7654,
+  "total_origins": 810755,
+  "share": 0.009440583160140856,
+  "rolling_mean_3m": null
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2020-02-01",
+  "origins": 9411,
+  "total_origins": 918757,
+  "share": 0.010243187262790924,
+  "rolling_mean_3m": null
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2020-03-01",
+  "origins": 9393,
+  "total_origins": 893175,
+  "share": 0.010516416155848519,
+  "rolling_mean_3m": 8819.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2020-04-01",
+  "origins": 10194,
+  "total_origins": 953632,
+  "share": 0.010689658065165598,
+  "rolling_mean_3m": 9666.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2020-05-01",
+  "origins": 10954,
+  "total_origins": 981103,
+  "share": 0.011164984716181684,
+  "rolling_mean_3m": 10180.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2020-06-01",
+  "origins": 11737,
+  "total_origins": 1022655,
+  "share": 0.01147698881832094,
+  "rolling_mean_3m": 10961.666666666666
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2020-07-01",
+  "origins": 12068,
+  "total_origins": 1088145,
+  "share": 0.011090433719770802,
+  "rolling_mean_3m": 11586.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2020-08-01",
+  "origins": 11651,
+  "total_origins": 1069215,
+  "share": 0.010896779412933788,
+  "rolling_mean_3m": 11818.666666666666
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2020-09-01",
+  "origins": 12551,
+  "total_origins": 1124355,
+  "share": 0.011162844475276936,
+  "rolling_mean_3m": 12090.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2020-10-01",
+  "origins": 12544,
+  "total_origins": 1132773,
+  "share": 0.011073710266752473,
+  "rolling_mean_3m": 12248.666666666666
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2020-11-01",
+  "origins": 12217,
+  "total_origins": 1077664,
+  "share": 0.011336557591234373,
+  "rolling_mean_3m": 12437.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2020-12-01",
+  "origins": 12788,
+  "total_origins": 1094584,
+  "share": 0.011682977277212165,
+  "rolling_mean_3m": 12516.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2021-01-01",
+  "origins": 13645,
+  "total_origins": 1157845,
+  "share": 0.01178482439359327,
+  "rolling_mean_3m": 12883.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2021-02-01",
+  "origins": 13411,
+  "total_origins": 1125169,
+  "share": 0.011919098375444045,
+  "rolling_mean_3m": 13281.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2021-03-01",
+  "origins": 15137,
+  "total_origins": 1194736,
+  "share": 0.012669744613035851,
+  "rolling_mean_3m": 14064.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2021-04-01",
+  "origins": 14606,
+  "total_origins": 1139889,
+  "share": 0.012813528334776456,
+  "rolling_mean_3m": 14384.666666666666
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2021-05-01",
+  "origins": 14339,
+  "total_origins": 1200747,
+  "share": 0.011941732937912815,
+  "rolling_mean_3m": 14694.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2021-06-01",
+  "origins": 14397,
+  "total_origins": 1189108,
+  "share": 0.012107394786680437,
+  "rolling_mean_3m": 14447.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2021-07-01",
+  "origins": 14301,
+  "total_origins": 1165833,
+  "share": 0.01226676548013309,
+  "rolling_mean_3m": 14345.666666666666
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2021-08-01",
+  "origins": 14205,
+  "total_origins": 1137485,
+  "share": 0.012488076765847463,
+  "rolling_mean_3m": 14301.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2021-09-01",
+  "origins": 14947,
+  "total_origins": 1157491,
+  "share": 0.012913275351601005,
+  "rolling_mean_3m": 14484.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2021-10-01",
+  "origins": 15210,
+  "total_origins": 1156886,
+  "share": 0.013147362834367432,
+  "rolling_mean_3m": 14787.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2021-11-01",
+  "origins": 15557,
+  "total_origins": 1143191,
+  "share": 0.013608399646253337,
+  "rolling_mean_3m": 15238.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2021-12-01",
+  "origins": 15206,
+  "total_origins": 1111238,
+  "share": 0.01368383730577968,
+  "rolling_mean_3m": 15324.333333333334
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2022-01-01",
+  "origins": 16663,
+  "total_origins": 1178430,
+  "share": 0.014139999830282664,
+  "rolling_mean_3m": 15808.666666666666
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2022-02-01",
+  "origins": 16026,
+  "total_origins": 1169184,
+  "share": 0.013706995648246982,
+  "rolling_mean_3m": 15965.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2022-03-01",
+  "origins": 16552,
+  "total_origins": 1209720,
+  "share": 0.013682505042489171,
+  "rolling_mean_3m": 16413.666666666668
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2022-04-01",
+  "origins": 15448,
+  "total_origins": 1240456,
+  "share": 0.012453484847507692,
+  "rolling_mean_3m": 16008.666666666666
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2022-05-01",
+  "origins": 22277,
+  "total_origins": 1283818,
+  "share": 0.017352148045906818,
+  "rolling_mean_3m": 18092.333333333332
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2022-06-01",
+  "origins": 21151,
+  "total_origins": 1244469,
+  "share": 0.016996003918136972,
+  "rolling_mean_3m": 19625.333333333332
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2022-07-01",
+  "origins": 23338,
+  "total_origins": 1360369,
+  "share": 0.017155639389018713,
+  "rolling_mean_3m": 22255.333333333332
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2022-08-01",
+  "origins": 38350,
+  "total_origins": 1603573,
+  "share": 0.02391534404732432,
+  "rolling_mean_3m": 27613.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2022-09-01",
+  "origins": 38936,
+  "total_origins": 1616039,
+  "share": 0.024093477942054617,
+  "rolling_mean_3m": 33541.333333333336
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2022-10-01",
+  "origins": 39374,
+  "total_origins": 1600657,
+  "share": 0.024598649179680594,
+  "rolling_mean_3m": 38886.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2022-11-01",
+  "origins": 39257,
+  "total_origins": 1566488,
+  "share": 0.025060517539872634,
+  "rolling_mean_3m": 39189.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2022-12-01",
+  "origins": 38911,
+  "total_origins": 1541578,
+  "share": 0.02524101926727029,
+  "rolling_mean_3m": 39180.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2023-01-01",
+  "origins": 42896,
+  "total_origins": 1676681,
+  "share": 0.02558387671835012,
+  "rolling_mean_3m": 40354.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2023-02-01",
+  "origins": 44483,
+  "total_origins": 1662903,
+  "share": 0.02675020731816588,
+  "rolling_mean_3m": 42096.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2023-03-01",
+  "origins": 46267,
+  "total_origins": 1680657,
+  "share": 0.027529115102010702,
+  "rolling_mean_3m": 44548.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2023-04-01",
+  "origins": 46011,
+  "total_origins": 1653626,
+  "share": 0.027824308519580607,
+  "rolling_mean_3m": 45587.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2023-05-01",
+  "origins": 47332,
+  "total_origins": 1684399,
+  "share": 0.02810023040859084,
+  "rolling_mean_3m": 46536.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2023-06-01",
+  "origins": 47600,
+  "total_origins": 1680673,
+  "share": 0.028321987679935358,
+  "rolling_mean_3m": 46981.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2023-07-01",
+  "origins": 47820,
+  "total_origins": 1686483,
+  "share": 0.02835486631054093,
+  "rolling_mean_3m": 47584.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2023-08-01",
+  "origins": 49736,
+  "total_origins": 1706407,
+  "share": 0.029146622113012898,
+  "rolling_mean_3m": 48385.333333333336
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2023-09-01",
+  "origins": 50579,
+  "total_origins": 1694786,
+  "share": 0.029843885894738333,
+  "rolling_mean_3m": 49378.333333333336
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2023-10-01",
+  "origins": 50975,
+  "total_origins": 1657715,
+  "share": 0.03075015910455054,
+  "rolling_mean_3m": 50430.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2023-11-01",
+  "origins": 51996,
+  "total_origins": 1637845,
+  "share": 0.031746593847403144,
+  "rolling_mean_3m": 51183.333333333336
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2023-12-01",
+  "origins": 45078,
+  "total_origins": 1539773,
+  "share": 0.029275743892119163,
+  "rolling_mean_3m": 49349.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2024-01-01",
+  "origins": 47899,
+  "total_origins": 1619375,
+  "share": 0.02957869548436897,
+  "rolling_mean_3m": 48324.333333333336
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2024-02-01",
+  "origins": 45179,
+  "total_origins": 1588836,
+  "share": 0.028435282181420864,
+  "rolling_mean_3m": 46052.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2024-03-01",
+  "origins": 46033,
+  "total_origins": 1576481,
+  "share": 0.029199844463713803,
+  "rolling_mean_3m": 46370.333333333336
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2024-04-01",
+  "origins": 46966,
+  "total_origins": 1580698,
+  "share": 0.02971219043738905,
+  "rolling_mean_3m": 46059.333333333336
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2024-05-01",
+  "origins": 46341,
+  "total_origins": 1548209,
+  "share": 0.029932005304193425,
+  "rolling_mean_3m": 46446.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2024-06-01",
+  "origins": 46370,
+  "total_origins": 1533423,
+  "share": 0.03023953599235175,
+  "rolling_mean_3m": 46559.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2024-07-01",
+  "origins": 46195,
+  "total_origins": 1514026,
+  "share": 0.03051136506242297,
+  "rolling_mean_3m": 46302.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2024-08-01",
+  "origins": 27365,
+  "total_origins": 1538615,
+  "share": 0.017785475898779098,
+  "rolling_mean_3m": 39976.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2024-09-01",
+  "origins": 50445,
+  "total_origins": 1544248,
+  "share": 0.03266638519201579,
+  "rolling_mean_3m": 41335.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2024-10-01",
+  "origins": 50329,
+  "total_origins": 1506092,
+  "share": 0.033416949296590115,
+  "rolling_mean_3m": 42713.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2024-11-01",
+  "origins": 50874,
+  "total_origins": 1466758,
+  "share": 0.034684658273552965,
+  "rolling_mean_3m": 50549.333333333336
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2024-12-01",
+  "origins": 48443,
+  "total_origins": 1407930,
+  "share": 0.03440725036045826,
+  "rolling_mean_3m": 49882.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2025-01-01",
+  "origins": 51226,
+  "total_origins": 1492710,
+  "share": 0.0343174494710962,
+  "rolling_mean_3m": 50181.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2025-02-01",
+  "origins": 52081,
+  "total_origins": 1504888,
+  "share": 0.034607891085582446,
+  "rolling_mean_3m": 50583.333333333336
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2025-03-01",
+  "origins": 52217,
+  "total_origins": 1478758,
+  "share": 0.03531138969324257,
+  "rolling_mean_3m": 51841.333333333336
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2025-04-01",
+  "origins": 52323,
+  "total_origins": 1456293,
+  "share": 0.035928896176799584,
+  "rolling_mean_3m": 52207.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2025-05-01",
+  "origins": 51457,
+  "total_origins": 1416706,
+  "share": 0.03632157977731442,
+  "rolling_mean_3m": 51999.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2025-06-01",
+  "origins": 51709,
+  "total_origins": 1392939,
+  "share": 0.03712222861159031,
+  "rolling_mean_3m": 51829.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2025-07-01",
+  "origins": 55618,
+  "total_origins": 1430281,
+  "share": 0.0388860650459595,
+  "rolling_mean_3m": 52928.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2025-08-01",
+  "origins": 67053,
+  "total_origins": 1478572,
+  "share": 0.045349837545956506,
+  "rolling_mean_3m": 58126.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2025-09-01",
+  "origins": 61786,
+  "total_origins": 1448916,
+  "share": 0.0426429137368902,
+  "rolling_mean_3m": 61485.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2025-10-01",
+  "origins": 58703,
+  "total_origins": 1418482,
+  "share": 0.04138438133159251,
+  "rolling_mean_3m": 62514.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2025-11-01",
+  "origins": 58924,
+  "total_origins": 1379799,
+  "share": 0.0427047707673364,
+  "rolling_mean_3m": 59804.333333333336
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2025-12-01",
+  "origins": 57080,
+  "total_origins": 1319204,
+  "share": 0.04326851646902223,
+  "rolling_mean_3m": 58235.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2026-01-01",
+  "origins": 59374,
+  "total_origins": 1394221,
+  "share": 0.04258578804938385,
+  "rolling_mean_3m": 58459.333333333336
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2026-02-01",
+  "origins": 58724,
+  "total_origins": 1429728,
+  "share": 0.041073546856465006,
+  "rolling_mean_3m": 58392.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2026-03-01",
+  "origins": 58611,
+  "total_origins": 1414057,
+  "share": 0.041448824198741636,
+  "rolling_mean_3m": 58903.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2026-04-01",
+  "origins": 59098,
+  "total_origins": 1422973,
+  "share": 0.04153135723587166,
+  "rolling_mean_3m": 58811.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2026-05-01",
+  "origins": 58593,
+  "total_origins": 1404928,
+  "share": 0.04170534006013119,
+  "rolling_mean_3m": 58767.333333333336
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2026-06-01",
+  "origins": 56833,
+  "total_origins": 1366842,
+  "share": 0.041579787568716796,
+  "rolling_mean_3m": 58174.666666666664
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2026-07-01",
+  "origins": 57254,
+  "total_origins": 1373375,
+  "share": 0.04168854100300355,
+  "rolling_mean_3m": 57560.0
+ },
+ {
+  "slice": "US / ALL / mobile",
+  "technology": "Stripe",
+  "date": "2026-08-01",
+  "origins": 57421,
+  "total_origins": 1372892,
+  "share": 0.04182484856784073,
+  "rolling_mean_3m": 57169.333333333336
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2021-04-01",
+  "origins": 93,
+  "total_origins": 8673,
+  "share": 0.010722933241093047,
+  "rolling_mean_3m": null
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2021-05-01",
+  "origins": 89,
+  "total_origins": 8809,
+  "share": 0.01010330343966398,
+  "rolling_mean_3m": null
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2021-06-01",
+  "origins": 99,
+  "total_origins": 9186,
+  "share": 0.01077726975832789,
+  "rolling_mean_3m": 93.66666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2021-07-01",
+  "origins": 140,
+  "total_origins": 9323,
+  "share": 0.015016625549715756,
+  "rolling_mean_3m": 109.33333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2021-08-01",
+  "origins": 129,
+  "total_origins": 9033,
+  "share": 0.014280969777482564,
+  "rolling_mean_3m": 122.66666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2021-09-01",
+  "origins": 120,
+  "total_origins": 8728,
+  "share": 0.013748854262144821,
+  "rolling_mean_3m": 129.66666666666666
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2021-10-01",
+  "origins": 151,
+  "total_origins": 8439,
+  "share": 0.01789311529802109,
+  "rolling_mean_3m": 133.33333333333334
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2021-11-01",
+  "origins": 336,
+  "total_origins": 8703,
+  "share": 0.038607376766632194,
+  "rolling_mean_3m": 202.33333333333334
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2021-12-01",
+  "origins": 311,
+  "total_origins": 9046,
+  "share": 0.03437983639177537,
+  "rolling_mean_3m": 266.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2022-01-01",
+  "origins": 252,
+  "total_origins": 8842,
+  "share": 0.02850033928975345,
+  "rolling_mean_3m": 299.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2022-02-01",
+  "origins": 375,
+  "total_origins": 8990,
+  "share": 0.04171301446051168,
+  "rolling_mean_3m": 312.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2022-03-01",
+  "origins": 396,
+  "total_origins": 9081,
+  "share": 0.04360753221010902,
+  "rolling_mean_3m": 341.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2022-04-01",
+  "origins": 483,
+  "total_origins": 11595,
+  "share": 0.04165588615782665,
+  "rolling_mean_3m": 418.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2022-05-01",
+  "origins": 431,
+  "total_origins": 7777,
+  "share": 0.05541982769705542,
+  "rolling_mean_3m": 436.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2022-06-01",
+  "origins": 457,
+  "total_origins": 8511,
+  "share": 0.053695217953236986,
+  "rolling_mean_3m": 457.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2022-07-01",
+  "origins": 467,
+  "total_origins": 8656,
+  "share": 0.05395101663585952,
+  "rolling_mean_3m": 451.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2022-08-01",
+  "origins": 436,
+  "total_origins": 8927,
+  "share": 0.0488405959448863,
+  "rolling_mean_3m": 453.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2022-09-01",
+  "origins": 397,
+  "total_origins": 8286,
+  "share": 0.04791214096065653,
+  "rolling_mean_3m": 433.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2022-10-01",
+  "origins": 398,
+  "total_origins": 8209,
+  "share": 0.048483371908880496,
+  "rolling_mean_3m": 410.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2022-11-01",
+  "origins": 519,
+  "total_origins": 8342,
+  "share": 0.062215296092064255,
+  "rolling_mean_3m": 438.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2022-12-01",
+  "origins": 478,
+  "total_origins": 8550,
+  "share": 0.05590643274853801,
+  "rolling_mean_3m": 465.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2023-01-01",
+  "origins": 410,
+  "total_origins": 8429,
+  "share": 0.04864159449519516,
+  "rolling_mean_3m": 469.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2023-02-01",
+  "origins": 432,
+  "total_origins": 8408,
+  "share": 0.05137963843958135,
+  "rolling_mean_3m": 440.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2023-03-01",
+  "origins": 417,
+  "total_origins": 8446,
+  "share": 0.049372484016102294,
+  "rolling_mean_3m": 419.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2023-04-01",
+  "origins": 417,
+  "total_origins": 8422,
+  "share": 0.049513179767276184,
+  "rolling_mean_3m": 422.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2023-05-01",
+  "origins": 439,
+  "total_origins": 8567,
+  "share": 0.051243142290183265,
+  "rolling_mean_3m": 424.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2023-06-01",
+  "origins": 469,
+  "total_origins": 8900,
+  "share": 0.05269662921348314,
+  "rolling_mean_3m": 441.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2023-07-01",
+  "origins": 484,
+  "total_origins": 9038,
+  "share": 0.053551670723611416,
+  "rolling_mean_3m": 464.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2023-08-01",
+  "origins": 435,
+  "total_origins": 8767,
+  "share": 0.04961788525151135,
+  "rolling_mean_3m": 462.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2023-09-01",
+  "origins": 403,
+  "total_origins": 8458,
+  "share": 0.047647197919129816,
+  "rolling_mean_3m": 440.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2023-10-01",
+  "origins": 400,
+  "total_origins": 8379,
+  "share": 0.047738393603055256,
+  "rolling_mean_3m": 412.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2023-11-01",
+  "origins": 546,
+  "total_origins": 8496,
+  "share": 0.06426553672316385,
+  "rolling_mean_3m": 449.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2023-12-01",
+  "origins": 450,
+  "total_origins": 7907,
+  "share": 0.056911597318831414,
+  "rolling_mean_3m": 465.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2024-01-01",
+  "origins": 389,
+  "total_origins": 7733,
+  "share": 0.050303892409155566,
+  "rolling_mean_3m": 461.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2024-02-01",
+  "origins": 384,
+  "total_origins": 7675,
+  "share": 0.05003257328990228,
+  "rolling_mean_3m": 407.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2024-03-01",
+  "origins": 394,
+  "total_origins": 7779,
+  "share": 0.05064918369970433,
+  "rolling_mean_3m": 389.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2024-04-01",
+  "origins": 404,
+  "total_origins": 7476,
+  "share": 0.05403959336543606,
+  "rolling_mean_3m": 394.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2024-05-01",
+  "origins": 447,
+  "total_origins": 7899,
+  "share": 0.0565894417014812,
+  "rolling_mean_3m": 415.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2024-06-01",
+  "origins": 462,
+  "total_origins": 8217,
+  "share": 0.05622489959839357,
+  "rolling_mean_3m": 437.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2024-07-01",
+  "origins": 449,
+  "total_origins": 8269,
+  "share": 0.05429918974483009,
+  "rolling_mean_3m": 452.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2024-08-01",
+  "origins": 187,
+  "total_origins": 7929,
+  "share": 0.023584310757977046,
+  "rolling_mean_3m": 366.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2024-09-01",
+  "origins": 377,
+  "total_origins": 7428,
+  "share": 0.05075390414647281,
+  "rolling_mean_3m": 337.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2024-10-01",
+  "origins": 408,
+  "total_origins": 7507,
+  "share": 0.05434927401092314,
+  "rolling_mean_3m": 324.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2024-11-01",
+  "origins": 538,
+  "total_origins": 7753,
+  "share": 0.0693924932284277,
+  "rolling_mean_3m": 441.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2024-12-01",
+  "origins": 479,
+  "total_origins": 7827,
+  "share": 0.06119841574038584,
+  "rolling_mean_3m": 475.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2025-01-01",
+  "origins": 406,
+  "total_origins": 7680,
+  "share": 0.05286458333333333,
+  "rolling_mean_3m": 474.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2025-02-01",
+  "origins": 380,
+  "total_origins": 7406,
+  "share": 0.051309748852281935,
+  "rolling_mean_3m": 421.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2025-03-01",
+  "origins": 412,
+  "total_origins": 7420,
+  "share": 0.055525606469002696,
+  "rolling_mean_3m": 399.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2025-04-01",
+  "origins": 425,
+  "total_origins": 7472,
+  "share": 0.05687901498929336,
+  "rolling_mean_3m": 405.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2025-05-01",
+  "origins": 458,
+  "total_origins": 7609,
+  "share": 0.06019187803916415,
+  "rolling_mean_3m": 431.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2025-06-01",
+  "origins": 493,
+  "total_origins": 7959,
+  "share": 0.061942455082296774,
+  "rolling_mean_3m": 458.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2025-07-01",
+  "origins": 524,
+  "total_origins": 8106,
+  "share": 0.06464347396989883,
+  "rolling_mean_3m": 491.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2025-08-01",
+  "origins": 484,
+  "total_origins": 7735,
+  "share": 0.06257272139625081,
+  "rolling_mean_3m": 500.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2025-09-01",
+  "origins": 441,
+  "total_origins": 7306,
+  "share": 0.06036134683821517,
+  "rolling_mean_3m": 483.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2025-10-01",
+  "origins": 456,
+  "total_origins": 7335,
+  "share": 0.06216768916155419,
+  "rolling_mean_3m": 460.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2025-11-01",
+  "origins": 647,
+  "total_origins": 7487,
+  "share": 0.08641645518899425,
+  "rolling_mean_3m": 514.6666666666666
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2025-12-01",
+  "origins": 582,
+  "total_origins": 7628,
+  "share": 0.0762978500262192,
+  "rolling_mean_3m": 561.6666666666666
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2026-01-01",
+  "origins": 486,
+  "total_origins": 7398,
+  "share": 0.06569343065693431,
+  "rolling_mean_3m": 571.6666666666666
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2026-02-01",
+  "origins": 464,
+  "total_origins": 7299,
+  "share": 0.0635703521030278,
+  "rolling_mean_3m": 510.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2026-03-01",
+  "origins": 464,
+  "total_origins": 7292,
+  "share": 0.06363137685134394,
+  "rolling_mean_3m": 471.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2026-04-01",
+  "origins": 448,
+  "total_origins": 7222,
+  "share": 0.06203267792855165,
+  "rolling_mean_3m": 458.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2026-05-01",
+  "origins": 472,
+  "total_origins": 7378,
+  "share": 0.06397397668744917,
+  "rolling_mean_3m": 461.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2026-06-01",
+  "origins": 499,
+  "total_origins": 7593,
+  "share": 0.06571842486500724,
+  "rolling_mean_3m": 473.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2026-07-01",
+  "origins": 509,
+  "total_origins": 7804,
+  "share": 0.06522296258329062,
+  "rolling_mean_3m": 493.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "PayPal",
+  "date": "2026-08-01",
+  "origins": 478,
+  "total_origins": 7425,
+  "share": 0.06437710437710438,
+  "rolling_mean_3m": 495.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2021-04-01",
+  "origins": 86,
+  "total_origins": 8673,
+  "share": 0.009915830739075291,
+  "rolling_mean_3m": null
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2021-05-01",
+  "origins": 85,
+  "total_origins": 8809,
+  "share": 0.009649222386195935,
+  "rolling_mean_3m": null
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2021-06-01",
+  "origins": 95,
+  "total_origins": 9186,
+  "share": 0.010341824515567168,
+  "rolling_mean_3m": 88.66666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2021-07-01",
+  "origins": 87,
+  "total_origins": 9323,
+  "share": 0.009331760163037649,
+  "rolling_mean_3m": 89.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2021-08-01",
+  "origins": 92,
+  "total_origins": 9033,
+  "share": 0.010184877670762758,
+  "rolling_mean_3m": 91.33333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2021-09-01",
+  "origins": 91,
+  "total_origins": 8728,
+  "share": 0.01042621448212649,
+  "rolling_mean_3m": 90.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2021-10-01",
+  "origins": 92,
+  "total_origins": 8439,
+  "share": 0.010901765612039342,
+  "rolling_mean_3m": 91.66666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2021-11-01",
+  "origins": 90,
+  "total_origins": 8703,
+  "share": 0.010341261633919338,
+  "rolling_mean_3m": 91.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2021-12-01",
+  "origins": 100,
+  "total_origins": 9046,
+  "share": 0.011054609772275039,
+  "rolling_mean_3m": 94.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2022-01-01",
+  "origins": 96,
+  "total_origins": 8842,
+  "share": 0.010857272110382267,
+  "rolling_mean_3m": 95.33333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2022-02-01",
+  "origins": 96,
+  "total_origins": 8990,
+  "share": 0.01067853170189099,
+  "rolling_mean_3m": 97.33333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2022-03-01",
+  "origins": 99,
+  "total_origins": 9081,
+  "share": 0.010901883052527254,
+  "rolling_mean_3m": 97.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2022-04-01",
+  "origins": 111,
+  "total_origins": 11595,
+  "share": 0.009573091849935317,
+  "rolling_mean_3m": 102.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2022-05-01",
+  "origins": 126,
+  "total_origins": 7777,
+  "share": 0.016201620162016202,
+  "rolling_mean_3m": 112.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2022-06-01",
+  "origins": 133,
+  "total_origins": 8511,
+  "share": 0.01562683585947597,
+  "rolling_mean_3m": 123.33333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2022-07-01",
+  "origins": 122,
+  "total_origins": 8656,
+  "share": 0.014094269870609981,
+  "rolling_mean_3m": 127.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2022-08-01",
+  "origins": 274,
+  "total_origins": 8927,
+  "share": 0.03069340203875882,
+  "rolling_mean_3m": 176.33333333333334
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2022-09-01",
+  "origins": 284,
+  "total_origins": 8286,
+  "share": 0.03427468018344195,
+  "rolling_mean_3m": 226.66666666666666
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2022-10-01",
+  "origins": 288,
+  "total_origins": 8209,
+  "share": 0.035083444999390916,
+  "rolling_mean_3m": 282.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2022-11-01",
+  "origins": 271,
+  "total_origins": 8342,
+  "share": 0.032486214337089425,
+  "rolling_mean_3m": 281.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2022-12-01",
+  "origins": 286,
+  "total_origins": 8550,
+  "share": 0.03345029239766082,
+  "rolling_mean_3m": 281.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2023-01-01",
+  "origins": 282,
+  "total_origins": 8429,
+  "share": 0.03345592596986594,
+  "rolling_mean_3m": 279.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2023-02-01",
+  "origins": 296,
+  "total_origins": 8408,
+  "share": 0.035204567078972404,
+  "rolling_mean_3m": 288.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2023-03-01",
+  "origins": 322,
+  "total_origins": 8446,
+  "share": 0.038124556002841585,
+  "rolling_mean_3m": 300.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2023-04-01",
+  "origins": 320,
+  "total_origins": 8422,
+  "share": 0.037995725480883404,
+  "rolling_mean_3m": 312.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2023-05-01",
+  "origins": 327,
+  "total_origins": 8567,
+  "share": 0.03816972102252831,
+  "rolling_mean_3m": 323.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2023-06-01",
+  "origins": 371,
+  "total_origins": 8900,
+  "share": 0.04168539325842697,
+  "rolling_mean_3m": 339.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2023-07-01",
+  "origins": 382,
+  "total_origins": 9038,
+  "share": 0.04226598805045364,
+  "rolling_mean_3m": 360.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2023-08-01",
+  "origins": 372,
+  "total_origins": 8767,
+  "share": 0.04243184669784419,
+  "rolling_mean_3m": 375.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2023-09-01",
+  "origins": 361,
+  "total_origins": 8458,
+  "share": 0.04268148498462994,
+  "rolling_mean_3m": 371.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2023-10-01",
+  "origins": 372,
+  "total_origins": 8379,
+  "share": 0.04439670605084139,
+  "rolling_mean_3m": 368.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2023-11-01",
+  "origins": 381,
+  "total_origins": 8496,
+  "share": 0.044844632768361585,
+  "rolling_mean_3m": 371.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2023-12-01",
+  "origins": 326,
+  "total_origins": 7907,
+  "share": 0.041229290502086756,
+  "rolling_mean_3m": 359.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2024-01-01",
+  "origins": 321,
+  "total_origins": 7733,
+  "share": 0.041510409931462565,
+  "rolling_mean_3m": 342.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2024-02-01",
+  "origins": 329,
+  "total_origins": 7675,
+  "share": 0.04286644951140065,
+  "rolling_mean_3m": 325.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2024-03-01",
+  "origins": 335,
+  "total_origins": 7779,
+  "share": 0.043064661267515104,
+  "rolling_mean_3m": 328.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2024-04-01",
+  "origins": 326,
+  "total_origins": 7476,
+  "share": 0.04360620652755484,
+  "rolling_mean_3m": 330.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2024-05-01",
+  "origins": 353,
+  "total_origins": 7899,
+  "share": 0.044689201164704394,
+  "rolling_mean_3m": 338.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2024-06-01",
+  "origins": 369,
+  "total_origins": 8217,
+  "share": 0.044906900328587074,
+  "rolling_mean_3m": 349.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2024-07-01",
+  "origins": 372,
+  "total_origins": 8269,
+  "share": 0.0449873019712178,
+  "rolling_mean_3m": 364.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2024-08-01",
+  "origins": 66,
+  "total_origins": 7929,
+  "share": 0.00832387438516837,
+  "rolling_mean_3m": 269.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2024-09-01",
+  "origins": 340,
+  "total_origins": 7428,
+  "share": 0.04577275175013463,
+  "rolling_mean_3m": 259.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2024-10-01",
+  "origins": 351,
+  "total_origins": 7507,
+  "share": 0.04675636072998535,
+  "rolling_mean_3m": 252.33333333333334
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2024-11-01",
+  "origins": 365,
+  "total_origins": 7753,
+  "share": 0.04707855023861731,
+  "rolling_mean_3m": 352.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2024-12-01",
+  "origins": 373,
+  "total_origins": 7827,
+  "share": 0.04765555129679315,
+  "rolling_mean_3m": 363.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2025-01-01",
+  "origins": 384,
+  "total_origins": 7680,
+  "share": 0.05,
+  "rolling_mean_3m": 374.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2025-02-01",
+  "origins": 379,
+  "total_origins": 7406,
+  "share": 0.051174723197407505,
+  "rolling_mean_3m": 378.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2025-03-01",
+  "origins": 392,
+  "total_origins": 7420,
+  "share": 0.052830188679245285,
+  "rolling_mean_3m": 385.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2025-04-01",
+  "origins": 400,
+  "total_origins": 7472,
+  "share": 0.05353319057815846,
+  "rolling_mean_3m": 390.3333333333333
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2025-05-01",
+  "origins": 404,
+  "total_origins": 7609,
+  "share": 0.0530950190563806,
+  "rolling_mean_3m": 398.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2025-06-01",
+  "origins": 443,
+  "total_origins": 7959,
+  "share": 0.05566025882648574,
+  "rolling_mean_3m": 415.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2025-07-01",
+  "origins": 451,
+  "total_origins": 8106,
+  "share": 0.05563779916111522,
+  "rolling_mean_3m": 432.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2025-08-01",
+  "origins": 453,
+  "total_origins": 7735,
+  "share": 0.05856496444731739,
+  "rolling_mean_3m": 449.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2025-09-01",
+  "origins": 439,
+  "total_origins": 7306,
+  "share": 0.060087599233506706,
+  "rolling_mean_3m": 447.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2025-10-01",
+  "origins": 437,
+  "total_origins": 7335,
+  "share": 0.05957736877982277,
+  "rolling_mean_3m": 443.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2025-11-01",
+  "origins": 458,
+  "total_origins": 7487,
+  "share": 0.06117269934553225,
+  "rolling_mean_3m": 444.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2025-12-01",
+  "origins": 455,
+  "total_origins": 7628,
+  "share": 0.059648662821185104,
+  "rolling_mean_3m": 450.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2026-01-01",
+  "origins": 476,
+  "total_origins": 7398,
+  "share": 0.06434171397675047,
+  "rolling_mean_3m": 463.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2026-02-01",
+  "origins": 472,
+  "total_origins": 7299,
+  "share": 0.0646663926565283,
+  "rolling_mean_3m": 467.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2026-03-01",
+  "origins": 483,
+  "total_origins": 7292,
+  "share": 0.06623697202413605,
+  "rolling_mean_3m": 477.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2026-04-01",
+  "origins": 482,
+  "total_origins": 7222,
+  "share": 0.06674051509277208,
+  "rolling_mean_3m": 479.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2026-05-01",
+  "origins": 490,
+  "total_origins": 7378,
+  "share": 0.06641366223908918,
+  "rolling_mean_3m": 485.0
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2026-06-01",
+  "origins": 515,
+  "total_origins": 7593,
+  "share": 0.06782562886869485,
+  "rolling_mean_3m": 495.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2026-07-01",
+  "origins": 530,
+  "total_origins": 7804,
+  "share": 0.06791389031266018,
+  "rolling_mean_3m": 511.6666666666667
+ },
+ {
+  "slice": "US / Top 10k / mobile",
+  "technology": "Stripe",
+  "date": "2026-08-01",
+  "origins": 522,
+  "total_origins": 7425,
+  "share": 0.0703030303030303,
+  "rolling_mean_3m": 522.3333333333334
+ }
+]

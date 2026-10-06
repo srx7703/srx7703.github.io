@@ -1,0 +1,471 @@
+{
+ "generated_at": "2026-10-06T00:42:20+00:00",
+ "companies": {
+  "PYPL": {
+   "cik": "0001633917",
+   "name": "PayPal Holdings, Inc.",
+   "fetched_at": "2026-10-06T00:42:16+00:00",
+   "facts": 446,
+   "facts_per_metric": {
+    "ocf": 49,
+    "op_income": 74,
+    "net_income": 82,
+    "revenue": 70,
+    "sbc": 122,
+    "capex": 49
+   },
+   "last_end": "2026-06-30",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": false,
+   "frames_rows": 3
+  },
+  "XYZ": {
+   "cik": "0001512673",
+   "name": "Block, Inc.",
+   "fetched_at": "2026-10-06T00:42:16+00:00",
+   "facts": 523,
+   "facts_per_metric": {
+    "gross_profit": 70,
+    "capex": 47,
+    "net_income": 110,
+    "ocf": 47,
+    "sbc": 116,
+    "revenue": 63,
+    "op_income": 70
+   },
+   "last_end": "2026-06-30",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": false,
+   "frames_rows": 0
+  },
+  "TOST": {
+   "cik": "0001650164",
+   "name": "Toast, Inc.",
+   "fetched_at": "2026-10-06T00:42:16+00:00",
+   "facts": 279,
+   "facts_per_metric": {
+    "revenue": 37,
+    "ocf": 25,
+    "sbc": 62,
+    "cap_software": 14,
+    "gross_profit": 37,
+    "net_income": 37,
+    "op_income": 37,
+    "capex": 30
+   },
+   "last_end": "2026-06-30",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": false,
+   "frames_rows": 0
+  },
+  "FISV": {
+   "cik": "0000798354",
+   "name": "FISERV, INC.",
+   "fetched_at": "2026-10-06T00:42:16+00:00",
+   "facts": 748,
+   "facts_per_metric": {
+    "revenue": 142,
+    "capex": 74,
+    "sbc": 158,
+    "op_income": 123,
+    "net_income": 172,
+    "ocf": 79
+   },
+   "last_end": "2026-06-30",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": false,
+   "frames_rows": 0
+  },
+  "GPN": {
+   "cik": "0001123360",
+   "name": "GLOBAL PAYMENTS INC.",
+   "fetched_at": "2026-10-06T00:42:17+00:00",
+   "facts": 811,
+   "facts_per_metric": {
+    "op_income": 123,
+    "revenue": 129,
+    "sbc": 171,
+    "ocf": 73,
+    "net_income": 244,
+    "capex": 71
+   },
+   "last_end": "2026-06-30",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": false,
+   "frames_rows": 0
+  },
+  "FOUR": {
+   "cik": "0001794669",
+   "name": "SHIFT4 PAYMENTS, INC.",
+   "fetched_at": "2026-10-06T00:42:17+00:00",
+   "facts": 351,
+   "facts_per_metric": {
+    "ocf": 30,
+    "capex": 30,
+    "revenue": 48,
+    "gross_profit": 24,
+    "net_income": 95,
+    "cap_software": 12,
+    "op_income": 48,
+    "sbc": 64
+   },
+   "last_end": "2026-06-30",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": false,
+   "frames_rows": 0
+  },
+  "SHOP": {
+   "cik": "0001594805",
+   "name": "Shopify Inc.",
+   "fetched_at": "2026-10-06T00:42:17+00:00",
+   "facts": 180,
+   "facts_per_metric": {
+    "ocf": 26,
+    "capex": 26,
+    "revenue": 24,
+    "net_income": 26,
+    "gross_profit": 26,
+    "sbc": 26,
+    "op_income": 26
+   },
+   "last_end": "2026-06-30",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": true,
+   "frames_rows": 0
+  },
+  "AFRM": {
+   "cik": "0001820953",
+   "name": "Affirm Holdings, Inc.",
+   "fetched_at": "2026-10-06T00:42:17+00:00",
+   "facts": 293,
+   "facts_per_metric": {
+    "ocf": 28,
+    "capex": 28,
+    "revenue": 82,
+    "sbc": 70,
+    "op_income": 42,
+    "net_income": 43
+   },
+   "last_end": "2026-06-30",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": false,
+   "frames_rows": 0
+  },
+  "KLAR": {
+   "cik": "0002003292",
+   "name": "Klarna Group plc",
+   "fetched_at": "2026-10-06T00:42:18+00:00",
+   "facts": 21,
+   "facts_per_metric": {
+    "cap_software": 3,
+    "ocf": 3,
+    "op_income": 3,
+    "net_income": 3,
+    "capex": 3,
+    "revenue": 3,
+    "sbc": 3
+   },
+   "last_end": "2025-12-31",
+   "currency": "USD",
+   "taxonomy": [
+    "ifrs-full"
+   ],
+   "foreign_private_issuer": true,
+   "frames_rows": 0
+  },
+  "SEZL": {
+   "cik": "0001662991",
+   "name": "SEZZLE INC.",
+   "fetched_at": "2026-10-06T00:42:18+00:00",
+   "facts": 242,
+   "facts_per_metric": {
+    "op_income": 38,
+    "ocf": 25,
+    "sbc": 31,
+    "capex": 25,
+    "net_income": 38,
+    "revenue": 60,
+    "cap_software": 25
+   },
+   "last_end": "2026-06-30",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": false,
+   "frames_rows": 0
+  },
+  "BILL": {
+   "cik": "0001786352",
+   "name": "BILL Holdings, Inc.",
+   "fetched_at": "2026-10-06T00:42:18+00:00",
+   "facts": 412,
+   "facts_per_metric": {
+    "gross_profit": 51,
+    "op_income": 51,
+    "capex": 32,
+    "ocf": 32,
+    "net_income": 83,
+    "cap_software": 32,
+    "revenue": 51,
+    "sbc": 80
+   },
+   "last_end": "2026-06-30",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": false,
+   "frames_rows": 0
+  },
+  "NAVN": {
+   "cik": "0001639723",
+   "name": "NAVAN, INC.",
+   "fetched_at": "2026-10-06T00:42:18+00:00",
+   "facts": 103,
+   "facts_per_metric": {
+    "op_income": 13,
+    "capex": 9,
+    "gross_profit": 13,
+    "net_income": 15,
+    "revenue": 13,
+    "sbc": 22,
+    "ocf": 9,
+    "cap_software": 9
+   },
+   "last_end": "2026-07-31",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": false,
+   "frames_rows": 0
+  },
+  "CPAY": {
+   "cik": "0001175454",
+   "name": "Corpay, Inc",
+   "fetched_at": "2026-10-06T00:42:18+00:00",
+   "facts": 614,
+   "facts_per_metric": {
+    "capex": 91,
+    "ocf": 78,
+    "sbc": 122,
+    "gross_profit": 8,
+    "revenue": 65,
+    "net_income": 136,
+    "op_income": 114
+   },
+   "last_end": "2026-06-30",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": false,
+   "frames_rows": 0
+  },
+  "WSE": {
+   "cik": "0002099039",
+   "name": "Wise Group plc",
+   "fetched_at": "2026-10-06T00:42:19+00:00",
+   "facts": 24,
+   "facts_per_metric": {
+    "revenue": 6,
+    "op_income": 3,
+    "sbc": 3,
+    "capex": 3,
+    "ocf": 3,
+    "net_income": 6
+   },
+   "last_end": "2026-03-31",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": true,
+   "frames_rows": 0
+  },
+  "PAYO": {
+   "cik": "0001845815",
+   "name": "Payoneer Global Inc.",
+   "fetched_at": "2026-10-06T00:42:19+00:00",
+   "facts": 301,
+   "facts_per_metric": {
+    "net_income": 41,
+    "op_income": 39,
+    "capex": 26,
+    "cap_software": 26,
+    "ocf": 26,
+    "sbc": 65,
+    "revenue": 78
+   },
+   "last_end": "2026-06-30",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": false,
+   "frames_rows": 0
+  },
+  "DLO": {
+   "cik": "0001846832",
+   "name": "DLocal Limited",
+   "fetched_at": "2026-10-06T00:42:20+00:00",
+   "facts": 89,
+   "facts_per_metric": {
+    "capex": 9,
+    "op_income": 11,
+    "cap_software": 9,
+    "gross_profit": 11,
+    "ocf": 9,
+    "revenue": 11,
+    "sbc": 9,
+    "net_income": 20
+   },
+   "last_end": "2025-12-31",
+   "currency": "USD",
+   "taxonomy": [
+    "ifrs-full"
+   ],
+   "foreign_private_issuer": true,
+   "frames_rows": 0
+  },
+  "FLYW": {
+   "cik": "0001580560",
+   "name": "FLYWIRE CORPORATION",
+   "fetched_at": "2026-10-06T00:42:20+00:00",
+   "facts": 229,
+   "facts_per_metric": {
+    "revenue": 39,
+    "net_income": 39,
+    "op_income": 39,
+    "ocf": 26,
+    "sbc": 60,
+    "capex": 26
+   },
+   "last_end": "2026-06-30",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": false,
+   "frames_rows": 0
+  },
+  "MQ": {
+   "cik": "0001522540",
+   "name": "Marqeta, Inc.",
+   "fetched_at": "2026-10-06T00:42:20+00:00",
+   "facts": 292,
+   "facts_per_metric": {
+    "net_income": 40,
+    "op_income": 39,
+    "revenue": 39,
+    "cap_software": 18,
+    "ocf": 26,
+    "gross_profit": 39,
+    "capex": 26,
+    "sbc": 65
+   },
+   "last_end": "2026-06-30",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": false,
+   "frames_rows": 0
+  },
+  "CRCL": {
+   "cik": "0001876042",
+   "name": "CIRCLE INTERNET GROUP, INC.",
+   "fetched_at": "2026-10-06T00:42:20+00:00",
+   "facts": 115,
+   "facts_per_metric": {
+    "capex": 10,
+    "revenue": 30,
+    "sbc": 15,
+    "net_income": 25,
+    "ocf": 10,
+    "op_income": 15,
+    "cap_software": 10
+   },
+   "last_end": "2026-06-30",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "foreign_private_issuer": false,
+   "frames_rows": 0
+  }
+ },
+ "failed": [],
+ "checks": [
+  {
+   "name": "Frames PYPL revenue",
+   "status": "warn",
+   "detail": "frames fallback used for PYPL revenue CY2026Q2 (us-gaap/Revenues, accn 0001633917-26-000082)"
+  },
+  {
+   "name": "Frames PYPL op_income",
+   "status": "warn",
+   "detail": "frames fallback used for PYPL op_income CY2026Q2 (us-gaap/OperatingIncomeLoss, accn 0001633917-26-000082)"
+  },
+  {
+   "name": "Frames PYPL net_income",
+   "status": "warn",
+   "detail": "frames fallback used for PYPL net_income CY2026Q2 (us-gaap/NetIncomeLoss, accn 0001633917-26-000082)"
+  },
+  {
+   "name": "Frames DLO revenue",
+   "status": "warn",
+   "detail": "DLO revenue CY2026Q1 missing in companyfacts and in frames ifrs-full/Revenue"
+  },
+  {
+   "name": "Frames DLO revenue",
+   "status": "warn",
+   "detail": "DLO revenue CY2026Q2 missing in companyfacts and in frames ifrs-full/Revenue"
+  },
+  {
+   "name": "Frames DLO op_income",
+   "status": "warn",
+   "detail": "DLO op_income CY2026Q1 missing in companyfacts and in frames ifrs-full/ProfitLossFromOperatingActivities"
+  },
+  {
+   "name": "Frames DLO op_income",
+   "status": "warn",
+   "detail": "DLO op_income CY2026Q2 missing in companyfacts and in frames ifrs-full/ProfitLossFromOperatingActivities"
+  },
+  {
+   "name": "Frames DLO net_income",
+   "status": "warn",
+   "detail": "DLO net_income CY2026Q1 missing in companyfacts and in frames ifrs-full/ProfitLossAttributableToOwnersOfParent"
+  },
+  {
+   "name": "Frames DLO net_income",
+   "status": "warn",
+   "detail": "DLO net_income CY2026Q2 missing in companyfacts and in frames ifrs-full/ProfitLossAttributableToOwnersOfParent"
+  }
+ ]
+}

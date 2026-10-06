@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-06T00:24:16+00:00",
+ "generated_at": "2026-10-06T00:44:01+00:00",
  "slug": "payments-landscape",
  "registered": "2026-10-03",
  "kpis": [
@@ -1166,8 +1166,8 @@
   "acquisition_deals": 10,
   "acquisition_deals_no_value": 4,
   "metrics_in_dictionary": 236,
-  "share_rows": 207,
-  "share_refusals": 56,
+  "share_rows": 306,
+  "share_refusals": 78,
   "scoreboard": {
    "collecting": 9,
    "holds": 0,
@@ -1196,6 +1196,7 @@
    "Navan",
    "Nium",
    "PayPal",
+   "PayPal (Braintree)",
    "PayPal Pay Later",
    "Payoneer",
    "Ramp",
@@ -1208,21 +1209,48 @@
    "Zip",
    "dLocal"
   ],
-  "n_companies": 30
+  "n_companies": 31
  },
  "scoreboard": [
   {
    "id": "Q1",
    "title": "Developer mindshare is more concentrated than money",
    "status": "collecting",
-   "reason": "npm download counts (devstats) exist only after a CI run; none on disk yet",
+   "reason": "only pre-registration months so far; graded from 2026-10",
    "graded": "monthly; 2027-02 (Stripe's next annual letter)",
    "next_grading": "2027-02",
    "already_seen": "download share 84-90% depending on the whitelist; volume share about 32% (computed)",
    "inputs": "devstats (npm client SDKs, CI only); share.q1_volume_share (curated KPI and private ledger)",
    "ci_only": true,
-   "inputs_present": false,
+   "inputs_present": true,
    "evidence": [
+    {
+     "label": "Stripe share of client-SDK npm downloads",
+     "value": 0.837097,
+     "qualifier": "=",
+     "unit": "fraction",
+     "period": "2026-09-01",
+     "source_url": null,
+     "note": null
+    },
+    {
+     "label": "Download share / volume-share upper bound",
+     "value": null,
+     "qualifier": null,
+     "unit": "ratio",
+     "period": "2026-09-01",
+     "source_url": null,
+     "note": "a lower bound on the ratio to the true volume share; the registered test grades it"
+    },
+    {
+     "label": "Graded months in a row below the refutation bar",
+     "value": 0.0,
+     "qualifier": "=",
+     "unit": "months",
+     "period": "2026-09-01",
+     "source_url": null,
+     "note": null
+    },
     {
      "label": "Stripe share of disclosed volume, upper bound",
      "value": 0.503125,
@@ -1247,14 +1275,33 @@
    "id": "Q2",
    "title": "The top of the web is changing hands",
    "status": "collecting",
-   "reason": "HTTP Archive counts (webtech) exist only after a CI run; none on disk yet",
+   "reason": "0 of 6 graded crawls in; no refutation so far",
    "graded": "2027-03",
    "next_grading": "2027-03",
    "already_seen": "Stripe 522, PayPal 478 (2026-08 crawl)",
    "inputs": "webtech (HTTP Archive Tech Report, US, top-10k origins, mobile; CI only)",
    "ci_only": true,
-   "inputs_present": false,
-   "evidence": []
+   "inputs_present": true,
+   "evidence": [
+    {
+     "label": "Stripe lead over PayPal, baseline (3-crawl mean)",
+     "value": 27.0,
+     "qualifier": "=",
+     "unit": "origins",
+     "period": "2026-08",
+     "source_url": null,
+     "note": null
+    },
+    {
+     "label": "PayPal minus Stripe, all US origins (context, not graded)",
+     "value": 57330.333333,
+     "qualifier": "=",
+     "unit": "origins",
+     "period": "2026-08",
+     "source_url": null,
+     "note": "section H also says PayPal still leads across all US origins; its refutation clause grades only the top-10k slice"
+    }
+   ]
   },
   {
    "id": "Q3",
@@ -1482,14 +1529,18 @@
   }
  ],
  "ci_sources": {
-  "devstats": false,
-  "webtech": false,
-  "jobs": false,
-  "formd": false,
+  "devstats": true,
+  "webtech": true,
+  "jobs": true,
+  "formd": true,
   "sec": false
  },
  "marts": {
+  "devstats_monthly": "payments/devstats_monthly.json",
+  "devstats_q1": "payments/devstats_q1.json",
   "events": "payments/events.json",
+  "formd_filings": "payments/formd_filings.json",
+  "jobs_by_function": "payments/jobs_by_function.json",
   "kpis": "payments/kpis.json",
   "ledger_latest": "payments/ledger_latest.json",
   "ledger_timeline": "payments/ledger_timeline.json",
@@ -1505,7 +1556,8 @@
   "share_pool_hhi": "payments/share_pool_hhi.json",
   "take_rates": "payments/take_rates.json",
   "take_rates_refused": "payments/take_rates_refused.json",
-  "waterfall_lines": "payments/waterfall_lines.json"
+  "waterfall_lines": "payments/waterfall_lines.json",
+  "webtech_q2": "payments/webtech_q2.json"
  },
  "checks": [
   {
@@ -1730,13 +1782,13 @@
   },
   {
    "name": "Share input: web coverage",
-   "status": "warn",
-   "detail": "webtech output absent (it exists only after a CI run); web-coverage lens empty"
+   "status": "pass",
+   "detail": "webtech_adoption.parquet read"
   },
   {
    "name": "Share input: developer downloads",
-   "status": "warn",
-   "detail": "devstats output absent (it exists only after a CI run); downloads lens empty"
+   "status": "pass",
+   "detail": "devstats_client_monthly.parquet read"
   },
   {
    "name": "Charted marts hold chartable rows only",
@@ -1785,23 +1837,23 @@
   },
   {
    "name": "CI source: npm downloads (devstats)",
-   "status": "warn",
-   "detail": "absent: written only by the scheduled CI run; dependent views and questions wait"
+   "status": "pass",
+   "detail": "devstats_client_monthly, devstats_server_monthly read; latest period 2026-09-01, 35 days old (limit 45)"
   },
   {
    "name": "CI source: HTTP Archive coverage (webtech)",
-   "status": "warn",
-   "detail": "absent: written only by the scheduled CI run; dependent views and questions wait"
+   "status": "pass",
+   "detail": "webtech_adoption, webtech_coverage read; latest period 2026-08-01, 66 days old (limit 75)"
   },
   {
    "name": "CI source: job-board counts (jobs)",
-   "status": "warn",
-   "detail": "absent: written only by the scheduled CI run; dependent views and questions wait"
+   "status": "pass",
+   "detail": "jobs_counts read; latest period 2026-10-06, 0 days old (limit 14)"
   },
   {
    "name": "CI source: SEC Form D (formd)",
    "status": "warn",
-   "detail": "absent: written only by the scheduled CI run; dependent views and questions wait"
+   "detail": "formd read; latest period 2026-05-20, 139 days old (limit 120)"
   },
   {
    "name": "CI source: SEC financials (sec)",
@@ -1816,7 +1868,7 @@
   {
    "name": "Regression guard",
    "status": "pass",
-   "detail": "30 companies covered"
+   "detail": "31 companies covered"
   }
  ],
  "sources": [

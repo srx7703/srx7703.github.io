@@ -3,25 +3,25 @@
   "id": "Q1",
   "title": "Developer mindshare is more concentrated than money",
   "status": "collecting",
-  "reason": "npm download counts (devstats) exist only after a CI run; none on disk yet",
+  "reason": "only pre-registration months so far; graded from 2026-10",
   "graded": "monthly; 2027-02 (Stripe's next annual letter)",
   "next_grading": "2027-02",
   "already_seen": "download share 84-90% depending on the whitelist; volume share about 32% (computed)",
   "inputs": "devstats (npm client SDKs, CI only); share.q1_volume_share (curated KPI and private ledger)",
   "ci_only": true,
-  "inputs_present": false
+  "inputs_present": true
  },
  {
   "id": "Q2",
   "title": "The top of the web is changing hands",
   "status": "collecting",
-  "reason": "HTTP Archive counts (webtech) exist only after a CI run; none on disk yet",
+  "reason": "0 of 6 graded crawls in; no refutation so far",
   "graded": "2027-03",
   "next_grading": "2027-03",
   "already_seen": "Stripe 522, PayPal 478 (2026-08 crawl)",
   "inputs": "webtech (HTTP Archive Tech Report, US, top-10k origins, mobile; CI only)",
   "ci_only": true,
-  "inputs_present": false
+  "inputs_present": true
  },
  {
   "id": "Q3",
