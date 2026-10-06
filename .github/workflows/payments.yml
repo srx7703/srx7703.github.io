@@ -1,0 +1,31 @@
+name: payments
+on:
+  schedule:
+    - cron: "41 7 * * 3"
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+concurrency: payments
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.1.0
+      - run: uv sync --frozen --no-dev
+      - run: |
+          f=""
+          p="uv run python -m pipelines"
+          $p.sec.ingest --universe payments && $p.sec.transform_payments || f="$f sec"
+          for m in webtech devstats jobs formd reference; do $p.payments.$m || f="$f $m"; done
+          git config user.name portfolio-bot
+          git config user.email portfolio-bot@users.noreply.github.com
+          if $p.payments.publish; then git add data/; else f="$f publish"; git add data/raw data/snapshots || true; git checkout -- data/facts data/marts || true; fi
+          git diff --cached --quiet || { git commit -m "data(payments): weekly refresh $(date -u +'%F %H:%M UTC')"; git pull --rebase -X theirs origin main && git push origin HEAD:main; }
+          gh workflow run deploy-site.yml --ref main
+          [ -z "$f" ] || { echo "::error::failed:$f"; exit 1; }
