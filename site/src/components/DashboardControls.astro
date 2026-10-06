@@ -34,7 +34,7 @@ interface Props {
   table?: string | string[];
   label?: string;        // accessible name for the whole row
 }
-const { group, controls, table, label = 'Dashboard controls' } = Astro.props;
+const { group, controls, table, label = 'Dashboard controls' } = Astro.props as Props;
 const tables = table == null ? [] : Array.isArray(table) ? table : [table];
 const uid = `dash-${group}`;
 const kind = (c: Control) => c.type ?? (c.options.length <= 4 ? 'radio' : 'select');
