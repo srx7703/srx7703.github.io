@@ -16,3 +16,12 @@ Updated by the orchestrator after every wave (see EXECUTION.md). Cloud session w
 - **SEC.** Calls need `SEC_USER_AGENT` from the environment. If it is unset, stop the SEC parts and ask the owner. Never put a personal address in code, commits or logs.
 - **Scouting material.** The raw scouting files (landscape, data_sources, methods, portfolio_fit, pilots) live only on the owner's Mac. Their content is summarised in PLAN.md. Everything a curator needs must be re-verified from primary pages anyway, because only [V] rows reach facts.
 - **Known stray write.** `pipelines/valuation/tests/test_site_pages.py` rewrites `data/marts/valuation/evaluation.json`. Restore it before every commit.
+
+## Autopilot decisions (2026-10-06, owner asked the orchestrator to apply the plan's defaults)
+
+- PLAN §8 defaults 1-10 adopted as written.
+- Q1 stays as registered. It reads `undecidable` with its reason on the page; no amendment is made, because section H amendments are the owner's.
+- Baselines: the "already seen at registration" readings in section H serve as the baselines. Q5 and Q6 have none and say so.
+- The Q6 and Stripe take-rate bands stay as labelled assumptions in ledger.py and are never graded.
+- EUR/USD gap closed: Federal Reserve G.5A annual average for 2025 (FRED AEXUSEU, 1.1306) added to denominators.json, so Adyen enters the Q1 volume pool in USD.
+- Left for the owner, because no token or default covers them: installing .github/workflows/payments.yml (the session tokens lack the `workflow` scope), the publication-policy check (PLAN §8 #8), marking the PR ready (C2) and merging/deploying (C3).

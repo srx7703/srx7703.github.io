@@ -352,6 +352,19 @@
  },
  {
   "dataset": "denominators",
+  "scope": "fred_aexuseu",
+  "metric": "eur_usd_annual_average",
+  "metric_kind": "derived",
+  "unit": "USD_per_EUR",
+  "definition": "U.S. dollars to one euro, annual average of daily noon buying rates in New York (Federal Reserve G.5A), calendar 2025.",
+  "comparable": "as its formula states; inherits its inputs' comparability",
+  "source_name": "Federal Reserve Board G.5A via FRED, series AEXUSEU",
+  "source_url": "https://fred.stlouisfed.org/series/AEXUSEU",
+  "n_rows": 1,
+  "mart": "share_lenses"
+ },
+ {
+  "dataset": "denominators",
   "scope": "fsb_crossborder_kpi_2025",
   "metric": "retail_cost_b2b_msme",
   "metric_kind": "derived",

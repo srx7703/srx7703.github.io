@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-04T11:00:49+00:00",
+ "generated_at": "2026-10-06T00:24:16+00:00",
  "slug": "payments-landscape",
  "registered": "2026-10-03",
  "kpis": [
@@ -1165,7 +1165,7 @@
   },
   "acquisition_deals": 10,
   "acquisition_deals_no_value": 4,
-  "metrics_in_dictionary": 235,
+  "metrics_in_dictionary": 236,
   "share_rows": 207,
   "share_refusals": 56,
   "scoreboard": {
@@ -1225,16 +1225,16 @@
    "evidence": [
     {
      "label": "Stripe share of disclosed volume, upper bound",
-     "value": 0.863636,
+     "value": 0.503125,
      "qualifier": "<",
      "unit": "fraction",
      "period": "FY2025",
      "source_url": null,
-     "note": "upper bound of an interval; PayPal enters as [0, full TPV] because TPV includes Venmo/P2P; NOT INFORMATIVE: Adyen, Airwallex, Checkout.com entered at 0 (no comparable calendar-year volume), so this bound is inflated by missing data and is not graded"
+     "note": "upper bound of an interval; PayPal enters as [0, full TPV] because TPV includes Venmo/P2P; NOT INFORMATIVE: Airwallex, Checkout.com entered at 0 (no comparable calendar-year volume), so this bound is inflated by missing data and is not graded"
     },
     {
      "label": "Stripe share with PayPal at full TPV (context, not graded)",
-     "value": 0.475716,
+     "value": 0.34109,
      "qualifier": "<",
      "unit": "fraction",
      "period": "FY2025",
@@ -1474,7 +1474,7 @@
      "value": 0.0,
      "qualifier": "=",
      "unit": "companies",
-     "period": "to 2026-10-04",
+     "period": "to 2026-10-06",
      "source_url": null,
      "note": null
     }
@@ -1601,17 +1601,17 @@
   {
    "name": "denominators file",
    "status": "pass",
-   "detail": "denominators.json parsed, 50 row(s), updated 2026-10-03"
+   "detail": "denominators.json parsed, 51 row(s), updated 2026-10-06"
   },
   {
    "name": "denominators rows",
    "status": "pass",
-   "detail": "50 row(s) sourced, dated and caveated"
+   "detail": "51 row(s) sourced, dated and caveated"
   },
   {
    "name": "denominators freshness",
    "status": "pass",
-   "detail": "0 of 50 row(s) unchecked for more than 120 days"
+   "detail": "0 of 51 row(s) unchecked for more than 120 days"
   },
   {
    "name": "Waterfalls",

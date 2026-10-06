@@ -1,6 +1,6 @@
 {
  "track": "payments",
- "updated": "2026-10-03",
+ "updated": "2026-10-06",
  "kind": "denominators",
  "note": "Official market-size series used as denominators: Federal Reserve FEDS Note BNPL issuance and shares (2025), SHED BNPL usage, US Census quarterly retail e-commerce sales (seasonally adjusted and not adjusted, last 8 quarters), Federal Reserve Payments Study 2024 card and noncash totals, and FSB cross-border payment KPIs (2025). All are official statistics, not company figures.",
  "rows": [
@@ -1048,6 +1048,26 @@
    "company_confirmed": false,
    "caveat": "Official statistic: FSB key performance indicator computed from Swift data for Q1 2025, against the G20 end-2027 speed target. Bank-to-bank wholesale messages, not retail or card payments.",
    "curator_notes": "Read Annex C Table 1 'Speed of wholesale cross-border payments', 2025 level: '93.2% (+1.2 pp)'."
+  },
+  {
+   "id": "fred_aexuseu:eur_usd_annual_average:FY2025",
+   "series": "fred_aexuseu",
+   "metric": "eur_usd_annual_average",
+   "period": "FY2025",
+   "value": 1.1306,
+   "unit": "USD_per_EUR",
+   "qualifier": "=",
+   "definition": "U.S. dollars to one euro, annual average of daily noon buying rates in New York (Federal Reserve G.5A), calendar 2025.",
+   "source_name": "Federal Reserve Board G.5A via FRED, series AEXUSEU",
+   "source_url": "https://fred.stlouisfed.org/series/AEXUSEU",
+   "publish_date": "2026-01-05",
+   "as_of_date": "2025-12-31",
+   "last_checked": "2026-10-06",
+   "tag": "V",
+   "chartable": true,
+   "company_confirmed": false,
+   "caveat": "Official statistic used only to convert euro-reported volumes to US dollars for calendar-2025 comparisons; an annual average, so it does not match any company's own translation rate.",
+   "curator_notes": "FRED page and /data/AEXUSEU.txt both show 2025: 1.1306 (updated 2026-01-05). Read 2026-10-06."
   }
  ],
  "gaps": [

@@ -2,17 +2,17 @@
  {
   "id": "Q1",
   "label": "Stripe share of disclosed volume, upper bound",
-  "value": 0.863636,
+  "value": 0.503125,
   "qualifier": "<",
   "unit": "fraction",
   "period": "FY2025",
   "source_url": null,
-  "note": "upper bound of an interval; PayPal enters as [0, full TPV] because TPV includes Venmo/P2P; NOT INFORMATIVE: Adyen, Airwallex, Checkout.com entered at 0 (no comparable calendar-year volume), so this bound is inflated by missing data and is not graded"
+  "note": "upper bound of an interval; PayPal enters as [0, full TPV] because TPV includes Venmo/P2P; NOT INFORMATIVE: Airwallex, Checkout.com entered at 0 (no comparable calendar-year volume), so this bound is inflated by missing data and is not graded"
  },
  {
   "id": "Q1",
   "label": "Stripe share with PayPal at full TPV (context, not graded)",
-  "value": 0.475716,
+  "value": 0.34109,
   "qualifier": "<",
   "unit": "fraction",
   "period": "FY2025",
@@ -155,7 +155,7 @@
   "value": 0.0,
   "qualifier": "=",
   "unit": "companies",
-  "period": "to 2026-10-04",
+  "period": "to 2026-10-06",
   "source_url": null,
   "note": null
  }
