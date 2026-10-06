@@ -463,3 +463,132 @@ Q6, Q7 and Q8 return `{"status": "not_yet", "why": …}` until their data exists
 ### Amendments to this section
 
 None yet. Amendments to the rules are made in the Chinese file first, by the owner, and then imported here.
+
+## New payments companies (project H) — who keeps what, and share by lens
+
+A project in progress (`pipelines/payments/`, page `payments-landscape`). It sorts "new payments" companies into four
+businesses and compares two things: what each keeps from every $100 it handles, and its share as measured by four labelled
+lenses. The study design is in `docs/payments/PLAN.md` (Chinese) and the build runbook in `docs/payments/EXECUTION.md`.
+
+**Written 2026-10-02/03, before any formal pipeline pull.** Scouting agents had already read some numbers while
+designing the study. Each question below states its "already seen" reading, so none of them is fully blind. They become
+forward tests from the next data release onwards. Status vocabulary for every item: `collecting`, `holds`, `falsified`,
+`undecidable`. The page shows the status and the reading it rests on.
+
+**Merging.** The branch reaches `main` by fast-forward or `git rebase --committer-date-is-author-date`. It is never
+squashed, because the commit that adds this section is its registration timestamp.
+
+### Universe (pinned)
+
+Each company sits in the layer of its largest revenue source. Tickers are checked against SEC's ticker map in W2.
+A company that cannot be confirmed there is logged as an amendment, never silently dropped.
+
+| layer | core (charted, in share) | classification table only |
+|---|---|---|
+| A merchant acceptance | Stripe, Adyen, Checkout.com, PayPal (incl. Braintree), Block/Square, Shopify Payments, Toast, Fiserv Clover, Global Payments (incl. Worldpay), Shift4 | Rapyd, Highnote |
+| B BNPL | Affirm, Klarna, Afterpay (Block), PayPal Pay Later, Zip, Sezzle | — |
+| C corporate cards, spend management, business banking | Ramp, Brex (Capital One since 2026-04-07), BILL, Navan, Mercury, Corpay | Rippling, Expensify, AvidXchange |
+| D cross-border B2B and treasury | Airwallex, Wise, Payoneer (acquisition by Nuvei pending), dLocal, Flywire | Ebury, Nium |
+| E issuing infrastructure (control) | Marqeta | Lithic, Unit |
+| F stablecoin rails (control, never in share) | Circle | Bridge, Tempo, BVNK |
+
+### Pinned measurement choices
+
+- **npm client SDK set (Q1).**
+  - Stripe `@stripe/stripe-js`.
+  - Adyen `@adyen/adyen-web`.
+  - PayPal/Braintree `@paypal/paypal-js` + `braintree-web`.
+  - Checkout.com `@checkout.com/checkout-web-components`.
+  - Airwallex `@airwallex/components-sdk`.
+
+  Framework wrappers such as `@stripe/react-stripe-js` and `@paypal/react-paypal-js` are excluded. They install the core
+  package, so counting them double counts. The npm package `affirm` and the PyPI packages `affirm` and `airwallex` are
+  not the companies' SDKs and are never used.
+- **Server SDKs (descriptive only).** npm `stripe`, `@adyen/api-library`, `braintree`.
+- **Job boards (counts only, never text).**
+  - Ashby: `ramp`, `airwallex`, `plaid`.
+  - Greenhouse: `stripe`, `brex`, `mercury`, `affirm`, `adyen`, `chime`, `block`, `toast`, `sezzle`, `billcom`.
+
+  Greenhouse `wise` is a different company and is excluded. Ownership of every token is re-verified in W2.
+  A token that fails is dropped with an amendment.
+- **Web coverage** comes from the HTTP Archive Tech Report, US origins, mobile client. It is always called "coverage",
+  never share. The headline uses a 3-month rolling mean.
+- **Closed `metric_kind` vocabulary.** `filed_revenue`, `filed_volume`, `stated_run_rate`, `stated_volume`,
+  `primary_round_valuation`, `tender_valuation`, `reported_talks`, `acquisition_price`, `counterparty_filing`,
+  `statutory_accounts`, `third_party_estimate`, `derived`. Only filed, stated (company-confirmed), counterparty and
+  derived rows are charted. `reported_talks` and `third_party_estimate` never are.
+- **Share rules.**
+  - Share is computed only within one layer, one volume definition and one period. Layers are never summed.
+  - Pool shares are labelled "share of disclosed pool".
+  - Annualised figures are never mixed with TTM figures.
+
+### Items
+
+**Q1 Developer mindshare is more concentrated than money.**
+- Claim: among Stripe, Adyen, Checkout.com, PayPal/Braintree and Airwallex, Stripe's share of client-SDK npm downloads
+  (pinned set) is at least 2.0x its share of disclosed volume. Volume definitions differ, for example PayPal TPV includes
+  Venmo. So the volume share is an interval and the test uses its upper bound.
+- Refuted: the ratio is below 1.5 in 3 consecutive monthly refreshes.
+- Graded: monthly. Formally scored on Stripe's next annual letter (about 2027-02).
+- Already seen: download share 84–90% depending on the whitelist; volume share about 32% (computed).
+
+**Q2 The top of the web is changing hands.**
+- Claim: in the HTTP Archive Tech Report, US top-10k origins on mobile, Stripe's lead over PayPal holds or widens across
+  the next 6 monthly crawls (3-month rolling mean). Across all US origins PayPal still leads.
+- Refuted: PayPal retakes the top-10k lead on the rolling mean, or the gap shrinks by more than half.
+- Graded: 2027-03.
+- Already seen: Stripe 522, PayPal 478 (2026-08 crawl).
+
+**Q3 BNPL share is moving to Affirm.**
+- Claim: Affirm's GMV growth year on year exceeds Klarna's US GMV growth by at least 5 percentage points in each of the
+  next two quarterly pairs: Affirm FQ1'27 against Klarna Q3'26, then Affirm FQ2'27 against Klarna Q4'26.
+- Refuted: either pair's gap is below 5 percentage points.
+- Graded: 2026-11 and 2027-02.
+- Already seen: +36% against +27%. Affirm's GMV includes small Canada and UK volumes.
+
+**Q4 Corporate-card net interchange settles at 1.0–1.6% of card volume.**
+- Claim: interchange net of rewards stays between 1.0% and 1.6% of card volume. BILL reports revenue net of rewards from
+  the quarter ending 2026-09-30, which gives a natural before/after test.
+- Refuted: any US spend-management issuer shows above 2.0% or below 0.8% for two consecutive quarters.
+- Graded: 2026-11 and 2027-02.
+- Already seen: BILL gross 2.60%, rewards 51% of interchange, net about 1.28% (computed).
+
+**Q5 BNPL is a lending business.**
+- Claim: of the per-$100 retention gap between Affirm and Klarna (4.15 against 1.22, computed, different periods), at
+  least 70% comes from the credit side (interest, gain on sale, servicing), not merchant fees.
+- Refuted: the merchant side explains more than half.
+- Undecidable: Klarna does not disclose the split.
+- Graded: 2026-11.
+
+**Q6 Brex earns less than half of its revenue from card interchange.**
+- Claim, as an inference chain:
+  1. Capital One's purchase-price allocation shows $815M of Brex loans.
+  2. At 20–45 days of receivables, that implies $6.6–14.9B of annual card spend.
+  3. At about 1.28% net interchange, that is $85–190M a year.
+  4. Against about $700M of stated annualised revenue (secondary source), that is under half.
+- Refuted: Capital One discloses figures showing net interchange above half.
+- Undecidable: there is no disclosure by Capital One's FY2026 10-K (about 2027-02).
+
+**Q7 Cross-border: challengers cut price, the industry average does not move.**
+- Claim: Wise's cross-border take rate falls by at least 3 bps a year (0.58% to 0.52% last year), while the FSB's average
+  cost of MSME B2B cross-border payments stays at or above 1.5% (1.5% in 2023, 1.6% in 2024 and 2025).
+- Refuted: FSB's 2026 figure is 1.4% or below, or Wise's H1 FY27 take rate is flat or up.
+- Graded: 2026-10 to 2026-11.
+
+**Q8 Commercial-card interchange does not fall after the settlement.**
+- Claim: in the first Visa rate sheet after final approval of the 2026 interchange settlement, US Commercial
+  Card-Not-Present stays at or above 2.60% + $0.10.
+- Refuted: it is cut by more than 10 bps.
+- Void: the court rejects the settlement.
+- Graded: after the fairness hearing (2026-11-16, date from a secondary source) and the spring 2027 sheet.
+- Already seen: 2.70% + $0.10, effective 2026-04-18.
+
+**Q9 Consolidation continues (a calibration item).**
+- Claim: by 2027-09-30, at least 2 roster companies that are independent today and valued below $5B announce an
+  acquisition. Payoneer does not count.
+- Refuted: 0 or 1.
+- Already seen: 3–4 roster deals in the past 12 months.
+
+### Amendments to this section
+
+(none yet)

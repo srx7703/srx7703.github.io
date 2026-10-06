@@ -1,0 +1,39 @@
+{
+ "_comment": "Synthetic test fixture in the shape of the SEC XBRL API response; values are illustrative, not filed numbers.",
+ "taxonomy": "us-gaap",
+ "tag": "Revenues",
+ "ccp": "CY2026Q2",
+ "uom": "USD",
+ "label": "Revenues",
+ "description": "Amount of revenue recognized from goods sold, services rendered, insurance premiums, or other activities that constitute an earning process.",
+ "pts": 3,
+ "data": [
+  {
+   "accn": "0000000002-26-000101",
+   "cik": 2,
+   "entityName": "OTHER FILER A",
+   "loc": "US-NY",
+   "start": "2026-04-01",
+   "end": "2026-06-30",
+   "val": 5000000
+  },
+  {
+   "accn": "0001234567-26-000006",
+   "cik": 1234567,
+   "entityName": "Fixture Payments Inc",
+   "loc": "US-CA",
+   "start": "2026-04-01",
+   "end": "2026-06-30",
+   "val": 150000000
+  },
+  {
+   "accn": "0000000003-26-000077",
+   "cik": 3,
+   "entityName": "OTHER FILER B",
+   "loc": "US-TX",
+   "start": "2026-03-29",
+   "end": "2026-06-27",
+   "val": 7000000
+  }
+ ]
+}

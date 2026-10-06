@@ -3,16 +3,32 @@
  * Renders a Vega-Lite spec client-side with vega-embed. Any string of the form `token:--name`
  * inside the spec is replaced at render time with the CSS custom property's computed value, so
  * chart chrome and series colours follow the light/dark theme from tokens.css.
+ *
+ * Optional `group`: the chart joins a dashboard group driven by <DashboardControls group=…>.
+ * Its rendered view is registered in `window.__dash[group].views` (keyed by chart id), and
+ * before every (re-)render the group's current control state is written into the spec's
+ * matching top-level `params` values, so lazy, theme and resize re-renders keep the selection.
+ *
+ * Optional `titles` (needs `group`): a map from the group's control values, joined with '|' in
+ * the DashboardControls `controls` order (or in `titleKeys` order when given), to the figure
+ * title for that view, plus an optional `default` entry. DashboardControls rewrites the
+ * enclosing figure's `.figure__title` from it on load and on every change, so the title always
+ * states the finding of the view on screen. The build-time title should equal the default key's.
  */
 interface Props {
   spec: Record<string, unknown>;
   id: string;
   height?: number;
   ariaLabel: string;
+  group?: string;
+  titles?: Record<string, string>;
+  titleKeys?: string[];
 }
-const { spec, id, height = 300, ariaLabel } = Astro.props;
+const { spec, id, height = 300, ariaLabel, group, titles, titleKeys } = Astro.props;
+const dashTitles = group && titles ? JSON.stringify(titles) : undefined;
+const dashKeys = group && titles && titleKeys?.length ? titleKeys.join(' ') : undefined;
 ---
-<div class="vega" id={id} data-spec={JSON.stringify(spec)} role="img" aria-label={ariaLabel} style={`min-height:${height}px`}></div>
+<div class="vega" id={id} data-spec={JSON.stringify(spec)} data-group={group} data-dash-group={dashTitles && group} data-dash-titles={dashTitles} data-dash-keys={dashKeys} role="img" aria-label={ariaLabel} style={`min-height:${height}px`}></div>
 <noscript><p class="muted">Charts need JavaScript. The underlying numbers are in the tables and CSV downloads on this page and in the public data files.</p></noscript>
 <script>
   // vega-embed (~700 KB) is loaded on demand when the first chart nears the viewport.
@@ -62,7 +78,21 @@ const { spec, id, height = 300, ariaLabel } = Astro.props;
       spec.spec.width = Math.max(96, Math.floor((innerWidth(el) - 90) / cols)); // panels shrink to fit on phones
     }
     delete spec._facetColumns;
-    await embed(el, spec as any, { actions: false, renderer: 'svg', tooltip: { theme: isDark() ? 'dark' : 'light' } });
+    const group = el.dataset.group;
+    const dash = group ? ((window as any).__dash ??= {})[group] ??= { state: {}, views: new Map() } : null;
+    if (dash && Array.isArray(spec.params)) {
+      for (const p of spec.params) if (p && !p.bind && p.name in dash.state) p.value = dash.state[p.name];
+    }
+    if (dash) { dash.views.get(el.id)?.finalize?.(); dash.views.delete(el.id); }
+    const result = await embed(el, spec as any, { actions: false, renderer: 'svg', tooltip: { theme: isDark() ? 'dark' : 'light' } });
+    if (dash) {
+      dash.views.set(el.id, result.view);
+      // A control may have changed while this chart was embedding: catch the view up.
+      const names = new Set((spec.params || []).filter((p: any) => p && !p.bind).map((p: any) => p.name));
+      let stale = false;
+      for (const [k, v] of Object.entries(dash.state)) if (names.has(k) && result.view.signal(k) !== v) { result.view.signal(k, v); stale = true; }
+      if (stale) await result.view.runAsync();
+    }
   };
 
   const all = () => document.querySelectorAll<HTMLElement>('.vega');

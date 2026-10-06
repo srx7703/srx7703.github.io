@@ -1,0 +1,35 @@
+[
+ {
+  "id": "affirm_kept_per_100",
+  "label": "What Affirm keeps from every $100 of GMV",
+  "value": 4.153319,
+  "qualifier": "=",
+  "unit": "usd_per_100",
+  "period": "FY2026",
+  "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026059279/afrm-20260630.htm",
+  "as_of": "2026-06-30",
+  "note": "revenue less transaction costs per $100 of GMV, computed from filed FY2026 lines"
+ },
+ {
+  "id": "bnpl_leader_share",
+  "label": "Largest provider's share of 2025 US BNPL issuance among the six largest providers (Fed estimate)",
+  "value": 0.342693,
+  "qualifier": "=",
+  "unit": "share_of_official_total",
+  "period": "FY2025",
+  "source_url": "https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html",
+  "as_of": "2025-12-31",
+  "note": "Afterpay/Block (Afterpay plus Cash App Borrow loans); Fed FEDS Note table of six providers, 2025 issuance, not the whole market"
+ },
+ {
+  "id": "stripe_volume",
+  "label": "Volume on Stripe, as Stripe states it",
+  "value": 1900000000000.0,
+  "qualifier": "=",
+  "unit": "USD",
+  "period": "FY2025",
+  "source_url": "https://stripe.com/newsroom/news/stripe-2025-update",
+  "as_of": "2025-12-31",
+  "note": "a company statement of gross volume, not revenue; Stripe files no group accounts"
+ }
+]

@@ -258,3 +258,79 @@ converting currencies explicitly at every step and returning a written reason in
 whenever a denominator is not positive. `share.py` builds the two share bases. `publish.py` writes
 `data/marts/valuation/*.json` and `data/facts/valuation_{optical,ssb}.json`; `evaluate.py` scores
 the pre-registered plan and returns "not yet" with a reason for anything that cannot be scored.
+
+# Data model — payments landscape
+
+Pipeline: `pipelines/payments/`. Page: `/projects/payments-landscape/`. Question: what do payments companies
+keep from every $100 they move, how concentrated is each layer, and how do private valuations line up with
+what the companies disclose. The universe (segments A acceptance, B BNPL, C spend management and B2B,
+D cross-border, E issuing, F stablecoin; `core` rows charted, `table` rows listed only) is pinned in
+`pipelines/payments/config.py` and registered in `docs/EVALUATION_PLAN.md`.
+
+Refresh: `make publish` runs `python -m pipelines.payments.publish`, which rebuilds every mart and the facts
+file from the reference layer plus whatever CI-source parquet is on disk. The scheduled weekly workflow
+(`payments.yml`, added at ship preparation on the `power.yml` pattern) also runs the CI-only sources. A
+missing CI source is a warn check and an unreadable one a failed check; the rest of the page still builds.
+A regression guard refuses to overwrite facts and marts if a run would cover fewer than half the companies
+the existing facts file covers.
+
+## Reference layer (curated, hand-checked)
+
+`data/reference/payments/*.json`, validated by `pipelines/payments/reference.py` on top of the generic rules
+in `pipelines/common/curation.py` (reachable `https://` link, publication date, caveat, re-check date, no
+working notes, whole file or nothing). Every row carries:
+
+| field | meaning |
+|---|---|
+| `tag` | `V` read on the primary page, `S` search extract only, `C` computed from `V` inputs, `U` unverified. Only `V`/`C` may be chartable |
+| `metric_kind` | closed vocabulary in `config.py`; `reported_talks` and `third_party_estimate` are never chartable, whatever the tag |
+| `qualifier` | `=`, `>`, `<`, `~`; "more than $1.4tn" keeps its `>` everywhere downstream |
+| `as_of_date` | the period or date the figure describes, distinct from when it was published |
+
+| file | grain | source |
+|---|---|---|
+| `kpi_disclosures_acceptance.json` | company x metric x period, acceptance (segment A) volumes and revenue | filings, shareholder letters, IR releases |
+| `kpi_disclosures_other.json` | company x metric x period, segments B-F | filings, IR releases |
+| `private_metrics.json` | private company x metric x date (valuations, rounds, stated volume or revenue) | company statements, filings; press reports kept as non-chartable |
+| `waterfall_inputs.json` | waterfall x period x input line | income-statement lines from filings |
+| `denominators.json` | official market totals per scope and period (Census e-commerce, Fed BNPL issuance and similar) | official statistics |
+| `products.json` | company x product line, with status and launch date | product pages, launch announcements |
+| `events.json` | company x event kind x date x counterparty (IPO, acquisition, priced round, tender, listing) | filings, company announcements |
+
+## Marts (`data/marts/payments/*.json`)
+
+Each is validated by its pandera schema (`pipelines/payments/schema.py` `MARTS`) before any file is written.
+`waterfall_lines`, `ledger_timeline`, `ledger_latest`, `private_intervals`, `take_rates`, `products` and
+`events` only ever hold chartable rows (`schema.CHARTED_MARTS`, asserted by publish).
+
+| table | grain | key | source / built by |
+|---|---|---|---|
+| `waterfall_lines` | one line of a per-$100 waterfall (take, cost, kept) for one company-period | `waterfall, period, line` | `economics.py` from `waterfall_inputs` |
+| `sensitivity` | one scenario of a registered sensitivity band for one waterfall output | `question, waterfall, scenario, input_value, output` | `economics.py` |
+| `take_rates` | revenue over the company's own volume, one ratio per company-period; `ratio_kind` is `gross_take_rate`, `net_take_rate` or `margin_retention` and is never compared across kinds | `company, ratio, period` | `ledger.py` from KPI disclosures |
+| `take_rates_refused`, `private_take_rates_refused` | a ratio that was not computed, with the written reason | `company, ratio, period` | `ledger.py` |
+| `ledger_timeline` | one dated private-company figure (valuation, round, stated volume) | `company, source, metric, period, date, counterparty` | `ledger.py` from `private_metrics` + `events` |
+| `ledger_latest` | latest current value per private company and metric | `company, metric` | `ledger.py` |
+| `private_intervals` | a derived bound (lower/upper/estimate) where only an interval is defensible | `company, metric, period` | `ledger.py` |
+| `share_lenses` | one company's share in one pool under one lens (`disclosed_pool`, `official_denominator`); refusals carry `refusal_reason`; lenses are never mixed or summed | `lens, pool, company, period, role, source_metric` | `share.py` from KPI disclosures + `denominators` |
+| `share_pool_hhi` | concentration inside each closed pool | `lens, pool, period` | `share.py` |
+| `products` | company x product line matrix | `company, product_line` | `products.json` |
+| `events` | 2025-26 deal timeline | `company, event_kind, event_date, counterparty` | `events.json` |
+| `metric_dictionary` | every metric: definition, kind, unit, comparability, source, which mart uses it | `dataset, scope, metric` | publish |
+| `reported_unconfirmed` | every non-chartable row with the reason; shown only as a table column labelled "reported, unconfirmed", never charted | `source, company, metric, period, date, counterparty, value` | publish |
+| `scoreboard` | one pre-registered question (Q1-Q9): status, reason, next grading date, CI inputs present | `id` | `evaluate.py` |
+| `scoreboard_evidence` | the readings behind each question | `id, label` | `evaluate.py` |
+| `kpis` | the three headline KPIs, each with value, qualifier, unit, period, source URL and as-of | `id` | publish |
+| `webtech_q2`, `devstats_q1`, `devstats_monthly`, `jobs_by_function`, `formd_filings`, `sec_latest` | small views of the CI-only sources, written only when that source is on disk | `slice, technology, date`; `month`; `side, series, period`; `snapshot_date, ats, board, function`; `company, accession`; `ticker` | `webtech.py`, `devstats.py`, `jobs.py`, `formd.py`, SEC via publish |
+
+CI-only sources (npm downloads, HTTP Archive, Greenhouse/Ashby board counts, SEC Form D, SEC XBRL) write
+parquet next to the marts; `devstats`, `webtech` and `formd` archive their payloads append-only under
+`data/raw/payments/<source>/<date>/<HHMM>/`. Job boards are stored as counts only, never job text.
+
+## Facts (`data/facts/payments.json`)
+
+`kpis` (exactly three, the page's KPI row), `values` (every templated number, keyed by a dotted id such as
+`hhi.disclosed_pool.A_payment_volume`, each with `value`, `qualifier`, `unit`, `period`, `as_of`, `source_url`), `counts`, `coverage`, `scoreboard`, `ci_sources`, `marts` (name to
+path under `data/marts/`, loaded by the page by URL from `/data/marts/payments/`), `checks` (range,
+uniqueness, qualifier, freshness and regression-guard results shown in the page's Data quality section),
+`sources`, `generated_at` and `registered`. Every number in the page prose and the home row is read from here.

@@ -1,0 +1,132 @@
+---
+/**
+ * A sortable, filterable table whose rows are fetched from a same-origin JSON URL (an array of
+ * flat objects) when the table nears the viewport, instead of being inlined in the HTML. Use it
+ * for tables too large to ship in the page; small tables stay <DataTable>. The header, caption,
+ * filter row and a row count are rendered at build time; without JavaScript the table says where
+ * the rows are. Cells render like DataTable's (the value as HTML, so a link column works).
+ */
+interface Col { key: string; label: string; format?: 'num' | 'text'; align?: 'left' | 'right' }
+interface Select { column: string; label: string; options: string[] }
+interface Props {
+  id: string;
+  src: string;
+  columns: Col[];
+  total: number;          // rows the URL serves, stated before they load
+  caption?: string;
+  selects?: Select[];     // select filters on `data-<column>` (exact match)
+  placeholder?: string;
+}
+const { id, src, columns, total, caption, selects = [], placeholder = 'Search…' } = Astro.props;
+const isNum = (c: Col) => c.align === 'right' || c.format === 'num';
+---
+<div class="urltable" data-src={src} data-table={id} data-columns={JSON.stringify(columns.map((c) => ({ key: c.key, num: isNum(c), format: c.format ?? 'text' })))} data-filters={JSON.stringify(selects.map((s) => s.column))}>
+  <div class="urltable__bar">
+    <input type="search" class="urltable__search" placeholder={placeholder} aria-label="Search table" aria-controls={id} />
+    {selects.map((s) => (
+      <label class="urltable__select">{s.label}
+        <select data-column={s.column}>
+          <option value="">All</option>
+          {s.options.map((o) => <option value={o}>{o}</option>)}
+        </select>
+      </label>
+    ))}
+    <span class="urltable__count" aria-live="polite">{total} rows</span>
+  </div>
+  <div class="table-wrap" tabindex="0" role="region" aria-label={caption ?? 'Table'}>
+    <table id={id} aria-busy="true">
+      {caption && <caption>{caption}</caption>}
+      <thead>
+        <tr>{columns.map((c) => (
+          <th scope="col" class={isNum(c) ? 'num' : ''} data-type={isNum(c) ? 'number' : 'text'} tabindex="0" aria-sort="none" title="Sort">{c.label}</th>
+        ))}</tr>
+      </thead>
+      <tbody>
+        <tr class="urltable__wait"><td colspan={columns.length}>The {total} rows load from <a href={src}>{src}</a> as the table comes into view.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+  type ColCfg = { key: string; num: boolean; format: string };
+  const nf = new Intl.NumberFormat('en-US');
+  const fmt = (v: unknown, c: ColCfg) => (v == null || v === '' ? '—' : c.format === 'num' && typeof v === 'number' ? nf.format(v) : String(v));
+  const attr = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+
+  document.querySelectorAll<HTMLElement>('.urltable').forEach((box) => {
+    const table = box.querySelector('table') as HTMLTableElement;
+    const body = table.tBodies[0];
+    const cols: ColCfg[] = JSON.parse(box.dataset.columns || '[]');
+    const filters: string[] = JSON.parse(box.dataset.filters || '[]');
+    const search = box.querySelector<HTMLInputElement>('.urltable__search');
+    const selects = Array.from(box.querySelectorAll<HTMLSelectElement>('select'));
+    const count = box.querySelector<HTMLElement>('.urltable__count');
+    let rows: HTMLTableRowElement[] = [];
+
+    const apply = () => {
+      const q = (search?.value || '').toLowerCase();
+      let shown = 0;
+      rows.forEach((tr) => {
+        const okText = !q || (tr.textContent || '').toLowerCase().includes(q);
+        const okSel = selects.every((s) => !s.value || tr.getAttribute(`data-${s.dataset.column}`) === s.value);
+        tr.hidden = !(okText && okSel);
+        if (!tr.hidden) shown++;
+      });
+      if (count) count.textContent = `${shown} of ${rows.length}`;
+    };
+
+    const load = async () => {
+      try {
+        const data: Record<string, unknown>[] = await (await fetch(box.dataset.src || '')).json();
+        body.innerHTML = data.map((r) => {
+          const fa = filters.map((k) => ` data-${k.toLowerCase()}="${attr(String(r[k] ?? ''))}"`).join('');
+          const tds = cols.map((c) => `<td${c.num ? ' class="num"' : ''} data-value="${attr(String(r[c.key] ?? ''))}">${fmt(r[c.key], c)}</td>`).join('');
+          return `<tr${fa}>${tds}</tr>`;
+        }).join('');
+        rows = Array.from(body.rows);
+        table.removeAttribute('aria-busy');
+        apply();
+      } catch (e) {
+        console.error('table rows failed to load', box.dataset.src, e);
+      }
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) { io.disconnect(); load(); }
+    }, { rootMargin: '600px 0px' });
+    io.observe(box);
+    search?.addEventListener('input', apply);
+    selects.forEach((s) => s.addEventListener('change', apply));
+
+    const ths = Array.from(table.tHead?.rows[0]?.cells ?? []);
+    ths.forEach((th, idx) => {
+      const sort = () => {
+        if (!rows.length) return;
+        const dir = th.getAttribute('aria-sort') === 'ascending' ? 'descending' : 'ascending';
+        ths.forEach((h) => h.setAttribute('aria-sort', 'none'));
+        th.setAttribute('aria-sort', dir);
+        const numeric = th.dataset.type === 'number';
+        rows.sort((a, b) => {
+          const va = a.cells[idx].dataset.value ?? '', vb = b.cells[idx].dataset.value ?? '';
+          if (numeric) { const na = va === '' ? -Infinity : Number(va), nb = vb === '' ? -Infinity : Number(vb); return dir === 'ascending' ? na - nb : nb - na; }
+          return dir === 'ascending' ? va.localeCompare(vb) : vb.localeCompare(va);
+        });
+        rows.forEach((r) => body.appendChild(r));
+      };
+      th.addEventListener('click', sort);
+      th.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); sort(); } });
+    });
+  });
+</script>
+<style>
+  .urltable__bar { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-3); align-items: center; margin: 0 0 var(--s-2); font-family: var(--font-sans); font-size: var(--fs-sm); }
+  .urltable__search, .urltable__bar select { font: inherit; font-size: var(--fs-sm); color: var(--ink); background: transparent; border: 1px dashed var(--border-strong); border-radius: 0; padding: 0.3em 0.6em; max-width: 100%; }
+  .urltable__bar select option { color: var(--ink); background: var(--bg); }
+  .urltable__select { display: inline-flex; gap: var(--s-1); align-items: center; color: var(--ink-2); }
+  .urltable__count { color: var(--ink-3); margin-left: auto; font-variant-numeric: tabular-nums; }
+  .urltable th { cursor: pointer; user-select: none; white-space: nowrap; }
+  .urltable th[aria-sort="ascending"]::after { content: " ↑"; color: var(--ink-3); }
+  .urltable th[aria-sort="descending"]::after { content: " ↓"; color: var(--ink-3); }
+  .urltable caption { text-align: left; color: var(--ink-3); font-size: var(--fs-xs); padding: var(--s-1) 0; caption-side: bottom; font-family: var(--font-sans); }
+  .urltable__wait td { color: var(--ink-3); }
+</style>

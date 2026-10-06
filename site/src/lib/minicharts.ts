@@ -11,6 +11,7 @@ import finllm from '@data/facts/finllm.json';
 import opticalCompanies from '@data/marts/valuation/optical_companies.json';
 import ssbCompanies from '@data/marts/valuation/ssb_companies.json';
 import memIndex from '@data/marts/memcycle/price_index.json';
+import takeRates from '@data/marts/payments/take_rates.json';
 
 export type Pt = [number, number];
 export type MiniSpec =
@@ -102,6 +103,30 @@ function memcycle(): MiniSpec {
   };
 }
 
+type TakeRow = { company: string; period: string; ratio_kind: string; as_of: string; take_rate_pct: number | null; qualifier: string; chartable: boolean; stale: boolean };
+
+/**
+ * Gross take rate (revenue over the company's own volume) per reported period for one acquirer, one BNPL lender
+ * and one B2B payments company, one per colour. Quarterly rows only (an annual row would sit among the quarters), chartable, current and exact (=); never summed or compared
+ * across definitions, a glyph of how differently each layer prices.
+ */
+function payments(): MiniSpec {
+  const picks: [string, string][] = [['PayPal', '--series-a'], ['Affirm', '--series-b'], ['BILL', '--series-c']];
+  const rows = (takeRates as TakeRow[]).filter(
+    (r) => r.ratio_kind === 'gross_take_rate' && /Q\d$/.test(r.period) && r.chartable && !r.stale && r.qualifier === '=' && r.take_rate_pct != null,
+  );
+  const series = picks.map(([name, color]) => ({
+    name, color,
+    points: rows.filter((r) => r.company === name).map((r): Pt => [Date.parse(r.as_of), r.take_rate_pct as number]).sort(byTime),
+  }));
+  const ys = series.flatMap((s) => s.points.map((p) => p[1]));
+  const y: [number, number] = ys.length ? [0, Math.max(...ys) * 1.08] : [0, 1];
+  return {
+    kind: 'lines', series, y,
+    label: `Gross take rate, revenue as a percentage of each company's own volume, by reported quarter for ${picks.map((p) => p[0]).join(', ')}`,
+  };
+}
+
 export const miniCharts: Record<string, MiniSpec> = {
   'midterms-2026': midterms(),
   'fomc-markets': fomc(),
@@ -117,4 +142,5 @@ export const miniCharts: Record<string, MiniSpec> = {
     'Forward PE against expected earnings growth for each listed solid-state battery company',
   ),
   'memory-cycles': memcycle(),
+  'payments-landscape': payments(),
 };

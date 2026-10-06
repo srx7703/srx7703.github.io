@@ -1,0 +1,907 @@
+---
+title: "Who keeps what: what new payments companies sell, move and keep"
+summary: "Acquiring, buy now pay later, corporate cards and cross-border transfers look like one industry from outside. Measured by what each keeps from the money it moves, they are four businesses, so market share is only measured inside one of them, against a denominator that is written down."
+status: in-progress
+domain: ["payments", "fintech"]
+tools: ["Python", "Polars", "pandera", "SEC filings", "Federal Reserve", "HTTP Archive", "npm", "Vega-Lite", "GitHub Actions"]
+featured: true
+order: 6
+started: "2026-10-02"
+---
+import facts from '@data/facts/payments.json';
+import takeRates from '@data/marts/payments/take_rates.json';
+import takeRatesRefused from '@data/marts/payments/take_rates_refused.json';
+import privateRefused from '@data/marts/payments/private_take_rates_refused.json';
+import shareLenses from '@data/marts/payments/share_lenses.json';
+import ledgerTimeline from '@data/marts/payments/ledger_timeline.json';
+import privateIntervals from '@data/marts/payments/private_intervals.json';
+import eventsJson from '@data/marts/payments/events.json';
+import waterfallLines from '@data/marts/payments/waterfall_lines.json';
+import productsJson from '@data/marts/payments/products.json';
+import sensitivityJson from '@data/marts/payments/sensitivity.json';
+import metricDictionary from '@data/marts/payments/metric_dictionary.json';
+import reportedUnconfirmed from '@data/marts/payments/reported_unconfirmed.json';
+import dagSvg from '../../assets/payments-dag.svg?raw';
+import KpiRow from '@components/KpiRow.astro';
+import KpiTile from '@components/KpiTile.astro';
+import ChartCard from '@components/ChartCard.astro';
+import VegaChart from '@components/VegaChart.astro';
+import DashboardControls from '@components/DashboardControls.astro';
+import SourceStamp from '@components/SourceStamp.astro';
+import Section from '@components/Section.astro';
+import DataQuality from '@components/DataQuality.astro';
+import DataTable from '@components/DataTable.astro';
+import FilterBar from '@components/FilterBar.astro'; // not rendered (the dictionary is a UrlTable); kept so the shared stylesheet chunks, and so every other page's HTML, stay as they were
+import UrlTable from '@components/UrlTable.astro';
+import DownloadCsv from '@components/DownloadCsv.astro';
+import Sidenote from '@components/Sidenote.astro';
+import Appendix from '@components/Appendix.astro';
+import { evaluationPlan } from '@lib/prereg';
+import { changelog } from '@lib/changelog';
+import { urlSpec, DATA_BASE, DICTIONARY_FILE } from '@charts/payments/external';
+import { pct, num, dayUtc } from '@lib/fmt';
+import { companyPoints, companyControls, companyTableRows, companyFindings, fmtPct, fmtQPct } from '@charts/payments/company_data';
+import { companySeriesSubtitle } from '@charts/payments/company_series';
+import { companyScatterFinding, companyScatterSubtitle } from '@charts/payments/company_scatter';
+import { shareControls, shareTableRows, shareBarRows, displayPeriods, SEGMENT_LABEL, LENS_LABEL } from '@charts/payments/share_data';
+import { shareBarsFinding, shareBarsSubtitle } from '@charts/payments/share_bars';
+import { shareDumbbellFinding, shareDumbbellSubtitle } from '@charts/payments/share_dumbbell';
+import { ADOPTION_CONTROLS, ADOPTION_URLS, ADOPTION_CI_SOURCE, WEB_COMPANIES, NPM_COMPANIES, JOBS_COMPANIES, ADOPTION_COMPANIES, BOARD_COMPANY } from '@charts/payments/adoption_shared';
+import { webCoverageSpec, webCoverageFinding, webCoverageSubtitle } from '@charts/payments/adoption_web';
+import { npmIndexSpec, npmIndexFinding, npmIndexSubtitle } from '@charts/payments/adoption_npm';
+import { hiringSpec, hiringFinding, hiringSubtitle, JOB_FUNCTION_LABEL } from '@charts/payments/adoption_jobs';
+import { ledgerPoints, ledgerControls, ledgerTableRows, LEDGER_TABLE_COLUMNS, LEDGER_METRICS, fmtValue, metricLabel } from '@charts/payments/ledger_data';
+import { ledgerIntervalFinding, ledgerIntervalSubtitle } from '@charts/payments/ledger_intervals';
+import { eventsFinding, eventsSubtitle } from '@charts/payments/events';
+import { waterfallFacetSpec, waterfallFinding, waterfallSubtitle, WATERFALL_ORDER, WATERFALL_LABEL } from '@charts/payments/waterfall';
+import { productsFinding, productsSubtitle } from '@charts/payments/products';
+import { sensitivityFinding, sensitivitySubtitle } from '@charts/payments/sensitivity';
+
+export const plan = evaluationPlan();
+export const V = facts.values;
+export const S = facts.sources;
+export const counts = facts.counts;
+export const published = dayUtc(facts.generated_at);
+export const maxOf = (rows, key) => rows.reduce((m, r) => (r[key] && r[key] > m ? r[key] : m), '');
+// title map for a dashboard figure: every combination of the given controls' options -> title, plus `default`
+export const titleMap = (ctls, titleOf) => {
+  const combos = ctls.reduce((acc, c) => acc.flatMap((a) => c.options.map((o) => [...a, String(o.value)])), [[]]);
+  const map = Object.fromEntries(combos.map((vals) => [vals.join('|'), titleOf(...vals)]));
+  map.default = map[ctls.map((c) => String(c.default)).join('|')];
+  return map;
+};
+export const usdPer = (v) => (v == null ? '—' : `$${v.toFixed(2)}`);
+export const QWORD = { '=': '', '>': 'more than ', '<': 'less than ', '~': 'about ' };
+export const kpiValue = (k) => {
+  const q = k.qualifier && k.qualifier !== '=' ? `${k.qualifier} ` : '';
+  if (k.unit === 'usd_per_100') return `${q}${usdPer(k.value)}`;
+  if (String(k.unit).startsWith('share')) return `${q}${pct(k.value, 0)}`;
+  if (k.unit === 'USD') return `${q}${fmtValue(k.value, 'USD')}`;
+  return `${q}${k.value}`;
+};
+export const kpis = facts.kpis;
+export const keptAffirm = kpis.find((k) => k.id === 'affirm_kept_per_100') ?? kpis[0];
+export const adyen = V['take_rate.Adyen.net_revenue_per_processed_volume'];
+export const keptSpread = keptAffirm && adyen ? keptAffirm.value / adyen.value : null;
+export const fedPrefix = 'share.official.fed_feds_note_bnpl_2026.';
+export const fedShares = Object.entries(V).filter(([k]) => k.startsWith(fedPrefix)).map(([k, v]) => ({ company: k.slice(fedPrefix.length), ...v })).sort((a, b) => b.value - a.value);
+export const fedLeader = fedShares[0];
+// The Fed's "Afterpay/Block" row is Block as a whole, so the label says what it holds wherever it is spelled out.
+export const fedLabel = (c) => (c === 'Afterpay/Block' ? 'Afterpay/Block (Afterpay plus Cash App Borrow loans)' : c);
+export const fedHhi = V['hhi.official_denominator.fed_feds_note_bnpl_2026'];
+export const stripeVolume = V['ledger.Stripe.total_volume'];
+export const stripeNet = V['interval.Stripe.implied_net_revenue'];
+export const rampTake = V['interval.Ramp.take_rate:revenue_per_purchase_volume'];
+export const rampRow = privateIntervals.find((r) => r.company === 'Ramp' && r.metric === 'take_rate:revenue_per_purchase_volume' && r.period === rampTake?.period);
+// qualifiers of numerator and denominator, read from the interval's formula, e.g. "revenue (>1e9) / volume (=2e11)"
+export const rampQ = [...(rampRow?.formula ?? '').matchAll(/\(([<>=~])/g)].map((m) => m[1]);
+export const QSTATED = { '>': 'is a "more than" statement', '<': 'is a "less than" statement', '~': 'is an "about" figure', '=': 'is stated exactly' };
+export const rampWhy = rampQ.length === 2
+  ? `because its revenue figure ${QSTATED[rampQ[0]]} while its purchase volume ${QSTATED[rampQ[1]]}`
+  : 'because of the qualifiers on its stated figures';
+export const bnplPoolHhi = V['hhi.disclosed_pool.B_bnpl_gmv'];
+export const acqPoolHhi = V['hhi.disclosed_pool.A_payment_volume'];
+// scoreboard
+export const STATUS_LABEL = { collecting: 'Collecting', holds: 'Holds', falsified: 'Falsified', undecidable: 'Undecidable' };
+export const fmtEvidence = (e) => {
+  // evaluate.py marks a bound inflated by missing members as NOT INFORMATIVE; the page never prints its bare value.
+  const uninformative = /NOT INFORMATIVE: (.*?) entered at 0/.exec(e.note ?? '');
+  if (uninformative) {
+    const missing = uninformative[1].split(', ');
+    return `${e.label}: not informative, not graded (${missing.length} members have no comparable volume: ${missing.join(', ')})`;
+  }
+  const q = QWORD[e.qualifier] ?? '';
+  const v = e.value;
+  let s = String(v);
+  if (e.unit === 'fraction') s = pct(v, 1);
+  else if (e.unit === 'percent' || e.unit === 'percent of card volume') s = `${v.toFixed(v >= 10 ? 1 : 2)}%`;
+  else if (e.unit === 'percentage points') s = `${v > 0 ? '+' : ''}${v.toFixed(2)} pt`;
+  else if (e.unit === 'usd_per_100') s = `${usdPer(v)} per $100`;
+  else if (e.unit === 'USD') s = fmtValue(v, 'USD');
+  else if (e.unit === 'companies') s = num(v);
+  return `${e.label}: ${q}${s}${e.period ? ` (${e.period})` : ''}`;
+};
+export const scoreRows = facts.scoreboard.map((q) => ({
+  id: q.id,
+  question: q.title,
+  status: STATUS_LABEL[q.status] ?? q.status,
+  evidence: q.evidence.length ? q.evidence.map(fmtEvidence).join('; ') : `Not yet read. Already seen at registration: ${q.already_seen}`,
+  reason: q.reason,
+  graded: q.graded,
+}));
+export const collecting = facts.scoreboard.filter((q) => q.status === 'collecting').length;
+// D1 company explorer
+export const points = companyPoints(takeRates);
+export const companyCtl = companyControls(points);
+export const companyDefault = companyCtl[0].default;
+export const cf = companyFindings(points);
+export const scatterF = companyScatterFinding(points);
+export const amountOf = (v, cur) => (v >= 1e9 ? `${+(v / 1e9).toPrecision(3)} billion ${cur}` : `${+(v / 1e6).toPrecision(3)} million ${cur}`);
+export const seriesTitleFor = (company, metric) => {
+  const s = points.filter((p) => p.company === company).sort((a, b) => a.as_of.localeCompare(b.as_of));
+  const first = s[0];
+  const last = s[s.length - 1];
+  if (!first) return `${company} has no filed take rate on this build`;
+  const val = (p) => (metric === 'volume' ? p.volume : metric === 'revenue' ? p.revenue : p.take_rate_pct);
+  const fmt = (p) => (metric === 'take_rate' ? fmtQPct(p) : amountOf(val(p), p.currency));
+  const name = metric === 'take_rate' ? last.ratio_kind_label.split(' (')[0].toLowerCase() : metric === 'volume' ? 'filed volume' : 'filed revenue line';
+  if (first === last) return `${company}'s ${name} was ${fmt(last)} in ${last.period}, its only filed period here`;
+  if (fmt(first) === fmt(last)) return `${company}'s ${name} held at ${fmt(last)} from ${first.period} to ${last.period}`;
+  const verb = val(last) < val(first) ? 'fell' : 'rose';
+  return `${company}'s ${name} ${verb} from ${fmt(first)} in ${first.period} to ${fmt(last)} in ${last.period}`;
+};
+export const seriesTitles = titleMap(companyCtl, seriesTitleFor);
+export const companyRows = companyTableRows(points);
+export const companyCsv = companyRows.map(({ source, ...r }) => r);
+export const takeAsOf = maxOf(takeRates, 'as_of');
+export const refusedRows = [...takeRatesRefused.map((r) => ({ ...r, kind: 'listed' })), ...privateRefused.map((r) => ({ ...r, kind: 'private' }))];
+// D2 share lens
+export const shareCtl = shareControls(shareLenses);
+export const barsF = shareBarsFinding(shareLenses);
+export const shareBarList = shareBarRows(shareLenses);
+export const shareShown = displayPeriods(shareLenses);
+export const shareTitleFor = (segment, lens) => {
+  if (segment === barsF.segment && lens === barsF.lens) return barsF.title;
+  const bars = shareBarList.filter((r) => r.segment === segment && r.lens === lens);
+  const top = bars.find((r) => r.kind === 'member' && r.value != null);
+  const seg = (SEGMENT_LABEL[segment] ?? segment).toLowerCase();
+  const lensName = (LENS_LABEL[lens] ?? lens).toLowerCase();
+  if (top) return `${top.company} has the largest share in ${seg} through the ${lensName} lens: ${Math.round(top.value * 100)}% (${shareShown.get(`${segment}|${lens}`)})`;
+  // the reason that covers the most companies (grouped rows are named "N companies"), the segment-wide one first
+  const size = (r) => (r.company === 'Whole segment' ? Infinity : Number(/^(\d+) companies$/.exec(r.company)?.[1] ?? 1));
+  const note = bars.filter((r) => r.kind === 'note').sort((a, b) => size(b) - size(a))[0]?.note ?? 'no reason recorded';
+  const reason = note.replace(/^.*?(no share|not in the pool): /, '').replace(/\.$/, '');
+  return `No shares in ${seg} through the ${lensName} lens: ${reason}`;
+};
+export const shareTitles = titleMap(shareCtl, shareTitleFor);
+export const dumbF = shareDumbbellFinding(shareLenses);
+export const dumbTitles = titleMap(shareCtl.filter((c) => c.name === 'segment'), (seg) => shareDumbbellFinding(shareLenses, seg).title);
+export const shareRows = shareTableRows(shareLenses);
+export const sharePeriods = shareLenses.map((r) => r.period).filter(Boolean).sort();
+// D3 adoption: the marts exist only after a CI run, so the page never asks for a file it knows is absent
+export const ci = facts.ci_sources;
+export const webFiles = import.meta.glob('../../../../data/marts/payments/webtech_q2.json', { eager: true, import: 'default' });
+export const npmFiles = import.meta.glob('../../../../data/marts/payments/devstats_monthly.json', { eager: true, import: 'default' });
+export const jobsFiles = import.meta.glob('../../../../data/marts/payments/jobs_by_function.json', { eager: true, import: 'default' });
+export const webRows = Object.values(webFiles)[0];
+export const npmRows = Object.values(npmFiles)[0];
+export const jobsRows = Object.values(jobsFiles)[0];
+export const webSrc = ci[ADOPTION_CI_SOURCE.web] ? ADOPTION_URLS.web : null;
+export const npmSrc = ci[ADOPTION_CI_SOURCE.npm] ? ADOPTION_URLS.npm : null;
+export const jobsSrc = ci[ADOPTION_CI_SOURCE.jobs] ? ADOPTION_URLS.jobs : null;
+export const webF = webCoverageFinding(webRows, 'registered', !!ci[ADOPTION_CI_SOURCE.web]);
+export const npmF = npmIndexFinding(npmRows, 'registered', !!ci[ADOPTION_CI_SOURCE.npm]);
+export const sourceCtl = ADOPTION_CONTROLS.filter((c) => c.name === 'source');
+export const webTitles = titleMap(sourceCtl, (src) => webCoverageFinding(webRows, src, !!ci[ADOPTION_CI_SOURCE.web]).title);
+export const npmTitles = titleMap(sourceCtl, (src) => npmIndexFinding(npmRows, src, !!ci[ADOPTION_CI_SOURCE.npm]).title);
+export const jobsF = hiringFinding(jobsRows, 'Stripe', !!ci[ADOPTION_CI_SOURCE.jobs]);
+export const hiringAllTitle = () => {
+  const rows = Array.isArray(jobsRows) ? jobsRows : [];
+  const last = new Map();
+  rows.forEach((r) => { if (!last.has(r.board) || r.snapshot_date > last.get(r.board)) last.set(r.board, r.snapshot_date); });
+  const byFn = new Map();
+  rows.filter((r) => r.snapshot_date === last.get(r.board)).forEach((r) => byFn.set(r.function, (byFn.get(r.function) ?? 0) + r.postings));
+  const total = [...byFn.values()].reduce((a, b) => a + b, 0);
+  const top = [...byFn].sort((a, b) => b[1] - a[1])[0];
+  if (!top || !total) {
+    return ci[ADOPTION_CI_SOURCE.jobs]
+      ? 'The job-board snapshot file in this build has no postings, so hiring by function is not shown'
+      : 'Hiring by function is not published yet: the first scheduled job-board snapshot has not landed';
+  }
+  return `${JOB_FUNCTION_LABEL[top[0]] ?? top[0]} is ${Math.round((top[1] / total) * 100)}% of open postings across the ${last.size} tracked job boards`;
+};
+export const hiringTitleFor = (company) => {
+  if (company === 'all') return hiringAllTitle();
+  if (!Object.values(BOARD_COMPANY).includes(company)) return `${company} has no pinned Greenhouse or Ashby job board, so its hiring is not tracked`;
+  return hiringFinding(jobsRows, company, !!ci[ADOPTION_CI_SOURCE.jobs]).title;
+};
+export const jobsTitles = titleMap(ADOPTION_CONTROLS.filter((c) => c.name === 'company'), hiringTitleFor);
+export const adoptionReady = [webF, npmF, jobsF].filter((x) => x.ready).length;
+export const notYet = 'not published on this build';
+export const lcFirst = (s) => (s ? s[0].toLowerCase() + s.slice(1) : s);
+export const stripeNetNote = stripeNet?.note ? stripeNet.note.replace(/\s*\(PLAN[^)]*\)/, '').replace(/^./, (c) => c.toUpperCase()) : '';
+export const q1 = facts.scoreboard.find((q) => q.id === 'Q1');
+export const q2 = facts.scoreboard.find((q) => q.id === 'Q2');
+export const coverageRows = ADOPTION_COMPANIES.map((c) => ({
+  company: c,
+  web: WEB_COMPANIES.includes(c) ? 'yes' : 'no',
+  npm: NPM_COMPANIES.includes(c) ? 'yes' : 'no',
+  jobs: JOBS_COMPANIES.includes(c) ? 'yes' : 'no',
+}));
+// D4 private ledger
+export const ledgerPts = ledgerPoints(ledgerTimeline, privateIntervals);
+export const ledgerCtl = ledgerControls(ledgerPts);
+export const ledgerF = ledgerIntervalFinding(ledgerPts, 'revenue');
+export const ledgerName = (m) => (LEDGER_METRICS.find((x) => x.value === m)?.label ?? m).toLowerCase();
+export const ledgerTitleFor = (metric, company) => {
+  if (company === 'all') return ledgerIntervalFinding(ledgerPts, metric).title;
+  const mine = ledgerPts.filter((p) => p.company === company && p.family === metric).sort((a, b) => a.date.localeCompare(b.date));
+  const last = mine[mine.length - 1];
+  if (!last) return `${company} has no public ${ledgerName(metric)} figure; the other private companies are shown in grey`;
+  const kind = last.arrow ? 'a bound, not a point' : last.interval ? 'a range, not a point' : last.approx ? 'an approximate figure' : last.shape === 'derived' ? 'a point' : 'a stated figure';
+  const origin = last.kind === 'counterparty_filing' ? ', from a counterparty filing' : last.shape === 'derived' ? ', derived here, not stated by the company' : '';
+  return `${company}'s latest public ${ledgerName(metric)} figure is ${last.label} (${last.period || last.date}), ${kind}${origin}; ${mine.length} ${mine.length === 1 ? 'figure' : 'figures'} in all`;
+};
+export const ledgerTitles = titleMap(ledgerCtl, ledgerTitleFor);
+export const eventsF = eventsFinding(eventsJson);
+export const ledgerAll = ledgerTableRows(ledgerTimeline, privateIntervals);
+export const ledgerLinked = ledgerAll.filter((r) => r.metric !== '');
+export const ledgerAccounting = ledgerAll.filter((r) => r.metric === '');
+export const ledgerAsOf = maxOf(ledgerTimeline, 'date');
+export const eventsAsOf = maxOf(eventsJson, 'event_date');
+export const q6 = facts.scoreboard.find((q) => q.id === 'Q6');
+export const q6lo = q6?.evidence.find((e) => /net interchange, lower/.test(e.label));
+export const q6hi = q6?.evidence.find((e) => /net interchange, upper/.test(e.label));
+// static figures
+export const books = WATERFALL_ORDER.map((id) => ({ id, book: WATERFALL_LABEL[id], ...waterfallFinding(waterfallLines, id) }));
+export const keptBooks = books.filter((b) => b.kept != null).sort((a, b) => a.kept - b.kept);
+export const keptLo = keptBooks[0];
+export const keptHi = keptBooks[keptBooks.length - 1];
+export const waterfallTitle = keptLo && keptHi
+  ? `Per $100 moved, what is kept runs from ${usdPer(keptLo.kept)} (${lcFirst(keptLo.book)}) to ${usdPer(keptHi.kept)} (${lcFirst(keptHi.book)})`
+  : 'What each business keeps per hundred dollars moved';
+export const waterfallAsOf = maxOf(waterfallLines, 'as_of');
+export const productsF = productsFinding(productsJson);
+export const productsAsOf = maxOf(productsJson, 'last_checked');
+export const GRIDS = ['q4', 'q7_wise', 'q7_fsb', 'q8', 'q8_bill'];
+export const GRID_SOURCE = { q4: [S[0]], q7_wise: [S[0]], q7_fsb: [S[3]], q8: [S[2]], q8_bill: [S[2], S[0]] };
+// how the data is built
+export const referenceFiles = facts.checks.filter((c) => / file$/.test(c.name)).length;
+export const martCount = Object.keys(facts.marts).length;
+export const dagTitle = `${S.length} kinds of public source reach this page through ${referenceFiles} curated files, ${martCount} marts and one validation gate`;
+export const martUrl = (name) => `/data/marts/${facts.marts[name]}`;
+export const uniq = (xs) => [...new Set(xs.filter(Boolean))].sort();
+export const reportedRows = reportedUnconfirmed.map((r) => ({
+  company: r.company,
+  figure: metricLabel(r.metric),
+  reported: `${r.qualifier && r.qualifier !== '=' ? `${r.qualifier} ` : ''}${fmtValue(r.value, r.unit ?? 'USD')}`,
+  date: r.date ?? r.period ?? '—',
+  why: { never_charted_kind: 'press report or third-party estimate', unverified_tag: 'not read on the primary page', curator_not_chartable: 'not comparable to the charted figures' }[r.reason] ?? r.reason,
+  source: r.source_url ? `<a href="${r.source_url}">${r.source_name ?? 'source'}</a>` : (r.source_name ?? '—'),
+  caveat: r.caveat ?? '',
+}));
+export const warnChecks = facts.checks.filter((c) => c.status === 'warn').length;
+export const dqCiWarn = facts.checks.filter((c) => c.status === 'warn' && /CI run/.test(c.detail)).length;
+export const dqOtherWarn = warnChecks - dqCiWarn;
+export const dqFailed = facts.checks.filter((c) => c.status === 'fail').map((c) => c.name);
+export const pageLog = changelog.filter((e) => e.project === 'payments-landscape');
+
+<div class="lede">
+  <p>
+    Of every hundred dollars of buy-now-pay-later volume it handles, Affirm keeps
+    {' '}{usdPer(keptAffirm?.value)} after funding costs, credit losses and processing ({keptAffirm?.period}).
+    Adyen's net revenue is {usdPer(adyen?.value)} per hundred dollars it processes ({adyen?.period}).
+    That is a {keptSpread ? Math.round(keptSpread) : '—'}-fold gap between companies that are both called
+    "payments".<Sidenote>The numbers are not the same ratio. Affirm's is revenue less transaction costs over
+    gross merchandise volume; Adyen's is net revenue over processed volume. The gap is the point: Affirm is a lender
+    that also processes, Adyen a processor that does not lend, and the page keeps the definitions apart rather
+    than pretending a single ratio fits both.</Sidenote> So this page never quotes a single market share. Shares are measured
+    inside a single business against a denominator that is written down, and where a free official denominator exists,
+    the Federal Reserve's table of US buy-now-pay-later issuance, {fedLabel(fedLeader?.company)} is first with
+    {' '}{pct(fedLeader?.value, 0)}.
+  </p>
+  <p class="muted">
+    Questions pre-registered {facts.registered}. Data published {published}. In progress: the scheduled run that
+    adds web, download and hiring data has not gone live yet.
+  </p>
+</div>
+
+<KpiRow>
+  {kpis.slice(0, 3).map((k) => <KpiTile label={k.label} value={kpiValue(k)} sub={`${k.period}; ${k.note}`} />)}
+</KpiRow>
+
+<p>
+  <strong>What this is, and what it is not.</strong> This is research from public sources. It is not investment
+  advice, and nothing on it is a view on any company's securities. Most numbers are what the companies state about
+  themselves, in filings, shareholder letters and releases; private companies' numbers are their own statements,
+  kept with the qualifier they came with ("more than", "about"). Press-reported and third-party figures are never
+  charted: they appear only in a table column labelled reported, unconfirmed, in the appendix. Not covered: China
+  and India, consumer neobanks, crypto exchanges and remittance companies; no market prices or valuations are used
+  to rank anyone, and no paid data is used anywhere.
+</p>
+
+<Section id="scoreboard" title="What the page is betting on" wide>
+
+{num(facts.scoreboard.length)} claims were written down before the formal data pull, each with the test that would prove it wrong and
+the date it gets graded. {collecting} of {facts.scoreboard.length} are still collecting: their next input is a
+future filing, rate sheet or crawl. Where a question's readings were already seen when it was registered, the
+table says so rather than presenting them as a surprise.<Sidenote>The registration is
+section H of <a href={plan.url}>docs/EVALUATION_PLAN.md</a>, blob <code>{plan.short}</code>. Any later change
+appears as a dated amendment under the original text, never as an edit to it.</Sidenote>
+
+<DataTable id="scoreboard-table" caption={`Pre-registered questions Q1 to Q9, as graded at the last publish (${published})`} columns={[
+  { key: 'id', label: '#' },
+  { key: 'question', label: 'Claim' },
+  { key: 'status', label: 'Status' },
+  { key: 'evidence', label: 'Evidence so far' },
+  { key: 'reason', label: 'Why this status' },
+  { key: 'graded', label: 'Graded on' },
+]} rows={scoreRows} />
+
+</Section>
+
+<Section id="company" title="Company explorer" wide>
+
+Every listed company here files a volume (payment volume, GMV, spend) and a revenue line, so each has a take
+rate against its own volume. Of the {cf.companies} companies, the {cf.gross} whose headline ratio is a gross
+take rate (revenue over volume) run from
+{' '}{cf.low ? `${fmtQPct(cf.low)} (${cf.low.company})` : '—'} to
+{' '}{cf.high ? `${fmtQPct(cf.high)} (${cf.high.company})` : '—'} in their latest period; the rest file a net take rate or a
+margin, which the table names. Pick a company to see its history
+against its own segment, and switch between volume, revenue and the ratio. Amounts stay in each company's
+reporting currency ({cf.currencies.join(', ')}) and are not converted;
+{' '}{cf.nonQuarterly.length > 0 ? `${cf.nonQuarterly.join(', ')} report${cf.nonQuarterly.length === 1 ? 's' : ''} only half-years or years, so ${cf.nonQuarterly.length === 1 ? 'it is' : 'they are'} compared only with peers on the same cadence.` : 'every company reports quarterly.'}
+<Sidenote>A gross take rate (revenue over volume), a net take rate (net revenue over volume) and a retained margin
+(gross profit over volume) are different ratios and are never ranked against each other. Each company is shown
+with a single headline ratio, the first of those it files, and the table says which.</Sidenote>
+
+<DashboardControls group="company" controls={companyCtl} table="company-table" label="Company explorer controls" />
+
+<ChartCard title={seriesTitles.default} subtitle={companySeriesSubtitle(points)}>
+  <VegaChart id="company-series" group="company" titles={seriesTitles} spec={urlSpec('company-series')} height={300} ariaLabel="Line chart of the selected company's filed volume, revenue or take rate by period, with its segment peers in grey" />
+  <SourceStamp slot="stamp" sources={[S[0]]} asOf={takeAsOf} note="per-row filing links in the table below" />
+</ChartCard>
+
+<ChartCard title={scatterF.title} subtitle={companyScatterSubtitle(points)}>
+  <VegaChart id="company-scatter" group="company" spec={urlSpec('company-scatter')} height={360} ariaLabel="Log-log scatter of filed volume against revenue for each company's latest quarter, with iso take-rate lines" />
+  <SourceStamp slot="stamp" sources={[S[0]]} asOf={takeAsOf} note="US dollar filers only; companies in other currencies are listed, not plotted" />
+</ChartCard>
+
+<DataTable id="company-table" filterKeys={['company']} caption="Latest filed period for the selected company, with the lines the ratio is built from" columns={[
+  { key: 'company', label: 'Company' },
+  { key: 'segment', label: 'Segment' },
+  { key: 'period', label: 'Period' },
+  { key: 'cadence', label: 'Reports' },
+  { key: 'currency', label: 'Currency' },
+  { key: 'volume', label: 'Volume', format: 'num', align: 'right' },
+  { key: 'revenue', label: 'Revenue line', format: 'num', align: 'right' },
+  { key: 'take_rate', label: 'Ratio', format: 'pct', align: 'right' },
+  { key: 'ratio_kind', label: 'Kind of ratio' },
+  { key: 'qualifier', label: 'Qualifier' },
+  { key: 'source', label: 'Source' },
+]} rows={companyRows} />
+<DownloadCsv filename="payments-latest-take-rates.csv" rows={companyCsv} label="Download every company's latest row" />
+
+{refusedRows.length > 0 && (
+  <>
+    <p>
+      {refusedRows.length} company-periods have no ratio at all, and they are listed rather than drawn at zero: a
+      missing revenue line, or two inputs whose qualifiers bound the ratio from opposite sides.
+    </p>
+    <DataTable id="refused-table" caption="Ratios the pipeline refused to compute, with the reason it wrote" columns={[
+      { key: 'company', label: 'Company' },
+      { key: 'kind', label: 'Listed or private' },
+      { key: 'ratio', label: 'Ratio' },
+      { key: 'period', label: 'Period' },
+      { key: 'reason', label: 'Reason' },
+    ]} rows={refusedRows} />
+  </>
+)}
+
+</Section>
+
+<Section id="share" title="Share lens" wide>
+
+A share is only as good as its denominator, and in payments there is no single denominator. This dashboard offers
+a pair of lenses and never adds them. The <em>disclosed pool</em> divides a company's volume by the sum over the companies
+in the same business that disclose a comparable volume for the same period: a share of the pool, not of the
+market. The <em>official denominator</em> divides by a government total, and only where scope, measure and period
+match. Where a combination cannot be computed, the chart says why instead of drawing nothing; the mart holds
+{' '}{counts.share_refusals} rows that carry a written reason (an exclusion from a pool or a refusal) instead of a share.
+
+The lenses disagree, and the disagreement is a finding. {dumbF.gap ? `${dumbF.gap.company} reads ${pct(dumbF.gap.low.value, 0)} through one lens and ${pct(dumbF.gap.high.value, 0)} through the other.` : ''} The
+main cause is geography. The disclosed pool for buy now, pay later adds up the GMV each company reports, and
+Klarna reports global GMV, while the Federal Reserve's table counts US credit issuance only. Membership is a
+second, smaller cause: the Fed table also counts Afterpay/Block (Afterpay plus Cash App Borrow loans)
+and PayPal Pay Later, which publish no comparable GMV and so sit outside the pool.<Sidenote>The Fed's figures are
+estimated US credit issuance by {fedShares.length} providers, not GMV and not the whole market, and some US shares were scaled
+from global figures by Fed staff. Concentration inside that table is an HHI of {fedHhi ? Math.round(fedHhi.value) : '—'}
+{' '}({fedHhi?.period}); inside the disclosed pool it is {bnplPoolHhi ? Math.round(bnplPoolHhi.value) : '—'} ({bnplPoolHhi?.period}),
+because the pool has fewer, larger members.</Sidenote> For merchant acquiring there is no free official total at
+all, so its only lens is the pool of {acqPoolHhi?.n_members ?? '—'} disclosers ({acqPoolHhi?.members}).
+
+<DashboardControls group="share" controls={shareCtl} table="share-table" label="Share lens controls" />
+
+<ChartCard title={shareTitles.default} subtitle={shareBarsSubtitle()}>
+  <VegaChart id="share-bars" group="share" titles={shareTitles} spec={urlSpec('share-bars')} height={260} ariaLabel="Bar chart of company shares under the selected segment and lens, with the reason for every company without a share" />
+  <SourceStamp slot="stamp" sources={[S[0], S[1]]} asOf={sharePeriods[sharePeriods.length - 1] ?? published} note="a share of its own lens's denominator; lenses are never added" />
+</ChartCard>
+
+<ChartCard title={dumbTitles.default} subtitle={shareDumbbellSubtitle()}>
+  <VegaChart id="share-dumbbell" group="share" titles={dumbTitles} titleKeys={['segment']} spec={urlSpec('share-dumbbell')} height={220} ariaLabel="Dumbbell chart of each company's share through the disclosed-pool and official-denominator lenses" />
+  <SourceStamp slot="stamp" sources={[S[0], S[1]]} asOf={sharePeriods[sharePeriods.length - 1] ?? published} />
+</ChartCard>
+
+<DataTable id="share-table" filterKeys={['segment', 'lens']} caption="Every share and every refusal for the selected segment and lens, with its denominator" columns={[
+  { key: 'segment_label', label: 'Segment' },
+  { key: 'lens_label', label: 'Lens' },
+  { key: 'company', label: 'Company' },
+  { key: 'period', label: 'Period' },
+  { key: 'share', label: 'Share', format: 'pct', align: 'right' },
+  { key: 'qualifier', label: 'Qualifier' },
+  { key: 'in_pool', label: 'Share of a pool?' },
+  { key: 'denominator', label: 'Denominator' },
+  { key: 'note', label: 'Why no share' },
+]} rows={shareRows} />
+<DownloadCsv filename="payments-share-lenses.csv" src={martUrl('share_lenses')} label="Download every segment and lens" />
+
+</Section>
+
+<Section id="adoption" title="Adoption tracker" wide>
+
+Money is a measure of who matters; where developers and websites go is another, and it moves earlier. Three
+signals are tracked: how many US websites load each processor's script (HTTP Archive), how often each company's
+software kits are downloaded (npm), and what each company is hiring for (its public job board). None of them is
+money. A website is not a dollar and a download is not a developer, so these are called coverage and downloads,
+never share.
+
+{adoptionReady === 0 ? (
+  <p>
+    On this build none of the three series is published yet. They are fetched only by the scheduled CI run, which is not live
+    yet, so each chart below states that in place of a line. What was already seen when the questions were
+    registered: for Q1, {q1?.already_seen}; for Q2, {q2?.already_seen}.
+  </p>
+) : (
+  <p>
+    {adoptionReady} of the three series are on this build; a chart whose series is missing says so in place of a
+    line. Q1 and Q2 in the scoreboard are graded from the pre-registered slice of the first two.
+  </p>
+)}
+
+<DashboardControls group="adoption" controls={ADOPTION_CONTROLS} label="Adoption tracker controls" />
+
+<ChartCard title={webTitles.default} subtitle={webCoverageSubtitle()}>
+  <VegaChart id="adoption-web" group="adoption" titles={webTitles} titleKeys={['source']} spec={webCoverageSpec(webSrc)} height={280} ariaLabel="Line chart of US websites detected loading each payment processor's script, by month" />
+  <SourceStamp slot="stamp" sources={[S[4]]} asOf={webF.last ?? notYet} note="detection misses server-side and Shopify-hosted checkouts" />
+</ChartCard>
+
+<ChartCard title={npmTitles.default} subtitle={npmIndexSubtitle()}>
+  <VegaChart id="adoption-npm" group="adoption" titles={npmTitles} titleKeys={['source']} spec={npmIndexSpec(npmSrc)} height={280} ariaLabel="Line chart of indexed monthly npm downloads of each company's payment SDKs" />
+  <SourceStamp slot="stamp" sources={[S[5]]} asOf={npmF.last ?? notYet} note="package whitelist pinned at registration" />
+</ChartCard>
+
+<ChartCard title={jobsTitles.default} subtitle={hiringSubtitle()}>
+  <VegaChart id="adoption-jobs" group="adoption" titles={jobsTitles} titleKeys={['company']} spec={hiringSpec(jobsSrc)} height={260} ariaLabel="Bar chart of open job postings by function for the selected company" />
+  <SourceStamp slot="stamp" sources={[S[6]]} asOf={jobsF.last ?? notYet} note="counts only; no posting text is kept" />
+</ChartCard>
+
+Each signal sees only some companies. HTTP Archive barely detects Adyen or Square, whose checkouts mostly run
+server-side or inside a point-of-sale terminal, and payments processed inside Shopify's hosted checkout are
+invisible to it altogether.<Sidenote>Several package and board names are traps: the npm package
+<code>affirm</code>, the PyPI packages <code>affirm</code> and <code>airwallex</code>, and the Greenhouse board
+<code>wise</code> belong to someone else. They are excluded by name in the pinned configuration.</Sidenote>
+
+<DataTable id="adoption-coverage" caption="Which signal can see which company (pinned in the pipeline configuration)" columns={[
+  { key: 'company', label: 'Company' },
+  { key: 'web', label: 'Web coverage' },
+  { key: 'npm', label: 'npm downloads' },
+  { key: 'jobs', label: 'Job board' },
+]} rows={coverageRows} />
+
+</Section>
+
+<Section id="ledger" title="Private ledger" wide>
+
+Stripe, Ramp, Checkout.com, Airwallex and the other private companies file no accounts here, so everything known
+about them is a scatter of their own statements, priced rounds and the occasional counterparty filing. The ledger
+keeps each fragment with its qualifier. "More than a billion dollars" stays a lower bound, drawn as an arrow; it
+never becomes a point. Stripe states {fmtValue(stripeVolume?.value, 'USD')} of volume for {stripeVolume?.period}
+but no revenue, so its net revenue is shown as a band, {fmtValue(stripeNet?.lower, 'USD')} to
+{' '}{fmtValue(stripeNet?.upper, 'USD')}, from the take rates of listed acquirers.<Sidenote>{stripeNetNote}. A
+band built this way says what Stripe would earn if it priced like its listed peers; it is not an estimate of
+what Stripe reports, which it does not.</Sidenote> Ramp's take rate can only be bounded from below, at
+{' '}{QWORD[rampTake?.qualifier] ?? ''}{rampTake ? `${rampTake.lower}%` : '—'} of purchase volume ({rampTake?.period}),
+{rampWhy}.
+
+<DashboardControls group="ledger" controls={ledgerCtl} table="ledger-table" label="Private ledger controls" />
+
+<ChartCard title={ledgerTitles.default} subtitle={ledgerIntervalSubtitle()}>
+  <VegaChart id="ledger-intervals" group="ledger" titles={ledgerTitles} spec={urlSpec('ledger-intervals')} height={300} ariaLabel="Interval chart of every public figure about each private company, by date, log scale" />
+  <SourceStamp slot="stamp" sources={[{ name: 'company statements and counterparty filings, one link per row in the table below' }]} asOf={ledgerAsOf} />
+</ChartCard>
+
+<ChartCard title={eventsF.title} subtitle={eventsSubtitle()}>
+  <VegaChart id="ledger-events" group="ledger" spec={urlSpec('ledger-events')} height={420} ariaLabel="Timeline of listings, acquisitions and priced rounds for the companies on this page" />
+  <SourceStamp slot="stamp" sources={[S[0], { name: 'company announcements' }]} asOf={eventsAsOf} note="press-reported prices are in the reported, unconfirmed table, never here" />
+</ChartCard>
+
+Brex is the clearest case of a number that can only be inferred. Capital One's purchase-price allocation gives
+the card loans it acquired; turning those into annual card spend needs an assumed repayment period, and then a
+net interchange rate. The chain lands at {fmtValue(q6lo?.value, 'USD')} to {fmtValue(q6hi?.value, 'USD')} a year of
+net interchange, which is what Q6 tests against Brex's revenue.
+
+<DataTable id="ledger-table" filterKeys={['metric']} caption="Every public fragment for the selected metric, with its date, qualifier and link" columns={LEDGER_TABLE_COLUMNS} rows={ledgerLinked} />
+<DownloadCsv filename="payments-private-ledger.csv" src={martUrl('ledger_timeline')} label="Download the whole ledger" />
+
+{ledgerAccounting.length > 0 && (
+  <DataTable id="ledger-accounting" caption="Acquisition accounting and other figures that are tabled but not charted" columns={LEDGER_TABLE_COLUMNS} rows={ledgerAccounting} />
+)}
+
+</Section>
+
+<Section id="books" title="Four books, per hundred dollars" wide>
+
+The dashboards above compare companies on ratios they file. The figure below goes a level down: for a single
+transaction in each business, where each dollar of the price goes, from published rate sheets and filed income
+statement lines. A step nobody publishes is drawn as a dashed gap rather than estimated.
+
+<ChartCard size="full" title={waterfallTitle} subtitle={waterfallSubtitle()}>
+  <VegaChart id="waterfalls" spec={waterfallFacetSpec(waterfallLines)} height={760} ariaLabel="Waterfall charts of dollars per hundred dollars of volume for each payment book" />
+  <SourceStamp slot="stamp" sources={[S[0], S[2], S[3]]} asOf={waterfallAsOf} note="books are not added together" />
+</ChartCard>
+
+<ul>
+  {books.map((b) => <li><strong>{b.book}.</strong> {b.title}.</li>)}
+</ul>
+
+<ChartCard size="full" title={productsF.title} subtitle={productsSubtitle()}>
+  <VegaChart id="products" spec={urlSpec('products')} height={720} ariaLabel="Dot matrix of the product lines each payments company sells, grouped by segment" />
+  <SourceStamp slot="stamp" sources={[{ name: 'company product pages and launch releases, one link per row' }]} asOf={productsAsOf} />
+</ChartCard>
+
+The businesses are converging on each other's products, which is why "who competes with whom" keeps changing,
+but they are not converging on each other's economics: a company that adds a corporate card still earns the
+interchange-minus-rewards margin of a card issuer on it, whatever else it sells.
+
+<h3>How far the registered thresholds are from today's readings</h3>
+
+Each pre-registered question with a numeric threshold has a sensitivity grid: the same calculation run across a
+range of possible next readings, so a reader can see in advance which outcome would confirm or refute it.
+
+{GRIDS.map((key) => {
+  const f = sensitivityFinding(sensitivityJson, key);
+  return (
+    <ChartCard title={f.title} subtitle={sensitivitySubtitle(key)}>
+      <VegaChart id={`sensitivity-${key}`} spec={urlSpec(`sensitivity-${key}`)} height={260} ariaLabel={`Sensitivity dot chart for the ${key} grid`} />
+      <SourceStamp slot="stamp" sources={GRID_SOURCE[key]} asOf={waterfallAsOf} note="scenarios, not forecasts" />
+    </ChartCard>
+  );
+})}
+
+</Section>
+
+<Section id="data-built" title="How the data is built" wide>
+
+Everything on this page is rebuilt from text files by code. Numbers are typed by a person exactly once, into a
+curated reference file with a link, a date and a definition, and from there they are only read.
+
+<ChartCard size="full" title={dagTitle} subtitle="Left to right: where each number comes from, where it is stored, which module transforms it, the marts the charts read and the gate every write passes. Generated from a declared node list by site/scripts/payments-dag.mjs, not drawn by hand.">
+  <div set:html={dagSvg} />
+  <SourceStamp slot="stamp" sources={[{ name: 'pipelines/payments', url: 'https://github.com/srx7703/srx7703.github.io/tree/main/pipelines/payments' }]} asOf={published} note="dashed: written only by the scheduled CI run" />
+</ChartCard>
+
+<h3>Company filings and the KPI ledger</h3>
+
+Volumes are not in the structured XBRL data most of the time: payment volume, GMV and spend are printed in the
+text of an 8-K exhibit or a shareholder letter. So each was read from the filing into a curated KPI file, a
+row per company, metric and period, with the definition the company uses (TPV, GPV, GMV, processed volume and
+annualised purchase volume are never interchanged), a link and the date it was last re-opened. Revenue lines come
+from the same documents. The ledger computes {counts.take_rates} take rates across {counts.take_rate_companies} companies
+and refuses {counts.take_rates_refused} periods where a line is missing. A qualifier on either input (an
+"approximately", a "more than") travels into the ratio. Fiscal years are kept as filed and labelled (Affirm,
+BILL and Zip end in June, Wise in March, Navan in January); they are never silently aligned to calendar quarters
+on a chart. The scheduled SEC XBRL pull, which splits fourth quarters out of annual totals and falls back to the
+frames endpoint when company facts lag, {ci.sec ? 'has run on this build' : 'has not run on this build'}; every filed
+number on the page was read from the filing itself.<Sidenote>Klarna files a 20-F under IFRS and Wise a 20-F
+under US GAAP. Neither is converted between standards; their lines are used under the label each filing gives
+them, and a comparison that would need a conversion is not made.</Sidenote>
+
+<h3>Private companies</h3>
+
+Private figures come from the companies' own statements, priced rounds, and filings by counterparties (Capital
+One's accounts for Brex). Each row carries a metric kind from a closed list and a company-confirmed flag. Press
+reports and third-party estimates are never charted, whatever their source; there are {counts.reported_unconfirmed}
+such rows, all in the appendix table. Where only a range is defensible, the pipeline derives a bound and states
+its formula and assumption: {counts.private_intervals} derived intervals on this build.
+
+<h3>Official denominators and rate sheets</h3>
+
+The buy-now-pay-later shares use the Federal Reserve FEDS Note table, whose numerators and total come from the
+same table, so the shares sum by construction (the pipeline checks they round to the printed figures). The
+per-hundred-dollar books use Visa's published interchange schedule and the FSB's cross-border cost indicators;
+each step's formula is in the mart beside its value.
+
+<h3>Websites, downloads and job boards</h3>
+
+HTTP Archive's monthly crawl detects a technology when a page loads a script or markup that Wappalyzer
+recognises; the unit is an origin, the trend is a three-crawl rolling mean, and the pre-registered slice is the
+top ten thousand US origins on mobile. npm counts are fetched for a package whitelist pinned at registration,
+client and server kits counted separately, and read only as indexed trends because automated builds inflate the
+levels. Job boards are read weekly; titles are classified into functions in memory and only the counts are
+stored, never the posting text. All of them run only in the scheduled workflow, and each fails on its own without
+stopping the others.
+
+<h3>Metric dictionary</h3>
+
+Every metric in every mart, with its formula or definition, unit, and the companies it can and cannot be compared
+across.
+
+<UrlTable id="dictionary-table" src={`${DATA_BASE}/${DICTIONARY_FILE}.json`} total={metricDictionary.length} caption={`Metric dictionary: ${counts.metrics_in_dictionary} metrics`} selects={[
+  { column: 'dataset', label: 'Dataset', options: uniq(metricDictionary.map((r) => r.dataset)) },
+  { column: 'metric_kind', label: 'Kind', options: uniq(metricDictionary.map((r) => r.metric_kind)) },
+]} placeholder="Search metrics, definitions, sources…" columns={[
+  { key: 'metric', label: 'Metric' },
+  { key: 'dataset', label: 'Dataset' },
+  { key: 'scope', label: 'Scope' },
+  { key: 'metric_kind', label: 'Kind' },
+  { key: 'unit', label: 'Unit' },
+  { key: 'definition', label: 'Definition' },
+  { key: 'comparable', label: 'Comparable across' },
+  { key: 'mart', label: 'Used in' },
+  { key: 'source', label: 'Source' },
+]} />
+<DownloadCsv filename="payments-metric-dictionary.csv" src={martUrl('metric_dictionary')} />
+
+<h3>Reproduce it</h3>
+
+From a clone of the repository, with Python managed by uv and Node for the site:
+
+<pre><code>{`uv sync
+uv run python -m pipelines.payments.reference     # validate the curated files
+uv run python -m pipelines.payments.publish       # rebuild every mart and data/facts/payments.json
+uv run pytest -q pipelines/payments               # parser and derivation tests
+cd site && npm run build                          # sync data, draw the diagram, type-check, build`}</code></pre>
+
+The scheduled-only sources run the same way (<code>python -m pipelines.payments.webtech</code>,
+{' '}<code>devstats</code>, <code>jobs</code>, <code>formd</code>); the SEC ones need a contact address in the
+<code>SEC_USER_AGENT</code> environment variable. Every mart the page reads is public at
+{' '}<a href="https://github.com/srx7703/srx7703.github.io/tree/main/data/marts/payments">data/marts/payments</a>,
+and the curated inputs at <a href="https://github.com/srx7703/srx7703.github.io/tree/main/data/reference/payments">data/reference/payments</a>.
+
+<h3>Limits</h3>
+
+<ul>
+  <li><strong>No market share for acquiring.</strong> No free source totals US or global acquiring volume, so
+  acquiring shares are shares of a pool of disclosers, and Stripe, Adyen and Checkout.com are outside that pool
+  for want of a comparable calendar-period volume.</li>
+  <li><strong>No market-wide denominator for corporate cards or cross-border.</strong> These segments are ranked
+  inside their disclosed pools only.</li>
+  <li><strong>Private numbers are selective.</strong> Companies publish figures when they flatter, so the ledger
+  leans optimistic. Stated figures are treated as what was said, bounds stay bounds, and nothing is averaged
+  across sources that disagree.</li>
+  <li><strong>Inferences are bounded, not measured.</strong> The Brex chain depends on an assumed repayment period
+  and on fair value standing in for face value; the Stripe band depends on peers' pricing.</li>
+  <li><strong>Web coverage and downloads are directional.</strong> Detection misses server-side integrations, and
+  downloads count machines as well as people.</li>
+  <li><strong>Rates move.</strong> Interest income on balances and funding costs depend on the rate environment,
+  so every such comparison carries its period.</li>
+  <li><strong>Currencies are not converted.</strong> Adyen reports in euros and Zip in Australian dollars; their
+  amounts are shown in those currencies and left off the US dollar scatter.</li>
+</ul>
+
+</Section>
+
+<Appendix>
+
+<Section id="method" title="Method">
+
+<p><strong>Question.</strong> What does each kind of payments company keep from the money it moves, and how
+concentrated is each business when share is measured inside that business against a denominator that is written
+down? Every chart above answers a part of that question; this section says how each number is made.</p>
+
+<p><strong>Universe.</strong> The universe is pinned: {counts.roster_core} core companies charted and
+{' '}{counts.roster_table} listed for classification only, each placed in the business that earns most of its
+revenue. Merchant acquiring and buy now, pay later get full share treatment; corporate cards and cross-border get
+ledgers, pool rankings and private intervals; issuing infrastructure and stablecoins are reference rows. A company
+that sells across segments is counted once, in its largest. Ownership is a field: an acquired company keeps its
+history and gains a status, so the {counts.acquisition_deals ?? '—'} acquisitions in the event timeline
+({counts.events_by_kind?.acquisition ?? '—'} signing and closing events) do
+not silently delete anyone. The list lives in <code>pipelines/payments/config.py</code>, and a test fails if it
+drifts from the registered text.</p>
+
+<p><strong>Data.</strong> Curated rows come from company filings and releases on
+{' '}<a href={S[0].url}>SEC EDGAR</a> and investor-relations pages, the Federal Reserve's
+{' '}<a href={S[1].url}>FEDS Note on buy now, pay later</a>, Visa's interchange schedule and the FSB's
+cross-border cost indicators; {referenceFiles} curated files hold them, each row with a link, an as-of date, a
+verification tag and a qualifier. The scheduled sources call public keyless endpoints:
+{' '}<code>{'api.npmjs.org/downloads/range/<start>:<end>/<package>'}</code> for npm,
+{' '}<code>{'cdn.httparchive.org/v1/adoption'}</code> for the HTTP Archive Tech Report,
+{' '}<code>{'boards-api.greenhouse.io/v1/boards/<token>/jobs'}</code> and
+{' '}<code>{'api.ashbyhq.com/posting-api/job-board/<token>'}</code> for job boards, and EDGAR's submissions and
+full-text search endpoints for Form D. None of them has run on this build
+({Object.values(ci).filter(Boolean).length} of {Object.keys(ci).length} scheduled sources on disk). The
+<a href="#data-built">section on how the data is built</a> walks through each source.</p>
+
+<p><strong>Cleaning.</strong> A curated row reaches a number only when it is chartable: tag V (read on the
+primary page) or C (computed from V inputs), and never a press report or third-party estimate. Every figure keeps
+its qualifier, and a derived figure inherits a qualifier by a fixed rule.<Sidenote>For each input, ask which way the
+result moves when the input rises. A "more than" input that pushes the result up makes the result a lower bound;
+if it pushes the result down, the result is an upper bound; "less than" is the mirror image. Any "about" input makes the
+result "about". Bounds pointing opposite ways give no bound: take rates refuse such a ratio, other sums keep the
+point value and drop the bound.</Sidenote> Fiscal periods keep their filed labels; a share pool aligns them to
+calendar periods by their end date and refuses a fiscal quarter that does not end in March, June, September or
+December. Annualised run rates are never divided by, or pooled with, period totals. Currencies are not converted:
+a euro or Australian-dollar reporter is excluded from a US dollar pool with that reason.</p>
+
+<p><strong>Take rate.</strong> Revenue over the company's own volume, for a numerator and denominator pinned per
+company, only when both rows share the period, the as-of date, the currency and the basis
+(<code>ledger.py</code>):</p>
+
+<pre><code>{`r = q_div(q_scale(Num(float(n["value"]), n["qualifier"]), 100.0), Num(float(d["value"]), d["qualifier"]),
+          strict=True)`}</code></pre>
+
+<p>Each ratio carries a kind, gross take rate, net take rate or margin retention, and ratios of different kinds
+are never compared. A pair that fails a condition becomes a refusal row with the reason:
+{' '}{counts.take_rates} take rates computed, {counts.take_rates_refused} refused.</p>
+
+<p><strong>Per hundred dollars.</strong> A percentage of volume and a dollar figure per hundred dollars are the
+same number, so a rate sheet and a filed revenue line land in the same column. A fixed fee needs a ticket size, and
+every book is quoted for a hundred-dollar ticket (<code>economics.py</code>):</p>
+
+<pre><code>{`def per_100(pct_rate: float, fixed_usd: float, ticket: float = TICKET_USD) -> float:
+    return pct_rate + fixed_usd * 100.0 / ticket`}</code></pre>
+
+<p>Lines are added only within a single book and period. Network fees Visa does not publish are a gap line with
+no value, so the card residual is what the acquirer and the network keep together, never acquirer margin.</p>
+
+<p><strong>Share and concentration.</strong> A disclosed-pool share is a member's volume over the sum of the
+volumes its layer's companies disclose for the same calendar period and definition; the HHI is the sum of
+squared shares in percent, inside that pool only (<code>share.py</code>):</p>
+
+<pre><code>{`value = r.value / total
+hhi = sum((got[m.label].value / total * 100) ** 2 for m in members) if enough else None`}</code></pre>
+
+<p>A pool with a single disclosing member is refused, since its share is total by construction. Private
+companies are markers beside a pool, never members, because a stated private volume is not a filing and can
+overlap a public member (Shopify Payments runs on Stripe). An official-denominator share is computed only where
+scope, measure and period match the official total; every mismatch is a refusal row:
+{' '}{counts.share_rows} share rows, {counts.share_refusals} of them refusals.</p>
+
+<p>
+  <a href="https://github.com/srx7703/srx7703.github.io/tree/main/pipelines/payments">Pipeline source</a>
+  {' · '}<a href="https://github.com/srx7703/srx7703.github.io/blob/main/docs/DATA_MODEL.md">Data model</a>
+  {' · '}<a href={plan.url}>Evaluation plan (section H)</a>
+</p>
+
+</Section>
+
+<Section id="evaluation" title="Evaluation (pre-registered)">
+
+<p><strong>What was registered.</strong> The {facts.scoreboard.length} questions in the scoreboard were committed
+to <a href={plan.url}>docs/EVALUATION_PLAN.md</a> on {facts.registered}, together with the company universe, the
+npm package whitelist, the job-board tokens and the closed list of metric kinds, so none of them can be tuned
+after the data arrives. The plan is hashed at <code>{plan.short}</code> (<a href={plan.history}>history</a>).
+Each question states its test, the reading that would refute it, and the date it is graded.</p>
+
+<p><strong>Baselines.</strong> Several readings had already been seen while the plan was being written, and the
+registration discloses each of them; the scoreboard prints them as "already seen at registration". Readings dated
+on or before the registration date are never graded. The guarantee is that the thresholds cannot move from here
+without the hash changing, not that the questions were written blind. How far each registered threshold sits
+from today's reading is in the <a href="#books">sensitivity chart</a>.</p>
+
+<p><strong>Grading a qualified number.</strong> <code>evaluate.py</code> grades each question exactly as written,
+from the marts, and from nothing else. A reading becomes an interval: a stated or "about" figure is its own value,
+a "more than" figure runs from its value up, a "less than" figure from its value down. A comparison holds only when
+the whole interval satisfies it, fails only when none of it does, and otherwise cannot tell:</p>
+
+<pre><code>{`if op == ">=":
+    return True if lo >= threshold else (False if hi < threshold else None)`}</code></pre>
+
+<p>A question that cannot tell on its reading is undecidable, not graded on a guess. A question whose inputs
+are not in yet, such as a future filing, rate sheet or crawl, or a source that only exists after the scheduled
+run, is collecting, with that reason.</p>
+
+<p><strong>Results.</strong> At the last publish ({published}):</p>
+
+<DataTable id="evaluation-status" caption="Pre-registered questions by status at the last publish" columns={[
+  { key: 'status', label: 'Status' },
+  { key: 'n', label: 'Questions', format: 'num' },
+  { key: 'meaning', label: 'Meaning' },
+]} rows={Object.entries(facts.counts.scoreboard).map(([k, n]) => ({
+  status: STATUS_LABEL[k] ?? k,
+  n,
+  meaning: {
+    collecting: 'inputs not in yet, or the registered window is still open',
+    holds: 'the registered claim is met on the registered test',
+    falsified: 'the registered refutation condition is met',
+    undecidable: 'the registration\'s own undecidable condition is met, or a bound points the wrong way to decide',
+  }[k] ?? '',
+}))} />
+
+<p>{collecting === facts.scoreboard.length
+  ? `No question has been graded yet. The earliest next grading is ${facts.scoreboard.map((q) => q.next_grading).filter(Boolean).sort()[0]}; the per-question evidence and dates are in the scoreboard at the top of the page.`
+  : `${facts.scoreboard.length - collecting} of ${facts.scoreboard.length} questions have a grade; the per-question evidence and dates are in the scoreboard at the top of the page.`}</p>
+
+<p><strong>Limitations.</strong> {facts.scoreboard.filter((q) => q.ci_only).length} of the questions rest on
+sources that only the scheduled run collects, so they stay collecting until it has run for long enough. "About"
+figures are graded at their value, and the reason says so. The settlement question waits for the court's final
+approval of the interchange settlement; its date is entered by amendment when the court rules. Private figures are what the companies chose to
+state, so a question that reads them is graded on what was said, not on an audited total.</p>
+
+</Section>
+
+<Section id="data-quality" title="Data quality">
+
+Every publish validates each table against a pandera schema before it writes anything, then runs the checks
+below: ranges, key uniqueness, qualifiers carried from inputs to outputs, reconciliation of computed lines against
+the filed or stated figures, freshness of each curated file, and a regression guard that refuses to overwrite the
+last good run if a new run would lose most of the companies it covers. A failed schema blocks the write; the
+checks are recorded with the facts and listed here as they stood at the last publish.{dqCiWarn > 0 ? ` ${dqCiWarn} ${dqCiWarn === 1 ? 'warning is a source' : 'warnings are sources'} that only exist after the scheduled CI run; the views and questions that depend on ${dqCiWarn === 1 ? 'it' : 'them'} say so and wait.` : ''}{dqOtherWarn > 0 ? ` ${dqOtherWarn} other ${dqOtherWarn === 1 ? 'check is a warning' : 'checks are warnings'}; see the table.` : ''}{dqFailed.length > 0 ? ` ${dqFailed.length} ${dqFailed.length === 1 ? 'check failed' : 'checks failed'} (${dqFailed.join(', ')}); the affected sections say so.` : ''}
+
+<DataQuality checks={facts.checks} note={`Published ${published}; questions registered ${facts.registered}.`} />
+
+</Section>
+
+<Section id="build-notes" title="Build notes">
+
+<p><strong>What Claude Code executed.</strong> The page was built by Claude Code agents working from a written
+runbook (<code>docs/payments/EXECUTION.md</code>): the clients for SEC, HTTP Archive, npm and the job boards; the
+curation of the {referenceFiles} reference files, each read by a curator agent and re-opened by a separate
+verifier before it was accepted; the economics, ledger, share, evaluation and publish modules with their pandera
+schemas; the chart specs, the dashboard controls and this page.</p>
+
+<p><strong>What the author decided.</strong> The research question and plan. The decisions that are the author's
+to make, the scope by segment, keeping press and third-party figures off every chart, no market prices or
+valuations used to rank anyone, and no market-wide denominator for corporate cards, are set as the plan's
+defaults and are listed for the author to confirm before the page goes live. The registered questions and their
+thresholds cannot change except by a dated amendment.</p>
+
+<p><strong>What gates the page.</strong> Every mart passes its pandera schema before anything is written, and the
+regression guard keeps the last good run if a new run would lose most of its companies. Unit tests in
+{' '}<code>pipelines/payments/tests</code> cover the parsers, the qualifier algebra, the take-rate and share
+refusals, the waterfalls and the grading rule; a plan test fails if a pinned constant drifts from the registered
+text. Page tests in pytest fail on a hand-typed number: a site-wide check, and a stricter check for this page
+that also catches single digits and number words. The site build (astro check, then astro build) fails if the page cannot render from the current facts and
+marts.</p>
+
+<p><strong>Known gaps.</strong> The scheduled workflow is not installed yet, so the web, download, hiring, Form D
+and XBRL views are empty and their questions wait. There is no market-wide denominator outside buy now, pay later.
+Curated numbers are re-opened by a reviewer, and each file's freshness check flags rows not re-checked within its
+window; nothing re-fetches filing text automatically. <a href="https://github.com/srx7703/srx7703.github.io">Source repository</a>.</p>
+
+</Section>
+
+<Section id="reported" title="Reported, unconfirmed">
+
+Figures that appeared in the press, or that are real but not comparable to what is charted, are kept here with
+their reason. They are never drawn on a chart and never feed a calculation.
+
+<DataTable id="reported-table" caption="Reported or non-comparable figures, never charted" columns={[
+  { key: 'company', label: 'Company' },
+  { key: 'figure', label: 'Figure' },
+  { key: 'reported', label: 'Reported, unconfirmed' },
+  { key: 'date', label: 'Date' },
+  { key: 'why', label: 'Why not charted' },
+  { key: 'caveat', label: 'Caveat' },
+  { key: 'source', label: 'Source' },
+]} rows={reportedRows} />
+
+</Section>
+
+<Section id="sources" title="Sources">
+  <ul>
+    {S.map((s) => <li><a href={s.url}>{s.name}</a></li>)}
+  </ul>
+  <p class="muted">
+    Per-row links for every curated number are in the tables above and in the marts. HTTP Archive data is reused
+    with attribution; npm and job-board data are stored as counts only.
+  </p>
+</Section>
+
+<Section id="changelog" title="Changelog">
+  <ul class="prose">
+    {pageLog.map((e) => <li><strong>{e.date}</strong> — {e.text}</li>)}
+  </ul>
+</Section>
+
+</Appendix>

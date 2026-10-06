@@ -1,0 +1,1856 @@
+{
+ "generated_at": "2026-10-06T00:24:16+00:00",
+ "slug": "payments-landscape",
+ "registered": "2026-10-03",
+ "kpis": [
+  {
+   "id": "affirm_kept_per_100",
+   "label": "What Affirm keeps from every $100 of GMV",
+   "value": 4.153319,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026059279/afrm-20260630.htm",
+   "as_of": "2026-06-30",
+   "note": "revenue less transaction costs per $100 of GMV, computed from filed FY2026 lines"
+  },
+  {
+   "id": "bnpl_leader_share",
+   "label": "Largest provider's share of 2025 US BNPL issuance among the six largest providers (Fed estimate)",
+   "value": 0.342693,
+   "qualifier": "=",
+   "unit": "share_of_official_total",
+   "period": "FY2025",
+   "source_url": "https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html",
+   "as_of": "2025-12-31",
+   "note": "Afterpay/Block (Afterpay plus Cash App Borrow loans); Fed FEDS Note table of six providers, 2025 issuance, not the whole market"
+  },
+  {
+   "id": "stripe_volume",
+   "label": "Volume on Stripe, as Stripe states it",
+   "value": 1900000000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "FY2025",
+   "source_url": "https://stripe.com/newsroom/news/stripe-2025-update",
+   "as_of": "2025-12-31",
+   "note": "a company statement of gross volume, not revenue; Stripe files no group accounts"
+  }
+ ],
+ "values": {
+  "hhi.disclosed_pool.A_payment_volume": {
+   "value": 4433.039484,
+   "qualifier": "~",
+   "unit": "index (0-10,000)",
+   "period": "2026-Q2",
+   "as_of": null,
+   "source_url": null,
+   "members": "PayPal, Block/Square, Shopify Payments, Toast, Shift4",
+   "n_members": 5
+  },
+  "hhi.disclosed_pool.B_bnpl_gmv": {
+   "value": 5905.110304,
+   "qualifier": "~",
+   "unit": "index (0-10,000)",
+   "period": "2026-Q1",
+   "as_of": null,
+   "source_url": null,
+   "members": "Affirm, Klarna, Sezzle",
+   "n_members": 3
+  },
+  "hhi.disclosed_pool.C_b2b_payment_volume": {
+   "value": 5001.708903,
+   "qualifier": "=",
+   "unit": "index (0-10,000)",
+   "period": "2026-Q2",
+   "as_of": null,
+   "source_url": null,
+   "members": "BILL, Corpay",
+   "n_members": 2
+  },
+  "hhi.disclosed_pool.D_crossborder_volume": {
+   "value": 4063.798617,
+   "qualifier": "=",
+   "unit": "index (0-10,000)",
+   "period": "2026-Q2",
+   "as_of": null,
+   "source_url": null,
+   "members": "Wise, Payoneer, dLocal, Flywire",
+   "n_members": 4
+  },
+  "hhi.official_denominator.fed_feds_note_bnpl_2026": {
+   "value": 2415.543299,
+   "qualifier": "=",
+   "unit": "index (0-10,000)",
+   "period": "FY2025",
+   "as_of": null,
+   "source_url": null,
+   "members": "Affirm, Afterpay/Block, Klarna, PayPal Pay Later, Sezzle, Zip",
+   "n_members": 6
+  },
+  "interval.Airwallex.take_rate:revenue_per_transaction_volume": {
+   "value": 0.452962,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "2026-03",
+   "as_of": "2026-03-31",
+   "source_url": "https://www.airwallex.com/global/newsroom/airwallex-secures-320-million-in-series-h-funding-valuation-hits-11-billion",
+   "lower": 0.452962,
+   "upper": 0.452962
+  },
+  "interval.Brex.implied_annual_card_spend": {
+   "value": null,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-04-07",
+   "as_of": "2026-04-07",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+   "lower": 6610555555.56,
+   "upper": 14873750000.0,
+   "note": "20-45 days of card receivables (section H, Q6)"
+  },
+  "interval.Brex.implied_net_interchange": {
+   "value": null,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-04-07",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+   "lower": 84615111.1111,
+   "upper": 190384000.0,
+   "note": "20-45 days of card receivables (section H, Q6); net interchange 1.28% of spend as at BILL"
+  },
+  "interval.Mercury.take_rate:revenue_per_transaction_volume": {
+   "value": 0.320513,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "FY2024",
+   "as_of": "2024-12-31",
+   "source_url": "https://www.businesswire.com/news/home/20250326427283/en/Mercury-Announces-%24300-Million-Series-C-Round-at-%243.5-Billion-Valuation",
+   "lower": 0.320513,
+   "upper": 0.320513
+  },
+  "interval.Ramp.take_rate:revenue_per_purchase_volume": {
+   "value": null,
+   "qualifier": ">",
+   "unit": "percent",
+   "period": "2026-06",
+   "as_of": "2026-06-01",
+   "source_url": "https://www.prnewswire.com/news-releases/ramp-raises-series-f-at-44-billion-valuation-302791103.html",
+   "lower": 0.5,
+   "upper": null
+  },
+  "interval.Stripe.implied_net_revenue": {
+   "value": null,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "FY2025",
+   "as_of": "2025-12-31",
+   "source_url": "https://stripe.com/newsroom/news/stripe-2025-update",
+   "lower": 5700000000.0,
+   "upper": 8550000000.0,
+   "note": "net take rate of 0.30-0.45% of volume, from listed acquiring peers (PLAN M4)"
+  },
+  "ledger.Airwallex.annualized_revenue": {
+   "value": 1300000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-03",
+   "as_of": "2026-03-31",
+   "source_url": "https://www.airwallex.com/global/newsroom/airwallex-secures-320-million-in-series-h-funding-valuation-hits-11-billion",
+   "metric_kind": "stated_run_rate"
+  },
+  "ledger.Airwallex.annualized_transaction_volume": {
+   "value": 287000000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-03",
+   "as_of": "2026-03-31",
+   "source_url": "https://www.airwallex.com/global/newsroom/airwallex-secures-320-million-in-series-h-funding-valuation-hits-11-billion",
+   "metric_kind": "stated_volume"
+  },
+  "ledger.Airwallex.customers": {
+   "value": 676000.0,
+   "qualifier": ">",
+   "unit": "count",
+   "period": "2026-06",
+   "as_of": "2026-06-25",
+   "source_url": "https://www.airwallex.com/global/newsroom/airwallex-secures-320-million-in-series-h-funding-valuation-hits-11-billion",
+   "metric_kind": "stated_volume"
+  },
+  "ledger.Airwallex.valuation": {
+   "value": 11000000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-06",
+   "as_of": "2026-06-25",
+   "source_url": "https://www.airwallex.com/global/newsroom/airwallex-secures-320-million-in-series-h-funding-valuation-hits-11-billion",
+   "metric_kind": "primary_round_valuation"
+  },
+  "ledger.Brex.acquisition_price_announced": {
+   "value": 5150000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-01",
+   "as_of": "2026-01-22",
+   "source_url": "https://investor.capitalone.com/static-files/a48ba6dc-654e-40b3-8dd1-5feb5b0539a0",
+   "metric_kind": "acquisition_price"
+  },
+  "ledger.Brex.customers": {
+   "value": 25000.0,
+   "qualifier": ">",
+   "unit": "count",
+   "period": "2026-01",
+   "as_of": "2026-01-22",
+   "source_url": "https://www.capitalone.com/about/newsroom/capital-one-to-acquire-brex/",
+   "metric_kind": "stated_volume"
+  },
+  "ledger.Brex.ppa_assets_acquired": {
+   "value": 2774000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-04-07",
+   "as_of": "2026-04-07",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+   "metric_kind": "counterparty_filing"
+  },
+  "ledger.Brex.ppa_cash_and_equivalents": {
+   "value": 725000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-04-07",
+   "as_of": "2026-04-07",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+   "metric_kind": "counterparty_filing"
+  },
+  "ledger.Brex.ppa_customer_and_other_intangibles": {
+   "value": 432000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-04-07",
+   "as_of": "2026-04-07",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+   "metric_kind": "counterparty_filing"
+  },
+  "ledger.Brex.ppa_debt_repaid": {
+   "value": 1100000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-04-07",
+   "as_of": "2026-04-07",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+   "metric_kind": "counterparty_filing"
+  },
+  "ledger.Brex.ppa_developed_technology": {
+   "value": 510000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-04-07",
+   "as_of": "2026-04-07",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+   "metric_kind": "counterparty_filing"
+  },
+  "ledger.Brex.ppa_goodwill": {
+   "value": 3069000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-04-07",
+   "as_of": "2026-04-07",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+   "metric_kind": "counterparty_filing"
+  },
+  "ledger.Brex.ppa_liabilities_assumed": {
+   "value": 1322000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-04-07",
+   "as_of": "2026-04-07",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+   "metric_kind": "counterparty_filing"
+  },
+  "ledger.Brex.ppa_loans": {
+   "value": 815000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-04-07",
+   "as_of": "2026-04-07",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+   "metric_kind": "counterparty_filing"
+  },
+  "ledger.Brex.ppa_net_assets": {
+   "value": 1452000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-04-07",
+   "as_of": "2026-04-07",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+   "metric_kind": "counterparty_filing"
+  },
+  "ledger.Brex.purchase_consideration_cash": {
+   "value": 2630000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-04-07",
+   "as_of": "2026-04-07",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+   "metric_kind": "counterparty_filing"
+  },
+  "ledger.Brex.purchase_consideration_fair_value": {
+   "value": 4521000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-04-07",
+   "as_of": "2026-04-07",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+   "metric_kind": "counterparty_filing"
+  },
+  "ledger.Brex.purchase_consideration_stock": {
+   "value": 1891000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-04-07",
+   "as_of": "2026-04-07",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+   "metric_kind": "counterparty_filing"
+  },
+  "ledger.Checkout.com.annualized_net_revenue": {
+   "value": 750000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-09",
+   "as_of": "2026-09-29",
+   "source_url": "https://www.checkout.com/newsroom/checkout-com-reaches-750m-in-annualised-net-revenue-for-2026-and-increases-profitability",
+   "metric_kind": "stated_run_rate"
+  },
+  "ledger.Checkout.com.total_payment_volume": {
+   "value": 300000000000.0,
+   "qualifier": ">",
+   "unit": "USD",
+   "period": "FY2025",
+   "as_of": "2025-12-31",
+   "source_url": "https://www.checkout.com/newsroom/checkout-com-returns-to-full-year-profitability-and-surpasses-300b-in-volume-as-it-positions-for-the-era-of-agentic-commerce",
+   "metric_kind": "stated_volume"
+  },
+  "ledger.Checkout.com.valuation": {
+   "value": 12000000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2025-09",
+   "as_of": "2025-09-26",
+   "source_url": "https://www.checkout.com/newsroom/checkout-com-accelerates-towards-full-year-profitability-and-announces-employee-share-buy-back-and-a-new-12bn-valuation",
+   "metric_kind": "tender_valuation"
+  },
+  "ledger.Mercury.annualized_revenue": {
+   "value": 650000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2025-Q3",
+   "as_of": "2025-09-30",
+   "source_url": "https://www.businesswire.com/news/home/20260520511817/en/Mercury-Raises-%24200-Million-Series-D-at-%245.2B-Valuation",
+   "metric_kind": "stated_run_rate"
+  },
+  "ledger.Mercury.customers": {
+   "value": 300000.0,
+   "qualifier": ">",
+   "unit": "count",
+   "period": "2026-05",
+   "as_of": "2026-05-20",
+   "source_url": "https://www.businesswire.com/news/home/20260520511817/en/Mercury-Raises-%24200-Million-Series-D-at-%245.2B-Valuation",
+   "metric_kind": "stated_volume"
+  },
+  "ledger.Mercury.revenue": {
+   "value": 500000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "FY2024",
+   "as_of": "2024-12-31",
+   "source_url": "https://www.businesswire.com/news/home/20250326427283/en/Mercury-Announces-%24300-Million-Series-C-Round-at-%243.5-Billion-Valuation",
+   "metric_kind": "stated_run_rate"
+  },
+  "ledger.Mercury.transaction_volume": {
+   "value": 248000000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "FY2025",
+   "as_of": "2025-12-31",
+   "source_url": "https://mercury.com/blog/annual-letter-2025",
+   "metric_kind": "stated_volume"
+  },
+  "ledger.Mercury.valuation": {
+   "value": 5200000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-05",
+   "as_of": "2026-05-20",
+   "source_url": "https://www.businesswire.com/news/home/20260520511817/en/Mercury-Raises-%24200-Million-Series-D-at-%245.2B-Valuation",
+   "metric_kind": "primary_round_valuation"
+  },
+  "ledger.Nium.net_revenue": {
+   "value": 82000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "FY2022",
+   "as_of": "2022-12-31",
+   "source_url": "https://www.nium.com/newsroom/nium-announces-2022-net-revenue",
+   "metric_kind": "stated_run_rate"
+  },
+  "ledger.Nium.valuation": {
+   "value": 1400000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2024-06",
+   "as_of": "2024-06-04",
+   "source_url": "https://www.prnewswire.com/news-releases/nium-raises-us50-million-in-series-e-round-to-expand-real-time-payments-global-infrastructure-302163987.html",
+   "metric_kind": "primary_round_valuation"
+  },
+  "ledger.Ramp.annualized_purchase_volume": {
+   "value": 200000000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-06",
+   "as_of": "2026-06-01",
+   "source_url": "https://www.prnewswire.com/news-releases/ramp-raises-series-f-at-44-billion-valuation-302791103.html",
+   "metric_kind": "stated_volume"
+  },
+  "ledger.Ramp.annualized_revenue": {
+   "value": 1000000000.0,
+   "qualifier": ">",
+   "unit": "USD",
+   "period": "2026-06",
+   "as_of": "2026-06-01",
+   "source_url": "https://www.prnewswire.com/news-releases/ramp-raises-series-f-at-44-billion-valuation-302791103.html",
+   "metric_kind": "stated_run_rate"
+  },
+  "ledger.Ramp.customers": {
+   "value": 70000.0,
+   "qualifier": ">",
+   "unit": "count",
+   "period": "2026-06",
+   "as_of": "2026-06-01",
+   "source_url": "https://www.prnewswire.com/news-releases/ramp-raises-series-f-at-44-billion-valuation-302791103.html",
+   "metric_kind": "stated_volume"
+  },
+  "ledger.Ramp.valuation": {
+   "value": 44000000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-06",
+   "as_of": "2026-06-04",
+   "source_url": "https://www.prnewswire.com/news-releases/ramp-raises-series-f-at-44-billion-valuation-302791103.html",
+   "metric_kind": "primary_round_valuation"
+  },
+  "ledger.Stripe.total_volume": {
+   "value": 1900000000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "FY2025",
+   "as_of": "2025-12-31",
+   "source_url": "https://stripe.com/newsroom/news/stripe-2025-update",
+   "metric_kind": "stated_volume"
+  },
+  "ledger.Stripe.valuation": {
+   "value": 159000000000.0,
+   "qualifier": "=",
+   "unit": "USD",
+   "period": "2026-02",
+   "as_of": "2026-02-24",
+   "source_url": "https://stripe.com/newsroom/news/stripe-2025-update",
+   "metric_kind": "tender_valuation"
+  },
+  "share.official.fed_feds_note_bnpl_2026.Affirm": {
+   "value": 0.263561,
+   "qualifier": "=",
+   "unit": "share_of_official_total",
+   "period": "FY2025",
+   "as_of": "2025-12-31",
+   "source_url": "https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html",
+   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff; Afterpay/Block is Block's Afterpay plus Cash App Borrow loans"
+  },
+  "share.official.fed_feds_note_bnpl_2026.Afterpay/Block": {
+   "value": 0.342693,
+   "qualifier": "=",
+   "unit": "share_of_official_total",
+   "period": "FY2025",
+   "as_of": "2025-12-31",
+   "source_url": "https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html",
+   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff; Afterpay/Block is Block's Afterpay plus Cash App Borrow loans"
+  },
+  "share.official.fed_feds_note_bnpl_2026.Klarna": {
+   "value": 0.152521,
+   "qualifier": "=",
+   "unit": "share_of_official_total",
+   "period": "FY2025",
+   "as_of": "2025-12-31",
+   "source_url": "https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html",
+   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff; Afterpay/Block is Block's Afterpay plus Cash App Borrow loans"
+  },
+  "share.official.fed_feds_note_bnpl_2026.PayPal Pay Later": {
+   "value": 0.169113,
+   "qualifier": "=",
+   "unit": "share_of_official_total",
+   "period": "FY2025",
+   "as_of": "2025-12-31",
+   "source_url": "https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html",
+   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff; Afterpay/Block is Block's Afterpay plus Cash App Borrow loans"
+  },
+  "share.official.fed_feds_note_bnpl_2026.Sezzle": {
+   "value": 0.024888,
+   "qualifier": "=",
+   "unit": "share_of_official_total",
+   "period": "FY2025",
+   "as_of": "2025-12-31",
+   "source_url": "https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html",
+   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff; Afterpay/Block is Block's Afterpay plus Cash App Borrow loans"
+  },
+  "share.official.fed_feds_note_bnpl_2026.Zip": {
+   "value": 0.046586,
+   "qualifier": "=",
+   "unit": "share_of_official_total",
+   "period": "FY2025",
+   "as_of": "2025-12-31",
+   "source_url": "https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html",
+   "note": "Fed FEDS Note table 2: estimated 2025 US BNPL credit issuance by provider over the six-provider total; six firms, not the whole market; issuance, not GMV; US shares partly scaled from global figures by Fed staff; Afterpay/Block is Block's Afterpay plus Cash App Borrow loans"
+  },
+  "share.pool.A_payment_volume.Block/Square": {
+   "value": 0.095967,
+   "qualifier": "~",
+   "unit": "share_of_disclosed_pool",
+   "period": "2026-Q2",
+   "as_of": null,
+   "source_url": null
+  },
+  "share.pool.A_payment_volume.PayPal": {
+   "value": 0.640825,
+   "qualifier": "~",
+   "unit": "share_of_disclosed_pool",
+   "period": "2026-Q2",
+   "as_of": null,
+   "source_url": null
+  },
+  "share.pool.A_payment_volume.Shift4": {
+   "value": 0.080359,
+   "qualifier": "~",
+   "unit": "share_of_disclosed_pool",
+   "period": "2026-Q2",
+   "as_of": null,
+   "source_url": null
+  },
+  "share.pool.A_payment_volume.Shopify Payments": {
+   "value": 0.102886,
+   "qualifier": "~",
+   "unit": "share_of_disclosed_pool",
+   "period": "2026-Q2",
+   "as_of": null,
+   "source_url": null
+  },
+  "share.pool.A_payment_volume.Toast": {
+   "value": 0.079964,
+   "qualifier": "~",
+   "unit": "share_of_disclosed_pool",
+   "period": "2026-Q2",
+   "as_of": null,
+   "source_url": null
+  },
+  "share.pool.B_bnpl_gmv.Affirm": {
+   "value": 0.250049,
+   "qualifier": "~",
+   "unit": "share_of_disclosed_pool",
+   "period": "2026-Q1",
+   "as_of": null,
+   "source_url": null
+  },
+  "share.pool.B_bnpl_gmv.Klarna": {
+   "value": 0.72624,
+   "qualifier": "~",
+   "unit": "share_of_disclosed_pool",
+   "period": "2026-Q1",
+   "as_of": null,
+   "source_url": null
+  },
+  "share.pool.B_bnpl_gmv.Sezzle": {
+   "value": 0.023711,
+   "qualifier": "~",
+   "unit": "share_of_disclosed_pool",
+   "period": "2026-Q1",
+   "as_of": null,
+   "source_url": null
+  },
+  "share.pool.C_b2b_payment_volume.BILL": {
+   "value": 0.509244,
+   "qualifier": "=",
+   "unit": "share_of_disclosed_pool",
+   "period": "2026-Q2",
+   "as_of": null,
+   "source_url": null
+  },
+  "share.pool.C_b2b_payment_volume.Corpay": {
+   "value": 0.490756,
+   "qualifier": "=",
+   "unit": "share_of_disclosed_pool",
+   "period": "2026-Q2",
+   "as_of": null,
+   "source_url": null
+  },
+  "share.pool.D_crossborder_volume.Flywire": {
+   "value": 0.068969,
+   "qualifier": "=",
+   "unit": "share_of_disclosed_pool",
+   "period": "2026-Q2",
+   "as_of": null,
+   "source_url": null
+  },
+  "share.pool.D_crossborder_volume.Payoneer": {
+   "value": 0.199337,
+   "qualifier": "=",
+   "unit": "share_of_disclosed_pool",
+   "period": "2026-Q2",
+   "as_of": null,
+   "source_url": null
+  },
+  "share.pool.D_crossborder_volume.Wise": {
+   "value": 0.582872,
+   "qualifier": "=",
+   "unit": "share_of_disclosed_pool",
+   "period": "2026-Q2",
+   "as_of": null,
+   "source_url": null
+  },
+  "share.pool.D_crossborder_volume.dLocal": {
+   "value": 0.148822,
+   "qualifier": "=",
+   "unit": "share_of_disclosed_pool",
+   "period": "2026-Q2",
+   "as_of": null,
+   "source_url": null
+  },
+  "take_rate.Adyen.net_revenue_per_processed_volume": {
+   "value": 0.162093,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "H1-2026",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.adyen.com/press-and-media/adyen-publishes-h1-2026-financial-results-3wjne",
+   "ratio_kind": "net_take_rate"
+  },
+  "take_rate.Affirm.revenue_per_gmv": {
+   "value": 8.488211,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "FY2026",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026059279/afrm-20260630.htm",
+   "ratio_kind": "gross_take_rate"
+  },
+  "take_rate.Affirm.rltc_per_gmv": {
+   "value": 4.294828,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "FY2026-Q3",
+   "as_of": "2026-03-31",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026032105/affirmfq326shareholderle.htm",
+   "ratio_kind": "margin_retention"
+  },
+  "take_rate.BILL.revenue_per_tpv": {
+   "value": 0.444181,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "FY2026-Q4",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1786352/000162828026057932/bill-20260630xexx991.htm",
+   "ratio_kind": "gross_take_rate"
+  },
+  "take_rate.Block.square_gross_profit_per_gpv": {
+   "value": 1.592357,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "2026-Q2",
+   "as_of": "2026-06-30",
+   "source_url": "https://s29.q4cdn.com/628966176/files/doc_financials/2026/q2/Q2-2026-Shareholder-Letter.pdf",
+   "ratio_kind": "margin_retention"
+  },
+  "take_rate.Corpay.corporate_payments_revenue_per_spend": {
+   "value": 0.579807,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "2026-Q2",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1175454/000117545426000045/ex991q2_2026.htm",
+   "ratio_kind": "gross_take_rate"
+  },
+  "take_rate.Flywire.net_revenue_per_tpv": {
+   "value": 1.997561,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "2026-Q2",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1580560/000158056026000013/flyw-ex99_1.htm",
+   "ratio_kind": "net_take_rate"
+  },
+  "take_rate.Klarna.revenue_per_gmv": {
+   "value": 2.843266,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "2026-Q2",
+   "as_of": "2026-06-30",
+   "source_url": "https://s205.q4cdn.com/644747736/files/doc_earnings/2026/q2/earnings-result/Q2-26-Klarna-Group-plc-Earnings-Release.pdf",
+   "ratio_kind": "gross_take_rate"
+  },
+  "take_rate.Marqeta.net_revenue_per_tpv": {
+   "value": 0.146147,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "2026-Q2",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1522540/000152254026000061/mqearningsrelease-q2x2026.htm",
+   "ratio_kind": "net_take_rate"
+  },
+  "take_rate.Navan.usage_revenue_per_gbv": {
+   "value": 7.033333,
+   "qualifier": "~",
+   "unit": "percent",
+   "period": "FY2027-Q2",
+   "as_of": "2026-07-31",
+   "source_url": "https://investors.navan.com/news-releases/news-release-details/navan-announces-strong-second-quarter-fiscal-year-2027-results",
+   "ratio_kind": "gross_take_rate"
+  },
+  "take_rate.PayPal.net_revenues_per_tpv": {
+   "value": 1.784775,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "2026-Q2",
+   "as_of": "2026-06-30",
+   "source_url": "https://s205.q4cdn.com/875401827/files/doc_financials/2026/q2/PYPL-2Q-26-Earnings-Release.pdf",
+   "ratio_kind": "gross_take_rate"
+  },
+  "take_rate.PayPal.transaction_margin_per_tpv": {
+   "value": 0.80173,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "2026-Q2",
+   "as_of": "2026-06-30",
+   "source_url": "https://s205.q4cdn.com/875401827/files/doc_financials/2026/q2/PYPL-2Q-26-Earnings-Release.pdf",
+   "ratio_kind": "margin_retention"
+  },
+  "take_rate.Payoneer.revenue_per_volume": {
+   "value": 1.157384,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "2026-Q2",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.payoneer.com/press/payoneer-reports-second-quarter-2026-financial-results/",
+   "ratio_kind": "gross_take_rate"
+  },
+  "take_rate.Sezzle.revenue_per_gmv": {
+   "value": 11.514077,
+   "qualifier": "~",
+   "unit": "percent",
+   "period": "2026-Q2",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.globenewswire.com/news-release/2026/08/06/3340662/0/en/Sezzle-Reports-Second-Quarter-2026-Results.html",
+   "ratio_kind": "gross_take_rate"
+  },
+  "take_rate.Shift4.gross_revenue_per_volume": {
+   "value": 2.122951,
+   "qualifier": "~",
+   "unit": "percent",
+   "period": "2026-Q2",
+   "as_of": "2026-06-30",
+   "source_url": "https://investors.shift4.com/sec-filings/all-sec-filings/content/0001794669-26-000042/ex991q2.htm",
+   "ratio_kind": "gross_take_rate"
+  },
+  "take_rate.Shift4.net_revenue_per_volume": {
+   "value": 1.022951,
+   "qualifier": "~",
+   "unit": "percent",
+   "period": "2026-Q2",
+   "as_of": "2026-06-30",
+   "source_url": "https://investors.shift4.com/sec-filings/all-sec-filings/content/0001794669-26-000042/ex991q2.htm",
+   "ratio_kind": "net_take_rate"
+  },
+  "take_rate.Shopify.merchant_solutions_revenue_per_gmv": {
+   "value": 2.406396,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "2026-Q2",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1594805/000159480526000047/shop-20260630.htm",
+   "ratio_kind": "gross_take_rate"
+  },
+  "take_rate.Toast.fintech_revenue_per_gpv": {
+   "value": 2.586491,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "2026-Q2",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1650164/000165016426000162/tost-20260630xexhibit991.htm",
+   "ratio_kind": "gross_take_rate"
+  },
+  "take_rate.Wise.cross_border_take_rate": {
+   "value": 0.504762,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "FY2027-Q1",
+   "as_of": "2026-06-30",
+   "source_url": "https://owners.wise.com/news-releases/news-release-details/wise-q1-fy27-trading-update",
+   "ratio_kind": "gross_take_rate"
+  },
+  "take_rate.Zip.income_per_ttv": {
+   "value": 8.258311,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "FY2026-H2",
+   "as_of": "2026-06-30",
+   "source_url": "https://announcements.asx.com.au/asxpdf/20260820/pdf/072z6kc5ypkzn7.pdf",
+   "ratio_kind": "gross_take_rate"
+  },
+  "take_rate.dLocal.revenue_per_tpv": {
+   "value": 2.258754,
+   "qualifier": "=",
+   "unit": "percent",
+   "period": "2026-Q2",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1846832/000184683226000031/ex_991-dlocalxearningsxres.htm",
+   "ratio_kind": "gross_take_rate"
+  },
+  "waterfall.bnpl_affirm.card_network": {
+   "value": 0.585637,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026059279/afrm-20260630.htm",
+   "role": "take",
+   "company": "Affirm"
+  },
+  "waterfall.bnpl_affirm.funding": {
+   "value": -0.904414,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026059279/afrm-20260630.htm",
+   "role": "cost",
+   "company": "Affirm"
+  },
+  "waterfall.bnpl_affirm.gain_on_sales_of_loans": {
+   "value": 1.188353,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026059279/afrm-20260630.htm",
+   "role": "take",
+   "company": "Affirm"
+  },
+  "waterfall.bnpl_affirm.interest_income": {
+   "value": 4.078655,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026059279/afrm-20260630.htm",
+   "role": "take",
+   "company": "Affirm"
+  },
+  "waterfall.bnpl_affirm.loss_on_loan_purchase_commitment": {
+   "value": -0.621243,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026059279/afrm-20260630.htm",
+   "role": "cost",
+   "company": "Affirm"
+  },
+  "waterfall.bnpl_affirm.merchant_network": {
+   "value": 2.290701,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026059279/afrm-20260630.htm",
+   "role": "take",
+   "company": "Affirm"
+  },
+  "waterfall.bnpl_affirm.processing_and_servicing": {
+   "value": -1.222285,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026059279/afrm-20260630.htm",
+   "role": "cost",
+   "company": "Affirm"
+  },
+  "waterfall.bnpl_affirm.provision_for_credit_losses": {
+   "value": -1.586952,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026059279/afrm-20260630.htm",
+   "role": "cost",
+   "company": "Affirm"
+  },
+  "waterfall.bnpl_affirm.revenue_less_transaction_costs": {
+   "value": 4.153319,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026059279/afrm-20260630.htm",
+   "role": "residual",
+   "company": "Affirm"
+  },
+  "waterfall.bnpl_affirm.servicing_income": {
+   "value": 0.344867,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026059279/afrm-20260630.htm",
+   "role": "take",
+   "company": "Affirm"
+  },
+  "waterfall.bnpl_affirm.total_revenue": {
+   "value": 8.488213,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026059279/afrm-20260630.htm",
+   "role": "subtotal",
+   "company": "Affirm"
+  },
+  "waterfall.card_acquiring_us.acquirer_and_network_residual": {
+   "value": 1.06,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "2026-04-18 sheet; list price 2026-10-03",
+   "as_of": "2026-10-03",
+   "source_url": "https://stripe.com/pricing",
+   "role": "residual",
+   "company": "Stripe / Visa"
+  },
+  "waterfall.card_acquiring_us.interchange_visa_traditional_rewards_cnp": {
+   "value": 2.14,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "2026-04-18 sheet; list price 2026-10-03",
+   "as_of": "2026-04-18",
+   "source_url": "https://usa.visa.com/content/dam/VCOM/download/merchants/visa-usa-interchange-reimbursement-fees.pdf",
+   "role": "take",
+   "company": "Stripe / Visa"
+  },
+  "waterfall.card_acquiring_us.merchant_price_stripe_list": {
+   "value": 3.2,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "2026-04-18 sheet; list price 2026-10-03",
+   "as_of": "2026-10-03",
+   "source_url": "https://stripe.com/pricing",
+   "role": "paid",
+   "company": "Stripe / Visa"
+  },
+  "waterfall.corporate_card_bill.net_interchange_after_rewards": {
+   "value": 1.276056,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026-Q4",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1786352/000162828026057932/bill-20260630xexx991.htm",
+   "role": "residual",
+   "company": "BILL"
+  },
+  "waterfall.corporate_card_bill.rewards": {
+   "value": -1.323944,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026-Q4",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1786352/000162828026057932/bill-20260630xexx991.htm",
+   "role": "cost",
+   "company": "BILL"
+  },
+  "waterfall.corporate_card_bill.transaction_fees": {
+   "value": 2.6,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026-Q4",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/1786352/000162828026057932/bill-20260630xexx991.htm",
+   "role": "take",
+   "company": "BILL"
+  },
+  "waterfall.corporate_card_bill.visa_commercial_cnp_list": {
+   "value": 2.8,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026-Q4",
+   "as_of": "2026-04-18",
+   "source_url": "https://usa.visa.com/content/dam/VCOM/download/merchants/visa-usa-interchange-reimbursement-fees.pdf",
+   "role": "reference",
+   "company": "BILL"
+  },
+  "waterfall.cross_border_fsb.2023.avg_cost_b2b_msme": {
+   "value": 1.5,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "2023",
+   "as_of": "2023-03-31",
+   "source_url": "https://www.fsb.org/uploads/P091025-1.pdf",
+   "role": "benchmark",
+   "company": "FSB"
+  },
+  "waterfall.cross_border_fsb.2024.avg_cost_b2b_msme": {
+   "value": 1.6,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "2024",
+   "as_of": "2024-03-31",
+   "source_url": "https://www.fsb.org/uploads/P091025-1.pdf",
+   "role": "benchmark",
+   "company": "FSB"
+  },
+  "waterfall.cross_border_fsb.2025.avg_cost_b2b_msme": {
+   "value": 1.6,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "2025",
+   "as_of": "2025-03-31",
+   "source_url": "https://www.fsb.org/uploads/P091025-1.pdf",
+   "role": "benchmark",
+   "company": "FSB"
+  },
+  "waterfall.cross_border_fsb.2025.avg_cost_b2b_msme_fee_component": {
+   "value": 0.2,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "2025",
+   "as_of": "2025-03-31",
+   "source_url": "https://www.fsb.org/uploads/P091025-1.pdf",
+   "role": "component",
+   "company": "FSB"
+  },
+  "waterfall.cross_border_fsb.2025.avg_cost_b2b_msme_fx_component": {
+   "value": 1.4,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "2025",
+   "as_of": "2025-03-31",
+   "source_url": "https://www.fsb.org/uploads/P091025-1.pdf",
+   "role": "component",
+   "company": "FSB"
+  },
+  "waterfall.cross_border_wise.FY2025.cross_border_take_rate": {
+   "value": 0.58,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2025",
+   "as_of": "2025-03-31",
+   "source_url": "https://owners.wise.com/news-releases/news-release-details/wise-group-plc-reports-full-year-2026-financial-results",
+   "role": "take",
+   "company": "Wise"
+  },
+  "waterfall.cross_border_wise.FY2026.cross_border_take_rate": {
+   "value": 0.52,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2026",
+   "as_of": "2026-03-31",
+   "source_url": "https://owners.wise.com/news-releases/news-release-details/wise-group-plc-reports-full-year-2026-financial-results",
+   "role": "take",
+   "company": "Wise"
+  },
+  "waterfall.cross_border_wise.FY2027-Q1.cross_border_take_rate": {
+   "value": 0.5,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2027-Q1",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/2099039/000119312526306087/d40450dex991.htm",
+   "role": "take",
+   "company": "Wise"
+  },
+  "waterfall.cross_border_wise.FY2027-Q1.cross_border_take_rate_business": {
+   "value": 0.39,
+   "qualifier": "=",
+   "unit": "usd_per_100",
+   "period": "FY2027-Q1",
+   "as_of": "2026-06-30",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/2099039/000119312526306087/d40450dex991.htm",
+   "role": "take",
+   "company": "Wise"
+  }
+ },
+ "counts": {
+  "roster_core": 29,
+  "roster_table": 12,
+  "roster_by_segment": {
+   "A": {
+    "core": 10,
+    "table": 2
+   },
+   "B": {
+    "core": 6,
+    "table": 0
+   },
+   "C": {
+    "core": 6,
+    "table": 3
+   },
+   "D": {
+    "core": 5,
+    "table": 2
+   },
+   "E": {
+    "core": 1,
+    "table": 2
+   },
+   "F": {
+    "core": 1,
+    "table": 3
+   }
+  },
+  "waterfalls": 5,
+  "waterfall_lines": 28,
+  "take_rates": 162,
+  "take_rate_companies": 18,
+  "take_rates_refused": 10,
+  "private_companies": 7,
+  "private_intervals": 7,
+  "reported_unconfirmed": 16,
+  "reported_never_charted_kind": 10,
+  "products": 82,
+  "products_live": 76,
+  "product_companies": 27,
+  "product_lines_live_by_company": {
+   "Stripe": 7,
+   "Shopify Payments": 6,
+   "Block/Square": 5,
+   "Ramp": 5,
+   "Adyen": 4,
+   "Airwallex": 4,
+   "Mercury": 4,
+   "PayPal": 4,
+   "BILL": 3,
+   "Brex": 3,
+   "Checkout.com": 3,
+   "Corpay": 3,
+   "Payoneer": 3,
+   "dLocal": 3,
+   "Affirm": 2,
+   "Circle": 2,
+   "Global Payments": 2,
+   "Klarna": 2,
+   "Shift4": 2,
+   "Toast": 2,
+   "Fiserv Clover": 1,
+   "Flywire": 1,
+   "Marqeta": 1,
+   "Navan": 1,
+   "Sezzle": 1,
+   "Wise": 1,
+   "Zip": 1
+  },
+  "product_lines_live_max": 7,
+  "products_with_launch_date": 25,
+  "events": 30,
+  "events_by_kind": {
+   "acquisition": 13,
+   "direct_listing": 1,
+   "ipo": 4,
+   "priced_round": 9,
+   "tender": 3
+  },
+  "acquisition_deals": 10,
+  "acquisition_deals_no_value": 4,
+  "metrics_in_dictionary": 236,
+  "share_rows": 207,
+  "share_refusals": 56,
+  "scoreboard": {
+   "collecting": 9,
+   "holds": 0,
+   "falsified": 0,
+   "undecidable": 0
+  }
+ },
+ "coverage": {
+  "companies": [
+   "Adyen",
+   "Affirm",
+   "Afterpay/Block",
+   "Airwallex",
+   "BILL",
+   "Block/Square",
+   "Brex",
+   "Checkout.com",
+   "Circle",
+   "Corpay",
+   "Fiserv Clover",
+   "Flywire",
+   "Global Payments",
+   "Klarna",
+   "Marqeta",
+   "Mercury",
+   "Navan",
+   "Nium",
+   "PayPal",
+   "PayPal Pay Later",
+   "Payoneer",
+   "Ramp",
+   "Sezzle",
+   "Shift4",
+   "Shopify Payments",
+   "Stripe",
+   "Toast",
+   "Wise",
+   "Zip",
+   "dLocal"
+  ],
+  "n_companies": 30
+ },
+ "scoreboard": [
+  {
+   "id": "Q1",
+   "title": "Developer mindshare is more concentrated than money",
+   "status": "collecting",
+   "reason": "npm download counts (devstats) exist only after a CI run; none on disk yet",
+   "graded": "monthly; 2027-02 (Stripe's next annual letter)",
+   "next_grading": "2027-02",
+   "already_seen": "download share 84-90% depending on the whitelist; volume share about 32% (computed)",
+   "inputs": "devstats (npm client SDKs, CI only); share.q1_volume_share (curated KPI and private ledger)",
+   "ci_only": true,
+   "inputs_present": false,
+   "evidence": [
+    {
+     "label": "Stripe share of disclosed volume, upper bound",
+     "value": 0.503125,
+     "qualifier": "<",
+     "unit": "fraction",
+     "period": "FY2025",
+     "source_url": null,
+     "note": "upper bound of an interval; PayPal enters as [0, full TPV] because TPV includes Venmo/P2P; NOT INFORMATIVE: Airwallex, Checkout.com entered at 0 (no comparable calendar-year volume), so this bound is inflated by missing data and is not graded"
+    },
+    {
+     "label": "Stripe share with PayPal at full TPV (context, not graded)",
+     "value": 0.34109,
+     "qualifier": "<",
+     "unit": "fraction",
+     "period": "FY2025",
+     "source_url": null,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "Q2",
+   "title": "The top of the web is changing hands",
+   "status": "collecting",
+   "reason": "HTTP Archive counts (webtech) exist only after a CI run; none on disk yet",
+   "graded": "2027-03",
+   "next_grading": "2027-03",
+   "already_seen": "Stripe 522, PayPal 478 (2026-08 crawl)",
+   "inputs": "webtech (HTTP Archive Tech Report, US, top-10k origins, mobile; CI only)",
+   "ci_only": true,
+   "inputs_present": false,
+   "evidence": []
+  },
+  {
+   "id": "Q3",
+   "title": "BNPL share is moving to Affirm",
+   "status": "collecting",
+   "reason": "pair 1: Affirm FY2027-Q1 GMV not published yet; pair 1: Klarna US GMV for 2026-Q3 and 2025-Q3 not in the curated KPI file (Klarna's curated GMV row is global); pair 2: Affirm FY2027-Q2 GMV not published yet; pair 2: Klarna US GMV for 2026-Q4 and 2025-Q4 not in the curated KPI file (Klarna's curated GMV row is global)",
+   "graded": "2026-11; 2027-02",
+   "next_grading": "2026-11",
+   "already_seen": "+36% against +27%; Affirm's GMV includes small Canada and UK volumes",
+   "inputs": "curated KPI file: Affirm GMV (fiscal quarters), Klarna US GMV (calendar quarters)",
+   "ci_only": false,
+   "inputs_present": false,
+   "evidence": [
+    {
+     "label": "Affirm GMV growth, latest charted quarter (already seen)",
+     "value": 34.883721,
+     "qualifier": "=",
+     "unit": "percent",
+     "period": "FY2026-Q3 vs FY2025-Q3",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1820953/000162828026032105/affirmfq326shareholderle.htm",
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "Q4",
+   "title": "Corporate-card net interchange settles at 1.0-1.6% of card volume",
+   "status": "collecting",
+   "reason": "no quarter ending on or after 2026-09-30 in the waterfall inputs yet (BILL's first net-of-rewards quarter)",
+   "graded": "2026-11; 2027-02",
+   "next_grading": "2026-11",
+   "already_seen": "BILL gross 2.60%, rewards 51% of interchange, net about 1.28% (computed)",
+   "inputs": "economics waterfall: net interchange after rewards per US spend-management issuer and quarter",
+   "ci_only": false,
+   "inputs_present": false,
+   "evidence": [
+    {
+     "label": "BILL net interchange after rewards (already seen)",
+     "value": 1.276056,
+     "qualifier": "=",
+     "unit": "percent of card volume",
+     "period": "FY2026-Q4",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1786352/000162828026057932/bill-20260630xexx991.htm",
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "Q5",
+   "title": "BNPL is a lending business",
+   "status": "collecting",
+   "reason": "Klarna does not disclose a merchant/credit split (no Klarna per-$100 waterfall in the curated inputs); undecidable if still absent after 2026-11",
+   "graded": "2026-11",
+   "next_grading": "2026-11",
+   "already_seen": "Affirm 4.15 against Klarna 1.22 per $100 kept (computed, different periods)",
+   "inputs": "economics waterfalls: Affirm FY2026 per-$100 lines; a Klarna merchant/credit split",
+   "ci_only": false,
+   "inputs_present": false,
+   "evidence": [
+    {
+     "label": "Affirm merchant and card-network revenue per $100",
+     "value": 2.876338,
+     "qualifier": "=",
+     "unit": "usd_per_100",
+     "period": "FY2026",
+     "source_url": null,
+     "note": null
+    },
+    {
+     "label": "Affirm revenue less transaction costs per $100",
+     "value": 4.153319,
+     "qualifier": "=",
+     "unit": "usd_per_100",
+     "period": "FY2026",
+     "source_url": null,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "Q6",
+   "title": "Brex earns less than half of its revenue from card interchange",
+   "status": "collecting",
+   "reason": "no Capital One disclosure of Brex net interchange and revenue yet; the revenue denominator is a secondary-source figure, listed only in the reported, unconfirmed table and never used in a computed number",
+   "graded": "2027-02 (Capital One FY2026 10-K)",
+   "next_grading": "2027-02",
+   "already_seen": "$815M of loans in Capital One's purchase-price allocation -> $6.6-14.9B of card spend -> $85-190M of net interchange, against about $700M of stated annualised revenue (secondary source)",
+   "inputs": "ledger private_intervals (Q6 chain); a Capital One disclosure of Brex net interchange and revenue",
+   "ci_only": false,
+   "inputs_present": false,
+   "evidence": [
+    {
+     "label": "Brex implied annual card spend, lower end",
+     "value": 6610555555.56,
+     "qualifier": ">",
+     "unit": "USD",
+     "period": "2026-04-07",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+     "note": "20-45 days of card receivables (section H, Q6)"
+    },
+    {
+     "label": "Brex implied annual card spend, upper end",
+     "value": 14873750000.0,
+     "qualifier": "<",
+     "unit": "USD",
+     "period": "2026-04-07",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+     "note": "20-45 days of card receivables (section H, Q6)"
+    },
+    {
+     "label": "Brex implied net interchange, lower end",
+     "value": 84615111.1111,
+     "qualifier": ">",
+     "unit": "USD",
+     "period": "2026-04-07",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+     "note": "20-45 days of card receivables (section H, Q6); net interchange 1.28% of spend as at BILL"
+    },
+    {
+     "label": "Brex implied net interchange, upper end",
+     "value": 190384000.0,
+     "qualifier": "<",
+     "unit": "USD",
+     "period": "2026-04-07",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/927628/000092762826000089/R10.htm",
+     "note": "20-45 days of card receivables (section H, Q6); net interchange 1.28% of spend as at BILL"
+    }
+   ]
+  },
+  {
+   "id": "Q7",
+   "title": "Cross-border: challengers cut price, the industry average does not move",
+   "status": "collecting",
+   "reason": "Wise H1 FY27 take rate not in the waterfall inputs yet; FSB 2026 average cost not in the waterfall inputs yet",
+   "graded": "2026-10 to 2026-11",
+   "next_grading": "2026-10",
+   "already_seen": "Wise 0.58% to 0.52%; FSB 1.5% in 2023, 1.6% in 2024 and 2025",
+   "inputs": "waterfall inputs: Wise take rate (FY2026, H1 FY27), FSB average MSME B2B cost (2026)",
+   "ci_only": false,
+   "inputs_present": false,
+   "evidence": [
+    {
+     "label": "Wise take rate change FY2025 to FY2026 (already seen)",
+     "value": -0.06,
+     "qualifier": "=",
+     "unit": "percentage points",
+     "period": "FY2026 vs FY2025",
+     "source_url": "https://owners.wise.com/news-releases/news-release-details/wise-group-plc-reports-full-year-2026-financial-results",
+     "note": null
+    },
+    {
+     "label": "FSB average MSME B2B cost (already seen)",
+     "value": 1.6,
+     "qualifier": "=",
+     "unit": "percent",
+     "period": "2025",
+     "source_url": "https://www.fsb.org/uploads/P091025-1.pdf",
+     "note": null
+    },
+    {
+     "label": "Wise take rate FY2027-Q1 (context, not the graded half-year)",
+     "value": 0.5,
+     "qualifier": "=",
+     "unit": "percent",
+     "period": "FY2027-Q1",
+     "source_url": "https://www.sec.gov/Archives/edgar/data/2099039/000119312526306087/d40450dex991.htm",
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "Q8",
+   "title": "Commercial-card interchange does not fall after the settlement",
+   "status": "collecting",
+   "reason": "the settlement has no final approval yet (fairness hearing 2026-11-16); graded on the first Visa sheet effective after it",
+   "graded": "after the fairness hearing (2026-11-16); the spring 2027 Visa sheet",
+   "next_grading": "2026-11",
+   "already_seen": "2.70% + $0.10, effective 2026-04-18",
+   "inputs": "waterfall inputs: Visa US Commercial Card-Not-Present rate by sheet",
+   "ci_only": false,
+   "inputs_present": false,
+   "evidence": [
+    {
+     "label": "Visa Commercial CNP ad valorem rate",
+     "value": 2.7,
+     "qualifier": "=",
+     "unit": "percent",
+     "period": "2026-04-18",
+     "source_url": "https://usa.visa.com/content/dam/VCOM/download/merchants/visa-usa-interchange-reimbursement-fees.pdf",
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "Q9",
+   "title": "Consolidation continues (a calibration item)",
+   "status": "collecting",
+   "reason": "0 of 2 so far; the window runs to 2027-09-30 (independent roster companies valued below $5B; Payoneer excluded)",
+   "graded": "2027-09-30",
+   "next_grading": "2027-09-30",
+   "already_seen": "3-4 roster deals in the past 12 months",
+   "inputs": "curated events (acquisition announcements)",
+   "ci_only": false,
+   "inputs_present": true,
+   "evidence": [
+    {
+     "label": "Roster companies announced as acquired in the 12 months before registration",
+     "value": 3.0,
+     "qualifier": "=",
+     "unit": "companies",
+     "period": null,
+     "source_url": null,
+     "note": "BVNK, Brex, Payoneer"
+    },
+    {
+     "label": "Qualifying acquisitions announced since registration",
+     "value": 0.0,
+     "qualifier": "=",
+     "unit": "companies",
+     "period": "to 2026-10-06",
+     "source_url": null,
+     "note": null
+    }
+   ]
+  }
+ ],
+ "ci_sources": {
+  "devstats": false,
+  "webtech": false,
+  "jobs": false,
+  "formd": false,
+  "sec": false
+ },
+ "marts": {
+  "events": "payments/events.json",
+  "kpis": "payments/kpis.json",
+  "ledger_latest": "payments/ledger_latest.json",
+  "ledger_timeline": "payments/ledger_timeline.json",
+  "metric_dictionary": "payments/metric_dictionary.json",
+  "private_intervals": "payments/private_intervals.json",
+  "private_take_rates_refused": "payments/private_take_rates_refused.json",
+  "products": "payments/products.json",
+  "reported_unconfirmed": "payments/reported_unconfirmed.json",
+  "scoreboard": "payments/scoreboard.json",
+  "scoreboard_evidence": "payments/scoreboard_evidence.json",
+  "sensitivity": "payments/sensitivity.json",
+  "share_lenses": "payments/share_lenses.json",
+  "share_pool_hhi": "payments/share_pool_hhi.json",
+  "take_rates": "payments/take_rates.json",
+  "take_rates_refused": "payments/take_rates_refused.json",
+  "waterfall_lines": "payments/waterfall_lines.json"
+ },
+ "checks": [
+  {
+   "name": "kpi_disclosures_acceptance file",
+   "status": "pass",
+   "detail": "kpi_disclosures_acceptance.json parsed, 164 row(s), updated 2026-10-03"
+  },
+  {
+   "name": "kpi_disclosures_acceptance rows",
+   "status": "pass",
+   "detail": "164 row(s) sourced, dated and caveated"
+  },
+  {
+   "name": "kpi_disclosures_acceptance freshness",
+   "status": "pass",
+   "detail": "0 of 164 row(s) unchecked for more than 120 days"
+  },
+  {
+   "name": "kpi_disclosures_other file",
+   "status": "pass",
+   "detail": "kpi_disclosures_other.json parsed, 247 row(s), updated 2026-10-03"
+  },
+  {
+   "name": "kpi_disclosures_other rows",
+   "status": "pass",
+   "detail": "247 row(s) sourced, dated and caveated"
+  },
+  {
+   "name": "kpi_disclosures_other freshness",
+   "status": "pass",
+   "detail": "0 of 247 row(s) unchecked for more than 120 days"
+  },
+  {
+   "name": "private_metrics file",
+   "status": "pass",
+   "detail": "private_metrics.json parsed, 65 row(s), updated 2026-10-03"
+  },
+  {
+   "name": "private_metrics rows",
+   "status": "pass",
+   "detail": "65 row(s) sourced, dated and caveated"
+  },
+  {
+   "name": "private_metrics freshness",
+   "status": "pass",
+   "detail": "0 of 65 row(s) unchecked for more than 120 days"
+  },
+  {
+   "name": "waterfall_inputs file",
+   "status": "pass",
+   "detail": "waterfall_inputs.json parsed, 59 row(s), updated 2026-10-03"
+  },
+  {
+   "name": "waterfall_inputs rows",
+   "status": "pass",
+   "detail": "59 row(s) sourced, dated and caveated"
+  },
+  {
+   "name": "waterfall_inputs freshness",
+   "status": "pass",
+   "detail": "0 of 59 row(s) unchecked for more than 120 days"
+  },
+  {
+   "name": "products file",
+   "status": "pass",
+   "detail": "products.json parsed, 82 row(s), updated 2026-10-03"
+  },
+  {
+   "name": "products rows",
+   "status": "pass",
+   "detail": "82 row(s) sourced, dated and caveated"
+  },
+  {
+   "name": "products freshness",
+   "status": "pass",
+   "detail": "0 of 82 row(s) unchecked for more than 120 days"
+  },
+  {
+   "name": "events file",
+   "status": "pass",
+   "detail": "events.json parsed, 34 row(s), updated 2026-10-03"
+  },
+  {
+   "name": "events rows",
+   "status": "pass",
+   "detail": "34 row(s) sourced, dated and caveated"
+  },
+  {
+   "name": "events freshness",
+   "status": "pass",
+   "detail": "0 of 34 row(s) unchecked for more than 120 days"
+  },
+  {
+   "name": "denominators file",
+   "status": "pass",
+   "detail": "denominators.json parsed, 51 row(s), updated 2026-10-06"
+  },
+  {
+   "name": "denominators rows",
+   "status": "pass",
+   "detail": "51 row(s) sourced, dated and caveated"
+  },
+  {
+   "name": "denominators freshness",
+   "status": "pass",
+   "detail": "0 of 51 row(s) unchecked for more than 120 days"
+  },
+  {
+   "name": "Waterfalls",
+   "status": "pass",
+   "detail": "5 waterfall(s), 28 line(s), 100 sensitivity row(s)"
+  },
+  {
+   "name": "Affirm revenue reconciles",
+   "status": "pass",
+   "detail": "computed 8.4882 vs filed total revenue / GMV 8.4882 (tolerance 0.005)"
+  },
+  {
+   "name": "Affirm merchant take vs stated",
+   "status": "pass",
+   "detail": "computed 2.2907 vs stated % of GMV (rounded to 0.1) 2.3000 (tolerance 0.05)"
+  },
+  {
+   "name": "BILL transaction_fees vs curated",
+   "status": "pass",
+   "detail": "computed 2.6000 vs W1 computed row 2.6000 (tolerance 0.005)"
+  },
+  {
+   "name": "BILL rewards vs curated",
+   "status": "pass",
+   "detail": "computed 1.3239 vs W1 computed row 1.3200 (tolerance 0.005)"
+  },
+  {
+   "name": "BILL net_interchange_after_rewards vs curated",
+   "status": "pass",
+   "detail": "computed 1.2761 vs W1 computed row 1.2800 (tolerance 0.005)"
+  },
+  {
+   "name": "BILL rewards share vs stated",
+   "status": "pass",
+   "detail": "computed 50.9209 vs stated % of interchange (rounded; BILL's base is interchange, ours transaction fees) 51.0000 (tolerance 1)"
+  },
+  {
+   "name": "Wise FY27-Q1 take rate recomputes",
+   "status": "pass",
+   "detail": "computed 0.5048 vs stated take rate (rounded to 0.01) 0.5000 (tolerance 0.01)"
+  },
+  {
+   "name": "FSB components sum",
+   "status": "pass",
+   "detail": "computed 1.6000 vs stated 2025 average 1.6000 (tolerance 0.051)"
+  },
+  {
+   "name": "Q8 registered rate matches sheet",
+   "status": "pass",
+   "detail": "computed 2.8000 vs Visa sheet Commercial CNP per $100 2.8000 (tolerance 1e-09)"
+  },
+  {
+   "name": "Waterfall key uniqueness",
+   "status": "pass",
+   "detail": "0 duplicate waterfall lines on (waterfall, period, line)"
+  },
+  {
+   "name": "Waterfall input freshness",
+   "status": "pass",
+   "detail": "0 line(s) rest on an input unchecked for more than 120 days"
+  },
+  {
+   "name": "Private ledger",
+   "status": "pass",
+   "detail": "7 companies, 59 timeline rows, 34 latest values, 15 reported-unconfirmed rows, 7 derived intervals"
+  },
+  {
+   "name": "Ledger key uniqueness",
+   "status": "pass",
+   "detail": "0 duplicate timeline rows on (company, source, metric, period, date, counterparty)"
+  },
+  {
+   "name": "Latest-value ties",
+   "status": "pass",
+   "detail": "0 company-metric(s) with two current rows on the same date"
+  },
+  {
+   "name": "Private ledger freshness",
+   "status": "pass",
+   "detail": "0 timeline row(s) unchecked for more than 120 days"
+  },
+  {
+   "name": "Never-charted kinds kept out",
+   "status": "pass",
+   "detail": "0 reported_talks / third_party_estimate row(s) in charted tables; 10 listed as reported"
+  },
+  {
+   "name": "Take rates",
+   "status": "pass",
+   "detail": "162 computed across 18 companies, 10 period(s) refused"
+  },
+  {
+   "name": "Take-rate qualifiers",
+   "status": "pass",
+   "detail": "21 of 162 take rates carry a bound or ~ from their inputs"
+  },
+  {
+   "name": "Share key uniqueness",
+   "status": "pass",
+   "detail": "0 duplicate share rows on (lens, pool, company, period, role, source_metric)"
+  },
+  {
+   "name": "Pool shares sum to one",
+   "status": "pass",
+   "detail": "36 pool-periods; 0 not summing to 1"
+  },
+  {
+   "name": "FEDS shares reconcile",
+   "status": "pass",
+   "detail": "6 recomputed provider shares round to the printed Figure 1b values"
+  },
+  {
+   "name": "Acceptance pool membership",
+   "status": "pass",
+   "detail": "5 members in 2026-Q2: PayPal, Block/Square, Shopify Payments, Toast, Shift4"
+  },
+  {
+   "name": "Share input: web coverage",
+   "status": "warn",
+   "detail": "webtech output absent (it exists only after a CI run); web-coverage lens empty"
+  },
+  {
+   "name": "Share input: developer downloads",
+   "status": "warn",
+   "detail": "devstats output absent (it exists only after a CI run); downloads lens empty"
+  },
+  {
+   "name": "Charted marts hold chartable rows only",
+   "status": "pass",
+   "detail": "every charted row is tag V or C and never reported_talks / third_party_estimate"
+  },
+  {
+   "name": "Reported rows kept out of charts",
+   "status": "pass",
+   "detail": "16 reported, unconfirmed row(s); 0 also in a charted table"
+  },
+  {
+   "name": "Value ranges",
+   "status": "pass",
+   "detail": "shares in [0, 1]: 0 outside; per-$100 lines within +/-100: 0 outside; take rates in (0, 100)%: 0 outside"
+  },
+  {
+   "name": "Qualifiers on every published number",
+   "status": "pass",
+   "detail": "113 templated values, 0 without a qualifier"
+  },
+  {
+   "name": "Headline KPIs",
+   "status": "pass",
+   "detail": "3 KPIs: affirm_kept_per_100, bnpl_leader_share, stripe_volume"
+  },
+  {
+   "name": "Uniqueness: products",
+   "status": "pass",
+   "detail": "0 duplicate products rows on (company, product_line)"
+  },
+  {
+   "name": "Uniqueness: events",
+   "status": "pass",
+   "detail": "0 duplicate events rows on (company, event_kind, event_date, counterparty)"
+  },
+  {
+   "name": "Uniqueness: metric_dictionary",
+   "status": "pass",
+   "detail": "0 duplicate metric_dictionary rows on (dataset, scope, metric)"
+  },
+  {
+   "name": "Uniqueness: reported_unconfirmed",
+   "status": "pass",
+   "detail": "0 duplicate reported_unconfirmed rows on (source, company, metric, period, date, counterparty, value)"
+  },
+  {
+   "name": "CI source: npm downloads (devstats)",
+   "status": "warn",
+   "detail": "absent: written only by the scheduled CI run; dependent views and questions wait"
+  },
+  {
+   "name": "CI source: HTTP Archive coverage (webtech)",
+   "status": "warn",
+   "detail": "absent: written only by the scheduled CI run; dependent views and questions wait"
+  },
+  {
+   "name": "CI source: job-board counts (jobs)",
+   "status": "warn",
+   "detail": "absent: written only by the scheduled CI run; dependent views and questions wait"
+  },
+  {
+   "name": "CI source: SEC Form D (formd)",
+   "status": "warn",
+   "detail": "absent: written only by the scheduled CI run; dependent views and questions wait"
+  },
+  {
+   "name": "CI source: SEC financials (sec)",
+   "status": "warn",
+   "detail": "absent: written only by the scheduled CI run; dependent views and questions wait"
+  },
+  {
+   "name": "Curator notes never published",
+   "status": "pass",
+   "detail": "no curator_notes field in facts or any mart"
+  },
+  {
+   "name": "Regression guard",
+   "status": "pass",
+   "detail": "30 companies covered"
+  }
+ ],
+ "sources": [
+  {
+   "name": "Company filings and releases (SEC EDGAR, investor relations)",
+   "url": "https://www.sec.gov/edgar/search/"
+  },
+  {
+   "name": "Federal Reserve FEDS Notes: BNPL beyond 'pay in 4'",
+   "url": "https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html"
+  },
+  {
+   "name": "Visa USA Interchange Reimbursement Fees",
+   "url": "https://usa.visa.com/content/dam/VCOM/download/merchants/visa-usa-interchange-reimbursement-fees.pdf"
+  },
+  {
+   "name": "FSB cross-border payments KPIs",
+   "url": "https://www.fsb.org/"
+  },
+  {
+   "name": "HTTP Archive Tech Report",
+   "url": "https://httparchive.org/reports/techreport"
+  },
+  {
+   "name": "npm download counts",
+   "url": "https://api.npmjs.org/downloads/"
+  },
+  {
+   "name": "Greenhouse and Ashby public job boards",
+   "url": "https://boards-api.greenhouse.io/"
+  },
+  {
+   "name": "SEC EDGAR XBRL APIs",
+   "url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces"
+  }
+ ]
+}

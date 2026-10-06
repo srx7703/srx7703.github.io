@@ -54,6 +54,7 @@ publish:          ## rebuild every mart and facts file from the snapshots
 	uv run python -m pipelines.memcycle.publish
 	uv run python -m pipelines.valuation.publish
 	uv run python -m pipelines.valuation.evaluate
+	uv run python -m pipelines.payments.publish
 
 site:             ## build the static site (syncs data/ into site/public/data first)
 	cd site && npm run build

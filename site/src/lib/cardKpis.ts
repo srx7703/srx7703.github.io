@@ -6,7 +6,26 @@ import finllm from '@data/facts/finllm.json';
 import optical from '@data/facts/valuation_optical.json';
 import ssb from '@data/facts/valuation_ssb.json';
 import memcycle from '@data/facts/memcycle.json';
+import payments from '@data/facts/payments.json';
 import { pct } from './fmt';
+
+type PaymentsKpi = { id: string; label: string; value: number; qualifier: string; unit: string; period: string };
+
+/** Payments facts carry a unit per KPI; format by unit and keep the qualifier (">", "<", "~") in front. */
+function paymentsKpi(): { label: string; value: string } {
+  const kpis = payments.kpis as PaymentsKpi[];
+  const k = kpis.find((x) => x.id === 'affirm_kept_per_100') ?? kpis[0];
+  if (!k) return { label: 'core companies covered', value: String(payments.counts.roster_core) };
+  const q = k.qualifier === '=' ? '' : `${k.qualifier}\u202f`;
+  let v: string;
+  if (k.unit === 'usd_per_100') v = `$${k.value.toFixed(2)}`;
+  else if (k.unit.startsWith('share')) v = pct(k.value, 1);
+  else if (k.unit === 'USD') {
+    const [d, s] = k.value >= 1e12 ? [1e12, 'tn'] : k.value >= 1e9 ? [1e9, 'bn'] : [1e6, 'm'];
+    v = `$${(k.value / d).toFixed(1)}${s}`;
+  } else v = String(k.value);
+  return { label: `${k.label.charAt(0).toLowerCase()}${k.label.slice(1)}, ${k.period}`, value: `${q}${v}` };
+}
 
 /** One headline number per project for the cards, always read from facts. */
 export const cardKpis: Record<string, { label: string; value: string }> = {
@@ -27,4 +46,5 @@ export const cardKpis: Record<string, { label: string; value: string }> = {
     label: `of pure-play stocks peaked before DRAM contract prices; registered test ${memcycle.q3.main_pure.verdict}`,
     value: pct(memcycle.q3.main_pure.share_lead_ge1, 1),
   },
+  'payments-landscape': paymentsKpi(),
 };
