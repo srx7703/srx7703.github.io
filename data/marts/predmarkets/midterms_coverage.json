@@ -40,8 +40,8 @@
   "platform": "kalshi",
   "markets": 19973,
   "quoted_markets": 6848,
-  "volume": 203867654.53999978,
-  "volume_24h": 2645953.2800000017,
+  "volume": 203867654.5400002,
+  "volume_24h": 2645953.2800000003,
   "volume_unit": "contracts"
  },
  {
@@ -67,8 +67,8 @@
   "platform": "polymarket",
   "markets": 11549,
   "quoted_markets": 5147,
-  "volume": 60714564.560409926,
-  "volume_24h": 676146.9959890004,
+  "volume": 60714564.56041008,
+  "volume_24h": 676146.9959890002,
   "volume_unit": "usd"
  },
  {
@@ -94,8 +94,8 @@
   "platform": "kalshi",
   "markets": 19912,
   "quoted_markets": 6801,
-  "volume": 209920728.98999974,
-  "volume_24h": 4235961.88,
+  "volume": 209920728.98999998,
+  "volume_24h": 4235961.879999996,
   "volume_unit": "contracts"
  },
  {
@@ -121,8 +121,8 @@
   "platform": "polymarket",
   "markets": 11562,
   "quoted_markets": 5178,
-  "volume": 63340270.19236891,
-  "volume_24h": 977683.5120220025,
+  "volume": 63340270.192369096,
+  "volume_24h": 977683.5120220004,
   "volume_unit": "usd"
  },
  {
@@ -148,8 +148,8 @@
   "platform": "kalshi",
   "markets": 20248,
   "quoted_markets": 6355,
-  "volume": 218017734.46999973,
-  "volume_24h": 2149740.299999999,
+  "volume": 218017734.46999976,
+  "volume_24h": 2149740.2999999984,
   "volume_unit": "contracts"
  },
  {
@@ -175,8 +175,8 @@
   "platform": "polymarket",
   "markets": 11572,
   "quoted_markets": 5130,
-  "volume": 67383543.2976598,
-  "volume_24h": 2015217.0464789998,
+  "volume": 67383543.2976601,
+  "volume_24h": 2015217.0464790005,
   "volume_unit": "usd"
  },
  {
@@ -203,7 +203,7 @@
   "markets": 20366,
   "quoted_markets": 5117,
   "volume": 234486577.69999996,
-  "volume_24h": 6454806.540000005,
+  "volume_24h": 6454806.540000003,
   "volume_unit": "contracts"
  },
  {
@@ -229,8 +229,8 @@
   "platform": "polymarket",
   "markets": 11682,
   "quoted_markets": 5294,
-  "volume": 71565201.58471689,
-  "volume_24h": 1143133.841666002,
+  "volume": 71565201.58471711,
+  "volume_24h": 1143133.841666,
   "volume_unit": "usd"
  },
  {
@@ -256,7 +256,7 @@
   "platform": "kalshi",
   "markets": 20520,
   "quoted_markets": 7562,
-  "volume": 246581811.13,
+  "volume": 246581811.13000003,
   "volume_24h": 2847428.7500000014,
   "volume_unit": "contracts"
  },
@@ -283,8 +283,8 @@
   "platform": "polymarket",
   "markets": 11683,
   "quoted_markets": 5336,
-  "volume": 74082149.80334,
-  "volume_24h": 722262.4583509997,
+  "volume": 74082149.8033401,
+  "volume_24h": 722262.4583510004,
   "volume_unit": "usd"
  },
  {
@@ -319,8 +319,8 @@
   "platform": "polymarket",
   "markets": 11720,
   "quoted_markets": 5279,
-  "volume": 75794045.2081133,
-  "volume_24h": 1031218.3371170006,
+  "volume": 75794045.20811325,
+  "volume_24h": 1031218.3371170004,
   "volume_unit": "usd"
  },
  {
@@ -337,8 +337,8 @@
   "platform": "polymarket",
   "markets": 11735,
   "quoted_markets": 5247,
-  "volume": 77028815.29969019,
-  "volume_24h": 1213136.0759850023,
+  "volume": 77028815.29969016,
+  "volume_24h": 1213136.0759849995,
   "volume_unit": "usd"
  },
  {
@@ -373,8 +373,8 @@
   "platform": "polymarket",
   "markets": 11701,
   "quoted_markets": 5242,
-  "volume": 80548416.84920906,
-  "volume_24h": 2489318.202072002,
+  "volume": 80548416.84920916,
+  "volume_24h": 2489318.202072004,
   "volume_unit": "usd"
  },
  {
@@ -392,7 +392,7 @@
   "markets": 11701,
   "quoted_markets": 5234,
   "volume": 82406014.13031405,
-  "volume_24h": 1774577.217884004,
+  "volume_24h": 1774577.217884001,
   "volume_unit": "usd"
  },
  {
@@ -411,6 +411,24 @@
   "quoted_markets": 5157,
   "volume": 84598016.330814,
   "volume_24h": 2106642.1042280034,
+  "volume_unit": "usd"
+ },
+ {
+  "snapshot_ts": "2026-10-06T13:24:55+00:00",
+  "platform": "kalshi",
+  "markets": 20769,
+  "quoted_markets": 8485,
+  "volume": 290850446.0599995,
+  "volume_24h": 6917743.82999999,
+  "volume_unit": "contracts"
+ },
+ {
+  "snapshot_ts": "2026-10-06T13:24:55+00:00",
+  "platform": "polymarket",
+  "markets": 11743,
+  "quoted_markets": 5218,
+  "volume": 85977126.95389009,
+  "volume_24h": 1419429.9046980029,
   "volume_unit": "usd"
  }
 ]
