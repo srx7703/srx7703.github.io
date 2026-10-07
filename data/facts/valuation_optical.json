@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-06T13:39:29.411788+00:00",
+ "generated_at": "2026-10-07T13:58:18.860269+00:00",
  "track": "optical",
  "label": "Optical modules",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-10-06T13:38:25+00:00",
+ "as_of_price": "2026-10-07T13:57:14+00:00",
  "as_of_estimates": "2026-10-05T16:24:49+00:00",
  "as_of_fx": "2026-10-02",
  "n_listings": 34,
@@ -16,13 +16,13 @@
  "n_thin": 4,
  "n_nm": 0,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 51.78513963198873,
- "median_fwd_pe_next": 34.37582741813733,
- "p25_fwd_pe_this": 29.53696945380132,
+ "median_fwd_pe_this": 52.492748070772095,
+ "median_fwd_pe_next": 34.072765967347706,
+ "p25_fwd_pe_this": 29.92417454448502,
  "p75_fwd_pe_this": 88.58689098358171,
- "iqr_fwd_pe_this": 59.04992152978039,
+ "iqr_fwd_pe_this": 58.66271643909669,
  "median_growth": 0.6992732416654759,
- "median_trailing_pe": 89.75050218231402,
+ "median_trailing_pe": 94.50649822376187,
  "cheapest": {
   "ticker": "600060.SS",
   "name": "Hisense Visual",
@@ -710,10 +710,10 @@
    "primary": "601869.SS",
    "secondary": "6869.HK",
    "primary_pe": 51.534572801336964,
-   "secondary_pe": 19.274260507961582,
+   "secondary_pe": 19.24213674044831,
    "basis": "both lines on 601869.SS's consensus for calendar 2026",
    "nm": null,
-   "premium": 1.6737509737429188
+   "premium": 1.6782146648510041
   }
  ],
  "share_base_artefacts": [
@@ -721,9 +721,9 @@
    "ticker": "6869.HK",
    "name": "YOFC (H)",
    "primary": "601869.SS",
-   "implied_shares": 1423658734.9333334,
+   "implied_shares": 1423658732.198108,
    "primary_implied_shares": 821905057.5347795,
-   "gap": 0.7321449988438478
+   "gap": 0.7321449955159385
   }
  ],
  "excluded_from_pool": [
