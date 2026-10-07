@@ -4588,5 +4588,50 @@
   "refusal_reason": null,
   "source_metric": "npm: @stripe/stripe-js",
   "stale": false
+ },
+ {
+  "segment": "A",
+  "lens": "developer_downloads",
+  "pool": "npm server SDKs (descriptive)",
+  "company": "Adyen (@adyen/api-library)",
+  "period": "2026-09",
+  "value": 0.012267703013019833,
+  "unit": "share_of_downloads",
+  "qualifier": "=",
+  "role": "measured",
+  "basis": "share of server-SDK npm downloads among the three pinned packages; descriptive only, not in Q1; 1,076,697 of 87,766,797 downloads; packages @adyen/api-library",
+  "refusal_reason": null,
+  "source_metric": "npm: @adyen/api-library",
+  "stale": false
+ },
+ {
+  "segment": "A",
+  "lens": "developer_downloads",
+  "pool": "npm server SDKs (descriptive)",
+  "company": "PayPal (braintree)",
+  "period": "2026-09",
+  "value": 0.008916014104969559,
+  "unit": "share_of_downloads",
+  "qualifier": "=",
+  "role": "measured",
+  "basis": "share of server-SDK npm downloads among the three pinned packages; descriptive only, not in Q1; 782,530 of 87,766,797 downloads; packages braintree",
+  "refusal_reason": null,
+  "source_metric": "npm: braintree",
+  "stale": false
+ },
+ {
+  "segment": "A",
+  "lens": "developer_downloads",
+  "pool": "npm server SDKs (descriptive)",
+  "company": "Stripe (stripe)",
+  "period": "2026-09",
+  "value": 0.9788162828820106,
+  "unit": "share_of_downloads",
+  "qualifier": "=",
+  "role": "measured",
+  "basis": "share of server-SDK npm downloads among the three pinned packages; descriptive only, not in Q1; 85,907,570 of 87,766,797 downloads; packages stripe",
+  "refusal_reason": null,
+  "source_metric": "npm: stripe",
+  "stale": false
  }
 ]
