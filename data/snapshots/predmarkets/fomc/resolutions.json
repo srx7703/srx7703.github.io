@@ -8282,7 +8282,18 @@
    "result": "yes",
    "settled_ts": "2026-10-05 21:51:06.357091+00",
    "recorded_at": "2026-10-06T13:27:28+00:00"
+  },
+  "polymarket:5194817": {
+   "platform": "polymarket",
+   "market_id": "5194817",
+   "event_id": "1116491",
+   "event_slug": "how-high-will-30-year-treasury-yield-go-in-october",
+   "outcome_yes": null,
+   "question": "Will the 30-year Treasury yield hit 5.67% in October?",
+   "result": "yes",
+   "settled_ts": "2026-10-07 21:47:57+00",
+   "recorded_at": "2026-10-08T13:42:42+00:00"
   }
  },
- "updated_at": "2026-10-07T13:37:11+00:00"
+ "updated_at": "2026-10-08T13:42:42+00:00"
 }
