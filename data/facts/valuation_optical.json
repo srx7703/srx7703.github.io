@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-08T14:03:52.242699+00:00",
+ "generated_at": "2026-10-09T13:48:51.024877+00:00",
  "track": "optical",
  "label": "Optical modules",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-10-08T14:02:45+00:00",
+ "as_of_price": "2026-10-09T13:47:45+00:00",
  "as_of_estimates": "2026-10-05T16:24:49+00:00",
  "as_of_fx": "2026-10-02",
  "n_listings": 34,
@@ -16,24 +16,24 @@
  "n_thin": 4,
  "n_nm": 0,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 51.44907375296744,
- "median_fwd_pe_next": 34.180740312319266,
- "p25_fwd_pe_this": 29.72882675007064,
- "p75_fwd_pe_this": 76.30313652526581,
- "iqr_fwd_pe_this": 46.574309775195175,
+ "median_fwd_pe_this": 50.048636100315015,
+ "median_fwd_pe_next": 32.31713009936233,
+ "p25_fwd_pe_this": 29.044589408819498,
+ "p75_fwd_pe_this": 77.94829827744846,
+ "iqr_fwd_pe_this": 48.90370886862896,
  "median_growth": 0.6992732416654759,
- "median_trailing_pe": 93.25353830360021,
+ "median_trailing_pe": 92.52296447570848,
  "cheapest": {
   "ticker": "600060.SS",
   "name": "Hisense Visual",
-  "fwd_pe_2026": 12.588387096774195,
+  "fwd_pe_2026": 12.630193548387098,
   "growth": 0.11870967741935479,
   "coverage": "covered"
  },
  "priciest": {
   "ticker": "688048.SS",
   "name": "Everbright Photonics",
-  "fwd_pe_2026": 530.7480916030534,
+  "fwd_pe_2026": 501.9847328244274,
   "growth": 0.9847328244274809,
   "coverage": "covered"
  },
@@ -709,11 +709,11 @@
    "name": "YOFC",
    "primary": "601869.SS",
    "secondary": "6869.HK",
-   "primary_pe": 49.38249425527471,
-   "secondary_pe": 17.946478117413115,
+   "primary_pe": 48.61541675370796,
+   "secondary_pe": 18.02143357494408,
    "basis": "both lines on 601869.SS's consensus for calendar 2026",
    "nm": null,
-   "premium": 1.7516537747514844
+   "premium": 1.6976442551884396
   }
  ],
  "share_base_artefacts": [
@@ -721,9 +721,9 @@
    "ticker": "6869.HK",
    "name": "YOFC (H)",
    "primary": "601869.SS",
-   "implied_shares": 1423658841.8138425,
-   "primary_implied_shares": 821905092.0074114,
-   "gap": 0.7321450562335792
+   "implied_shares": 1423658815.7338085,
+   "primary_implied_shares": 821905110.8876685,
+   "gap": 0.7321449847126975
   }
  ],
  "excluded_from_pool": [
