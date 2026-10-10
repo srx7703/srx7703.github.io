@@ -6,15 +6,15 @@
    "polymarket": {
     "buckets": {
      "cut50": 0.0015,
-     "cut25": 0.0045,
+     "cut25": 0.0035,
      "hold": 0.835,
      "hike25": 0.155,
      "hike50": 0.0035
     },
     "expected_bps": 3.9,
-    "sum_prob": 0.9995,
+    "sum_prob": 0.9985,
     "rollup": {
-     "cut": 0.006,
+     "cut": 0.005,
      "hold": 0.835,
      "hike": 0.1585
     },
@@ -49,8 +49,8 @@
   "platforms": {
    "polymarket": {
     "buckets": {
-     "cut50": 0.0045,
-     "cut25": 0.0115,
+     "cut50": 0.0035,
+     "cut25": 0.0125,
      "hold": 0.225,
      "hike25": 0.745,
      "hike50": 0.0295
@@ -69,15 +69,15 @@
     "buckets": {
      "cut50": 0.005,
      "cut25": 0.015,
-     "hold": 0.245,
+     "hold": 0.255,
      "hike25": 0.725,
      "hike50": 0.025
     },
     "expected_bps": 18.8,
-    "sum_prob": 1.015,
+    "sum_prob": 1.025,
     "rollup": {
      "cut": 0.02,
-     "hold": 0.245,
+     "hold": 0.255,
      "hike": 0.75
     },
     "modal_side": "hike",
@@ -94,15 +94,15 @@
    "polymarket": {
     "buckets": {
      "cut50": 0.0075,
-     "cut25": 0.0255,
+     "cut25": 0.0225,
      "hold": 0.655,
      "hike25": 0.315,
      "hike50": 0.0145
     },
-    "expected_bps": 7.6,
-    "sum_prob": 1.0175,
+    "expected_bps": 7.7,
+    "sum_prob": 1.0145,
     "rollup": {
-     "cut": 0.033,
+     "cut": 0.03,
      "hold": 0.655,
      "hike": 0.3295
     },
@@ -112,15 +112,15 @@
    "kalshi": {
     "buckets": {
      "cut50": 0.005,
-     "cut25": 0.035,
+     "cut25": 0.03,
      "hold": 0.66,
      "hike25": 0.32,
      "hike50": 0.015
     },
-    "expected_bps": 7.6,
-    "sum_prob": 1.035,
+    "expected_bps": 7.8,
+    "sum_prob": 1.03,
     "rollup": {
-     "cut": 0.04,
+     "cut": 0.035,
      "hold": 0.66,
      "hike": 0.335
     },
@@ -145,21 +145,21 @@
    },
    "kalshi": {
     "buckets": {
-     "cut50": 0.04,
-     "cut25": 0.05,
+     "cut50": 0.05,
+     "cut25": 0.045,
      "hold": 0.44,
      "hike25": 0.55,
-     "hike50": 0.03
+     "hike50": 0.045
     },
-    "expected_bps": 12.0,
-    "sum_prob": 1.11,
+    "expected_bps": 12.4,
+    "sum_prob": 1.13,
     "rollup": {
-     "cut": 0.09,
+     "cut": 0.095,
      "hold": 0.44,
-     "hike": 0.58
+     "hike": 0.595
     },
     "modal_side": "hike",
-    "modal_prob": 0.58
+    "modal_prob": 0.595
    }
   },
   "agree": false
