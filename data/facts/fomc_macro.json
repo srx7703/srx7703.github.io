@@ -1,15 +1,15 @@
 {
  "project": "fomc-markets",
- "generated_at": "2026-10-11T13:07:56+00:00",
+ "generated_at": "2026-10-12T15:45:37+00:00",
  "window": {
   "from": "2025-01-01",
-  "to": "2026-10-11"
+  "to": "2026-10-12"
  },
  "forward_from": "2026-09-24",
  "series": {
   "DFEDTARU": {
    "label": "Federal funds target range, upper bound",
-   "last": "2026-10-11"
+   "last": "2026-10-12"
   },
   "DGS2": {
    "label": "2-year Treasury yield",
@@ -40,13 +40,13 @@
  "overlay": {
   "coverage": {
    "polymarket": {
-    "days": 649,
-    "with_next2": 648,
+    "days": 650,
+    "with_next2": 649,
     "first_next2": "2025-01-01"
    },
    "kalshi": {
-    "days": 649,
-    "with_next2": 430,
+    "days": 650,
+    "with_next2": 431,
     "first_next2": "2025-08-05"
    }
   },
@@ -55,7 +55,7 @@
   "endpoints": {
    "implied_polymarket": [
     4.37,
-    4.23
+    4.24
    ],
    "implied_polymarket_low": {
     "value": 3.55,
@@ -89,15 +89,15 @@
   },
   "forward": {
    "from": "2026-09-24",
-   "to": "2026-10-11",
+   "to": "2026-10-12",
    "n_days_2y": 10,
    "corr_daily_change_vs_2y": 0.63,
    "n_days_oil": 8,
    "corr_daily_change_vs_wti": null,
    "wti_5pct_days": 2,
    "wti_5pct_same_direction": 2,
-   "n_days_both_platforms": 18,
-   "mean_abs_platform_gap_bps": 0.66,
+   "n_days_both_platforms": 19,
+   "mean_abs_platform_gap_bps": 0.7,
    "share_days_gap_over_5bps": 0.0
   }
  },
@@ -620,7 +620,7 @@
     "label": "Polymarket and Kalshi two-meeting expectations stay within 5 bps",
     "threshold": "share of days over 5 bps < 0.1",
     "min_n": 60,
-    "n": 18,
+    "n": 19,
     "value": 0.0,
     "status": "collecting"
    }
@@ -635,7 +635,7 @@
   {
    "name": "Market data current",
    "status": "pass",
-   "detail": "DFEDTARU 2026-10-11, DGS2 2026-10-08, T5YIE 2026-10-09, T5YIFR 2026-10-09, DCOILWTICO 2026-10-06, DCOILBRENTEU 2026-10-06"
+   "detail": "DFEDTARU 2026-10-12, DGS2 2026-10-08, T5YIE 2026-10-09, T5YIFR 2026-10-09, DCOILWTICO 2026-10-06, DCOILBRENTEU 2026-10-06"
   },
   {
    "name": "Claims as first printed",
@@ -645,7 +645,7 @@
   {
    "name": "Rolling expectation coverage",
    "status": "pass",
-   "detail": "polymarket: 648/649 days; kalshi: 430/649 days"
+   "detail": "polymarket: 649/650 days; kalshi: 431/650 days"
   },
   {
    "name": "Release calendar ahead",
