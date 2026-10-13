@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-06T15:17:46.244369+00:00",
+ "generated_at": "2026-10-13T16:07:01.353052+00:00",
  "inventory_vintage": "2026-08",
  "headline": {
   "commercial_share_of_us_growth": 0.9125,
@@ -998,7 +998,7 @@
   ],
   "steo": {
    "status": "ok",
-   "vintage": "2026-09",
+   "vintage": "2026-10",
    "history_through": "2025",
    "annual": [
     {
@@ -1033,14 +1033,14 @@
      "series_id": "ELCCP_US",
      "label": "Commercial sector",
      "period": "2026",
-     "value": 1542.2,
+     "value": 1548.7,
      "unit": "billion kWh"
     },
     {
      "series_id": "ELCCP_US",
      "label": "Commercial sector",
      "period": "2027",
-     "value": 1584.4,
+     "value": 1592.4,
      "unit": "billion kWh"
     },
     {
@@ -1075,14 +1075,14 @@
      "series_id": "ELICP_US",
      "label": "Industrial sector",
      "period": "2026",
-     "value": 1059.3,
+     "value": 1055.2,
      "unit": "billion kWh"
     },
     {
      "series_id": "ELICP_US",
      "label": "Industrial sector",
      "period": "2027",
-     "value": 1086.8,
+     "value": 1083.4,
      "unit": "billion kWh"
     },
     {
@@ -1117,14 +1117,14 @@
      "series_id": "ELRCP_US",
      "label": "Residential sector",
      "period": "2026",
-     "value": 1526.8,
+     "value": 1541.2,
      "unit": "billion kWh"
     },
     {
      "series_id": "ELRCP_US",
      "label": "Residential sector",
      "period": "2027",
-     "value": 1533.2,
+     "value": 1534.2,
      "unit": "billion kWh"
     }
    ],
@@ -1133,22 +1133,22 @@
      "from_year": "2025",
      "to_year": "2027",
      "from": 1493.5,
-     "to": 1584.4,
-     "change_twh": 90.9
+     "to": 1592.4,
+     "change_twh": 98.9
     },
     "ELICP_US": {
      "from_year": "2025",
      "to_year": "2027",
      "from": 1042.2,
-     "to": 1086.8,
-     "change_twh": 44.6
+     "to": 1083.4,
+     "change_twh": 41.2
     },
     "ELRCP_US": {
      "from_year": "2025",
      "to_year": "2027",
      "from": 1515.0,
-     "to": 1533.2,
-     "change_twh": 18.2
+     "to": 1534.2,
+     "change_twh": 19.2
     }
    },
    "commercial_share_of_growth": null
@@ -6058,7 +6058,7 @@
   {
    "name": "EIA forecast",
    "status": "pass",
-   "detail": "STEO 2026-09, 18 annual points"
+   "detail": "STEO 2026-10, 18 annual points"
   },
   {
    "name": "Regional attribution",
