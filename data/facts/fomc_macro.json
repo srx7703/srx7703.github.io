@@ -1,9 +1,9 @@
 {
  "project": "fomc-markets",
- "generated_at": "2026-10-13T14:26:36+00:00",
+ "generated_at": "2026-10-14T12:08:44+00:00",
  "window": {
   "from": "2025-01-01",
-  "to": "2026-10-13"
+  "to": "2026-10-14"
  },
  "forward_from": "2026-09-24",
  "series": {
@@ -13,15 +13,15 @@
   },
   "DGS2": {
    "label": "2-year Treasury yield",
-   "last": "2026-10-08"
+   "last": "2026-10-09"
   },
   "T5YIE": {
    "label": "5-year breakeven inflation",
-   "last": "2026-10-09"
+   "last": "2026-10-13"
   },
   "T5YIFR": {
    "label": "5-year, 5-year forward inflation expectation",
-   "last": "2026-10-09"
+   "last": "2026-10-13"
   },
   "DCOILWTICO": {
    "label": "WTI crude oil, Cushing",
@@ -40,13 +40,13 @@
  "overlay": {
   "coverage": {
    "polymarket": {
-    "days": 651,
-    "with_next2": 650,
+    "days": 652,
+    "with_next2": 651,
     "first_next2": "2025-01-01"
    },
    "kalshi": {
-    "days": 651,
-    "with_next2": 432,
+    "days": 652,
+    "with_next2": 433,
     "first_next2": "2025-08-05"
    }
   },
@@ -55,7 +55,7 @@
   "endpoints": {
    "implied_polymarket": [
     4.37,
-    4.25
+    4.24
    ],
    "implied_polymarket_low": {
     "value": 3.55,
@@ -67,7 +67,7 @@
    ],
    "dgs2": [
     4.25,
-    4.75
+    4.8
    ],
    "wti": [
     73.79,
@@ -89,15 +89,15 @@
   },
   "forward": {
    "from": "2026-09-24",
-   "to": "2026-10-13",
-   "n_days_2y": 10,
-   "corr_daily_change_vs_2y": 0.63,
+   "to": "2026-10-14",
+   "n_days_2y": 11,
+   "corr_daily_change_vs_2y": 0.624,
    "n_days_oil": 8,
    "corr_daily_change_vs_wti": null,
    "wti_5pct_days": 2,
    "wti_5pct_same_direction": 2,
-   "n_days_both_platforms": 20,
-   "mean_abs_platform_gap_bps": 0.71,
+   "n_days_both_platforms": 21,
+   "mean_abs_platform_gap_bps": 0.69,
    "share_days_gap_over_5bps": 0.0
   }
  },
@@ -323,6 +323,10 @@
   {
    "release": "jobs",
    "date": "2026-10-02"
+  },
+  {
+   "release": "cpi",
+   "date": "2026-10-14"
   }
  ],
  "archive_from": "2025-01",
@@ -352,7 +356,7 @@
   },
   "n_events": 55,
   "official_releases": {
-   "cpi": 20,
+   "cpi": 21,
    "jobs": 21,
    "pce": 20
   },
@@ -602,8 +606,8 @@
     "label": "Daily changes in the implied rate and the 2-year yield correlate",
     "threshold": "correlation > 0.3",
     "min_n": 60,
-    "n": 10,
-    "value": 0.63,
+    "n": 11,
+    "value": 0.624,
     "status": "collecting"
    },
    {
@@ -620,7 +624,7 @@
     "label": "Polymarket and Kalshi two-meeting expectations stay within 5 bps",
     "threshold": "share of days over 5 bps < 0.1",
     "min_n": 60,
-    "n": 20,
+    "n": 21,
     "value": 0.0,
     "status": "collecting"
    }
@@ -634,8 +638,8 @@
   },
   {
    "name": "Market data current",
-   "status": "pass",
-   "detail": "DFEDTARU 2026-10-13, DGS2 2026-10-08, T5YIE 2026-10-09, T5YIFR 2026-10-09, DCOILWTICO 2026-10-06, DCOILBRENTEU 2026-10-06"
+   "status": "warn",
+   "detail": "DFEDTARU 2026-10-13, DGS2 2026-10-09, T5YIE 2026-10-13, T5YIFR 2026-10-13, DCOILWTICO 2026-10-06, DCOILBRENTEU 2026-10-06"
   },
   {
    "name": "Claims as first printed",
@@ -645,7 +649,7 @@
   {
    "name": "Rolling expectation coverage",
    "status": "pass",
-   "detail": "polymarket: 650/651 days; kalshi: 432/651 days"
+   "detail": "polymarket: 651/652 days; kalshi: 433/652 days"
   },
   {
    "name": "Release calendar ahead",
@@ -655,7 +659,7 @@
   {
    "name": "Release matching",
    "status": "pass",
-   "detail": "55 of 61 releases matched to a Kalshi ladder still trading ten minutes before; dropped: cpi 2025-10-24 (no ladder trading at T0 - 10 min; KXCPI-25SEP closed 9 days earlier); jobs 2025-11-20 (no ladder trading at T0 - 10 min; KXPAYROLLS-25OCT closed 13 days earlier); pce 2025-04-30 (no ladder trading at T0 - 10 min; KXPCECORE-25MAR closed 1.6 hours earlier); pce 2025-12-05 (no ladder trading at T0 - 10 min; KXPCECORE-25OCT closed 9 days earlier); pce 2026-01-22 (no ladder trading at T0 - 10 min; KXPCECORE-25NOV closed 34 days earlier); pce 2026-02-20 (no ladder trading at T0 - 10 min; KXPCECORE-25DEC closed 22 days earlier)"
+   "detail": "55 of 62 releases matched to a Kalshi ladder still trading ten minutes before; dropped: cpi 2025-10-24 (no ladder trading at T0 - 10 min; KXCPI-25SEP closed 9 days earlier); jobs 2025-11-20 (no ladder trading at T0 - 10 min; KXPAYROLLS-25OCT closed 13 days earlier); pce 2025-04-30 (no ladder trading at T0 - 10 min; KXPCECORE-25MAR closed 1.6 hours earlier); pce 2025-12-05 (no ladder trading at T0 - 10 min; KXPCECORE-25OCT closed 9 days earlier); pce 2026-01-22 (no ladder trading at T0 - 10 min; KXPCECORE-25NOV closed 34 days earlier); pce 2026-02-20 (no ladder trading at T0 - 10 min; KXPCECORE-25DEC closed 22 days earlier)"
   },
   {
    "name": "Consensus and print",
