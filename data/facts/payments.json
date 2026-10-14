@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-07T14:46:34+00:00",
+ "generated_at": "2026-10-14T13:07:17+00:00",
  "slug": "payments-landscape",
  "registered": "2026-10-03",
  "kpis": [
@@ -1524,7 +1524,7 @@
      "value": 0.0,
      "qualifier": "=",
      "unit": "companies",
-     "period": "to 2026-10-07",
+     "period": "to 2026-10-14",
      "source_url": null,
      "note": null
     }
@@ -1841,22 +1841,22 @@
   {
    "name": "CI source: npm downloads (devstats)",
    "status": "pass",
-   "detail": "devstats_client_monthly, devstats_server_monthly read; latest period 2026-09-01, 36 days old (limit 45)"
+   "detail": "devstats_client_monthly, devstats_server_monthly read; latest period 2026-09-01, 43 days old (limit 45)"
   },
   {
    "name": "CI source: HTTP Archive coverage (webtech)",
    "status": "pass",
-   "detail": "webtech_adoption, webtech_coverage read; latest period 2026-08-01, 67 days old (limit 75)"
+   "detail": "webtech_adoption, webtech_coverage read; latest period 2026-08-01, 74 days old (limit 75)"
   },
   {
    "name": "CI source: job-board counts (jobs)",
    "status": "pass",
-   "detail": "jobs_counts read; latest period 2026-10-07, 0 days old (limit 14)"
+   "detail": "jobs_counts read; latest period 2026-10-14, 0 days old (limit 14)"
   },
   {
    "name": "CI source: SEC Form D (formd)",
    "status": "warn",
-   "detail": "formd read; latest period 2026-05-20, 140 days old (limit 120)"
+   "detail": "formd read; latest period 2026-05-20, 147 days old (limit 120)"
   },
   {
    "name": "CI source: SEC financials (sec)",
