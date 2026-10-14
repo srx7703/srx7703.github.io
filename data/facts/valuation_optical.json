@@ -1,14 +1,14 @@
 {
- "generated_at": "2026-10-13T14:36:41.108090+00:00",
+ "generated_at": "2026-10-14T12:25:38.149398+00:00",
  "track": "optical",
  "label": "Optical modules",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-10-13T14:35:36+00:00",
+ "as_of_price": "2026-10-14T12:24:33+00:00",
  "as_of_estimates": "2026-10-12T17:02:44+00:00",
- "as_of_fx": "2026-10-02",
+ "as_of_fx": "2026-10-09",
  "n_listings": 34,
  "n_issuers": 33,
  "n_priced": 34,
@@ -16,24 +16,24 @@
  "n_thin": 4,
  "n_nm": 0,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 46.79635099662237,
- "median_fwd_pe_next": 28.871250820384546,
- "p25_fwd_pe_this": 27.34696741565614,
- "p75_fwd_pe_this": 76.87807408375755,
- "iqr_fwd_pe_this": 49.531106668101415,
+ "median_fwd_pe_this": 47.07144545624038,
+ "median_fwd_pe_next": 28.40479466242519,
+ "p25_fwd_pe_this": 27.332220389062094,
+ "p75_fwd_pe_this": 77.87948099599772,
+ "iqr_fwd_pe_this": 50.54726060693563,
  "median_growth": 0.7056061029016366,
- "median_trailing_pe": 85.80920066831209,
+ "median_trailing_pe": 86.04730682358064,
  "cheapest": {
   "ticker": "600060.SS",
   "name": "Hisense Visual",
-  "fwd_pe_2026": 12.644129032258064,
+  "fwd_pe_2026": 12.685935483870967,
   "growth": 0.11870967741935479,
   "coverage": "covered"
  },
  "priciest": {
   "ticker": "688048.SS",
   "name": "Everbright Photonics",
-  "fwd_pe_2026": 478.62595419847327,
+  "fwd_pe_2026": 456.73282442748086,
   "growth": 0.9847328244274809,
   "coverage": "covered"
  },
@@ -41,7 +41,7 @@
  "share": {
   "n_members": 16,
   "n_excluded": 17,
-  "pool_revenue_usd": 33148326871.792522,
+  "pool_revenue_usd": 33169660896.09147,
   "basis_counts": {
    "disclosed segment": 3,
    "total revenue": 13
@@ -52,21 +52,21 @@
    "not_recorded": 10,
    "no_data": 0
   },
-  "top3_share": 0.6115703728508887,
-  "top5_share": 0.8343279683260613,
-  "hhi": 1673.31625928301,
+  "top3_share": 0.6119743140579446,
+  "top5_share": 0.8341710874498675,
+  "hhi": 1674.2320966473121,
   "leader": {
    "ticker": "300308.SZ",
    "name": "Innolight",
    "name_cn": "中际旭创",
    "purity": "high",
-   "revenue_usd": 9730111667.695932,
+   "revenue_usd": 9747268768.365211,
    "revenue_native": 65228722597.899994,
    "currency": "CNY",
    "basis": "total revenue",
    "note": "the company's whole revenue competes in this market",
    "period_end": "2026-06-30",
-   "share": 0.29353251237472694
+   "share": 0.293860971292407
   },
   "members": [
    {
@@ -74,13 +74,26 @@
     "name": "Innolight",
     "name_cn": "中际旭创",
     "purity": "high",
-    "revenue_usd": 9730111667.695932,
+    "revenue_usd": 9747268768.365211,
     "revenue_native": 65228722597.899994,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.29353251237472694
+    "share": 0.293860971292407
+   },
+   {
+    "ticker": "300502.SZ",
+    "name": "Eoptolink",
+    "name_cn": "新易盛",
+    "purity": "high",
+    "revenue_usd": 5277111706.054991,
+    "revenue_native": 35314431536.92,
+    "currency": "CNY",
+    "basis": "total revenue",
+    "note": "the company's whole revenue competes in this market",
+    "period_end": "2026-06-30",
+    "share": 0.15909453288009998
    },
    {
     "ticker": "COHR",
@@ -93,33 +106,20 @@
     "basis": "disclosed segment",
     "note": "Segment Revenues, Datacenter & Communications segment, fiscal year ended 2026-06-30 (earnings release Table 5; audited equivalent in FY2026 Form 10-K Note 20)",
     "period_end": "FY2026",
-    "share": 0.15912115324554757
-   },
-   {
-    "ticker": "300502.SZ",
-    "name": "Eoptolink",
-    "name_cn": "新易盛",
-    "purity": "high",
-    "revenue_usd": 5267822956.669352,
-    "revenue_native": 35314431536.92,
-    "currency": "CNY",
-    "basis": "total revenue",
-    "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-06-30",
-    "share": 0.15891670723061413
+    "share": 0.1590188098854375
    },
    {
     "ticker": "5803.T",
     "name": "Fujikura",
     "name_cn": null,
     "purity": "partial",
-    "revenue_usd": 4137741587.9855523,
+    "revenue_usd": 4123891625.6157637,
     "revenue_native": 652977000000,
     "currency": "JPY",
     "basis": "disclosed segment",
     "note": "reportable segment information, 情報通信事業部門 (Information and Telecommunications), sales to external customers, year ended 2026-03-31",
     "period_end": "FY2026",
-    "share": 0.12482505086875297
+    "share": 0.12432721692676998
    },
    {
     "ticker": "CIEN",
@@ -132,46 +132,46 @@
     "basis": "disclosed segment",
     "note": "Revenue by Segment, Optical Networking product line within Networking Platforms, fiscal year ended 2025-11-01",
     "period_end": "FY2025",
-    "share": 0.09793254460641963
+    "share": 0.09786955646515295
    },
    {
     "ticker": "002281.SZ",
     "name": "Accelink",
     "name_cn": "光迅科技",
     "purity": "high",
-    "revenue_usd": 1983267459.9197466,
+    "revenue_usd": 1986764554.364913,
     "revenue_native": 13295428397.809998,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.059830092408295954
+    "share": 0.05989704147379518
    },
    {
     "ticker": "300394.SZ",
     "name": "TFC Optical Communication",
     "name_cn": "天孚通信",
     "purity": "high",
-    "revenue_usd": 825722861.6650257,
+    "revenue_usd": 827178858.3427973,
     "revenue_native": 5535480920.03,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.0249099408503683
+    "share": 0.024937814737812636
    },
    {
     "ticker": "603083.SS",
     "name": "CIG Shanghai",
     "name_cn": "剑桥科技",
     "purity": "high",
-    "revenue_usd": 819428853.8336465,
+    "revenue_usd": 820873752.290795,
     "revenue_native": 5493287150.33,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.02472006677751622
+    "share": 0.024747728198436972
    },
    {
     "ticker": "AAOI",
@@ -184,98 +184,98 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.017978886304127133
+    "share": 0.017967322664737457
    },
    {
     "ticker": "688313.SS",
     "name": "Shijia Photons",
     "name_cn": "仕佳光子",
     "purity": "high",
-    "revenue_usd": 392611701.32313013,
+    "revenue_usd": 393303993.32486546,
     "revenue_native": 2631990323.33,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.011844088024159734
+    "share": 0.011857341398724104
    },
    {
     "ticker": "300570.SZ",
     "name": "T&S Communications",
     "name_cn": "太辰光",
     "purity": "high",
-    "revenue_usd": 256450148.5083087,
+    "revenue_usd": 256902346.91721457,
     "revenue_native": 1719190505.57,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.00773644321477155
+    "share": 0.007745100190261111
    },
    {
     "ticker": "301205.SZ",
     "name": "Linktel Technologies",
     "name_cn": "联特科技",
     "purity": "high",
-    "revenue_usd": 216237408.68015155,
+    "revenue_usd": 216618699.9865511,
     "revenue_native": 1449612340.31,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.006523327995300969
+    "share": 0.006530627511241041
    },
    {
     "ticker": "688205.SS",
     "name": "Taclink Optoelectronics",
     "name_cn": "德科立",
     "purity": "high",
-    "revenue_usd": 155957164.5932158,
+    "revenue_usd": 156232163.77764493,
     "revenue_native": 1045505640.0,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.004704827643229472
+    "share": 0.0047100922818313915
    },
    {
     "ticker": "4979.TWO",
     "name": "Luxnet",
     "name_cn": "光环科技",
     "purity": "high",
-    "revenue_usd": 147236488.59731334,
+    "revenue_usd": 147559173.45021915,
     "revenue_native": 4713040000.0,
     "currency": "TWD",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.004441747215984039
+    "share": 0.0044486186914140784
    },
    {
     "ticker": "3081.TWO",
     "name": "LandMark Optoelectronics",
     "name_cn": "联亚光电",
     "purity": "high",
-    "revenue_usd": 68816682.28678538,
+    "revenue_usd": 68967501.56543519,
     "revenue_native": 2202822000.0,
     "currency": "TWD",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2025-12-31",
-    "share": 0.0020760227975591956
+    "share": 0.0020792344480543646
    },
    {
     "ticker": "4977.TW",
     "name": "PCL Technologies",
     "name_cn": "眾達光電",
     "purity": "high",
-    "revenue_usd": 30051890.034364264,
+    "revenue_usd": 30117752.035065748,
     "revenue_native": 961961000.0,
     "currency": "TWD",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.0009065884426262503
+    "share": 0.0009079909538241514
    }
   ],
   "excluded": [
@@ -709,11 +709,11 @@
    "name": "YOFC",
    "primary": "601869.SS",
    "secondary": "6869.HK",
-   "primary_pe": 46.435763526216846,
-   "secondary_pe": 16.12613129166119,
+   "primary_pe": 44.796323375809486,
+   "secondary_pe": 15.091819188973808,
    "basis": "both lines on 601869.SS's consensus for calendar 2026",
    "nm": null,
-   "premium": 1.8795352515968133
+   "premium": 1.9682520586078849
   }
  ],
  "share_base_artefacts": [
@@ -721,9 +721,9 @@
    "ticker": "6869.HK",
    "name": "YOFC (H)",
    "primary": "601869.SS",
-   "implied_shares": 1423658850.252324,
-   "primary_implied_shares": 821905075.8799396,
-   "gap": 0.732145100488814
+   "implied_shares": 1423658671.5014164,
+   "primary_implied_shares": 821905056.161164,
+   "gap": 0.7321449245620129
   }
  ],
  "excluded_from_pool": [
