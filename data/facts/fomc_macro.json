@@ -1,27 +1,27 @@
 {
  "project": "fomc-markets",
- "generated_at": "2026-10-14T12:08:44+00:00",
+ "generated_at": "2026-10-15T11:45:51+00:00",
  "window": {
   "from": "2025-01-01",
-  "to": "2026-10-14"
+  "to": "2026-10-15"
  },
  "forward_from": "2026-09-24",
  "series": {
   "DFEDTARU": {
    "label": "Federal funds target range, upper bound",
-   "last": "2026-10-13"
+   "last": "2026-10-14"
   },
   "DGS2": {
    "label": "2-year Treasury yield",
-   "last": "2026-10-09"
+   "last": "2026-10-13"
   },
   "T5YIE": {
    "label": "5-year breakeven inflation",
-   "last": "2026-10-13"
+   "last": "2026-10-14"
   },
   "T5YIFR": {
    "label": "5-year, 5-year forward inflation expectation",
-   "last": "2026-10-13"
+   "last": "2026-10-14"
   },
   "DCOILWTICO": {
    "label": "WTI crude oil, Cushing",
@@ -40,13 +40,13 @@
  "overlay": {
   "coverage": {
    "polymarket": {
-    "days": 652,
-    "with_next2": 651,
+    "days": 653,
+    "with_next2": 652,
     "first_next2": "2025-01-01"
    },
    "kalshi": {
-    "days": 652,
-    "with_next2": 433,
+    "days": 653,
+    "with_next2": 434,
     "first_next2": "2025-08-05"
    }
   },
@@ -55,7 +55,7 @@
   "endpoints": {
    "implied_polymarket": [
     4.37,
-    4.24
+    4.27
    ],
    "implied_polymarket_low": {
     "value": 3.55,
@@ -67,7 +67,7 @@
    ],
    "dgs2": [
     4.25,
-    4.8
+    4.79
    ],
    "wti": [
     73.79,
@@ -89,15 +89,15 @@
   },
   "forward": {
    "from": "2026-09-24",
-   "to": "2026-10-14",
-   "n_days_2y": 11,
-   "corr_daily_change_vs_2y": 0.624,
+   "to": "2026-10-15",
+   "n_days_2y": 12,
+   "corr_daily_change_vs_2y": 0.606,
    "n_days_oil": 8,
    "corr_daily_change_vs_wti": null,
    "wti_5pct_days": 2,
    "wti_5pct_same_direction": 2,
-   "n_days_both_platforms": 21,
-   "mean_abs_platform_gap_bps": 0.69,
+   "n_days_both_platforms": 22,
+   "mean_abs_platform_gap_bps": 0.65,
    "share_days_gap_over_5bps": 0.0
   }
  },
@@ -333,8 +333,8 @@
  "event_study": {
   "platform": "polymarket",
   "complete_quotes": {
-   "polymarket": 55,
-   "kalshi": 23
+   "polymarket": 56,
+   "kalshi": 24
   },
   "window_min": {
    "pre": 10,
@@ -354,7 +354,7 @@
    "KXU3": "Unemployment rate",
    "KXPCECORE": "Core PCE prices, month on month"
   },
-  "n_events": 55,
+  "n_events": 56,
   "official_releases": {
    "cpi": 21,
    "jobs": 21,
@@ -420,36 +420,36 @@
    },
    "by_release": {
     "cpi": {
-     "n_events": 19,
+     "n_events": 20,
      "sign": {
-      "n": 19,
-      "same": 12,
-      "share": 0.632
+      "n": 20,
+      "same": 13,
+      "share": 0.65
      },
      "sign_other_platform": {
-      "n": 16,
-      "same": 13,
-      "share": 0.812
+      "n": 17,
+      "same": 14,
+      "share": 0.824
      },
-     "median_abs_bps": 0.82,
-     "share_above_placebo_p90": 0.737,
+     "median_abs_bps": 0.93,
+     "share_above_placebo_p90": 0.75,
      "slope": {
-      "n": 19,
-      "slope": 21.356,
-      "se": 4.291,
-      "t": 4.977,
-      "r2": 0.593
+      "n": 20,
+      "slope": 22.985,
+      "se": 5.434,
+      "t": 4.23,
+      "r2": 0.498
      },
      "platform_corr": 0.974,
      "platform_same_sign": {
-      "n": 16,
-      "same": 12,
-      "share": 0.75
+      "n": 17,
+      "same": 13,
+      "share": 0.765
      },
      "close_same_sign": {
-      "n": 19,
-      "same": 15,
-      "share": 0.789
+      "n": 20,
+      "same": 16,
+      "share": 0.8
      }
     },
     "jobs": {
@@ -519,39 +519,39 @@
      }
     },
     "all": {
-     "n_events": 55,
+     "n_events": 56,
      "sign": {
-      "n": 54,
-      "same": 34,
-      "share": 0.63
+      "n": 55,
+      "same": 35,
+      "share": 0.636
      },
      "sign_other_platform": {
-      "n": 49,
-      "same": 36,
-      "share": 0.735
+      "n": 50,
+      "same": 37,
+      "share": 0.74
      },
      "median_abs_bps": 0.82,
-     "share_above_placebo_p90": 0.691,
+     "share_above_placebo_p90": 0.696,
      "slope": null,
-     "platform_corr": 0.942,
+     "platform_corr": 0.943,
      "platform_same_sign": {
-      "n": 48,
-      "same": 40,
-      "share": 0.833
+      "n": 49,
+      "same": 41,
+      "share": 0.837
      },
      "close_same_sign": {
-      "n": 54,
-      "same": 44,
-      "share": 0.815
+      "n": 55,
+      "same": 45,
+      "share": 0.818
      }
     }
    },
    "mean_path": {
     "hawkish": {
-     "n": 28,
-     "m5": 1.01,
-     "m20": 1.24,
-     "m60": 1.25
+     "n": 29,
+     "m5": 1.17,
+     "m20": 1.43,
+     "m60": 1.5
     },
     "dovish": {
      "n": 27,
@@ -606,8 +606,8 @@
     "label": "Daily changes in the implied rate and the 2-year yield correlate",
     "threshold": "correlation > 0.3",
     "min_n": 60,
-    "n": 11,
-    "value": 0.624,
+    "n": 12,
+    "value": 0.606,
     "status": "collecting"
    },
    {
@@ -615,8 +615,8 @@
     "label": "The CPI surprise and the 20-minute move in the expectation have the same sign",
     "threshold": "share > 0.6",
     "min_n": 6,
-    "n": 0,
-    "value": null,
+    "n": 1,
+    "value": 1.0,
     "status": "collecting"
    },
    {
@@ -624,7 +624,7 @@
     "label": "Polymarket and Kalshi two-meeting expectations stay within 5 bps",
     "threshold": "share of days over 5 bps < 0.1",
     "min_n": 60,
-    "n": 21,
+    "n": 22,
     "value": 0.0,
     "status": "collecting"
    }
@@ -639,7 +639,7 @@
   {
    "name": "Market data current",
    "status": "warn",
-   "detail": "DFEDTARU 2026-10-13, DGS2 2026-10-09, T5YIE 2026-10-13, T5YIFR 2026-10-13, DCOILWTICO 2026-10-06, DCOILBRENTEU 2026-10-06"
+   "detail": "DFEDTARU 2026-10-14, DGS2 2026-10-13, T5YIE 2026-10-14, T5YIFR 2026-10-14, DCOILWTICO 2026-10-06, DCOILBRENTEU 2026-10-06"
   },
   {
    "name": "Claims as first printed",
@@ -649,7 +649,7 @@
   {
    "name": "Rolling expectation coverage",
    "status": "pass",
-   "detail": "polymarket: 651/652 days; kalshi: 433/652 days"
+   "detail": "polymarket: 652/653 days; kalshi: 434/653 days"
   },
   {
    "name": "Release calendar ahead",
@@ -659,17 +659,17 @@
   {
    "name": "Release matching",
    "status": "pass",
-   "detail": "55 of 62 releases matched to a Kalshi ladder still trading ten minutes before; dropped: cpi 2025-10-24 (no ladder trading at T0 - 10 min; KXCPI-25SEP closed 9 days earlier); jobs 2025-11-20 (no ladder trading at T0 - 10 min; KXPAYROLLS-25OCT closed 13 days earlier); pce 2025-04-30 (no ladder trading at T0 - 10 min; KXPCECORE-25MAR closed 1.6 hours earlier); pce 2025-12-05 (no ladder trading at T0 - 10 min; KXPCECORE-25OCT closed 9 days earlier); pce 2026-01-22 (no ladder trading at T0 - 10 min; KXPCECORE-25NOV closed 34 days earlier); pce 2026-02-20 (no ladder trading at T0 - 10 min; KXPCECORE-25DEC closed 22 days earlier)"
+   "detail": "56 of 62 releases matched to a Kalshi ladder still trading ten minutes before; dropped: cpi 2025-10-24 (no ladder trading at T0 - 10 min; KXCPI-25SEP closed 9 days earlier); jobs 2025-11-20 (no ladder trading at T0 - 10 min; KXPAYROLLS-25OCT closed 13 days earlier); pce 2025-04-30 (no ladder trading at T0 - 10 min; KXPCECORE-25MAR closed 1.6 hours earlier); pce 2025-12-05 (no ladder trading at T0 - 10 min; KXPCECORE-25OCT closed 9 days earlier); pce 2026-01-22 (no ladder trading at T0 - 10 min; KXPCECORE-25NOV closed 34 days earlier); pce 2026-02-20 (no ladder trading at T0 - 10 min; KXPCECORE-25DEC closed 22 days earlier)"
   },
   {
    "name": "Consensus and print",
    "status": "pass",
-   "detail": "55/55 events have a ladder mean and a print"
+   "detail": "56/56 events have a ladder mean and a print"
   },
   {
    "name": "Quote coverage",
    "status": "pass",
-   "detail": "events with a minute price for every outcome of the next two meetings: polymarket 55/55, kalshi 23/55 (statistics use polymarket)"
+   "detail": "events with a minute price for every outcome of the next two meetings: polymarket 56/56, kalshi 24/56 (statistics use polymarket)"
   },
   {
    "name": "Placebo windows",

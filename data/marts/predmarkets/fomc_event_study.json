@@ -760,6 +760,46 @@
   }
  },
  {
+  "key": "cpi_2026-10-14",
+  "release": "cpi",
+  "date": "2026-10-14",
+  "t0_utc": "2026-10-14T12:30:00Z",
+  "title": "Consumer Price Index",
+  "meetings": [
+   "2026-10",
+   "2026-12"
+  ],
+  "primary": "KXCPI",
+  "consensus": 0.5755,
+  "actual": 0.6,
+  "surprise": 0.0245,
+  "hawkish_surprise": 0.0245,
+  "secondary": {
+   "KXCPICORE": {
+    "consensus": 0.2295,
+    "actual": 0.3,
+    "surprise": 0.0705,
+    "hawkish_surprise": 0.0705
+   }
+  },
+  "n_strikes": 14,
+  "actual_from": "expiration_value",
+  "kalshi": {
+   "d_post": 8.38,
+   "d_close": 4.88,
+   "d_post_next1": 6.75,
+   "level_pre": 23.6,
+   "coverage": "10/10"
+  },
+  "polymarket": {
+   "d_post": 6.73,
+   "d_close": 4.5,
+   "d_post_next1": 6.33,
+   "level_pre": 24.3,
+   "coverage": "10/10"
+  }
+ },
+ {
   "key": "jobs_2025-01-10",
   "release": "jobs",
   "date": "2025-01-10",

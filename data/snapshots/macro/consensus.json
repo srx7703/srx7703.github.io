@@ -1988,6 +1988,157 @@
    }
   ]
  },
+ "cpi_2026-10-14:KXCPI": {
+  "series": "KXCPI",
+  "event": "KXCPI-26SEP",
+  "n_strikes": 14,
+  "n_markets": 14,
+  "consensus": 0.5755,
+  "actual": 0.6,
+  "actual_from": "expiration_value",
+  "surprise": 0.0245,
+  "hawkish_surprise": 0.0245,
+  "quotes": [
+   {
+    "ticker": "KXCPI-26SEP-T-0.4",
+    "strike": -0.4,
+    "p": 0.995
+   },
+   {
+    "ticker": "KXCPI-26SEP-T-0.3",
+    "strike": -0.3,
+    "p": 0.995
+   },
+   {
+    "ticker": "KXCPI-26SEP-T-0.2",
+    "strike": -0.2,
+    "p": 0.995
+   },
+   {
+    "ticker": "KXCPI-26SEP-T-0.1",
+    "strike": -0.1,
+    "p": 0.995
+   },
+   {
+    "ticker": "KXCPI-26SEP-T0.0",
+    "strike": 0.0,
+    "p": 0.995
+   },
+   {
+    "ticker": "KXCPI-26SEP-T0.1",
+    "strike": 0.1,
+    "p": 0.995
+   },
+   {
+    "ticker": "KXCPI-26SEP-T0.2",
+    "strike": 0.2,
+    "p": 0.99
+   },
+   {
+    "ticker": "KXCPI-26SEP-T0.3",
+    "strike": 0.3,
+    "p": 0.985
+   },
+   {
+    "ticker": "KXCPI-26SEP-T0.4",
+    "strike": 0.4,
+    "p": 0.905
+   },
+   {
+    "ticker": "KXCPI-26SEP-T0.5",
+    "strike": 0.5,
+    "p": 0.705
+   },
+   {
+    "ticker": "KXCPI-26SEP-T0.6",
+    "strike": 0.6,
+    "p": 0.16499999999999998
+   },
+   {
+    "ticker": "KXCPI-26SEP-T0.7",
+    "strike": 0.7,
+    "p": 0.025
+   },
+   {
+    "ticker": "KXCPI-26SEP-T0.8",
+    "strike": 0.8,
+    "p": 0.005
+   },
+   {
+    "ticker": "KXCPI-26SEP-T0.9",
+    "strike": 0.9,
+    "p": 0.005
+   }
+  ]
+ },
+ "cpi_2026-10-14:KXCPICORE": {
+  "series": "KXCPICORE",
+  "event": "KXCPICORE-26SEP",
+  "n_strikes": 9,
+  "n_markets": 11,
+  "consensus": 0.2295,
+  "actual": 0.3,
+  "actual_from": "results",
+  "surprise": 0.0705,
+  "hawkish_surprise": 0.0705,
+  "quotes": [
+   {
+    "ticker": "KXCPICORE-26SEP-T0.0",
+    "strike": 0.0,
+    "p": 0.985
+   },
+   {
+    "ticker": "KXCPICORE-26SEP-T0.1",
+    "strike": 0.1,
+    "p": 0.79
+   },
+   {
+    "ticker": "KXCPICORE-26SEP-T0.2",
+    "strike": 0.2,
+    "p": 0.42000000000000004
+   },
+   {
+    "ticker": "KXCPICORE-26SEP-T0.3",
+    "strike": 0.3,
+    "p": 0.075
+   },
+   {
+    "ticker": "KXCPICORE-26SEP-T0.4",
+    "strike": 0.4,
+    "p": 0.005
+   },
+   {
+    "ticker": "KXCPICORE-26SEP-T0.5",
+    "strike": 0.5,
+    "p": 0.005
+   },
+   {
+    "ticker": "KXCPICORE-26SEP-T0.6",
+    "strike": 0.6,
+    "p": 0.005
+   },
+   {
+    "ticker": "KXCPICORE-26SEP-T0.7",
+    "strike": 0.7,
+    "p": 0.005
+   },
+   {
+    "ticker": "KXCPICORE-26SEP-T0.8",
+    "strike": 0.8,
+    "p": 0.005
+   },
+   {
+    "ticker": "KXCPICORE-26SEP-T0.9",
+    "strike": 0.9,
+    "p": null
+   },
+   {
+    "ticker": "KXCPICORE-26SEP-T1.0",
+    "strike": 1.0,
+    "p": null
+   }
+  ]
+ },
  "jobs_2025-01-10:KXPAYROLLS": {
   "series": "KXPAYROLLS",
   "event": "KXPAYROLLS-24DEC",
