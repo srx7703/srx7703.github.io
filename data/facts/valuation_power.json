@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-14T12:25:38.149398+00:00",
+ "generated_at": "2026-10-15T12:09:39.233237+00:00",
  "track": "power",
  "label": "Data-center power",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-10-14T12:24:33+00:00",
+ "as_of_price": "2026-10-15T12:08:35+00:00",
  "as_of_estimates": "2026-10-12T17:02:44+00:00",
  "as_of_fx": "2026-10-09",
  "n_listings": 30,
@@ -16,24 +16,24 @@
  "n_thin": 0,
  "n_nm": 4,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 24.10619612570722,
- "median_fwd_pe_next": 20.811832606554336,
- "p25_fwd_pe_this": 19.505582143497495,
- "p75_fwd_pe_this": 30.35120227634976,
- "iqr_fwd_pe_this": 10.845620132852265,
+ "median_fwd_pe_this": 23.420140506288043,
+ "median_fwd_pe_next": 20.61326386911185,
+ "p25_fwd_pe_this": 19.477960687612722,
+ "p75_fwd_pe_this": 29.029441578813252,
+ "iqr_fwd_pe_this": 9.55148089120053,
  "median_growth": 0.1810583327758717,
- "median_trailing_pe": 30.245478695526696,
+ "median_trailing_pe": 28.58386448253968,
  "cheapest": {
   "ticker": "FSLR",
   "name": "First Solar",
-  "fwd_pe_2026": 10.68878508152633,
+  "fwd_pe_2026": 10.258025897104691,
   "growth": 0.32481533777649196,
   "coverage": "covered"
  },
  "priciest": {
   "ticker": "TSLA",
   "name": "Tesla",
-  "fwd_pe_2026": 214.5336039564335,
+  "fwd_pe_2026": 209.91967067836828,
   "growth": 0.2477916583288069,
   "coverage": "covered"
  },
