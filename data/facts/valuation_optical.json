@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-15T12:09:39.233237+00:00",
+ "generated_at": "2026-10-16T11:56:07.910364+00:00",
  "track": "optical",
  "label": "Optical modules",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-10-15T12:08:35+00:00",
+ "as_of_price": "2026-10-16T11:55:03+00:00",
  "as_of_estimates": "2026-10-12T17:02:44+00:00",
  "as_of_fx": "2026-10-09",
  "n_listings": 34,
@@ -16,24 +16,24 @@
  "n_thin": 4,
  "n_nm": 0,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 44.596383870012666,
- "median_fwd_pe_next": 26.662545371000917,
- "p25_fwd_pe_this": 24.776427083723995,
- "p75_fwd_pe_this": 72.18265605025402,
- "iqr_fwd_pe_this": 47.40622896653003,
+ "median_fwd_pe_this": 42.51353616416975,
+ "median_fwd_pe_next": 25.150992318889358,
+ "p25_fwd_pe_this": 24.363234877245286,
+ "p75_fwd_pe_this": 69.47882783710715,
+ "iqr_fwd_pe_this": 45.11559295986186,
  "median_growth": 0.7056061029016366,
- "median_trailing_pe": 78.72588612131315,
+ "median_trailing_pe": 78.20116917428791,
  "cheapest": {
   "ticker": "6869.HK",
   "name": "YOFC (H)",
-  "fwd_pe_2026": 11.551385884986226,
+  "fwd_pe_2026": 11.68329404354235,
   "growth": 0.4312108863981896,
   "coverage": "covered"
  },
  "priciest": {
   "ticker": "688048.SS",
   "name": "Everbright Photonics",
-  "fwd_pe_2026": 425.9541984732824,
+  "fwd_pe_2026": 415.00763358778624,
   "growth": 0.9847328244274809,
   "coverage": "covered"
  },
@@ -709,11 +709,11 @@
    "name": "YOFC",
    "primary": "601869.SS",
    "secondary": "6869.HK",
-   "primary_pe": 41.75057447252978,
-   "secondary_pe": 13.103803346800206,
+   "primary_pe": 41.55003133486527,
+   "secondary_pe": 13.253438947824026,
    "basis": "both lines on 601869.SS's consensus for calendar 2026",
    "nm": null,
-   "premium": 2.186141715315407
+   "premium": 2.135037743670825
   }
  ],
  "share_base_artefacts": [
@@ -721,9 +721,9 @@
    "ticker": "6869.HK",
    "name": "YOFC (H)",
    "primary": "601869.SS",
-   "implied_shares": 1423658680.5872757,
-   "primary_implied_shares": 821905106.1182828,
-   "gap": 0.732144830333239
+   "implied_shares": 1423658743.7419355,
+   "primary_implied_shares": 821905065.122172,
+   "gap": 0.7321449935709008
   }
  ],
  "excluded_from_pool": [
