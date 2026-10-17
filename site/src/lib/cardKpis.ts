@@ -7,6 +7,7 @@ import optical from '@data/facts/valuation_optical.json';
 import ssb from '@data/facts/valuation_ssb.json';
 import memcycle from '@data/facts/memcycle.json';
 import payments from '@data/facts/payments.json';
+import cyber from '@data/facts/cyber.json';
 import { pct } from './fmt';
 
 type PaymentsKpi = { id: string; label: string; value: number; qualifier: string; unit: string; period: string };
@@ -25,6 +26,29 @@ function paymentsKpi(): { label: string; value: string } {
     v = `$${(k.value / d).toFixed(1)}${s}`;
   } else v = String(k.value);
   return { label: `${k.label.charAt(0).toLowerCase()}${k.label.slice(1)}, ${k.period}`, value: `${q}${v}` };
+}
+
+type CyberKpi = { id: string; label: string; value: number; qualifier: string; unit: string; period: string };
+
+/**
+ * Cyber facts carry a unit per KPI and the headline is the first one (the pure-play median EV/NTM multiple, tag C).
+ * A multiple prints with "x", a fraction as a percentage, USD in bn or m; a qualifier (">", "<", "~") stays in front.
+ * An empty or non-numeric KPI list falls back to the count of listed companies, so the row never shows a blank.
+ */
+function cyberKpi(): { label: string; value: string } {
+  const k = (cyber.kpis as CyberKpi[])[0];
+  if (!k || !Number.isFinite(k.value)) return { label: 'listed security companies tracked', value: String(cyber.scope.n_listed) };
+  const q = k.qualifier === '=' ? '' : `${k.qualifier}\u202f`;
+  let v: string;
+  if (k.unit.startsWith('times')) v = `${k.value.toFixed(1)}x`;
+  else if (k.unit.startsWith('fraction')) v = pct(k.value, 1);
+  else if (k.unit === 'USD') {
+    const [d, s] = k.value >= 1e12 ? [1e12, 'tn'] : k.value >= 1e9 ? [1e9, 'bn'] : [1e6, 'm'];
+    v = `$${(k.value / d).toFixed(1)}${s}`;
+  } else v = String(k.value);
+  // the long label names the group of companies; a card keeps the short form ("... the registered US pure-play group")
+  const label = k.label.replace(/,\s*the \d+ US-listed pure-play companies in the registered group$/i, ', registered US pure-play group');
+  return { label: `${label.charAt(0).toLowerCase()}${label.slice(1)}, ${k.period}`, value: `${q}${v}` };
 }
 
 /** One headline number per project for the cards, always read from facts. */
@@ -47,4 +71,5 @@ export const cardKpis: Record<string, { label: string; value: string }> = {
     value: pct(memcycle.q3.main_pure.share_lead_ge1, 1),
   },
   'payments-landscape': paymentsKpi(),
+  'cybersecurity-landscape': cyberKpi(),
 };

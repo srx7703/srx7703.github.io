@@ -1,14 +1,20 @@
 ---
-/** Table of the checks the publish step ran for this build (from facts.checks). */
-interface Props { checks: { name: string; status: 'pass' | 'warn' | 'fail'; detail: string }[]; note?: string }
-const { checks, note } = Astro.props;
+/**
+ * Table of the checks the publish step ran for this build (from facts.checks).
+ * Opt-in `caption`: gives the table an accessible name (a caption, and `scope="col"` on its headers) and, with
+ * `focusable`, makes the scrolling wrapper a keyboard-focusable region. Without them the markup is as before.
+ */
+interface Props { checks: { name: string; status: 'pass' | 'warn' | 'fail'; detail: string }[]; note?: string; caption?: string; focusable?: boolean }
+const { checks, note, caption, focusable = false } = Astro.props;
 const passed = checks.filter((c) => c.status === 'pass').length;
 const icon = { pass: '✓', warn: '!', fail: '✕' };
+const scope = caption ? 'col' : undefined;
 ---
 <p class="dq-summary"><strong>{passed} of {checks.length}</strong> checks passed at the last publish.{note && ` ${note}`}</p>
-<div class="table-wrap">
+<div class="table-wrap" tabindex={focusable ? 0 : undefined} role={focusable ? 'region' : undefined} aria-label={focusable ? (caption ?? 'Checks') : undefined}>
   <table class="dq">
-    <thead><tr><th>Check</th><th>Status</th><th>Detail</th></tr></thead>
+    {caption && <caption>{caption}</caption>}
+    <thead><tr><th scope={scope}>Check</th><th scope={scope}>Status</th><th scope={scope}>Detail</th></tr></thead>
     <tbody>
       {checks.map((c) => (<tr><td>{c.name}</td><td><span class={`dq__status dq__status--${c.status}`}>{icon[c.status]} {c.status}</span></td><td>{c.detail}</td></tr>))}
     </tbody>

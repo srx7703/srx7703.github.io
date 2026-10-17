@@ -2,19 +2,41 @@
 /**
  * A figure: title states the finding, subtitle states the metric, unit and window (docs/CHART_RULES.md).
  * `size="full"` lets the figure run across the sidenote margin (Tufte's full-width figure).
+ *
+ * Opt-in, so that every existing page renders exactly as before:
+ *  - `headingLevel` (2 to 6, default 2): the level of the title. A figure inside a titled section is one level below it.
+ *  - a closed "How to read this" <details> under the subtitle, when the `details` slot is used or `notes` is given. `notes`
+ *    is plain text and a blank line starts a new paragraph. The subtitle stays the short metric sentence; the long
+ *    reading guide lives here, still static HTML, readable without JavaScript. The few rules it needs are inline on the
+ *    element (no stylesheet rule, so no other page's markup or styles change).
+ *  - `bodyLabel`: the figure body scrolls sideways on a narrow screen (a wide diagram); with a label it is a focusable
+ *    region, so a keyboard user can scroll it.
  */
 interface Props {
   title: string;
   subtitle?: string;
   size?: 'main' | 'full';
+  headingLevel?: 2 | 3 | 4 | 5 | 6;
+  notes?: string;
+  detailsLabel?: string;
+  bodyLabel?: string;
 }
-const { title, subtitle, size = 'main' } = Astro.props;
+const { title, subtitle, size = 'main', headingLevel = 2, notes, detailsLabel = 'How to read this', bodyLabel } = Astro.props;
+const Heading = `h${headingLevel}` as 'h2';
+const paragraphs = (notes ?? '').split(/\n\s*\n/).map((s) => s.trim()).filter(Boolean);
+const hasDetails = Astro.slots.has('details') || paragraphs.length > 0;
 ---
 <figure class={`figure figure--${size}`}>
   <figcaption>
-    <h2 class="figure__title">{title}</h2>
+    <Heading class="figure__title">{title}</Heading>
     {subtitle && <p class="figure__subtitle">{subtitle}</p>}
   </figcaption>
-  <div class="figure__body"><slot /></div>
+  {hasDetails && (
+    <details class="figure__how" style="margin:0 0 var(--s-3);max-width:70ch;font-family:var(--font-sans);font-size:0.82rem;color:var(--ink-2)">
+      <summary style="cursor:pointer;color:var(--ink-3);padding:0.25rem 0;width:fit-content">{detailsLabel}</summary>
+      {Astro.slots.has('details') ? <slot name="details" /> : paragraphs.map((p) => <p style="margin:0.4rem 0 0">{p}</p>)}
+    </details>
+  )}
+  <div class="figure__body" tabindex={bodyLabel ? 0 : undefined} role={bodyLabel ? 'region' : undefined} aria-label={bodyLabel}><slot /></div>
   <slot name="stamp" />
 </figure>

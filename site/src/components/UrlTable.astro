@@ -5,8 +5,22 @@
  * for tables too large to ship in the page; small tables stay <DataTable>. The header, caption,
  * filter row and a row count are rendered at build time; without JavaScript the table says where
  * the rows are. Cells render like DataTable's (the value as HTML, so a link column works).
+ *
+ * A column may carry the same `format` as a <DataTable> column (`pct`: a fraction as a percentage with one decimal, `usd`: a
+ * dollar amount as $1.2B, `fixed1`, `num`), applied to a numeric value in the browser; a row's `data-value` stays the raw
+ * number, so sorting is numeric. A negative number is printed with a true minus sign. A string value is shown as it is.
+ *
+ * Opt-in, so that every existing page keeps its markup and behaviour (all default off):
+ *  - `rowHeader`: the key of the column whose cells are `<th scope="row">`.
+ *  - `attrKeys`: row keys written as `data-<key>` attributes on every row, so a <DashboardControls table=…> can filter the
+ *    rows (`layer-any`, `market-any` …). The table announces its rows with a `urltable:loaded` event (always sent, with
+ *    `detail.id`), and its count leaves out the rows a dashboard control hides.
+ *  - `pageSize`: show the first N matching rows and a "Show all" button (sorting and filtering still see every row).
+ *  - `searchLabel`: the accessible name of the search box (default "Search table"), for a page with several tables.
+ *  - `waitNoscript`: a sentence shown only without JavaScript, in the placeholder row, saying the rows are not in the page.
+ *  - `roving`, `stickyFirst`, `skipLink`: as on <DataTable>.
  */
-interface Col { key: string; label: string; format?: 'num' | 'text'; align?: 'left' | 'right' }
+interface Col { key: string; label: string; format?: 'num' | 'pct' | 'usd' | 'fixed1' | 'text'; align?: 'left' | 'right' }
 interface Select { column: string; label: string; options: string[] }
 interface Props {
   id: string;
@@ -16,13 +30,31 @@ interface Props {
   caption?: string;
   selects?: Select[];     // select filters on `data-<column>` (exact match)
   placeholder?: string;
+  rowHeader?: string;
+  attrKeys?: string[];
+  pageSize?: number;
+  searchLabel?: string;
+  waitNoscript?: string;
+  roving?: boolean;
+  stickyFirst?: boolean;
+  skipLink?: boolean;
 }
-const { id, src, columns, total, caption, selects = [], placeholder = 'Search…' } = Astro.props;
-const isNum = (c: Col) => c.align === 'right' || c.format === 'num';
+const { id, src, columns, total, caption, selects = [], placeholder = 'Search…', rowHeader, attrKeys = [], pageSize = 0, searchLabel = 'Search table', waitNoscript, roving = false, stickyFirst = false, skipLink = false } = Astro.props;
+const isNum = (c: Col) => c.align === 'right' || (c.format != null && c.format !== 'text');
+// what the options need that the shared stylesheet does not have, scoped to this table
+const q = `[data-table="${id}"]`;
+const optCss = [
+  rowHeader && `${q} tbody th[scope="row"]{cursor:auto;user-select:auto;white-space:normal;font-weight:inherit;color:inherit;text-align:left;border-bottom:1px solid var(--border)}${q} tbody tr:last-child th[scope="row"]{border-bottom:0}${q} tbody th[scope="row"].num{text-align:right}`,
+  stickyFirst && `${q} th:first-child,${q} td:first-child{position:sticky;left:0;background:var(--bg);z-index:1;padding-right:.8rem}`,
+  skipLink && `${q} .skip-table{position:absolute;left:-9999px}${q} .skip-table:focus{position:static;display:inline-block;margin:0 0 var(--s-1);font-family:var(--font-sans);font-size:var(--fs-sm)}`,
+  pageSize > 0 && `${q} .urltable__more{font:inherit;font-family:var(--font-sans);font-size:var(--fs-sm);color:var(--ink);background:transparent;border:1px dashed var(--border-strong);border-radius:0;padding:.4em .8em;margin:0 0 var(--s-3);cursor:pointer}${q} .urltable__more[hidden]{display:none}${q} .urltable__more:focus-visible{outline:2px solid var(--ink);outline-offset:2px}`,
+].filter(Boolean).join('');
 ---
-<div class="urltable" data-src={src} data-table={id} data-columns={JSON.stringify(columns.map((c) => ({ key: c.key, num: isNum(c), format: c.format ?? 'text' })))} data-filters={JSON.stringify(selects.map((s) => s.column))}>
+{optCss && <style is:inline set:html={optCss}></style>}
+<div class="urltable" data-src={src} data-table={id} data-columns={JSON.stringify(columns.map((c) => ({ key: c.key, num: isNum(c), format: c.format ?? 'text', ...(rowHeader && c.key === rowHeader ? { head: true } : {}) })))} data-filters={JSON.stringify(selects.map((s) => s.column))} data-attrs={attrKeys.length ? JSON.stringify(attrKeys) : undefined} data-page-size={pageSize > 0 ? pageSize : undefined} data-roving={roving ? '' : undefined}>
+  {skipLink && <a class="skip-table" href={`#${id}-end`}>Skip table</a>}
   <div class="urltable__bar">
-    <input type="search" class="urltable__search" placeholder={placeholder} aria-label="Search table" aria-controls={id} />
+    <input type="search" class="urltable__search" placeholder={placeholder} aria-label={searchLabel} aria-controls={id} />
     {selects.map((s) => (
       <label class="urltable__select">{s.label}
         <select data-column={s.column}>
@@ -37,20 +69,34 @@ const isNum = (c: Col) => c.align === 'right' || c.format === 'num';
     <table id={id} aria-busy="true">
       {caption && <caption>{caption}</caption>}
       <thead>
-        <tr>{columns.map((c) => (
-          <th scope="col" class={isNum(c) ? 'num' : ''} data-type={isNum(c) ? 'number' : 'text'} tabindex="0" aria-sort="none" title="Sort">{c.label}</th>
+        <tr>{columns.map((c, i) => (
+          <th scope="col" class={isNum(c) ? 'num' : ''} data-type={isNum(c) ? 'number' : 'text'} tabindex={roving && i > 0 ? '-1' : '0'} aria-sort="none" title="Sort">{c.label}</th>
         ))}</tr>
       </thead>
       <tbody>
-        <tr class="urltable__wait"><td colspan={columns.length}>The {total} rows load from <a href={src}>{src}</a> as the table comes into view.</td></tr>
+        <tr class="urltable__wait"><td colspan={columns.length}>The {total} rows load from <a href={src}>{src}</a> as the table comes into view.{waitNoscript && <noscript>{` ${waitNoscript}`}</noscript>}</td></tr>
       </tbody>
     </table>
   </div>
+  {pageSize > 0 && <button type="button" class="urltable__more" hidden>Show all rows</button>}
+  {skipLink && <span id={`${id}-end`}></span>}
 </div>
 <script>
-  type ColCfg = { key: string; num: boolean; format: string };
+  type ColCfg = { key: string; num: boolean; format: string; head?: boolean };
   const nf = new Intl.NumberFormat('en-US');
-  const fmt = (v: unknown, c: ColCfg) => (v == null || v === '' ? '—' : c.format === 'num' && typeof v === 'number' ? nf.format(v) : String(v));
+  const minus = (t: string) => t.replace(/^-/, '\u2212');
+  const usd = (x: number) => { const a = Math.abs(x); return a >= 1e9 ? `$${(x / 1e9).toFixed(1)}B` : a >= 1e6 ? `$${(x / 1e6).toFixed(1)}M` : a >= 1e3 ? `$${(x / 1e3).toFixed(0)}K` : `$${x.toFixed(0)}`; };
+  const fmt = (v: unknown, c: ColCfg) => {
+    if (v == null || v === '') return '—';
+    if (typeof v !== 'number') return String(v);
+    switch (c.format) {
+      case 'num': return nf.format(v);
+      case 'pct': return minus(`${(v * 100).toFixed(1)}%`);
+      case 'fixed1': return minus(v.toFixed(1));
+      case 'usd': return minus(usd(v));
+      default: return String(v);
+    }
+  };
   const attr = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
   document.querySelectorAll<HTMLElement>('.urltable').forEach((box) => {
@@ -58,34 +104,48 @@ const isNum = (c: Col) => c.align === 'right' || c.format === 'num';
     const body = table.tBodies[0];
     const cols: ColCfg[] = JSON.parse(box.dataset.columns || '[]');
     const filters: string[] = JSON.parse(box.dataset.filters || '[]');
+    const extra: string[] = JSON.parse(box.dataset.attrs || '[]');
+    const pageSize = Number(box.dataset.pageSize || 0);
     const search = box.querySelector<HTMLInputElement>('.urltable__search');
     const selects = Array.from(box.querySelectorAll<HTMLSelectElement>('select'));
     const count = box.querySelector<HTMLElement>('.urltable__count');
+    const more = box.querySelector<HTMLButtonElement>('.urltable__more');
     let rows: HTMLTableRowElement[] = [];
+    let limit = pageSize || Infinity;
 
     const apply = () => {
+      if (!rows.length) return;
       const q = (search?.value || '').toLowerCase();
-      let shown = 0;
+      let matched = 0, available = 0, shown = 0;
       rows.forEach((tr) => {
-        const okText = !q || (tr.textContent || '').toLowerCase().includes(q);
-        const okSel = selects.every((s) => !s.value || tr.getAttribute(`data-${s.dataset.column}`) === s.value);
-        tr.hidden = !(okText && okSel);
-        if (!tr.hidden) shown++;
+        const out = tr.classList.contains('dash-out'); // hidden by a dashboard control, not by this table
+        if (!out) available++;
+        const ok = !out && (!q || (tr.textContent || '').toLowerCase().includes(q)) && selects.every((s) => !s.value || tr.getAttribute(`data-${s.dataset.column}`) === s.value);
+        if (ok) matched++;
+        tr.hidden = out ? false : !(ok && matched <= limit);
+        if (!tr.hidden && !out) shown++;
       });
-      if (count) count.textContent = `${shown} of ${rows.length}`;
+      if (count) count.textContent = shown < matched ? `first ${shown} of ${matched}` : `${matched} of ${available}`;
+      if (more) { more.hidden = shown >= matched; more.textContent = `Show all ${matched} rows`; }
     };
 
     const load = async () => {
       try {
         const data: Record<string, unknown>[] = await (await fetch(box.dataset.src || '')).json();
+        const keys = [...filters, ...extra.filter((k) => !filters.includes(k))];
         body.innerHTML = data.map((r) => {
-          const fa = filters.map((k) => ` data-${k.toLowerCase()}="${attr(String(r[k] ?? ''))}"`).join('');
-          const tds = cols.map((c) => `<td${c.num ? ' class="num"' : ''} data-value="${attr(String(r[c.key] ?? ''))}">${fmt(r[c.key], c)}</td>`).join('');
+          const fa = keys.map((k) => ` data-${k.toLowerCase()}="${attr(String(r[k] ?? ''))}"`).join('');
+          const tds = cols.map((c) => {
+            const cls = c.num ? ' class="num"' : '';
+            const v = ` data-value="${attr(String(r[c.key] ?? ''))}"`;
+            return c.head ? `<th scope="row"${cls}${v}>${fmt(r[c.key], c)}</th>` : `<td${cls}${v}>${fmt(r[c.key], c)}</td>`;
+          }).join('');
           return `<tr${fa}>${tds}</tr>`;
         }).join('');
         rows = Array.from(body.rows);
         table.removeAttribute('aria-busy');
         apply();
+        box.dispatchEvent(new CustomEvent('urltable:loaded', { bubbles: true, detail: { id: table.id } }));
       } catch (e) {
         console.error('table rows failed to load', box.dataset.src, e);
       }
@@ -97,8 +157,11 @@ const isNum = (c: Col) => c.align === 'right' || c.format === 'num';
     io.observe(box);
     search?.addEventListener('input', apply);
     selects.forEach((s) => s.addEventListener('change', apply));
+    more?.addEventListener('click', () => { limit = Infinity; apply(); });
+    document.addEventListener('dash:applied', apply); // a dashboard control changed which rows are in view
 
     const ths = Array.from(table.tHead?.rows[0]?.cells ?? []);
+    const roving = box.hasAttribute('data-roving');
     ths.forEach((th, idx) => {
       const sort = () => {
         if (!rows.length) return;
@@ -112,9 +175,18 @@ const isNum = (c: Col) => c.align === 'right' || c.format === 'num';
           return dir === 'ascending' ? va.localeCompare(vb) : vb.localeCompare(va);
         });
         rows.forEach((r) => body.appendChild(r));
+        if (pageSize) apply(); // the first rows in the new order are the ones to show
       };
       th.addEventListener('click', sort);
-      th.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); sort(); } });
+      th.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); sort(); return; }
+        if (!roving) return;
+        const to = e.key === 'ArrowRight' ? idx + 1 : e.key === 'ArrowLeft' ? idx - 1 : e.key === 'Home' ? 0 : e.key === 'End' ? ths.length - 1 : -1;
+        if (to < 0 || to >= ths.length || to === idx) return;
+        e.preventDefault();
+        ths.forEach((h, i) => h.setAttribute('tabindex', i === to ? '0' : '-1'));
+        ths[to].focus();
+      });
     });
   });
 </script>
@@ -122,7 +194,8 @@ const isNum = (c: Col) => c.align === 'right' || c.format === 'num';
   .urltable__bar { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-3); align-items: center; margin: 0 0 var(--s-2); font-family: var(--font-sans); font-size: var(--fs-sm); }
   .urltable__search, .urltable__bar select { font: inherit; font-size: var(--fs-sm); color: var(--ink); background: transparent; border: 1px dashed var(--border-strong); border-radius: 0; padding: 0.3em 0.6em; max-width: 100%; }
   .urltable__bar select option { color: var(--ink); background: var(--bg); }
-  .urltable__select { display: inline-flex; gap: var(--s-1); align-items: center; color: var(--ink-2); }
+  .urltable__select { display: inline-flex; gap: var(--s-1); align-items: center; color: var(--ink-2); max-width: 100%; min-width: 0; }
+  .urltable__select select { min-width: 0; max-width: 100%; flex: 1 1 auto; }
   .urltable__count { color: var(--ink-3); margin-left: auto; font-variant-numeric: tabular-nums; }
   .urltable th { cursor: pointer; user-select: none; white-space: nowrap; }
   .urltable th[aria-sort="ascending"]::after { content: " ↑"; color: var(--ink-3); }

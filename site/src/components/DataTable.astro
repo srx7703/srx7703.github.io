@@ -3,11 +3,29 @@
  * Sortable table. `columns`: [{ key, label, format?: 'pct'|'usd'|'num'|'fixed1'|'text', align? }];
  * `rows`: flat objects. Each row also gets data-* attributes for every `filterKeys` entry so a
  * FilterBar can filter on them. Click a header to sort; numbers sort numerically.
+ *
+ * Opt-in, so that every existing page keeps its markup, styles and script byte for byte (all default off). The shared
+ * script and stylesheet below are unchanged; what an option needs is written next to the table that asks for it,
+ * scoped to its id:
+ *  - `rowHeader`: the key of the column whose cells are the row's header (`<th scope="row">`), so a screen reader says
+ *    which company a number belongs to.
+ *  - `compact`: a cell carries `data-value` (the sort key) only where it differs from the text shown; a one-line script
+ *    next to the table copies the text into the rest. About a fifth of a large table's bytes are the repeats.
+ *  - `cjk`: runs of Chinese, Japanese or Korean characters in a cell are wrapped in `<span lang="zh-Hans">`, so a
+ *    screen reader switches voice.
+ *  - `focusable`: the scrolling wrapper is a keyboard-focusable region named after the caption.
+ *  - `roving`: one tab stop for the whole header row; the arrow keys move between headers (Enter or Space sorts).
+ *  - `stickyFirst`: the first column stays in view while a wide table scrolls sideways.
+ *  - `skipLink`: a "Skip table" link, visible when focused, before the table.
+ *  - `minus`: a negative number in a `pct`, `usd` or `fixed1` column is printed with a true minus sign, as the charts do.
  */
 import { pct, usd, num } from '../lib/fmt';
 interface Col { key: string; label: string; format?: 'pct' | 'usd' | 'num' | 'fixed1' | 'text'; align?: 'left' | 'right' }
-interface Props { id: string; columns: Col[]; rows: Record<string, any>[]; filterKeys?: string[]; caption?: string }
-const { id, columns, rows, filterKeys = [], caption } = Astro.props;
+interface Props {
+  id: string; columns: Col[]; rows: Record<string, any>[]; filterKeys?: string[]; caption?: string;
+  rowHeader?: string; compact?: boolean; cjk?: boolean; focusable?: boolean; roving?: boolean; stickyFirst?: boolean; skipLink?: boolean; minus?: boolean;
+}
+const { id, columns, rows, filterKeys = [], caption, rowHeader, compact = false, cjk = false, focusable = false, roving = false, stickyFirst = false, skipLink = false, minus = false } = Astro.props;
 const fmt = (v: any, f?: Col['format']) => {
   if (v == null) return '—';
   switch (f) {
@@ -18,26 +36,54 @@ const fmt = (v: any, f?: Col['format']) => {
     default: return String(v);
   }
 };
+const CJK = /[　-ヿ㐀-鿿豈-﫿＀-￯]+/g;
+const markCjk = (html: string) => (html.includes('lang="zh') ? html : html.split(/(<[^>]*>)/).map((part) => (part.startsWith('<') ? part : part.replace(CJK, (m) => `<span lang="zh-Hans">${m}</span>`))).join(''));
+const cell = (r: Record<string, any>, c: Col) => {
+  let shown = fmt(r[c.key], c.format);
+  if (minus && (c.format === 'pct' || c.format === 'usd' || c.format === 'fixed1')) shown = shown.replace(/^-/, '−');
+  return cjk ? markCjk(shown) : shown;
+};
+// compact: the sort key is written only when it is not the text itself
+const sortKey = (r: Record<string, any>, c: Col) => {
+  const raw = r[c.key] ?? '';
+  return compact && String(raw) === fmt(r[c.key], c.format) ? undefined : raw;
+};
+const numClass = (c: Col) => (c.align === 'right' || (c.format && c.format !== 'text') ? 'num' : '');
+// what the options need that the shared stylesheet does not have, scoped to this table
+const optCss = [
+  rowHeader && `#${id} tbody th.rowhead{cursor:auto;user-select:auto;white-space:normal;font-weight:inherit;color:inherit;text-align:left;border-bottom:1px solid var(--border)}#${id} tbody tr:last-child th.rowhead{border-bottom:0}#${id} tbody th.rowhead.num{text-align:right}`,
+  stickyFirst && `#${id} th:first-child,#${id} td:first-child{position:sticky;left:0;background:var(--bg);z-index:1;padding-right:.8rem}`,
+  skipLink && `#${id}-skip{position:absolute;left:-9999px}#${id}-skip:focus{position:static;display:inline-block;margin:0 0 var(--s-1);font-family:var(--font-sans);font-size:var(--fs-sm)}`,
+].filter(Boolean).join('');
+const optJs = [
+  compact && `t.querySelectorAll("tbody td,tbody th").forEach(function(c){if(c.dataset.value===undefined)c.dataset.value=c.textContent});`,
+  roving && `t.setAttribute("data-roving","");var h=t.tHead.rows[0].cells;t.tHead.addEventListener("keydown",function(e){var i=Array.prototype.indexOf.call(h,e.target);if(i<0)return;var k=e.key,to=k==="ArrowRight"?i+1:k==="ArrowLeft"?i-1:k==="Home"?0:k==="End"?h.length-1:-1;if(to<0||to>=h.length||to===i)return;e.preventDefault();for(var j=0;j<h.length;j++)h[j].setAttribute("tabindex",j===to?"0":"-1");h[to].focus()});`,
+].filter(Boolean).join('');
 ---
-<div class="table-wrap">
+{optCss && <style is:inline set:html={optCss}></style>}
+{skipLink && <a id={`${id}-skip`} href={`#${id}-end`}>Skip table</a>}
+<div class="table-wrap" tabindex={focusable ? 0 : undefined} role={focusable ? 'region' : undefined} aria-label={focusable ? (caption ?? id) : undefined}>
   <table id={id} class="datatable">
     {caption && <caption>{caption}</caption>}
     <thead>
-      <tr>{columns.map((c) => (
-        <th scope="col" class={c.align === 'right' || (c.format && c.format !== 'text') ? 'num' : ''} data-key={c.key} data-type={c.format && c.format !== 'text' ? 'number' : 'text'} tabindex="0" aria-sort="none" title="Sort">{c.label}</th>
+      <tr>{columns.map((c, i) => (
+        <th scope="col" class={numClass(c)} data-key={c.key} data-type={c.format && c.format !== 'text' ? 'number' : 'text'} tabindex={roving && i > 0 ? '-1' : '0'} aria-sort="none" title="Sort">{c.label}</th>
       ))}</tr>
     </thead>
     <tbody>
       {rows.map((r) => (
         <tr {...Object.fromEntries(filterKeys.map((k) => [`data-${k.toLowerCase()}`, String(r[k] ?? '')]))}>
-          {columns.map((c) => (
-            <td class={c.align === 'right' || (c.format && c.format !== 'text') ? 'num' : ''} data-value={r[c.key] ?? ''} set:html={fmt(r[c.key], c.format)} />
+          {columns.map((c) => (c.key === rowHeader
+            ? <th scope="row" class={`rowhead ${numClass(c)}`.trim()} data-value={sortKey(r, c)} set:html={cell(r, c)} />
+            : <td class={numClass(c)} data-value={sortKey(r, c)} set:html={cell(r, c)} />
           ))}
         </tr>
       ))}
     </tbody>
   </table>
 </div>
+{skipLink && <span id={`${id}-end`}></span>}
+{optJs && <script is:inline set:html={`(function(){var t=document.getElementById(${JSON.stringify(id)});if(!t)return;${optJs}})();`}></script>}
 <script>
   document.querySelectorAll<HTMLTableElement>('table.datatable').forEach((table) => {
     const ths = Array.from(table.tHead?.rows[0]?.cells ?? []);

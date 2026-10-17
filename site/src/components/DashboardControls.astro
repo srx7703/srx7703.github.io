@@ -4,8 +4,9 @@
  * declares a top-level, unbound Vega-Lite param with a control's `name` is driven through
  * `view.signal(name, value).runAsync()`. State lives in the URL query as `?<group>.<name>=<value>`
  * (read on load, written with history.replaceState). An optional linked table (DataTable id or
- * ids) hides rows whose `data-<name>` attribute does not match the current value; rows without
- * that attribute are left alone.
+ * ids) hides rows whose `data-<name>` attribute does not match the current value; a row may instead
+ * carry `data-<name>-any`, a space-separated list of the values it belongs to, and is hidden when the
+ * current value is not in the list; rows without either attribute are left alone.
  *
  * Selection-dependent titles: any element with `data-dash-group="<group>"` and
  * `data-dash-titles='{"<v1>|<v2>": "title", …, "default": "title"}'` gets its title rewritten on
@@ -16,8 +17,25 @@
  * it is a heading or `.figure__title`; otherwise the `.figure__title` of its enclosing <figure>
  * (so `<VegaChart group titles={map}>` inside a ChartCard works without touching ChartCard).
  *
+ * A title map may also be served as a file: an element with `data-dash-titles-src="<url>"` (and no inline map) gets the same
+ * treatment, fetched once, and only when the current selection differs from the default (the default title is already in the
+ * page). The file holds the same JSON object.
+ *
+ * Linked tables may be lazy <UrlTable>s: a table loads its rows later and announces it with a `urltable:loaded` event (detail
+ * `{ id }`); the filter is applied to the rows then. After every pass this component dispatches `dash:applied` on the document
+ * so a table can refresh its own count.
+ *
+ * Opt-in, so that other pages are unchanged:
+ *  - `tableLabels` { tableId: "listings" }: for each listed table a line under the controls (a live region) and one above the
+ *    table say "Showing N of M listings" as the controls change, and say so when no row is left.
+ *  - `note` / slot `note`: one line under the controls, for which figure each control drives. Shown with the controls.
+ *  - `noscript`: the sentence shown without JavaScript, instead of the default one.
+ *
  * Controls render as a native radio <fieldset> (default for up to 4 options) or a native
  * <select>. Without JavaScript the row stays hidden and a sentence states the default view.
+ *
+ * Keep the script below 4 KB once built (Vite's inline limit): over it, every page that uses this component gets an extra
+ * request for it instead of the inline module, which is not a change a page asked for.
  */
 type Value = string | number | boolean;
 interface Option { value: Value; label: string }
@@ -33,15 +51,25 @@ interface Props {
   controls: Control[];
   table?: string | string[];
   label?: string;        // accessible name for the whole row
+  tableLabels?: Record<string, string>; // table id -> what its rows are ("listings"), for "Showing N of M listings"
+  note?: string;         // one line under the controls
+  noscript?: string;     // replaces the default no-JavaScript sentence
 }
-const { group, controls, table, label = 'Dashboard controls' } = Astro.props as Props;
+const { group, controls, table, label = 'Dashboard controls', tableLabels, note, noscript } = Astro.props as Props;
 const tables = table == null ? [] : Array.isArray(table) ? table : [table];
+const hasNote = !!note || Astro.slots.has('note');
+const labelled = tableLabels && Object.keys(tableLabels).length > 0 ? tableLabels : undefined;
+// the rules of the note, the status line and the line above a table: only when one of them is used
+const optCss = hasNote || labelled
+  ? '.dash__note,.dash__status,.dash__tablenote{margin:0 0 var(--s-3);font-family:var(--font-sans);font-size:var(--fs-sm);color:var(--ink-3);max-width:70ch}.dash__tablenote{margin:var(--s-2) 0}.dash__status a{color:inherit}'
+  : '';
 const uid = `dash-${group}`;
 const kind = (c: Control) => c.type ?? (c.options.length <= 4 ? 'radio' : 'select');
 const defaultLabel = (c: Control) => c.options.find((o) => o.value === c.default)?.label ?? String(c.default);
 const config = controls.map((c) => ({ name: c.name, default: c.default, values: c.options.map((o) => o.value) }));
 ---
-<form class="dash" id={uid} data-group={group} data-tables={tables.join(' ')} data-config={JSON.stringify(config)} aria-label={label} hidden>
+{optCss && <style is:inline set:html={optCss}></style>}
+<form class="dash" id={uid} data-group={group} data-tables={tables.join(' ')} data-config={JSON.stringify(config)} data-table-labels={labelled ? JSON.stringify(labelled) : undefined} aria-label={label} aria-describedby={hasNote ? `${uid}-note` : undefined} hidden>
   {controls.map((c) => kind(c) === 'radio' ? (
     <fieldset class="dash__field" data-control={c.name}>
       <legend class="dash__label">{c.label}</legend>
@@ -63,7 +91,9 @@ const config = controls.map((c) => ({ name: c.name, default: c.default, values: 
     </label>
   ))}
 </form>
-<noscript><p class="muted dash__nojs">The interactive controls need JavaScript; the charts below show the default view ({controls.map((c) => `${c.label}: ${defaultLabel(c)}`).join('; ')}).</p></noscript>
+{hasNote && <p class="dash__note" id={`${uid}-note`} hidden>{note}<slot name="note" /></p>}
+{labelled && <p class="dash__status" id={`${uid}-status`} aria-live="polite" hidden></p>}
+<noscript><p class="muted dash__nojs">{noscript ?? `The interactive controls need JavaScript; the charts below show the default view (${controls.map((c) => `${c.label}: ${defaultLabel(c)}`).join('; ')}).`}</p></noscript>
 <script>
   type Value = string | number | boolean;
   interface Cfg { name: string; default: Value; values: Value[] }
@@ -71,11 +101,32 @@ const config = controls.map((c) => ({ name: c.name, default: c.default, values: 
 
   const registry = (): Record<string, Dash> => ((window as any).__dash ??= {});
 
+  // Title maps served as files: fetched once per URL, shared by every control row.
+  const titleMaps = new Map<string, Promise<Record<string, string>>>();
+  const loadTitleMap = (url: string) => {
+    let p = titleMaps.get(url);
+    if (!p) {
+      p = fetch(url).then((r) => { if (!r.ok) throw new Error(`${r.status} ${url}`); return r.json(); });
+      p.catch((e) => { console.error('title map failed to load', url, e); titleMaps.delete(url); });
+      titleMaps.set(url, p);
+    }
+    return p;
+  };
+
+  // A lazy table announces its rows with `urltable:loaded`; the control row that owns the table filters them then.
+  const tableAppliers = new Map<string, () => void>();
+  document.addEventListener('urltable:loaded', (e) => {
+    const id = (e as CustomEvent<{ id?: string }>).detail?.id;
+    if (id) tableAppliers.get(id)?.();
+  });
+
   document.querySelectorAll<HTMLFormElement>('form.dash').forEach((form) => {
     const group = form.dataset.group || '';
     const cfg: Cfg[] = JSON.parse(form.dataset.config || '[]');
     const dash: Dash = (registry()[group] ??= { state: {}, views: new Map() });
     const tableIds = (form.dataset.tables || '').split(' ').filter(Boolean);
+    const labels: Record<string, string> = JSON.parse(form.dataset.tableLabels || '{}');
+    const status = document.getElementById(`${form.id}-status`);
 
     // Initial state: URL query value if it is one of the options, else the default.
     const params = new URLSearchParams(location.search);
@@ -117,34 +168,91 @@ const config = controls.map((c) => ({ name: c.name, default: c.default, values: 
       });
     };
 
+    // "Showing N of M <what>" for the tables that have a label: a line under the controls (a live region) and a line above the
+    // table, which says so when nothing is left. The counts are of rows the controls leave in view; a table's own search box is
+    // counted by the table.
+    const tableNotes = new Map<string, HTMLElement>();
+    const noteFor = (t: HTMLTableElement): HTMLElement => {
+      let note = tableNotes.get(t.id);
+      if (!note) {
+        note = document.createElement('p');
+        note.className = 'dash__tablenote';
+        const anchor = t.closest<HTMLElement>('.urltable, .table-wrap') ?? t;
+        anchor.parentElement?.insertBefore(note, anchor);
+        tableNotes.set(t.id, note);
+      }
+      return note;
+    };
+    const report = () => {
+      if (!status) return;
+      const parts: string[] = [];
+      for (const id of tableIds) {
+        const noun = labels[id];
+        const t = document.getElementById(id) as HTMLTableElement | null;
+        if (!noun || !t?.tBodies[0]) continue;
+        const rows = Array.from(t.tBodies[0].rows).filter((tr) => !tr.classList.contains('urltable__wait'));
+        if (!rows.length) continue; // a lazy table that has not loaded yet
+        const shown = rows.filter((tr) => !tr.classList.contains('dash-out')).length;
+        const text = `${shown} of ${rows.length} ${noun}`;
+        parts.push(`<a href="#${id}">${text}</a>`);
+        const note = noteFor(t);
+        note.textContent = shown === 0 ? `Showing ${text}: no row matches these controls. Change a control to see rows.` : `Showing ${text}, as the controls above leave them. Change a control to see more.`;
+      }
+      if (parts.length) {
+        status.innerHTML = `Showing ${parts.join(' and ')} in the table${parts.length > 1 ? 's' : ''} below.`;
+        status.hidden = false;
+      }
+    };
+
     const applyTables = () => {
       for (const id of tableIds) {
         const t = document.getElementById(id) as HTMLTableElement | null;
         Array.from(t?.tBodies[0]?.rows ?? []).forEach((tr) => {
           const out = cfg.some((c) => {
-            const a = tr.getAttribute(`data-${c.name.toLowerCase()}`);
+            const n = c.name.toLowerCase();
+            // `data-<name>-any` lists every value a row belongs to (space-separated), for a row that is in more than
+            // one view of a control, such as a listing that is both "all" and "us". Without it, `data-<name>` must
+            // equal the control's value exactly.
+            const any = tr.getAttribute(`data-${n}-any`);
+            if (any != null) return !any.split(' ').includes(String(dash.state[c.name]));
+            const a = tr.getAttribute(`data-${n}`);
             return a != null && a !== String(dash.state[c.name]);
           });
           tr.classList.toggle('dash-out', out);
         });
       }
+      report();
+      document.dispatchEvent(new CustomEvent('dash:applied', { detail: { group, tables: tableIds } }));
     };
+    tableIds.forEach((id) => tableAppliers.set(id, applyTables));
 
     const titleTarget = (el: HTMLElement): HTMLElement | null =>
       el.matches('h1,h2,h3,h4,h5,h6,.figure__title') ? el
         : el.closest('figure')?.querySelector<HTMLElement>('.figure__title') ?? el.querySelector<HTMLElement>('.figure__title');
 
     const applyTitles = () => {
-      document.querySelectorAll<HTMLElement>('[data-dash-titles]').forEach((el) => {
+      document.querySelectorAll<HTMLElement>('[data-dash-titles],[data-dash-titles-src]').forEach((el) => {
         if (el.dataset.dashGroup !== group) return;
-        let map: Record<string, string>;
-        try { map = JSON.parse(el.dataset.dashTitles || '{}'); } catch { return; }
         const keys = (el.dataset.dashKeys || '').split(' ').filter(Boolean);
         const names = keys.length ? keys.filter((k) => k in dash.state) : cfg.map((c) => c.name);
         const key = names.map((n) => String(dash.state[n])).join('|');
-        const title = map[key] ?? map.default;
-        const target = titleTarget(el);
-        if (title != null && target && target.textContent !== title) target.textContent = title;
+        const set = (map: Record<string, string>) => {
+          const title = map[key] ?? map.default;
+          const target = titleTarget(el);
+          if (title != null && target && target.textContent !== title) target.textContent = title;
+        };
+        if (el.dataset.dashTitles != null) {
+          let map: Record<string, string>;
+          try { map = JSON.parse(el.dataset.dashTitles || '{}'); } catch { return; }
+          set(map);
+          return;
+        }
+        const url = el.dataset.dashTitlesSrc;
+        if (!url) return;
+        // The page already carries the title of the default view; fetch the map only once a control leaves it.
+        const atDefault = names.every((n) => dash.state[n] === cfg.find((c) => c.name === n)?.default);
+        if (atDefault && !titleMaps.has(url)) return;
+        loadTitleMap(url).then(set).catch(() => {});
       });
     };
 
@@ -170,6 +278,8 @@ const config = controls.map((c) => ({ name: c.name, default: c.default, values: 
     applyTables();
     applyTitles();
     form.hidden = false;
+    const noteEl = document.getElementById(`${form.id}-note`); // shown with the controls; the status line appears once a table has rows to count
+    if (noteEl) noteEl.hidden = false;
   });
 </script>
 <style>
@@ -185,4 +295,10 @@ const config = controls.map((c) => ({ name: c.name, default: c.default, values: 
   .dash select option { color: var(--ink); background: var(--bg); }
   .dash__nojs { font-family: var(--font-sans); font-size: var(--fs-sm); }
   :global(tr.dash-out) { display: none; }
+  /* Touch targets: a 13 px radio in a 22 px line is hard to hit with a finger. */
+  @media (pointer: coarse) {
+    .dash__radio { min-height: 40px; align-items: center; padding-right: 0.25rem; }
+    .dash__radio input { width: 20px; height: 20px; }
+    .dash select { min-height: 40px; }
+  }
 </style>

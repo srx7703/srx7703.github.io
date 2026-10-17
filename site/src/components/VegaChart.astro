@@ -14,6 +14,24 @@
  * title for that view, plus an optional `default` entry. DashboardControls rewrites the
  * enclosing figure's `.figure__title` from it on load and on every change, so the title always
  * states the finding of the view on screen. The build-time title should equal the default key's.
+ *
+ * Optional `titlesSrc` (with `group`): the same map, served as a same-origin JSON file instead of being inlined in the page; the
+ * dashboard fetches it once, when a control first differs from its default. A spec may carry it itself, as the private keys
+ * `_titlesSrc` and `_titleKeys` (removed here, never sent to the browser): then `titles` is not inlined either.
+ *
+ * Optional `tableId`: the id of the table that carries the same numbers. Without JavaScript the sentence under the chart then
+ * links to that table and says the chart is not drawn, and the empty placeholder collapses (so does the no-op CSV button
+ * and the theme toggle, which need JavaScript too). Without `tableId` the page is unchanged.
+ *
+ * The authored `ariaLabel` is also written into the spec's `description` before rendering, because Vega replaces the
+ * container's aria-label with its own default once the chart is drawn.
+ *
+ * Private spec keys read here and removed before the spec reaches Vega: `_facetColumns` (panels per row of a faceted spec), and
+ * `_widthInset` (pixels kept free beside a single-view spec; default 70, which suits specs that were laid out with a y axis outside
+ * the width; a spec whose width already contains its axes, as with `autosize: fit-x, contains: padding`, sets a small one).
+ * `_specInScript`: the spec travels in a `<script type="application/json">` next to the chart instead of in a `data-spec`
+ * attribute. An attribute must escape every quote (`&quot;`, six bytes for one), which is most of the weight of a large spec; the
+ * script holds it as it is. Without the key the markup is as before.
  */
 interface Props {
   spec: Record<string, unknown>;
@@ -23,13 +41,30 @@ interface Props {
   group?: string;
   titles?: Record<string, string>;
   titleKeys?: string[];
+  titlesSrc?: string;
+  tableId?: string;
+  tableLabel?: string;
 }
-const { spec, id, height = 300, ariaLabel, group, titles, titleKeys } = Astro.props;
-const dashTitles = group && titles ? JSON.stringify(titles) : undefined;
-const dashKeys = group && titles && titleKeys?.length ? titleKeys.join(' ') : undefined;
+const { spec: fullSpec, id, height = 300, ariaLabel, group, titles, titleKeys, titlesSrc, tableId, tableLabel } = Astro.props;
+const { _titlesSrc, _titleKeys, _specInScript, ...spec } = fullSpec as Record<string, unknown> & { _titlesSrc?: string; _titleKeys?: string[]; _specInScript?: boolean };
+// a `<` inside the JSON must not be able to end the script element
+const specJson = JSON.stringify(spec);
+const inScript = _specInScript === true ? specJson.replace(/</g, '\\u003c') : undefined;
+const src = group ? (titlesSrc ?? _titlesSrc) : undefined;
+const keys = titleKeys?.length ? titleKeys : _titleKeys;
+const dashTitles = group && titles && !src ? JSON.stringify(titles) : undefined;
+const dashKeys = group && (dashTitles || src) && keys?.length ? keys.join(' ') : undefined;
 ---
-<div class="vega" id={id} data-spec={JSON.stringify(spec)} data-group={group} data-dash-group={dashTitles && group} data-dash-titles={dashTitles} data-dash-keys={dashKeys} role="img" aria-label={ariaLabel} style={`min-height:${height}px`}></div>
-<noscript><p class="muted">Charts need JavaScript. The underlying numbers are in the tables and CSV downloads on this page and in the public data files.</p></noscript>
+<div class="vega" id={id} data-spec={inScript ? undefined : specJson} data-spec-in={inScript ? `${id}-spec` : undefined} data-group={group} data-dash-group={(dashTitles || src) && group} data-dash-titles={dashTitles} data-dash-titles-src={src} data-dash-keys={dashKeys} role="img" aria-label={ariaLabel} style={`min-height:${height}px`}></div>
+{inScript && <script is:inline type="application/json" id={`${id}-spec`} set:html={inScript}></script>}
+{tableId ? (
+  <noscript>
+    <p class="muted">Charts need JavaScript, so this figure is not drawn. The same numbers are in <a href={`#${tableId}`}>{tableLabel ?? 'the table'}</a>.</p>
+    <style is:inline set:html={`#${id}{min-height:0!important}button.dl,#theme-toggle{display:none}`}></style>
+  </noscript>
+) : (
+  <noscript><p class="muted">Charts need JavaScript. The underlying numbers are in the tables and CSV downloads on this page and in the public data files.</p></noscript>
+)}
 <script>
   // vega-embed (~700 KB) is loaded on demand when the first chart nears the viewport.
   let embedPromise: Promise<any> | null = null;
@@ -67,11 +102,16 @@ const dashKeys = group && titles && titleKeys?.length ? titleKeys.join(' ') : un
   const render = async (el: HTMLElement) => {
     const embed = await loadEmbed();
     rendered.add(el);
-    const spec = resolve(JSON.parse(el.dataset.spec || '{}')) as Record<string, any>;
+    const text = el.dataset.spec ?? (el.dataset.specIn ? document.getElementById(el.dataset.specIn)?.textContent : null);
+    const spec = resolve(JSON.parse(text || '{}')) as Record<string, any>;
     spec.config = { ...(spec.config || {}), ...themeConfig() };
+    // Vega replaces the container's aria-label once it draws, so the authored text goes into the spec.
+    if (el.dataset.aria) spec.description = el.dataset.aria;
     const w = el.clientWidth || el.getBoundingClientRect().width;
+    const inset = Number.isFinite(Number(spec._widthInset)) && spec._widthInset != null ? Number(spec._widthInset) : 70;
+    delete spec._widthInset;
     if (!spec.facet && !spec.spec) {
-      spec.width = w > 0 ? innerWidth(el) - 70 : 'container'; // room for the y axis; container if not laid out yet
+      spec.width = w > 0 ? Math.max(120, innerWidth(el) - inset) : 'container'; // room beside the plot; container if not laid out yet
       spec.autosize = { type: 'fit-x', contains: 'padding' };
     } else if (spec.spec && w > 0) {
       const cols = Number(spec._facetColumns) || 1;
@@ -96,6 +136,7 @@ const dashKeys = group && titles && titleKeys?.length ? titleKeys.join(' ') : un
   };
 
   const all = () => document.querySelectorAll<HTMLElement>('.vega');
+  all().forEach((el) => { if (!el.dataset.aria) el.dataset.aria = el.getAttribute('aria-label') || ''; });
   const safeRender = (el: HTMLElement) => render(el).catch((e) => console.error('chart failed', el.id, e));
   const renderAll = () => all().forEach((el) => { if (rendered.has(el)) safeRender(el); });
   const io = new IntersectionObserver((entries) => {

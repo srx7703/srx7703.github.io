@@ -1,0 +1,591 @@
+---
+title: "Priced for growth: how the market values cybersecurity, layer by layer"
+summary: "In a first snapshot, listed cybersecurity companies with faster expected growth trade at higher multiples of revenue, and the layer of security a company sells adds no visible fit on top of growth. The sample is too small to rule a layer effect out, and every registered claim is still collecting data."
+status: in-progress
+domain: ["equities", "valuation", "cybersecurity"]
+tools: ["Python", "Polars", "pandera", "Yahoo Finance", "East Money", "SEC EDGAR", "Vega-Lite", "GitHub Actions"]
+featured: false
+order: 7
+started: "2026-10-16"
+---
+import facts from '@data/facts/cyber.json';
+import dagSvg from '../../assets/cyber-dag.svg?raw';
+import KpiRow from '@components/KpiRow.astro';
+import KpiTile from '@components/KpiTile.astro';
+import ChartCard from '@components/ChartCard.astro';
+import VegaChart from '@components/VegaChart.astro';
+import DashboardControls from '@components/DashboardControls.astro';
+import SourceStamp from '@components/SourceStamp.astro';
+import Section from '@components/Section.astro';
+import DataQuality from '@components/DataQuality.astro';
+import DataTable from '@components/DataTable.astro';
+import FilterBar from '@components/FilterBar.astro'; // not rendered; kept so the shared stylesheet chunks, and so every other page's HTML, stay as they were
+import UrlTable from '@components/UrlTable.astro';
+import DownloadCsv from '@components/DownloadCsv.astro';
+import Sidenote from '@components/Sidenote.astro';
+import Appendix from '@components/Appendix.astro';
+import { evaluationPlan } from '@lib/prereg';
+import { num } from '@lib/fmt';
+import { urlSpec, figureText, tableUrl, DATA_BASE, DICTIONARY_FILE } from '@charts/cyber/external';
+import { VALUATION_CONTROLS, LISTING_FILTER_KEYS } from '@charts/cyber/valuation_data';
+import { TARGETS_CONTROLS } from '@charts/cyber/targets_data';
+import { DUMBBELL_KEYS } from '@charts/cyber/target_dumbbell';
+import { RATINGS_KEYS } from '@charts/cyber/recommendation_bars';
+import { INTERVAL_DEFAULTS, INTERVAL_TABLE_COLUMNS, INTERVAL_TABLE_ROW_HEADER } from '@charts/cyber/ledger_intervals';
+import { EVENTS_TABLE_COLUMNS, EVENTS_TABLE_ROW_HEADER, DUMBBELL_TABLE_COLUMNS, DUMBBELL_TABLE_ROW_HEADER, BUYER_TYPE_RULE } from '@charts/cyber/events';
+import { LEDGER_CONTROLS, CONTROL_NOTE, LEDGER_TABLE_COLUMNS, LEDGER_TABLE_ROW_HEADER, LEDGER_TABLE_CAPTION } from '@charts/cyber/ledger_data';
+import { sources, x1, dec1, dec2, pct1, pctWhole, signed, signed1, day, joinList, published, words, cap, lcFirst, plural, minusify, NTM, R40, GROWTH_STEP_POINTS, MIN_ANALYSTS_WORD, growthMultiple, layerVerdict, headline, scoreRows, SCORE_COLUMNS, SCORE_APPENDIX_COLUMNS, collecting, firstGrading, baselineSentence, baselineOf, noEffectClaims, holdsAlready, valuationTitles, valuationNote, layerFacts, topResiduals, trioFacts, r40Facts, q1Groups, targetTitles, ratingTitles, ratingNote, targetTableRows, ratingTableRows, TARGET_FILTER_KEYS, RATING_FILTER_KEYS, TARGET_COLUMNS, RATING_COLUMNS, targetsNote, targetFacts, ratingFacts, privateFigures, privateFacts, eventFacts, chinaFacts, sizeFacts, overlapNames, ledgerSelects, intervalSelects, eventsSelects, ledgerRowCount, intervalRowCount, eventRowCount, dumbbellRowCount, servedList, listingRows, LISTING_COLUMNS, excludedRows, EXCLUDED_COLUMNS, etfRows, ETF_COLUMNS, etfCounts, reportedRows, REPORTED_COLUMNS, reportedFacts, chinaRows, CHINA_COLUMNS, dictionaryRows, dictionaryMetrics, dictRow, quality, dagTitle, pageLog, kpiValue, kpiSub } from '@charts/cyber/page';
+
+export const plan = evaluationPlan();
+export const S = facts.sources;
+export const reg = facts.regression;
+export const lead = layerVerdict();
+export const step = growthMultiple();
+export const level = reg.slope.level;
+export const q = (id) => facts.scoreboard.find((x) => x.id === id);
+export const q4 = q('Q4');
+export const q6 = q('Q6');
+export const q6needed = q6.evidence.find((e) => /needed/i.test(e.label))?.value;
+export const premium = reg.premium;
+export const ringAOutsideChina = facts.scope.by_ring.A.us + facts.scope.by_ring.A.other_overseas;
+export const asOf = { valuation: facts.ev_sales.as_of, targets: facts.targets.as_of, ratings: facts.recommendations.as_of, china: facts.cn.as_of };
+export const martUrl = (name) => `/data/marts/${facts.marts[name]}`;
+export const firstOf = (id) => scoreRows.find((r) => r.id === id)?.first;
+export const first = facts.scoreboard[0].id;
+export const last = facts.scoreboard[facts.scoreboard.length - 1].id;
+
+<div class="lede">
+  <p>{lead.claim}</p>
+  <p>
+    {lead.support}<Sidenote>Enterprise value is the market value of the equity plus debt less cash, as Yahoo reports it, so a multiple of it prices the whole business; EV/NTM revenue divides it by analysts'
+    revenue forecast for the {NTM} period. Adjusted R² is the share of the variation in the multiple that a model explains, with a charge for every term it adds; it falls when a new term adds less than chance would.
+    The model has {reg.n_params} terms and {reg.n} companies: the {reg.n_us} US companies of the registered group and the {reg.n_cn} A-share companies of the China group, with a China indicator that marks an A-share listing.
+    It is the page's own model and not a registered reading; the registered regressions are Q1, Q2 and Q7. The registered group is the {headline.registered.n} US-listed pure-play companies, those whose whole business is security,
+    that at least {MIN_ANALYSTS_WORD} revenue analysts cover.</Sidenote>{' '}{lead.step}{' '}{lead.q1}
+  </p>
+  <p>
+    The level depends on which companies are counted: the median multiple is {x1(headline.registered.median)} for the {headline.registered.n} companies of the registered group and
+    {' '}{x1(headline.all.median)} across the {headline.all.n} priced listed companies with a multiple. Analysts' mean targets sit above the price for {targetFacts.above} of the {targetFacts.n} listings outside China.
+    The median upside is {signed(targetFacts.coveredMedian)} for the {targetFacts.coveredN} with at least {MIN_ANALYSTS_WORD} target analysts and {signed(targetFacts.median)} across all {targetFacts.n}{targetFacts.bothEnds ? ', where the thinly covered listings sit at both ends of the range' : ''}.
+  </p>
+  <p class="muted">
+    Claims written on {day(facts.as_of)}, the baseline date, and committed on {day(facts.registered)}; the time GitHub shows for the push is the record. Data as of {day(facts.as_of)}, private ledger checked
+    {' '}{day(privateFacts.lastChecked)}, published {published}. In progress: the weekly series that grades the claims starts with the Monday run of {day(reg.series_from)}, so every claim below is still collecting.
+  </p>
+</div>
+
+<KpiRow>
+  {facts.kpis.slice(0, 3).map((k) => <KpiTile label={k.label} value={kpiValue(k)} sub={kpiSub(k)} />)}
+</KpiRow>
+
+<p>
+  <strong>What this is, and what it is not.</strong> This is research from public sources. It is not investment advice, and nothing on it is a view on any company's securities. Data are taken as served, may be delayed
+  or wrong, and are not audited. The author is a student researcher and not a licensed adviser. Prices, enterprise values, analyst targets and ratings are parsed fields from Yahoo Finance and East Money. Private figures are
+  the companies' own statements and filings, kept with the qualifier they came with ("more than", "about"). A valuation that a publication reported is drawn hollow only when the curator marked it chartable
+  ({privateFacts.reportedDrawnText} today); reports of talks, third-party estimates and secondary marks are never charted. Layers are working labels, not verified segments. No claim has been graded, and the readings
+  shown as "already seen" are not verdicts.
+</p>
+
+<p class="muted">Jump to: <a href="#scoreboard">registered claims</a> · <a href="#valuation">valuation</a> · <a href="#targets">targets and ratings</a> · <a href="#china">China</a> · <a href="#private">private companies and deals</a> · <a href="#tables">tables</a> · <a href="#data-built">how the data is built</a> · <a href="#sources">sources and data rights</a>.</p>
+
+<Section id="scoreboard" title="Registered claims" wide>
+
+The page registers {words(facts.scoreboard.length)} claims, written down before the formal data run, each with the test that would prove it wrong and the date it is graded; several levels were set after the baseline was seen,
+which the Evaluation section in the appendix says. A claim reads <em>holds</em> when its registered test is met, <em>falsified</em> when its registered refutation is met, and <em>undecidable</em> when the data neither support
+nor contradict it. {collecting === facts.scoreboard.length ? 'All of them are' : `${cap(words(collecting))} of ${words(facts.scoreboard.length)} are`} still collecting: no claim is read before its first grading date, which is
+{' '}{day(firstGrading)}, and the weekly series that feeds most of them starts with the Monday run of {day(reg.series_from)}.<Sidenote>The registration is section I of <a href={plan.url}>docs/EVALUATION_PLAN.md</a>. The file as it
+stands today hashes to <code>{plan.short}</code>; a later change appears as a dated amendment under the original text, never as an edit to it, and the <a href={plan.history}>history</a> shows the registration commit.</Sidenote>
+
+{baselineSentence()} {holdsAlready.length ? `Because the thresholds of ${joinList(holdsAlready)} were set with that reading in view, a later hold on ${holdsAlready.length === 1 ? 'it' : 'them'} confirms the first look and nothing more. ` : ''}{noEffectClaims.join(' and ')} claim that
+nothing happens, which a noisy sample supports most easily: in the registered simulation they hold in most runs when nothing is going on, so a hold on either is weak evidence.
+
+<DataTable id="scoreboard-table" rowHeader="id" compact focusable minus caption={`Registered claims ${first} to ${last}, as graded at the last publish (${published})`} columns={SCORE_COLUMNS} rows={scoreRows} />
+
+</Section>
+
+<Section id="valuation" title="Valuation explorer" wide>
+
+The pool places {facts.scope.n_listed} listed and {facts.scope.n_private} private companies in {facts.scope.n_layers} layers, each company in the layer of its largest security product.<Sidenote>Ring A is the priced pool: companies where
+security is the whole business (pure-play) or its main line (main-line) and that an analyst covers. Ring B ({facts.scope.by_ring.B.n} listings) is classified and counted and not priced. Ring F holds the {layerFacts.delisted}
+delisted or acquired companies, kept as a reference and in no test.</Sidenote> Only the {facts.scope.by_ring.A.n} companies of ring A are priced: EV/NTM revenue is computed for {facts.ev_sales.n_with} of them, with a median of
+{' '}{x1(headline.all.median)} and the middle half between {x1(headline.all.p25)} and {x1(headline.all.p75)}. {cap(words(layerFacts.missing.n))} have no multiple ({layerFacts.missing.text}). Each is listed with its reason in
+the <a href="#tables">table of listings</a>, and none is drawn at zero.<Sidenote>A multiple needs a positive enterprise value and a revenue consensus stated in the currency of the quote.</Sidenote> Layers are unverified:
+{' '}{layerFacts.unverified} of the {layerFacts.listings} listings in the pool ({layerFacts.live} live and {layerFacts.delisted} delisted or acquired) rest on the anchor product alone, because no segment table has been read yet,
+so a layer boundary is a working label.
+
+The registered group is narrower than the priced pool: the {headline.registered.n} US-listed pure-play companies with at least {MIN_ANALYSTS_WORD} revenue analysts, and their median is {x1(headline.registered.median)}. Count every
+US-listed pure-play company that has a multiple, and the median across {headline.usPurePlays.n} is {x1(headline.usPurePlays.median)}. The gap shows how much the answer depends on which companies are counted.
+
+The controls below drive the figures together: layer, listing market, exposure (pure-play only, or pure-play and main-line), ring and analyst coverage. Each title is rewritten to state the finding of the view on screen, the
+subtitles and the reading guides describe the full pool, and the selection is kept in the address.
+
+<DashboardControls group="valuation" controls={VALUATION_CONTROLS} table="listing-table" label="Valuation explorer controls" tableLabels={{ 'listing-table': 'listings' }} note={valuationNote}
+  noscript="The controls and the figures need JavaScript. Without it each figure points to the table that carries its numbers, and each table links its data file." />
+
+<ChartCard size="full" headingLevel={3} title={valuationTitles.layerMap.map.default} subtitle={figureText('layer-map').subtitle} notes={figureText('layer-map').notes}>
+  <VegaChart id="layer-map" group="valuation" titles={valuationTitles.layerMap.map} titleKeys={valuationTitles.layerMap.keys} spec={urlSpec('layer-map')} height={240} tableId="listing-table" tableLabel="the table of every listing" ariaLabel="Dot plot of listed companies' enterprise value over forward revenue, a panel for each security layer, on a log scale, with the counts of listed and private companies at the head of each panel" />
+  <SourceStamp slot="stamp" sources={[sources.yahoo, sources.eastmoney, sources.filings]} asOf={asOf.valuation} note="layer from the registered pool; A-share multiples rest on East Money's revenue consensus; private counts from the public-source ledger" />
+</ChartCard>
+
+Layer medians differ, but layers also differ in growth; the next figure asks whether a layer adds anything once growth is allowed for. The ledger holds more private companies than the pool holds listed ones in
+{' '}{layerFacts.privateOutnumber} of the {layerFacts.layers} layers, and {words(layerFacts.noPriced.length)} layers ({layerFacts.noPriced.join('; ')}) have no company in the priced pool at all. The private counts come from a curated
+ledger, so they show where the ledger has companies and not where the market is private.
+
+<ChartCard size="full" headingLevel={3} title={valuationTitles.evGrowth.map.default} subtitle={figureText('ev-growth').subtitle} notes={figureText('ev-growth').notes}>
+  <VegaChart id="ev-growth" group="valuation" titles={valuationTitles.evGrowth.map} titleKeys={valuationTitles.evGrowth.keys} spec={urlSpec('ev-growth')} height={480} tableId="listing-table" tableLabel="the table of every listing" ariaLabel="Scatter of enterprise value over forward revenue against expected growth on a log scale, with the growth slope of the page's own model and the largest gaps from each company's own fitted multiple named" />
+  <SourceStamp slot="stamp" sources={[sources.yahoo, sources.eastmoney, sources.fred]} asOf={asOf.valuation} note="the line is the growth slope of the page's own model, not a registered reading; the other dots are drawn, not fitted; dot size uses enterprise value in dollars" />
+</ChartCard>
+
+The line is the growth slope of the page's own model, cut through the sample means: with cash margin, listing market and layer held fixed, each {GROWTH_STEP_POINTS} points of expected growth goes with a multiple
+{' '}{dec1(step.mult)} times as high, with a {level} interval of {dec1(step.lo)} to {dec1(step.hi)}. The interval is wide because {reg.n} companies carry {reg.n_params} terms, which is also why this page does not read the
+layer coefficients individually.<Sidenote>Q1 asks the layer question of the {reg.n_us} registered US companies alone, with a simpler model, and defines the uplift as the gain in adjusted R² from the layer groups. To fit
+the model, layers are merged into groups, and layers with too few companies go into <em>other</em>{q1Groups.text ? `, which mixes ${q1Groups.text}` : ''}; so the test is blunt. Every layer placement rests on the anchor product alone.{q1Groups.sameFigure ? ` Its growth-only model has an adjusted R² of ${q1Groups.growthOnly}, which rounds to the same figure as the model above; they are different models on different companies.` : ''}</Sidenote>
+The largest gaps from the model's own fitted multiple are {joinList(topResiduals)}. A gap measures how far a company sits from this sample's fit; it is not a sign that the shares are cheap or dear, and the model has not been
+tested on new data. {cap(words(trioFacts.n))} AI-tailwind names, {trioFacts.names}, were picked because they sit at the top of the cross-section. Their median multiple{trioFacts.medianOf ? `, which is ${trioFacts.medianOf}'s,` : ''} is
+{' '}{x1(trioFacts.trio)} against {x1(trioFacts.rest)} for the other {trioFacts.nRest} registered companies, {dec1(trioFacts.ratio)} times as much. Q9 asks whether that ratio widens; because the trio starts at an extreme, a hold is
+weak evidence.
+
+<ChartCard size="full" headingLevel={3} title={valuationTitles.rule40.map.default} subtitle={figureText('rule40-scatter').subtitle} notes={figureText('rule40-scatter').notes}>
+  <VegaChart id="rule40-scatter" group="valuation" titles={valuationTitles.rule40.map} titleKeys={valuationTitles.rule40.keys} spec={urlSpec('rule40-scatter')} height={420} tableId="listing-table" tableLabel="the table of every listing" ariaLabel="Scatter of expected growth against free-cash-flow margin with the diagonal where they sum to the cut, shaded by the quarter of the multiple" />
+  <VegaChart id="rule40-ranked" group="valuation" spec={urlSpec('rule40-ranked')} height={140} tableId="listing-table" tableLabel="the table of every listing" ariaLabel="Ranked bars of the combined growth and cash-margin score for each scored company, shaded by the quarter of the multiple" />
+  <SourceStamp slot="stamp" sources={[sources.yahoo, sources.eastmoney]} asOf={asOf.valuation} note="trailing free cash flow and revenue as Yahoo serves them; growth is forward over trailing" />
+</ChartCard>
+
+The {R40} adds expected growth to free-cash-flow margin, so a company can pass on growth alone. The highest scores are {r40Facts.list}. A deep loss offset by very fast growth scores the same as a profitable grower, so the top of
+this ranking is not a ranking of strong businesses.{r40Facts.split ? ` Among the registered group, Q3 first looks at the split at the cut: a median of ${x1(r40Facts.split.high)} for the ${r40Facts.split.nHigh} at or above it against ${x1(r40Facts.split.low)} for the ${r40Facts.split.nLow} below, while the title above splits every scored company.` : ''}
+Whether the market pays for the score is Q3.
+
+</Section>
+
+<Section id="targets" title="Targets and ratings" wide>
+
+Yahoo's mean analyst target is above the price for {targetFacts.above} of the {targetFacts.n} listings outside China. The median upside is {signed(targetFacts.coveredMedian)} for the {targetFacts.coveredN} with at least
+{' '}{MIN_ANALYSTS_WORD} target analysts and {signed(targetFacts.median)} across all {targetFacts.n}; the {targetFacts.nThin} with fewer are flagged thin and drawn dashed and lighter{targetFacts.bothEnds ? ', and they sit at both ends of the range' : ''}. Among the covered
+listings the range runs from {signed(targetFacts.least.value)} ({targetFacts.least.name}) to {signed(targetFacts.most.value)} ({targetFacts.most.name}). {cap(words(targetFacts.nMainLine))} of the {targetFacts.n} are main-line
+companies, not pure-play. Q4's frozen list has {targetFacts.q4N} of the {targetFacts.coveredN}{targetFacts.notQ4.length ? ` (${joinList(targetFacts.notQ4)} is left out)` : ''}.<Sidenote>Upside is the percentage by which the mean target exceeds the price,
+both in the quote currency, so no conversion is needed; a price quoted in pence cancels in the ratio.</Sidenote>{targetFacts.suspects.length ? ` ${joinList(targetFacts.suspects.map((s) => s.name))} ${targetFacts.suspects.length === 1 ? 'has' : 'have'} a mean target more than ${targetFacts.suspectTimes} times the price: that looks stale or split-affected, is unverified, and is flagged in the table and not quoted here.` : ''}
+Whether upside predicts the next year's return is Q4, graded on {day(q4.next_grading)}. Until then upside describes what analysts say and not what happens, and no registered claim tests the ratings.
+
+Coverage means analysts: target analysts in the first figure, rating analysts in the second. The two rating vocabularies are never merged, because Yahoo's buckets and East Money's counts are different vocabularies.
+
+<DashboardControls group="targets" controls={TARGETS_CONTROLS} table={['targets-table', 'ratings-table']} label="Targets and ratings controls" tableLabels={{ 'targets-table': 'listings', 'ratings-table': 'rating rows' }} note={targetsNote}
+  noscript="The controls and the figures need JavaScript. Without it each figure points to the table that carries its numbers, and each table links its data file." />
+
+<ChartCard size="full" headingLevel={3} title={targetTitles.default} subtitle={figureText('target-dumbbell').subtitle} notes={figureText('target-dumbbell').notes}>
+  <VegaChart id="target-dumbbell" group="targets" titles={targetTitles} titleKeys={DUMBBELL_KEYS} spec={urlSpec('target-dumbbell')} height={300} tableId="targets-table" tableLabel="the table of targets" ariaLabel="Dumbbell chart of the implied upside to the mean analyst target for each listing outside China, with the lowest and highest target as whiskers and a separate panel for A-share listings" />
+  <SourceStamp slot="stamp" sources={[sources.yahoo]} asOf={asOf.targets} note="upside only, no prices: quote currencies differ" />
+</ChartCard>
+
+<UrlTable id="targets-table" roving skipLink stickyFirst src={tableUrl('targets-table')} total={targetTableRows.length} rowHeader="name" attrKeys={TARGET_FILTER_KEYS} searchLabel="Search the table of targets" placeholder="Search companies, layers, notes…"
+  waitNoscript="Without JavaScript the rows are not in this page; the file has them." caption="Implied upside for the listings in the selected view, with the lowest and highest single target" columns={TARGET_COLUMNS} />
+
+<ChartCard size="full" headingLevel={3} title={ratingTitles.default} subtitle={figureText('recommendation-bars').subtitle} notes={figureText('recommendation-bars').notes}>
+  <VegaChart id="recommendation-bars" group="targets" titles={ratingTitles} titleKeys={RATINGS_KEYS} spec={urlSpec('recommendation-bars')} height={220} tableId="ratings-table" tableLabel="the table of ratings" ariaLabel="Stacked bars of analyst ratings as shares of all ratings, Yahoo's buckets beside East Money's counts, split by market" />
+  <SourceStamp slot="stamp" sources={[sources.yahoo, sources.eastmoney]} asOf={asOf.ratings} note="the two vocabularies are never merged or added" />
+</ChartCard>
+
+Only {ratingFacts.sell}% of Yahoo's {ratingFacts.n} ratings on {ratingFacts.listings} listings are sell or strong sell, against {ratingFacts.buy}% buy or strong buy and {ratingFacts.hold}% hold.{ratingFacts.lowest && ratingFacts.highest ? ` Among the layers with at least ${MIN_ANALYSTS_WORD} covered listings, the buy share runs from ${pctWhole(ratingFacts.lowest.share)} in ${ratingFacts.lowest.label} to ${pctWhole(ratingFacts.highest.share)} in ${ratingFacts.highest.label}.` : ''}
+East Money's {ratingFacts.em.window} counts for the {ratingFacts.em.listings} A-share listings it covers are {ratingFacts.em.buy} buy and {ratingFacts.em.add} add. {ratingNote}
+
+<UrlTable id="ratings-table" roving skipLink stickyFirst src={tableUrl('ratings-table')} total={ratingTableRows.length} rowHeader="name" attrKeys={RATING_FILTER_KEYS} searchLabel="Search the table of ratings" placeholder="Search companies, layers, sources…"
+  waitNoscript="Without JavaScript the rows are not in this page; the file has them." caption="Ratings for the listings in the selected view, in each source's own vocabulary" columns={RATING_COLUMNS} />
+
+</Section>
+
+<Section id="china" title="China's A-share listings" wide>
+
+{chinaFacts.nFlagged} of the {chinaFacts.n} A-share listings sit in the top quarter of their own price-to-sales history while revenue falls: {chinaFacts.flaggedList}; {words(chinaFacts.partialFlagged)} of them have only a partial security business.
+Price to sales here is PS_TTM, market capitalisation over trailing-twelve-month revenue; East Money publishes it daily, so each company can be set against its own past, and it is not comparable with the EV/NTM multiples above.
+The median listing trades at {x1(chinaFacts.medianPs)} trailing revenue, higher than on {pctWhole(chinaFacts.medianPercentile)} of its own trading days, and revenue fell year on year at {chinaFacts.falling} of the {chinaFacts.n}, with a
+median change of {signed1(chinaFacts.medianYoy)}. These are {chinaFacts.period} figures, and half-years are lumpy for vendors that book projects, so read the falling count with care. The flag describes the percentile and the growth figure; it is not a
+judgement on the shares.
+
+<ChartCard size="full" headingLevel={3} title={figureText('china-panel').title} subtitle={figureText('china-panel').subtitle} notes={figureText('china-panel').notes}>
+  <VegaChart id="china-panel" spec={urlSpec('china-panel')} height={600} tableId="china-table" tableLabel="the table of China-listed companies" ariaLabel="Paired panels in the same order: each A-share listing's PS_TTM percentile within its own history, and its year-on-year revenue growth" />
+  <SourceStamp slot="stamp" sources={[sources.emValuation, sources.emReports]} asOf={asOf.china} note="percentile computed here from East Money's daily series" />
+</ChartCard>
+
+On forward revenue the A-share companies in the regression trade at a median {x1(chinaFacts.cnMedian)} against {x1(chinaFacts.usMedian)} for the {chinaFacts.usN} US companies of the registered group, a ratio of {dec2(chinaFacts.ratio)}.
+Q7 does not grade that ratio. It grades whether a China indicator is negative in a regression on growth, and on the baseline it reads {baselineOf('Q7')}; the plan says that claim is already met on the baseline, so a later
+hold confirms the first look and nothing more.<Sidenote>{firstOf('Q7')}</Sidenote> The page's own model also holds cash margin and layer fixed and puts an A-share company at {dec2(chinaFacts.ownDummy.ratio)} of a US
+company, with a {level} interval of {dec2(chinaFacts.ownDummy.lo)} to {dec2(chinaFacts.ownDummy.hi)}{chinaFacts.ownDummy.lo < 1 && chinaFacts.ownDummy.hi > 1 ? ', which takes in no discount at all' : ''}. With {chinaFacts.nAShareFit} A-share
+companies in the fit, the data cannot yet tell a China discount from the quirks of these companies.
+
+<h3>For readers outside China</h3>
+
+This note is background, not a finding: the pool records neither customers nor owners, and the points come from company reports and public law texts, not from this page's data.
+
+<ul>
+  <li><strong>Boxes and projects, not subscriptions.</strong> Many listed Chinese security vendors sell appliances and project work that is delivered and booked in lumps, so revenue is uneven through the year
+  and a half-year growth rate says less than it does for a subscription company. That is a reason the panel above uses trailing revenue and year-on-year change rather than a forward multiple.</li>
+  <li><strong>State buyers.</strong> Customers are often government bodies, state-owned enterprises, carriers and banks, and they buy on budget cycles. Revenue fell year on year at {chinaFacts.falling} of the {chinaFacts.n} listings,
+  but the page holds no customer data and cannot say why.</li>
+  <li><strong>Compliance drives demand.</strong> The Cybersecurity Law (amended with effect from the start of 2026, with higher fines and a new clause on AI), the Data Security Law and the Personal Information Protection Law require
+  protections that customers buy to pass inspection, and the multi-level protection scheme sets the controls a system must have to be certified.</li>
+  <li><strong>Ratings are almost all positive.</strong> East Money's {chinaFacts.emRatings} ratings in its {chinaFacts.emWindow} window are {chinaFacts.emBuy} buy and {chinaFacts.emAdd} add, and its feed leaves neutral, reduce and sell blank (the note under the ratings figure says how the page reads that). Buy outranks add, but a scale
+  that shows no negative rating says little about which company is better, and no registered claim uses these ratings.</li>
+  <li><strong>State-owned parents.</strong> Some large vendors sit under state groups: CETC Cyberspace Security, formerly Westone, carries the name of its parent, China Electronics Technology Group, a state-owned group that is
+  its actual controller according to the company's filings. Parentage affects who the customers are and how the company is funded, and the pool has no ownership field, so the page does not split by it.</li>
+</ul>
+
+Yahoo also serves targets for some A-share listings, resting on {chinaFacts.nOpinionsMin} to {chinaFacts.nOpinionsMax} analysts; they are stored and used in no claim. The table of China-listed companies is in the
+{' '}<a href="#tables">tables section</a>.
+
+</Section>
+
+<Section id="private" title="Private companies and deals" wide>
+
+A private valuation is never a single number here. For each company the ledger can hold a headline, an estimate and a comparable interval. The headline is what the round or deal reported. The estimate is the headline cut by a registered discount for the age of the
+round, plus or minus a band; it is an assumption and is labelled so. The comparable interval, where listed comparables exist, is their EV/NTM revenue multiplied by the company-stated ARR (annual recurring revenue).
+{privateFacts.withHeadline} of the {privateFacts.directory} companies in the directory have a priced round and {privateFacts.withArr} state ARR. Only {privateFacts.scored} have all of them, and {privateFacts.above} of those sit wholly above
+their comparable interval ({joinList(privateFacts.aboveNames)}). Read that count with care: companies publish a valuation when it flatters, and the interval multiplies a trailing figure by a forward multiple, which favours
+"above".{privateFacts.q6Basis.length ? ` What the comparison rests on, for those companies: ${privateFacts.q6Basis.join('; ')}.` : ''} Q6 asks whether private headlines sit above the public comparables; it needs {q6needed} scored
+companies and is scored on the snapshot of {day(q6.next_grading)}, from a ledger frozen before then, and {privateFacts.q6Scored} qualify today, so the answer to the claim is not in yet. The sources of the ARR figures behind the
+Wiz and Armis multiples are named in the plan's amendment.
+
+{privateFacts.chinaGap}; the interval figure says why when it is filtered to China.
+
+<DashboardControls group="ledger" controls={LEDGER_CONTROLS} label="Private ledger and events controls" note={CONTROL_NOTE}
+  noscript="The controls and the figures need JavaScript. Without it each figure points to the table that carries its numbers, and each table links its data file." />
+
+<ChartCard size="full" headingLevel={3} title={privateFigures.intervals.title} subtitle={privateFigures.intervals.subtitle} notes={privateFigures.intervals.notes}>
+  <VegaChart id="ledger-intervals" group="ledger" titles={privateFigures.intervals.titles} titleKeys={privateFigures.intervals.keys} spec={urlSpec('ledger-intervals')} height={120} tableId="intervals-table" tableLabel="the table of valuation intervals" ariaLabel="Interval chart of each private company's latest round valuation, its age-discounted estimate and its listed-comparable interval, on a log scale" />
+  <SourceStamp slot="stamp" sources={[sources.filings, sources.yahoo]} asOf={privateFacts.lastChecked ?? facts.private.multiples_as_of} note={`comparable multiples as of ${day(facts.private.multiples_as_of)}; a stale round is dashed with its year`} />
+</ChartCard>
+
+Listed comparables are registered for these layers only: {privateFacts.comparableLayersText}. A company in any other layer is drawn without a comparable interval. Where fewer than {words(INTERVAL_DEFAULTS.thinBelow)} comparables stand
+behind an interval, as in the layers {privateFacts.thinLayersText}, it is drawn dashed. {plural(privateFacts.thin, 'comparable interval')} {privateFacts.thin === 1 ? 'is' : 'are'} drawn that way today.
+
+<ChartCard size="full" headingLevel={3} title={privateFigures.events.title} subtitle={privateFigures.events.subtitle} notes={privateFigures.events.notes}>
+  <VegaChart id="events" group="ledger" titles={privateFigures.events.titles} titleKeys={privateFigures.events.keys} spec={urlSpec('events')} height={260} tableId="events-table" tableLabel="the table of deal events" ariaLabel="Timeline of acquisitions, take-privates, listings and funding rounds by security layer, sized by price and coloured by buyer type" />
+  <SourceStamp slot="stamp" sources={[sources.filings]} asOf={eventFacts.windowTo} note="the filing figure is preferred where it exists" />
+</ChartCard>
+
+Security vendors bought {eventFacts.platform} of the {eventFacts.counted} in the year to {day(eventFacts.windowTo)}. {cap(words(eventFacts.closed))} deals closed in the same window, {words(eventFacts.closedEarlier)} of them announced
+before it. {cap(words(eventFacts.filingPriced))} of the deals in the window carry a price from a filing, which the timeline prefers to the announced figure ({words(eventFacts.filingPricedAll)} in all). The deal list is what announcements
+and roundups surfaced, so it is not a census, and {words(eventFacts.notCharted)} announced deals whose price could not be charted are left out of it and listed in the table of figures never charted. The latest event in the ledger,
+on {eventFacts.latest.date}, is a {eventFacts.latest.kind}: {eventFacts.latest.clause}. Q8 asks whether consolidation continues.<Sidenote>{firstOf('Q8')}</Sidenote>
+
+<ChartCard size="full" headingLevel={3} title={privateFigures.dumbbell.title} subtitle={privateFigures.dumbbell.subtitle} notes={privateFigures.dumbbell.notes}>
+  <VegaChart id="events-dumbbell" spec={urlSpec('events-dumbbell')} height={260} tableId="dumbbell-table" tableLabel="the table of announced and filed prices" ariaLabel="Dumbbell chart of the price announced at signing against the price recorded in the filing, on a log scale" />
+  <SourceStamp slot="stamp" sources={[sources.filings]} asOf={eventFacts.windowTo} note="dollar prices only; nothing is converted" />
+</ChartCard>
+
+The numbers behind these figures are in the <a href="#tables">tables section</a>: the ledger, the valuation intervals, the deal events and the announced and filed prices, each with a download.
+
+</Section>
+
+<Section id="tables" title="Tables" wide>
+
+<h3>Every listing</h3>
+
+Every listing in the pool, {layerFacts.listings} in all, with the reason when it has no multiple and the basis of its layer placement. Ring B and ring F carry no multiple by design. The controls of the valuation explorer filter this table.
+
+<UrlTable id="listing-table" roving skipLink stickyFirst src={tableUrl('listing-table')} total={listingRows.length} rowHeader="name" attrKeys={LISTING_FILTER_KEYS} searchLabel="Search the table of every listing" placeholder="Search companies, tickers, layers…"
+  waitNoscript="Without JavaScript the rows are not in this page; the file has them." caption="Every listing in the pool: classification for all rings, measures for ring A" columns={LISTING_COLUMNS} />
+
+<h3>Left out of the pool, with reasons</h3>
+
+<DataTable id="excluded-table" rowHeader="ticker" compact focusable caption="Companies held by cybersecurity ETFs or once listed that are not priced, with the reason" columns={EXCLUDED_COLUMNS} rows={excludedRows} />
+
+<h3>Private ledger</h3>
+
+Every charted figure of the private ledger, with its qualifier, basis, tag and public source. Superseded and stale rounds are greyed and say so in words. The download is the mart as the pipeline writes it.
+
+<UrlTable id="ledger-table" roving skipLink stickyFirst src={tableUrl('ledger-table')} total={ledgerRowCount} rowHeader={LEDGER_TABLE_ROW_HEADER} pageSize={50} searchLabel="Search the private ledger" placeholder="Search companies, figures, sources…"
+  waitNoscript="Without JavaScript the rows are not in this page; the file has them." caption={LEDGER_TABLE_CAPTION} columns={LEDGER_TABLE_COLUMNS} selects={ledgerSelects} />
+<DownloadCsv filename="cyber-private-ledger.csv" src={martUrl('ledger_timeline')} label="Download the charted ledger" />
+
+<h3>Valuation intervals</h3>
+
+A row for each company drawn in the interval figure: the headline, the estimate, the comparable interval and what each rests on. The estimate is an assumption, not data.
+
+<UrlTable id="intervals-table" src={tableUrl('intervals-table')} total={intervalRowCount} rowHeader={INTERVAL_TABLE_ROW_HEADER} searchLabel="Search the table of valuation intervals" placeholder="Search companies, layers…"
+  waitNoscript="Without JavaScript the rows are not in this page; the file has them." caption="Latest round valuation, estimate and listed-comparable interval for each private company in the interval figure" columns={INTERVAL_TABLE_COLUMNS} selects={intervalSelects} />
+<DownloadCsv filename="cyber-valuation-intervals.csv" src={tableUrl('intervals-table')} label="Download the intervals" />
+
+<h3>Deal events</h3>
+
+Every mark of the deal timeline, newest first, with the buyer, the type the curator gave it under the written rule, the price and whether the mark opens a deal counted in the title.
+
+<UrlTable id="events-table" roving skipLink stickyFirst src={tableUrl('events-table')} total={eventRowCount} rowHeader={EVENTS_TABLE_ROW_HEADER} pageSize={40} searchLabel="Search the table of deal events" placeholder="Search companies, buyers…"
+  waitNoscript="Without JavaScript the rows are not in this page; the file has them." caption="Deal events of the private-company ledger, newest first" columns={EVENTS_TABLE_COLUMNS} selects={eventsSelects} />
+<DownloadCsv filename="cyber-deal-events.csv" src={martUrl('events')} label="Download the deal events" />
+
+<h3>Announced against filed prices</h3>
+
+<UrlTable id="dumbbell-table" src={tableUrl('dumbbell-table')} total={dumbbellRowCount} rowHeader={DUMBBELL_TABLE_ROW_HEADER} searchLabel="Search the table of announced and filed prices" placeholder="Search targets, buyers…"
+  waitNoscript="Without JavaScript the rows are not in this page; the file has them." caption="Deals with both an announced price and a price in a filing, compared like for like" columns={DUMBBELL_TABLE_COLUMNS} />
+
+<h3>Reported or not comparable, never charted</h3>
+
+These figures were reported by a publication, are a report of talks, a third-party estimate or a secondary mark, or were not marked comparable to the charted figures. Each row says why with a closed reason, none is drawn
+on a chart, and none feeds a calculation. The table holds {reportedFacts.n} rows: {reportedFacts.confirmed} are figures a company stated that could not be set beside the charted ones, {reportedFacts.publication} were reported by a
+publication, and {reportedFacts.never} are of a kind that is never charted. A figure that both curated files hold is listed once ({reportedFacts.duplicates} were counted twice before).
+
+<UrlTable id="reported-table" roving skipLink stickyFirst src={tableUrl('reported-table')} total={reportedRows.length} rowHeader="company" pageSize={40} searchLabel="Search the table of figures never charted" placeholder="Search companies, reasons…"
+  waitNoscript="Without JavaScript the rows are not in this page; the file has them." caption="Reported or non-comparable figures, never charted, each with its reason" columns={REPORTED_COLUMNS} />
+
+<h3>ETF cross-check</h3>
+
+The First Trust NASDAQ Cybersecurity ETF holds {etfCounts.n_holdings} companies ({day(facts.universe.etfs[0].as_of)}): {etfCounts.n_in_ring_a} are in ring A, {etfCounts.n_in_ring_b} in ring B and {etfCounts.n_excluded} are left out
+of the pool on purpose; {etfCounts.n_missing === 0 ? 'none is missing' : `${etfCounts.n_missing} are missing, which fails the check`}. Ring A holds {etfCounts.n_ring_a_outside_cibr} companies the fund does not.
+
+<UrlTable id="etf-table" src={tableUrl('etf-table')} total={etfRows.length} rowHeader="ticker" searchLabel="Search the ETF cross-check" placeholder="Search tickers, holdings…"
+  waitNoscript="Without JavaScript the rows are not in this page; the file has them." caption="Holdings of the First Trust NASDAQ Cybersecurity ETF against the pool" columns={ETF_COLUMNS} />
+
+<h3>China listed</h3>
+
+<UrlTable id="china-table" src={tableUrl('china-table')} total={chinaRows.length} rowHeader="name" searchLabel="Search the table of China-listed companies" placeholder="Search companies, tickers…"
+  waitNoscript="Without JavaScript the rows are not in this page; the file has them." caption="A-share listings of rings A and B: PS_TTM, its percentile in the listing's own history and year-on-year revenue growth" columns={CHINA_COLUMNS} />
+
+</Section>
+
+<Section id="data-built" title="How the data is built" wide>
+
+Everything on this page is rebuilt from text files by code. Market numbers are parsed from public pages by a weekly capture. Private-company numbers are written once by a Claude Code curator agent from a public page, into a
+curated file with a link, a date and a qualifier; a second agent re-opens the sources; from there the code only reads them.
+
+<ChartCard size="full" headingLevel={3} title={dagTitle} subtitle="Left to right: where each number comes from, where it is stored, which module transforms it, the marts the charts read and the gate every write passes." notes="Generated from a declared node list by site/scripts/cyber-dag.mjs, not drawn by hand. A dashed box is a payload the cyber capture reads in memory and does not keep; a bar on the left edge is a curated file, written by a curator agent from a public source, with a link, a date and a qualifier on every row.">
+  <div set:html={dagSvg} />
+  <SourceStamp slot="stamp" sources={[{ name: 'pipelines/cyber', url: 'https://github.com/srx7703/srx7703.github.io/tree/main/pipelines/cyber' }]} asOf={published} note="on a narrow screen the diagram is replaced by the same list" />
+</ChartCard>
+
+<h3>Yahoo Finance: prices, enterprise value, targets and ratings</h3>
+
+Fetched weekly for every ring A listing, with the baseline snapshot of {day(facts.as_of)} outside every series. This page's capture stores only parsed fields and commits no Yahoo response. Cleaning is strict: enterprise value is Yahoo's,
+stated in the quote currency with pence read as pounds, and a multiple is computed only where that currency matches the currency of the revenue consensus, so a mismatch leaves a stated gap and not a guess. The known bias is the
+analysts': targets are set by the people who cover a company, and {targetFacts.above} of {targetFacts.n} are above the price, so read them as sentiment. Yahoo's count of target analysts differs from its count of revenue analysts, and the counts are
+never mixed.
+
+<h3>East Money: A-share consensus, ratings, valuation history and reports</h3>
+
+The A-share revenue consensus by calendar year and the rating counts for its latest window arrive in the same weekly capture. The daily PS_TTM history since 2018 and the half-year revenue are pulled for the A-share listings of rings A and B.
+The percentile is computed here from the daily series, not read from East Money. A blank rating count means East Money printed none, and the page reads it as not printed (see the ratings figure). The bias is thin coverage: A-share consensus rests
+on few brokers, and the Yahoo targets for the same listings rest on {chinaFacts.nOpinionsMin} to {chinaFacts.nOpinionsMax} analysts.
+
+<h3>Exchange rates</h3>
+
+Daily exchange rates are read at publish, the newest rate on file for each currency (newest {sizeFacts.fxDay}). They put enterprise value in dollars for the size of the dots in the growth figure and for nothing else: a multiple is a ratio inside
+a single currency and is never converted.
+
+<h3>The CIBR holdings</h3>
+
+The published holdings of the First Trust NASDAQ Cybersecurity ETF, as of {day(facts.universe.etfs[0].as_of)}, are used only as a cross-check of the pool, by ticker and name. Every holding must sit in ring A, in ring B or on the left-out list, and
+the check fails if any is missing. The bias is the fund's: its membership follows an index provider's rules and not this page's layer tree.
+
+<h3>The private ledger and the deal events</h3>
+
+Written by a Claude Code curator agent from company announcements and regulatory filings, and from named public pages that anyone can open. Each row carries a link, the date on the page, a tag (V: read on the primary page; C: computed from
+V rows), a qualifier and a caveat of a sentence. A second Claude Code agent re-opens the source of every valuation, ARR and price row and of a share of the rest, and anything it cannot confirm is dropped. A valuation that a publication reported is
+drawn hollow only when the curator marked it chartable ({privateFacts.reportedDrawnText} today); reports of talks, third-party estimates and secondary marks are never charted. The bias is selection: companies publish a valuation when it flatters, a stale
+round is dashed with its year ({privateFacts.stale} headline rounds carry that mark), and a Chinese round is stated in yuan and never converted. The deal list is what announcements and roundups surfaced, so it is incomplete, and a security vendor
+buying a company outside security is not recorded as a deal. The buyer type follows a written rule. {BUYER_TYPE_RULE}
+
+<h3>Section I of the evaluation plan</h3>
+
+The registered constants, the frozen lists, the discount table and the layer comparables live in the evaluation plan and are mirrored in <code>config.py</code>. A test fails if either drifts from the other, so a threshold cannot move
+without a visible change in the plan's history.
+
+<h3>Metric dictionary</h3>
+
+Every metric the page uses, with its formula, unit, what it can be compared across and what it cannot.
+
+<UrlTable id="dictionary-table" src={`${DATA_BASE}/${DICTIONARY_FILE}.json`} total={dictionaryRows.length} rowHeader="metric" searchLabel="Search the metric dictionary" caption={`Metric dictionary: ${dictionaryRows.length} metrics`} selects={[
+  { column: 'metric', label: 'Metric', options: dictionaryMetrics },
+]} placeholder="Search metrics, formulas, sources…" columns={[
+  { key: 'metric', label: 'Metric' },
+  { key: 'formula', label: 'Formula' },
+  { key: 'unit', label: 'Unit' },
+  { key: 'comparable_across', label: 'Comparable across' },
+  { key: 'not_comparable_across', label: 'Not comparable across' },
+  { key: 'source', label: 'Source' },
+]} />
+<DownloadCsv filename="cyber-metric-dictionary.csv" src={`${DATA_BASE}/${DICTIONARY_FILE}.json`} />
+
+<h3>Reproduce it</h3>
+
+From a clone of the repository, with Python managed by uv and Node for the site:
+
+<pre tabindex="0"><code>{`uv sync
+uv run python -m pipelines.cyber.reference               # validate the curated ring C files
+uv run python -m pipelines.cyber.capture                 # the weekly consensus capture (needs network access)
+uv run python -m pipelines.cyber.valuation_history_em    # East Money valuation history for the A-share listings
+uv run python -m pipelines.cyber.etf                     # the CIBR cross-check
+uv run python -m pipelines.cyber.publish                 # rebuild every mart and data/facts/cyber.json
+uv run pytest -q pipelines/cyber                         # parser, derivation and plan tests
+cd site && npm run build                                 # sync data, draw the diagram, type-check, build`}</code></pre>
+
+The repository holds every mart the page reads, in <a href="https://github.com/srx7703/srx7703.github.io/tree/main/data/marts/cyber">data/marts/cyber</a>, and the curated inputs, in
+{' '}<a href="https://github.com/srx7703/srx7703.github.io/tree/main/data/reference/cyber">data/reference/cyber</a>. The listings, targets and recommendations marts hold the parsed Yahoo fields company by company; the deployed
+site does not serve them, and the build reads them from the repository. The site serves {servedList}, and the data files of the figures and tables, which carry derived measures: multiples, growth, upside and rating counts, and for the size of the
+dots, enterprise value in dollars; none of those data files carries a price, a market capitalisation or a target price. The download buttons give files from the served set. The facts in the downloads remain their publishers'; follow each row's link.
+
+<h3>Limits</h3>
+
+<ul>
+  <li><strong>Layers are unverified.</strong> Every placement rests on the anchor product. A company with several lines sits in a single layer, and a boundary may move when a segment table is read.</li>
+  <li><strong>The registered group is small.</strong> The claims about the multiple rest on {headline.registered.n} US companies, and a single corporate event can change a status.</li>
+  <li><strong>A single cross-section is not a series.</strong> The weekly series starts with the Monday run of {day(reg.series_from)}; stability charts and graded claims wait for it.</li>
+  <li><strong>Analyst data is as served.</strong> Yahoo's values are used as Yahoo serves them and are not audited. Revenue consensus and target prices rest on different analyst counts. Keeping the parsed Yahoo table is outside Yahoo's
+  terms (see Sources and data rights).</li>
+  <li><strong>Multiples are never converted, dot sizes are.</strong> A multiple is a ratio inside a single currency. Dot size on the growth scatter uses enterprise value in dollars: {sizeFacts.sized} dots are sized, {sizeFacts.quoted} quoted in dollars and
+  {' '}{sizeFacts.converted} converted at the FRED rate of {sizeFacts.fxDay}{sizeFacts.noRate.length ? `; ${joinList(sizeFacts.noRate)} have no rate and sit at the smallest size` : ''}.</li>
+  <li><strong>Private figures are selective.</strong> Companies publish valuations when they flatter. The discount is an assumption and the comparable interval multiplies a trailing run-rate by a forward multiple, which favours "above".</li>
+  <li><strong>Grading rests on data this page does not store.</strong> Claims on returns and volatility use Yahoo's daily history fetched at grading time. The private claim is graded on what companies chose to state, with a discount that is an assumption, and consolidation is a count checked by hand against filings and releases.</li>
+  <li><strong>The deal list is a sample.</strong> It holds what announcements and roundups surfaced, with a chartable record; it is not every deal in the market.</li>
+  <li><strong>China is thin.</strong> The regression holds {chinaFacts.nAShareFit} A-share companies, no Chinese private company has a priced round in the ledger, and A-share consensus rests on few brokers.</li>
+</ul>
+
+</Section>
+
+<Appendix>
+
+<Section id="method" title="Method">
+
+<p><strong>Question.</strong> What does the market pay for a listed cybersecurity company, does the layer it sells in explain any of that beyond growth, and how do analysts' targets and private valuations compare with
+listed prices? Every figure above answers part of that question; this section says how each number is made.</p>
+
+<p><strong>Universe.</strong> The pool is pinned. Ring A is the core pricing pool: pure-play and main-line companies that an analyst covers, {facts.scope.by_ring.A.n} listings, {ringAOutsideChina} outside China and
+{' '}{facts.scope.by_ring.A.china} in China. Ring B is classified and counted and not priced ({facts.scope.by_ring.B.n} listings), ring F holds delisted or acquired companies as a reference and is in no test
+({facts.scope.by_ring.F.n} listings), and ring C is the private directory ({facts.scope.by_ring.C.n} companies). The layer tree has {facts.scope.n_layers} layers and {facts.scope.n_subsectors} sub-sectors; a company sits in the layer of its largest
+security line and appears once. Exposure says how much of the company is security: only pure-play companies enter the claims on the multiple, and the targets list adds main-line companies and flags them.</p>
+
+<p><strong>Data.</strong> The listed numbers are parsed fields from Yahoo Finance and East Money; the private numbers are curated rows from company announcements and regulatory filings. The
+{' '}<a href="#data-built">section on how the data is built</a> walks through each source, its cadence and its known bias.</p>
+
+<p><strong>Cleaning.</strong> A curated row reaches a chart or a KPI only when it is tagged V or C and is not a report of talks, a third-party estimate or a secondary mark; a valuation a publication reported is drawn only when the
+curator marked it chartable. A multiple is computed only where the quote and revenue currencies agree; a ratio with a non-positive denominator is never plotted, it is listed with its reason and counted in the notes. Thin analyst coverage is
+drawn dashed and lighter, exposure is shown in the mark and not the colour, and markets are told apart by shape. No multiple is converted; enterprise value in dollars, which sizes the dots of the growth figure, is converted at the FRED rate
+of the listing's currency.</p>
+
+<p><strong>Forward revenue, the multiple and growth.</strong> The definitions are in the dictionary above; the arithmetic is this (<code>pipelines/cyber/frozen.py</code>):</p>
+
+<pre tabindex="0"><code>{`def ntm_weight(fy0_end, as_of):
+    days = (date.fromisoformat(fy0_end) - as_of).days
+    return min(1.0, max(0.0, days / 365.0))
+
+def ntm_revenue(row, as_of):
+    fy0_end, rev0, rev1 = _consensus(row)
+    w = ntm_weight(fy0_end, as_of)
+    return w * (rev0 or 0.0) + (1.0 - w) * rev1
+
+def ev_ntm(row, as_of):
+    ev, ntm = row.get("enterprise_value"), ntm_revenue(row, as_of)
+    return ev / ntm if currencies_agree(row) and ev and ev > 0 and ntm and ntm > 0 else None
+
+def growth(row, as_of):
+    ntm, ttm = ntm_revenue(row, as_of), row.get("ttm_revenue")
+    return ntm / ttm - 1.0 if ntm and ttm and ttm > 0 else None`}</code></pre>
+
+<p>Growth is forward over trailing, so it spans more than a year for a company that has reported a quarter ago. {dictRow('Rule of 40')?.formula}. Target upside: {dictRow('target upside')?.formula}.</p>
+
+<p><strong>The regression.</strong> {cap(reg.note)}. Its form is {reg.model}, fitted on {lcFirst(reg.fitted_on)}, with {num(reg.draws)} bootstrap draws requested for the intervals and {num(reg.ci_draws)} usable.</p>
+
+<p><strong>Private valuation.</strong> The headline is {dictRow('headline valuation')?.formula}. Discount interval: {dictRow('discount interval')?.formula}. Public-comparable interval: {dictRow('public-comparable interval')?.formula}. The discounts are an assumption, not data, and the
+page says so wherever it draws them.</p>
+
+<p><strong>China.</strong> PS percentile: {dictRow('PS percentile')?.formula}.</p>
+
+<p>
+  <a href="https://github.com/srx7703/srx7703.github.io/tree/main/pipelines/cyber">Pipeline source</a>
+  {' · '}<a href="https://github.com/srx7703/srx7703.github.io/blob/main/docs/DATA_MODEL.md">Data model</a>
+  {' · '}<a href={plan.url}>Evaluation plan (section I)</a>
+</p>
+
+</Section>
+
+<Section id="evaluation" title="Evaluation (registered, partly after a first look)">
+
+<p><strong>What was registered.</strong> The {facts.scoreboard.length} claims in the scoreboard, with their populations, thresholds, lists and dates, are section I of
+{' '}<a href={plan.url}>docs/EVALUATION_PLAN.md</a>, written {day(facts.as_of)} and committed {day(facts.registered)}. The file as it stands today hashes to <code>{plan.short}</code> (<a href={plan.history}>history</a>). Each claim states what
+makes it hold, what makes it falsified and what makes it undecidable, and the date it is graded. Sources for the statements that the plan first gave without a source are named in its amendment of {day(facts.registered)}, which changes no
+threshold, population, list or reading.</p>
+
+<p><strong>Not blind.</strong> Several claims are partly retrospective: the multiples, growth rates, free-cash-flow margins and layers of the registered companies had been seen before the thresholds were written, and the weekly
+cross-sections overlap heavily with that first look. The section lists which claims, and the scoreboard prints each reading as "already seen at registration". The guarantee is that a threshold cannot move without a visible change in the
+plan's history, not that the claims were written blind.</p>
+
+<p><strong>How a claim is judged.</strong> The rules apply in a fixed order. If a stated precondition fails, the claim is undecidable. If a holds condition and a falsified condition are both met, it is undecidable. If a falsified
+condition is met, it is falsified; if a holds condition is met, it holds; otherwise it is undecidable, which means the data neither support nor contradict the claim. A result that is merely not significant is never falsified. Intervals
+are percentile bootstraps that resample companies, with {num(reg.draws)} draws requested and a fixed seed, so a reading can be reproduced exactly.</p>
+
+<p><strong>Expected outcomes.</strong> With so few companies, several claims will end undecidable, and the section says how likely that is for each, from a simulation of cross-sections shaped like the baseline.</p>
+
+<p><strong>Results.</strong> {collecting === facts.scoreboard.length ? `No claim has been graded: all ${words(facts.scoreboard.length)} are still collecting; none holds, none is falsified and none is undecidable.` : `${cap(words(collecting))} of ${words(facts.scoreboard.length)} claims are still collecting; ${Object.entries(facts.counts.scoreboard).filter(([k]) => k !== 'collecting').map(([k, n]) => `${words(n)} ${k}`).join(', ')}.`}
+The earliest grading is {day(firstGrading)}; the per-claim dates and first looks are in the scoreboard at the top of the page. The readings as registered, in the plan's own words, are below.</p>
+
+<DataTable id="evaluation-readings" rowHeader="id" compact focusable minus caption="Each claim's reading on the baseline snapshot, in the registered words" columns={SCORE_APPENDIX_COLUMNS} rows={scoreRows} />
+
+
+</Section>
+
+<Section id="data-quality" title="Data quality">
+
+Every publish validates each table against a pandera schema before it writes anything, and a failed schema blocks the write. It then runs checks on row counts, price age, consensus coverage, a stated reason for every missing multiple, currency
+agreement between targets and quotes, blank rating rows, the freshness of the curated files, private notes in any table, the ETF cross-check, and a guard that keeps the last good run if a new run would lose most of the listings. The results are
+recorded with the facts and shown below as they stood at the last publish. {quality.fail.length > 0 ? `${cap(words(quality.fail.length))} failed (${quality.fail.map((c) => c.name).join(', ')}); the affected sections say so.` : 'None failed.'}
+{quality.warn.length > 0 ? ` ${cap(words(quality.warn.length))} ${quality.warn.length === 1 ? 'check warns' : 'checks warn'}: ${words(quality.waiting)} ${quality.waiting === 1 ? 'is' : 'are'} waiting for the first Monday run or a second run to compare with (${joinList(quality.waitingNames)}), and ${words(quality.data)} flag${quality.data === 1 ? 's' : ''} data (${joinList(quality.dataNames)}).` : ''}
+
+<DataQuality checks={facts.checks} caption="Checks run at the last publish" focusable note={`Published ${published}; claims committed ${day(facts.registered)}.`} />
+
+</Section>
+
+<Section id="sources" title="Sources and data rights">
+
+  <ul>
+    {S.map((s) => <li><a href={s.url}>{s.name}</a></li>)}
+  </ul>
+
+  <p><strong>Yahoo Finance.</strong> The repository keeps the parsed fields of the weekly capture, a row per listing per run: price and its time stamp, market capitalisation, enterprise value, target prices and analyst counts, the recommendation mean
+  and rating counts, revenue consensus (mean, low, high and analyst counts), trailing revenue and free cash flow, and fiscal-year dates. They are in <code>data/snapshots/cyber/consensus</code> and, as marts, in <code>data/marts/cyber</code> (listings, targets
+  and recommendations). This page's capture commits no Yahoo response, so its table is not a raw archive; the repository's valuation job, which does commit Yahoo responses for the companies of the earlier pages, also tracks {overlapNames}, so the Yahoo responses for that listing are committed. The deployed site serves none of the listings, targets or recommendations marts. The data files of the figures and tables carry derived measures (multiples, growth, upside, rating counts) and, for the size of the dots,
+  enterprise value in dollars, and none of them carries a price, a market capitalisation or a target price. The facts file the page reads is served as well; it holds aggregates and, in the registered text, a few single values (a company's target prices and some enterprise values). Yahoo's terms restrict building a database of its data, and a weekly table of its values as served is a store of that kind; keeping parsed fields only narrows the
+  footprint and does not change that. The terms of neither Yahoo nor East Money were reviewed to find that they permit this use. A request from either to remove its data will be honoured: open an issue on the
+  {' '}<a href="https://github.com/srx7703/srx7703.github.io/issues">repository</a>.</p>
+
+  <p><strong>East Money.</strong> The repository keeps the parsed consensus and {chinaFacts.emWindow} rating counts of the weekly capture, the daily valuation history (PS_TTM, PB and PE by day since 2018) for the A-share listings, and their half-year revenue. The capture reads an
+  undocumented page endpoint with browser-style request headers. The repository's separate weekly valuation job also archives East Money's raw response for each A-share listing it tracks, and that response names the brokers and the analysts who signed each
+  report; from its first scheduled run those files are committed too. East Money data is shown with attribution, which is not permission.</p>
+
+  <p><strong>CIBR holdings.</strong> Tickers and names from the fund's published holdings, used as a cross-check.</p>
+
+  <p><strong>FRED.</strong> Daily exchange rates published by the Federal Reserve Board (its daily release of foreign exchange rates) and retrieved from FRED, the newest rate on file for each currency, used to put enterprise value in dollars for the dot sizes of the growth figure. The raw
+  files are archived as FRED served them.</p>
+
+  <p><strong>Private companies.</strong> They appear only through curated rows with a public link: every figure was re-read on a public page, and the source named in the row is a page anyone can open.</p>
+
+  <p><strong>Data use.</strong> The facts in the ledger and in the downloads remain their publishers'. Follow each row's link to the page it was read on, and check it there before relying on it.</p>
+
+  <p class="muted">Per-row links for every private figure are in the tables above and in the marts.</p>
+
+</Section>
+
+<Section id="build-notes" title="Build notes">
+
+<p><strong>What Claude Code did.</strong> The page was built by Claude Code agents working from written specifications (<code>docs/cyber/PIPELINE_SPEC.md</code> and <code>docs/cyber/SITE_SPEC.md</code>): the pipeline modules with their pandera
+schemas and tests, the chart modules, the dashboard controls, the diagram and this page. Curator agents wrote the private-company rows from public pages, and a separate Claude Code agent re-opened the sources of every valuation, ARR and price
+row and of a share of the rest.</p>
+
+<p><strong>What the author decided.</strong> The question; the scope, which prices only the core pool; that every figure must come from a public page anyone can open, which the validator checks by host; that a valuation a publication reported is
+drawn only when the curator marked it chartable and that reports of talks, third-party estimates and secondary marks never reach a chart; and what is published. The layer tree, the pool, the registered thresholds and the discount table were drafted in
+a Claude Code session under those rules, and several thresholds were set after the baseline was seen, which the Evaluation section says.</p>
+
+<p><strong>What gates the page.</strong> Every mart passes its pandera schema before anything is written, and a regression guard keeps the last good run if a new run would lose most of the listings. Unit tests in <code>pipelines/cyber/tests</code> cover the parsers,
+the derivations, the grading rule and the registered text, and fail if a pinned constant drifts. Page tests fail on a hand-typed number. The site build (astro check, then astro build) fails if the page cannot render from the current facts and marts,
+and if a count the page prints differs from the same count in the facts.</p>
+
+<p><strong>Known gaps.</strong> The weekly series has {reg.n_series} Monday snapshots, so there is no stability chart and no graded claim. Keeping the parsed Yahoo table is outside Yahoo's terms (see Sources and data rights).
+<a href="https://github.com/srx7703/srx7703.github.io">Source repository</a>.</p>
+
+</Section>
+
+<Section id="changelog" title="Changelog">
+  <ul class="prose">
+    {pageLog.length > 0
+      ? pageLog.map((e) => <li><strong>{e.date}</strong> — {e.text}</li>)
+      : <li>No entry is registered for this page yet.</li>}
+  </ul>
+</Section>
+
+</Appendix>

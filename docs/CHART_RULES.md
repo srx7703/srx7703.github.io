@@ -29,4 +29,12 @@
     multiples do. Say "log scale" in the subtitle; never use one to flatter a series.
 14. When a pool mixes companies with different amounts of exposure to the subject, exposure is encoded in
     the mark (filled for a pure play, hollow for partial) rather than in the colour, which is already
-    carrying the series. Thin analyst coverage fades the mark. Both are explained in the subtitle.
+    carrying the series. Thin analyst coverage is never encoded by opacity alone. A mark at half opacity
+    measures about 1.9:1 against the paper ground, and a graphic needs 3:1; the thinly covered companies
+    are content, not decoration, because they carry the largest targets. So the stroke keeps full opacity
+    and only the fill fades, or the whole mark fades only as far as its colour still clears 3:1 on both
+    grounds (measured on the paper palette of 2026-10-17: opacity 0.83 for blue, 0.92 for green and 0.96
+    for orange and grey on the light ground, 0.73 on the dark one), and a second channel that costs no
+    contrast says "thin": a dashed outline, a smaller mark, or a glyph in the legend. Text and bars of a
+    dimmed panel stay solid; only a fill may dim. Both channels are explained in the legend or in the
+    figure's reading guide.

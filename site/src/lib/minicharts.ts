@@ -12,6 +12,8 @@ import opticalCompanies from '@data/marts/valuation/optical_companies.json';
 import ssbCompanies from '@data/marts/valuation/ssb_companies.json';
 import memIndex from '@data/marts/memcycle/price_index.json';
 import takeRates from '@data/marts/payments/take_rates.json';
+import cyberListings from '@data/marts/cyber/listings.json';
+import type { Listing } from '@charts/cyber/types';
 
 export type Pt = [number, number];
 export type MiniSpec =
@@ -127,6 +129,30 @@ function payments(): MiniSpec {
   };
 }
 
+/**
+ * The page's second figure shrunk to a glyph: EV over next-twelve-month revenue (log scale) against expected growth for
+ * the registered listings that have both, pure plays in the series colour and the rest grey. A listing without a
+ * positive multiple or a growth figure is left out (the page lists each with its reason), and growth beyond its 95th
+ * percentile is drawn on the right edge so one outlier does not flatten the rest. Empty-state safe: no row, no points.
+ */
+function cyber(): MiniSpec {
+  const rows = (cyberListings as Listing[]).filter(
+    (r) => r.ring === 'A' && r.ev_ntm != null && r.ev_ntm > 0 && r.growth != null && Number.isFinite(r.growth),
+  );
+  if (!rows.length) {
+    return { kind: 'scatter', points: [], x: [0, 1], y: [0, 1], label: 'EV over next-twelve-month revenue against expected growth for listed security companies; no listing has both yet' };
+  }
+  const growth = rows.map((r) => r.growth as number).sort((a, b) => a - b);
+  const cap = growth[Math.min(growth.length - 1, Math.floor(0.95 * growth.length))];
+  const pts = rows.map((r) => ({ x: Math.min(r.growth as number, cap), y: Math.log10(r.ev_ntm as number), hit: r.purity === 'high' }));
+  const ys = pts.map((p) => p.y);
+  const pad = (lo: number, hi: number): [number, number] => { const d = (hi - lo) * 0.1 || 1; return [lo - d, hi + d]; };
+  return {
+    kind: 'scatter', points: pts, x: pad(growth[0], cap), y: pad(Math.min(...ys), Math.max(...ys)),
+    label: `EV over next-twelve-month revenue (log scale) against expected revenue growth for ${pts.length} of the priced listed security companies, pure plays highlighted; growth beyond its 95th percentile is drawn at the right edge`,
+  };
+}
+
 export const miniCharts: Record<string, MiniSpec> = {
   'midterms-2026': midterms(),
   'fomc-markets': fomc(),
@@ -143,4 +169,5 @@ export const miniCharts: Record<string, MiniSpec> = {
   ),
   'memory-cycles': memcycle(),
   'payments-landscape': payments(),
+  'cybersecurity-landscape': cyber(),
 };

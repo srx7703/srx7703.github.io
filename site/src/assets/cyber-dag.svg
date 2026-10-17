@@ -1,0 +1,122 @@
+<div class="dag-fig">
+<style>
+.dag-fig .dag-scroll{overflow-x:auto}
+.dag-fig .dag-list{display:none;font-family:var(--font-sans,system-ui,sans-serif);font-size:.86rem;line-height:1.45;color:var(--ink-2);margin:0;padding-left:1.1rem}
+.dag-fig .dag-list>li{margin:0 0 .7rem}
+.dag-fig .dag-list ul{margin:.25rem 0 0;padding-left:1rem;list-style:disc}
+.dag-fig .dag-list .from{color:var(--ink-3)}
+@media (max-width:480px){.dag-fig .dag-scroll{display:none}.dag-fig .dag-list{display:block}}
+</style>
+<div class="dag-scroll" tabindex="0" role="region" aria-label="Pipeline diagram; use the arrow keys to scroll it sideways">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1082 549" class="dag" role="img" aria-labelledby="cyber-dag-title cyber-dag-desc">
+<title id="cyber-dag-title">How the cybersecurity data is built</title>
+<desc id="cyber-dag-desc">Left to right. Published by others: FRED exchange rates, Evaluation plan, Yahoo Finance, East Money forecast, East Money valuation, East Money reports, CIBR holdings, Public statements. Raw read: FX rates, Pool, Yahoo responses, East Money rows, East Money tables, CIBR file, Curated files. Weekly tables: Consensus table, Valuation history, Validated rows. Metrics: metrics.py, China panel, etf.py. Regression, scoreboard: regression.py, evaluate.py, ledger.py. Marts (data/marts/cyber): regression, listings, scoreboard, china_panel, etf_crosscheck, private_intervals. Gate, facts, page: pandera gate, regression guard, facts/cyber.json, this page. Dashed boxes are read in memory and their raw payload is not kept, only the parsed fields. A bar on the left edge marks a curated file: every row has a source link, a date and a qualifier.</desc>
+<style>
+.dag{font-family:var(--font-sans,system-ui,sans-serif);width:100%;min-width:1082px;height:auto;display:block}
+.dag .col{font-size:11px;font-weight:600;fill:var(--ink)}
+.dag .step{font-size:9.5px;font-style:italic;fill:var(--ink-3)}
+.dag .box{fill:var(--bg);stroke:var(--border-strong);stroke-width:1}
+.dag .box.drop{stroke-dasharray:4 3;stroke:var(--ink-3)}
+.dag .bar{fill:var(--ink-3)}
+.dag .lbl{font-size:10.5px;fill:var(--ink)}
+.dag .sub{font-size:9px;fill:var(--ink-3)}
+.dag .edge{fill:none;stroke:var(--ink-3);stroke-width:0.9;opacity:0.75}
+.dag .head{fill:var(--ink-3)}
+.dag .legend{font-size:9.5px;fill:var(--ink-3)}
+</style>
+<defs><marker id="cyber-dag-arrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L6,3 L0,6 z" class="head"/></marker></defs>
+<text class="col" x="6" y="18">Published by others</text>
+<text class="col" x="162" y="18">Raw read</text>
+<text class="col" x="318" y="18">Weekly tables</text>
+<text class="col" x="474" y="18">Metrics</text>
+<text class="col" x="630" y="18">Regression, scoreboard</text>
+<text class="col" x="786" y="18">Marts (data/marts/cyber)</text>
+<text class="col" x="942" y="18">Gate, facts, page</text>
+<text class="step" x="151" y="36" text-anchor="middle">fetched, parsed</text>
+<text class="step" x="307" y="36" text-anchor="middle">stored, validated</text>
+<text class="step" x="463" y="36" text-anchor="middle">computed</text>
+<text class="step" x="619" y="36" text-anchor="middle">fitted, graded</text>
+<text class="step" x="775" y="36" text-anchor="middle">written</text>
+<text class="step" x="931" y="36" text-anchor="middle">gated, templated</text>
+<g>
+<path class="edge" d="M140,139 L159,139" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M140,199 L159,199" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M140,259 L159,259" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M140,319 C149.5,319 149.5,344 159,344" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M140,369 C149.5,369 149.5,344 159,344" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M140,434 L159,434" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M140,494 L159,494" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M140,79 L159,79" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M296,199 C305.5,199 305.5,229 315,229" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M296,259 C305.5,259 305.5,229 315,229" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M296,344 L315,344" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M296,494 L315,494" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M452,229 C461.5,229 461.5,199 471,199" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M296,139 C383.5,139 383.5,199 471,199" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M296,79 C383.5,79 383.5,199 471,199" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M452,344 L471,344" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M296,434 L471,434" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M608,199 C617.5,199 617.5,139 627,139" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M608,199 C617.5,199 617.5,264 627,264" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M608,199 C617.5,199 617.5,494 627,494" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M452,494 L627,494" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M644,160 L644,241" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M644,473 L644,287" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M608,199 L783,199" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M764,139 L783,139" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M764,264 L783,264" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M764,494 L783,494" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M608,344 L783,344" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M608,434 L783,434" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M920,139 C929.5,139 929.5,249 939,249" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M920,199 C929.5,199 929.5,249 939,249" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M920,264 C929.5,264 929.5,249 939,249" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M920,344 C929.5,344 929.5,249 939,249" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M920,434 C929.5,434 929.5,249 939,249" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M920,494 C929.5,494 929.5,249 939,249" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M956,270 L956,296" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M956,340 L956,366" marker-end="url(#cyber-dag-arrow)"/>
+<path class="edge" d="M956,410 L956,436" marker-end="url(#cyber-dag-arrow)"/>
+</g>
+<g><rect class="box" x="6" y="58" width="134" height="42"/><text class="lbl" x="13" y="71">FRED exchange rates</text><text class="sub" x="13" y="83">dollars per currency,</text><text class="sub" x="13" y="93">newest rate on file</text></g>
+<g><rect class="box" x="6" y="118" width="134" height="42"/><text class="lbl" x="13" y="131">Evaluation plan</text><text class="sub" x="13" y="143">section I, registered</text><text class="sub" x="13" y="153">definitions and pool</text></g>
+<g><rect class="box" x="6" y="178" width="134" height="42"/><text class="lbl" x="13" y="191">Yahoo Finance</text><text class="sub" x="13" y="203">price, EV, targets,</text><text class="sub" x="13" y="213">ratings, revenue est.</text></g>
+<g><rect class="box" x="6" y="237.99999999999997" width="134" height="42"/><text class="lbl" x="13" y="250.99999999999997">East Money forecast</text><text class="sub" x="13" y="263">A-share consensus,</text><text class="sub" x="13" y="273">six-month ratings</text></g>
+<g><rect class="box" x="6" y="298" width="134" height="42"/><text class="lbl" x="13" y="311">East Money valuation</text><text class="sub" x="13" y="323">daily PS_TTM and PB</text></g>
+<g><rect class="box" x="6" y="348" width="134" height="42"/><text class="lbl" x="13" y="361">East Money reports</text><text class="sub" x="13" y="373">A-share revenue,</text><text class="sub" x="13" y="383">by report date</text></g>
+<g><rect class="box" x="6" y="413" width="134" height="42"/><text class="lbl" x="13" y="426">CIBR holdings</text><text class="sub" x="13" y="438">First Trust ETF page</text></g>
+<g><rect class="box" x="6" y="472.99999999999994" width="134" height="42"/><text class="lbl" x="13" y="485.99999999999994">Public statements</text><text class="sub" x="13" y="497.99999999999994">filings, releases,</text><text class="sub" x="13" y="507.99999999999994">priced rounds, deals</text></g>
+<g><rect class="box" x="162" y="58" width="134" height="42"/><text class="lbl" x="169" y="71">FX rates</text><text class="sub" x="169" y="83">read at publish;</text><text class="sub" x="169" y="93">newest per currency</text></g>
+<g><rect class="box" x="162" y="118" width="134" height="42"/><text class="lbl" x="169" y="131">Pool</text><text class="sub" x="169" y="143">pool.py, as registered</text><text class="sub" x="169" y="153">layer, ring, purity</text></g>
+<g><rect class="box drop" x="162" y="178" width="134" height="42"/><text class="lbl" x="169" y="191">Yahoo responses</text><text class="sub" x="169" y="203">read in memory;</text><text class="sub" x="169" y="213">parsed fields kept</text></g>
+<g><rect class="box drop" x="162" y="237.99999999999997" width="134" height="42"/><text class="lbl" x="169" y="250.99999999999997">East Money rows</text><text class="sub" x="169" y="263">read in memory;</text><text class="sub" x="169" y="273">parsed fields kept</text></g>
+<g><rect class="box drop" x="162" y="323" width="134" height="42"/><text class="lbl" x="169" y="336">East Money tables</text><text class="sub" x="169" y="348">read in memory;</text><text class="sub" x="169" y="358">parsed fields kept</text></g>
+<g><rect class="box" x="162" y="413" width="134" height="42"/><text class="lbl" x="169" y="426">CIBR file</text><text class="sub" x="169" y="438">cibr_holdings_*.json,</text><text class="sub" x="169" y="448">tickers and names</text></g>
+<g><rect class="box" x="162" y="472.99999999999994" width="134" height="42"/><rect class="bar" x="162" y="472.99999999999994" width="3" height="42"/><text class="lbl" x="172" y="485.99999999999994">Curated files</text><text class="sub" x="172" y="497.99999999999994">private_*.json, events,</text><text class="sub" x="172" y="507.99999999999994">link, date, qualifier</text></g>
+<g><rect class="box" x="318" y="208" width="134" height="42"/><text class="lbl" x="325" y="221">Consensus table</text><text class="sub" x="325" y="233">consensus/*.parquet;</text><text class="sub" x="325" y="243">last good run, Mondays</text></g>
+<g><rect class="box" x="318" y="323" width="134" height="42"/><text class="lbl" x="325" y="336">Valuation history</text><text class="sub" x="325" y="348">valuation_history_em/</text><text class="sub" x="325" y="358">daily PS_TTM, revenue</text></g>
+<g><rect class="box" x="318" y="472.99999999999994" width="134" height="42"/><rect class="bar" x="318" y="472.99999999999994" width="3" height="42"/><text class="lbl" x="328" y="485.99999999999994">Validated rows</text><text class="sub" x="328" y="497.99999999999994">reference.rows():</text><text class="sub" x="328" y="507.99999999999994">checked, notes stripped</text></g>
+<g><rect class="box" x="474" y="178" width="134" height="42"/><text class="lbl" x="481" y="191">metrics.py</text><text class="sub" x="481" y="203">EV/NTM, growth, FCF,</text><text class="sub" x="481" y="213">Rule of 40, upside</text></g>
+<g><rect class="box" x="474" y="323" width="134" height="42"/><text class="lbl" x="481" y="336">China panel</text><text class="sub" x="481" y="348">PS_TTM percentile,</text><text class="sub" x="481" y="358">revenue growth y/y</text></g>
+<g><rect class="box" x="474" y="413" width="134" height="42"/><text class="lbl" x="481" y="426">etf.py</text><text class="sub" x="481" y="438">CIBR against the pool;</text><text class="sub" x="481" y="448">a gap fails the check</text></g>
+<g><rect class="box" x="630" y="118" width="134" height="42"/><text class="lbl" x="637" y="131">regression.py</text><text class="sub" x="637" y="143">EV/NTM on growth,</text><text class="sub" x="637" y="153">layers, residuals</text></g>
+<g><rect class="box" x="630" y="243" width="134" height="42"/><text class="lbl" x="637" y="256">evaluate.py</text><text class="sub" x="637" y="268">Q1-Q10 as registered;</text><text class="sub" x="637" y="278">collecting until graded</text></g>
+<g><rect class="box" x="630" y="472.99999999999994" width="134" height="42"/><text class="lbl" x="637" y="485.99999999999994">ledger.py</text><text class="sub" x="637" y="497.99999999999994">private intervals,</text><text class="sub" x="637" y="507.99999999999994">events, unconfirmed</text></g>
+<g><rect class="box" x="786" y="118" width="134" height="42"/><text class="lbl" x="793" y="131">regression</text><text class="sub" x="793" y="143">latest, series,</text><text class="sub" x="793" y="153">residuals, premium</text></g>
+<g><rect class="box" x="786" y="178" width="134" height="42"/><text class="lbl" x="793" y="191">listings</text><text class="sub" x="793" y="203">+ layer_summary,</text><text class="sub" x="793" y="213">targets, recommendations</text></g>
+<g><rect class="box" x="786" y="243" width="134" height="42"/><text class="lbl" x="793" y="256">scoreboard</text><text class="sub" x="793" y="268">+ evidence, kpis</text></g>
+<g><rect class="box" x="786" y="323" width="134" height="42"/><text class="lbl" x="793" y="336">china_panel</text><text class="sub" x="793" y="348">A-share listings</text></g>
+<g><rect class="box" x="786" y="413" width="134" height="42"/><text class="lbl" x="793" y="426">etf_crosscheck</text><text class="sub" x="793" y="438">+ excluded,</text><text class="sub" x="793" y="448">metric_dictionary</text></g>
+<g><rect class="box" x="786" y="472.99999999999994" width="134" height="42"/><text class="lbl" x="793" y="485.99999999999994">private_intervals</text><text class="sub" x="793" y="497.99999999999994">+ ledger_*, events,</text><text class="sub" x="793" y="507.99999999999994">reported_unconfirmed</text></g>
+<g><rect class="box" x="942" y="228.00000000000003" width="134" height="42"/><text class="lbl" x="949" y="241.00000000000003">pandera gate</text><text class="sub" x="949" y="253.00000000000003">a schema failure</text><text class="sub" x="949" y="263">blocks the write</text></g>
+<g><rect class="box" x="942" y="298" width="134" height="42"/><text class="lbl" x="949" y="311">regression guard</text><text class="sub" x="949" y="323">a thin run keeps the</text><text class="sub" x="949" y="333">last good facts</text></g>
+<g><rect class="box" x="942" y="368" width="134" height="42"/><text class="lbl" x="949" y="381">facts/cyber.json</text><text class="sub" x="949" y="393">every number the</text><text class="sub" x="949" y="403">page prints</text></g>
+<g><rect class="box" x="942" y="438" width="134" height="42"/><text class="lbl" x="949" y="451">this page</text><text class="sub" x="949" y="463">prose templated;</text><text class="sub" x="949" y="473">charts read the marts</text></g>
+<rect class="box drop" x="6" y="526" width="22" height="11"/>
+<text class="legend" x="36" y="535">read in memory; the raw payload is not kept, only the parsed fields</text>
+<rect class="box" x="396" y="526" width="22" height="11"/><rect class="bar" x="396" y="526" width="3" height="11"/>
+<text class="legend" x="426" y="535">curated, with a source link, date and qualifier for every row</text>
+</svg>
+</div>
+<ol class="dag-list" aria-label="How the cybersecurity data is built, as a list"><li><strong>Published by others</strong><ul><li><strong>FRED exchange rates</strong>: dollars per currency, newest rate on file.</li><li><strong>Evaluation plan</strong>: section I, registered definitions and pool.</li><li><strong>Yahoo Finance</strong>: price, EV, targets, ratings, revenue est.</li><li><strong>East Money forecast</strong>: A-share consensus, six-month ratings.</li><li><strong>East Money valuation</strong>: daily PS_TTM and PB.</li><li><strong>East Money reports</strong>: A-share revenue, by report date.</li><li><strong>CIBR holdings</strong>: First Trust ETF page.</li><li><strong>Public statements</strong>: filings, releases, priced rounds, deals.</li></ul></li><li><strong>Raw read</strong> <span class="from">(fetched, parsed)</span><ul><li><strong>FX rates</strong>: read at publish; newest per currency. <span class="from">From FRED exchange rates.</span></li><li><strong>Pool</strong>: pool.py, as registered layer, ring, purity. <span class="from">From Evaluation plan.</span></li><li><strong>Yahoo responses</strong>: read in memory; parsed fields kept. <span class="from">From Yahoo Finance.</span></li><li><strong>East Money rows</strong>: read in memory; parsed fields kept. <span class="from">From East Money forecast.</span></li><li><strong>East Money tables</strong>: read in memory; parsed fields kept. <span class="from">From East Money valuation, East Money reports.</span></li><li><strong>CIBR file</strong>: cibr_holdings_*.json, tickers and names. <span class="from">From CIBR holdings.</span></li><li><strong>Curated files</strong>: private_*.json, events, link, date, qualifier. Curated: a source link, a date and a qualifier on every row. <span class="from">From Public statements.</span></li></ul></li><li><strong>Weekly tables</strong> <span class="from">(stored, validated)</span><ul><li><strong>Consensus table</strong>: consensus/*.parquet; last good run, Mondays. <span class="from">From Yahoo responses, East Money rows.</span></li><li><strong>Valuation history</strong>: valuation_history_em/ daily PS_TTM, revenue. <span class="from">From East Money tables.</span></li><li><strong>Validated rows</strong>: reference.rows(): checked, notes stripped. Curated: a source link, a date and a qualifier on every row. <span class="from">From Curated files.</span></li></ul></li><li><strong>Metrics</strong> <span class="from">(computed)</span><ul><li><strong>metrics.py</strong>: EV/NTM, growth, FCF, Rule of 40, upside. <span class="from">From Consensus table, Pool, FX rates.</span></li><li><strong>China panel</strong>: PS_TTM percentile, revenue growth y/y. <span class="from">From Valuation history.</span></li><li><strong>etf.py</strong>: CIBR against the pool; a gap fails the check. <span class="from">From CIBR file.</span></li></ul></li><li><strong>Regression, scoreboard</strong> <span class="from">(fitted, graded)</span><ul><li><strong>regression.py</strong>: EV/NTM on growth, layers, residuals. <span class="from">From metrics.py.</span></li><li><strong>evaluate.py</strong>: Q1-Q10 as registered; collecting until graded. <span class="from">From metrics.py, regression.py, ledger.py.</span></li><li><strong>ledger.py</strong>: private intervals, events, unconfirmed. <span class="from">From metrics.py, Validated rows.</span></li></ul></li><li><strong>Marts (data/marts/cyber)</strong> <span class="from">(written)</span><ul><li><strong>regression</strong>: latest, series, residuals, premium. <span class="from">From regression.py.</span></li><li><strong>listings</strong>: + layer_summary, targets, recommendations. <span class="from">From metrics.py.</span></li><li><strong>scoreboard</strong>: + evidence, kpis. <span class="from">From evaluate.py.</span></li><li><strong>china_panel</strong>: A-share listings. <span class="from">From China panel.</span></li><li><strong>etf_crosscheck</strong>: + excluded, metric_dictionary. <span class="from">From etf.py.</span></li><li><strong>private_intervals</strong>: + ledger_*, events, reported_unconfirmed. <span class="from">From ledger.py.</span></li></ul></li><li><strong>Gate, facts, page</strong> <span class="from">(gated, templated)</span><ul><li><strong>pandera gate</strong>: a schema failure blocks the write. <span class="from">From regression, listings, scoreboard, china_panel, etf_crosscheck, private_intervals.</span></li><li><strong>regression guard</strong>: a thin run keeps the last good facts. <span class="from">From pandera gate.</span></li><li><strong>facts/cyber.json</strong>: every number the page prints. <span class="from">From regression guard.</span></li><li><strong>this page</strong>: prose templated; charts read the marts. <span class="from">From facts/cyber.json.</span></li></ul></li></ol>
+</div>
