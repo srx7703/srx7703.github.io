@@ -1,0 +1,56 @@
+[
+ {
+  "ticker": "ANET",
+  "name": "Arista Networks",
+  "reason": "held by cybersecurity ETFs; a switching vendor with no security line the page can place",
+  "kind": "left_out"
+ },
+ {
+  "ticker": "DT",
+  "name": "Dynatrace",
+  "reason": "held by cybersecurity ETFs; observability vendor, security is a module inside it",
+  "kind": "left_out"
+ },
+ {
+  "ticker": "NTAP",
+  "name": "NetApp",
+  "reason": "held by cybersecurity ETFs; storage vendor, its ransomware features are not a revenue line",
+  "kind": "left_out"
+ },
+ {
+  "ticker": "BEZ.L",
+  "name": "Beazley",
+  "reason": "delisted 2026-10-02: Lloyd's specialty insurer with a large cyber line; delisted 2026-10-02 after Zurich's acquisition",
+  "kind": "ring_f"
+ },
+ {
+  "ticker": "CYBR",
+  "name": "CyberArk Software",
+  "reason": "acquired 2026-02-11: Acquired by Palo Alto Networks; announced 2025-07-30, completed 2026-02-11, Form 15 on 2026-02-23",
+  "kind": "ring_f"
+ },
+ {
+  "ticker": "DARK.L",
+  "name": "Darktrace",
+  "reason": "delisted 2024-10-01: Taken private by Thoma Bravo; announced 2024-04, completed and delisted from LSE 2024-10-01",
+  "kind": "ring_f"
+ },
+ {
+  "ticker": "EXN.PA",
+  "name": "Exclusive Networks",
+  "reason": "delisted 2025-03-07: Taken private by CD&R and Permira; squeeze-out at EUR 18.96 per share, delisted from Euronext Paris",
+  "kind": "ring_f"
+ },
+ {
+  "ticker": "JAMF",
+  "name": "Jamf Holding",
+  "reason": "delisted 2026-01-30: Taken private; completed 2026-01-30. Apple device management with a security line",
+  "kind": "ring_f"
+ },
+ {
+  "ticker": "WITH.HE",
+  "name": "WithSecure",
+  "reason": "delisted 2025-11: Taken private by CVC and Risto Siilasmaa at EUR 1.70 per share; squeezed out and delisted after Nov 2025",
+  "kind": "ring_f"
+ }
+]

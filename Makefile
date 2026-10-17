@@ -1,4 +1,4 @@
-.PHONY: setup test lint snapshot snapshot-midterms snapshot-fomc backfill sec valuation valuation-daily memcycle memcycle-freeze publish site all
+.PHONY: setup test lint snapshot snapshot-midterms snapshot-fomc backfill sec valuation valuation-daily memcycle memcycle-freeze cyber-publish publish site all
 
 setup:            ## install python deps (uv) and site deps (npm)
 	uv sync
@@ -48,6 +48,9 @@ memcycle:         ## memory-chip price cycles: ECOS raw -> snapshot -> marts and
 memcycle-freeze:  ## LOCAL ONLY: check the frozen stock-side table against the local closes (needs MEMCYCLE_INPUTS)
 	uv run python -m pipelines.memcycle.freeze --check
 
+cyber-publish:    ## cybersecurity page: marts and facts from the stored snapshots and curated files (no network)
+	uv run python -m pipelines.cyber.publish
+
 publish:          ## rebuild every mart and facts file from the snapshots
 	uv run python -m pipelines.predmarkets.publish
 	uv run python -m pipelines.statarb.publish
@@ -56,6 +59,7 @@ publish:          ## rebuild every mart and facts file from the snapshots
 	uv run python -m pipelines.valuation.publish
 	uv run python -m pipelines.valuation.evaluate
 	uv run python -m pipelines.payments.publish
+	uv run python -m pipelines.cyber.publish
 
 site:             ## build the static site (syncs data/ into site/public/data first)
 	cd site && npm run build

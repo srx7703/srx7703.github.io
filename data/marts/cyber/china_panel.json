@@ -1,0 +1,591 @@
+[
+ {
+  "ticker": "002212.SZ",
+  "name": "Topsec Technologies",
+  "name_cn": "天融信",
+  "ring": "A",
+  "ps_ttm": 3.59327793,
+  "ps_percentile": 0.5901408450704225,
+  "pb": 0.88716226,
+  "pb_percentile": 0.12629107981220658,
+  "total_market_cap": 8232588075.42,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.3399195899196038,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "002268.SZ",
+  "name": "CETC Cyberspace Security (ex-Westone)",
+  "name_cn": "电科网安",
+  "ring": "A",
+  "ps_ttm": 5.33349198,
+  "ps_percentile": 0.09671361502347418,
+  "pb": 2.19574968,
+  "pb_percentile": 0.05258215962441314,
+  "total_market_cap": 11991119656.94,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.04039272807161243,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "002439.SZ",
+  "name": "Venustech",
+  "name_cn": "启明星辰",
+  "ring": "A",
+  "ps_ttm": 6.91699422,
+  "ps_percentile": 0.528169014084507,
+  "pb": 1.55226953,
+  "pb_percentile": 0.06901408450704226,
+  "total_market_cap": 16874804855.65,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": 0.09009160188083665,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "002912.SZ",
+  "name": "Sinovatio",
+  "name_cn": "中新赛克",
+  "ring": "A",
+  "ps_ttm": 6.25664391,
+  "ps_percentile": 0.168075117370892,
+  "pb": 3.13003577,
+  "pb_percentile": 0.38309859154929576,
+  "total_market_cap": 4753735680.0,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": 0.03955953036501647,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "300188.SZ",
+  "name": "SDIC Intelligence (ex-Meiya Pico)",
+  "name_cn": "国投智能",
+  "ring": "A",
+  "ps_ttm": 6.61572109,
+  "ps_percentile": 0.4215962441314554,
+  "pb": 3.73038909,
+  "pb_percentile": 0.3342723004694836,
+  "total_market_cap": 8861211066.1,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.12888104652663313,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "300369.SZ",
+  "name": "NSFOCUS Technologies",
+  "name_cn": "绿盟科技",
+  "ring": "A",
+  "ps_ttm": 3.21578738,
+  "ps_percentile": 0.3563380281690141,
+  "pb": 3.23118724,
+  "pb_percentile": 0.6511737089201878,
+  "total_market_cap": 8211599715.31,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": 0.015052164485623853,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "300454.SZ",
+  "name": "Sangfor Technologies",
+  "name_cn": "深信服",
+  "ring": "A",
+  "ps_ttm": 5.97867618,
+  "ps_percentile": 0.3103279490944689,
+  "pb": 4.87577671,
+  "pb_percentile": 0.25599608418991676,
+  "total_market_cap": 53996668961.6,
+  "n_history_days": 2043,
+  "history_start": "2018-05-16",
+  "as_of": "2026-10-16",
+  "revenue_yoy": 0.3284821728170124,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "300768.SZ",
+  "name": "DPtech",
+  "name_cn": "迪普科技",
+  "ring": "A",
+  "ps_ttm": 7.37717513,
+  "ps_percentile": 0.04942339373970346,
+  "pb": 2.5147953,
+  "pb_percentile": 0.07797913234486546,
+  "total_market_cap": 8884840738.2,
+  "n_history_days": 1821,
+  "history_start": "2019-04-12",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.02517370385086415,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "603232.SS",
+  "name": "Koal Software",
+  "name_cn": "格尔软件",
+  "ring": "A",
+  "ps_ttm": 10.72597981,
+  "ps_percentile": 0.7408450704225352,
+  "pb": 3.12251709,
+  "pb_percentile": 0.568075117370892,
+  "total_market_cap": 3960251482.85,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": 0.10085045962329309,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "688023.SS",
+  "name": "DBAPPSecurity",
+  "name_cn": "安恒信息",
+  "ring": "A",
+  "ps_ttm": 2.20003394,
+  "ps_percentile": 0.14845605700712589,
+  "pb": 2.20769742,
+  "pb_percentile": 0.22387173396674584,
+  "total_market_cap": 4747057143.78,
+  "n_history_days": 1684,
+  "history_start": "2019-11-05",
+  "as_of": "2026-10-16",
+  "revenue_yoy": 0.00856394193983423,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "688168.SS",
+  "name": "ABT Networks",
+  "name_cn": "安博通",
+  "ring": "A",
+  "ps_ttm": 15.1839804,
+  "ps_percentile": 0.7779069767441861,
+  "pb": 4.06277341,
+  "pb_percentile": 0.6087209302325581,
+  "total_market_cap": 3922541881.5,
+  "n_history_days": 1720,
+  "history_start": "2019-09-06",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.6945781599610621,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": true
+  }
+ },
+ {
+  "ticker": "688201.SS",
+  "name": "Infosec Technologies",
+  "name_cn": "信安世纪",
+  "ring": "A",
+  "ps_ttm": 4.31429067,
+  "ps_percentile": 0.09932279909706546,
+  "pb": 1.86555862,
+  "pb_percentile": 0.09706546275395034,
+  "total_market_cap": 2372310543.68,
+  "n_history_days": 1329,
+  "history_start": "2021-04-21",
+  "as_of": "2026-10-16",
+  "revenue_yoy": 0.040113132391038864,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "688489.SS",
+  "name": "Sansec Technology",
+  "name_cn": "三未信安",
+  "ring": "A",
+  "ps_ttm": 7.54831066,
+  "ps_percentile": 0.13675213675213677,
+  "pb": 2.41748762,
+  "pb_percentile": 0.4198717948717949,
+  "total_market_cap": 4290337188.5,
+  "n_history_days": 936,
+  "history_start": "2022-12-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": 0.07379456248258709,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "688561.SS",
+  "name": "QI-ANXIN Technology Group",
+  "name_cn": "奇安信",
+  "ring": "A",
+  "ps_ttm": 4.52525167,
+  "ps_percentile": 0.2402382528127068,
+  "pb": 2.66565049,
+  "pb_percentile": 0.25347452018530775,
+  "total_market_cap": 18761949937.5,
+  "n_history_days": 1511,
+  "history_start": "2020-07-22",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.14094667977885,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "688651.SS",
+  "name": "WebRAY",
+  "name_cn": "盛邦安全",
+  "ring": "A",
+  "ps_ttm": 7.88811717,
+  "ps_percentile": 0.1987179487179487,
+  "pb": 2.58831237,
+  "pb_percentile": 0.2794871794871795,
+  "total_market_cap": 2298917092.8,
+  "n_history_days": 780,
+  "history_start": "2023-07-26",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.16097066070815047,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "002368.SZ",
+  "name": "Taiji Computer",
+  "name_cn": "太极股份",
+  "ring": "B",
+  "ps_ttm": 1.23037467,
+  "ps_percentile": 0.11267605633802817,
+  "pb": 1.94244298,
+  "pb_percentile": 0.014084507042253521,
+  "total_market_cap": 7223250604.74,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.5318296129598366,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "003029.SZ",
+  "name": "JIT",
+  "name_cn": "吉大正元",
+  "ring": "B",
+  "ps_ttm": 11.4374753,
+  "ps_percentile": 0.7460881934566145,
+  "pb": 4.24644158,
+  "pb_percentile": 0.7439544807965861,
+  "total_market_cap": 4257708791.73,
+  "n_history_days": 1406,
+  "history_start": "2020-12-24",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.19407118623375552,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "300017.SZ",
+  "name": "Wangsu Science & Technology",
+  "name_cn": "网宿科技",
+  "ring": "B",
+  "ps_ttm": 6.89121332,
+  "ps_percentile": 0.9154929577464789,
+  "pb": 3.07017482,
+  "pb_percentile": 0.8192488262910798,
+  "total_market_cap": 31894851450.06,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.013807909051055,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": true
+  }
+ },
+ {
+  "ticker": "300229.SZ",
+  "name": "TRS Information Technology",
+  "name_cn": "拓尔思",
+  "ring": "B",
+  "ps_ttm": 27.63705111,
+  "ps_percentile": 0.8704225352112676,
+  "pb": 2.95463847,
+  "pb_percentile": 0.18169014084507043,
+  "total_market_cap": 10859108184.76,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.4837656026509506,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": true
+  }
+ },
+ {
+  "ticker": "300311.SZ",
+  "name": "Surfilter",
+  "name_cn": "任子行",
+  "ring": "B",
+  "ps_ttm": 7.48884656,
+  "ps_percentile": 0.8107981220657277,
+  "pb": 5.98862701,
+  "pb_percentile": 0.6962441314553991,
+  "total_market_cap": 3799274046.0,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": 0.16380764023278727,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "300352.SZ",
+  "name": "VRV Software",
+  "name_cn": "北信源",
+  "ring": "B",
+  "ps_ttm": 12.51378437,
+  "ps_percentile": 0.431924882629108,
+  "pb": 3.93161555,
+  "pb_percentile": 0.38779342723004695,
+  "total_market_cap": 3711549662.72,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.08582312866946873,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "300386.SZ",
+  "name": "Feitian Technologies",
+  "name_cn": "飞天诚信",
+  "ring": "B",
+  "ps_ttm": 8.08216701,
+  "ps_percentile": 0.704225352112676,
+  "pb": 3.44389494,
+  "pb_percentile": 0.5516431924882629,
+  "total_market_cap": 4824227760.0,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.26848848296668626,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "300579.SZ",
+  "name": "BJCA",
+  "name_cn": "数字认证",
+  "ring": "B",
+  "ps_ttm": 7.66213741,
+  "ps_percentile": 0.5563380281690141,
+  "pb": 8.68111805,
+  "pb_percentile": 0.504225352112676,
+  "total_market_cap": 6539400000.0,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": 0.045210319846285874,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "300659.SZ",
+  "name": "Zhongfu Information",
+  "name_cn": "中孚信息",
+  "ring": "B",
+  "ps_ttm": 4.39523822,
+  "ps_percentile": 0.16150234741784036,
+  "pb": 2.5013803,
+  "pb_percentile": 0.07183098591549296,
+  "total_market_cap": 2822653377.52,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.2788712906779244,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "601360.SS",
+  "name": "360 Security Technology",
+  "name_cn": "三六零",
+  "ring": "B",
+  "ps_ttm": 6.4902915,
+  "ps_percentile": 0.17746478873239438,
+  "pb": 2.07635924,
+  "pb_percentile": 0.22065727699530516,
+  "total_market_cap": 58656295026.02,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": 0.09014037106540607,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "603496.SS",
+  "name": "Embedway Technologies",
+  "name_cn": "恒为科技",
+  "ring": "B",
+  "ps_ttm": 7.07650114,
+  "ps_percentile": 0.3323943661971831,
+  "pb": 4.97735069,
+  "pb_percentile": 0.47417840375586856,
+  "total_market_cap": 6990167774.69,
+  "n_history_days": 2130,
+  "history_start": "2018-01-02",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.12057304679106373,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "688027.SS",
+  "name": "QuantumCTek",
+  "name_cn": "国盾量子",
+  "ring": "B",
+  "ps_ttm": 93.20442574,
+  "ps_percentile": 0.5151315789473684,
+  "pb": 9.04846489,
+  "pb_percentile": 0.5703947368421053,
+  "total_market_cap": 29142578803.32,
+  "n_history_days": 1520,
+  "history_start": "2020-07-09",
+  "as_of": "2026-10-16",
+  "revenue_yoy": 0.01826386165698768,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "688030.SS",
+  "name": "Hillstone Networks",
+  "name_cn": "山石网科",
+  "ring": "B",
+  "ps_ttm": 3.46217847,
+  "ps_percentile": 0.39882697947214074,
+  "pb": 4.71392801,
+  "pb_percentile": 0.8070381231671554,
+  "total_market_cap": 3274929765.64,
+  "n_history_days": 1705,
+  "history_start": "2019-09-30",
+  "as_of": "2026-10-16",
+  "revenue_yoy": 0.08279579454049957,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "688225.SS",
+  "name": "AsiaInfo Security",
+  "name_cn": "亚信安全",
+  "ring": "B",
+  "ps_ttm": 0.79693627,
+  "ps_percentile": 0.0721830985915493,
+  "pb": 4.02035985,
+  "pb_percentile": 0.6558098591549296,
+  "total_market_cap": 5860146500.0,
+  "n_history_days": 1136,
+  "history_start": "2022-02-09",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.12396086011574825,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ },
+ {
+  "ticker": "688244.SS",
+  "name": "Integrity Technology",
+  "name_cn": "永信至诚",
+  "ring": "B",
+  "ps_ttm": 11.2453022,
+  "ps_percentile": 0.765495867768595,
+  "pb": 3.00703463,
+  "pb_percentile": 0.2964876033057851,
+  "total_market_cap": 2759576567.32,
+  "n_history_days": 968,
+  "history_start": "2022-10-19",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.36282856895000537,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": true
+  }
+ },
+ {
+  "ticker": "688292.SS",
+  "name": "Haohan Data Technology",
+  "name_cn": "浩瀚深度",
+  "ring": "B",
+  "ps_ttm": 8.27245139,
+  "ps_percentile": 0.5636182902584493,
+  "pb": 3.3323679,
+  "pb_percentile": 0.4572564612326044,
+  "total_market_cap": 3179687096.08,
+  "n_history_days": 1006,
+  "history_start": "2022-08-18",
+  "as_of": "2026-10-16",
+  "revenue_yoy": -0.021464710674575893,
+  "revenue_period": "2026H1",
+  "flags": {
+   "ps_percentile_while_revenue_falling": false
+  }
+ }
+]

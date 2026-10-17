@@ -1,0 +1,38 @@
+[
+ {
+  "id": "pure_play_ev_ntm",
+  "label": "Median EV / next-twelve-month revenue, the 17 US-listed pure-play companies in the registered group",
+  "value": 7.256916,
+  "qualifier": "=",
+  "unit": "times next-twelve-month revenue",
+  "period": "snapshot of 2026-10-16",
+  "source_url": "https://finance.yahoo.com/",
+  "as_of": "2026-10-16",
+  "tag": "C",
+  "note": "US-listed companies whose whole business is security and that at least 3 revenue analysts cover, the group the registered claims are about; enterprise value over next-twelve-month revenue. The median over every US-listed pure play with a multiple is lower and is given with the valuation figures"
+ },
+ {
+  "id": "median_target_upside",
+  "label": "Median analyst target upside, companies outside China with three or more analysts",
+  "value": 0.132667,
+  "qualifier": "=",
+  "unit": "fraction (0.10 is 10% above the price)",
+  "period": "snapshot of 2026-10-16",
+  "source_url": "https://finance.yahoo.com/",
+  "as_of": "2026-10-16",
+  "tag": "C",
+  "note": "ring A outside China, 35 companies with 3 or more target-price analysts"
+ },
+ {
+  "id": "highest_private_valuation",
+  "label": "Highest company-stated valuation in the ledger (NinjaOne)",
+  "value": 12300000000.0,
+  "qualifier": "=",
+  "unit": "USD",
+  "period": "2026-06-09",
+  "source_url": "https://www.ninjaone.com/press/12-3-billion-valuation/",
+  "as_of": "2026-06-09",
+  "tag": "V",
+  "note": "disclosed valuation; round of 2026. Valuation as NinjaOne announces it for Series C extensions that its release summary calls secondary funding, with no pre- or post-money label."
+ }
+]

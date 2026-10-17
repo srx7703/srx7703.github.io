@@ -1,0 +1,510 @@
+{
+ "today": "2026-10-17",
+ "spec": {
+  "model": "ln(EV/NTM revenue) = a + b*growth + c*FCF margin + d*China + layer groups",
+  "fitted_on": "the Q1 and Q2 population of the week plus the Q7 A-share group, one run",
+  "ci_level": {
+   "slope": 0.95,
+   "fcf": 0.95,
+   "china": 0.95
+  },
+  "draws": 10000,
+  "seed": 20261026,
+  "layer_merge_below": 3,
+  "trio": [
+   "PANW",
+   "CRWD",
+   "NET"
+  ],
+  "definitions": {
+   "ev_ntm": "Yahoo enterpriseValue over next-twelve-month revenue; w = days from the snapshot to the end of fiscal year 0, divided by 365, held between 0 and 1",
+   "growth": "growth = NTM revenue / trailing-twelve-month revenue - 1",
+   "fcf_margin": "FCF margin = trailing-twelve-month free cash flow / trailing-twelve-month revenue"
+  },
+  "units": {
+   "slope": "change in ln(EV/NTM revenue) per 1.00 of growth (1.00 = 100% growth)",
+   "fcf_coef": "change in ln(EV/NTM revenue) per 1.00 of FCF margin",
+   "china_dummy": "ln(EV/NTM revenue) of an A-share company relative to a US one, same growth, FCF margin and layer",
+   "layer_coefs": "ln(EV/NTM revenue) relative to the reference group, same growth, FCF margin and listing market",
+   "residual": "natural log of EV/NTM revenue over the fitted EV/NTM revenue; 0.10 is about 10% above the fit",
+   "ev_ntm": "EV/NTM revenue, a multiple (x)",
+   "premium": "median EV/NTM revenue of the trio over the median of the rest of the population, a ratio"
+  },
+  "verdict": false
+ },
+ "latest_age_days": 0,
+ "latest": {
+  "as_of": "2026-10-16",
+  "run_ts": "2026-10-17T02:37:07+00:00",
+  "n": 23,
+  "n_us": 17,
+  "n_cn": 6,
+  "n_params": 8,
+  "fitted": true,
+  "reason": null,
+  "r2": 0.8100100576970212,
+  "adj_r2": 0.7213480846222977,
+  "adj_r2_no_layer": 0.7512666313872278,
+  "slope": 6.000665398000402,
+  "slope_ci": [
+   2.3078596518719534,
+   8.144836453365365
+  ],
+  "fcf_coef": 1.4637971872065487,
+  "fcf_ci": [
+   -0.5351301644367265,
+   6.2031655096822815
+  ],
+  "china_dummy": -0.46565530545078176,
+  "china_ci": [
+   -1.2851614701423777,
+   1.182505986370594
+  ],
+  "ci_draws": 9989,
+  "layer_coefs": [
+   {
+    "layer": "endpoint",
+    "n": 3,
+    "coef": 0.0,
+    "reference": true
+   },
+   {
+    "layer": "identity",
+    "n": 4,
+    "coef": -0.02741194748390108,
+    "reference": false
+   },
+   {
+    "layer": "network_edge",
+    "n": 9,
+    "coef": 0.08830826833942497,
+    "reference": false
+   },
+   {
+    "layer": "other",
+    "n": 3,
+    "coef": -0.3321573164649402,
+    "reference": false
+   },
+   {
+    "layer": "secops",
+    "n": 4,
+    "coef": 0.029781380560283895,
+    "reference": false
+   }
+  ],
+  "population": [
+   "002212.SZ",
+   "002439.SZ",
+   "300188.SZ",
+   "300369.SZ",
+   "688489.SS",
+   "688561.SS",
+   "CHKP",
+   "CRWD",
+   "FTNT",
+   "MITK",
+   "NET",
+   "NTSK",
+   "OKTA",
+   "OSPN",
+   "PANW",
+   "QLYS",
+   "RBRK",
+   "RPD",
+   "S",
+   "SAIL",
+   "TENB",
+   "TLS",
+   "ZS"
+  ],
+  "dropped": []
+ },
+ "baseline": {
+  "regression": {
+   "as_of": "2026-10-16",
+   "run_ts": "2026-10-17T02:37:07+00:00",
+   "n": 23,
+   "n_us": 17,
+   "n_cn": 6,
+   "n_params": 8,
+   "fitted": true,
+   "reason": null,
+   "r2": 0.8100100576970212,
+   "adj_r2": 0.7213480846222977,
+   "adj_r2_no_layer": 0.7512666313872278,
+   "slope": 6.000665398000402,
+   "slope_ci": [
+    2.3078596518719534,
+    8.144836453365365
+   ],
+   "fcf_coef": 1.4637971872065487,
+   "fcf_ci": [
+    -0.5351301644367265,
+    6.2031655096822815
+   ],
+   "china_dummy": -0.46565530545078176,
+   "china_ci": [
+    -1.2851614701423777,
+    1.182505986370594
+   ],
+   "ci_draws": 9989,
+   "layer_coefs": [
+    {
+     "layer": "endpoint",
+     "n": 3,
+     "coef": 0.0,
+     "reference": true
+    },
+    {
+     "layer": "identity",
+     "n": 4,
+     "coef": -0.02741194748390108,
+     "reference": false
+    },
+    {
+     "layer": "network_edge",
+     "n": 9,
+     "coef": 0.08830826833942497,
+     "reference": false
+    },
+    {
+     "layer": "other",
+     "n": 3,
+     "coef": -0.3321573164649402,
+     "reference": false
+    },
+    {
+     "layer": "secops",
+     "n": 4,
+     "coef": 0.029781380560283895,
+     "reference": false
+    }
+   ],
+   "population": [
+    "002212.SZ",
+    "002439.SZ",
+    "300188.SZ",
+    "300369.SZ",
+    "688489.SS",
+    "688561.SS",
+    "CHKP",
+    "CRWD",
+    "FTNT",
+    "MITK",
+    "NET",
+    "NTSK",
+    "OKTA",
+    "OSPN",
+    "PANW",
+    "QLYS",
+    "RBRK",
+    "RPD",
+    "S",
+    "SAIL",
+    "TENB",
+    "TLS",
+    "ZS"
+   ],
+   "dropped": []
+  },
+  "premium": {
+   "as_of": "2026-10-16",
+   "ai_trio_median": 29.75713512275056,
+   "rest_median": 6.145759862847956,
+   "ratio": 4.841896817777884,
+   "n_trio": 3,
+   "n_rest": 14,
+   "reason": null
+  }
+ },
+ "series": [],
+ "residuals": [
+  {
+   "as_of": "2026-10-16",
+   "ticker": "NTSK",
+   "name": "Netskope",
+   "layer": "network_edge",
+   "group": "network_edge",
+   "market": "us",
+   "ev_ntm": 7.256915701544555,
+   "fitted": 15.702799707251675,
+   "residual": -0.7718841176878826,
+   "top5": true
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "CRWD",
+   "name": "CrowdStrike",
+   "layer": "endpoint",
+   "group": "endpoint",
+   "market": "us",
+   "ev_ntm": 32.77563891333374,
+   "fitted": 16.335741271602867,
+   "residual": 0.6963301000144231,
+   "top5": true
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "S",
+   "name": "SentinelOne",
+   "layer": "endpoint",
+   "group": "endpoint",
+   "market": "us",
+   "ev_ntm": 5.052259961414514,
+   "fitted": 9.974518507341944,
+   "residual": -0.6801980313771032,
+   "top5": true
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "FTNT",
+   "name": "Fortinet",
+   "layer": "network_edge",
+   "group": "network_edge",
+   "market": "us",
+   "ev_ntm": 13.637639434327427,
+   "fitted": 7.932561831673331,
+   "residual": 0.5418575362668929,
+   "top5": true
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "OKTA",
+   "name": "Okta",
+   "layer": "identity",
+   "group": "identity",
+   "market": "us",
+   "ev_ntm": 8.832043878699608,
+   "fitted": 5.482810033834973,
+   "residual": 0.476768708242131,
+   "top5": true
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "RPD",
+   "name": "Rapid7",
+   "layer": "secops",
+   "group": "secops",
+   "market": "us",
+   "ev_ntm": 1.3167670233014845,
+   "fitted": 1.9262051738543693,
+   "residual": -0.3803723286138767,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "002439.SZ",
+   "name": "Venustech",
+   "layer": "network_edge",
+   "group": "network_edge",
+   "market": "china",
+   "ev_ntm": 5.151896615890425,
+   "fitted": 3.5324739785434147,
+   "residual": 0.3773664525603624,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "SAIL",
+   "name": "SailPoint",
+   "layer": "identity",
+   "group": "identity",
+   "market": "us",
+   "ev_ntm": 7.239259764281398,
+   "fitted": 10.042878081062105,
+   "residual": -0.3273447759764714,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "QLYS",
+   "name": "Qualys",
+   "layer": "secops",
+   "group": "secops",
+   "market": "us",
+   "ev_ntm": 7.523912002582846,
+   "fitted": 5.556858425818448,
+   "residual": 0.3030532985627217,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "ZS",
+   "name": "Zscaler",
+   "layer": "network_edge",
+   "group": "network_edge",
+   "market": "us",
+   "ev_ntm": 7.91724411677278,
+   "fitted": 10.303960534581039,
+   "residual": -0.26348515902950354,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "RBRK",
+   "name": "Rubrik",
+   "layer": "data_privacy",
+   "group": "other",
+   "market": "us",
+   "ev_ntm": 11.658433597417828,
+   "fitted": 8.975989751933316,
+   "residual": 0.26147662499281443,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "688489.SS",
+   "name": "Sansec Technology",
+   "layer": "infra_hw",
+   "group": "other",
+   "market": "china",
+   "ev_ntm": 4.699125318898106,
+   "fitted": 6.091027217749883,
+   "residual": -0.25944035132875687,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "CHKP",
+   "name": "Check Point Software Technologies",
+   "layer": "network_edge",
+   "group": "network_edge",
+   "market": "us",
+   "ev_ntm": 4.735061347912345,
+   "fitted": 3.7310521256919666,
+   "residual": 0.23830441770639266,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "300188.SZ",
+   "name": "SDIC Intelligence (ex-Meiya Pico)",
+   "layer": "secops",
+   "group": "secops",
+   "market": "china",
+   "ev_ntm": 5.173302811106621,
+   "fitted": 4.218543669804046,
+   "residual": 0.2040213596102285,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "PANW",
+   "name": "Palo Alto Networks",
+   "layer": "network_edge",
+   "group": "network_edge",
+   "market": "us",
+   "ev_ntm": 19.117968513261488,
+   "fitted": 15.760293457725274,
+   "residual": 0.1931349480015747,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "002212.SZ",
+   "name": "Topsec Technologies",
+   "layer": "network_edge",
+   "group": "network_edge",
+   "market": "china",
+   "ev_ntm": 2.992548655059058,
+   "fitted": 3.5150413796331152,
+   "residual": -0.16092588017460563,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "MITK",
+   "name": "Mitek Systems",
+   "layer": "identity",
+   "group": "identity",
+   "market": "us",
+   "ev_ntm": 3.1972327114644328,
+   "fitted": 3.7512627616269008,
+   "residual": -0.15980686173077396,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "300369.SZ",
+   "name": "NSFOCUS Technologies",
+   "layer": "network_edge",
+   "group": "network_edge",
+   "market": "china",
+   "ev_ntm": 2.762080426605682,
+   "fitted": 3.192721492613728,
+   "residual": -0.1448895120299103,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "TENB",
+   "name": "Tenable Holdings",
+   "layer": "secops",
+   "group": "secops",
+   "market": "us",
+   "ev_ntm": 3.7037665577392542,
+   "fitted": 4.204067966506981,
+   "residual": -0.12670232955907634,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "688561.SS",
+   "name": "QI-ANXIN Technology Group",
+   "layer": "endpoint",
+   "group": "endpoint",
+   "market": "china",
+   "ev_ntm": 4.062658630926087,
+   "fitted": 4.128729213532468,
+   "residual": -0.01613206863733052,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "OSPN",
+   "name": "OneSpan",
+   "layer": "identity",
+   "group": "identity",
+   "market": "us",
+   "ev_ntm": 2.408701089536861,
+   "fitted": 2.3838211031094043,
+   "residual": 0.010382929465104884,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "NET",
+   "name": "Cloudflare",
+   "layer": "network_edge",
+   "group": "network_edge",
+   "market": "us",
+   "ev_ntm": 29.75713512275057,
+   "fitted": 30.040534657033394,
+   "residual": -0.009478685613356408,
+   "top5": false
+  },
+  {
+   "as_of": "2026-10-16",
+   "ticker": "TLS",
+   "name": "Telos",
+   "layer": "services",
+   "group": "other",
+   "market": "us",
+   "ev_ntm": 1.3347458054814616,
+   "fitted": 1.3374664822945708,
+   "residual": -0.0020362736640660573,
+   "top5": false
+  }
+ ],
+ "premium": {
+  "as_of": "2026-10-16",
+  "ai_trio_median": 29.75713512275056,
+  "rest_median": 6.145759862847956,
+  "ratio": 4.841896817777884,
+  "n_trio": 3,
+  "n_rest": 14,
+  "reason": null
+ },
+ "premium_series": []
+}

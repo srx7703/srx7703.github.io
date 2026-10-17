@@ -1,0 +1,122 @@
+[
+ {
+  "metric": "EV/NTM revenue",
+  "formula": "enterprise value / NTM revenue; enterprise value is Yahoo enterpriseValue, stated in the quote currency, and the multiple is computed only where that currency and the revenue consensus's currency agree",
+  "unit": "multiple (x), enterprise value per unit of next-twelve-month revenue",
+  "comparable_across": "listings in the same snapshot, whatever their currency (the ratio is unit-free); one listing across weeks",
+  "not_comparable_across": "a listing whose enterprise value and revenue are in different currencies (no multiple is shown); A-shares against the rest without saying their revenue consensus is East Money's and the others' Yahoo's; private valuations, which are read only through the two intervals",
+  "source": "Yahoo Finance (parsed fields in the weekly consensus snapshot); East Money (A-share revenue consensus by calendar year; valuation history)"
+ },
+ {
+  "metric": "NTM revenue",
+  "formula": "w x fiscal-year-0 revenue consensus + (1 - w) x fiscal-year-+1 revenue consensus, where w = days from the snapshot to the end of fiscal year 0, divided by 365, held between 0 and 1; the end of fiscal year 0 is Yahoo nextFiscalYearEnd; for A-shares East Money's consensus by calendar year; a year with no analysts behind it is a missing value",
+  "unit": "revenue in the currency the company reports in",
+  "comparable_across": "one listing across weeks; across listings only as the denominator of a multiple or a growth rate",
+  "not_comparable_across": "currencies as an amount; a single fiscal year's consensus, because it blends two",
+  "source": "Yahoo Finance (parsed fields in the weekly consensus snapshot); East Money (A-share revenue consensus by calendar year; valuation history)"
+ },
+ {
+  "metric": "growth",
+  "formula": "growth = NTM revenue / trailing-twelve-month revenue - 1; forward over trailing, so it spans more than twelve months for a company a quarter past its last report; trailing figures are Yahoo totalRevenue and freeCashflow as served",
+  "unit": "fraction of trailing-twelve-month revenue",
+  "comparable_across": "listings in the same snapshot, A-shares included",
+  "not_comparable_across": "a fiscal-year growth rate: the window runs from the trailing twelve months to the next twelve, and its length depends on how long ago the company last reported",
+  "source": "Yahoo Finance (parsed fields in the weekly consensus snapshot); East Money (A-share revenue consensus by calendar year; valuation history)"
+ },
+ {
+  "metric": "FCF margin",
+  "formula": "FCF margin = trailing-twelve-month free cash flow / trailing-twelve-month revenue; trailing figures are Yahoo totalRevenue and freeCashflow as served",
+  "unit": "fraction of trailing-twelve-month revenue",
+  "comparable_across": "listings in the same snapshot, A-shares included",
+  "not_comparable_across": "a forecast margin (it is trailing); a free cash flow figure the company defines for itself, because the figure is the provider's as served",
+  "source": "Yahoo Finance (parsed fields in the weekly consensus snapshot)"
+ },
+ {
+  "metric": "Rule of 40",
+  "formula": "Rule of 40 = 100 x (growth + FCF margin); the registered cut in Q3 is 40",
+  "unit": "points (growth and FCF margin in per cent, summed)",
+  "comparable_across": "listings in the same snapshot with both growth and FCF margin",
+  "not_comparable_across": "a company missing either input (it is dropped from the panel and the drop is counted, never filled in); the mix of growth and cash flow, which the sum hides",
+  "source": "Yahoo Finance (parsed fields in the weekly consensus snapshot)"
+ },
+ {
+  "metric": "target upside",
+  "formula": "upside = targetMeanPrice / price - 1, in the quote currency (pence divided by 100 first)",
+  "unit": "fraction of the price",
+  "comparable_across": "listings outside China priced in the same snapshot",
+  "not_comparable_across": "a listing with fewer than 3 analysts, which is flagged thin and drawn faded; A-share targets, which rest on few analysts and which no registered item uses; a forecast of the return (Q4 tests whether upside predicts it)",
+  "source": "Yahoo Finance (parsed fields in the weekly consensus snapshot)"
+ },
+ {
+  "metric": "dispersion",
+  "formula": "dispersion = (targetHighPrice - targetLowPrice) / targetMeanPrice",
+  "unit": "fraction of the mean target price",
+  "comparable_across": "listings outside China priced in the same snapshot",
+  "not_comparable_across": "a listing with fewer than 3 analysts, flagged thin, where the range comes from very few forecasts; the number of target analysts with the number of EPS or revenue analysts, which are counted separately",
+  "source": "Yahoo Finance (parsed fields in the weekly consensus snapshot)"
+ },
+ {
+  "metric": "PS_TTM (A-share)",
+  "formula": "total market capitalisation / trailing-twelve-month revenue, as East Money's valuation history serves it by day",
+  "unit": "multiple (x)",
+  "comparable_across": "A-share listings on the same date; one A-share listing across dates",
+  "not_comparable_across": "EV/NTM revenue (market capitalisation and not enterprise value, trailing revenue and not forward); listings outside China, which have no such series",
+  "source": "East Money (valuation history of the A-share ring A and ring B listings)"
+ },
+ {
+  "metric": "PS percentile",
+  "formula": "share of the listing's own trading days since 2018 on which PS_TTM was at or below its latest value (ties and the latest day included), computed from the daily series and not read from East Money's own percentile field",
+  "unit": "fraction above 0 and up to 1 (1 means the highest PS_TTM day of its own history)",
+  "comparable_across": "one listing across time; listings against each other only as where each one stands in its own past",
+  "not_comparable_across": "a verdict on cost against peers; a re-rating (a high percentile can come from falling revenue and not from a rising price, which is why revenue growth is printed beside it); a listing with a short history (no percentile is published below about one trading year of days)",
+  "source": "East Money (valuation history of the A-share ring A and ring B listings)"
+ },
+ {
+  "metric": "headline valuation",
+  "formula": "what a round or a deal reported, as the source states it, with its qualifier (=, >, <, ~), basis and as-of date; never adjusted",
+  "unit": "currency the source states, in whole units",
+  "comparable_across": "one company over time (the year of the round travels with the figure)",
+  "not_comparable_across": "a listed company's EV/NTM revenue (a round price is not an enterprise value on forward revenue); figures of kind secondary_mark, reported_talks, third_party_estimate, which are shown in a table and never charted; an old round read as current (the vintage year and the stale mark say how old it is)",
+  "source": "company announcements and regulatory filings curated in ring C (public sources only)"
+ },
+ {
+  "metric": "discount interval",
+  "formula": "headline x (1 + the discount for the year of the round), widened by plus or minus 15 percentage points; discount by year of the round: 2021 -60%, 2022 -55%, 2023 -35%, 2024 -15%, 2025 -5%, 2026 0%; a round in a year not in the table is not scored",
+  "unit": "the currency of the headline",
+  "comparable_across": "other private companies' discount intervals, and the public-comparable interval of the same company",
+  "not_comparable_across": "a market price or a fair value: the discounts are an assumption and not data, and the page says so",
+  "source": "the registered discount table (section I of the evaluation plan) applied to the headline valuation"
+ },
+ {
+  "metric": "public-comparable interval",
+  "formula": "lowest to highest EV/NTM revenue among the public comparables of the company's layer, multiplied by company-stated ARR as given; comparables by layer: network_edge: ZS, NTSK, FTNT; identity: OKTA, SAIL; cloud_appsec: NET, RBRK, ZS; endpoint: CRWD, S",
+  "unit": "the currency of the ARR",
+  "comparable_across": "the discount interval of the same company",
+  "not_comparable_across": "a company in a layer with no comparables (shown, not scored); a like-for-like multiple: ARR is a trailing run-rate and EV/NTM revenue is forward, which favours 'above' in Q6",
+  "source": "Yahoo Finance (parsed fields in the weekly consensus snapshot) for the multiples; company-stated ARR from curated ring C rows"
+ },
+ {
+  "metric": "cyber_segment_share",
+  "formula": "disclosed cybersecurity revenue / total revenue, from the company's segment table; null today for every listing because no segment table has been read and the pool holds no such field",
+  "unit": "fraction of revenue (null today)",
+  "comparable_across": "nothing yet: it is null for every listing",
+  "not_comparable_across": "purity, which is a coarse class and not a measured share; any figure the page prints as a security share, until this field is filled",
+  "source": "company filings (annual report segment tables), not yet read"
+ },
+ {
+  "metric": "purity",
+  "formula": "high: cybersecurity is the main business (at least 70% of revenue where disclosed; otherwise the company describes itself as a security company with no other reportable segment); main: an identifiable security business of 20–70% of revenue, or one of several stated main lines; partial: a small exposure, kept because an ETF or a common classification lists the company",
+  "unit": "class (high, main, partial)",
+  "comparable_across": "companies on the page's tables and filters; only 'high' enters the Q1, Q2, Q3, Q7 and Q9 populations",
+  "not_comparable_across": "a measured share of revenue (purity is stored separately from the disclosed security share, which is cyber_segment_share and is null today)",
+  "source": "the pool as registered in section I of the evaluation plan (pipelines/cyber/pool.py)"
+ },
+ {
+  "metric": "layer",
+  "formula": "A company sits in the layer of its largest cybersecurity revenue line and appears once on the layer map; other lines go in also_in; one of 12 layers: 1 Network and edge security; 2 Endpoint and XDR; 3 Identity and access; 4 Cloud and application security; 5 Data security and privacy; 6 Security operations; 7 Email, collaboration and human risk; 8 OT, IoT and ICS; 9 GRC, compliance and cyber insurance; 10 Services, MSSP, consulting and distribution; 11 AI security and AI-native security operations; 12 Infrastructure, hardware and post-quantum; the page labels a row unverified until its segment table or company description has been read",
+  "unit": "layer code 1 to 12 and name",
+  "comparable_across": "companies in the same snapshot grouped by layer; in Q1 a layer with fewer than 3 panel members is merged into 'other'",
+  "not_comparable_across": "a platform company's other lines (kept in also_in and used in no test); the layer schemes of other classifications, which this tree does not reproduce",
+  "source": "the layer tree and pool registered in section I of the evaluation plan (pipelines/cyber/pool.py)"
+ }
+]

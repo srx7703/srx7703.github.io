@@ -53,6 +53,8 @@ undoing that would mean rewriting history and is a separate decision. The conseq
 re-reading an archive that does not exist. A track marked `collecting` in `TRACKS` is fetched and tabled on schedule
 but is not built by `publish` or `evaluate` until the flag is removed.
 
+The marts and the facts file this track publishes for its page are listed in "Data model — cybersecurity landscape" at the end of this file.
+
 ## Tables
 
 `data/snapshots/predmarkets/<set>/quotes/<date>/<HHMM>.parquet` — one narrow row per market
@@ -353,3 +355,50 @@ parquet next to the marts; `devstats`, `webtech` and `formd` archive their paylo
 path under `data/marts/`, loaded by the page by URL from `/data/marts/payments/`), `checks` (range,
 uniqueness, qualifier, freshness and regression-guard results shown in the page's Data quality section),
 `sources`, `generated_at` and `registered`. Every number in the page prose and the home row is read from here.
+
+# Data model — cybersecurity landscape
+
+Pipeline: `pipelines/cyber/`. Page: `/projects/cybersecurity-landscape/` (status `in-progress` until the pipeline has run green for
+seven days). Question: what do investors pay for listed security companies per dollar of next-twelve-month revenue, how much of it growth
+explains and the layer adds, where the analysts sit against the prices, and how private valuations line up with the public multiples.
+Layer tree, pools, estimators and the ten items Q1 to Q10 are code in `pipelines/cyber/config.py`, `frozen.py`, `stats.py` and
+`readings.py`, registered in section I of `docs/EVALUATION_PLAN.md`; the notes on what is kept from Yahoo and East Money are under
+"The cybersecurity track keeps no Yahoo payload" above.
+
+Refresh: `python -m pipelines.cyber.publish` rebuilds every mart and `data/facts/cyber.json` from the weekly consensus parquet, the
+curated ring C reference files (`data/reference/cyber/`), the CIBR holdings list and East Money's valuation history; `cyber.yml` runs it
+on Thursdays. A run that would publish fewer than half the listings of the existing facts does not overwrite them.
+
+## Marts (`data/marts/cyber/*.json`)
+
+Each table is validated by its pandera schema (`pipelines/cyber/schema.py` `MARTS`) before any file is written, and no mart carries a Yahoo
+payload, a job description or personal data. `private_intervals`, `ledger_timeline`, `ledger_latest` and `events` hold chartable rows only
+(tag V or C; `ledger.CHARTED_MARTS`); every other published private-company row is in `reported_unconfirmed` and is a table only.
+
+| mart | grain | key | built by |
+|---|---|---|---|
+| `listings` | one row per listing of every ring, with price, EV/NTM, growth, FCF margin, Rule of 40, targets and a stated reason for any missing multiple | `ticker` | `metrics.py` |
+| `layer_summary` | one row per layer: listings by ring and market group, private companies, median EV/NTM of the registered population | `layer` | `publish.py` |
+| `regression` | an object: `spec`, `latest` and `baseline` fit (n, R2, adjusted R2 with and without the layer groups, slopes with intervals), `series` (one entry per usable Monday, empty before the first), `residuals`, `premium` and `premium_series` | | `regression.py` |
+| `targets` | ring A outside China with target prices: upside, dispersion, analyst count, thin-coverage flag | `ticker` | `publish.py` |
+| `recommendations` | Yahoo's five-bucket counts and East Money's six-month counts, per listing and pooled; the two vocabularies are never merged | `source, scope, ticker` | `publish.py` |
+| `china_panel` | per A-share listing: PS_TTM, its percentile since 2018, PB, year-on-year revenue growth | `ticker` | `valuation_history_em.py` |
+| `private_intervals` | per private company: headline value, discount interval (an estimate) and public-comparable interval, each with qualifier, basis, source and as-of | `company` | `ledger.py` |
+| `ledger_timeline` | one dated chartable private-company figure, all statuses (superseded rounds are the history) | `company, metric, metric_kind, period, date, status` | `ledger.py` |
+| `ledger_latest` | the latest current figure per company and metric | `company, metric, metric_kind` | `ledger.py` |
+| `events` | chartable deals from 2025: announced value and filing price in two columns, buyer type | `company, event_kind, event_date, counterparty` | `ledger.py` |
+| `reported_unconfirmed` | every non-chartable row with the reason; shown as a table, never charted | `source, company, metric, metric_kind, period, date, counterparty, value, source_url` | `ledger.py` |
+| `etf_crosscheck` | CIBR holdings in the pool by ring, in the excluded list, or missing (a missing one fails a check) | `ticker` | `etf.py` |
+| `excluded` | companies left out of the pool, with the reason | `ticker` | `etf.py` |
+| `scoreboard` | the ten pre-registered items: status (`collecting` until the first grading date), reason, next grading date, baseline reading as "already seen" | `id` | `evaluate.py` |
+| `scoreboard_evidence` | the readings behind each item | `id, label` | `evaluate.py` |
+| `metric_dictionary` | every metric: formula, unit, what it is and is not comparable across, source | `metric` | `etf.py` |
+| `kpis` | exactly three headline KPIs (pure-play median EV/NTM, median target upside, highest private valuation round), each with value, qualifier, unit, period, source URL, as-of and tag | `id` | `publish.py` |
+
+## Facts (`data/facts/cyber.json`)
+
+`scope` (layers, sub-sectors, listed and private counts by ring and layer), `universe`, `regression` (latest fit and the premium of the AI
+trio), `ev_sales`, `rule_of_40`, `targets`, `recommendations`, `cn`, `private`, `events`, `kpis` (exactly three), `scoreboard`, `counts`,
+`coverage`, `checks` (row counts against the pool, freshness, regression guard, curated-file validity, ETF cross-check; shown in the page's
+Data quality section), `sources`, `marts` (name to path under `data/marts/`), `generated_at`, `as_of` and `registered`. Each figure carries
+`value`, `qualifier`, `unit`, `period`, `as_of` and `source_url`. Every number in the page prose and the home row is read from here.

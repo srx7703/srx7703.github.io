@@ -1,0 +1,414 @@
+[
+ {
+  "layer": "network_edge",
+  "code": 1,
+  "name": "Network and edge security",
+  "n_l2": 5,
+  "n_a": 22,
+  "n_a_us": 12,
+  "n_a_china": 8,
+  "n_a_other_overseas": 2,
+  "n_b": 17,
+  "n_b_us": 6,
+  "n_b_china": 4,
+  "n_b_other_overseas": 7,
+  "n_f": 0,
+  "n_private": 10,
+  "n_private_overseas": 10,
+  "n_private_china": 0,
+  "private_by_l2": [
+   {
+    "l2": "ngfw_appliance",
+    "n": 1
+   },
+   {
+    "l2": "sase_sse",
+    "n": 6
+   },
+   {
+    "l2": "ndr_visibility",
+    "n": 3
+   }
+  ],
+  "n_population": 6,
+  "n_population_with_multiple": 6,
+  "population_median_ev_ntm": 10.777441775550102
+ },
+ {
+  "layer": "endpoint",
+  "code": 2,
+  "name": "Endpoint and XDR",
+  "n_l2": 3,
+  "n_a": 8,
+  "n_a_us": 5,
+  "n_a_china": 1,
+  "n_a_other_overseas": 2,
+  "n_b": 9,
+  "n_b_us": 1,
+  "n_b_china": 4,
+  "n_b_other_overseas": 4,
+  "n_f": 2,
+  "n_private": 11,
+  "n_private_overseas": 10,
+  "n_private_china": 1,
+  "private_by_l2": [
+   {
+    "l2": "epp_edr_xdr",
+    "n": 7
+   },
+   {
+    "l2": "uem",
+    "n": 4
+   }
+  ],
+  "n_population": 2,
+  "n_population_with_multiple": 2,
+  "population_median_ev_ntm": 18.913949437374125
+ },
+ {
+  "layer": "identity",
+  "code": 3,
+  "name": "Identity and access",
+  "n_l2": 5,
+  "n_a": 14,
+  "n_a_us": 7,
+  "n_a_china": 2,
+  "n_a_other_overseas": 5,
+  "n_b": 15,
+  "n_b_us": 3,
+  "n_b_china": 3,
+  "n_b_other_overseas": 9,
+  "n_f": 1,
+  "n_private": 14,
+  "n_private_overseas": 10,
+  "n_private_china": 4,
+  "private_by_l2": [
+   {
+    "l2": "workforce_iam",
+    "n": 8
+   },
+   {
+    "l2": "iga_nhi",
+    "n": 2
+   },
+   {
+    "l2": "pam",
+    "n": 1
+   },
+   {
+    "l2": "idv_biometrics",
+    "n": 3
+   }
+  ],
+  "n_population": 4,
+  "n_population_with_multiple": 4,
+  "population_median_ev_ntm": 5.218246237872915
+ },
+ {
+  "layer": "cloud_appsec",
+  "code": 4,
+  "name": "Cloud and application security",
+  "n_l2": 3,
+  "n_a": 1,
+  "n_a_us": 1,
+  "n_a_china": 0,
+  "n_a_other_overseas": 0,
+  "n_b": 5,
+  "n_b_us": 4,
+  "n_b_china": 0,
+  "n_b_other_overseas": 1,
+  "n_f": 0,
+  "n_private": 12,
+  "n_private_overseas": 11,
+  "n_private_china": 1,
+  "private_by_l2": [
+   {
+    "l2": "cnapp",
+    "n": 3
+   },
+   {
+    "l2": "appsec_supply_chain",
+    "n": 8
+   },
+   {
+    "l2": "api_edge",
+    "n": 1
+   }
+  ],
+  "n_population": 0,
+  "n_population_with_multiple": 0,
+  "population_median_ev_ntm": null
+ },
+ {
+  "layer": "data_privacy",
+  "code": 5,
+  "name": "Data security and privacy",
+  "n_l2": 4,
+  "n_a": 3,
+  "n_a_us": 3,
+  "n_a_china": 0,
+  "n_a_other_overseas": 0,
+  "n_b": 6,
+  "n_b_us": 2,
+  "n_b_china": 0,
+  "n_b_other_overseas": 4,
+  "n_f": 0,
+  "n_private": 14,
+  "n_private_overseas": 9,
+  "n_private_china": 5,
+  "private_by_l2": [
+   {
+    "l2": "dspm_dag",
+    "n": 10
+   },
+   {
+    "l2": "backup_resilience",
+    "n": 3
+   },
+   {
+    "l2": "encryption_keys",
+    "n": 1
+   }
+  ],
+  "n_population": 1,
+  "n_population_with_multiple": 1,
+  "population_median_ev_ntm": 11.658433597417828
+ },
+ {
+  "layer": "secops",
+  "code": 6,
+  "name": "Security operations",
+  "n_l2": 6,
+  "n_a": 7,
+  "n_a_us": 4,
+  "n_a_china": 2,
+  "n_a_other_overseas": 1,
+  "n_b": 10,
+  "n_b_us": 2,
+  "n_b_china": 2,
+  "n_b_other_overseas": 6,
+  "n_f": 1,
+  "n_private": 17,
+  "n_private_overseas": 11,
+  "n_private_china": 6,
+  "private_by_l2": [
+   {
+    "l2": "siem_analytics",
+    "n": 4
+   },
+   {
+    "l2": "soar_ai_soc",
+    "n": 6
+   },
+   {
+    "l2": "exposure_mgmt",
+    "n": 2
+   },
+   {
+    "l2": "threat_intel",
+    "n": 2
+   },
+   {
+    "l2": "mdr",
+    "n": 3
+   }
+  ],
+  "n_population": 3,
+  "n_population_with_multiple": 3,
+  "population_median_ev_ntm": 3.7037665577392542
+ },
+ {
+  "layer": "email_human",
+  "code": 7,
+  "name": "Email, collaboration and human risk",
+  "n_l2": 3,
+  "n_a": 2,
+  "n_a_us": 0,
+  "n_a_china": 0,
+  "n_a_other_overseas": 2,
+  "n_b": 2,
+  "n_b_us": 1,
+  "n_b_china": 0,
+  "n_b_other_overseas": 1,
+  "n_f": 0,
+  "n_private": 8,
+  "n_private_overseas": 8,
+  "n_private_china": 0,
+  "private_by_l2": [
+   {
+    "l2": "email_security",
+    "n": 6
+   },
+   {
+    "l2": "awareness_training",
+    "n": 2
+   }
+  ],
+  "n_population": 0,
+  "n_population_with_multiple": 0,
+  "population_median_ev_ntm": null
+ },
+ {
+  "layer": "ot_iot",
+  "code": 8,
+  "name": "OT, IoT and ICS",
+  "n_l2": 2,
+  "n_a": 0,
+  "n_a_us": 0,
+  "n_a_china": 0,
+  "n_a_other_overseas": 0,
+  "n_b": 0,
+  "n_b_us": 0,
+  "n_b_china": 0,
+  "n_b_other_overseas": 0,
+  "n_f": 0,
+  "n_private": 10,
+  "n_private_overseas": 6,
+  "n_private_china": 4,
+  "private_by_l2": [
+   {
+    "l2": "ot_ics",
+    "n": 8
+   },
+   {
+    "l2": "iot_medical",
+    "n": 2
+   }
+  ],
+  "n_population": 0,
+  "n_population_with_multiple": 0,
+  "population_median_ev_ntm": null
+ },
+ {
+  "layer": "grc_insurance",
+  "code": 9,
+  "name": "GRC, compliance and cyber insurance",
+  "n_l2": 3,
+  "n_a": 0,
+  "n_a_us": 0,
+  "n_a_china": 0,
+  "n_a_other_overseas": 0,
+  "n_b": 3,
+  "n_b_us": 0,
+  "n_b_china": 0,
+  "n_b_other_overseas": 3,
+  "n_f": 1,
+  "n_private": 9,
+  "n_private_overseas": 9,
+  "n_private_china": 0,
+  "private_by_l2": [
+   {
+    "l2": "grc_irm",
+    "n": 6
+   },
+   {
+    "l2": "third_party_risk",
+    "n": 1
+   },
+   {
+    "l2": "cyber_insurance",
+    "n": 2
+   }
+  ],
+  "n_population": 0,
+  "n_population_with_multiple": 0,
+  "population_median_ev_ntm": null
+ },
+ {
+  "layer": "services",
+  "code": 10,
+  "name": "Services, MSSP, consulting and distribution",
+  "n_l2": 4,
+  "n_a": 9,
+  "n_a_us": 4,
+  "n_a_china": 0,
+  "n_a_other_overseas": 5,
+  "n_b": 32,
+  "n_b_us": 10,
+  "n_b_china": 2,
+  "n_b_other_overseas": 20,
+  "n_f": 1,
+  "n_private": 10,
+  "n_private_overseas": 8,
+  "n_private_china": 2,
+  "private_by_l2": [
+   {
+    "l2": "consulting_mssp",
+    "n": 7
+   },
+   {
+    "l2": "distribution",
+    "n": 1
+   },
+   {
+    "l2": "cyber_range_training",
+    "n": 2
+   }
+  ],
+  "n_population": 1,
+  "n_population_with_multiple": 1,
+  "population_median_ev_ntm": 1.3347458054814616
+ },
+ {
+  "layer": "ai_security",
+  "code": 11,
+  "name": "AI security and AI-native security operations",
+  "n_l2": 3,
+  "n_a": 0,
+  "n_a_us": 0,
+  "n_a_china": 0,
+  "n_a_other_overseas": 0,
+  "n_b": 0,
+  "n_b_us": 0,
+  "n_b_china": 0,
+  "n_b_other_overseas": 0,
+  "n_f": 0,
+  "n_private": 25,
+  "n_private_overseas": 23,
+  "n_private_china": 2,
+  "private_by_l2": [
+   {
+    "l2": "ai_app_model",
+    "n": 9
+   },
+   {
+    "l2": "agent_security",
+    "n": 6
+   },
+   {
+    "l2": "ai_native_secops",
+    "n": 10
+   }
+  ],
+  "n_population": 0,
+  "n_population_with_multiple": 0,
+  "population_median_ev_ntm": null
+ },
+ {
+  "layer": "infra_hw",
+  "code": 12,
+  "name": "Infrastructure, hardware and post-quantum",
+  "n_l2": 4,
+  "n_a": 7,
+  "n_a_us": 3,
+  "n_a_china": 2,
+  "n_a_other_overseas": 2,
+  "n_b": 8,
+  "n_b_us": 4,
+  "n_b_china": 1,
+  "n_b_other_overseas": 3,
+  "n_f": 0,
+  "n_private": 1,
+  "n_private_overseas": 1,
+  "n_private_china": 0,
+  "private_by_l2": [
+   {
+    "l2": "secure_chips",
+    "n": 1
+   }
+  ],
+  "n_population": 0,
+  "n_population_with_multiple": 0,
+  "population_median_ev_ntm": null
+ }
+]

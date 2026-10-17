@@ -1,0 +1,92 @@
+[
+ {
+  "id": "Q1",
+  "title": "Layer explains the multiple beyond growth",
+  "status": "collecting",
+  "reason": "Collecting: 0 of 12 Monday snapshots (2026-10-26 to 2027-01-11) so far. Graded 2027-01-15; no reading is made before then (section I, Q1).",
+  "graded": "2027-01-15",
+  "next_grading": "2027-01-15",
+  "already_seen": "17 companies in the groups network_edge 6, other 4, identity 4, secops 3; other is CRWD, RBRK, S, TLS. Growth alone has an adjusted R² of 0.75. Adding the layers changes it by -0.05, the permutation p is 0.94, and the 90% bootstrap interval for the uplift is -0.06 to +0.12. Applied to the baseline, the rule reads undecidable."
+ },
+ {
+  "id": "Q2",
+  "title": "Growth explains more of the multiple than free cash flow does",
+  "status": "collecting",
+  "reason": "Collecting: 0 of 12 Monday snapshots (2026-10-26 to 2027-01-11) so far. Graded 2027-01-15; no reading is made before then (section I, Q2).",
+  "graded": "2027-01-15",
+  "next_grading": "2027-01-15",
+  "already_seen": "R² 0.84. The interval for b is 1.1 to 6.1. The standardised coefficients are 0.60 for growth and 0.39 for FCF margin, a difference of +0.21 with an interval of -0.65 to +0.67. The first two parts of Holds are met and the third is not, so the rule reads undecidable on the baseline."
+ },
+ {
+  "id": "Q3",
+  "title": "The market pays for Rule of 40",
+  "status": "collecting",
+  "reason": "Collecting: 0 of 12 Monday snapshots (2026-10-26 to 2027-01-11) so far. Graded 2027-01-15; no reading is made before then (section I, Q3).",
+  "graded": "2027-01-15",
+  "next_grading": "2027-01-15",
+  "already_seen": "11 companies at or above 40 with a median of 8.8x and 6 below with a median of 2.8x, a ratio of 3.2. The 95% interval is 2.0 to 10.2. The group below 40 is CHKP, MITK, OSPN, RPD, TENB, TLS. The rule reads holds on the baseline."
+ },
+ {
+  "id": "Q4",
+  "title": "Target-price upside does not predict the next twelve months' return",
+  "status": "collecting",
+  "reason": "Collecting: the window runs from the close of 2026-10-26 to the close of 2027-10-25. Graded 2027-10-26 from Yahoo's daily history, fetched at grading time (section I, Q4).",
+  "graded": "2027-10-26 (quarterly interim readings are shown and not scored)",
+  "next_grading": "2027-10-26",
+  "already_seen": "The median upside across the 34 companies is +13.5%. The lowest are 4704.T -12.9%, YUBICO.ST -11.4%, RPD -6.4%. The highest are GBG.L +80.1%, AKAM +80.9%, IDN +125.9%."
+ },
+ {
+  "id": "Q5",
+  "title": "Target-price dispersion predicts later volatility",
+  "status": "collecting",
+  "reason": "Collecting: the regression is registered by an amendment before its first reading and needs Yahoo's daily history, fetched at grading time. Window 1 runs 2026-10-26 to 2027-01-22, window 2 2027-01-25 to 2027-04-23; graded 2027-04-30 (section I, Q5).",
+  "graded": "2027-04-30 (window 1 alone is read on 2027-01-29 and is not scored)",
+  "next_grading": "2027-01-29",
+  "already_seen": "CRWD has a high target of 325, a low of 132 and a mean of 246.2, a dispersion of 0.78. The regression has not been run."
+ },
+ {
+  "id": "Q6",
+  "title": "Private headline valuations are above the public comparables even after the discount",
+  "status": "collecting",
+  "reason": "Collecting: Q6 is scored on the 2027-01-11 snapshot from the ring C ledger as it stands on 2026-12-31, committed with its hash that day. The frozen ledger and the scoring code land later; no company is scored before then (section I, Q6).",
+  "graded": "on the 2027-01-11 snapshot, once the ledger frozen on 2026-12-31 is committed",
+  "next_grading": "2027-01-11",
+  "already_seen": "Google paid about $32B for Wiz (closed 2026-03-11), about 32 to 64 times ARR depending on which of two secondary-sourced ARR figures is used. ServiceNow paid $7.75B for Armis, about 22.8 times a reported ARR of more than $340M. Netskope is at 7.3x EV/NTM revenue on the baseline date against a population median of 7.3x."
+ },
+ {
+  "id": "Q7",
+  "title": "China's discount is not explained by growth",
+  "status": "collecting",
+  "reason": "Collecting: 0 of 12 Monday snapshots (2026-10-26 to 2027-01-11) so far. Graded 2027-01-15; no reading is made before then (section I, Q7).",
+  "graded": "2027-01-15",
+  "next_grading": "2027-01-15",
+  "already_seen": "The 6 A-share companies have EV/NTM revenue of 2.8x to 5.2x and a median of 4.4x, against 7.3x for the 17, a ratio of 0.60 with a 95% interval of 0.35 to 1.10. Their growth is 18% to 31% against a median of 17% for the 17. The China coefficient is -0.98 with an interval of -1.34 to -0.67, so the rule reads holds on the baseline."
+ },
+ {
+  "id": "Q8",
+  "title": "Consolidation continues (a calibration item)",
+  "status": "collecting",
+  "reason": "Collecting: Q8 is a count of announcements for the 6 companies of the list (4704.T, NTSK, QLYS, RPD, S, TENB), checked by hand against filings and press releases and entered at the deadline 2027-10-15; no code grades it and it is never undecidable (section I, Q8).",
+  "graded": "2027-10-15 (a mid-point reading is shown on 2027-04-16)",
+  "next_grading": "2027-04-16",
+  "already_seen": "Varonis meets the same definition (held by CIBR, purity high, enterprise value $5.4B) and signed a merger agreement with Proofpoint on 2026-10-15, so at least one same-definition event happened in the registration week. Press reports describe sale processes at RPD and at 4704.T (Trend Micro, whose enterprise value is $4.6B at the baseline rate); neither has produced a deal."
+ },
+ {
+  "id": "Q9",
+  "title": "The AI-tailwind premium does not widen",
+  "status": "collecting",
+  "reason": "Collecting: 0 of 4 start snapshots so far. Graded 2027-10-12 on the four Monday snapshots ending 2027-10-11; no reading is made before then (section I, Q9).",
+  "graded": "2027-10-12 (quarterly interim readings are shown)",
+  "next_grading": "2027-10-12",
+  "already_seen": "On the baseline the median of the three is 29.8x (it is NET) and the median of the other 14 is 6.1x, a premium of 4.84."
+ },
+ {
+  "id": "Q10",
+  "title": "A revision in revenue consensus tends to be followed by another in the same direction",
+  "status": "collecting",
+  "reason": "Collecting: 0 tested pairs so far. Graded on the first Monday snapshot on or after 2027-01-15 with at least 30 tested pairs; the direction counts are not shown before then (section I, Q10).",
+  "graded": "the first Monday snapshot on or after 2027-01-15 with at least 30 tested pairs, and not later than 2027-10-15",
+  "next_grading": "2027-01-15",
+  "already_seen": "Nothing; the 2026-10-26 snapshot is t-1 of the first pair."
+ }
+]
