@@ -29,3 +29,5 @@ data/raw/valuation/*_local/
 # which happens constantly when several agents work in parallel. Seven of them reached a commit once.
 *\ 2.*
 *\ 3.*
+# curators' working notes for the cyber ledger: local only (docs/cyber/CURATION.md)
+data/reference/cyber/notes/
