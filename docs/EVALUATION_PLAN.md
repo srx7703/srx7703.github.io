@@ -973,4 +973,28 @@ These are shown on the page and no verdict hangs on them.
 
 ### Amendments to this section
 
-(none yet)
+- **2026-10-17, sources named for four statements.** Section I was first registered with four statements that name no
+  public source: the press reports of sale processes at `RPD` and at `4704.T` (Q8, and the remark on `RPD` in Q3), and the
+  Wiz and Armis multiples of ARR in Q6. This entry names a source for each. It changes no threshold, population, list or
+  reading, and the statements above stand as registered.
+  - `RPD`: Reuters, "Exclusive-Cybersecurity firm Rapid7 explores sale -sources" (Milana Vinn), 1 February 2023, read on
+    Investing.com: https://investing.com/news/stock-market-news/exclusivecybersecurity-firm-rapid7-explores-sale-sources-2993353 ;
+    and Investing.com, "Rapid7 shares climb on potential sale talks with PE firms" (Senad Karaahmetovic), 28 October 2024,
+    which reports preliminary talks with private equity firms about a possible sale:
+    https://ca.investing.com/news/stock-market-news/rapid7-shares-climb-on-potential-sale-talks-with-pe-firms-3667663
+  - `4704.T` (Trend Micro): Reuters, "Exclusive-Cybersecurity firm Trend Micro explores sale, sources say" (Milana Vinn),
+    9 August 2024, as republished by teiss: https://www.teiss.co.uk/news/exclusive-cybersecurity-firm-trend-micro-explores-sale-sources-say-14456 ;
+    and Reuters, "Exclusive-Buyout firms vie for cybersecurity firm Trend Micro, sources say" (Milana Vinn), 13 February 2025,
+    as republished by ThePrint: https://theprint.in/tech/exclusive-buyout-firms-vie-for-cybersecurity-firm-trend-micro-sources-say/2491850/
+  - These reports date from 2023 to 2025. No later report of a sale process at either company was found when this entry was
+    written, and neither has announced a deal.
+  - Wiz: the 32 to 64 times is $32B over about $1B of ARR or over about $500M. The $1B is TechCrunch (Rebecca Bellan), 11 March
+    2026, which says Wiz crossed $1B in ARR in 2025 according to a source familiar with the matter:
+    https://techcrunch.com/2026/03/11/google-completes-32b-acquisition-of-wiz . The $500M is TechCrunch (Julie Bort),
+    23 October 2024, which attributes it to Wiz co-founder Roy Reznik speaking to CNBC:
+    https://techcrunch.com/2024/10/23/wiz-hopes-to-hit-1b-in-arr-in-2025-before-an-ipo-after-turning-down-googles-23b .
+    Neither is a figure Wiz published in a filing; both are reported.
+  - Armis: the $7.75B price and the ARR of more than $340M are both in ServiceNow's own announcement, dated 23 December 2025 on
+    its newsroom (the wire copy's address carries 22 December); the release says Armis "has surpassed $340 million" in ARR:
+    https://newsroom.servicenow.com/press-releases/details/2025/ServiceNow-to-acquire-Armis-to-expand-cyber-exposure-and-security-across-the-full-attack-surface-in-IT-OT-and-medical-devices-for-companies-governments-and-critical-infrastructure-worldwide/default.aspx
+    This is a figure the company stated, not a secondary one.

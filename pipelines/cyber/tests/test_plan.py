@@ -287,3 +287,23 @@ def test_non_listed_statuses_carry_a_date():
     for e in POOL:
         if e.status != "listed":
             assert re.fullmatch(r"\d{4}-\d{2}(-\d{2})?", e.status_date), e.ticker
+
+
+def test_the_statements_first_registered_without_a_source_have_one_in_the_amendments():
+    """Four statements of the registered text name no public source (the sale processes at RPD and 4704.T, the Wiz and
+    Armis multiples of ARR). The dated amendment names an outlet, a date and a page for each and says why it was made."""
+    text = section_i()
+    amended = re.sub(r"\s+", " ", text.split("### Amendments to this section")[1])
+    assert "(none yet)" not in amended and "2026-10-17" in amended
+    assert "name no public source" in amended and "changes no threshold, population, list or reading" in amended
+    sources = {
+        "Rapid7 (RPD)": ("investing.com/news", "1 February 2023", "28 October 2024"),
+        "Trend Micro (4704.T)": ("teiss.co.uk", "9 August 2024", "theprint.in", "13 February 2025"),
+        "Wiz ARR": ("techcrunch.com/2026/03/11/", "11 March 2026", "techcrunch.com/2024/10/23/", "23 October 2024"),
+        "Armis ARR and price": ("newsroom.servicenow.com", "23 December 2025"),
+    }
+    for what, needles in sources.items():
+        for needle in needles:
+            assert needle in amended, f"{what}: the amendment does not give {needle!r}"
+    for statement in ("sale processes", "secondary-sourced", "a reported ARR of more than $340M"):
+        assert statement in text.split("### Amendments to this section")[0], "the registered text itself is unchanged"

@@ -276,4 +276,4 @@ Q10 = {
     "last": "2027-10-15",
 }
 
-REGISTERED = "2026-10-20"  # the day section I is due; the committed date in git is the authority
+REGISTERED = "2026-10-17"  # the UTC day section I reached main (32522d4); git is the authority, not this constant
