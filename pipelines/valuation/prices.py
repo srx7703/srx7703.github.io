@@ -87,7 +87,7 @@ from pipelines.common.storage import (
     write_json_gz,
     write_parquet,
 )
-from pipelines.valuation.config import BY_TICKER, COMPANIES, Company
+from pipelines.valuation.config import BY_TICKER, COMPANIES, Company, raw_source
 from pipelines.valuation.schema import PRICE_KEY, PRICES_SCHEMA, prices_frame
 
 log = logging.getLogger("valuation.prices")
@@ -421,7 +421,6 @@ def fetch_prices(
     stamp = ts or utc_now()
     date, hhmm = run_stamp(stamp)
     snapshot_ts = stamp.isoformat(timespec="seconds")
-    raw_dir = RAW_DIR / "valuation" / SOURCE / date
     throttle = Throttle(min_interval)
 
     rows: list[dict] = []
@@ -433,7 +432,7 @@ def fetch_prices(
         try:
             info = fetch_info(company.ticker, throttle=throttle, attempts=attempts)
             # Archive first: the raw payload is evidence and must survive a parsing bug.
-            archive_info(info, raw_dir, company.ticker, hhmm)
+            archive_info(info, RAW_DIR / "valuation" / raw_source(company, SOURCE) / date, company.ticker, hhmm)
             row = parse_info(company.ticker, info, snapshot_ts=snapshot_ts)
             rows.append(row)
             log.info(

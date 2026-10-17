@@ -38,6 +38,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from pipelines.cyber.pool import market_of, ring
+
 # markets → how fundamentals are sourced
 MARKET_FUNDAMENTALS = {
     "cn": "eastmoney",  # A-share: East Money quarterly report table (cumulative, differenced)
@@ -50,7 +52,26 @@ MARKET_FUNDAMENTALS = {
     "de": "yahoo",
     "fr": "yahoo",
     "ch": "yahoo",
+    "au": "yahoo",
+    "ca": "yahoo",
+    "in": "yahoo",
+    "se": "yahoo",
+    "fi": "yahoo",
+    "nl": "yahoo",
+    "it": "yahoo",
 }
+
+
+#: Tracks whose Yahoo payloads are archived under ``data/raw/valuation/<source>_local/`` instead of
+#: ``data/raw/valuation/<source>/``. ``.gitignore`` keeps every ``*_local`` directory out of the public repository, so
+#: the payload is available to the run that fetched it (to inspect a failure) and is discarded with the CI runner.
+#: This is narrower than it sounds. Yahoo's terms restrict building a database or archive of its data, and the parsed
+#: tables these modules and ``pipelines/cyber/capture.py`` commit still hold Yahoo fields as served (price, enterprise
+#: value, target prices, consensus). Keeping the raw JSON out of git removes the part of the pipeline that looks most
+#: like an archive and does not bring the repository inside the terms; section I of docs/EVALUATION_PLAN.md says so.
+#: The four earlier tracks predate this rule and keep committing their payloads; changing that is a separate decision
+#: that would mean rewriting git history.
+LOCAL_RAW_TRACKS: frozenset[str] = frozenset({"cyber"})
 
 
 @dataclass(frozen=True)
@@ -69,6 +90,8 @@ class Company:
     share_basis: str = "segment"  # "total" | "segment" | "none" — see the module docstring
     share_note: str = ""  # why a "none" company is not a competitor in this market
     path: str = ""  # supply path code for the power track (see PATHS); empty for other tracks
+    layer: str = ""  # L1 layer code for the cyber track (pipelines/cyber/config.LAYERS); empty elsewhere
+    ring: str = ""  # pool ring for the cyber track ("A" = core pricing pool); empty elsewhere
     note: str = ""
 
     @property
@@ -78,6 +101,11 @@ class Company:
     @property
     def primary(self) -> str:
         return self.fundamentals_from or self.ticker
+
+
+def raw_source(company: Company, source: str) -> str:
+    """Directory name under ``data/raw/valuation/`` for this company's payloads of ``source``."""
+    return f"{source}_local" if company.track in LOCAL_RAW_TRACKS else source
 
 
 def _cn(ticker: str, name: str, name_cn: str, track: str, purity: str, **kw) -> Company:
@@ -320,7 +348,42 @@ SURGICAL: list[Company] = [
 ]
 
 
-COMPANIES: list[Company] = OPTICAL + SSB + POWER + SURGICAL
+def _cyber() -> list[Company]:
+    """Ring A of ``pipelines/cyber/pool.py``: the one place that says which cybersecurity listings are priced."""
+    out = []
+    # A listing another track already prices keeps that track: BY_TICKER holds one Company per ticker, and moving
+    # Cisco from the optical page to this one would change a live page. The cyber page reads its price and
+    # consensus by ticker, so the pool still counts it.
+    taken = {c.ticker for c in OPTICAL + SSB + POWER + SURGICAL}
+    for e in ring("A"):
+        if e.ticker in taken:
+            continue
+        china = e.ticker.endswith((".SS", ".SZ"))
+        out.append(
+            Company(
+                ticker=e.ticker,
+                name=e.name,
+                name_cn=e.name_cn,
+                track="cyber",
+                purity=e.purity,
+                market=market_of(e.ticker),
+                fy_end_month=e.fy_end_month,
+                em_code=("SZ" if e.ticker.endswith(".SZ") else "SH") + e.ticker.split(".")[0] if china else "",
+                estimates="eastmoney" if china else "yahoo",
+                share_basis="none",
+                share_note="the cyber page has no market-share layer",
+                layer=e.layer,
+                ring=e.ring,
+                note=e.note,
+            )
+        )
+    return out
+
+
+CYBER: list[Company] = _cyber()
+
+
+COMPANIES: list[Company] = OPTICAL + SSB + POWER + SURGICAL + CYBER
 BY_TICKER: dict[str, Company] = {c.ticker: c for c in COMPANIES}
 
 TRACKS = {
@@ -352,7 +415,25 @@ TRACKS = {
         "reference": "share_power.json",
         "share": False,
     },
+    "cyber": {
+        "slug": "cybersecurity-landscape",
+        "label": "Cybersecurity",
+        "facts": "valuation_cyber",
+        "reference": "share_cyber.json",
+        "share": False,
+        # Collecting: prices, FX and consensus are fetched and archived on the normal schedule, but no
+        # mart, fact file or page is built until the track is ready to be read. A track with a thin
+        # first week would fail the publish guards, and one failing track holds back every other
+        # track's publish. Remove this line when the page goes live; ``publish --track cyber`` still
+        # builds it on request.
+        "collecting": True,
+    },
 }
+
+def published_tracks() -> list[str]:
+    """Tracks that ``publish`` and ``evaluate`` build by default: every track not still collecting."""
+    return [t for t, spec in TRACKS.items() if not spec.get("collecting")]
+
 
 # Listings that were considered and deliberately left out, with the reason. Shown on the pages so the
 # pool is auditable rather than arbitrary.
@@ -368,6 +449,13 @@ EXCLUDED = [
     {"ticker": "unlisted-prologium", "name": "ProLogium 辉能科技", "track": "ssb", "reason": _PRIVATE},
     {"ticker": "unlisted-factorial", "name": "Factorial Energy", "track": "ssb", "reason": _PRIVATE},
     {"ticker": "unlisted-huawei", "name": "Huawei optical", "track": "optical", "reason": _PRIVATE_RANK},
+    # Held by cybersecurity ETFs (CIBR, IHAK, BUG) but not cybersecurity companies by this page's tree.
+    {"ticker": "ANET", "name": "Arista Networks", "track": "cyber",
+     "reason": "held by cybersecurity ETFs; a switching vendor with no security line the page can place"},
+    {"ticker": "NTAP", "name": "NetApp", "track": "cyber",
+     "reason": "held by cybersecurity ETFs; storage vendor, its ransomware features are not a revenue line"},
+    {"ticker": "DT", "name": "Dynatrace", "track": "cyber",
+     "reason": "held by cybersecurity ETFs; observability vendor, security is a module inside it"},
 ]
 
 # FRED daily FX series, quoted as units of the foreign currency per USD unless noted.
@@ -380,6 +468,10 @@ FX_SERIES = {
     "GBP": ("DEXUSUK", "usd_per"),  # this one is USD per GBP
     "EUR": ("DEXUSEU", "usd_per"),  # USD per EUR
     "CHF": ("DEXSZUS", "per_usd"),
+    "AUD": ("DEXUSAL", "usd_per"),  # USD per AUD
+    "CAD": ("DEXCAUS", "per_usd"),
+    "SEK": ("DEXSDUS", "per_usd"),
+    "INR": ("DEXINUS", "per_usd"),
     "USD": (None, "identity"),
 }
 

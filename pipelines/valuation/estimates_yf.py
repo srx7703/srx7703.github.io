@@ -105,7 +105,7 @@ from pipelines.common.storage import (
     utc_now,
     write_parquet,
 )
-from pipelines.valuation.config import BY_TICKER, COMPANIES, THIN_COVERAGE_BELOW, Company
+from pipelines.valuation.config import BY_TICKER, COMPANIES, THIN_COVERAGE_BELOW, Company, raw_source
 from pipelines.valuation.schema import (
     ESTIMATE_KEY,
     ESTIMATES_SCHEMA,
@@ -827,7 +827,9 @@ def main(argv: list[str] | None = None) -> int:
     day, hhmm = run_stamp(ts)
     companies = yahoo_companies(args.tickers.split(",") if args.tickers else None)
     client, crumb = session(min_interval=args.min_interval)
-    raw_dir = RAW_DIR / "valuation" / SOURCE / day
+
+    def raw_dir_of(company: Company) -> Path:
+        return RAW_DIR / "valuation" / raw_source(company, SOURCE) / day
 
     estimates: list[dict] = []
     vintages: list[dict] = []
@@ -836,18 +838,18 @@ def main(argv: list[str] | None = None) -> int:
     failed: list[str] = []
     periods_seen: Counter[str] = Counter()  # what earningsTrend actually carried, for the run record
 
-    def keeper(ticker: str) -> Callable[[dict], None]:
+    def keeper(company: Company) -> Callable[[dict], None]:
         """Archive a payload the modules retry is about to supersede, under its own name."""
 
         def keep(payload: dict) -> None:
-            archive_payload(payload, raw_dir, f"{ticker}-first", hhmm)
+            archive_payload(payload, raw_dir_of(company), f"{company.ticker}-first", hhmm)
 
         return keep
 
     for company in companies:
         try:
-            payload = fetch(client, company.ticker, crumb=crumb, on_discard=keeper(company.ticker))
-            archive_payload(payload, raw_dir, company.ticker, hhmm)  # evidence first, parse second
+            payload = fetch(client, company.ticker, crumb=crumb, on_discard=keeper(company))
+            archive_payload(payload, raw_dir_of(company), company.ticker, hhmm)  # evidence first, parse second
             result = extract_result(payload)
             trend = trend_of(result)
             rows, vints, company_checks = parse_trend(

@@ -37,7 +37,7 @@ import polars as pl
 from pipelines.common.log import setup_logging
 from pipelines.common.storage import MARTS_DIR, utc_now, write_json, write_parquet
 from pipelines.valuation import read, schema
-from pipelines.valuation.config import COMPANIES, TRACKS
+from pipelines.valuation.config import COMPANIES, TRACKS, published_tracks
 from pipelines.valuation.metrics import vintage_estimates
 from pipelines.valuation.share import cited_share, load_reference
 
@@ -758,7 +758,7 @@ def score_tracks() -> dict[str, dict]:
     """
     vintages = read.by_ticker(read.load_history("vintages", limit_dates=60))
     tracks: dict[str, dict] = {}
-    for track in TRACKS:
+    for track in published_tracks():
         facts_path = MARTS_DIR.parent / "facts" / f"valuation_{track}.json"
         if not facts_path.exists():
             tracks[track] = {"status": "not_yet", "why": "the track has not been published yet"}

@@ -75,6 +75,17 @@ jobs:
         continue-on-error: true
         run: uv run python -m pipelines.valuation.estimates_em
 
+      # The cybersecurity pool's consensus: enterprise value, target prices, rating distribution and revenue
+      # consensus for fiscal year 0 and +1. No payload is kept, but the parsed fields are committed, and most are
+      # Yahoo's values as served (docs/DATA_MODEL.md and section I say what that does and does not change).
+      # Consensus cannot be backfilled, so this runs every Monday from the first snapshot the study counts.
+      - name: Cybersecurity consensus
+        id: cyber_capture
+        if: steps.mode.outputs.mode == 'weekly'
+        continue-on-error: true
+        timeout-minutes: 12
+        run: uv run python -m pipelines.cyber.capture
+
       - name: Fundamentals
         id: fundamentals
         if: steps.mode.outputs.mode == 'weekly'
@@ -138,8 +149,8 @@ jobs:
           always() && (
           steps.fx.outcome == 'failure' || steps.prices.outcome == 'failure' ||
           steps.est_yf.outcome == 'failure' || steps.est_em.outcome == 'failure' ||
-          steps.fundamentals.outcome == 'failure' || steps.publish.outcome == 'failure' ||
+          steps.cyber_capture.outcome == 'failure' || steps.fundamentals.outcome == 'failure' || steps.publish.outcome == 'failure' ||
           steps.evaluate.outcome == 'failure' )
         run: |
-          echo "::error::a valuation step failed (fx=${{ steps.fx.outcome }}, prices=${{ steps.prices.outcome }}, est_yf=${{ steps.est_yf.outcome }}, est_em=${{ steps.est_em.outcome }}, fundamentals=${{ steps.fundamentals.outcome }}, publish=${{ steps.publish.outcome }}, evaluate=${{ steps.evaluate.outcome }})"
+          echo "::error::a valuation step failed (fx=${{ steps.fx.outcome }}, prices=${{ steps.prices.outcome }}, est_yf=${{ steps.est_yf.outcome }}, est_em=${{ steps.est_em.outcome }}, cyber_capture=${{ steps.cyber_capture.outcome }}, fundamentals=${{ steps.fundamentals.outcome }}, publish=${{ steps.publish.outcome }}, evaluate=${{ steps.evaluate.outcome }})"
           exit 1

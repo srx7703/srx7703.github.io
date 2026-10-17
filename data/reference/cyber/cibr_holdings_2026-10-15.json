@@ -1,0 +1,234 @@
+{
+ "fund": "First Trust NASDAQ Cybersecurity ETF (CIBR)",
+ "tracks": "Nasdaq CTA Cybersecurity Index (NQCYBR)",
+ "as_of": "2026-10-15",
+ "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=CIBR",
+ "note": "Tickers and names only, as published by the fund. Identifiers on the page use Bloomberg-style suffixes; 'ticker' is the Yahoo symbol. Cash lines are dropped.",
+ "holdings": [
+  {
+   "identifier": "FTNT",
+   "ticker": "FTNT",
+   "name": "Fortinet, Inc."
+  },
+  {
+   "identifier": "CRWD",
+   "ticker": "CRWD",
+   "name": "CrowdStrike Holdings, Inc. (Class A)"
+  },
+  {
+   "identifier": "CSCO",
+   "ticker": "CSCO",
+   "name": "Cisco Systems, Inc."
+  },
+  {
+   "identifier": "PANW",
+   "ticker": "PANW",
+   "name": "Palo Alto Networks, Inc."
+  },
+  {
+   "identifier": "AVGO",
+   "ticker": "AVGO",
+   "name": "Broadcom Inc."
+  },
+  {
+   "identifier": "OKTA",
+   "ticker": "OKTA",
+   "name": "Okta, Inc."
+  },
+  {
+   "identifier": "NET",
+   "ticker": "NET",
+   "name": "Cloudflare, Inc. (Class A)"
+  },
+  {
+   "identifier": "ZS",
+   "ticker": "ZS",
+   "name": "Zscaler, Inc."
+  },
+  {
+   "identifier": "FFIV",
+   "ticker": "FFIV",
+   "name": "F5, Inc."
+  },
+  {
+   "identifier": "RBRK",
+   "ticker": "RBRK",
+   "name": "Rubrik, Inc. (Class A)"
+  },
+  {
+   "identifier": "ACN",
+   "ticker": "ACN",
+   "name": "Accenture plc"
+  },
+  {
+   "identifier": "DT",
+   "ticker": "DT",
+   "name": "Dynatrace, Inc."
+  },
+  {
+   "identifier": "NTAP",
+   "ticker": "NTAP",
+   "name": "NetApp, Inc."
+  },
+  {
+   "identifier": "DDOG",
+   "ticker": "DDOG",
+   "name": "Datadog, Inc. (Class A)"
+  },
+  {
+   "identifier": "MSFT",
+   "ticker": "MSFT",
+   "name": "Microsoft Corporation"
+  },
+  {
+   "identifier": "GOOGL",
+   "ticker": "GOOGL",
+   "name": "Alphabet Inc. (Class A)"
+  },
+  {
+   "identifier": "INFY",
+   "ticker": "INFY",
+   "name": "Infosys Limited (ADR)"
+  },
+  {
+   "identifier": "IBM",
+   "ticker": "IBM",
+   "name": "International Business Machines Corporation"
+  },
+  {
+   "identifier": "CHKP",
+   "ticker": "CHKP",
+   "name": "Check Point Software Technologies Ltd."
+  },
+  {
+   "identifier": "ANET",
+   "ticker": "ANET",
+   "name": "Arista Networks, Inc."
+  },
+  {
+   "identifier": "FROG",
+   "ticker": "FROG",
+   "name": "JFrog Ltd."
+  },
+  {
+   "identifier": "GEN",
+   "ticker": "GEN",
+   "name": "Gen Digital Inc."
+  },
+  {
+   "identifier": "HO.FP",
+   "ticker": "HO.PA",
+   "name": "Thales S.A."
+  },
+  {
+   "identifier": "AKAM",
+   "ticker": "AKAM",
+   "name": "Akamai Technologies, Inc."
+  },
+  {
+   "identifier": "LDOS",
+   "ticker": "LDOS",
+   "name": "Leidos Holdings, Inc."
+  },
+  {
+   "identifier": "ESTC",
+   "ticker": "ESTC",
+   "name": "Elastic N.V."
+  },
+  {
+   "identifier": "BAH",
+   "ticker": "BAH",
+   "name": "Booz Allen Hamilton Holding Corporation"
+  },
+  {
+   "identifier": "S",
+   "ticker": "S",
+   "name": "SentinelOne, Inc. (Class A)"
+  },
+  {
+   "identifier": "4704.JP",
+   "ticker": "4704.T",
+   "name": "Trend Micro Incorporated"
+  },
+  {
+   "identifier": "CVLT",
+   "ticker": "CVLT",
+   "name": "Commvault Systems, Inc."
+  },
+  {
+   "identifier": "QLYS",
+   "ticker": "QLYS",
+   "name": "Qualys, Inc."
+  },
+  {
+   "identifier": "BB",
+   "ticker": "BB",
+   "name": "BlackBerry Ltd."
+  },
+  {
+   "identifier": "SAIC",
+   "ticker": "SAIC",
+   "name": "Science Applications International Corporation"
+  },
+  {
+   "identifier": "VRNS",
+   "ticker": "VRNS",
+   "name": "Varonis Systems, Inc."
+  },
+  {
+   "identifier": "OTEX.CN",
+   "ticker": "OTEX",
+   "name": "Open Text Corporation"
+  },
+  {
+   "identifier": "NTSK",
+   "ticker": "NTSK",
+   "name": "Netskope, Inc. (Class A)"
+  },
+  {
+   "identifier": "TENB",
+   "ticker": "TENB",
+   "name": "Tenable Holdings, Inc."
+  },
+  {
+   "identifier": "FSLY",
+   "ticker": "FSLY",
+   "name": "Fastly, Inc. (Class A)"
+  },
+  {
+   "identifier": "NTCT",
+   "ticker": "NTCT",
+   "name": "NetScout Systems, Inc."
+  },
+  {
+   "identifier": "ATEN",
+   "ticker": "ATEN",
+   "name": "A10 Networks, Inc."
+  },
+  {
+   "identifier": "ZD",
+   "ticker": "ZD",
+   "name": "Ziff Davis, Inc."
+  },
+  {
+   "identifier": "RDWR",
+   "ticker": "RDWR",
+   "name": "Radware Ltd."
+  },
+  {
+   "identifier": "RPD",
+   "ticker": "RPD",
+   "name": "Rapid7, Inc."
+  },
+  {
+   "identifier": "OSPN",
+   "ticker": "OSPN",
+   "name": "OneSpan Inc."
+  },
+  {
+   "identifier": "ATO.FP",
+   "ticker": "ATO.PA",
+   "name": "Atos Group"
+  }
+ ]
+}

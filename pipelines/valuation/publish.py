@@ -46,7 +46,7 @@ from pipelines.common.checks import check
 from pipelines.common.log import setup_logging
 from pipelines.common.storage import FACTS_DIR, MARTS_DIR, SNAP_DIR, append_jsonl, utc_now, write_json
 from pipelines.valuation import read
-from pipelines.valuation.config import COMPANIES, EXCLUDED, TRACKS, Company
+from pipelines.valuation.config import COMPANIES, EXCLUDED, TRACKS, Company, published_tracks
 from pipelines.valuation.fundamentals import ttm_by_ticker
 from pipelines.valuation.metrics import (
     NM_LOSS,
@@ -749,7 +749,7 @@ def build(tracks: list[str] | None = None, now: date | None = None) -> dict[str,
     data = load_all()
     as_of = now or stamp.date()
     out: dict[str, dict] = {}
-    for track in tracks or list(TRACKS):
+    for track in tracks or published_tracks():
         try:
             out[track] = build_track(track, data, as_of, stamp.isoformat())
         except Exception as exc:  # one track's failure must not cost the other its publish
@@ -764,7 +764,7 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Build valuation marts and facts")
     ap.add_argument("--track", default="all", choices=[*TRACKS, "all"])
     args = ap.parse_args(argv)
-    tracks = list(TRACKS) if args.track == "all" else [args.track]
+    tracks = published_tracks() if args.track == "all" else [args.track]
 
     started = time.monotonic()
     ts = utc_now()

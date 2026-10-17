@@ -34,6 +34,7 @@ valuation:        ## prices, FX, analyst consensus and fundamentals for the valu
 	-uv run python -m pipelines.valuation.prices
 	-uv run python -m pipelines.valuation.estimates_yf
 	-uv run python -m pipelines.valuation.estimates_em
+	-uv run python -m pipelines.cyber.capture
 	-uv run python -m pipelines.valuation.fundamentals
 
 valuation-daily:  ## the weekday run: prices and FX only, then rebuild the pages

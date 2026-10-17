@@ -34,6 +34,25 @@ governor-midterms=104094, fomc=100478, fed-rates=100196.
   discovered by the last full run is saved to `kalshi_tier1_series.json` for tier1 runs.
 - `fomc`: Polymarket tags *fomc* + *Fed Rates*; Kalshi series `KXFEDDECISION`, `KXFED`, ...
 
+### The cybersecurity track keeps no Yahoo payload, but it does keep Yahoo fields
+
+`pipelines/cyber/capture.py` runs every Monday and writes one parsed row per ring A listing to
+`data/snapshots/cyber/consensus/<date>.parquet`: price, enterprise value, target prices, the rating distribution,
+the revenue consensus for fiscal year 0 and +1, trailing revenue and free cash flow, and fiscal-year dates, plus
+East Money's revenue consensus and six-month rating counts for the A-shares. It writes no payload for either source,
+and the daily price and weekly estimate modules archive a cyber ticker's Yahoo payload under
+`data/raw/valuation/*_local/`, which `.gitignore` excludes and a CI runner discards. `tests/test_local_raw.py` fails if
+any module archives a Yahoo payload without routing it through `raw_source()`.
+
+That is narrower than it sounds. Yahoo's terms restrict building a database or archive of its data. The weekly table
+holds Yahoo's values as served, not derived ones, and the daily and weekly valuation tables hold these tickers' Yahoo
+prices and EPS as well. Keeping the raw JSON out of git removes the part of the pipeline that looks most like an
+archive; it does not bring the repository inside the terms. The four earlier tracks keep committing their payloads;
+undoing that would mean rewriting history and is a separate decision. The consequence is written into section I of
+`EVALUATION_PLAN.md`: a verdict uses the committed tables, and a parser error is corrected by a named amendment, not by
+re-reading an archive that does not exist. A track marked `collecting` in `TRACKS` is fetched and tabled on schedule
+but is not built by `publish` or `evaluate` until the flag is removed.
+
 ## Tables
 
 `data/snapshots/predmarkets/<set>/quotes/<date>/<HHMM>.parquet` — one narrow row per market

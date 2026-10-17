@@ -28,6 +28,8 @@ RENDERED = {
     # renders none of these lists and its curated data lives under pipelines/power/reference
     "power": (),
     "surgical": (),
+    # the cyber page has no market-share layer; its curated private-company data lives under data/reference/cyber
+    "cyber": (),
 }
 
 # Phrases that address the pipeline's own authors rather than a reader. None of them belongs in a

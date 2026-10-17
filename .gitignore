@@ -21,6 +21,10 @@ site/public/data/
 # Documented in docs/DATA_MODEL.md.
 data/raw/valuation/sec/
 
+# Yahoo payloads of the cyber track are parsed and discarded: the run reads them, the repository never
+# keeps them (see LOCAL_RAW_TRACKS in pipelines/valuation/config.py).
+data/raw/valuation/*_local/
+
 # iCloud Drive syncs ~/Desktop and makes " 2" conflict copies when two processes write the same file,
 # which happens constantly when several agents work in parallel. Seven of them reached a commit once.
 *\ 2.*

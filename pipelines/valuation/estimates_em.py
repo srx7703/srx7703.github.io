@@ -128,7 +128,17 @@ THROTTLE = 0.25  # seconds between codes
 # East Money publishes no consensus at all for these, and has not for as long as we have looked.
 # They are the reason the coverage check needs an allowlist: without one it fails on every clean
 # run, and a check that is always red cannot report the day East Money stops answering for the pool.
-EXPECTED_EMPTY = frozenset({"688567.SS", "603200.SS"})  # 孚能科技, 上海洗霸
+EXPECTED_EMPTY = frozenset(
+    {
+        "688567.SS",  # 孚能科技
+        "603200.SS",  # 上海洗霸
+        # Cybersecurity ring A names that Yahoo covers and East Money does not (no broker forecast on the baseline
+        # date). pipelines/cyber/tests/test_capture.py fails if another one appears without being listed here.
+        "002912.SZ",  # 中新赛克
+        "688023.SS",  # 安恒信息
+        "688201.SS",  # 信安世纪
+    }
+)
 
 # What `rebuild_vintages` measures, recorded on every run record so a reader of runs.jsonl does not
 # have to come here to find out. There is one reading and it is coverage; see the module docstring.

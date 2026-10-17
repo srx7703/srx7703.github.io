@@ -94,7 +94,7 @@ from pipelines.common.storage import (
 )
 from pipelines.sec.transform import Q_MAX, Q_MIN, quarterly_series
 from pipelines.valuation import read
-from pipelines.valuation.config import BY_TICKER, COMPANIES, Company
+from pipelines.valuation.config import BY_TICKER, COMPANIES, Company, published_tracks, raw_source
 from pipelines.valuation.schema import FUNDAMENTAL_KEY, FUNDAMENTALS_SCHEMA, fundamentals_frame
 
 log = logging.getLogger("valuation.fundamentals")
@@ -786,7 +786,7 @@ def collect_sec(c: Company, client, lookup: dict[str, tuple[str, str]], archive)
 
 def collect_yahoo(c: Company, fetcher: YahooFetcher, archive) -> tuple[list[dict], list[dict], dict]:
     payload = fetcher.payload(c.ticker)
-    archive("yahoo_fin", _key(c.ticker), payload)
+    archive(raw_source(c, "yahoo_fin"), _key(c.ticker), payload)
     currency = payload["info"].get("financialCurrency") or YAHOO_CURRENCY_FALLBACK.get(c.market)
     if not currency:
         log.warning("%s: no financialCurrency from Yahoo and no safe default for market %r", c.ticker, c.market)
@@ -848,8 +848,13 @@ def clean_rows(rows: list[dict], ticker: str, source: str, snapshot_ts: str) -> 
 
 
 def select(tickers: str | None, sources: str | None) -> list[Company]:
-    chosen = COMPANIES
+    # A track that is still collecting is not fetched by default: statements can be re-fetched at any time,
+    # unlike a day's consensus or close, so starting late costs nothing and a first pass over 70 more
+    # listings is not worth a red weekly run. Naming a ticker still reaches it.
+    live = set(published_tracks())
+    chosen = [c for c in COMPANIES if c.track in live]
     if tickers:
+        chosen = COMPANIES
         want = {t.strip().upper() for t in tickers.split(",") if t.strip()}
         chosen = [c for c in chosen if c.ticker.upper() in want]
         missing = want - {c.ticker.upper() for c in chosen}
