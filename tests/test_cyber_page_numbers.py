@@ -356,7 +356,7 @@ FORBIDDEN = [
     (r"platform vendor|platform security (?:vendor|buyer)", "D5: the reader-facing name is 'security vendor'"),
     (r"\bregistered (?:regression|model)\b", "the page's own model is not a registered reading"),
     (r"press reports? (?:and third-party estimates )?(?:are|is) never charted", "D8: a publication-reported valuation is drawn hollow when the curator marked it chartable"),
-    (r"conflict of interest|\bdisclosure:", "D2: no conflict-of-interest sentence until the owner has answered"),
+    (r"\bdisclosure:|\bno (?:financial )?positions?\b", "D2: the page says only what the owner stated: no conflict of interest, nothing about positions"),
 ]
 
 
@@ -459,3 +459,12 @@ def test_a_number_word_that_is_a_name_only_passes_as_a_name():
     assert word_hits("Twenty raised a round.") == []
     assert word_hits("Twenty companies raised a round.") != []
     assert word_hits("Twenty-three companies.") != []
+
+
+def test_the_conflict_of_interest_sentence_is_exactly_what_the_owner_stated():
+    """D2, answered 2026-10-19: the owner stated there is no conflict of interest and that the company list is from public
+    sources. The page carries that one sentence and nothing stronger."""
+    body = " ".join(PAGE.read_text(encoding="utf-8").split())
+    assert body.count("The author has no conflict of interest with the companies covered.") == 1
+    assert len(re.findall(r"conflict of interest", body, flags=re.I)) == 1
+

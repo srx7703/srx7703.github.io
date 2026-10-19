@@ -86,12 +86,17 @@ AI executed, what the author decided), Changelog.
 
 Known, small, and none of them changes a number on the page. Each is checked before the page is switched to `live`.
 
-- **NCC Group (`NCC.L`) free-cash-flow margin.** Yahoo's trailing free cash flow gives -78% of revenue, which looks like a
-  data artefact (discontinued operations, or a mismatch with the continuing-revenue base); its market cap also disagrees
-  with its price times shares. It sits in the Rule of 40 chart at the far left. Check it against the company's filings; if
-  it is wrong, add the ticker to the metrics screen with the reason, as the pool does for `ANET`, `NTAP` and `DT`.
+- **NCC Group (`NCC.L`) free-cash-flow margin is held back** (`metrics.FCF_HELD_BACK`). Yahoo's trailing free cash flow
+  gives -78% of revenue, out of scale against its EV; the company stays in every table, its margin and Rule of 40 are
+  empty and its note says why. Remove the entry once the figure has been read from the filings.
 - **Ledger intervals figure ships its data inline** (about 125 KB of the 454 KB page) because the empty-view sentence reads
   the dataset by name with `indata`. A small named dataset would let it load from a file like the other figures.
 - **Console warnings from Vega-Lite** on four figures (`fit-y` dropped for a discrete height, faceted independent scales
   from different forks of one source, an infinite extent in an empty facet). They change nothing on screen.
 - **`prereg.ts`** exports the hash of section I; it does not yet export the registration commit.
+
+## Owner decisions answered 2026-10-19
+
+No conflict of interest (the page says exactly that, once, in the disclaimer); the company list comes from public sources only;
+the parsed Yahoo fields may stay in the public git history (the baseline table already is).
+
