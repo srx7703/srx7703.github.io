@@ -216,3 +216,17 @@ def test_every_a_share_without_an_east_money_forecast_is_allow_listed() -> None:
     }
     assert uncovered <= EXPECTED_EMPTY, f"add to estimates_em.EXPECTED_EMPTY: {sorted(uncovered - EXPECTED_EMPTY)}"
     assert {"002912.SZ", "688023.SS", "688201.SS"} <= uncovered
+
+
+def test_a_non_empty_dataframe_is_a_good_answer_and_does_not_trip_the_empty_check() -> None:
+    """Yahoo's revenue and rating tables are DataFrames. Comparing one with `{}` raises in pandas, which once made every
+    listing fail on the first live run (priced 0 of 73) while mocks that returned dicts passed."""
+    import pandas as pd
+
+    frame = pd.DataFrame({"avg": [1.0, 2.0], "low": [1, 1], "high": [2, 3], "n": [3, 4]}, index=["0y", "+1y"])
+    got, problem = capture._attempt(lambda: frame, capture.Pacer(0), lambda s: None)
+    assert problem is None and got is frame
+    got, problem = capture._attempt(lambda: pd.DataFrame(), capture.Pacer(0), lambda s: None)
+    assert got is None and problem == "empty"
+    got, problem = capture._attempt(lambda: {}, capture.Pacer(0), lambda s: None)
+    assert got is None and problem == "empty"

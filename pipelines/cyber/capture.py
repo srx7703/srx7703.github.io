@@ -332,7 +332,8 @@ def _attempt(step: Callable[[], Any], pacer: Pacer, sleep: Callable[[float], Non
         except Exception as exc:  # noqa: BLE001 - one failed call must not end the listing, let alone the run
             last = f"{type(exc).__name__}: {str(exc)[:120]}"
             continue
-        if got is not None and not (hasattr(got, "empty") and got.empty) and got != {}:
+        # `got` may be a DataFrame, and comparing one with `{}` raises; test for an empty dict by type instead.
+        if got is not None and not (hasattr(got, "empty") and got.empty) and not (isinstance(got, dict) and not got):
             return got, None
         last = "empty"
     return None, last
