@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-16T11:56:07.910364+00:00",
+ "generated_at": "2026-10-19T13:59:53.832193+00:00",
  "track": "optical",
  "label": "Optical modules",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-10-16T11:55:03+00:00",
+ "as_of_price": "2026-10-19T13:58:06+00:00",
  "as_of_estimates": "2026-10-12T17:02:44+00:00",
  "as_of_fx": "2026-10-09",
  "n_listings": 34,
@@ -16,13 +16,13 @@
  "n_thin": 4,
  "n_nm": 0,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 42.51353616416975,
- "median_fwd_pe_next": 25.150992318889358,
- "p25_fwd_pe_this": 24.363234877245286,
- "p75_fwd_pe_this": 69.47882783710715,
- "iqr_fwd_pe_this": 45.11559295986186,
+ "median_fwd_pe_this": 42.53466702472264,
+ "median_fwd_pe_next": 24.822260308055146,
+ "p25_fwd_pe_this": 23.90912688998181,
+ "p75_fwd_pe_this": 66.09846996472143,
+ "iqr_fwd_pe_this": 42.189343074739625,
  "median_growth": 0.7056061029016366,
- "median_trailing_pe": 78.20116917428791,
+ "median_trailing_pe": 76.50347712585481,
  "cheapest": {
   "ticker": "6869.HK",
   "name": "YOFC (H)",
@@ -33,7 +33,7 @@
  "priciest": {
   "ticker": "688048.SS",
   "name": "Everbright Photonics",
-  "fwd_pe_2026": 415.00763358778624,
+  "fwd_pe_2026": 405.34351145038164,
   "growth": 0.9847328244274809,
   "coverage": "covered"
  },
@@ -709,11 +709,11 @@
    "name": "YOFC",
    "primary": "601869.SS",
    "secondary": "6869.HK",
-   "primary_pe": 41.55003133486527,
+   "primary_pe": 42.61541675370796,
    "secondary_pe": 13.253438947824026,
    "basis": "both lines on 601869.SS's consensus for calendar 2026",
    "nm": null,
-   "premium": 2.135037743670825
+   "premium": 2.2154233268418713
   }
  ],
  "share_base_artefacts": [
@@ -722,8 +722,8 @@
    "name": "YOFC (H)",
    "primary": "601869.SS",
    "implied_shares": 1423658743.7419355,
-   "primary_implied_shares": 821905065.122172,
-   "gap": 0.7321449935709008
+   "primary_implied_shares": 821905094.7764705,
+   "gap": 0.7321449310751882
   }
  ],
  "excluded_from_pool": [

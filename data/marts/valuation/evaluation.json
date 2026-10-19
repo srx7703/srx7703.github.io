@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T11:56:09.330422+00:00",
+ "generated_at": "2026-10-19T13:59:55.315336+00:00",
  "plan": "docs/EVALUATION_PLAN.md",
  "snapshot_vintages_written": [],
  "tracks": {
@@ -14,31 +14,31 @@
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-10-16T11:56:07.910364+00:00",
-    "iqr": 45.11559295986186,
-    "p25": 24.363234877245286,
-    "p75": 69.47882783710715,
-    "median": 42.51353616416975,
+    "as_of": "2026-10-19T13:59:53.832193+00:00",
+    "iqr": 42.189343074739625,
+    "p25": 23.90912688998181,
+    "p75": 66.09846996472143,
+    "median": 42.53466702472264,
     "n_priced": 34,
     "n_listings": 34,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
    },
    "dual_listing_premium": {
     "status": "partial",
-    "as_of": "2026-10-16T11:56:07.910364+00:00",
+    "as_of": "2026-10-19T13:59:53.832193+00:00",
     "pairs": [
      {
       "name": "YOFC",
       "primary": "601869.SS",
       "secondary": "6869.HK",
-      "primary_pe": 41.55003133486527,
+      "primary_pe": 42.61541675370796,
       "secondary_pe": 13.253438947824026,
       "basis": "both lines on 601869.SS's consensus for calendar 2026",
       "nm": null,
-      "premium": 2.135037743670825
+      "premium": 2.2154233268418713
      }
     ],
-    "median_premium": 2.135037743670825,
+    "median_premium": 2.2154233268418713,
     "note": "the premium is the A line over the H line on identical reported earnings"
    },
    "share_bases": {
@@ -238,41 +238,41 @@
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-10-16T11:56:07.910364+00:00",
-    "iqr": 25.87165303127945,
-    "p25": 12.419876037932255,
-    "p75": 38.291529069211705,
-    "median": 18.72338509625593,
+    "as_of": "2026-10-19T13:59:53.832193+00:00",
+    "iqr": 25.183543658527604,
+    "p25": 12.47586998602093,
+    "p75": 37.659413644548536,
+    "median": 18.780457662469086,
     "n_priced": 26,
     "n_listings": 34,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
    },
    "dual_listing_premium": {
     "status": "partial",
-    "as_of": "2026-10-16T11:56:07.910364+00:00",
+    "as_of": "2026-10-19T13:59:53.832193+00:00",
     "pairs": [
      {
       "name": "CATL",
       "primary": "300750.SZ",
       "secondary": "3750.HK",
-      "primary_pe": 13.353258773621288,
+      "primary_pe": 12.872155804087928,
       "secondary_pe": 18.12041566936921,
       "basis": "both lines on 300750.SZ's consensus for calendar 2026",
       "nm": null,
-      "premium": -0.2630820938509889
+      "premium": -0.2896324212999678
      },
      {
       "name": "BYD",
       "primary": "002594.SZ",
       "secondary": "1211.HK",
-      "primary_pe": 19.350462006316036,
+      "primary_pe": 19.532925260244063,
       "secondary_pe": 14.711667853926512,
       "basis": "both lines on 002594.SZ's consensus for calendar 2026",
       "nm": null,
-      "premium": 0.31531395341769075
+      "premium": 0.3277165753188731
      }
     ],
-    "median_premium": 0.026115929783350922,
+    "median_premium": 0.01904207700945265,
     "note": "the premium is the A line over the H line on identical reported earnings"
    },
    "share_bases": {
@@ -288,7 +288,7 @@
     },
     "rank_correlation_why": null,
     "share_difference": {
-     "median_abs_difference": 0.04121066919089525,
+     "median_abs_difference": 0.03989226152405345,
      "n": 3,
      "source_name": "SNE Research — Press Release (Insight), \"From Jan to Jul 2026, Global EV Battery Usage Posted 725.2GWh\" (English edition; data from its Global EV and Battery Monthly Tracker, August 2026)",
      "source_url": "https://www.sneresearch.com/en/insight/release_view/727/page/0",
@@ -297,28 +297,28 @@
       {
        "name": "CATL",
        "ticker": "300750.SZ",
-       "computed_share": 0.5424091081602477,
+       "computed_share": 0.543225647368487,
        "cited_value": 0.39899999999999997,
        "cited_rank": null,
-       "difference": 0.1434091081602477,
+       "difference": 0.14422564736848703,
        "cited_text": "CATL 289.6 GWh / 39.9% share (+26.6% YoY"
       },
       {
        "name": "LG Energy Solution",
        "ticker": "373220.KS",
-       "computed_share": 0.12421066919089525,
+       "computed_share": 0.12289226152405346,
        "cited_value": 0.083,
        "cited_rank": null,
-       "difference": 0.04121066919089525,
+       "difference": 0.03989226152405345,
        "cited_text": "LG Energy Solution 60.3 GWh / 8.3% (+4.5%"
       },
       {
        "name": "Panasonic Holdings",
        "ticker": "6752.T",
-       "computed_share": 0.04134449245334641,
+       "computed_share": 0.041406732188308495,
        "cited_value": 0.036000000000000004,
        "cited_rank": null,
-       "difference": 0.005344492453346408,
+       "difference": 0.005406732188308491,
        "cited_text": "Panasonic 26.2 GWh / 3.6% (+7.6%"
       }
      ]
@@ -338,7 +338,7 @@
        {
         "name": "CATL",
         "ticker": "300750.SZ",
-        "computed_share": 0.5424091081602477,
+        "computed_share": 0.543225647368487,
         "cited_value": 289.6,
         "cited_rank": null,
         "difference": null,
@@ -347,7 +347,7 @@
        {
         "name": "LG Energy Solution",
         "ticker": "373220.KS",
-        "computed_share": 0.12421066919089525,
+        "computed_share": 0.12289226152405346,
         "cited_value": 60.3,
         "cited_rank": null,
         "difference": null,
@@ -356,7 +356,7 @@
        {
         "name": "CALB",
         "ticker": "3931.HK",
-        "computed_share": 0.04615970136394418,
+        "computed_share": 0.04622918988365603,
         "cited_value": 37.3,
         "cited_rank": null,
         "difference": null,
@@ -365,7 +365,7 @@
        {
         "name": "Gotion High-tech",
         "ticker": "002074.SZ",
-        "computed_share": 0.055570865988874424,
+        "computed_share": 0.05565452201572404,
         "cited_value": 34.0,
         "cited_rank": null,
         "difference": null,
@@ -374,7 +374,7 @@
        {
         "name": "Panasonic Holdings",
         "ticker": "6752.T",
-        "computed_share": 0.04134449245334641,
+        "computed_share": 0.041406732188308495,
         "cited_value": 26.2,
         "cited_rank": null,
         "difference": null,
@@ -383,7 +383,7 @@
        {
         "name": "EVE Energy",
         "ticker": "300014.SZ",
-        "computed_share": 0.08212207267296748,
+        "computed_share": 0.08224569871683463,
         "cited_value": 25.0,
         "cited_rank": null,
         "difference": null,
@@ -404,7 +404,7 @@
        {
         "name": "CATL",
         "ticker": "300750.SZ",
-        "computed_share": 0.5424091081602477,
+        "computed_share": 0.543225647368487,
         "cited_value": 107.5,
         "cited_rank": null,
         "difference": null,
@@ -413,7 +413,7 @@
        {
         "name": "LG Energy Solution",
         "ticker": "373220.KS",
-        "computed_share": 0.12421066919089525,
+        "computed_share": 0.12289226152405346,
         "cited_value": 51.6,
         "cited_rank": null,
         "difference": null,
@@ -422,7 +422,7 @@
        {
         "name": "Panasonic Holdings",
         "ticker": "6752.T",
-        "computed_share": 0.04134449245334641,
+        "computed_share": 0.041406732188308495,
         "cited_value": 26.2,
         "cited_rank": null,
         "difference": null,
@@ -431,7 +431,7 @@
        {
         "name": "Gotion High-tech",
         "ticker": "002074.SZ",
-        "computed_share": 0.055570865988874424,
+        "computed_share": 0.05565452201572404,
         "cited_value": 11.6,
         "cited_rank": null,
         "difference": null,
@@ -440,7 +440,7 @@
        {
         "name": "CALB",
         "ticker": "3931.HK",
-        "computed_share": 0.04615970136394418,
+        "computed_share": 0.04622918988365603,
         "cited_value": 7.4,
         "cited_rank": null,
         "difference": null,
@@ -449,7 +449,7 @@
        {
         "name": "EVE Energy",
         "ticker": "300014.SZ",
-        "computed_share": 0.08212207267296748,
+        "computed_share": 0.08224569871683463,
         "cited_value": 6.3,
         "cited_rank": null,
         "difference": null,
@@ -465,33 +465,33 @@
       "period": "2026-01 to 2026-07 (calendar, actuals)",
       "n": 3,
       "spearman": 1.0,
-      "median_abs_difference": 0.04121066919089525,
+      "median_abs_difference": 0.03989226152405345,
       "pairs": [
        {
         "name": "CATL",
         "ticker": "300750.SZ",
-        "computed_share": 0.5424091081602477,
+        "computed_share": 0.543225647368487,
         "cited_value": 0.39899999999999997,
         "cited_rank": null,
-        "difference": 0.1434091081602477,
+        "difference": 0.14422564736848703,
         "cited_text": "CATL 289.6 GWh / 39.9% share (+26.6% YoY"
        },
        {
         "name": "LG Energy Solution",
         "ticker": "373220.KS",
-        "computed_share": 0.12421066919089525,
+        "computed_share": 0.12289226152405346,
         "cited_value": 0.083,
         "cited_rank": null,
-        "difference": 0.04121066919089525,
+        "difference": 0.03989226152405345,
         "cited_text": "LG Energy Solution 60.3 GWh / 8.3% (+4.5%"
        },
        {
         "name": "Panasonic Holdings",
         "ticker": "6752.T",
-        "computed_share": 0.04134449245334641,
+        "computed_share": 0.041406732188308495,
         "cited_value": 0.036000000000000004,
         "cited_rank": null,
-        "difference": 0.005344492453346408,
+        "difference": 0.005406732188308491,
         "cited_text": "Panasonic 26.2 GWh / 3.6% (+7.6%"
        }
       ]
@@ -504,33 +504,33 @@
       "period": "2026-01 to 2026-07 (calendar, actuals)",
       "n": 3,
       "spearman": 1.0,
-      "median_abs_difference": 0.04165550754665359,
+      "median_abs_difference": 0.04159326781169151,
       "pairs": [
        {
         "name": "CATL",
         "ticker": "300750.SZ",
-        "computed_share": 0.5424091081602477,
+        "computed_share": 0.543225647368487,
         "cited_value": 0.34,
         "cited_rank": null,
-        "difference": 0.20240910816024765,
+        "difference": 0.20322564736848697,
         "cited_text": "CATL 107.5 GWh / 34.0% (+43.7%"
        },
        {
         "name": "LG Energy Solution",
         "ticker": "373220.KS",
-        "computed_share": 0.12421066919089525,
+        "computed_share": 0.12289226152405346,
         "cited_value": 0.163,
         "cited_rank": null,
-        "difference": -0.03878933080910475,
+        "difference": -0.04010773847594655,
         "cited_text": "LG Energy Solution 51.6 GWh / 16.3% (−1.7%"
        },
        {
         "name": "Panasonic Holdings",
         "ticker": "6752.T",
-        "computed_share": 0.04134449245334641,
+        "computed_share": 0.041406732188308495,
         "cited_value": 0.083,
         "cited_rank": null,
-        "difference": -0.04165550754665359,
+        "difference": -0.04159326781169151,
         "cited_text": "Panasonic 26.2 GWh / 8.3% (+7.6%"
        }
       ]
@@ -580,11 +580,11 @@
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-10-16T11:56:07.910364+00:00",
-    "iqr": 87.85022070266169,
-    "p25": 18.361147589901748,
-    "p75": 106.21136829256344,
-    "median": 31.231697822262753,
+    "as_of": "2026-10-19T13:59:53.832193+00:00",
+    "iqr": 87.85599675057551,
+    "p25": 18.382685218732853,
+    "p75": 106.23868196930837,
+    "median": 31.32940043341486,
     "n_priced": 6,
     "n_listings": 8,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
@@ -656,11 +656,11 @@
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-10-16T11:56:07.910364+00:00",
-    "iqr": 9.948683634123732,
-    "p25": 19.510773330527144,
-    "p75": 29.459456964650876,
-    "median": 23.147527689831527,
+    "as_of": "2026-10-19T13:59:53.832193+00:00",
+    "iqr": 9.077274397503444,
+    "p25": 19.722916237439726,
+    "p75": 28.80019063494317,
+    "median": 23.194977987877003,
     "n_priced": 26,
     "n_listings": 30,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"

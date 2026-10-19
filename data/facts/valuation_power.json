@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-16T11:56:07.910364+00:00",
+ "generated_at": "2026-10-19T13:59:53.832193+00:00",
  "track": "power",
  "label": "Data-center power",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-10-16T11:55:03+00:00",
+ "as_of_price": "2026-10-19T13:58:06+00:00",
  "as_of_estimates": "2026-10-12T17:02:44+00:00",
  "as_of_fx": "2026-10-09",
  "n_listings": 30,
@@ -16,24 +16,24 @@
  "n_thin": 0,
  "n_nm": 4,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 23.147527689831527,
- "median_fwd_pe_next": 20.366742418305773,
- "p25_fwd_pe_this": 19.510773330527144,
- "p75_fwd_pe_this": 29.459456964650876,
- "iqr_fwd_pe_this": 9.948683634123732,
+ "median_fwd_pe_this": 23.194977987877003,
+ "median_fwd_pe_next": 20.21743276749952,
+ "p25_fwd_pe_this": 19.722916237439726,
+ "p75_fwd_pe_this": 28.80019063494317,
+ "iqr_fwd_pe_this": 9.077274397503444,
  "median_growth": 0.1810583327758717,
- "median_trailing_pe": 28.1196345997114,
+ "median_trailing_pe": 34.03220263360248,
  "cheapest": {
   "ticker": "FSLR",
   "name": "First Solar",
-  "fwd_pe_2026": 10.242559809366147,
+  "fwd_pe_2026": 9.88082520170356,
   "growth": 0.32481533777649196,
   "coverage": "covered"
  },
  "priciest": {
   "ticker": "TSLA",
   "name": "Tesla",
-  "fwd_pe_2026": 207.2210628626969,
+  "fwd_pe_2026": 206.8408564649381,
   "growth": 0.2477916583288069,
   "coverage": "covered"
  },
@@ -112,7 +112,7 @@
   {
    "name": "Trailing earnings",
    "status": "pass",
-   "detail": "25 of 30 listings have positive trailing profit; 30 have trailing financials at all"
+   "detail": "18 of 30 listings have positive trailing profit; 23 have trailing financials at all"
   },
   {
    "name": "Dual-listing share base",
