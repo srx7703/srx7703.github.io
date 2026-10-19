@@ -48,3 +48,11 @@ subject; the rest is unedited.
 Cards with borders and radius, pill badges, KPI tiles, three-column feature grids, gradient or coloured heroes,
 tech-stack tag strings in headers, emoji as section markers, Inter as a body face. If a new element needs
 separation, use a hairline rule or white space.
+
+## Link previews
+`Base.astro` writes Open Graph and Twitter card tags (title, description, canonical address, image) into the static HTML, so
+LinkedIn, Slack and iMessage can draw a card for any page; they run no scripts. The image is `site/public/og/<slug>.png`
+(1200 x 630) for a project page and `site/public/og/site.png` for every other page. The cards are typographic on purpose, in
+the paper-and-serif style, with no chart and no number, so a card cannot go stale while the data refreshes.
+`site/scripts/og-cards.mjs` draws them (dev tool; see its header); re-run it when a project is added or retitled and commit the PNGs.
+After a deploy, LinkedIn's Post Inspector refreshes a page's cached preview.

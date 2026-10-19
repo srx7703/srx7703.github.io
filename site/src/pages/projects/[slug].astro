@@ -4,6 +4,7 @@ import Base from '@layouts/Base.astro';
 import { evaluationPlan } from '@lib/prereg';
 import { dayUtc } from '@lib/fmt';
 import { AUTHOR, AUTHOR_CITE } from '@lib/site';
+import { existsSync } from 'node:fs';
 
 export async function getStaticPaths() {
   const entries = await getCollection('projects');
@@ -15,8 +16,10 @@ const statusLabel = { live: 'Live project, auto-refreshed', 'case-study': 'Case 
 const plan = entry.data.status === 'live' ? evaluationPlan() : null;
 const url = `https://srx7703.github.io/projects/${entry.id}/`;
 const year = entry.data.started.slice(0, 4);
+// A page without its own card falls back to the site card.
+const card = existsSync(`public/og/${entry.id}.png`) ? `/og/${entry.id}.png` : '/og/site.png';
 ---
-<Base title={entry.data.title} description={entry.data.summary}>
+<Base title={entry.data.title} description={entry.data.summary} image={card}>
   <article>
     <header class="d-title">
       <p class="small-caps">{statusLabel} · {entry.data.domain.join(', ')}</p>
