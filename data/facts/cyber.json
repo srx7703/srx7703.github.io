@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-17T11:11:24+00:00",
+ "generated_at": "2026-10-19T21:36:01+00:00",
  "slug": "cybersecurity-landscape",
  "as_of": "2026-10-16",
  "registered": "2026-10-17",
@@ -541,7 +541,7 @@
   "fitted_on": "the Q1 and Q2 population of the week plus the Q7 A-share group, one run",
   "draws": 10000,
   "seed": 20261026,
-  "age_days": 0,
+  "age_days": 2,
   "n_series": 0,
   "series_from": "2026-10-26",
   "baseline": {
@@ -1260,11 +1260,11 @@
  "rule_of_40": {
   "as_of": "2026-10-16",
   "n_ring_a": 73,
-  "n_scored": 64,
+  "n_scored": 63,
   "n_pass": 20,
   "cut": 40.0,
   "median_score": {
-   "value": 31.14782,
+   "value": 31.396268,
    "qualifier": "=",
    "unit": "points (growth plus FCF margin, in percent)",
    "period": "snapshot of 2026-10-16",
@@ -1383,33 +1383,6 @@
     }
    },
    {
-    "value": -65.207294,
-    "qualifier": "=",
-    "unit": "points (growth plus FCF margin, in percent)",
-    "period": "snapshot of 2026-10-16",
-    "as_of": "2026-10-16",
-    "source_url": "https://finance.yahoo.com/",
-    "ticker": "NCC.L",
-    "name": "NCC Group",
-    "layer": "services",
-    "growth": {
-     "value": 0.126531,
-     "qualifier": "=",
-     "unit": "fraction",
-     "period": "snapshot of 2026-10-16",
-     "as_of": "2026-10-16",
-     "source_url": "https://finance.yahoo.com/"
-    },
-    "fcf_margin": {
-     "value": -0.778604,
-     "qualifier": "=",
-     "unit": "fraction",
-     "period": "snapshot of 2026-10-16",
-     "as_of": "2026-10-16",
-     "source_url": "https://finance.yahoo.com/"
-    }
-   },
-   {
     "value": -18.074535,
     "qualifier": "=",
     "unit": "points (growth plus FCF margin, in percent)",
@@ -1429,6 +1402,33 @@
     },
     "fcf_margin": {
      "value": -0.998488,
+     "qualifier": "=",
+     "unit": "fraction",
+     "period": "snapshot of 2026-10-16",
+     "as_of": "2026-10-16",
+     "source_url": "https://finance.yahoo.com/"
+    }
+   },
+   {
+    "value": -9.81321,
+    "qualifier": "=",
+    "unit": "points (growth plus FCF margin, in percent)",
+    "period": "snapshot of 2026-10-16",
+    "as_of": "2026-10-16",
+    "source_url": "https://finance.yahoo.com/",
+    "ticker": "KUD.SW",
+    "name": "Kudelski",
+    "layer": "services",
+    "growth": {
+     "value": -0.091621,
+     "qualifier": "=",
+     "unit": "fraction",
+     "period": "snapshot of 2026-10-16",
+     "as_of": "2026-10-16",
+     "source_url": "https://finance.yahoo.com/"
+    },
+    "fcf_margin": {
+     "value": -0.006511,
      "qualifier": "=",
      "unit": "fraction",
      "period": "snapshot of 2026-10-16",
@@ -3084,9 +3084,9 @@
   "n_sec_priced": 23,
   "n_sec_priced_deals": 23,
   "n_sec_priced_deals_12m": 13,
-  "window_from": "2025-10-17",
-  "window_to": "2026-10-17",
-  "window_end": "2026-10-17",
+  "window_from": "2025-10-19",
+  "window_to": "2026-10-19",
+  "window_end": "2026-10-19",
   "latest": {
    "company": "Varonis Systems",
    "event_kind": "take_private",
@@ -3307,7 +3307,7 @@
      "qualifier": "=",
      "unit": "companies",
      "period": null,
-     "as_of": "2026-10-17",
+     "as_of": "2026-10-19",
      "ref": "Section I, Q6",
      "note": "not the scored set: that is fixed by the ledger frozen on 2026-12-31",
      "source_url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
@@ -3499,11 +3499,11 @@
   },
   "checks": {
    "n": 53,
-   "n_pass": 46,
-   "n_warn": 7,
+   "n_pass": 47,
+   "n_warn": 6,
    "n_fail": 0,
    "n_warn_waiting": 4,
-   "n_warn_data": 3,
+   "n_warn_data": 2,
    "warn_waiting": [
     "Target mean week on week",
     "Analyst count week on week",
@@ -3512,8 +3512,7 @@
    ],
    "warn_data": [
     "Target price and quote currency agree",
-    "East Money rating rows",
-    "Exchange rates"
+    "East Money rating rows"
    ]
   }
  },
@@ -3522,14 +3521,16 @@
   "n_ring_a": 73,
   "n_priced": 73,
   "n_with_multiple": 66,
-  "n_with_enterprise_value_usd": 71,
+  "n_with_enterprise_value_usd": 73,
   "fx_as_of": "2026-10-09",
   "fx_rate_dates": {
+   "AUD": "2026-10-09",
    "CHF": "2026-10-09",
    "CNY": "2026-10-09",
    "EUR": "2026-10-09",
    "GBP": "2026-10-09",
    "JPY": "2026-10-09",
+   "SEK": "2026-10-09",
    "TWD": "2026-10-09",
    "USD": "2026-10-09"
   },
@@ -3726,7 +3727,7 @@
   {
    "name": "Consensus freshness",
    "status": "pass",
-   "detail": "newest usable run 2026-10-17, 0 days before 2026-10-17 (weekly capture; limit 9)"
+   "detail": "newest usable run 2026-10-17, 2 days before 2026-10-19 (weekly capture; limit 9)"
   },
   {
    "name": "Consensus coverage",
@@ -3765,8 +3766,8 @@
   },
   {
    "name": "Exchange rates",
-   "status": "warn",
-   "detail": "71 of 73 listings with an enterprise value have it in dollars, at the newest rate on file for each of 7 currencies (rate day 2026-10-09); no rate for AUD, SEK: YUBICO.ST, SEN.AX left empty"
+   "status": "pass",
+   "detail": "73 of 73 listings with an enterprise value have it in dollars, at the newest rate on file for each of 9 currencies (rate day 2026-10-09)"
   },
   {
    "name": "Listing values are parsed capture fields",
@@ -3806,7 +3807,7 @@
   {
    "name": "China panel freshness",
    "status": "pass",
-   "detail": "newest trading day 2026-10-16, 1 days before 2026-10-17 (limit 10)"
+   "detail": "newest trading day 2026-10-16, 3 days before 2026-10-19 (limit 10)"
   },
   {
    "name": "China panel revenue growth",
@@ -3906,7 +3907,7 @@
   {
    "name": "Deal count matches the events mart",
    "status": "pass",
-   "detail": "69 deal-opening events in the events mart between 2025-10-17 (not included) and 2026-10-17; acquisitions_12m is 69"
+   "detail": "69 deal-opening events in the events mart between 2025-10-19 (not included) and 2026-10-19; acquisitions_12m is 69"
   },
   {
    "name": "Qualifiers on every published number",

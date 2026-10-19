@@ -101,6 +101,15 @@ def static_fields(e: Entry) -> dict[str, Any]:
     }  # fmt: skip
 
 
+# A trailing free cash flow that is out of scale with the company's own revenue and enterprise value is not charted
+# until it has been read from the filings: Yahoo gives NCC Group -GBP 182M on GBP 234M of revenue and an EV of
+# GBP 518M. The company stays in every table; only its free-cash-flow margin and Rule of 40 are left empty, and the
+# note says so.
+FCF_HELD_BACK = {
+    "NCC.L": "free-cash-flow margin held back: the data source's figure is out of scale and unchecked against filings",
+}
+
+
 def listing_rows(
     df: pl.DataFrame | None, as_of: date, rates: Mapping[str, float] | None = None
 ) -> list[dict[str, Any]]:
@@ -117,12 +126,16 @@ def listing_rows(
             continue
         ev_ntm = F.ev_ntm(r, as_of)
         growth, fcf = F.growth(r, as_of), F.fcf_margin(r)
+        note = base["note"]
+        if e.ticker in FCF_HELD_BACK:
+            fcf, note = None, "; ".join(x for x in (note, FCF_HELD_BACK[e.ticker]) if x)
         price, mean = r.get("price"), r.get("target_mean")
         high, low = r.get("target_high"), r.get("target_low")
         n = r.get("n_opinions")
         out.append(
             {
                 **base,
+                "note": note,
                 "priced": True,
                 "currency": r.get("currency"),
                 "financial_currency": r.get("financial_currency"),

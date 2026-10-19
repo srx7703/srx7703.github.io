@@ -138,3 +138,13 @@ def test_rates_change_only_the_dollar_value() -> None:
             k: v for k, v in b.items() if k != "enterprise_value_usd"
         }
     assert any(a.get("enterprise_value_usd") is not None for a in with_rates)
+
+
+def test_a_held_back_free_cash_flow_is_left_empty_and_the_note_says_why(rows) -> None:
+    ncc = {r["ticker"]: r for r in rows}["NCC.L"]
+    assert ncc["priced"] and ncc["fcf_margin"] is None and ncc["rule_of_40"] is None
+    assert "held back" in ncc["note"]
+    assert ncc["ev_ntm_reason"] == "currency_mismatch" or ncc["ev_ntm"] is not None or ncc["ev_ntm_reason"]
+    # nobody else loses a margin to this rule
+    assert [r["ticker"] for r in rows if r["priced"] and r["ticker"] in M.FCF_HELD_BACK] == ["NCC.L"]
+

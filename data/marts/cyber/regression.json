@@ -1,5 +1,5 @@
 {
- "today": "2026-10-17",
+ "today": "2026-10-19",
  "spec": {
   "model": "ln(EV/NTM revenue) = a + b*growth + c*FCF margin + d*China + layer groups",
   "fitted_on": "the Q1 and Q2 population of the week plus the Q7 A-share group, one run",
@@ -32,7 +32,7 @@
   },
   "verdict": false
  },
- "latest_age_days": 0,
+ "latest_age_days": 2,
  "latest": {
   "as_of": "2026-10-16",
   "run_ts": "2026-10-17T02:37:07+00:00",
