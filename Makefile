@@ -1,4 +1,4 @@
-.PHONY: setup test lint snapshot snapshot-midterms snapshot-fomc backfill sec valuation valuation-daily memcycle memcycle-freeze cyber-publish publish site all
+.PHONY: setup test lint snapshot snapshot-midterms snapshot-fomc backfill sec valuation valuation-daily memcycle memcycle-freeze cyber-publish admarket publish site all
 
 setup:            ## install python deps (uv) and site deps (npm)
 	uv sync
@@ -50,6 +50,11 @@ memcycle-freeze:  ## LOCAL ONLY: check the frozen stock-side table against the l
 
 cyber-publish:    ## cybersecurity page: marts and facts from the stored snapshots and curated files (no network)
 	uv run python -m pipelines.cyber.publish
+	uv run python -m pipelines.admarket.publish
+
+admarket:         ## advertising market: new SEC filings (needs SEC_USER_AGENT), then marts and facts
+	-uv run python -m pipelines.admarket.ingest
+	uv run python -m pipelines.admarket.publish
 
 publish:          ## rebuild every mart and facts file from the snapshots
 	uv run python -m pipelines.predmarkets.publish

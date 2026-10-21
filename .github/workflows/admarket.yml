@@ -1,0 +1,93 @@
+name: admarket
+
+on:
+  schedule:
+    # Weekdays at 09:23 UTC. Filings arrive in bursts (late January to early March, then late April, July and
+    # October to early November); a weekday run picks each 10-Q / 10-K up within a day. A run with nothing new
+    # makes about two dozen small SEC requests (submissions pages only) and commits nothing.
+    - cron: "23 9 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: admarket
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: astral-sh/setup-uv@v10.1.0
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --frozen --no-dev
+
+      # New 10-Q / 10-K filings: revenue facts and Meta/Alphabet text windows only (the instances are not kept).
+      # Each company fails on its own; a failure costs that company's new filing, not the run.
+      - name: SEC filings
+        id: ingest
+        continue-on-error: true
+        run: uv run python -m pipelines.admarket.ingest
+
+      - name: Rebuild marts and facts
+        id: publish
+        if: always()
+        continue-on-error: true
+        run: uv run python -m pipelines.admarket.publish
+
+      # data/raw is the append-only archive and is committed even on a bad run; data/facts, data/marts and
+      # data/snapshots are what the page renders, and a publish that died part-way must not reach main.
+      - name: Commit and push data
+        id: commit
+        if: always()
+        run: |
+          git config user.name "portfolio-bot"
+          git config user.email "portfolio-bot@users.noreply.github.com"
+          if [ "${{ steps.publish.outcome }}" = "success" ]; then
+            git add data/raw/admarket data/snapshots/admarket data/marts/admarket data/facts/admarket.json
+          else
+            echo "::warning::publish did not succeed; committing the raw extracts only"
+            git add data/raw/admarket
+            git checkout -- data/facts data/marts data/snapshots 2>/dev/null || true
+          fi
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m "data(admarket): refresh $(date -u +'%Y-%m-%d %H:%M UTC')"
+          for i in 1 2 3; do
+            git rebase --abort 2>/dev/null || true
+            if git pull --rebase -X theirs origin main && git push origin HEAD:main; then
+              echo "pushed=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "push attempt $i failed; retrying"
+            sleep 15
+          done
+          exit 1
+
+      # Only a run that changed the data redeploys the site (most weekday runs find no new filing).
+      - name: Redeploy the site
+        if: always() && steps.commit.outputs.pushed == 'true'
+        run: gh workflow run deploy-site.yml --ref main
+
+      # Every continue-on-error step must be named here or its failure is invisible.
+      - name: Surface step failures
+        if: always() && (steps.ingest.outcome == 'failure' || steps.publish.outcome == 'failure')
+        run: |
+          echo "::error::an admarket step failed (ingest=${{ steps.ingest.outcome }}, publish=${{ steps.publish.outcome }})"
+          exit 1
