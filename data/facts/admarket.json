@@ -1,0 +1,692 @@
+{
+ "generated_at": "2026-10-21T18:47:08+00:00",
+ "last_updated": "2026-10-21",
+ "status": "in-progress",
+ "data": {
+  "n_filings": 286,
+  "n_companies": 12,
+  "n_series": 19,
+  "first_quarter": "2019Q1",
+  "last_quarter": "2026Q2",
+  "latest_filing": {
+   "ticker": "PUBM",
+   "form": "10-Q",
+   "period": "2026-06-30",
+   "filed": "2026-08-06"
+  },
+  "n_text_filings": 40,
+  "first_report": "2020-01-01"
+ },
+ "video": {
+  "channel": "Money or Life",
+  "title": "投资 Meta / 谷歌 / AppLovin 前必须懂的广告知识",
+  "title_en": "What you need to know about advertising before investing in Meta, Google or AppLovin",
+  "date": "2025-11-29",
+  "url": "https://www.youtube.com/watch?v=eXXE553YhWE",
+  "first_quarter": "2021Q1",
+  "last_quarter": "2025Q3",
+  "cagr_claimed": 0.172,
+  "google_share_claimed": [
+   0.558,
+   0.492
+  ],
+  "claim_check": {
+   "claims": 34,
+   "holds": 19,
+   "partly": 10,
+   "wrong": 3,
+   "unchecked": 2,
+   "table_cells": 155,
+   "cells_match": 147,
+   "cells_restated": 8
+  }
+ },
+ "panel": {
+  "first_quarter": "2021Q1",
+  "last_quarter": "2026Q2",
+  "years": 5.25,
+  "total_first_bn": 80.379625,
+  "total_last_bn": 170.839015,
+  "total_video_end_bn": 150.913864,
+  "cagr": 0.15443565109420154,
+  "ttm_yoy": 0.19892426604510316,
+  "video_window": {
+   "first": "2021Q1",
+   "last": "2025Q3",
+   "years": 4.5,
+   "cagr_correct": 0.1502606380869025,
+   "cagr_four_years": 0.17056569074275574,
+   "cagr_claimed": 0.172
+  },
+  "share_first": {
+   "Google": 0.5559120237249179,
+   "Meta": 0.31648567656293497,
+   "Amazon": 0.07938578962019292,
+   "Microsoft": 0.029870753937953805,
+   "Snap": 0.009574366638311637,
+   "AppLovin": null,
+   "Pinterest": 0.006036728835199219,
+   "TradeDesk": 0.002734660680489614,
+   "Reddit": null
+  },
+  "share_last": {
+   "Google": 0.4778124013416959,
+   "Meta": 0.34747917505846077,
+   "Amazon": 0.11595126558181104,
+   "Microsoft": 0.02258851703166282,
+   "Snap": 0.009359647736203583,
+   "AppLovin": 0.011260226476955513,
+   "Pinterest": 0.006905062055058091,
+   "TradeDesk": 0.004185560306584535,
+   "Reddit": 0.004458144411567814
+  },
+  "share_video_end": {
+   "Google": 0.4915519226252135,
+   "Meta": 0.3318581783844591,
+   "Amazon": 0.11730532590431851,
+   "Microsoft": 0.024497417944318225,
+   "Snap": 0.009984761903651211,
+   "AppLovin": 0.009310244683682608,
+   "Pinterest": 0.006952343357930322,
+   "TradeDesk": 0.004899702256646215,
+   "Reddit": 0.003640102939780271
+  },
+  "meta_2022_low": {
+   "quarter": "2022Q3",
+   "share": 0.2816812818025815
+  },
+  "applovin_passes_snap": "2026Q1",
+  "yoy_last": {
+   "Google": 0.14422483880011217,
+   "Meta": 0.2748963769516568,
+   "Amazon": 0.2622021154581369,
+   "Microsoft": 0.07463102199944305,
+   "Snap": 0.18890425524004972,
+   "AppLovin": 0.5282461863080474,
+   "Pinterest": 0.18174924140501103,
+   "TradeDesk": 0.030283600777477826,
+   "Reddit": 0.6386608862162075
+  },
+  "yoy_video_end": {
+   "Google": 0.12646156649558105,
+   "Meta": 0.25566002256487397,
+   "Amazon": 0.23529411764705888,
+   "Microsoft": 0.1463565891472869,
+   "Snap": 0.09781986253564479,
+   "AppLovin": 0.6823138797824677,
+   "Pinterest": 0.1678946272873294,
+   "TradeDesk": 0.17741108506789627,
+   "Reddit": 0.7433672692190514
+  },
+  "next_quarter": {
+   "quarter": "2026Q3",
+   "reported": [],
+   "n_reported": 0,
+   "n_members": 9
+  },
+  "four_quarter_mean_share": {
+   "Google": {
+    "before": 0.48354369639617667
+   }
+  },
+  "others": [
+   "Microsoft",
+   "Snap",
+   "AppLovin",
+   "Pinterest",
+   "TradeDesk",
+   "Reddit"
+  ],
+  "others_share_last": 0.05875715801803236,
+  "snap_non_ad_share_last": 0.19791894023300916
+ },
+ "labels": {
+  "google_search": "Google Search & other",
+  "youtube_ads": "YouTube ads",
+  "google_network": "Google Network",
+  "google_ads_total": "Google advertising",
+  "meta_ads": "Meta advertising",
+  "meta_total": "Meta total revenue",
+  "amazon_ads": "Amazon advertising services",
+  "msft_search_ads": "Microsoft search & news advertising",
+  "snap_total": "Snap total revenue",
+  "snap_ads": "Snap advertising",
+  "applovin_ads": "AppLovin advertising segment",
+  "applovin_total": "AppLovin total revenue",
+  "pinterest_total": "Pinterest total revenue",
+  "ttd_total": "The Trade Desk total revenue",
+  "reddit_ads": "Reddit advertising",
+  "reddit_total": "Reddit total revenue",
+  "magnite_total": "Magnite total revenue",
+  "pubmatic_total": "PubMatic total revenue",
+  "unity_total": "Unity total revenue"
+ },
+ "rules": {
+  "applovin_total_from": "2025Q2",
+  "applovin_from": "2022Q1",
+  "reddit_video_from": "2024Q1",
+  "att_release": "2021-04-26",
+  "att_ios": "iOS 14.5",
+  "q1_before": [
+   "2025Q3",
+   "2025Q4",
+   "2026Q1",
+   "2026Q2"
+  ],
+  "q1_after": [
+   "2026Q3",
+   "2026Q4",
+   "2027Q1",
+   "2027Q2"
+  ],
+  "q1_threshold": 0.005,
+  "q2_before": [
+   "2021Q1",
+   "2021Q2"
+  ],
+  "q2_after": [
+   "2022Q1",
+   "2022Q2",
+   "2022Q3",
+   "2022Q4"
+  ],
+  "q2_threshold": 0.05,
+  "q3_from": [
+   "2022Q3",
+   "2023Q2"
+  ],
+  "q3_to": [
+   "2025Q3",
+   "2026Q2"
+  ],
+  "q3_years": 3,
+  "q3_threshold": 0.05,
+  "q4_max_gap_pp": 3.0,
+  "backtest_from": "2023Q1"
+ },
+ "q1": {
+  "status": "collecting",
+  "quarters_in": 0,
+  "quarters_needed": 4
+ },
+ "q2": {
+  "affected": {
+   "before": 0.4733799265231801,
+   "after": 0.30236513099862733,
+   "drop": 0.1710147955245528,
+   "members": {
+    "meta_ads": {
+     "before": 0.3086500383277745,
+     "after": 0.17222605909233307
+    },
+    "snap_total": {
+     "before": 0.5703461705227301,
+     "after": 0.3909015764520346
+    },
+    "pinterest_total": {
+     "before": 0.5411435707190358,
+     "after": 0.34396775745151426
+    }
+   }
+  },
+  "control": {
+   "before": 0.17026020582723805,
+   "after": 0.2164129855873362,
+   "drop": -0.046152779760098156,
+   "members": {
+    "google_search": {
+     "before": 0.2101975148731553,
+     "after": 0.25848612859354714
+    },
+    "msft_search_ads": {
+     "before": 0.1303228967813208,
+     "after": 0.17433984258112528
+    }
+   }
+  },
+  "gap": 0.21716757528465094,
+  "verdict": "holds",
+  "threshold": 0.05
+ },
+ "q3": {
+  "open": -0.007934172543773488,
+  "walled": 0.17950431743259987,
+  "walled_ex_reddit": 0.1781757412156959,
+  "members": {
+   "google_network": -0.024104144740872302,
+   "ttd_total": 0.19950040243952327,
+   "magnite_total": 0.0710749560702082,
+   "pubmatic_total": 0.03937303819788296,
+   "google_search": 0.13791893968694602,
+   "youtube_ads": 0.13152886946825015,
+   "meta_ads": 0.23530444894554292,
+   "amazon_ads": 0.22584467138699305,
+   "msft_search_ads": 0.07768504663804787,
+   "snap_total": 0.12299631246309595,
+   "pinterest_total": 0.16619846629736634
+  },
+  "gap": 0.18743848997637336,
+  "verdict": "holds",
+  "threshold": 0.05,
+  "descriptive": {
+   "open_ex_network": 0.15735565503274151,
+   "network_ttm_bn": 29.456,
+   "others_ttm_bn": 4.021348,
+   "network_share_of_open": 0.8798785375711362,
+   "walled_minus_open_ex_network": 0.022148662399858354
+  }
+ },
+ "q4": {
+  "verdict": {
+   "meta_ads": {
+    "n": 20,
+    "max_abs_gap_pp": 0.8,
+    "mean_abs_gap_pp": 0.4,
+    "usable": true,
+    "worst_quarter": "2020Q3",
+    "over_by_pp": -2.2,
+    "n_over": 0
+   },
+   "google_search_clicks": {
+    "n": 20,
+    "max_abs_gap_pp": 3.1,
+    "mean_abs_gap_pp": 0.92,
+    "usable": false,
+    "worst_quarter": "2021Q2",
+    "over_by_pp": 0.1,
+    "n_over": 1
+   },
+   "google_network": {
+    "n": 17,
+    "max_abs_gap_pp": 3.3,
+    "mean_abs_gap_pp": 1.11,
+    "usable": false,
+    "worst_quarter": "2025Q3",
+    "over_by_pp": 0.3,
+    "n_over": 1
+   }
+  },
+  "summary": {
+   "meta_ads": {
+    "latest": {
+     "quarter": "2026Q2",
+     "volume": 14,
+     "price": 12,
+     "reported": 27.5
+    },
+    "years": {
+     "2020": {
+      "vol_min": 35,
+      "vol_max": 40,
+      "price_min": -21,
+      "price_max": -9,
+      "n": 3
+     },
+     "2021": {
+      "vol_min": 6,
+      "vol_max": 12,
+      "price_min": 22,
+      "price_max": 47,
+      "n": 3
+     },
+     "2022": {
+      "vol_min": 15,
+      "vol_max": 17,
+      "price_min": -18,
+      "price_max": -8,
+      "n": 3
+     },
+     "2023": {
+      "vol_min": 26,
+      "vol_max": 34,
+      "price_min": -17,
+      "price_max": -6,
+      "n": 3
+     },
+     "2024": {
+      "vol_min": 7,
+      "vol_max": 20,
+      "price_min": 6,
+      "price_max": 11,
+      "n": 3
+     },
+     "2025": {
+      "vol_min": 5,
+      "vol_max": 14,
+      "price_min": 9,
+      "price_max": 10,
+      "n": 3
+     },
+     "2026": {
+      "vol_min": 14,
+      "vol_max": 19,
+      "price_min": 12,
+      "price_max": 12,
+      "n": 2
+     }
+    },
+    "price_min": {
+     "quarter": "2020Q2",
+     "price": -21
+    },
+    "volume_min": {
+     "quarter": "2025Q1",
+     "volume": 5
+    },
+    "volume_max": {
+     "quarter": "2020Q2",
+     "volume": 40
+    },
+    "price_positive_since": "2024Q1",
+    "volume_negative_since": null,
+    "first_quarter": "2020Q1"
+   },
+   "google_search_clicks": {
+    "latest": {
+     "quarter": "2026Q2",
+     "volume": 13,
+     "price": 3,
+     "reported": 16.8
+    },
+    "years": {
+     "2020": {
+      "vol_min": 8,
+      "vol_max": 27,
+      "price_min": -15,
+      "price_max": -4,
+      "n": 3
+     },
+     "2021": {
+      "vol_min": 22,
+      "vol_max": 26,
+      "price_min": 3,
+      "price_max": 31,
+      "n": 3
+     },
+     "2022": {
+      "vol_min": 8,
+      "vol_max": 16,
+      "price_min": -5,
+      "price_max": 8,
+      "n": 3
+     },
+     "2023": {
+      "vol_min": 7,
+      "vol_max": 8,
+      "price_min": -7,
+      "price_max": 4,
+      "n": 3
+     },
+     "2024": {
+      "vol_min": 4,
+      "vol_max": 6,
+      "price_min": 7,
+      "price_max": 8,
+      "n": 3
+     },
+     "2025": {
+      "vol_min": 2,
+      "vol_max": 7,
+      "price_min": 7,
+      "price_max": 8,
+      "n": 3
+     },
+     "2026": {
+      "vol_min": 13,
+      "vol_max": 13,
+      "price_min": 3,
+      "price_max": 5,
+      "n": 2
+     }
+    },
+    "price_min": {
+     "quarter": "2020Q2",
+     "price": -15
+    },
+    "volume_min": {
+     "quarter": "2025Q1",
+     "volume": 2
+    },
+    "volume_max": {
+     "quarter": "2020Q3",
+     "volume": 27
+    },
+    "price_positive_since": "2023Q3",
+    "volume_negative_since": null,
+    "first_quarter": "2020Q1"
+   },
+   "google_network": {
+    "latest": {
+     "quarter": "2026Q2",
+     "volume": -12,
+     "price": 13,
+     "reported": -0.7
+    },
+    "years": {
+     "2021": {
+      "vol_min": -1,
+      "vol_max": 7,
+      "price_min": 19,
+      "price_max": 63,
+      "n": 3
+     },
+     "2022": {
+      "vol_min": 3,
+      "vol_max": 6,
+      "price_min": -5,
+      "price_max": 17,
+      "n": 3
+     },
+     "2023": {
+      "vol_min": -5,
+      "vol_max": 0,
+      "price_min": -5,
+      "price_max": 1,
+      "n": 3
+     },
+     "2024": {
+      "vol_min": -17,
+      "vol_max": -13,
+      "price_min": 13,
+      "price_max": 15,
+      "n": 3
+     },
+     "2025": {
+      "vol_min": -6,
+      "vol_max": -5,
+      "price_min": 4,
+      "price_max": 6,
+      "n": 3
+     },
+     "2026": {
+      "vol_min": -12,
+      "vol_max": -9,
+      "price_min": 6,
+      "price_max": 13,
+      "n": 2
+     }
+    },
+    "price_min": {
+     "quarter": "2022Q3",
+     "price": -5
+    },
+    "volume_min": {
+     "quarter": "2024Q2",
+     "volume": -17
+    },
+    "volume_max": {
+     "quarter": "2021Q1",
+     "volume": 7
+    },
+    "price_positive_since": "2023Q3",
+    "volume_negative_since": "2023Q3",
+    "first_quarter": "2021Q1"
+   }
+  },
+  "max_gap_pp": 3.0,
+  "n_rows": 57
+ },
+ "q5": {
+  "status": "collecting",
+  "quarters_in": 0,
+  "quarters_needed": 4
+ },
+ "forecasts": {
+  "status": "pending",
+  "n": 30,
+  "n_scored": 0,
+  "hits": 0,
+  "hit_rate": null,
+  "verdict": null,
+  "band": {
+   "1": {
+    "low": -0.053,
+    "high": 0.063,
+    "n": 191
+   },
+   "2": {
+    "low": -0.063,
+    "high": 0.11199999999999999,
+    "n": 176
+   }
+  },
+  "level": 0.8,
+  "miscalibrated_at_or_below": 0.6,
+  "too_wide_at_or_above": 0.95,
+  "recompute": {
+   "cells": 90,
+   "mismatches": 0,
+   "bad": [],
+   "band_ok": true
+  },
+  "targets": [
+   "2026Q3",
+   "2026Q4"
+  ],
+  "last_reported": "2026Q2",
+  "n_series": 15,
+  "calls": [
+   {
+    "id": "B1",
+    "call": "Google's share of the video's nine-company subset in 2026Q3 is below its 2025Q3 share (49.2%).",
+    "status": "pending"
+   },
+   {
+    "id": "B2",
+    "call": "Meta's share of the same subset in 2026Q3 is above its 2025Q3 share (33.2%).",
+    "status": "pending"
+   },
+   {
+    "id": "B3",
+    "call": "Trade Desk's 2026Q3 revenue grows less than 10% year over year.",
+    "status": "pending"
+   },
+   {
+    "id": "B4",
+    "call": "AppLovin's 2026Q3 advertising revenue is larger than Snap's 2026Q3 total revenue.",
+    "status": "pending"
+   },
+   {
+    "id": "B5",
+    "call": "Reddit's 2026Q3 advertising revenue grows more than 40% year over year.",
+    "status": "pending"
+   },
+   {
+    "id": "B6",
+    "call": "The open-web group (Google Network + Trade Desk + Magnite + PubMatic) grows more slowly year over year in 2026Q3 than the walled-garden group (Google Search + YouTube + Meta + Amazon + Microsoft + Snap + Pinterest + Reddit).",
+    "status": "pending"
+   },
+   {
+    "id": "B7",
+    "call": "Google Network's 2026Q3 revenue is lower than its 2025Q3 revenue (a fourth year of flat-to-down open-web revenue for Google).",
+    "status": "pending"
+   }
+  ],
+  "calls_pending": 7,
+  "calls_true": 0
+ },
+ "prereg": {
+  "files": [
+   {
+    "path": "docs/prereg/ad-market/2026-10-21_forecasts_2026Q3_Q4.md",
+    "blob": "d2fa11a02c3e714357d3f261300b7f51ac73c5c2",
+    "amendments": []
+   },
+   {
+    "path": "docs/prereg/ad-market/2026-10-21_test_rules.md",
+    "blob": "a29f5e1ea2e267aa8f5c5b28187b3a1d850f4bad",
+    "amendments": []
+   }
+  ],
+  "snapshot_sha256": "b01adbcbef8f214bb353df979039628fbaed5652bbf380846ddd9beab87a3450",
+  "registered": "2026-10-21"
+ },
+ "restatements": [],
+ "checks": [
+  {
+   "name": "Filing extracts",
+   "status": "pass",
+   "detail": "286 10-Q/10-K filings across 12 companies; the latest is PUBM 10-Q for 2026-06-30, filed 2026-08-06"
+  },
+  {
+   "name": "Freshness",
+   "status": "pass",
+   "detail": "latest filing 76 days ago (limit 140)"
+  },
+  {
+   "name": "Quarterly schema",
+   "status": "pass",
+   "detail": "482 series-quarters pass the pandera schema (positive revenue, one row per series and quarter)"
+  },
+  {
+   "name": "Derivation artefacts flagged",
+   "status": "pass",
+   "detail": "1 derived quarter(s) flagged and not published as a value: applovin_total 2023Q4"
+  },
+  {
+   "name": "Video subset complete",
+   "status": "pass",
+   "detail": "all nine companies through 2026Q2; 2026Q3: 0 of 9 reported"
+  },
+  {
+   "name": "Registered snapshot unchanged",
+   "status": "pass",
+   "detail": "data/reference/ad_market CSV sha256 b01adbcbef8f matches the hash in the forecast registration"
+  },
+  {
+   "name": "Restatements since registration",
+   "status": "pass",
+   "detail": "0 of 384 registered cells differ from the current panel"
+  },
+  {
+   "name": "Rule A reproduces the registered forecasts",
+   "status": "pass",
+   "detail": "90 of 90 registered numbers recomputed to the $ million; back-test band and counts match"
+  },
+  {
+   "name": "Volume/price text parsed",
+   "status": "pass",
+   "detail": "Meta advertising: 20 quarters, Google Search & other: 20 quarters, Google Network: 20 quarters"
+  },
+  {
+   "name": "Registered files unamended",
+   "status": "pass",
+   "detail": "2026-10-21_forecasts_2026Q3_Q4.md blob d2fa11a02c3e, 0 amendment(s); 2026-10-21_test_rules.md blob a29f5e1ea2e2, 0 amendment(s)"
+  },
+  {
+   "name": "No contact address in committed files",
+   "status": "pass",
+   "detail": "0 raw index or log files contain an email address"
+  }
+ ],
+ "sources": [
+  {
+   "name": "SEC EDGAR: 10-Q and 10-K XBRL instances of twelve advertising companies",
+   "url": "https://www.sec.gov/edgar/search/"
+  },
+  {
+   "name": "SEC EDGAR: Meta and Alphabet 10-Q text (ad impressions, price per ad, paid clicks, cost per click)",
+   "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001652044&type=10-Q"
+  }
+ ]
+}

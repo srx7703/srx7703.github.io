@@ -1,0 +1,572 @@
+[
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2021Q1",
+  "volume": 7,
+  "price": 19,
+  "reported": 30.2,
+  "implied": 27.3,
+  "gap_pp": -2.9
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2021Q2",
+  "volume": -1,
+  "price": 63,
+  "reported": 60.4,
+  "implied": 61.4,
+  "gap_pp": 1.0
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2021Q3",
+  "volume": 2,
+  "price": 39,
+  "reported": 39.8,
+  "implied": 41.8,
+  "gap_pp": 1.9
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2022Q1",
+  "volume": 5,
+  "price": 17,
+  "reported": 20.2,
+  "implied": 22.8,
+  "gap_pp": 2.6
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2022Q2",
+  "volume": 6,
+  "price": 2,
+  "reported": 8.7,
+  "implied": 8.1,
+  "gap_pp": -0.6
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2022Q3",
+  "volume": 3,
+  "price": -5,
+  "reported": -1.6,
+  "implied": -2.2,
+  "gap_pp": -0.6
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2023Q1",
+  "volume": -5,
+  "price": -5,
+  "reported": -8.3,
+  "implied": -9.8,
+  "gap_pp": -1.5
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2023Q2",
+  "volume": 0,
+  "price": -5,
+  "reported": -5.0,
+  "implied": -5.0,
+  "gap_pp": -0.0
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2023Q3",
+  "volume": -3,
+  "price": 1,
+  "reported": -2.6,
+  "implied": -2.0,
+  "gap_pp": 0.5
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2024Q1",
+  "volume": -13,
+  "price": 14,
+  "reported": -1.1,
+  "implied": -0.8,
+  "gap_pp": 0.3
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2024Q2",
+  "volume": -17,
+  "price": 13,
+  "reported": -5.2,
+  "implied": -6.2,
+  "gap_pp": -1.0
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2024Q3",
+  "volume": -14,
+  "price": 15,
+  "reported": -1.6,
+  "implied": -1.1,
+  "gap_pp": 0.5
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2025Q1",
+  "volume": -5,
+  "price": 4,
+  "reported": -2.1,
+  "implied": -1.2,
+  "gap_pp": 0.9
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2025Q2",
+  "volume": -6,
+  "price": 6,
+  "reported": -1.2,
+  "implied": -0.4,
+  "gap_pp": 0.8
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2025Q3",
+  "volume": -5,
+  "price": 6,
+  "reported": -2.6,
+  "implied": 0.7,
+  "gap_pp": 3.3
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2026Q1",
+  "volume": -9,
+  "price": 6,
+  "reported": -3.9,
+  "implied": -3.5,
+  "gap_pp": 0.4
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "quarter": "2026Q2",
+  "volume": -12,
+  "price": 13,
+  "reported": -0.7,
+  "implied": -0.6,
+  "gap_pp": 0.1
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2020Q1",
+  "volume": 12,
+  "price": -4,
+  "reported": 8.7,
+  "implied": 7.5,
+  "gap_pp": -1.2
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2020Q2",
+  "volume": 8,
+  "price": -15,
+  "reported": -9.8,
+  "implied": -8.2,
+  "gap_pp": 1.6
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2020Q3",
+  "volume": 27,
+  "price": -15,
+  "reported": 6.5,
+  "implied": 7.9,
+  "gap_pp": 1.5
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2021Q1",
+  "volume": 25,
+  "price": 3,
+  "reported": 30.1,
+  "implied": 28.8,
+  "gap_pp": -1.4
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2021Q2",
+  "volume": 26,
+  "price": 31,
+  "reported": 68.1,
+  "implied": 65.1,
+  "gap_pp": -3.1
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2021Q3",
+  "volume": 22,
+  "price": 18,
+  "reported": 44.0,
+  "implied": 44.0,
+  "gap_pp": -0.0
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2022Q1",
+  "volume": 16,
+  "price": 8,
+  "reported": 24.3,
+  "implied": 25.3,
+  "gap_pp": 1.0
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2022Q2",
+  "volume": 12,
+  "price": 0,
+  "reported": 13.5,
+  "implied": 12.0,
+  "gap_pp": -1.5
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2022Q3",
+  "volume": 8,
+  "price": -5,
+  "reported": 4.3,
+  "implied": 2.6,
+  "gap_pp": -1.7
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2023Q1",
+  "volume": 8,
+  "price": -7,
+  "reported": 1.9,
+  "implied": 0.4,
+  "gap_pp": -1.4
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2023Q2",
+  "volume": 8,
+  "price": -3,
+  "reported": 4.8,
+  "implied": 4.8,
+  "gap_pp": -0.0
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2023Q3",
+  "volume": 7,
+  "price": 4,
+  "reported": 11.3,
+  "implied": 11.3,
+  "gap_pp": -0.1
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2024Q1",
+  "volume": 5,
+  "price": 8,
+  "reported": 14.4,
+  "implied": 13.4,
+  "gap_pp": -1.0
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2024Q2",
+  "volume": 6,
+  "price": 7,
+  "reported": 13.8,
+  "implied": 13.4,
+  "gap_pp": -0.4
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2024Q3",
+  "volume": 4,
+  "price": 8,
+  "reported": 12.2,
+  "implied": 12.3,
+  "gap_pp": 0.1
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2025Q1",
+  "volume": 2,
+  "price": 7,
+  "reported": 9.8,
+  "implied": 9.1,
+  "gap_pp": -0.7
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2025Q2",
+  "volume": 4,
+  "price": 8,
+  "reported": 11.7,
+  "implied": 12.3,
+  "gap_pp": 0.6
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2025Q3",
+  "volume": 7,
+  "price": 7,
+  "reported": 14.5,
+  "implied": 14.5,
+  "gap_pp": -0.1
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2026Q1",
+  "volume": 13,
+  "price": 5,
+  "reported": 19.1,
+  "implied": 18.6,
+  "gap_pp": -0.5
+ },
+ {
+  "series": "google_search_clicks",
+  "label": "Google Search & other",
+  "quarter": "2026Q2",
+  "volume": 13,
+  "price": 3,
+  "reported": 16.8,
+  "implied": 16.4,
+  "gap_pp": -0.4
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2020Q1",
+  "volume": 39,
+  "price": -16,
+  "reported": 17.0,
+  "implied": 16.8,
+  "gap_pp": -0.2
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2020Q2",
+  "volume": 40,
+  "price": -21,
+  "reported": 10.2,
+  "implied": 10.6,
+  "gap_pp": 0.4
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2020Q3",
+  "volume": 35,
+  "price": -9,
+  "reported": 22.1,
+  "implied": 22.9,
+  "gap_pp": 0.8
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2021Q1",
+  "volume": 12,
+  "price": 30,
+  "reported": 45.9,
+  "implied": 45.6,
+  "gap_pp": -0.3
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2021Q2",
+  "volume": 6,
+  "price": 47,
+  "reported": 56.0,
+  "implied": 55.8,
+  "gap_pp": -0.2
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2021Q3",
+  "volume": 9,
+  "price": 22,
+  "reported": 33.2,
+  "implied": 33.0,
+  "gap_pp": -0.3
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2022Q1",
+  "volume": 15,
+  "price": -8,
+  "reported": 6.1,
+  "implied": 5.8,
+  "gap_pp": -0.3
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2022Q2",
+  "volume": 15,
+  "price": -14,
+  "reported": -1.5,
+  "implied": -1.1,
+  "gap_pp": 0.4
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2022Q3",
+  "volume": 17,
+  "price": -18,
+  "reported": -3.7,
+  "implied": -4.1,
+  "gap_pp": -0.4
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2023Q1",
+  "volume": 26,
+  "price": -17,
+  "reported": 4.1,
+  "implied": 4.6,
+  "gap_pp": 0.5
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2023Q2",
+  "volume": 34,
+  "price": -16,
+  "reported": 11.9,
+  "implied": 12.6,
+  "gap_pp": 0.7
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2023Q3",
+  "volume": 31,
+  "price": -6,
+  "reported": 23.5,
+  "implied": 23.1,
+  "gap_pp": -0.4
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2024Q1",
+  "volume": 20,
+  "price": 6,
+  "reported": 26.8,
+  "implied": 27.2,
+  "gap_pp": 0.4
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2024Q2",
+  "volume": 10,
+  "price": 10,
+  "reported": 21.7,
+  "implied": 21.0,
+  "gap_pp": -0.7
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2024Q3",
+  "volume": 7,
+  "price": 11,
+  "reported": 18.6,
+  "implied": 18.8,
+  "gap_pp": 0.2
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2025Q1",
+  "volume": 5,
+  "price": 10,
+  "reported": 16.2,
+  "implied": 15.5,
+  "gap_pp": -0.7
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2025Q2",
+  "volume": 11,
+  "price": 9,
+  "reported": 21.5,
+  "implied": 21.0,
+  "gap_pp": -0.5
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2025Q3",
+  "volume": 14,
+  "price": 10,
+  "reported": 25.6,
+  "implied": 25.4,
+  "gap_pp": -0.2
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2026Q1",
+  "volume": 19,
+  "price": 12,
+  "reported": 32.9,
+  "implied": 33.3,
+  "gap_pp": 0.3
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2026Q2",
+  "volume": 14,
+  "price": 12,
+  "reported": 27.5,
+  "implied": 27.7,
+  "gap_pp": 0.2
+ }
+]

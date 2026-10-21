@@ -1,0 +1,996 @@
+{
+ "members": [
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2021Q1",
+   "g2": 0.3061169639833756
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2021Q2",
+   "g2": 0.31118311267217336
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2021Q3",
+   "g2": 0.2754006130665845
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2021Q4",
+   "g2": 0.25462108784846826
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2022Q1",
+   "g2": 0.24420675882893206
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2022Q2",
+   "g2": 0.2395956386283269
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2022Q3",
+   "g2": 0.1329133976607053
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2022Q4",
+   "g2": 0.07218844125136803
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2023Q1",
+   "g2": 0.05101973249070357
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2023Q2",
+   "g2": 0.04980920656514698
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2023Q3",
+   "g2": 0.0907830264056102
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2023Q4",
+   "g2": 0.08896537513150249
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2024Q1",
+   "g2": 0.14887448666836112
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2024Q2",
+   "g2": 0.16683411293793515
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2024Q3",
+   "g2": 0.21011087198755396
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2024Q4",
+   "g2": 0.22344452647371904
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2025Q1",
+   "g2": 0.2136607813067588
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2025Q2",
+   "g2": 0.21584716782717628
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2025Q3",
+   "g2": 0.22009451335788865
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2025Q4",
+   "g2": 0.22557783401582476
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2026Q1",
+   "g2": 0.24261816411235348
+  },
+  {
+   "series": "meta_ads",
+   "label": "Meta advertising",
+   "group": "affected",
+   "quarter": "2026Q2",
+   "g2": 0.24449792242573287
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2021Q1",
+   "g2": 0.5497589060116326
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2021Q2",
+   "g2": 0.5909334350338276
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2021Q3",
+   "g2": 0.5467272836304051
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2021Q4",
+   "g2": 0.5211779878284057
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2022Q1",
+   "g2": 0.5158817280706922
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2022Q2",
+   "g2": 0.5639964330905409
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2022Q3",
+   "g2": 0.2894885122484727
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2022Q4",
+   "g2": 0.19423963239843256
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2023Q1",
+   "g2": 0.13340218433049822
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2023Q2",
+   "g2": 0.042650347194330473
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2023Q3",
+   "g2": 0.05519048942653315
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2023Q4",
+   "g2": 0.02413389984971337
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2024Q1",
+   "g2": 0.060307522444283945
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2024Q2",
+   "g2": 0.055127342137198276
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2024Q3",
+   "g2": 0.10286339018347168
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2024Q4",
+   "g2": 0.09460232008403935
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2025Q1",
+   "g2": 0.17427668026875498
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2025Q2",
+   "g2": 0.12235830365372924
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2025Q3",
+   "g2": 0.12596402577601462
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2025Q4",
+   "g2": 0.12290268823521755
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2026Q1",
+   "g2": 0.13117906476760766
+  },
+  {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2026Q2",
+   "g2": 0.13704894962806846
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2021Q1",
+   "g2": 0.5502217722075713
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2021Q2",
+   "g2": 0.5320653692305004
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2021Q3",
+   "g2": 0.5042844441456482
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2021Q4",
+   "g2": 0.45505236339863697
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2022Q1",
+   "g2": 0.45396496545203346
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2022Q2",
+   "g2": 0.5633023840283873
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2022Q3",
+   "g2": 0.243623823058011
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2022Q4",
+   "g2": 0.11497985726762527
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2023Q1",
+   "g2": 0.11438150326657048
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2023Q2",
+   "g2": 0.07453281296213565
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2023Q3",
+   "g2": 0.09809902943799265
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2023Q4",
+   "g2": 0.0765625093011486
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2024Q1",
+   "g2": 0.1345414903829738
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2024Q2",
+   "g2": 0.13222636423842538
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2024Q3",
+   "g2": 0.14558088411428227
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2024Q4",
+   "g2": 0.14703277006672888
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2025Q1",
+   "g2": 0.19116601126810528
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2025Q2",
+   "g2": 0.18738172358705385
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2025Q3",
+   "g2": 0.17249268356212344
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2025Q4",
+   "g2": 0.1595434487050449
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2026Q1",
+   "g2": 0.16684904077213325
+  },
+  {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2026Q2",
+   "g2": 0.17551931351724992
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2021Q1",
+   "g2": 0.18907147946596203
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2021Q2",
+   "g2": 0.23132355028034857
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2021Q3",
+   "g2": 0.2381118940566067
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2021Q4",
+   "g2": 0.26207247280571866
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2022Q1",
+   "g2": 0.27158532166226146
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2022Q2",
+   "g2": 0.38151337367797833
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2022Q3",
+   "g2": 0.22524078227974043
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2022Q4",
+   "g2": 0.15560503675420834
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2023Q1",
+   "g2": 0.1251692470743846
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2023Q2",
+   "g2": 0.09051887330220754
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2023Q3",
+   "g2": 0.07742263277243899
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2023Q4",
+   "g2": 0.05308181867730988
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2024Q1",
+   "g2": 0.07936370065127196
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2024Q2",
+   "g2": 0.09187432209720403
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2024Q3",
+   "g2": 0.11759561335089264
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2024Q4",
+   "g2": 0.12618145434307393
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2025Q1",
+   "g2": 0.12083671089101244
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2025Q2",
+   "g2": 0.12748843778915164
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2025Q3",
+   "g2": 0.1335141835088305
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2025Q4",
+   "g2": 0.14606873820307165
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2026Q1",
+   "g2": 0.14393353511023754
+  },
+  {
+   "series": "google_search",
+   "label": "Google Search & other",
+   "group": "control",
+   "quarter": "2026Q2",
+   "g2": 0.1420659627439933
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2021Q1",
+   "g2": 0.12089707663560989
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2021Q2",
+   "g2": 0.13974871692703172
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2021Q3",
+   "g2": 0.1549904820218324
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2021Q4",
+   "g2": 0.1901895170324761
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2022Q1",
+   "g2": 0.2177356696458781
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2022Q2",
+   "g2": 0.09548340590693094
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2022Q3",
+   "g2": 0.22442966230867167
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2022Q4",
+   "g2": 0.15971063246302042
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2023Q1",
+   "g2": 0.12448794399640084
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2023Q2",
+   "g2": 0.08143031464062855
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2023Q3",
+   "g2": 0.06597147275285553
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2023Q4",
+   "g2": 0.016829660634826382
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2024Q1",
+   "g2": 0.018504513060172423
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2024Q2",
+   "g2": 0.03503803792472571
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2024Q3",
+   "g2": 0.05219108350626733
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2024Q4",
+   "g2": 0.052975128861372234
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2025Q1",
+   "g2": 0.07431382641593998
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2025Q2",
+   "g2": 0.10014246710469243
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2025Q3",
+   "g2": 0.10678969670706273
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2025Q4",
+   "g2": 0.09694249087307605
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2026Q1",
+   "g2": 0.11645921483772614
+  },
+  {
+   "series": "msft_search_ads",
+   "label": "Microsoft search & news advertising",
+   "group": "control",
+   "quarter": "2026Q2",
+   "g2": 0.12207568087238219
+  }
+ ],
+ "groups": [
+  {
+   "group": "affected",
+   "quarter": "2021Q1",
+   "g2": 0.4686992140675265
+  },
+  {
+   "group": "affected",
+   "quarter": "2021Q2",
+   "g2": 0.4780606389788338
+  },
+  {
+   "group": "affected",
+   "quarter": "2021Q3",
+   "g2": 0.4421374469475459
+  },
+  {
+   "group": "affected",
+   "quarter": "2021Q4",
+   "g2": 0.4102838130251703
+  },
+  {
+   "group": "affected",
+   "quarter": "2022Q1",
+   "g2": 0.40468448411721925
+  },
+  {
+   "group": "affected",
+   "quarter": "2022Q2",
+   "g2": 0.45563148524908503
+  },
+  {
+   "group": "affected",
+   "quarter": "2022Q3",
+   "g2": 0.22200857765572968
+  },
+  {
+   "group": "affected",
+   "quarter": "2022Q4",
+   "g2": 0.12713597697247528
+  },
+  {
+   "group": "affected",
+   "quarter": "2023Q1",
+   "g2": 0.09960114002925742
+  },
+  {
+   "group": "affected",
+   "quarter": "2023Q2",
+   "g2": 0.055664122240537704
+  },
+  {
+   "group": "affected",
+   "quarter": "2023Q3",
+   "g2": 0.08135751509004534
+  },
+  {
+   "group": "affected",
+   "quarter": "2023Q4",
+   "g2": 0.06322059476078816
+  },
+  {
+   "group": "affected",
+   "quarter": "2024Q1",
+   "g2": 0.11457449983187296
+  },
+  {
+   "group": "affected",
+   "quarter": "2024Q2",
+   "g2": 0.11806260643785293
+  },
+  {
+   "group": "affected",
+   "quarter": "2024Q3",
+   "g2": 0.15285171542843598
+  },
+  {
+   "group": "affected",
+   "quarter": "2024Q4",
+   "g2": 0.1550265388748291
+  },
+  {
+   "group": "affected",
+   "quarter": "2025Q1",
+   "g2": 0.19303449094787303
+  },
+  {
+   "group": "affected",
+   "quarter": "2025Q2",
+   "g2": 0.1751957316893198
+  },
+  {
+   "group": "affected",
+   "quarter": "2025Q3",
+   "g2": 0.17285040756534223
+  },
+  {
+   "group": "affected",
+   "quarter": "2025Q4",
+   "g2": 0.16934132365202906
+  },
+  {
+   "group": "affected",
+   "quarter": "2026Q1",
+   "g2": 0.1802154232173648
+  },
+  {
+   "group": "affected",
+   "quarter": "2026Q2",
+   "g2": 0.18568872852368376
+  },
+  {
+   "group": "control",
+   "quarter": "2021Q1",
+   "g2": 0.15498427805078596
+  },
+  {
+   "group": "control",
+   "quarter": "2021Q2",
+   "g2": 0.18553613360369015
+  },
+  {
+   "group": "control",
+   "quarter": "2021Q3",
+   "g2": 0.19655118803921956
+  },
+  {
+   "group": "control",
+   "quarter": "2021Q4",
+   "g2": 0.22613099491909738
+  },
+  {
+   "group": "control",
+   "quarter": "2022Q1",
+   "g2": 0.24466049565406978
+  },
+  {
+   "group": "control",
+   "quarter": "2022Q2",
+   "g2": 0.23849838979245463
+  },
+  {
+   "group": "control",
+   "quarter": "2022Q3",
+   "g2": 0.22483522229420605
+  },
+  {
+   "group": "control",
+   "quarter": "2022Q4",
+   "g2": 0.15765783460861438
+  },
+  {
+   "group": "control",
+   "quarter": "2023Q1",
+   "g2": 0.12482859553539272
+  },
+  {
+   "group": "control",
+   "quarter": "2023Q2",
+   "g2": 0.08597459397141805
+  },
+  {
+   "group": "control",
+   "quarter": "2023Q3",
+   "g2": 0.07169705276264726
+  },
+  {
+   "group": "control",
+   "quarter": "2023Q4",
+   "g2": 0.03495573965606813
+  },
+  {
+   "group": "control",
+   "quarter": "2024Q1",
+   "g2": 0.04893410685572219
+  },
+  {
+   "group": "control",
+   "quarter": "2024Q2",
+   "g2": 0.06345618001096487
+  },
+  {
+   "group": "control",
+   "quarter": "2024Q3",
+   "g2": 0.08489334842857998
+  },
+  {
+   "group": "control",
+   "quarter": "2024Q4",
+   "g2": 0.08957829160222308
+  },
+  {
+   "group": "control",
+   "quarter": "2025Q1",
+   "g2": 0.09757526865347621
+  },
+  {
+   "group": "control",
+   "quarter": "2025Q2",
+   "g2": 0.11381545244692204
+  },
+  {
+   "group": "control",
+   "quarter": "2025Q3",
+   "g2": 0.12015194010794661
+  },
+  {
+   "group": "control",
+   "quarter": "2025Q4",
+   "g2": 0.12150561453807385
+  },
+  {
+   "group": "control",
+   "quarter": "2026Q1",
+   "g2": 0.13019637497398184
+  },
+  {
+   "group": "control",
+   "quarter": "2026Q2",
+   "g2": 0.13207082180818774
+  }
+ ]
+}

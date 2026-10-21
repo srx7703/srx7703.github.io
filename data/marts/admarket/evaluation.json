@@ -1,0 +1,114 @@
+{
+ "files": [
+  {
+   "path": "docs/prereg/ad-market/2026-10-21_forecasts_2026Q3_Q4.md",
+   "blob": "d2fa11a02c3e714357d3f261300b7f51ac73c5c2",
+   "amendments": []
+  },
+  {
+   "path": "docs/prereg/ad-market/2026-10-21_test_rules.md",
+   "blob": "a29f5e1ea2e267aa8f5c5b28187b3a1d850f4bad",
+   "amendments": []
+  }
+ ],
+ "items": [
+  {
+   "id": "Q1",
+   "question": "Is Google's share of the video subset still falling?",
+   "kind": "registered, forward",
+   "status": "collecting",
+   "detail": "0 of 4 quarters (2026Q3 to 2027Q2) in"
+  },
+  {
+   "id": "Q2",
+   "question": "Did Apple's ATT hurt cross-app-tracking platforms more than search?",
+   "kind": "registered, data existed",
+   "status": "resolved: holds",
+   "detail": "affected group's drop exceeds the control group's by 21.7 points (threshold 5)"
+  },
+  {
+   "id": "Q3",
+   "question": "Is the open web losing ground to the walled gardens?",
+   "kind": "registered, data existed",
+   "status": "resolved: holds",
+   "detail": "open web −0.8% a year against walled gardens +18.0% (threshold 5 points)"
+  },
+  {
+   "id": "Q4",
+   "question": "Does volume x price reproduce reported growth?",
+   "kind": "method check (research plan)",
+   "status": "resolved",
+   "detail": "meta_ads: max gap 0.8 points, usable; google_search_clicks: max gap 3.1 points, fails the strict rule; google_network: max gap 3.3 points, fails the strict rule"
+  },
+  {
+   "id": "Q5",
+   "question": "Is the AppLovin / Trade Desk growth gap structural?",
+   "kind": "registered, forward",
+   "status": "collecting",
+   "detail": "0 of 4 quarters in"
+  },
+  {
+   "id": "Q6",
+   "question": "Does compute spending go with advertising growth?",
+   "kind": "exploratory",
+   "status": "not built",
+   "detail": "registered as a description only; not part of this page yet"
+  },
+  {
+   "id": "A",
+   "question": "Rule A: 80% intervals for 2026Q3 and 2026Q4",
+   "kind": "registered forecast",
+   "status": "pending",
+   "detail": "0 of 30 intervals scored, 0 inside"
+  },
+  {
+   "id": "B1",
+   "question": "Google's share of the video's nine-company subset in 2026Q3 is below its 2025Q3 share (49.2%).",
+   "kind": "registered call (rule B)",
+   "status": "pending",
+   "detail": ""
+  },
+  {
+   "id": "B2",
+   "question": "Meta's share of the same subset in 2026Q3 is above its 2025Q3 share (33.2%).",
+   "kind": "registered call (rule B)",
+   "status": "pending",
+   "detail": ""
+  },
+  {
+   "id": "B3",
+   "question": "Trade Desk's 2026Q3 revenue grows less than 10% year over year.",
+   "kind": "registered call (rule B)",
+   "status": "pending",
+   "detail": ""
+  },
+  {
+   "id": "B4",
+   "question": "AppLovin's 2026Q3 advertising revenue is larger than Snap's 2026Q3 total revenue.",
+   "kind": "registered call (rule B)",
+   "status": "pending",
+   "detail": ""
+  },
+  {
+   "id": "B5",
+   "question": "Reddit's 2026Q3 advertising revenue grows more than 40% year over year.",
+   "kind": "registered call (rule B)",
+   "status": "pending",
+   "detail": ""
+  },
+  {
+   "id": "B6",
+   "question": "The open-web group (Google Network + Trade Desk + Magnite + PubMatic) grows more slowly year over year in 2026Q3 than the walled-garden group (Google Search + YouTube + Meta + Amazon + Microsoft + Snap + Pinterest + Reddit).",
+   "kind": "registered call (rule B)",
+   "status": "pending",
+   "detail": ""
+  },
+  {
+   "id": "B7",
+   "question": "Google Network's 2026Q3 revenue is lower than its 2025Q3 revenue (a fourth year of flat-to-down open-web revenue for Google).",
+   "kind": "registered call (rule B)",
+   "status": "pending",
+   "detail": ""
+  }
+ ]
+}
