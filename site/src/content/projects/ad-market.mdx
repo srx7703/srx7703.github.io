@@ -358,7 +358,7 @@ The filings themselves stay on EDGAR, a permanent public archive.
   The rules and forecasts are in {facts.prereg.files.length} files under <a href="https://github.com/srx7703/srx7703.github.io/tree/main/docs/prereg/ad-market">docs/prereg/ad-market</a>, append-only, committed on {dayUtc(facts.prereg.registered)}: {facts.prereg.files.map((f) => `${f.path.split('/').pop()} (blob ${f.blob.slice(0, 12)})`).join(', ')}.
   The panel they were written against is saved beside them with its hash recorded in the forecast file.
   What had been seen when the rules were written is stated in them: the quarterly panel, its shares and the latest growth rates, but not the two-year growth figures or the group growth rates the tests use.
-  The research was done in a private repository, so the dates are publicly checkable only from this branch's first push.
+  Both files were pushed to the main branch of this public repository the day they were written, before any of the companies reported the quarter being forecast; the research scripts were run in a private folder and are ported here.
 </p>
 
 <DataTable id="evaluation-table" caption="Every registered item and its status" columns={[
