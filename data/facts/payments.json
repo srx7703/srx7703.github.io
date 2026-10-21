@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T13:07:17+00:00",
+ "generated_at": "2026-10-21T13:16:38+00:00",
  "slug": "payments-landscape",
  "registered": "2026-10-03",
  "kpis": [
@@ -1166,8 +1166,8 @@
   "acquisition_deals": 10,
   "acquisition_deals_no_value": 4,
   "metrics_in_dictionary": 236,
-  "share_rows": 309,
-  "share_refusals": 78,
+  "share_rows": 308,
+  "share_refusals": 80,
   "scoreboard": {
    "collecting": 9,
    "holds": 0,
@@ -1178,7 +1178,6 @@
  "coverage": {
   "companies": [
    "Adyen",
-   "Adyen (@adyen/api-library)",
    "Affirm",
    "Afterpay/Block",
    "Airwallex",
@@ -1198,7 +1197,6 @@
    "Nium",
    "PayPal",
    "PayPal (Braintree)",
-   "PayPal (braintree)",
    "PayPal Pay Later",
    "Payoneer",
    "Ramp",
@@ -1206,13 +1204,12 @@
    "Shift4",
    "Shopify Payments",
    "Stripe",
-   "Stripe (stripe)",
    "Toast",
    "Wise",
    "Zip",
    "dLocal"
   ],
-  "n_companies": 34
+  "n_companies": 31
  },
  "scoreboard": [
   {
@@ -1278,7 +1275,7 @@
    "id": "Q2",
    "title": "The top of the web is changing hands",
    "status": "collecting",
-   "reason": "0 of 6 graded crawls in; no refutation so far",
+   "reason": "1 of 6 graded crawls in; no refutation so far",
    "graded": "2027-03",
    "next_grading": "2027-03",
    "already_seen": "Stripe 522, PayPal 478 (2026-08 crawl)",
@@ -1296,11 +1293,38 @@
      "note": null
     },
     {
-     "label": "PayPal minus Stripe, all US origins (context, not graded)",
-     "value": 57330.333333,
+     "label": "Stripe, top-10k US mobile (3-crawl mean)",
+     "value": 518.333333,
      "qualifier": "=",
      "unit": "origins",
-     "period": "2026-08",
+     "period": "2026-09",
+     "source_url": null,
+     "note": null
+    },
+    {
+     "label": "PayPal, top-10k US mobile (3-crawl mean)",
+     "value": 489.333333,
+     "qualifier": "=",
+     "unit": "origins",
+     "period": "2026-09",
+     "source_url": null,
+     "note": null
+    },
+    {
+     "label": "Graded crawls observed",
+     "value": 1.0,
+     "qualifier": "=",
+     "unit": "crawls",
+     "period": "2026-09",
+     "source_url": null,
+     "note": "of 6"
+    },
+    {
+     "label": "PayPal minus Stripe, all US origins (context, not graded)",
+     "value": 58764.666667,
+     "qualifier": "=",
+     "unit": "origins",
+     "period": "2026-09",
      "source_url": null,
      "note": "section H also says PayPal still leads across all US origins; its refutation clause grades only the top-10k slice"
     }
@@ -1524,7 +1548,7 @@
      "value": 0.0,
      "qualifier": "=",
      "unit": "companies",
-     "period": "to 2026-10-14",
+     "period": "to 2026-10-21",
      "source_url": null,
      "note": null
     }
@@ -1840,23 +1864,23 @@
   },
   {
    "name": "CI source: npm downloads (devstats)",
-   "status": "pass",
-   "detail": "devstats_client_monthly, devstats_server_monthly read; latest period 2026-09-01, 43 days old (limit 45)"
+   "status": "warn",
+   "detail": "devstats_client_monthly, devstats_server_monthly read; latest period 2026-09-01, 50 days old (limit 45)"
   },
   {
    "name": "CI source: HTTP Archive coverage (webtech)",
    "status": "pass",
-   "detail": "webtech_adoption, webtech_coverage read; latest period 2026-08-01, 74 days old (limit 75)"
+   "detail": "webtech_adoption, webtech_coverage read; latest period 2026-09-01, 50 days old (limit 75)"
   },
   {
    "name": "CI source: job-board counts (jobs)",
    "status": "pass",
-   "detail": "jobs_counts read; latest period 2026-10-14, 0 days old (limit 14)"
+   "detail": "jobs_counts read; latest period 2026-10-21, 0 days old (limit 14)"
   },
   {
    "name": "CI source: SEC Form D (formd)",
    "status": "warn",
-   "detail": "formd read; latest period 2026-05-20, 147 days old (limit 120)"
+   "detail": "formd read; latest period 2026-05-20, 154 days old (limit 120)"
   },
   {
    "name": "CI source: SEC financials (sec)",
@@ -1871,7 +1895,7 @@
   {
    "name": "Regression guard",
    "status": "pass",
-   "detail": "34 companies covered"
+   "detail": "31 companies covered"
   }
  ],
  "sources": [
