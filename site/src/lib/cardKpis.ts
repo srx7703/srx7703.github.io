@@ -8,6 +8,7 @@ import ssb from '@data/facts/valuation_ssb.json';
 import memcycle from '@data/facts/memcycle.json';
 import payments from '@data/facts/payments.json';
 import cyber from '@data/facts/cyber.json';
+import admarket from '@data/facts/admarket.json';
 import { pct } from './fmt';
 
 type PaymentsKpi = { id: string; label: string; value: number; qualifier: string; unit: string; period: string };
@@ -72,4 +73,8 @@ export const cardKpis: Record<string, { label: string; value: string }> = {
   },
   'payments-landscape': paymentsKpi(),
   'cybersecurity-landscape': cyberKpi(),
+  'ad-market': {
+    label: `Google's share of the nine-company ad total, Q${admarket.panel.last_quarter[5]} ${admarket.panel.last_quarter.slice(0, 4)} (Meta ${pct(admarket.panel.share_last.Meta, 1)})`,
+    value: pct(admarket.panel.share_last.Google, 1),
+  },
 };

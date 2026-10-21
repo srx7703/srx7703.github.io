@@ -13,6 +13,7 @@ import ssbCompanies from '@data/marts/valuation/ssb_companies.json';
 import memIndex from '@data/marts/memcycle/price_index.json';
 import takeRates from '@data/marts/payments/take_rates.json';
 import cyberListings from '@data/marts/cyber/listings.json';
+import adShare from '@data/marts/admarket/video_share.json';
 import type { Listing } from '@charts/cyber/types';
 
 export type Pt = [number, number];
@@ -153,6 +154,16 @@ function cyber(): MiniSpec {
   };
 }
 
+/** Google's and Meta's quarterly share of the nine-company advertising total, the page's hero shrunk to a glyph. */
+function admarket(): MiniSpec {
+  const rows = adShare as { quarter: string; company: string; share: number }[];
+  const date = (q: string) => Date.UTC(Number(q.slice(0, 4)), Number(q[5]) * 3 - 1, 28);
+  const series = [['Google', '--series-a'], ['Meta', '--series-b']].map(([name, color]) => ({
+    name, color, points: rows.filter((r) => r.company === name).map((r): Pt => [date(r.quarter), r.share]).sort(byTime),
+  }));
+  return { kind: 'lines', series, y: [0, 0.6], label: "Google's and Meta's quarterly share of advertising revenue among the nine listed companies" };
+}
+
 export const miniCharts: Record<string, MiniSpec> = {
   'midterms-2026': midterms(),
   'fomc-markets': fomc(),
@@ -170,4 +181,5 @@ export const miniCharts: Record<string, MiniSpec> = {
   'memory-cycles': memcycle(),
   'payments-landscape': payments(),
   'cybersecurity-landscape': cyber(),
+  'ad-market': admarket(),
 };

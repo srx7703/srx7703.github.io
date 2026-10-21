@@ -1,0 +1,402 @@
+---
+title: "Who is taking the ad budget, and is it volume or price?"
+summary: "Advertising revenue of nine listed platforms, rebuilt from their SEC filings and extended from a YouTube explainer: who is gaining share, two registered tests (Apple's tracking change and the open web against the walled gardens), whether growth comes from more ads or dearer ads, and forecasts scored as results arrive."
+status: in-progress
+domain: ["advertising", "business analysis", "pre-registration"]
+tools: ["Python", "Polars", "pandera", "SEC EDGAR XBRL", "Vega-Lite"]
+featured: false
+order: 8
+started: "2026-10-21"
+---
+import facts from '@data/facts/admarket.json';
+import shareRows from '@data/marts/admarket/video_share.json';
+import att from '@data/marts/admarket/att_growth.json';
+import openWeb from '@data/marts/admarket/open_web.json';
+import vpRows from '@data/marts/admarket/volume_price.json';
+import forecastRows from '@data/marts/admarket/forecasts.json';
+import evaluation from '@data/marts/admarket/evaluation.json';
+import KpiRow from '@components/KpiRow.astro';
+import KpiTile from '@components/KpiTile.astro';
+import ChartCard from '@components/ChartCard.astro';
+import VegaChart from '@components/VegaChart.astro';
+import SourceStamp from '@components/SourceStamp.astro';
+import Section from '@components/Section.astro';
+import DataQuality from '@components/DataQuality.astro';
+import DataTable from '@components/DataTable.astro';
+import DownloadCsv from '@components/DownloadCsv.astro';
+import PipelineStatus from '@components/PipelineStatus.astro';
+import Sidenote from '@components/Sidenote.astro';
+import Appendix from '@components/Appendix.astro';
+import { shareSpec } from '@charts/admarket/share';
+import { attSpec, openWebSpec } from '@charts/admarket/tests';
+import { volPriceSpec } from '@charts/admarket/volprice';
+import { dayUtc } from '@lib/fmt';
+export const P = facts.panel;
+export const R = facts.rules;
+export const V = facts.video;
+export const CC = V.claim_check;
+export const q2 = facts.q2;
+export const q3 = facts.q3;
+export const q4 = facts.q4;
+export const F = facts.forecasts;
+export const L = facts.labels;
+export const NAME = (n) => (n === 'TradeDesk' ? 'The Trade Desk' : n);
+export const andList = (xs) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`);
+export const ql = (q) => `Q${q[5]} ${q.slice(0, 4)}`;
+export const p1 = (x) => `${(x * 100).toFixed(1)}%`;
+export const p0 = (x) => `${Math.round(x * 100)}%`;
+export const sp = (x, d = 1) => `${x >= 0 ? '+' : '−'}${Math.abs(x * 100).toFixed(d)}%`;
+export const pp = (x) => `${(x * 100).toFixed(1)} percentage points`;
+export const ip = (x) => `${x > 0 ? '+' : x < 0 ? '−' : ''}${Math.abs(x)}%`;
+export const range = (a, b) => (a === b ? ip(a) : `${ip(a)} to ${ip(b)}`);
+export const bn = (x) => `$${x.toFixed(1)} billion`;
+export const word = { holds: 'Holds', refuted: 'Refuted', undecided: 'Undecided' };
+export const asOf = `filings to ${dayUtc(facts.data.latest_filing.filed)}, built ${dayUtc(facts.generated_at)}`;
+export const SRC = [facts.sources[0]];
+export const SRC_TEXT = facts.sources;
+export const nResolved = [q2, q3].length;
+export const nHold = [q2, q3].filter((q) => q.verdict === 'holds').length;
+export const lastQ = P.last_quarter;
+export const gain = (k) => P.share_last[k] - P.share_first[k];
+export const takers = gain('Meta') + gain('Amazon') > 0.5 * -gain('Google') ? 'Meta and Amazon took most of it' : 'the gains are spread across the others';
+export const shareTable = shareRows.filter((r) => r.quarter === lastQ).map((r) => ({
+  company: NAME(r.company), revenue: r.value_bn, share: r.share,
+  share_first: P.share_first[r.company], growth: P.yoy_last[r.company],
+})).sort((a, b) => b.revenue - a.revenue);
+export const memberRows = [...Object.entries(q2.affected.members).map(([s, m]) => ({ group: 'affected', s, m })),
+  ...Object.entries(q2.control.members).map(([s, m]) => ({ group: 'control', s, m }))].map(({ group, s, m }) => ({
+  group, series: L[s], before: m.before, after: m.after, drop: m.before - m.after,
+}));
+export const openSet = ['google_network', 'ttd_total', 'magnite_total', 'pubmatic_total'];
+export const q3Rows = Object.entries(q3.members).map(([s, g]) => ({
+  group: openSet.includes(s) ? 'open web' : 'walled garden', series: L[s], cagr: g,
+})).sort((a, b) => b.cagr - a.cagr);
+export const D = q3.descriptive;
+export const methodRows = Object.entries(q4.verdict).map(([s, v]) => ({
+  series: { meta_ads: 'Meta: impressions x price per ad', google_search_clicks: 'Google Search: paid clicks x cost per click', google_network: 'Google Network: impressions x cost per impression' }[s],
+  n: v.n, mean: v.mean_abs_gap_pp, max: v.max_abs_gap_pp, worst: v.worst_quarter,
+  verdict: v.usable ? 'usable' : `fails the strict rule (over by ${v.over_by_pp.toFixed(1)})`,
+}));
+export const SM = q4.summary.meta_ads;
+export const SS = q4.summary.google_search_clicks;
+export const SN = q4.summary.google_network;
+export const years = (s) => Object.keys(s.years).sort();
+export const lastYear = (s) => years(s)[years(s).length - 1];
+export const yr = (s, y) => s.years[y];
+export const metaPriceDownYears = years(SM).filter((y) => yr(SM, y).price_max < 0);
+export const soFar = (s) => (yr(s, lastYear(s)).n < 3 ? `${lastYear(s)} so far` : lastYear(s));
+export const searchPrior = years(SS).slice(-3, -1);
+export const span = (s, ys, k) => {
+  const lo = Math.min(...ys.map((y) => yr(s, y)[`${k}_min`])); const hi = Math.max(...ys.map((y) => yr(s, y)[`${k}_max`]));
+  return range(lo, hi);
+};
+export const netSince = vpRows.filter((r) => r.series === 'google_network' && SN.volume_negative_since && r.quarter >= SN.volume_negative_since);
+export const fcRows = forecastRows.map((r) => ({
+  series: NAME(r.series), quarter: r.quarter, point: r.point_m, low: r.low_m, high: r.high_m,
+  actual: r.actual_m, status: r.status,
+}));
+export const callRows = F.calls.map((c) => ({ id: c.id, call: c.call, status: c.status }));
+export const bandText = (h) => `${sp(F.band[h].low)} to ${sp(F.band[h].high)} (${F.band[h].n} back-test errors)`;
+export const evalRows = evaluation.items.map((i) => ({ id: i.id, question: i.question, kind: i.kind, status: i.status, detail: i.detail }));
+
+<div class="lede">
+  <p>
+    Nine listed companies, Google, Meta, Amazon, Microsoft, Snap, AppLovin, Pinterest, The Trade Desk and Reddit,<Sidenote>Each company's advertising line as it reports it: Google is Search & other, YouTube ads and Google Network together; Meta, Amazon and Microsoft are their advertising (Microsoft: search and news advertising); Snap, Pinterest and The Trade Desk are total revenue; AppLovin is its advertising segment, and its total revenue from {ql(R.applovin_total_from)} after it sold its apps business; Reddit is advertising and enters from {ql(R.reddit_video_from)}.</Sidenote>
+    booked {bn(P.total_last_bn)} of advertising revenue in {ql(lastQ)}.
+    Together they grew {p1(P.cagr)} a year from {ql(P.first_quarter)}, and {sp(P.ttm_yoy)} over the last four quarters.
+    Google still takes almost half of it, but its share has fallen from {p1(P.share_first.Google)} to {p1(P.share_last.Google)}, while Meta's has risen to {p1(P.share_last.Meta)}.
+  </p>
+  <p>
+    The money is moving toward the companies with their own audience and their own data.
+    Apple's privacy change of {dayUtc(R.att_release)} hurt the platforms that relied on tracking people across apps, as the change was expected to: their growth fell {pp(q2.gap)} more than search's did.
+    The open web, ads bought and sold on other people's sites, is losing ground to the walled gardens; but almost all of that is Google shrinking its own ad network.
+    And Meta has switched from selling more ads at lower prices to selling more ads at higher ones.
+  </p>
+</div>
+
+<p class="muted">Public data only; a business analysis of reported figures, not investment advice.</p>
+
+<PipelineStatus lastSnapshot={facts.generated_at} firstSnapshot={facts.generated_at} nSnapshots={1} nDays={1} workflow="admarket.yml" cadence="on weekdays" detail={`${facts.data.n_filings} quarterly and annual filings from ${facts.data.n_companies} companies; latest ${facts.data.latest_filing.ticker} ${facts.data.latest_filing.form}, filed ${dayUtc(facts.data.latest_filing.filed)}`} />
+
+<KpiRow>
+  <KpiTile label="Combined ad revenue growth, a year" value={p1(P.cagr)} sub={`${ql(P.first_quarter)} to ${ql(lastQ)}; ${sp(P.ttm_yoy)} over the last four quarters`} />
+  <KpiTile label="Google's share of the nine" value={p1(P.share_last.Google)} sub={`${ql(lastQ)}, from ${p1(P.share_first.Google)} in ${ql(P.first_quarter)}; Meta ${p1(P.share_last.Meta)}`} />
+  <KpiTile label="Registered tests that hold" value={`${nHold} of ${nResolved}`} sub={`Apple's tracking change and the open web; ${F.n} forecasts wait for results`} tone="positive" />
+</KpiRow>
+
+<Section id="starting-point" title="Where this starts">
+
+<p>
+  The page forks a Chinese-language YouTube explainer, {V.channel}’s “{V.title}” ({dayUtc(V.date)}).
+  Its {CC.claims} claims were checked against the companies' filings before anything was extended.
+  {CC.holds} hold, {CC.partly} hold with a changed definition, {CC.wrong} are wrong and {CC.unchecked} could not be checked.<Sidenote>The claim check is a manual comparison written before this page; its counts are quoted, not recomputed. Every figure below is recomputed from the filings.</Sidenote>
+  Its quarterly revenue table is sound: {CC.cells_match} of its {CC.table_cells} cells match the filings, and the other {CC.cells_restated} are figures the companies restated after the video used them.
+</p>
+<p>
+  Three things needed fixing. The video's total row counted Google twice, adding Google's advertising and its three parts.
+  Its growth rate of {p1(V.cagr_claimed)} a year divides {ql(P.video_window.first)} to {ql(P.video_window.last)} by four years; the span is {P.video_window.years} years, and the rate is {p1(P.video_window.cagr_correct)}.
+  And Snap is counted at total revenue, of which {p0(P.snap_non_ad_share_last)} in {ql(lastQ)} was not advertising.
+  The table is rebuilt here from every 10-Q and 10-K since the video's start, extended to {ql(lastQ)}, and refreshed when a company files.
+</p>
+
+</Section>
+
+<Section id="share" title="Who is gaining share">
+
+<ChartCard title={`Google's share of the nine fell from ${p1(P.share_first.Google)} to ${p1(P.share_last.Google)}; ${takers}`} subtitle={`Each company's advertising revenue as a share of the nine-company total, quarterly, ${ql(P.first_quarter)} to ${ql(lastQ)}. The other six are Microsoft, Snap, AppLovin, Pinterest, The Trade Desk and Reddit, summed. Axis to ${p0(0.6)}. Dashed: the last quarter the video covered.`}>
+  <VegaChart id="ad-share" spec={shareSpec(shareRows, V.last_quarter, 0.6)} height={340} ariaLabel="Line chart of the quarterly share of advertising revenue held by Google, Meta, Amazon and the other six companies" />
+  <SourceStamp slot="stamp" sources={SRC} asOf={asOf} />
+</ChartCard>
+
+<p>
+  Shares move with the seasons, because the fourth quarter is the biggest for retail advertising, so the fair comparison is a year apart.
+  Google's share was {p1(P.share_video_end.Google)} when the video ended and {p1(P.share_last.Google)} in {ql(lastQ)}. Meta's was {p1(P.share_video_end.Meta)} and is now {p1(P.share_last.Meta)}; its low was {p1(P.meta_2022_low.share)} in {ql(P.meta_2022_low.quarter)}, the year after Apple's change.
+  Among the smaller companies the order has changed since the video. AppLovin passed Snap in {ql(P.applovin_passes_snap)}.
+  The Trade Desk, which the video grouped with AppLovin as a fast grower, grew {sp(P.yoy_video_end.TradeDesk, 0)} in {ql(P.video_window.last)} and {sp(P.yoy_last.TradeDesk, 0)} in {ql(lastQ)}.
+</p>
+
+<DataTable id="share-table" caption={`The nine companies in ${ql(lastQ)}: advertising revenue, share, and growth on a year earlier`} columns={[
+  { key: 'company', label: 'Company' },
+  { key: 'revenue', label: 'Revenue, $bn', format: 'fixed1', align: 'right' },
+  { key: 'share', label: 'Share', format: 'pct', align: 'right' },
+  { key: 'share_first', label: `Share, ${ql(P.first_quarter)}`, format: 'pct', align: 'right' },
+  { key: 'growth', label: 'Growth on a year earlier', format: 'pct', align: 'right' },
+]} rows={shareTable} />
+<DownloadCsv filename="ad-market-shares.csv" src="/data/marts/admarket/video_share.json" />
+
+</Section>
+
+<Section id="att" title={`Did Apple's tracking change hurt the tracking-based platforms? Registered test: ${word[q2.verdict].toLowerCase()}`}>
+
+<p>
+  Apple's App Tracking Transparency, shipped with {R.att_ios}, lets iPhone users refuse to be tracked across apps.
+  Platforms that sell ads on the strength of that tracking, Meta, Snap and Pinterest, are the affected group; Google Search and Microsoft search, which sell against what people type, are the control.
+  The rule was written before these numbers were computed:<Sidenote>Growth is two-year growth, annualised, so that each quarter is compared with two years earlier and the pandemic dip of the year before does not inflate it. Before is {R.q2_before.map(ql).join(' and ')}; after is the four quarters of {R.q2_after[0].slice(0, 4)}. A group's value is the unweighted mean of its members.</Sidenote>
+  the claim holds if the affected group's growth fell at least {Math.round(R.q2_threshold * 100)} percentage points more than the control's.
+</p>
+
+<ChartCard title={`Affected platforms' growth fell from ${p1(q2.affected.before)} to ${p1(q2.affected.after)} a year; search's rose`} subtitle="Two-year revenue growth, annualised, unweighted mean of each group, quarterly. Shaded: the registered before and after windows. Dashed: ATT's release.">
+  <VegaChart id="ad-att" spec={attSpec(att.groups, R.q2_before, R.q2_after, R.att_release)} height={320} ariaLabel="Line chart of two-year annualised growth for the affected group and the control group, with the before and after windows shaded" />
+  <SourceStamp slot="stamp" sources={SRC} asOf={asOf} />
+</ChartCard>
+
+<p>
+  The affected group's growth fell by {pp(q2.affected.drop)}, from {p1(q2.affected.before)} to {p1(q2.affected.after)}. The control group's rose, from {p1(q2.control.before)} to {p1(q2.control.after)}.
+  The difference, {pp(q2.gap)}, is well past the threshold, so the registered claim <strong>{q2.verdict}</strong>.
+  It does not prove that Apple caused all of it. The same year brought rising interest rates and a slowdown in online shopping, which hit advertisers who pay for sales harder than those who buy search ads. The test can say the pattern is the one ATT predicts, and large; it cannot separate the two causes.
+</p>
+
+<DataTable id="att-table" caption="Each member's two-year growth before and after" columns={[
+  { key: 'group', label: 'Group' },
+  { key: 'series', label: 'Series' },
+  { key: 'before', label: 'Before', format: 'pct', align: 'right' },
+  { key: 'after', label: 'After', format: 'pct', align: 'right' },
+  { key: 'drop', label: 'Fall', format: 'pct', align: 'right' },
+]} rows={memberRows} />
+<DownloadCsv filename="ad-market-att.csv" rows={memberRows} />
+
+</Section>
+
+<Section id="open-web" title={`Is the open web losing to the walled gardens? Registered test: ${word[q3.verdict].toLowerCase()}`}>
+
+<p>
+  Walled gardens sell ads on their own sites and apps with their own data. The open web is the rest: ads placed on other publishers' sites through intermediaries.
+  The open-web group is Google Network, which places Google's advertisers on partner sites, and three independent ad-tech companies: The Trade Desk, which buys for advertisers, and Magnite and PubMatic, which sell for publishers.
+  The test compares three-year growth of trailing-four-quarter revenue,<Sidenote>From the four quarters to {ql(R.q3_from[1])} to the four quarters to {ql(R.q3_to[1])}, compounded over {R.q3_years} years. The walled gardens are Google Search, YouTube, Meta, Amazon, Microsoft search, Snap, Pinterest and Reddit. Reddit only reports from its listing, so the group is also computed without it.</Sidenote> and the claim holds if the open web grew at least {Math.round(R.q3_threshold * 100)} points a year more slowly.
+</p>
+
+<ChartCard title={`The open web was flat over three years while the walled gardens grew ${p1(q3.walled_ex_reddit)} a year; without Google Network it grew ${p1(D.open_ex_network)}`} subtitle={`Trailing-four-quarter advertising revenue of each group, indexed to the four quarters to ${ql(R.q3_from[1])} = 100. Walled gardens drawn without Reddit so the line does not jump when it lists; the verdict includes it. Independent ad tech (The Trade Desk, Magnite and PubMatic: the open web without Google Network) is a description added after the verdict.`}>
+  <VegaChart id="ad-openweb" spec={openWebSpec(openWeb, R.q3_from[1], ql(R.q3_from[1]))} height={320} ariaLabel="Line chart of trailing-four-quarter revenue indexed to a base window for the walled gardens, the open web, and the open web without Google Network" />
+  <SourceStamp slot="stamp" sources={SRC} asOf={asOf} />
+</ChartCard>
+
+<p>
+  The open web grew {sp(q3.open)} a year and the walled gardens {sp(q3.walled)} ({sp(q3.walled_ex_reddit)} without Reddit), a gap of {pp(q3.gap)}. The registered claim <strong>{q3.verdict}</strong>.
+</p>
+<p>
+  The next observation was made after the verdict and is a description, not a test. The result comes almost entirely from Google Network, which is {p0(D.network_share_of_open)} of the open-web group's revenue ({bn(D.network_ttm_bn)} over the last four quarters, against {bn(D.others_ttm_bn)} for the other three) and shrank {sp(q3.members.google_network)} a year.
+  The Trade Desk, Magnite and PubMatic together grew {sp(D.open_ex_network)} a year, only {pp(D.walled_minus_open_ex_network)} slower than the walled gardens.
+  So the plainer reading is that Google is moving advertising from its partner network to its own properties, and the independent open-web companies are growing a little more slowly than the walled gardens, not being squeezed out.
+</p>
+
+<DataTable id="openweb-table" caption="Three-year growth of each member, trailing four quarters" columns={[
+  { key: 'group', label: 'Group' },
+  { key: 'series', label: 'Series' },
+  { key: 'cagr', label: 'Growth a year', format: 'pct', align: 'right' },
+]} rows={q3Rows} />
+<DownloadCsv filename="ad-market-open-web.csv" rows={q3Rows} />
+
+</Section>
+
+<Section id="volume-price" title="Is the growth more ads or dearer ads?" wide>
+
+<p>
+  Meta reports each quarter how much its ad impressions and its average price per ad changed on a year earlier. Alphabet reports the same for Google Search (paid clicks and cost per click) and for Google Network (impressions and cost per impression).
+  Volume change times price change should give back the reported revenue growth. Before reading the split, the research plan set a check: if any quarter misses by more than {q4.max_gap_pp} percentage points, the split is not reliable for that series.<Sidenote>The figures come from the text of each 10-Q. Annual reports give only full-year changes, so fourth quarters are missing. This check comes from the research plan, which was written before the filings' text was parsed; it is not one of the registered tests.</Sidenote>
+</p>
+
+<DataTable id="method-table" caption="Method check: volume times price against reported revenue growth" columns={[
+  { key: 'series', label: 'Series' },
+  { key: 'n', label: 'Quarters', format: 'num', align: 'right' },
+  { key: 'mean', label: 'Mean gap, points', format: 'fixed1', align: 'right' },
+  { key: 'max', label: 'Largest gap, points', format: 'fixed1', align: 'right' },
+  { key: 'worst', label: 'Largest in' },
+  { key: 'verdict', label: 'Verdict' },
+]} rows={methodRows} />
+<DownloadCsv filename="ad-market-method-check.csv" rows={methodRows} />
+
+<p>
+  Meta's split works: no quarter misses by more than {q4.verdict.meta_ads.max_abs_gap_pp} points.
+  Both Google series fail the strict rule narrowly. Each has a single quarter just over the line ({q4.verdict.google_search_clicks.max_abs_gap_pp} points in {ql(q4.verdict.google_search_clicks.worst_quarter)} for Search, {q4.verdict.google_network.max_abs_gap_pp} in {ql(q4.verdict.google_network.worst_quarter)} for Network), and the typical miss is about a point. A likely reason is that clicks and their price cover only the ads paid per click, while the revenue line includes other revenue. Google's split is read for direction and size below, not as an exact decomposition.
+</p>
+
+<ChartCard size="full" title={`Meta now grows on both volume and price; Google Network's volume has fallen every quarter since ${ql(SN.volume_negative_since)}`} subtitle="Year-over-year change in volume and in price (bars) and in reported revenue (black tick), by quarter. Fourth quarters are missing because annual reports give only full-year changes.">
+  <VegaChart id="ad-volprice" spec={volPriceSpec(vpRows)} height={620} ariaLabel="Three bar charts, Meta, Google Search and Google Network, of the yearly change in volume and price by quarter with reported revenue growth as dots" />
+  <SourceStamp slot="stamp" sources={SRC_TEXT} asOf={asOf} />
+</ChartCard>
+
+<p>
+  <strong>Meta moved from volume to volume and price.</strong> In {andList(metaPriceDownYears)} the average price per ad fell, at worst {ip(SM.price_min.price)} in {ql(SM.price_min.quarter)}, and growth came from showing more ads, including the short-video ads it added after Apple's change.
+  Price per ad has risen every quarter since {ql(SM.price_positive_since)}. In {soFar(SM)} impressions rose {span(SM, [lastYear(SM)], 'vol')} and price {span(SM, [lastYear(SM)], 'price')}, so both now contribute. That fits the story that better targeting has brought prices back.
+</p>
+<p>
+  <strong>Google Search has switched the other way.</strong> In {searchPrior.join(' and ')} paid clicks grew {span(SS, searchPrior, 'vol')} and cost per click {span(SS, searchPrior, 'price')}, so price did more of the work. In {soFar(SS)} clicks grew {span(SS, [lastYear(SS)], 'vol')} and cost per click {span(SS, [lastYear(SS)], 'price')}.
+</p>
+<p>
+  <strong>Google Network is losing volume.</strong> Impressions have fallen on a year earlier in each of the {netSince.length} reported quarters since {ql(SN.volume_negative_since)}, by {range(Math.max(...netSince.map((r) => r.volume)), Math.min(...netSince.map((r) => r.volume)))}. Higher prices have held revenue near flat. This is the same shrinking network that drives the open-web result above.
+</p>
+
+<DownloadCsv filename="ad-market-volume-price.csv" src="/data/marts/admarket/volume_price.json" />
+
+</Section>
+
+<Section id="forecasts" title={`Forecasts registered before ${ql(F.targets[0])} results`} wide>
+
+<p>
+  On {dayUtc(facts.prereg.registered)}, before any of these companies reported {ql(F.targets[0])}, two sets of forecasts were committed to this repository.
+  Rule A is mechanical: each series' next quarter is the same quarter a year earlier, grown at the rate of the latest quarter, with an {p0(F.level)} interval taken from the rule's own back-test errors since {ql(R.backtest_from)}: {bandText('1')} one quarter ahead, {bandText('2')} two quarters ahead.
+  About four in five intervals should contain the result. A hit rate of {p0(F.miscalibrated_at_or_below)} or lower would mean the intervals are too narrow for this period, {p0(F.too_wide_at_or_above)} or higher that they are too wide.
+  Rule B is {F.calls.length} yes-or-no calls about {ql(F.targets[0])}.
+</p>
+<p>
+  Each interval is scored on the first figure a company reports; later restatements do not change a score.
+  {F.n_scored === 0
+    ? `None has reported yet, so all ${F.n} intervals and ${F.calls_pending} calls are pending. The table fills in as filings arrive.`
+    : `${F.n_scored} of ${F.n} intervals are scored so far, ${F.hits} with the result inside; ${F.calls_pending} of ${F.calls.length} calls are still pending.`}
+  {' '}As a check on the registered numbers, the pipeline recomputes rule A from the filings: {F.recompute.cells - F.recompute.mismatches} of {F.recompute.cells} numbers match to the million dollars.
+</p>
+
+<DataTable id="forecast-table" caption={`Rule A: registered ${p0(F.level)} intervals and results, $ millions`} columns={[
+  { key: 'series', label: 'Series' },
+  { key: 'quarter', label: 'Quarter' },
+  { key: 'point', label: 'Forecast', format: 'num', align: 'right' },
+  { key: 'low', label: 'Low', format: 'num', align: 'right' },
+  { key: 'high', label: 'High', format: 'num', align: 'right' },
+  { key: 'actual', label: 'Reported', format: 'num', align: 'right' },
+  { key: 'status', label: 'Status' },
+]} rows={fcRows} />
+<DownloadCsv filename="ad-market-forecasts.csv" rows={fcRows} />
+
+<DataTable id="calls-table" caption={`Rule B: calls about ${ql(F.targets[0])}`} columns={[
+  { key: 'id', label: 'Call' },
+  { key: 'call', label: 'What was called' },
+  { key: 'status', label: 'Result' },
+]} rows={callRows} />
+<DownloadCsv filename="ad-market-calls.csv" rows={callRows} />
+
+</Section>
+
+<Appendix>
+
+<Section id="scope" title="Scope">
+
+<p>
+  The pipeline follows {facts.data.n_companies} companies: the video's nine, plus Magnite, PubMatic and Unity for the open-web and app-advertising comparisons. Share figures use the video's nine only.
+  The nine are listed companies that report advertising separately, so they leave out TikTok, which is private, and companies such as Apple or Disney that do not report an advertising line. Every share on this page is a share of the nine, not of the advertising market.
+</p>
+<p>
+  Starting point: <a href={V.url}>{V.channel}, “{V.title}”</a> ({dayUtc(V.date)}).
+</p>
+
+</Section>
+
+<Section id="method" title="Method">
+
+**Revenue.** For each 10-Q and 10-K with a report date from {facts.data.first_report.slice(0, 4)} on (which also carry the year before as a comparison), the pipeline reads the filing's XBRL and keeps the revenue facts.
+A series is a rule: one company, one revenue concept, and either no breakdown (a total) or one product line. When a company
+restates a quarter, the latest filing wins. A three-month figure is used directly. A fourth quarter is the fiscal year minus
+the first nine months, or minus the three reported quarters when no nine-month figure is tagged. Quarters are calendar
+quarters, so a company whose quarter ends a few days into the next month is counted in the quarter it covers.
+
+**Volume and price.** The text of Meta's and Alphabet's 10-Qs is reduced to the sentences and tables that report the
+changes, and those are parsed. The pipeline keeps the reduced text and checks on every new filing that it parses
+to the same values as the whole document.
+
+**What is kept.** Only the revenue facts of each filing and the reduced text, a small fraction of the filings' size.
+The filings themselves stay on EDGAR, a permanent public archive.
+
+<p>
+  <a href="https://github.com/srx7703/srx7703.github.io/tree/main/pipelines/admarket">Pipeline source</a>
+</p>
+
+</Section>
+
+<Section id="limits" title="Limits">
+
+<ul>
+  <li><strong>Definitions differ by company.</strong> Snap, Pinterest and The Trade Desk count total revenue; Snap's includes subscriptions. The Trade Desk's revenue is its fee, not the advertising it buys.</li>
+  <li><strong>AppLovin's line changes.</strong> It is the advertising segment until the apps business was sold and total revenue after; one annual figure that mixes the two is flagged and not used.</li>
+  <li><strong>The tests are not experiments.</strong> The ATT test has no clean control; the open-web test is dominated by one company's choice.</li>
+  <li><strong>Fourth quarters are missing from the volume and price split</strong> because annual reports give only full-year changes.</li>
+</ul>
+
+</Section>
+
+<Section id="evaluation" title="Evaluation (pre-registered)">
+
+<p>
+  The rules and forecasts are in {facts.prereg.files.length} files under <a href="https://github.com/srx7703/srx7703.github.io/tree/main/docs/prereg/ad-market">docs/prereg/ad-market</a>, append-only, committed on {dayUtc(facts.prereg.registered)}: {facts.prereg.files.map((f) => `${f.path.split('/').pop()} (blob ${f.blob.slice(0, 12)})`).join(', ')}.
+  The panel they were written against is saved beside them with its hash recorded in the forecast file.
+  What had been seen when the rules were written is stated in them: the quarterly panel, its shares and the latest growth rates, but not the two-year growth figures or the group growth rates the tests use.
+  The research was done in a private repository, so the dates are publicly checkable only from this branch's first push.
+</p>
+
+<DataTable id="evaluation-table" caption="Every registered item and its status" columns={[
+  { key: 'id', label: 'Item' },
+  { key: 'question', label: 'Question' },
+  { key: 'kind', label: 'Kind' },
+  { key: 'status', label: 'Status' },
+  { key: 'detail', label: 'Detail' },
+]} rows={evalRows} />
+
+</Section>
+
+<Section id="data-quality" title="Data quality">
+  <DataQuality checks={facts.checks} note="Rebuilt from the committed per-filing extracts on every run." />
+</Section>
+
+<Section id="sources" title="Sources">
+  <ul>
+    {facts.sources.map((s) => <li><a href={s.url}>{s.name}</a></li>)}
+    <li><a href={V.url}>{V.channel}, “{V.title}”</a> (starting point; its claims are checked, not reused)</li>
+  </ul>
+</Section>
+
+<Section id="build-notes" title="Build notes">
+
+The author chose the question, ran the claim check, wrote the research plan, registered the tests and forecasts, and
+decided what to extend. Claude Code wrote the research scripts under review, then ported them into this pipeline: it
+added the tests that tie the port to the research outputs, the workflow, the charts and this page. The port reproduced
+every research number but one. Alphabet prints a zero change as a dash, which the research parser skipped, so it read one
+quarter's cost per click from the wrong column; the port reads it as zero, which lowers Google Search's mean gap in the
+method check but leaves its largest gap and its verdict as they were.
+
+</Section>
+
+<Section id="changelog" title="Changelog">
+  <ul>
+    <li><strong>{dayUtc(facts.prereg.registered)}</strong>: first version, in progress. Panel through {ql(lastQ)}; forecasts registered and pending.</li>
+  </ul>
+</Section>
+
+</Appendix>
