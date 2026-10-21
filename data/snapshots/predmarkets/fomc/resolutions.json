@@ -8392,7 +8392,18 @@
    "result": "yes",
    "settled_ts": "2026-10-15 21:48:56+00",
    "recorded_at": "2026-10-16T11:37:04+00:00"
+  },
+  "polymarket:5194830": {
+   "platform": "polymarket",
+   "market_id": "5194830",
+   "event_id": "1116492",
+   "event_slug": "how-low-will-30-year-treasury-yield-get-in-october",
+   "outcome_yes": null,
+   "question": "Will the 30-year Treasury yield dip below 5.43% in October?",
+   "result": "yes",
+   "settled_ts": "2026-10-20 22:16:52.1096+00",
+   "recorded_at": "2026-10-21T12:02:47+00:00"
   }
  },
- "updated_at": "2026-10-20T11:51:13+00:00"
+ "updated_at": "2026-10-21T12:02:47+00:00"
 }
