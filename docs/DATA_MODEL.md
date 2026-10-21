@@ -402,3 +402,33 @@ trio), `ev_sales`, `rule_of_40`, `targets`, `recommendations`, `cn`, `private`, 
 `coverage`, `checks` (row counts against the pool, freshness, regression guard, curated-file validity, ETF cross-check; shown in the page's
 Data quality section), `sources`, `marts` (name to path under `data/marts/`), `generated_at`, `as_of` and `registered`. Each figure carries
 `value`, `qualifier`, `unit`, `period`, `as_of` and `source_url`. Every number in the page prose and the home row is read from here.
+
+# Data model — advertising market (project J)
+
+Pipeline: `pipelines/admarket/` (`ingest` → `transform` → `metrics` → `publish`), weekdays via `admarket.yml`.
+Rules: `docs/prereg/ad-market/` (registered 2026-10-21, append-only); the panel they were written against is
+`data/reference/ad_market/ad_revenue_quarterly_usd_bn_2026Q2.csv`, whose SHA-256 the forecast file records.
+
+| Layer | Path | In git |
+|---|---|---|
+| Index | `data/raw/admarket/filings.json` — every extracted 10-Q/10-K: ticker, CIK, form, period, filed, accession, fact count, paths | yes |
+| Raw (revenue facts) | `data/raw/admarket/xbrl/<TICKER>/<period>_<form>_<accession>.json.gz` — the revenue-concept duration facts of one XBRL instance (`concept, start, end, dims, value`), in document order | yes (~1 MB in all) |
+| Raw (text windows) | `data/raw/admarket/text/{META,GOOGL}/<period>_10-Q_<accession>.json.gz` — the windows of the 10-Q text the volume/price parser reads, plus what it read at ingest | yes |
+| Not kept | the XBRL instances and the HTML filings themselves (about half a gigabyte for the twelve companies since 2020); EDGAR is the archive | no |
+| Snapshot | `data/snapshots/admarket/quarterly.parquet` (series × quarter, value, derivation method, flag), `volume_price.parquet` | yes |
+
+Per-filing files are immutable, one per accession; ingest only adds accessions it has not seen. The transform re-parses
+the kept text windows on every run, so a parser fix applies to every filing without rewriting raw records. Requests
+need `SEC_USER_AGENT` (an Actions secret with a contact address); ingest refuses to start without it, and no committed
+file may contain an email address (`tests/test_public_safety.py`).
+
+Derivation (`transform.quarterly`): revenue concepts `RevenueFromContractWithCustomerExcludingAssessedTax` (preferred)
+and `Revenues`; a series is a total (no dimensions) or one member of `ProductOrServiceAxis` / the segment axis, with
+extra dimensions allowed only on the segment and consolidation axes; fewest dimensions, then the latest filing, win;
+80–100-day spans are quarters, mapped to the calendar quarter of end − 15 days; Q4 = fiscal year − nine months, or
+fiscal year − three quarters. Forecast scoring uses each company's first reported figure (`transform.first_reported`).
+
+Marts (`data/marts/admarket/`): `quarterly` (values in $m; flagged rows carry no value), `video_share`, `att_growth`
+(Q2 paths), `open_web` (Q3 index), `volume_price` (Q4 rows), `forecasts` (rule A intervals and status), `evaluation`.
+Facts: `data/facts/admarket.json`. `publish` writes nothing if a check fails; the reconcile test pins the research
+numbers of 2026-10-21.

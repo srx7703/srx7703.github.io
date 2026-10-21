@@ -23,6 +23,7 @@ Insights was rate-limited from the build machine on 2026-09-16, so these are loc
 | 2026-10-17 (components and data files, plain server) | /projects/cybersecurity-landscape/ | 60 | 100 | n/m | n/m | same build: FCP 6.6 s, LCP 7.3 s, 1,223 KiB transferred |
 | 2026-10-17 (page on lazy tables, gzip-served) | /projects/cybersecurity-landscape/ | 98 | 100 | n/m | n/m | a copy of the page that uses the new options: the reported, ETF, China, listing, targets, ratings and ledger tables lazy `<UrlTable>`s over `public/data/cyber/*-table.json`, specs in `<script type="application/json">`. HTML 418,249 B; 241 KiB transferred |
 | 2026-10-17 (page on lazy tables, plain server) | /projects/cybersecurity-landscape/ | 81 | 100 | n/m | n/m | same copy: FCP 3.3 s, LCP 4.0 s, 592 KiB transferred. What is left on a plain server is the three fonts (169 KB), `Base.css` (17.5 KB) and the interval figure's data, which sits inline (about 140 KB as JSON) because its empty-view sentence reads the dataset by name |
+| 2026-10-21 | /projects/ad-market/ | 99 | 100 | 100 | 100 | local build served by `astro preview` (uncompressed); LCP 2.1 s, FCP 1.4 s; HTML 184,875 B |
 
 Remaining accessibility deductions were link colour contrast (4.2:1); the light-theme accent was
 darkened to 6.3:1 in the following commit. The 2026-09-16 restyle (paper ground, serif text, ink links)
