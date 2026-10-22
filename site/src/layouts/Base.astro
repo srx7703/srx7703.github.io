@@ -2,6 +2,7 @@
 import '../styles/tokens.css';
 import '../styles/global.css';
 import { AUTHOR } from '../lib/site';
+import Analytics from '../components/Analytics.astro';
 // Preload the two above-the-fold font files so they do not wait for the stylesheet to arrive.
 import newsreaderUrl from '@fontsource-variable/newsreader/files/newsreader-latin-wght-normal.woff2?url';
 import plexSansUrl from '@fontsource-variable/ibm-plex-sans/files/ibm-plex-sans-latin-wght-normal.woff2?url';
@@ -21,6 +22,8 @@ const nav = [
   { href: '/changelog/', label: 'Changelog' },
 ];
 const path = Astro.url.pathname;
+// The footer says so whenever anonymous usage is measured (see docs/analytics/TRACKING_PLAN.md).
+const analyticsOn = Boolean(import.meta.env.PUBLIC_MIXPANEL_TOKEN);
 const isHome = path === '/';
 const isArticle = path.startsWith('/projects/') && path !== '/projects/';
 // Link previews (LinkedIn, Slack, iMessage, X) read these absolute addresses from the static HTML; they run no scripts.
@@ -92,6 +95,7 @@ const imageAlt = `${title}, a page of ${AUTHOR}'s data-analysis portfolio`;
         <span>© {new Date().getUTCFullYear()} {AUTHOR} · </span>
         <a href="https://github.com/srx7703/srx7703.github.io">Source on GitHub</a>
         <span> · Built with Claude Code, Astro and Vega-Lite. Data refreshed by GitHub Actions.</span>
+        {analyticsOn && <span> Anonymous page usage is measured with Mixpanel; no personal data is collected.</span>}
       </div>
     </footer>
     <script>
@@ -109,5 +113,6 @@ const imageAlt = `${title}, a page of ${AUTHOR}'s data-analysis portfolio`;
         apply(next);
       });
     </script>
+    {analyticsOn && <Analytics />}
   </body>
 </html>

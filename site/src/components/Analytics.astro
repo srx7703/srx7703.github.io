@@ -1,0 +1,169 @@
+---
+/**
+ * Product analytics with Mixpanel. Off unless the build has PUBLIC_MIXPANEL_TOKEN (deploy-site.yml passes it from the
+ * repository variable MIXPANEL_PROJECT_TOKEN): without it Base.astro does not render this component, so no page loads
+ * any analytics code. The Mixpanel library is code-split and fetched after the page is parsed, so it never blocks rendering.
+ *
+ * Event names and properties are the contract in docs/analytics/TRACKING_PLAN.md; change both together.
+ * Privacy: no personal data or free text is sent, IP geolocation is off (ip: false), Do Not Track is respected,
+ * there is no autocapture and no session recording.
+ *
+ * PUBLIC_MIXPANEL_DEBUG=1 logs every event to the browser console before it is sent (local checks only).
+ */
+const token = import.meta.env.PUBLIC_MIXPANEL_TOKEN as string | undefined;
+const debug = import.meta.env.PUBLIC_MIXPANEL_DEBUG === '1';
+---
+{token && <div id="mp-config" data-token={token} data-debug={debug ? '1' : undefined} hidden></div>}
+<script>
+  type Props = Record<string, string | number | boolean | undefined>;
+
+  const cfg = document.getElementById('mp-config');
+  const dnt = navigator.doNotTrack === '1' || (window as unknown as { doNotTrack?: string }).doNotTrack === '1';
+
+  const pageType = (p: string): string => {
+    if (p === '/') return 'home';
+    if (p === '/projects/') return 'projects_index';
+    if (p.startsWith('/projects/')) return 'project';
+    if (p.startsWith('/how-i-work')) return 'how_i_work';
+    if (p.startsWith('/about')) return 'about';
+    if (p.startsWith('/changelog')) return 'changelog';
+    return 'other';
+  };
+  const slugOf = (p: string): string | undefined => {
+    const m = p.match(/^\/projects\/([^/]+)\/?/);
+    return m ? m[1] : undefined;
+  };
+  const theme = (): string => {
+    const t = document.documentElement.dataset.theme;
+    if (t === 'light' || t === 'dark') return t;
+    return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
+  const hostOf = (url: string): string | undefined => {
+    try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return undefined; }
+  };
+
+  const start = async (token: string, debug: boolean) => {
+    // Core build: the default bundle also ships the session-replay recorder, which this site never uses
+    const { default: mixpanel } = await import('mixpanel-browser/src/loaders/loader-module-core');
+    mixpanel.init(token, {
+      debug,
+      track_pageview: false,       // Page Viewed is sent below with the page context
+      persistence: 'localStorage',
+      ip: false,                   // no IP-based geolocation
+      ignore_dnt: false,           // respect Do Not Track
+      autocapture: false,          // only the events in the tracking plan
+      record_sessions_percent: 0,  // no session recording
+    });
+
+    const path = location.pathname;
+    const ctx: Props = {
+      page_type: pageType(path),
+      project_slug: slugOf(path),
+      device_type: innerWidth < 768 ? 'mobile' : 'desktop',
+      theme: theme(),
+    };
+    // Events fired as the visitor leaves the page skip the batch queue and go out by sendBeacon, which survives navigation
+    const track = (event: string, props: Props = {}, leaving = false) => {
+      const all = Object.fromEntries(Object.entries({ ...ctx, ...props }).filter(([, v]) => v !== undefined));
+      mixpanel.track(event, all, leaving ? { transport: 'sendBeacon', send_immediately: true } : undefined);
+    };
+
+    // Page Viewed: where the visit came from
+    const q = new URLSearchParams(location.search);
+    const ref = document.referrer ? hostOf(document.referrer) : undefined;
+    track('Page Viewed', {
+      referrer_domain: ref && ref !== location.hostname.replace(/^www\./, '') ? ref : undefined,
+      utm_source: q.get('utm_source') ?? undefined,
+      utm_medium: q.get('utm_medium') ?? undefined,
+      utm_campaign: q.get('utm_campaign') ?? undefined,
+    });
+
+    // Clicks: project cards, CSV downloads, links to other sites (one delegated listener)
+    const cards = Array.from(document.querySelectorAll<HTMLAnchorElement>('a.preview'));
+    document.addEventListener('click', (e) => {
+      const el = e.target as Element | null;
+      if (!el) return;
+      const card = el.closest<HTMLAnchorElement>('a.preview');
+      if (card) {
+        track('Project Opened', {
+          target_slug: slugOf(new URL(card.href, location.href).pathname),
+          project_status: card.dataset.status,
+          card_position: cards.indexOf(card) + 1,
+        }, true);
+        return;
+      }
+      const dl = el.closest<HTMLButtonElement>('button.dl');
+      if (dl) {
+        track('CSV Downloaded', { filename: dl.dataset.filename });
+        return;
+      }
+      const a = el.closest<HTMLAnchorElement>('a[href]');
+      if (a && /^https?:$/.test(a.protocol) && a.hostname !== location.hostname) {
+        const host = a.hostname.replace(/^www\./, '');
+        const linkType = host.endsWith('linkedin.com') ? 'linkedin'
+          : host.endsWith('github.com') ? 'github'
+          : a.closest('main') ? 'source' : 'other';
+        track('Outbound Link Clicked', { destination_domain: host, link_type: linkType }, true);
+      }
+    }, { capture: true });
+
+    // Dashboard controls (radio groups and selects inside <form class="dash">)
+    document.addEventListener('change', (e) => {
+      const input = e.target as HTMLInputElement | HTMLSelectElement | null;
+      const form = input?.closest<HTMLFormElement>('form.dash');
+      if (!input || !form) return;
+      track('Dashboard Filter Changed', {
+        dashboard_group: form.dataset.group,
+        control: input.closest<HTMLElement>('[data-control]')?.dataset.control,
+        value: input.value,
+      });
+    });
+
+    // Charts: first click, or first 1.5 s hover, per chart per page view
+    const touched = new Set<string>();
+    document.querySelectorAll<HTMLElement>('.vega[id]').forEach((chart) => {
+      let timer: number | undefined;
+      const once = (interaction: string) => {
+        if (touched.has(chart.id)) return;
+        touched.add(chart.id);
+        track('Chart Interacted', { chart_id: chart.id, interaction });
+      };
+      chart.addEventListener('pointerenter', () => { timer = window.setTimeout(() => once('hover'), 1500); });
+      chart.addEventListener('pointerleave', () => { window.clearTimeout(timer); });
+      chart.addEventListener('click', () => { window.clearTimeout(timer); once('click'); });
+    });
+
+    // Scroll depth: 25 / 50 / 75 / 100 % of the page, each once
+    const marks = [25, 50, 75, 100];
+    const reached = new Set<number>();
+    let ticking = false;
+    const checkScroll = () => {
+      ticking = false;
+      const doc = document.documentElement;
+      const seen = (scrollY + innerHeight) / Math.max(doc.scrollHeight, 1);
+      for (const m of marks) {
+        if (!reached.has(m) && seen >= (m === 100 ? 0.98 : m / 100)) {
+          reached.add(m);
+          track('Scroll Depth Reached', { depth: m });
+        }
+      }
+    };
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(checkScroll); } }, { passive: true });
+    checkScroll();
+
+    // Engaged: 30 s of visible time in total
+    let visibleSeconds = 0;
+    const tick = window.setInterval(() => {
+      if (document.visibilityState !== 'visible') return;
+      visibleSeconds += 1;
+      if (visibleSeconds >= 30) {
+        window.clearInterval(tick);
+        track('Page Engaged', { seconds: 30 });
+      }
+    }, 1000);
+  };
+
+  if (cfg?.dataset.token && !dnt) {
+    start(cfg.dataset.token, cfg.dataset.debug === '1').catch(() => { /* analytics must never break the page */ });
+  }
+</script>
