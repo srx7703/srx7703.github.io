@@ -50,6 +50,10 @@ jobs:
       - name: Build
         run: npm run build
         working-directory: site
+        env:
+          # Public by design (every browser sends it); while unset, no page loads analytics code.
+          # See docs/analytics/TRACKING_PLAN.md.
+          PUBLIC_MIXPANEL_TOKEN: ${{ vars.MIXPANEL_PROJECT_TOKEN }}
       - uses: actions/configure-pages@v5
         with:
           enablement: true
