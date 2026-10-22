@@ -568,5 +568,15 @@
   "reported": 27.5,
   "implied": 27.7,
   "gap_pp": 0.2
+ },
+ {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "quarter": "2026Q3",
+  "volume": 10,
+  "price": 14,
+  "reported": 25.9,
+  "implied": 25.4,
+  "gap_pp": -0.5
  }
 ]

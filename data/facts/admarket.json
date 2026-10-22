@@ -1,20 +1,20 @@
 {
- "generated_at": "2026-10-21T18:47:08+00:00",
- "last_updated": "2026-10-21",
+ "generated_at": "2026-10-22T14:34:44+00:00",
+ "last_updated": "2026-10-22",
  "status": "in-progress",
  "data": {
-  "n_filings": 286,
+  "n_filings": 287,
   "n_companies": 12,
   "n_series": 19,
   "first_quarter": "2019Q1",
   "last_quarter": "2026Q2",
   "latest_filing": {
-   "ticker": "PUBM",
+   "ticker": "META",
    "form": "10-Q",
-   "period": "2026-06-30",
-   "filed": "2026-08-06"
+   "period": "2026-09-30",
+   "filed": "2026-10-22"
   },
-  "n_text_filings": 40,
+  "n_text_filings": 41,
   "first_report": "2020-01-01"
  },
  "video": {
@@ -120,8 +120,10 @@
   },
   "next_quarter": {
    "quarter": "2026Q3",
-   "reported": [],
-   "n_reported": 0,
+   "reported": [
+    "Meta"
+   ],
+   "n_reported": 1,
    "n_members": 9
   },
   "four_quarter_mean_share": {
@@ -279,9 +281,9 @@
  "q4": {
   "verdict": {
    "meta_ads": {
-    "n": 20,
+    "n": 21,
     "max_abs_gap_pp": 0.8,
-    "mean_abs_gap_pp": 0.4,
+    "mean_abs_gap_pp": 0.41,
     "usable": true,
     "worst_quarter": "2020Q3",
     "over_by_pp": -2.2,
@@ -309,10 +311,10 @@
   "summary": {
    "meta_ads": {
     "latest": {
-     "quarter": "2026Q2",
-     "volume": 14,
-     "price": 12,
-     "reported": 27.5
+     "quarter": "2026Q3",
+     "volume": 10,
+     "price": 14,
+     "reported": 25.9
     },
     "years": {
      "2020": {
@@ -358,11 +360,11 @@
       "n": 3
      },
      "2026": {
-      "vol_min": 14,
+      "vol_min": 10,
       "vol_max": 19,
       "price_min": 12,
-      "price_max": 12,
-      "n": 2
+      "price_max": 14,
+      "n": 3
      }
     },
     "price_min": {
@@ -524,7 +526,7 @@
    }
   },
   "max_gap_pp": 3.0,
-  "n_rows": 57
+  "n_rows": 58
  },
  "q5": {
   "status": "collecting",
@@ -532,11 +534,11 @@
   "quarters_needed": 4
  },
  "forecasts": {
-  "status": "pending",
+  "status": "partial",
   "n": 30,
-  "n_scored": 0,
-  "hits": 0,
-  "hit_rate": null,
+  "n_scored": 1,
+  "hits": 1,
+  "hit_rate": 1.0,
   "verdict": null,
   "band": {
    "1": {
@@ -626,17 +628,17 @@
   {
    "name": "Filing extracts",
    "status": "pass",
-   "detail": "286 10-Q/10-K filings across 12 companies; the latest is PUBM 10-Q for 2026-06-30, filed 2026-08-06"
+   "detail": "287 10-Q/10-K filings across 12 companies; the latest is META 10-Q for 2026-09-30, filed 2026-10-22"
   },
   {
    "name": "Freshness",
    "status": "pass",
-   "detail": "latest filing 76 days ago (limit 140)"
+   "detail": "latest filing 0 days ago (limit 140)"
   },
   {
    "name": "Quarterly schema",
    "status": "pass",
-   "detail": "482 series-quarters pass the pandera schema (positive revenue, one row per series and quarter)"
+   "detail": "484 series-quarters pass the pandera schema (positive revenue, one row per series and quarter)"
   },
   {
    "name": "Derivation artefacts flagged",
@@ -646,7 +648,7 @@
   {
    "name": "Video subset complete",
    "status": "pass",
-   "detail": "all nine companies through 2026Q2; 2026Q3: 0 of 9 reported"
+   "detail": "all nine companies through 2026Q2; 2026Q3: 1 of 9 reported"
   },
   {
    "name": "Registered snapshot unchanged",
@@ -666,7 +668,7 @@
   {
    "name": "Volume/price text parsed",
    "status": "pass",
-   "detail": "Meta advertising: 20 quarters, Google Search & other: 20 quarters, Google Network: 20 quarters"
+   "detail": "Meta advertising: 21 quarters, Google Search & other: 20 quarters, Google Network: 20 quarters"
   },
   {
    "name": "Registered files unamended",

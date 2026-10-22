@@ -1314,6 +1314,15 @@
   "flag": null
  },
  {
+  "series": "meta_ads",
+  "label": "Meta advertising",
+  "ticker": "META",
+  "quarter": "2026Q3",
+  "value_usd_m": 63061.0,
+  "method": "3M",
+  "flag": null
+ },
+ {
   "series": "meta_total",
   "label": "Meta total revenue",
   "ticker": "META",
@@ -1580,6 +1589,15 @@
   "ticker": "META",
   "quarter": "2026Q2",
   "value_usd_m": 60801.0,
+  "method": "3M",
+  "flag": null
+ },
+ {
+  "series": "meta_total",
+  "label": "Meta total revenue",
+  "ticker": "META",
+  "quarter": "2026Q3",
+  "value_usd_m": 64601.0,
   "method": "3M",
   "flag": null
  },

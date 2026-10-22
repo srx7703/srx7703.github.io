@@ -93,10 +93,10 @@
   "point_m": 63849,
   "low_m": 60454,
   "high_m": 67861,
-  "actual_m": null,
-  "status": "pending",
-  "filed": null,
-  "error": null
+  "actual_m": 63061.0,
+  "status": "hit",
+  "filed": "2026-10-22",
+  "error": -0.012341618506162999
  },
  {
   "series": "Meta",
