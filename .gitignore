@@ -31,3 +31,6 @@ data/raw/valuation/*_local/
 *\ 3.*
 # curators' working notes for the cyber ledger: local only (docs/cyber/CURATION.md)
 data/reference/cyber/notes/
+
+# Product-analytics exports hold pseudonymous visitor ids: analysed locally, never committed (docs/analytics/TRACKING_PLAN.md).
+data/private/
