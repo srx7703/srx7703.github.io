@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T21:36:01+00:00",
+ "generated_at": "2026-10-22T14:07:19+00:00",
  "slug": "cybersecurity-landscape",
  "as_of": "2026-10-16",
  "registered": "2026-10-17",
@@ -541,7 +541,7 @@
   "fitted_on": "the Q1 and Q2 population of the week plus the Q7 A-share group, one run",
   "draws": 10000,
   "seed": 20261026,
-  "age_days": 2,
+  "age_days": 5,
   "n_series": 0,
   "series_from": "2026-10-26",
   "baseline": {
@@ -1926,59 +1926,59 @@
   "n_with_revenue_yoy": 31,
   "n_flag_assessable": 31,
   "n_flagged": 4,
-  "n_top_quartile": 5,
-  "n_revenue_falling": 18,
+  "n_top_quartile": 4,
+  "n_revenue_falling": 20,
   "flagged": [
    "688168.SS",
+   "003029.SZ",
    "300017.SZ",
-   "300229.SZ",
-   "688244.SS"
+   "300229.SZ"
   ],
   "median_ps_ttm": {
-   "value": 6.916994,
+   "value": 6.997557,
    "qualifier": "=",
    "unit": "times trailing-12-month revenue",
    "period": "latest day",
-   "as_of": "2026-10-16",
+   "as_of": "2026-10-22",
    "source_url": "https://data.eastmoney.com/gzfx/"
   },
   "median_ps_percentile": {
-   "value": 0.398827,
+   "value": 0.373724,
    "qualifier": "=",
    "unit": "share of days since 2018 at or below the latest",
    "period": "since 2018-01-01",
-   "as_of": "2026-10-16",
+   "as_of": "2026-10-22",
    "source_url": "https://data.eastmoney.com/gzfx/"
   },
   "median_revenue_yoy": {
-   "value": -0.025174,
+   "value": -0.060007,
    "qualifier": "=",
    "unit": "fraction, cumulative year on year",
    "period": "latest report of each listing",
-   "as_of": "2026-10-16",
+   "as_of": "2026-10-22",
    "source_url": "https://data.eastmoney.com/bbsj/"
   },
-  "as_of": "2026-10-16",
+  "as_of": "2026-10-22",
   "n_ring_a": 15,
   "n_ring_b": 16,
   "n_panel_rows": 31,
   "ps_percentile": {
    "002212.SZ": {
-    "value": 0.590141,
+    "value": 0.592315,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Topsec Technologies",
     "ring": "A",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 3.593278,
+     "value": 3.598426,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -1986,27 +1986,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "002268.SZ": {
-    "value": 0.096714,
+    "value": 0.12418,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "CETC Cyberspace Security (ex-Westone)",
     "ring": "A",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 5.333492,
+     "value": 5.465137,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2014,27 +2014,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "002439.SZ": {
-    "value": 0.528169,
+    "value": 0.499063,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Venustech",
     "ring": "A",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 6.916994,
+     "value": 6.792856,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2042,55 +2042,55 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "002912.SZ": {
-    "value": 0.168075,
+    "value": 0.072634,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Sinovatio",
     "ring": "A",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 6.256644,
+     "value": 5.472316,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
-     "value": 0.03956,
+     "value": 0.013711,
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
-     "period": "2026H1",
-     "as_of": "2026-10-16",
+     "period": "2026Q1-Q3",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300188.SZ": {
-    "value": 0.421596,
+    "value": 0.45314,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "SDIC Intelligence (ex-Meiya Pico)",
     "ring": "A",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 6.615721,
+     "value": 6.782558,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2098,27 +2098,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300369.SZ": {
-    "value": 0.356338,
+    "value": 0.330834,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "NSFOCUS Technologies",
     "ring": "A",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 3.215787,
+     "value": 3.140629,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2126,27 +2126,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300454.SZ": {
-    "value": 0.310328,
+    "value": 0.359551,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-05-16",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Sangfor Technologies",
     "ring": "A",
-    "n_days": 2043,
+    "n_days": 2047,
     "ps_ttm": {
-     "value": 5.978676,
+     "value": 6.213293,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2154,55 +2154,55 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300768.SZ": {
-    "value": 0.049423,
+    "value": 0.053151,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2019-04-12",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "DPtech",
     "ring": "A",
-    "n_days": 1821,
+    "n_days": 1825,
     "ps_ttm": {
-     "value": 7.377175,
+     "value": 7.403904,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
-     "value": -0.025174,
+     "value": -0.060007,
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
-     "period": "2026H1",
-     "as_of": "2026-10-16",
+     "period": "2026Q1-Q3",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "603232.SS": {
-    "value": 0.740845,
+    "value": 0.680412,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Koal Software",
     "ring": "A",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 10.72598,
+     "value": 9.926098,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2210,27 +2210,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688023.SS": {
-    "value": 0.148456,
+    "value": 0.160545,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2019-11-05",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "DBAPPSecurity",
     "ring": "A",
-    "n_days": 1684,
+    "n_days": 1688,
     "ps_ttm": {
-     "value": 2.200034,
+     "value": 2.241231,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2238,27 +2238,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688168.SS": {
-    "value": 0.777907,
+    "value": 0.781903,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2019-09-06",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "ABT Networks",
     "ring": "A",
-    "n_days": 1720,
+    "n_days": 1724,
     "ps_ttm": {
-     "value": 15.18398,
+     "value": 15.660833,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2266,27 +2266,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": true
    },
    "688201.SS": {
-    "value": 0.099323,
+    "value": 0.099775,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2021-04-21",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Infosec Technologies",
     "ring": "A",
-    "n_days": 1329,
+    "n_days": 1333,
     "ps_ttm": {
      "value": 4.314291,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2294,27 +2294,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688489.SS": {
-    "value": 0.136752,
+    "value": 0.118085,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2022-12-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Sansec Technology",
     "ring": "A",
-    "n_days": 936,
+    "n_days": 940,
     "ps_ttm": {
-     "value": 7.548311,
+     "value": 7.37825,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2322,27 +2322,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688561.SS": {
-    "value": 0.240238,
+    "value": 0.242904,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2020-07-22",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "QI-ANXIN Technology Group",
     "ring": "A",
-    "n_days": 1511,
+    "n_days": 1515,
     "ps_ttm": {
-     "value": 4.525252,
+     "value": 4.536771,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2350,27 +2350,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688651.SS": {
-    "value": 0.198718,
+    "value": 0.373724,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2023-07-26",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "WebRAY",
     "ring": "A",
-    "n_days": 780,
+    "n_days": 784,
     "ps_ttm": {
-     "value": 7.888117,
+     "value": 8.577404,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2378,27 +2378,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "002368.SZ": {
-    "value": 0.112676,
+    "value": 0.314433,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Taiji Computer",
     "ring": "B",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 1.230375,
+     "value": 1.627407,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2406,27 +2406,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "003029.SZ": {
-    "value": 0.746088,
+    "value": 0.8,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2020-12-24",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "JIT",
     "ring": "B",
-    "n_days": 1406,
+    "n_days": 1410,
     "ps_ttm": {
-     "value": 11.437475,
+     "value": 12.326883,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2434,27 +2434,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
-    "flagged": false
+    "flagged": true
    },
    "300017.SZ": {
-    "value": 0.915493,
+    "value": 0.925023,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Wangsu Science & Technology",
     "ring": "B",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 6.891213,
+     "value": 7.322588,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2462,27 +2462,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": true
    },
    "300229.SZ": {
-    "value": 0.870423,
+    "value": 0.884255,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "TRS Information Technology",
     "ring": "B",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 27.637051,
+     "value": 28.948866,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2490,55 +2490,55 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": true
    },
    "300311.SZ": {
-    "value": 0.810798,
+    "value": 0.686036,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Surfilter",
     "ring": "B",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 7.488847,
+     "value": 6.997557,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
-     "value": 0.163808,
+     "value": -0.029608,
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
-     "period": "2026H1",
-     "as_of": "2026-10-16",
+     "period": "2026Q1-Q3",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300352.SZ": {
-    "value": 0.431925,
+    "value": 0.395501,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "VRV Software",
     "ring": "B",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 12.513784,
+     "value": 12.171611,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2546,27 +2546,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300386.SZ": {
-    "value": 0.704225,
+    "value": 0.733833,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Feitian Technologies",
     "ring": "B",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 8.082167,
+     "value": 8.355308,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2574,27 +2574,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300579.SZ": {
-    "value": 0.556338,
+    "value": 0.631209,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "BJCA",
     "ring": "B",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 7.662137,
+     "value": 7.972166,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2602,27 +2602,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300659.SZ": {
-    "value": 0.161502,
+    "value": 0.153233,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Zhongfu Information",
     "ring": "B",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 4.395238,
+     "value": 4.289817,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2630,27 +2630,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "601360.SS": {
-    "value": 0.177465,
+    "value": 0.170572,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "360 Security Technology",
     "ring": "B",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 6.490291,
+     "value": 6.381862,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2658,27 +2658,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "603496.SS": {
-    "value": 0.332394,
+    "value": 0.339738,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Embedway Technologies",
     "ring": "B",
-    "n_days": 2130,
+    "n_days": 2134,
     "ps_ttm": {
-     "value": 7.076501,
+     "value": 7.131609,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2686,55 +2686,55 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688027.SS": {
-    "value": 0.515132,
+    "value": 0.620079,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2020-07-09",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "QuantumCTek",
     "ring": "B",
-    "n_days": 1520,
+    "n_days": 1524,
     "ps_ttm": {
-     "value": 93.204426,
+     "value": 101.323462,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
-     "value": 0.018264,
+     "value": -0.167258,
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
-     "period": "2026H1",
-     "as_of": "2026-10-16",
+     "period": "2026Q1-Q3",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688030.SS": {
-    "value": 0.398827,
+    "value": 0.348742,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2019-09-30",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Hillstone Networks",
     "ring": "B",
-    "n_days": 1705,
+    "n_days": 1709,
     "ps_ttm": {
-     "value": 3.462178,
+     "value": 3.385961,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2742,27 +2742,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688225.SS": {
-    "value": 0.072183,
+    "value": 0.075439,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2022-02-09",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "AsiaInfo Security",
     "ring": "B",
-    "n_days": 1136,
+    "n_days": 1140,
     "ps_ttm": {
-     "value": 0.796936,
+     "value": 0.801832,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2770,27 +2770,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688244.SS": {
-    "value": 0.765496,
+    "value": 0.670782,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2022-10-19",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Integrity Technology",
     "ring": "B",
-    "n_days": 968,
+    "n_days": 972,
     "ps_ttm": {
-     "value": 11.245302,
+     "value": 10.783925,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2798,27 +2798,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
-    "flagged": true
+    "flagged": false
    },
    "688292.SS": {
-    "value": 0.563618,
+    "value": 0.548515,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2022-08-18",
-    "as_of": "2026-10-16",
+    "as_of": "2026-10-22",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Haohan Data Technology",
     "ring": "B",
-    "n_days": 1006,
+    "n_days": 1010,
     "ps_ttm": {
-     "value": 8.272451,
+     "value": 8.148859,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2826,7 +2826,7 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026H1",
-     "as_of": "2026-10-16",
+     "as_of": "2026-10-22",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
@@ -3065,12 +3065,12 @@
    "other": 3,
    "none": 47
   },
-  "acquisitions_12m": 69,
-  "acquisitions_announced_12m": 45,
+  "acquisitions_12m": 67,
+  "acquisitions_announced_12m": 43,
   "acquisitions_first_recorded_at_completion_12m": 24,
   "acquisitions_12m_by_buyer_type": {
    "platform_security": 41,
-   "non_security_software": 12,
+   "non_security_software": 10,
    "pe": 4,
    "insurance": 1,
    "state": 0,
@@ -3079,14 +3079,14 @@
    "none": 0
   },
   "acquisitions_not_charted_12m": 6,
-  "acquisitions_closed_12m": 54,
+  "acquisitions_closed_12m": 53,
   "acquisitions_closed_12m_announced_earlier": 7,
   "n_sec_priced": 23,
   "n_sec_priced_deals": 23,
   "n_sec_priced_deals_12m": 13,
-  "window_from": "2025-10-19",
-  "window_to": "2026-10-19",
-  "window_end": "2026-10-19",
+  "window_from": "2025-10-22",
+  "window_to": "2026-10-22",
+  "window_end": "2026-10-22",
   "latest": {
    "company": "Varonis Systems",
    "event_kind": "take_private",
@@ -3307,7 +3307,7 @@
      "qualifier": "=",
      "unit": "companies",
      "period": null,
-     "as_of": "2026-10-19",
+     "as_of": "2026-10-22",
      "ref": "Section I, Q6",
      "note": "not the scored set: that is fixed by the ledger frozen on 2026-12-31",
      "source_url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
@@ -3522,17 +3522,17 @@
   "n_priced": 73,
   "n_with_multiple": 66,
   "n_with_enterprise_value_usd": 73,
-  "fx_as_of": "2026-10-09",
+  "fx_as_of": "2026-10-16",
   "fx_rate_dates": {
-   "AUD": "2026-10-09",
-   "CHF": "2026-10-09",
-   "CNY": "2026-10-09",
-   "EUR": "2026-10-09",
-   "GBP": "2026-10-09",
-   "JPY": "2026-10-09",
-   "SEK": "2026-10-09",
-   "TWD": "2026-10-09",
-   "USD": "2026-10-09"
+   "AUD": "2026-10-16",
+   "CHF": "2026-10-16",
+   "CNY": "2026-10-16",
+   "EUR": "2026-10-16",
+   "GBP": "2026-10-16",
+   "JPY": "2026-10-16",
+   "SEK": "2026-10-16",
+   "TWD": "2026-10-16",
+   "USD": "2026-10-16"
   },
   "priced": [
    "002212.SZ",
@@ -3659,7 +3659,7 @@
    "url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
   },
   {
-   "name": "FRED daily exchange rates (units of a currency per US dollar), the newest rate on file per currency, newest 2026-10-09: enterprise value in dollars",
+   "name": "FRED daily exchange rates (units of a currency per US dollar), the newest rate on file per currency, newest 2026-10-16: enterprise value in dollars",
    "url": "https://fred.stlouisfed.org/"
   }
  ],
@@ -3727,7 +3727,7 @@
   {
    "name": "Consensus freshness",
    "status": "pass",
-   "detail": "newest usable run 2026-10-17, 2 days before 2026-10-19 (weekly capture; limit 9)"
+   "detail": "newest usable run 2026-10-17, 5 days before 2026-10-22 (weekly capture; limit 9)"
   },
   {
    "name": "Consensus coverage",
@@ -3767,7 +3767,7 @@
   {
    "name": "Exchange rates",
    "status": "pass",
-   "detail": "73 of 73 listings with an enterprise value have it in dollars, at the newest rate on file for each of 9 currencies (rate day 2026-10-09)"
+   "detail": "73 of 73 listings with an enterprise value have it in dollars, at the newest rate on file for each of 9 currencies (rate day 2026-10-16)"
   },
   {
    "name": "Listing values are parsed capture fields",
@@ -3807,7 +3807,7 @@
   {
    "name": "China panel freshness",
    "status": "pass",
-   "detail": "newest trading day 2026-10-16, 3 days before 2026-10-19 (limit 10)"
+   "detail": "newest trading day 2026-10-22, 0 days before 2026-10-22 (limit 10)"
   },
   {
    "name": "China panel revenue growth",
@@ -3907,7 +3907,7 @@
   {
    "name": "Deal count matches the events mart",
    "status": "pass",
-   "detail": "69 deal-opening events in the events mart between 2025-10-19 (not included) and 2026-10-19; acquisitions_12m is 69"
+   "detail": "67 deal-opening events in the events mart between 2025-10-22 (not included) and 2026-10-22; acquisitions_12m is 67"
   },
   {
    "name": "Qualifiers on every published number",
