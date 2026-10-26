@@ -1,7 +1,8 @@
 """The port reproduces the local research (``广告行业研究``, report v0 and data/*.json of 2026-10-21).
 
-Built from the committed per-filing extracts, so it runs in CI. The pinned numbers are the research outputs; the one
-deliberate difference is the 2022Q2 Google cost-per-click cell, where the research parser read the six-month column
+Built from the committed per-filing extracts, so it runs in CI. The pinned numbers are the research outputs, so the
+tests that pin them read the panel cut at the research's last quarter: the weekday refresh keeps adding filings (Meta's
+2026Q3 10-Q added a 21st volume-price quarter) and must not move them. The one deliberate difference is the 2022Q2 Google cost-per-click cell, where the research parser read the six-month column
 because Alphabet printed the quarter's zero as a dash (see test_parsers and docs/admarket_build_notes.md).
 """
 
@@ -29,6 +30,14 @@ def series(filings):
     return T.all_series(filings)
 
 
+RESEARCH_LAST = "2026Q2"  # the research data ends here
+
+
+@pytest.fixture(scope="module")
+def research_series(series):
+    return {name: {q: v for q, v in s.items() if q <= RESEARCH_LAST} for name, s in series.items()}
+
+
 def test_panel_matches_the_registered_snapshot_cell_for_cell(series):
     """Every cell of data/reference/ad_market (the CSV whose hash the forecast registration records)."""
     with cfg.REFERENCE_CSV.open() as f:
@@ -43,8 +52,8 @@ def test_panel_matches_the_registered_snapshot_cell_for_cell(series):
     assert n == 384
 
 
-def test_video_subset_shares_and_growth(series):
-    p = M.video_panel(series)
+def test_video_subset_shares_and_growth(research_series):
+    p = M.video_panel(research_series)
     assert p["last_quarter"] == "2026Q2"
     last = {k: round(v * 100, 1) for k, v in p["share_last"].items()}
     assert (last["Google"], last["Meta"], last["Amazon"], last["AppLovin"]) == (47.8, 34.7, 11.6, 1.1)
@@ -82,8 +91,9 @@ def test_q3_open_web_as_registered(series):
 RESEARCH_Q4 = {"meta_ads": (20, 0.8, 0.4), "google_search_clicks": (20, 3.1, 0.99), "google_network": (17, 3.3, 1.11)}
 
 
-def test_q4_volume_price_check(filings, series):
-    r = M.q4(series, T.volume_price_rows(filings))
+def test_q4_volume_price_check(filings, research_series):
+    rows = [x for x in T.volume_price_rows(filings) if x["quarter"] <= RESEARCH_LAST]
+    r = M.q4(research_series, rows)
     for s, (n, mx, mean) in RESEARCH_Q4.items():
         v = r["verdict"][s]
         assert (v["n"], v["max_abs_gap_pp"]) == (n, mx), s
