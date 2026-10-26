@@ -1,28 +1,28 @@
 {
- "generated_at": "2026-10-26T13:37:38.068085+00:00",
+ "generated_at": "2026-10-26T14:44:29.933690+00:00",
  "track": "optical",
  "label": "Optical modules",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-10-26T13:35:50+00:00",
- "as_of_estimates": "2026-10-19T15:02:01+00:00",
+ "as_of_price": "2026-10-26T14:33:55+00:00",
+ "as_of_estimates": "2026-10-26T14:37:05+00:00",
  "as_of_fx": "2026-10-16",
  "n_listings": 34,
  "n_issuers": 33,
  "n_priced": 34,
  "n_with_consensus": 34,
- "n_thin": 4,
+ "n_thin": 3,
  "n_nm": 0,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 37.47516135107137,
- "median_fwd_pe_next": 22.16799011607317,
- "p25_fwd_pe_this": 22.93352949974789,
- "p75_fwd_pe_this": 65.1905813590309,
- "iqr_fwd_pe_this": 42.25705185928301,
- "median_growth": 0.7332122842517673,
- "median_trailing_pe": 70.30651378540804,
+ "median_fwd_pe_this": 37.608951918307014,
+ "median_fwd_pe_next": 22.303466713399352,
+ "p25_fwd_pe_this": 22.751768265257397,
+ "p75_fwd_pe_this": 62.6799449377295,
+ "iqr_fwd_pe_this": 39.928176672472105,
+ "median_growth": 0.7368749770046842,
+ "median_trailing_pe": 68.60570610420783,
  "cheapest": {
   "ticker": "6869.HK",
   "name": "YOFC (H)",
@@ -41,7 +41,7 @@
  "share": {
   "n_members": 16,
   "n_excluded": 17,
-  "pool_revenue_usd": 33192401518.723648,
+  "pool_revenue_usd": 33593192755.482,
   "basis_counts": {
    "disclosed segment": 3,
    "total revenue": 13
@@ -52,9 +52,9 @@
    "not_recorded": 10,
    "no_data": 0
   },
-  "top3_share": 0.6119544677361328,
-  "top5_share": 0.8342663670008583,
-  "hhi": 1674.6554326464716,
+  "top3_share": 0.6046534055909237,
+  "top5_share": 0.8243129621116607,
+  "hhi": 1645.8928875013191,
   "leader": {
    "ticker": "300308.SZ",
    "name": "Innolight",
@@ -66,7 +66,7 @@
    "basis": "total revenue",
    "note": "the company's whole revenue competes in this market",
    "period_end": "2026-06-30",
-   "share": 0.29391877605025174
+   "share": 0.2904121111548628
   },
   "members": [
    {
@@ -80,7 +80,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.29391877605025174
+    "share": 0.2904121111548628
    },
    {
     "ticker": "300502.SZ",
@@ -93,7 +93,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.15912582802251748
+    "share": 0.15722734109162184
    },
    {
     "ticker": "COHR",
@@ -106,7 +106,7 @@
     "basis": "disclosed segment",
     "note": "Segment Revenues, Datacenter & Communications segment, fiscal year ended 2026-06-30 (earnings release Table 5; audited equivalent in FY2026 Form 10-K Note 20)",
     "period_end": "FY2026",
-    "share": 0.15890986366336365
+    "share": 0.1570139533444391
    },
    {
     "ticker": "5803.T",
@@ -119,7 +119,7 @@
     "basis": "disclosed segment",
     "note": "reportable segment information, 情報通信事業部門 (Information and Telecommunications), sales to external customers, year ended 2026-03-31",
     "period_end": "FY2026",
-    "share": 0.12450939473160867
+    "share": 0.12302390704171437
    },
    {
     "ticker": "CIEN",
@@ -132,20 +132,20 @@
     "basis": "disclosed segment",
     "note": "Revenue by Segment, Optical Networking product line within Networking Platforms, fiscal year ended 2025-11-01",
     "period_end": "FY2025",
-    "share": 0.09780250453311673
+    "share": 0.0966356494790226
    },
    {
     "ticker": "002281.SZ",
     "name": "Accelink",
     "name_cn": "光迅科技",
     "purity": "high",
-    "revenue_usd": 1988517730.4871297,
-    "revenue_native": 13295428397.809998,
+    "revenue_usd": 2255447105.153976,
+    "revenue_native": 15080144889.769999,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-06-30",
-    "share": 0.0599088236916337
+    "period_end": "2026-09-30",
+    "share": 0.06714000427321438
    },
    {
     "ticker": "300394.SZ",
@@ -158,7 +158,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.02494272020156223
+    "share": 0.02464513539768644
    },
    {
     "ticker": "603083.SS",
@@ -171,7 +171,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.024752596270673395
+    "share": 0.024457279783654327
    },
    {
     "ticker": "AAOI",
@@ -184,20 +184,20 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.017955012976804848
+    "share": 0.017740796605370146
    },
    {
     "ticker": "688313.SS",
     "name": "Shijia Photons",
     "name_cn": "仕佳光子",
     "purity": "high",
-    "revenue_usd": 393651055.6722155,
-    "revenue_native": 2631990323.33,
+    "revenue_usd": 492210636.722454,
+    "revenue_native": 3290969538.1899996,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-06-30",
-    "share": 0.011859673830775973
+    "period_end": "2026-09-30",
+    "share": 0.014652094556928688
    },
    {
     "ticker": "300570.SZ",
@@ -210,20 +210,20 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.0077466237122144075
+    "share": 0.007654200853782372
    },
    {
     "ticker": "301205.SZ",
     "name": "Linktel Technologies",
     "name_cn": "联特科技",
     "purity": "high",
-    "revenue_usd": 216809850.33277994,
-    "revenue_native": 1449612340.31,
+    "revenue_usd": 252112131.3740447,
+    "revenue_native": 1685646921.5800002,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-06-30",
-    "share": 0.006531912136893099
+    "period_end": "2026-09-30",
+    "share": 0.007504857701651567
    },
    {
     "ticker": "688205.SS",
@@ -236,7 +236,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.004711018793925121
+    "share": 0.00465481291130621
    },
    {
     "ticker": "4979.TWO",
@@ -249,7 +249,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.004382454744915299
+    "share": 0.004330168870511013
    },
    {
     "ticker": "3081.TWO",
@@ -262,7 +262,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2025-12-31",
-    "share": 0.0020483101620405956
+    "share": 0.002023872331165619
    },
    {
     "ticker": "4977.TW",
@@ -275,7 +275,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.0008944864777030251
+    "share": 0.0008838146030684322
    }
   ],
   "excluded": [
@@ -783,12 +783,12 @@
   {
    "name": "Analyst depth",
    "status": "pass",
-   "detail": "4 of 34 listings are covered by fewer than three analysts"
+   "detail": "3 of 34 listings are covered by fewer than three analysts"
   },
   {
    "name": "Trailing basis",
    "status": "pass",
-   "detail": "4 of 34 listings use the last full fiscal year instead of a trailing twelve months, because no quarterly statement is published for them; the table marks which"
+   "detail": "3 of 34 listings use the last full fiscal year instead of a trailing twelve months, because no quarterly statement is published for them; the table marks which"
   },
   {
    "name": "Trailing earnings",

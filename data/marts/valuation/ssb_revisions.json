@@ -142,6 +142,20 @@
  {
   "ticker": "QS",
   "name": "QuantumScape",
+  "as_of": "2026-07-28",
+  "year": 2026,
+  "eps": -0.66356
+ },
+ {
+  "ticker": "QS",
+  "name": "QuantumScape",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": -0.66067
+ },
+ {
+  "ticker": "QS",
+  "name": "QuantumScape",
   "as_of": "2026-07-30",
   "year": 2026,
   "eps": -0.69345
@@ -236,6 +250,20 @@
   "as_of": "2026-08-22",
   "year": 2027,
   "eps": -0.67796
+ },
+ {
+  "ticker": "QS",
+  "name": "QuantumScape",
+  "as_of": "2026-08-27",
+  "year": 2026,
+  "eps": -0.66885
+ },
+ {
+  "ticker": "QS",
+  "name": "QuantumScape",
+  "as_of": "2026-08-27",
+  "year": 2027,
+  "eps": -0.68056
  },
  {
   "ticker": "QS",
@@ -376,6 +404,20 @@
   "as_of": "2026-09-21",
   "year": 2027,
   "eps": -0.67796
+ },
+ {
+  "ticker": "QS",
+  "name": "QuantumScape",
+  "as_of": "2026-09-26",
+  "year": 2026,
+  "eps": -0.66885
+ },
+ {
+  "ticker": "QS",
+  "name": "QuantumScape",
+  "as_of": "2026-09-26",
+  "year": 2027,
+  "eps": -0.68056
  },
  {
   "ticker": "QS",
@@ -424,7 +466,7 @@
   "name": "QuantumScape",
   "as_of": "2026-10-19",
   "year": 2026,
-  "eps": -0.66404
+  "eps": -0.65404
  },
  {
   "ticker": "QS",
@@ -434,6 +476,20 @@
   "eps": -0.6689
  },
  {
+  "ticker": "QS",
+  "name": "QuantumScape",
+  "as_of": "2026-10-26",
+  "year": 2026,
+  "eps": -0.61719
+ },
+ {
+  "ticker": "QS",
+  "name": "QuantumScape",
+  "as_of": "2026-10-26",
+  "year": 2027,
+  "eps": -0.60651
+ },
+ {
   "ticker": "SLDP",
   "name": "Solid Power",
   "as_of": "2026-06-18",
@@ -576,6 +632,20 @@
  {
   "ticker": "SLDP",
   "name": "Solid Power",
+  "as_of": "2026-07-28",
+  "year": 2026,
+  "eps": -0.415
+ },
+ {
+  "ticker": "SLDP",
+  "name": "Solid Power",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": -0.455
+ },
+ {
+  "ticker": "SLDP",
+  "name": "Solid Power",
   "as_of": "2026-07-30",
   "year": 2026,
   "eps": -0.44
@@ -670,6 +740,20 @@
   "as_of": "2026-08-22",
   "year": 2027,
   "eps": -0.485
+ },
+ {
+  "ticker": "SLDP",
+  "name": "Solid Power",
+  "as_of": "2026-08-27",
+  "year": 2026,
+  "eps": -0.44
+ },
+ {
+  "ticker": "SLDP",
+  "name": "Solid Power",
+  "as_of": "2026-08-27",
+  "year": 2027,
+  "eps": -0.57
  },
  {
   "ticker": "SLDP",
@@ -814,6 +898,20 @@
  {
   "ticker": "SLDP",
   "name": "Solid Power",
+  "as_of": "2026-09-26",
+  "year": 2026,
+  "eps": -0.435
+ },
+ {
+  "ticker": "SLDP",
+  "name": "Solid Power",
+  "as_of": "2026-09-26",
+  "year": 2027,
+  "eps": -0.485
+ },
+ {
+  "ticker": "SLDP",
+  "name": "Solid Power",
   "as_of": "2026-09-28",
   "year": 2026,
   "eps": -0.435
@@ -857,13 +955,27 @@
   "ticker": "SLDP",
   "name": "Solid Power",
   "as_of": "2026-10-19",
+  "year": 2026,
+  "eps": -0.435
+ },
+ {
+  "ticker": "SLDP",
+  "name": "Solid Power",
+  "as_of": "2026-10-19",
+  "year": 2027,
+  "eps": -0.485
+ },
+ {
+  "ticker": "SLDP",
+  "name": "Solid Power",
+  "as_of": "2026-10-26",
   "year": 2026,
   "eps": -0.4
  },
  {
   "ticker": "SLDP",
   "name": "Solid Power",
-  "as_of": "2026-10-19",
+  "as_of": "2026-10-26",
   "year": 2027,
   "eps": -0.45
  },
@@ -1010,6 +1122,20 @@
  {
   "ticker": "SES",
   "name": "SES AI",
+  "as_of": "2026-07-28",
+  "year": 2026,
+  "eps": -0.15514
+ },
+ {
+  "ticker": "SES",
+  "name": "SES AI",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": -0.13166
+ },
+ {
+  "ticker": "SES",
+  "name": "SES AI",
   "as_of": "2026-07-30",
   "year": 2026,
   "eps": -0.15514
@@ -1104,6 +1230,20 @@
   "as_of": "2026-08-22",
   "year": 2027,
   "eps": -0.13166
+ },
+ {
+  "ticker": "SES",
+  "name": "SES AI",
+  "as_of": "2026-08-27",
+  "year": 2026,
+  "eps": -0.14806
+ },
+ {
+  "ticker": "SES",
+  "name": "SES AI",
+  "as_of": "2026-08-27",
+  "year": 2027,
+  "eps": -0.14313
  },
  {
   "ticker": "SES",
@@ -1248,6 +1388,20 @@
  {
   "ticker": "SES",
   "name": "SES AI",
+  "as_of": "2026-09-26",
+  "year": 2026,
+  "eps": -0.14806
+ },
+ {
+  "ticker": "SES",
+  "name": "SES AI",
+  "as_of": "2026-09-26",
+  "year": 2027,
+  "eps": -0.14313
+ },
+ {
+  "ticker": "SES",
+  "name": "SES AI",
   "as_of": "2026-09-28",
   "year": 2026,
   "eps": -0.15514
@@ -1300,6 +1454,20 @@
   "as_of": "2026-10-19",
   "year": 2027,
   "eps": -0.14313
+ },
+ {
+  "ticker": "SES",
+  "name": "SES AI",
+  "as_of": "2026-10-26",
+  "year": 2026,
+  "eps": -0.14
+ },
+ {
+  "ticker": "SES",
+  "name": "SES AI",
+  "as_of": "2026-10-26",
+  "year": 2027,
+  "eps": -0.16
  },
  {
   "ticker": "IKA.L",
@@ -1374,6 +1542,13 @@
  {
   "ticker": "IKA.L",
   "name": "Ilika",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": -0.012666666666666666
+ },
+ {
+  "ticker": "IKA.L",
+  "name": "Ilika",
   "as_of": "2026-07-30",
   "year": 2027,
   "eps": -0.011999999999999999
@@ -1419,6 +1594,13 @@
   "as_of": "2026-08-22",
   "year": 2027,
   "eps": -0.03633333333333333
+ },
+ {
+  "ticker": "IKA.L",
+  "name": "Ilika",
+  "as_of": "2026-08-27",
+  "year": 2027,
+  "eps": -0.011999999999999999
  },
  {
   "ticker": "IKA.L",
@@ -1514,6 +1696,13 @@
  {
   "ticker": "IKA.L",
   "name": "Ilika",
+  "as_of": "2026-09-26",
+  "year": 2027,
+  "eps": -0.03633333333333333
+ },
+ {
+  "ticker": "IKA.L",
+  "name": "Ilika",
   "as_of": "2026-09-28",
   "year": 2026,
   "eps": -0.038066666666666665
@@ -1564,6 +1753,13 @@
   "ticker": "IKA.L",
   "name": "Ilika",
   "as_of": "2026-10-19",
+  "year": 2027,
+  "eps": -0.03633333333333333
+ },
+ {
+  "ticker": "IKA.L",
+  "name": "Ilika",
+  "as_of": "2026-10-26",
   "year": 2027,
   "eps": -0.03633333333333333
  },
@@ -1710,6 +1906,20 @@
  {
   "ticker": "MVST",
   "name": "Microvast",
+  "as_of": "2026-07-28",
+  "year": 2026,
+  "eps": 0.04
+ },
+ {
+  "ticker": "MVST",
+  "name": "Microvast",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": 0.15
+ },
+ {
+  "ticker": "MVST",
+  "name": "Microvast",
   "as_of": "2026-07-30",
   "year": 2026,
   "eps": 0.04
@@ -1802,6 +2012,20 @@
   "ticker": "MVST",
   "name": "Microvast",
   "as_of": "2026-08-22",
+  "year": 2027,
+  "eps": 0.15
+ },
+ {
+  "ticker": "MVST",
+  "name": "Microvast",
+  "as_of": "2026-08-27",
+  "year": 2026,
+  "eps": 0.04
+ },
+ {
+  "ticker": "MVST",
+  "name": "Microvast",
+  "as_of": "2026-08-27",
   "year": 2027,
   "eps": 0.15
  },
@@ -1948,6 +2172,20 @@
  {
   "ticker": "MVST",
   "name": "Microvast",
+  "as_of": "2026-09-26",
+  "year": 2026,
+  "eps": 0.04
+ },
+ {
+  "ticker": "MVST",
+  "name": "Microvast",
+  "as_of": "2026-09-26",
+  "year": 2027,
+  "eps": 0.15
+ },
+ {
+  "ticker": "MVST",
+  "name": "Microvast",
   "as_of": "2026-09-28",
   "year": 2026,
   "eps": 0.04
@@ -1991,13 +2229,27 @@
   "ticker": "MVST",
   "name": "Microvast",
   "as_of": "2026-10-19",
+  "year": 2026,
+  "eps": 0.04
+ },
+ {
+  "ticker": "MVST",
+  "name": "Microvast",
+  "as_of": "2026-10-19",
+  "year": 2027,
+  "eps": 0.15
+ },
+ {
+  "ticker": "MVST",
+  "name": "Microvast",
+  "as_of": "2026-10-26",
   "year": 2026,
   "eps": -0.01
  },
  {
   "ticker": "MVST",
   "name": "Microvast",
-  "as_of": "2026-10-19",
+  "as_of": "2026-10-26",
   "year": 2027,
   "eps": 0.12
  },
@@ -2048,14 +2300,14 @@
   "name": "CATL",
   "as_of": "2026-07-26",
   "year": 2026,
-  "eps": 21.143
+  "eps": 20.763333333333335
  },
  {
   "ticker": "300750.SZ",
   "name": "CATL",
   "as_of": "2026-07-26",
   "year": 2027,
-  "eps": 26.650833333333335
+  "eps": 26.11
  },
  {
   "ticker": "300750.SZ",
@@ -2076,14 +2328,14 @@
   "name": "CATL",
   "as_of": "2026-07-28",
   "year": 2026,
-  "eps": 20.794999999999998
+  "eps": 20.462
  },
  {
   "ticker": "300750.SZ",
   "name": "CATL",
   "as_of": "2026-07-28",
   "year": 2027,
-  "eps": 25.86623076923077
+  "eps": 25.242
  },
  {
   "ticker": "300750.SZ",
@@ -2118,42 +2370,42 @@
   "name": "CATL",
   "as_of": "2026-07-31",
   "year": 2026,
-  "eps": 20.786562500000002
+  "eps": 20.473333333333333
  },
  {
   "ticker": "300750.SZ",
   "name": "CATL",
   "as_of": "2026-07-31",
   "year": 2027,
-  "eps": 25.7006875
+  "eps": 25.118333333333336
  },
  {
   "ticker": "300750.SZ",
   "name": "CATL",
   "as_of": "2026-08-06",
   "year": 2026,
-  "eps": 20.735588235294117
+  "eps": 20.39428571428571
  },
  {
   "ticker": "300750.SZ",
   "name": "CATL",
   "as_of": "2026-08-06",
   "year": 2027,
-  "eps": 25.69829411764706
+  "eps": 25.195714285714285
  },
  {
   "ticker": "300750.SZ",
   "name": "CATL",
   "as_of": "2026-09-08",
   "year": 2026,
-  "eps": 20.709722222222226
+  "eps": 20.37875
  },
  {
   "ticker": "300750.SZ",
   "name": "CATL",
   "as_of": "2026-09-08",
   "year": 2027,
-  "eps": 25.652833333333334
+  "eps": 25.15625
  },
  {
   "ticker": "300750.SZ",
@@ -2216,14 +2468,14 @@
   "name": "CATL",
   "as_of": "2026-09-29",
   "year": 2026,
-  "eps": 20.718
+  "eps": 20.430555555555557
  },
  {
   "ticker": "300750.SZ",
   "name": "CATL",
   "as_of": "2026-09-29",
   "year": 2027,
-  "eps": 25.6752
+  "eps": 25.224777777777778
  },
  {
   "ticker": "300750.SZ",
@@ -2244,14 +2496,14 @@
   "name": "CATL",
   "as_of": "2026-10-09",
   "year": 2026,
-  "eps": 20.74772727272727
+  "eps": 20.5135
  },
  {
   "ticker": "300750.SZ",
   "name": "CATL",
   "as_of": "2026-10-09",
   "year": 2027,
-  "eps": 25.71881818181818
+  "eps": 25.3373
  },
  {
   "ticker": "300750.SZ",
@@ -2272,14 +2524,14 @@
   "name": "CATL",
   "as_of": "2026-10-13",
   "year": 2026,
-  "eps": 20.729565217391304
+  "eps": 20.49681818181818
  },
  {
   "ticker": "300750.SZ",
   "name": "CATL",
   "as_of": "2026-10-13",
   "year": 2027,
-  "eps": 25.662782608695654
+  "eps": 25.25481818181818
  },
  {
   "ticker": "300750.SZ",
@@ -2294,6 +2546,90 @@
   "as_of": "2026-10-19",
   "year": 2027,
   "eps": 25.662782608695654
+ },
+ {
+  "ticker": "300750.SZ",
+  "name": "CATL",
+  "as_of": "2026-10-21",
+  "year": 2026,
+  "eps": 20.13214285714286
+ },
+ {
+  "ticker": "300750.SZ",
+  "name": "CATL",
+  "as_of": "2026-10-21",
+  "year": 2027,
+  "eps": 24.522357142857143
+ },
+ {
+  "ticker": "300750.SZ",
+  "name": "CATL",
+  "as_of": "2026-10-22",
+  "year": 2026,
+  "eps": 19.89611111111111
+ },
+ {
+  "ticker": "300750.SZ",
+  "name": "CATL",
+  "as_of": "2026-10-22",
+  "year": 2027,
+  "eps": 24.195722222222223
+ },
+ {
+  "ticker": "300750.SZ",
+  "name": "CATL",
+  "as_of": "2026-10-23",
+  "year": 2026,
+  "eps": 19.797
+ },
+ {
+  "ticker": "300750.SZ",
+  "name": "CATL",
+  "as_of": "2026-10-23",
+  "year": 2027,
+  "eps": 24.03415
+ },
+ {
+  "ticker": "300750.SZ",
+  "name": "CATL",
+  "as_of": "2026-10-24",
+  "year": 2026,
+  "eps": 19.680090909090907
+ },
+ {
+  "ticker": "300750.SZ",
+  "name": "CATL",
+  "as_of": "2026-10-24",
+  "year": 2027,
+  "eps": 23.765727272727272
+ },
+ {
+  "ticker": "300750.SZ",
+  "name": "CATL",
+  "as_of": "2026-10-25",
+  "year": 2026,
+  "eps": 19.62925
+ },
+ {
+  "ticker": "300750.SZ",
+  "name": "CATL",
+  "as_of": "2026-10-25",
+  "year": 2027,
+  "eps": 23.639
+ },
+ {
+  "ticker": "300750.SZ",
+  "name": "CATL",
+  "as_of": "2026-10-26",
+  "year": 2026,
+  "eps": 19.61288
+ },
+ {
+  "ticker": "300750.SZ",
+  "name": "CATL",
+  "as_of": "2026-10-26",
+  "year": 2027,
+  "eps": 23.596239999999998
  },
  {
   "ticker": "3750.HK",
@@ -2438,6 +2774,20 @@
  {
   "ticker": "3750.HK",
   "name": "CATL (H)",
+  "as_of": "2026-07-28",
+  "year": 2026,
+  "eps": 20.68828
+ },
+ {
+  "ticker": "3750.HK",
+  "name": "CATL (H)",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": 26.04692
+ },
+ {
+  "ticker": "3750.HK",
+  "name": "CATL (H)",
   "as_of": "2026-07-30",
   "year": 2026,
   "eps": 20.94254
@@ -2536,6 +2886,20 @@
  {
   "ticker": "3750.HK",
   "name": "CATL (H)",
+  "as_of": "2026-08-27",
+  "year": 2026,
+  "eps": 21.00755
+ },
+ {
+  "ticker": "3750.HK",
+  "name": "CATL (H)",
+  "as_of": "2026-08-27",
+  "year": 2027,
+  "eps": 25.99313
+ },
+ {
+  "ticker": "3750.HK",
+  "name": "CATL (H)",
   "as_of": "2026-08-29",
   "year": 2026,
   "eps": 21.00755
@@ -2670,6 +3034,20 @@
   "ticker": "3750.HK",
   "name": "CATL (H)",
   "as_of": "2026-09-21",
+  "year": 2027,
+  "eps": 25.8951
+ },
+ {
+  "ticker": "3750.HK",
+  "name": "CATL (H)",
+  "as_of": "2026-09-26",
+  "year": 2026,
+  "eps": 20.87926
+ },
+ {
+  "ticker": "3750.HK",
+  "name": "CATL (H)",
+  "as_of": "2026-09-26",
   "year": 2027,
   "eps": 25.8951
  },
@@ -2727,7 +3105,21 @@
   "name": "CATL (H)",
   "as_of": "2026-10-19",
   "year": 2027,
-  "eps": 25.43853
+  "eps": 25.49667
+ },
+ {
+  "ticker": "3750.HK",
+  "name": "CATL (H)",
+  "as_of": "2026-10-26",
+  "year": 2026,
+  "eps": 19.14384
+ },
+ {
+  "ticker": "3750.HK",
+  "name": "CATL (H)",
+  "as_of": "2026-10-26",
+  "year": 2027,
+  "eps": 22.86612
  },
  {
   "ticker": "002594.SZ",
@@ -3208,6 +3600,20 @@
  {
   "ticker": "1211.HK",
   "name": "BYD (H)",
+  "as_of": "2026-07-28",
+  "year": 2026,
+  "eps": 3.94
+ },
+ {
+  "ticker": "1211.HK",
+  "name": "BYD (H)",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": 4.75
+ },
+ {
+  "ticker": "1211.HK",
+  "name": "BYD (H)",
   "as_of": "2026-07-30",
   "year": 2026,
   "eps": 4.20275
@@ -3302,6 +3708,20 @@
   "as_of": "2026-08-22",
   "year": 2027,
   "eps": 5.40326
+ },
+ {
+  "ticker": "1211.HK",
+  "name": "BYD (H)",
+  "as_of": "2026-08-27",
+  "year": 2026,
+  "eps": 3.94
+ },
+ {
+  "ticker": "1211.HK",
+  "name": "BYD (H)",
+  "as_of": "2026-08-27",
+  "year": 2027,
+  "eps": 4.75
  },
  {
   "ticker": "1211.HK",
@@ -3446,6 +3866,20 @@
  {
   "ticker": "1211.HK",
   "name": "BYD (H)",
+  "as_of": "2026-09-26",
+  "year": 2026,
+  "eps": 3.94
+ },
+ {
+  "ticker": "1211.HK",
+  "name": "BYD (H)",
+  "as_of": "2026-09-26",
+  "year": 2027,
+  "eps": 4.75
+ },
+ {
+  "ticker": "1211.HK",
+  "name": "BYD (H)",
   "as_of": "2026-09-28",
   "year": 2026,
   "eps": 4.21236
@@ -3490,14 +3924,28 @@
   "name": "BYD (H)",
   "as_of": "2026-10-19",
   "year": 2026,
-  "eps": 4.31036
+  "eps": 3.94
  },
  {
   "ticker": "1211.HK",
   "name": "BYD (H)",
   "as_of": "2026-10-19",
   "year": 2027,
-  "eps": 5.41598
+  "eps": 4.75
+ },
+ {
+  "ticker": "1211.HK",
+  "name": "BYD (H)",
+  "as_of": "2026-10-26",
+  "year": 2026,
+  "eps": 4.12
+ },
+ {
+  "ticker": "1211.HK",
+  "name": "BYD (H)",
+  "as_of": "2026-10-26",
+  "year": 2027,
+  "eps": 5.09
  },
  {
   "ticker": "300014.SZ",
@@ -3560,84 +4008,84 @@
   "name": "EVE Energy",
   "as_of": "2026-08-20",
   "year": 2026,
-  "eps": 3.33
+  "eps": 3.37
  },
  {
   "ticker": "300014.SZ",
   "name": "EVE Energy",
   "as_of": "2026-08-20",
   "year": 2027,
-  "eps": 4.634666666666667
+  "eps": 4.525
  },
  {
   "ticker": "300014.SZ",
   "name": "EVE Energy",
   "as_of": "2026-08-21",
   "year": 2026,
-  "eps": 3.381625
+  "eps": 3.3805
  },
  {
   "ticker": "300014.SZ",
   "name": "EVE Energy",
   "as_of": "2026-08-21",
   "year": 2027,
-  "eps": 4.679125
+  "eps": 4.6165
  },
  {
   "ticker": "300014.SZ",
   "name": "EVE Energy",
   "as_of": "2026-08-23",
   "year": 2026,
-  "eps": 3.3881111111111113
+  "eps": 3.389
  },
  {
   "ticker": "300014.SZ",
   "name": "EVE Energy",
   "as_of": "2026-08-23",
   "year": 2027,
-  "eps": 4.678111111111111
+  "eps": 4.624142857142857
  },
  {
   "ticker": "300014.SZ",
   "name": "EVE Energy",
   "as_of": "2026-08-31",
   "year": 2026,
-  "eps": 3.3493000000000004
+  "eps": 3.340375
  },
  {
   "ticker": "300014.SZ",
   "name": "EVE Energy",
   "as_of": "2026-08-31",
   "year": 2027,
-  "eps": 4.6103000000000005
+  "eps": 4.546125
  },
  {
   "ticker": "300014.SZ",
   "name": "EVE Energy",
   "as_of": "2026-09-11",
   "year": 2026,
-  "eps": 3.327545454545455
+  "eps": 3.3147777777777776
  },
  {
   "ticker": "300014.SZ",
   "name": "EVE Energy",
   "as_of": "2026-09-11",
   "year": 2027,
-  "eps": 4.584818181818182
+  "eps": 4.522111111111111
  },
  {
   "ticker": "300014.SZ",
   "name": "EVE Energy",
   "as_of": "2026-09-14",
   "year": 2026,
-  "eps": 3.32525
+  "eps": 3.3133000000000004
  },
  {
   "ticker": "300014.SZ",
   "name": "EVE Energy",
   "as_of": "2026-09-14",
   "year": 2027,
-  "eps": 4.56775
+  "eps": 4.5079
  },
  {
   "ticker": "300014.SZ",
@@ -3764,6 +4212,48 @@
   "as_of": "2026-10-19",
   "year": 2027,
   "eps": 4.5695
+ },
+ {
+  "ticker": "300014.SZ",
+  "name": "EVE Energy",
+  "as_of": "2026-10-24",
+  "year": 2026,
+  "eps": 3.3320909090909088
+ },
+ {
+  "ticker": "300014.SZ",
+  "name": "EVE Energy",
+  "as_of": "2026-10-24",
+  "year": 2027,
+  "eps": 4.541727272727273
+ },
+ {
+  "ticker": "300014.SZ",
+  "name": "EVE Energy",
+  "as_of": "2026-10-25",
+  "year": 2026,
+  "eps": 3.334846153846154
+ },
+ {
+  "ticker": "300014.SZ",
+  "name": "EVE Energy",
+  "as_of": "2026-10-25",
+  "year": 2027,
+  "eps": 4.568076923076923
+ },
+ {
+  "ticker": "300014.SZ",
+  "name": "EVE Energy",
+  "as_of": "2026-10-26",
+  "year": 2026,
+  "eps": 3.3463571428571433
+ },
+ {
+  "ticker": "300014.SZ",
+  "name": "EVE Energy",
+  "as_of": "2026-10-26",
+  "year": 2027,
+  "eps": 4.5789285714285715
  },
  {
   "ticker": "002074.SZ",
@@ -3994,56 +4484,56 @@
   "name": "Sunwoda",
   "as_of": "2026-08-27",
   "year": 2026,
-  "eps": 1.1833333333333333
+  "eps": 1.045
  },
  {
   "ticker": "300207.SZ",
   "name": "Sunwoda",
   "as_of": "2026-08-27",
   "year": 2027,
-  "eps": 1.7699999999999998
+  "eps": 1.495
  },
  {
   "ticker": "300207.SZ",
   "name": "Sunwoda",
   "as_of": "2026-08-30",
   "year": 2026,
-  "eps": 1.1724999999999999
+  "eps": 1.0766666666666667
  },
  {
   "ticker": "300207.SZ",
   "name": "Sunwoda",
   "as_of": "2026-08-30",
   "year": 2027,
-  "eps": 1.7475
+  "eps": 1.5566666666666666
  },
  {
   "ticker": "300207.SZ",
   "name": "Sunwoda",
   "as_of": "2026-08-31",
   "year": 2026,
-  "eps": 1.1033333333333333
+  "eps": 1.032
  },
  {
   "ticker": "300207.SZ",
   "name": "Sunwoda",
   "as_of": "2026-08-31",
   "year": 2027,
-  "eps": 1.64
+  "eps": 1.504
  },
  {
   "ticker": "300207.SZ",
   "name": "Sunwoda",
   "as_of": "2026-09-01",
   "year": 2026,
-  "eps": 1.0814285714285714
+  "eps": 1.0183333333333333
  },
  {
   "ticker": "300207.SZ",
   "name": "Sunwoda",
   "as_of": "2026-09-01",
   "year": 2027,
-  "eps": 1.6199999999999999
+  "eps": 1.5033333333333332
  },
  {
   "ticker": "300207.SZ",
@@ -4272,6 +4762,20 @@
  {
   "ticker": "3931.HK",
   "name": "CALB",
+  "as_of": "2026-07-28",
+  "year": 2026,
+  "eps": 1.49496
+ },
+ {
+  "ticker": "3931.HK",
+  "name": "CALB",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": 2.21099
+ },
+ {
+  "ticker": "3931.HK",
+  "name": "CALB",
   "as_of": "2026-07-30",
   "year": 2026,
   "eps": 1.49496
@@ -4364,6 +4868,20 @@
   "ticker": "3931.HK",
   "name": "CALB",
   "as_of": "2026-08-22",
+  "year": 2027,
+  "eps": 2.24256
+ },
+ {
+  "ticker": "3931.HK",
+  "name": "CALB",
+  "as_of": "2026-08-27",
+  "year": 2026,
+  "eps": 1.49496
+ },
+ {
+  "ticker": "3931.HK",
+  "name": "CALB",
+  "as_of": "2026-08-27",
   "year": 2027,
   "eps": 2.24256
  },
@@ -4510,6 +5028,20 @@
  {
   "ticker": "3931.HK",
   "name": "CALB",
+  "as_of": "2026-09-26",
+  "year": 2026,
+  "eps": 1.57673
+ },
+ {
+  "ticker": "3931.HK",
+  "name": "CALB",
+  "as_of": "2026-09-26",
+  "year": 2027,
+  "eps": 2.44173
+ },
+ {
+  "ticker": "3931.HK",
+  "name": "CALB",
   "as_of": "2026-09-28",
   "year": 2026,
   "eps": 1.57673
@@ -4554,14 +5086,28 @@
   "name": "CALB",
   "as_of": "2026-10-19",
   "year": 2026,
-  "eps": 1.5587
+  "eps": 1.56853
  },
  {
   "ticker": "3931.HK",
   "name": "CALB",
   "as_of": "2026-10-19",
   "year": 2027,
-  "eps": 2.47691
+  "eps": 2.52152
+ },
+ {
+  "ticker": "3931.HK",
+  "name": "CALB",
+  "as_of": "2026-10-26",
+  "year": 2026,
+  "eps": 1.52883
+ },
+ {
+  "ticker": "3931.HK",
+  "name": "CALB",
+  "as_of": "2026-10-26",
+  "year": 2027,
+  "eps": 2.39913
  },
  {
   "ticker": "300438.SZ",
@@ -4874,6 +5420,20 @@
  {
   "ticker": "006400.KS",
   "name": "Samsung SDI",
+  "as_of": "2026-07-28",
+  "year": 2026,
+  "eps": 5743.5938
+ },
+ {
+  "ticker": "006400.KS",
+  "name": "Samsung SDI",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": 17578.324
+ },
+ {
+  "ticker": "006400.KS",
+  "name": "Samsung SDI",
   "as_of": "2026-07-30",
   "year": 2026,
   "eps": 5877.49
@@ -4968,6 +5528,20 @@
   "as_of": "2026-08-22",
   "year": 2027,
   "eps": 18281.094
+ },
+ {
+  "ticker": "006400.KS",
+  "name": "Samsung SDI",
+  "as_of": "2026-08-27",
+  "year": 2026,
+  "eps": 10420.455
+ },
+ {
+  "ticker": "006400.KS",
+  "name": "Samsung SDI",
+  "as_of": "2026-08-27",
+  "year": 2027,
+  "eps": 18439.455
  },
  {
   "ticker": "006400.KS",
@@ -5112,6 +5686,20 @@
  {
   "ticker": "006400.KS",
   "name": "Samsung SDI",
+  "as_of": "2026-09-26",
+  "year": 2026,
+  "eps": 9907.1045
+ },
+ {
+  "ticker": "006400.KS",
+  "name": "Samsung SDI",
+  "as_of": "2026-09-26",
+  "year": 2027,
+  "eps": 18277.455
+ },
+ {
+  "ticker": "006400.KS",
+  "name": "Samsung SDI",
   "as_of": "2026-09-28",
   "year": 2026,
   "eps": 9907.1045
@@ -5164,6 +5752,20 @@
   "as_of": "2026-10-19",
   "year": 2027,
   "eps": 18212.328
+ },
+ {
+  "ticker": "006400.KS",
+  "name": "Samsung SDI",
+  "as_of": "2026-10-26",
+  "year": 2026,
+  "eps": 10865.14
+ },
+ {
+  "ticker": "006400.KS",
+  "name": "Samsung SDI",
+  "as_of": "2026-10-26",
+  "year": 2027,
+  "eps": 17851.01
  },
  {
   "ticker": "373220.KS",
@@ -5308,6 +5910,20 @@
  {
   "ticker": "373220.KS",
   "name": "LG Energy Solution",
+  "as_of": "2026-07-28",
+  "year": 2026,
+  "eps": -845.4766
+ },
+ {
+  "ticker": "373220.KS",
+  "name": "LG Energy Solution",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": 8665.047
+ },
+ {
+  "ticker": "373220.KS",
+  "name": "LG Energy Solution",
   "as_of": "2026-07-30",
   "year": 2026,
   "eps": -845.4766
@@ -5402,6 +6018,20 @@
   "as_of": "2026-08-22",
   "year": 2027,
   "eps": 7825.0474
+ },
+ {
+  "ticker": "373220.KS",
+  "name": "LG Energy Solution",
+  "as_of": "2026-08-27",
+  "year": 2026,
+  "eps": -1950.8273
+ },
+ {
+  "ticker": "373220.KS",
+  "name": "LG Energy Solution",
+  "as_of": "2026-08-27",
+  "year": 2027,
+  "eps": 7785.0747
  },
  {
   "ticker": "373220.KS",
@@ -5546,6 +6176,20 @@
  {
   "ticker": "373220.KS",
   "name": "LG Energy Solution",
+  "as_of": "2026-09-26",
+  "year": 2026,
+  "eps": -1860.7546
+ },
+ {
+  "ticker": "373220.KS",
+  "name": "LG Energy Solution",
+  "as_of": "2026-09-26",
+  "year": 2027,
+  "eps": 7845.136
+ },
+ {
+  "ticker": "373220.KS",
+  "name": "LG Energy Solution",
   "as_of": "2026-09-28",
   "year": 2026,
   "eps": -1782.7738
@@ -5590,14 +6234,28 @@
   "name": "LG Energy Solution",
   "as_of": "2026-10-19",
   "year": 2026,
-  "eps": -1536.0701
+  "eps": -1533.5573
  },
  {
   "ticker": "373220.KS",
   "name": "LG Energy Solution",
   "as_of": "2026-10-19",
   "year": 2027,
-  "eps": 7509.3057
+  "eps": 7631.4355
+ },
+ {
+  "ticker": "373220.KS",
+  "name": "LG Energy Solution",
+  "as_of": "2026-10-26",
+  "year": 2026,
+  "eps": -1537.4268
+ },
+ {
+  "ticker": "373220.KS",
+  "name": "LG Energy Solution",
+  "as_of": "2026-10-26",
+  "year": 2027,
+  "eps": 7504.3433
  },
  {
   "ticker": "6752.T",
@@ -5672,6 +6330,13 @@
  {
   "ticker": "6752.T",
   "name": "Panasonic Holdings",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": 232.78546
+ },
+ {
+  "ticker": "6752.T",
+  "name": "Panasonic Holdings",
   "as_of": "2026-07-30",
   "year": 2027,
   "eps": 232.78546
@@ -5717,6 +6382,13 @@
   "as_of": "2026-08-22",
   "year": 2027,
   "eps": 238.91007499999998
+ },
+ {
+  "ticker": "6752.T",
+  "name": "Panasonic Holdings",
+  "as_of": "2026-08-27",
+  "year": 2027,
+  "eps": 240.4183225
  },
  {
   "ticker": "6752.T",
@@ -5812,6 +6484,13 @@
  {
   "ticker": "6752.T",
   "name": "Panasonic Holdings",
+  "as_of": "2026-09-26",
+  "year": 2027,
+  "eps": 243.7518525
+ },
+ {
+  "ticker": "6752.T",
+  "name": "Panasonic Holdings",
   "as_of": "2026-09-28",
   "year": 2026,
   "eps": 176.56397500000003
@@ -5862,6 +6541,13 @@
   "ticker": "6752.T",
   "name": "Panasonic Holdings",
   "as_of": "2026-10-19",
+  "year": 2027,
+  "eps": 247.30167500000002
+ },
+ {
+  "ticker": "6752.T",
+  "name": "Panasonic Holdings",
+  "as_of": "2026-10-26",
   "year": 2027,
   "eps": 247.30167500000002
  },
@@ -5938,6 +6624,13 @@
  {
   "ticker": "7203.T",
   "name": "Toyota Motor",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": 331.2845075
+ },
+ {
+  "ticker": "7203.T",
+  "name": "Toyota Motor",
   "as_of": "2026-07-30",
   "year": 2027,
   "eps": 331.2845075
@@ -5983,6 +6676,13 @@
   "as_of": "2026-08-22",
   "year": 2027,
   "eps": 334.3930275
+ },
+ {
+  "ticker": "7203.T",
+  "name": "Toyota Motor",
+  "as_of": "2026-08-27",
+  "year": 2027,
+  "eps": 338.210795
  },
  {
   "ticker": "7203.T",
@@ -6078,6 +6778,13 @@
  {
   "ticker": "7203.T",
   "name": "Toyota Motor",
+  "as_of": "2026-09-26",
+  "year": 2027,
+  "eps": 337.94792750000005
+ },
+ {
+  "ticker": "7203.T",
+  "name": "Toyota Motor",
   "as_of": "2026-09-28",
   "year": 2026,
   "eps": 307.206275
@@ -6130,6 +6837,13 @@
   "as_of": "2026-10-19",
   "year": 2027,
   "eps": 338.02831000000003
+ },
+ {
+  "ticker": "7203.T",
+  "name": "Toyota Motor",
+  "as_of": "2026-10-26",
+  "year": 2027,
+  "eps": 337.93985
  },
  {
   "ticker": "002460.SZ",
@@ -6290,28 +7004,28 @@
   "name": "Ganfeng Lithium",
   "as_of": "2026-10-17",
   "year": 2026,
-  "eps": 3.0533333333333332
+  "eps": 3.045
  },
  {
   "ticker": "002460.SZ",
   "name": "Ganfeng Lithium",
   "as_of": "2026-10-17",
   "year": 2027,
-  "eps": 3.2133333333333334
+  "eps": 3.0749999999999997
  },
  {
   "ticker": "002460.SZ",
   "name": "Ganfeng Lithium",
   "as_of": "2026-10-18",
   "year": 2026,
-  "eps": 3.065
+  "eps": 3.063333333333333
  },
  {
   "ticker": "002460.SZ",
   "name": "Ganfeng Lithium",
   "as_of": "2026-10-18",
   "year": 2027,
-  "eps": 3.21
+  "eps": 3.1166666666666667
  },
  {
   "ticker": "002460.SZ",
@@ -7436,6 +8150,13 @@
  {
   "ticker": "5019.T",
   "name": "Idemitsu Kosan",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": 151.7375
+ },
+ {
+  "ticker": "5019.T",
+  "name": "Idemitsu Kosan",
   "as_of": "2026-07-30",
   "year": 2027,
   "eps": 151.7375
@@ -7479,6 +8200,13 @@
   "ticker": "5019.T",
   "name": "Idemitsu Kosan",
   "as_of": "2026-08-22",
+  "year": 2027,
+  "eps": 153.5375
+ },
+ {
+  "ticker": "5019.T",
+  "name": "Idemitsu Kosan",
+  "as_of": "2026-08-27",
   "year": 2027,
   "eps": 153.5375
  },
@@ -7576,6 +8304,13 @@
  {
   "ticker": "5019.T",
   "name": "Idemitsu Kosan",
+  "as_of": "2026-09-26",
+  "year": 2027,
+  "eps": 165.9171925
+ },
+ {
+  "ticker": "5019.T",
+  "name": "Idemitsu Kosan",
   "as_of": "2026-09-28",
   "year": 2026,
   "eps": 157.85125
@@ -7626,6 +8361,13 @@
   "ticker": "5019.T",
   "name": "Idemitsu Kosan",
   "as_of": "2026-10-19",
+  "year": 2027,
+  "eps": 166.81527250000002
+ },
+ {
+  "ticker": "5019.T",
+  "name": "Idemitsu Kosan",
+  "as_of": "2026-10-26",
   "year": 2027,
   "eps": 166.81527250000002
  },
@@ -7702,6 +8444,13 @@
  {
   "ticker": "6762.T",
   "name": "TDK",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": 139.5555
+ },
+ {
+  "ticker": "6762.T",
+  "name": "TDK",
   "as_of": "2026-07-30",
   "year": 2027,
   "eps": 139.5555
@@ -7747,6 +8496,13 @@
   "as_of": "2026-08-22",
   "year": 2027,
   "eps": 144.70982
+ },
+ {
+  "ticker": "6762.T",
+  "name": "TDK",
+  "as_of": "2026-08-27",
+  "year": 2027,
+  "eps": 146.60019
  },
  {
   "ticker": "6762.T",
@@ -7842,6 +8598,13 @@
  {
   "ticker": "6762.T",
   "name": "TDK",
+  "as_of": "2026-09-26",
+  "year": 2027,
+  "eps": 153.8441125
+ },
+ {
+  "ticker": "6762.T",
+  "name": "TDK",
   "as_of": "2026-09-28",
   "year": 2026,
   "eps": 128.299315
@@ -7886,12 +8649,19 @@
   "name": "TDK",
   "as_of": "2026-10-19",
   "year": 2026,
-  "eps": 130.5515125
+  "eps": 130.5347575
  },
  {
   "ticker": "6762.T",
   "name": "TDK",
   "as_of": "2026-10-19",
+  "year": 2027,
+  "eps": 156.8917525
+ },
+ {
+  "ticker": "6762.T",
+  "name": "TDK",
+  "as_of": "2026-10-26",
   "year": 2027,
   "eps": 156.93219749999997
  },
@@ -7968,6 +8738,13 @@
  {
   "ticker": "6981.T",
   "name": "Murata Manufacturing",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": 240.63679499999998
+ },
+ {
+  "ticker": "6981.T",
+  "name": "Murata Manufacturing",
   "as_of": "2026-07-30",
   "year": 2027,
   "eps": 240.63679499999998
@@ -8011,6 +8788,13 @@
   "ticker": "6981.T",
   "name": "Murata Manufacturing",
   "as_of": "2026-08-22",
+  "year": 2027,
+  "eps": 251.471645
+ },
+ {
+  "ticker": "6981.T",
+  "name": "Murata Manufacturing",
+  "as_of": "2026-08-27",
   "year": 2027,
   "eps": 251.471645
  },
@@ -8108,6 +8892,13 @@
  {
   "ticker": "6981.T",
   "name": "Murata Manufacturing",
+  "as_of": "2026-09-26",
+  "year": 2027,
+  "eps": 264.68107
+ },
+ {
+  "ticker": "6981.T",
+  "name": "Murata Manufacturing",
   "as_of": "2026-09-28",
   "year": 2026,
   "eps": 194.943635
@@ -8152,14 +8943,21 @@
   "name": "Murata Manufacturing",
   "as_of": "2026-10-19",
   "year": 2026,
-  "eps": 196.57871
+  "eps": 196.47145999999998
  },
  {
   "ticker": "6981.T",
   "name": "Murata Manufacturing",
   "as_of": "2026-10-19",
   "year": 2027,
-  "eps": 269.7906475
+  "eps": 269.55277249999995
+ },
+ {
+  "ticker": "6981.T",
+  "name": "Murata Manufacturing",
+  "as_of": "2026-10-26",
+  "year": 2027,
+  "eps": 275.05692
  },
  {
   "ticker": "6810.T",
@@ -8234,6 +9032,13 @@
  {
   "ticker": "6810.T",
   "name": "Maxell",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": 212.1758275
+ },
+ {
+  "ticker": "6810.T",
+  "name": "Maxell",
   "as_of": "2026-07-30",
   "year": 2027,
   "eps": 212.1758275
@@ -8279,6 +9084,13 @@
   "as_of": "2026-08-22",
   "year": 2027,
   "eps": 222.78416749999997
+ },
+ {
+  "ticker": "6810.T",
+  "name": "Maxell",
+  "as_of": "2026-08-27",
+  "year": 2027,
+  "eps": 225.73000000000002
  },
  {
   "ticker": "6810.T",
@@ -8374,6 +9186,13 @@
  {
   "ticker": "6810.T",
   "name": "Maxell",
+  "as_of": "2026-09-26",
+  "year": 2027,
+  "eps": 226.51999999999998
+ },
+ {
+  "ticker": "6810.T",
+  "name": "Maxell",
   "as_of": "2026-09-28",
   "year": 2026,
   "eps": 199.7875
@@ -8426,6 +9245,13 @@
   "as_of": "2026-10-19",
   "year": 2027,
   "eps": 238.26667
+ },
+ {
+  "ticker": "6810.T",
+  "name": "Maxell",
+  "as_of": "2026-10-26",
+  "year": 2027,
+  "eps": 240.69832749999998
  },
  {
   "ticker": "003670.KS",
@@ -8570,6 +9396,20 @@
  {
   "ticker": "003670.KS",
   "name": "POSCO Future M",
+  "as_of": "2026-07-28",
+  "year": 2026,
+  "eps": 524.4393
+ },
+ {
+  "ticker": "003670.KS",
+  "name": "POSCO Future M",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": 1123.838
+ },
+ {
+  "ticker": "003670.KS",
+  "name": "POSCO Future M",
   "as_of": "2026-07-30",
   "year": 2026,
   "eps": 524.4393
@@ -8668,6 +9508,20 @@
  {
   "ticker": "003670.KS",
   "name": "POSCO Future M",
+  "as_of": "2026-08-27",
+  "year": 2026,
+  "eps": 467.1768
+ },
+ {
+  "ticker": "003670.KS",
+  "name": "POSCO Future M",
+  "as_of": "2026-08-27",
+  "year": 2027,
+  "eps": 1028.1941
+ },
+ {
+  "ticker": "003670.KS",
+  "name": "POSCO Future M",
   "as_of": "2026-08-29",
   "year": 2026,
   "eps": 467.1768
@@ -8802,6 +9656,20 @@
   "ticker": "003670.KS",
   "name": "POSCO Future M",
   "as_of": "2026-09-21",
+  "year": 2027,
+  "eps": 1046.9441
+ },
+ {
+  "ticker": "003670.KS",
+  "name": "POSCO Future M",
+  "as_of": "2026-09-26",
+  "year": 2026,
+  "eps": 458.51013
+ },
+ {
+  "ticker": "003670.KS",
+  "name": "POSCO Future M",
+  "as_of": "2026-09-26",
   "year": 2027,
   "eps": 1046.9441
  },
@@ -8860,6 +9728,20 @@
   "as_of": "2026-10-19",
   "year": 2027,
   "eps": 1003.0872
+ },
+ {
+  "ticker": "003670.KS",
+  "name": "POSCO Future M",
+  "as_of": "2026-10-26",
+  "year": 2026,
+  "eps": 469.667
+ },
+ {
+  "ticker": "003670.KS",
+  "name": "POSCO Future M",
+  "as_of": "2026-10-26",
+  "year": 2027,
+  "eps": 963.47125
  },
  {
   "ticker": "247540.KQ",
@@ -9004,6 +9886,20 @@
  {
   "ticker": "247540.KQ",
   "name": "Ecopro BM",
+  "as_of": "2026-07-28",
+  "year": 2026,
+  "eps": 245.59492
+ },
+ {
+  "ticker": "247540.KQ",
+  "name": "Ecopro BM",
+  "as_of": "2026-07-28",
+  "year": 2027,
+  "eps": 999.636
+ },
+ {
+  "ticker": "247540.KQ",
+  "name": "Ecopro BM",
   "as_of": "2026-07-30",
   "year": 2026,
   "eps": 254.1451
@@ -9098,6 +9994,20 @@
   "as_of": "2026-08-22",
   "year": 2027,
   "eps": 753.96954
+ },
+ {
+  "ticker": "247540.KQ",
+  "name": "Ecopro BM",
+  "as_of": "2026-08-27",
+  "year": 2026,
+  "eps": 49.40245
+ },
+ {
+  "ticker": "247540.KQ",
+  "name": "Ecopro BM",
+  "as_of": "2026-08-27",
+  "year": 2027,
+  "eps": 789.71765
  },
  {
   "ticker": "247540.KQ",
@@ -9238,6 +10148,20 @@
   "as_of": "2026-09-21",
   "year": 2027,
   "eps": 785.1499
+ },
+ {
+  "ticker": "247540.KQ",
+  "name": "Ecopro BM",
+  "as_of": "2026-09-26",
+  "year": 2026,
+  "eps": 106.30803
+ },
+ {
+  "ticker": "247540.KQ",
+  "name": "Ecopro BM",
+  "as_of": "2026-09-26",
+  "year": 2027,
+  "eps": 726.30835
  },
  {
   "ticker": "247540.KQ",
@@ -9294,5 +10218,19 @@
   "as_of": "2026-10-19",
   "year": 2027,
   "eps": 710.5168
+ },
+ {
+  "ticker": "247540.KQ",
+  "name": "Ecopro BM",
+  "as_of": "2026-10-26",
+  "year": 2026,
+  "eps": 88.74049
+ },
+ {
+  "ticker": "247540.KQ",
+  "name": "Ecopro BM",
+  "as_of": "2026-10-26",
+  "year": 2027,
+  "eps": 704.7311
  }
 ]

@@ -6,39 +6,39 @@
     "name": "CATL",
     "name_cn": "宁德时代",
     "purity": "main",
-    "revenue_usd": 78032359821.12143,
-    "revenue_native": 521732161000.0,
+    "revenue_usd": 87161016287.52188,
+    "revenue_native": 582767271000.0,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-06-30",
-    "share": 0.542852545872324
+    "period_end": "2026-09-30",
+    "share": 0.5560468505863299
    },
    {
     "ticker": "373220.KS",
     "name": "LG Energy Solution",
     "name_cn": null,
     "purity": "main",
-    "revenue_usd": 17744547723.81431,
-    "revenue_native": 23671759000000.0,
+    "revenue_usd": 19457262580.301792,
+    "revenue_native": 25956572000000.0,
     "currency": "KRW",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
-    "period_end": "2025-12-31",
-    "share": 0.12344459310607986
+    "period_end": "2026-06-30",
+    "share": 0.12412830918719962
    },
    {
     "ticker": "300014.SZ",
     "name": "EVE Energy",
     "name_cn": "亿纬锂能",
     "purity": "main",
-    "revenue_usd": 11814291146.047771,
-    "revenue_native": 78991532031.59,
+    "revenue_usd": 13439532853.86249,
+    "revenue_native": 89858060614.20999,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-06-30",
-    "share": 0.08218921023291847
+    "period_end": "2026-09-30",
+    "share": 0.08573798511125892
    },
    {
     "ticker": "300207.SZ",
@@ -51,7 +51,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.07745305138400196
+    "share": 0.0710265130218652
    },
    {
     "ticker": "002074.SZ",
@@ -64,7 +64,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.0556162970432234
+    "share": 0.05100162712226411
    },
    {
     "ticker": "3931.HK",
@@ -77,7 +77,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2025-12-31",
-    "share": 0.04619743847428214
+    "share": 0.04236428270724221
    },
    {
     "ticker": "6752.T",
@@ -90,20 +90,20 @@
     "basis": "disclosed segment",
     "note": "reportable segment information, Energy segment, sales to external customers, year ended 2026-03-31",
     "period_end": "FY2026",
-    "share": 0.041430775199874384
+    "share": 0.03799312540509751
    },
    {
     "ticker": "300438.SZ",
     "name": "Great Power Energy",
     "name_cn": "鹏辉能源",
     "purity": "main",
-    "revenue_usd": 2785138335.2836485,
-    "revenue_native": 18621713423.54,
+    "revenue_usd": 3324696684.9403987,
+    "revenue_native": 22229254505.18,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-06-30",
-    "share": 0.019375544189374826
+    "period_end": "2026-09-30",
+    "share": 0.02121002254858496
    },
    {
     "ticker": "688567.SS",
@@ -116,7 +116,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.008719244563597999
+    "share": 0.007995779720373127
    },
    {
     "ticker": "MVST",
@@ -129,7 +129,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.002557027395022127
+    "share": 0.0023448622917304246
    },
    {
     "ticker": "SES",
@@ -142,7 +142,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.00016322650388890024
+    "share": 0.0001496830556939573
    },
    {
     "ticker": "IKA.L",
@@ -155,7 +155,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-04-30",
-    "share": 1.0460354118545953e-06
+    "share": 9.59242360033972e-07
    }
   ],
   "excluded": [
@@ -300,7 +300,7 @@
     "reason_class": "other_layer"
    }
   ],
-  "pool_revenue_usd": 143745037974.7767,
+  "pool_revenue_usd": 156751209355.1361,
   "n_members": 12,
   "basis_counts": {
    "disclosed segment": 1,
@@ -312,9 +312,9 @@
    "not_recorded": 5,
    "no_data": 2
   },
-  "top3_share": 0.7484863492113223,
-  "top5_share": 0.8815556976385477,
-  "hhi": 3300.833824981196
+  "top3_share": 0.7659131448847885,
+  "top5_share": 0.8879412850289177,
+  "hhi": 3433.503991630507
  },
  "cited": [
   {
