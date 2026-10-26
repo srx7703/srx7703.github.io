@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23T12:10:12.739437+00:00",
+ "generated_at": "2026-10-26T13:37:39.353094+00:00",
  "plan": "docs/EVALUATION_PLAN.md",
  "snapshot_vintages_written": [],
  "tracks": {
@@ -14,31 +14,31 @@
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-10-23T12:10:11.274613+00:00",
-    "iqr": 43.78061016878781,
-    "p25": 22.643637771823983,
-    "p75": 66.42424794061179,
-    "median": 37.0660043862329,
+    "as_of": "2026-10-26T13:37:38.068085+00:00",
+    "iqr": 42.25705185928301,
+    "p25": 22.93352949974789,
+    "p75": 65.1905813590309,
+    "median": 37.47516135107137,
     "n_priced": 34,
     "n_listings": 34,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
    },
    "dual_listing_premium": {
     "status": "partial",
-    "as_of": "2026-10-23T12:10:11.274613+00:00",
+    "as_of": "2026-10-26T13:37:38.068085+00:00",
     "pairs": [
      {
       "name": "YOFC",
       "primary": "601869.SS",
       "secondary": "6869.HK",
-      "primary_pe": 40.45331105076249,
-      "secondary_pe": 11.981346304161555,
+      "primary_pe": 37.326091497806566,
+      "secondary_pe": 10.924168689088477,
       "basis": "both lines on 601869.SS's consensus for calendar 2026",
       "nm": null,
-      "premium": 2.376357716720999
+      "premium": 2.4168358764991837
      }
     ],
-    "median_premium": 2.376357716720999,
+    "median_premium": 2.4168358764991837,
     "note": "the premium is the A line over the H line on identical reported earnings"
    },
    "share_bases": {
@@ -238,41 +238,41 @@
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-10-23T12:10:11.274613+00:00",
-    "iqr": 24.429934786451057,
-    "p25": 12.001491991124958,
-    "p75": 36.431426777576014,
-    "median": 18.24211633788211,
+    "as_of": "2026-10-26T13:37:38.068085+00:00",
+    "iqr": 24.345533413680343,
+    "p25": 12.110388128998059,
+    "p75": 36.455921542678404,
+    "median": 18.40713630467795,
     "n_priced": 26,
     "n_listings": 34,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
    },
    "dual_listing_premium": {
     "status": "partial",
-    "as_of": "2026-10-23T12:10:11.274613+00:00",
+    "as_of": "2026-10-26T13:37:38.068085+00:00",
     "pairs": [
      {
       "name": "CATL",
       "primary": "300750.SZ",
       "secondary": "3750.HK",
-      "primary_pe": 11.461890179957212,
+      "primary_pe": 11.481186291371282,
       "secondary_pe": 14.66424114131903,
       "basis": "both lines on 300750.SZ's consensus for calendar 2026",
       "nm": null,
-      "premium": -0.21837822567842546
+      "premium": -0.2170623641054934
      },
      {
       "name": "BYD",
       "primary": "002594.SZ",
       "secondary": "1211.HK",
-      "primary_pe": 19.01874310915105,
-      "secondary_pe": 14.249140797854427,
+      "primary_pe": 19.247659447237123,
+      "secondary_pe": 14.089932520783428,
       "basis": "both lines on 002594.SZ's consensus for calendar 2026",
       "nm": null,
-      "premium": 0.3347291165804753
+      "premium": 0.36605760310390156
      }
     ],
-    "median_premium": 0.05817544545102493,
+    "median_premium": 0.07449761949920408,
     "note": "the premium is the A line over the H line on identical reported earnings"
    },
    "share_bases": {
@@ -580,11 +580,11 @@
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-10-23T12:10:11.274613+00:00",
-    "iqr": 108.08367084269193,
-    "p25": 18.66535321497407,
-    "p75": 126.74902405766599,
-    "median": 32.58100072496496,
+    "as_of": "2026-10-26T13:37:38.068085+00:00",
+    "iqr": 111.8537194553515,
+    "p25": 18.683564285326355,
+    "p75": 130.53728374067785,
+    "median": 33.07319091237129,
     "n_priced": 6,
     "n_listings": 8,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
@@ -656,11 +656,11 @@
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-10-23T12:10:11.274613+00:00",
-    "iqr": 7.406329966755273,
-    "p25": 19.661460934036946,
-    "p75": 27.067790900792218,
-    "median": 21.97275501706691,
+    "as_of": "2026-10-26T13:37:38.068085+00:00",
+    "iqr": 7.485913835299812,
+    "p25": 19.639437708366604,
+    "p75": 27.125351543666415,
+    "median": 22.36738848773779,
     "n_priced": 26,
     "n_listings": 30,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
