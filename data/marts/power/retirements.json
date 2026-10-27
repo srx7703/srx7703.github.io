@@ -2,13 +2,6 @@
  "planned_by_year": [
   {
    "year": 2026,
-   "family": "biomass",
-   "family_label": "Biomass",
-   "mw": 15.6,
-   "units": 10
-  },
-  {
-   "year": 2026,
    "family": "coal",
    "family_label": "Coal",
    "mw": 4119.2,
@@ -16,24 +9,17 @@
   },
   {
    "year": 2026,
-   "family": "gas_engine",
-   "family_label": "Gas engines",
-   "mw": 1.3,
-   "units": 1
-  },
-  {
-   "year": 2026,
    "family": "gas_steam",
    "family_label": "Gas steam",
-   "mw": 3710.5,
-   "units": 12
+   "mw": 3419.4,
+   "units": 9
   },
   {
    "year": 2026,
    "family": "oil",
    "family_label": "Oil",
-   "mw": 175.1,
-   "units": 7
+   "mw": 171.5,
+   "units": 5
   },
   {
    "year": 2026,
@@ -144,8 +130,8 @@
    "year": 2028,
    "family": "gas_steam",
    "family_label": "Gas steam",
-   "mw": 1713.6,
-   "units": 8
+   "mw": 2004.7,
+   "units": 11
   },
   {
    "year": 2028,
@@ -250,13 +236,6 @@
    "family": "hydro",
    "family_label": "Hydro",
    "mw": 9.9,
-   "units": 1
-  },
-  {
-   "year": 2030,
-   "family": "nuclear",
-   "family_label": "Nuclear",
-   "mw": 685.0,
    "units": 1
   },
   {
@@ -401,13 +380,6 @@
   },
   {
    "year": 2033,
-   "family": "nuclear",
-   "family_label": "Nuclear",
-   "mw": 593.1,
-   "units": 1
-  },
-  {
-   "year": 2033,
    "family": "oil",
    "family_label": "Oil",
    "mw": 239.4,
@@ -447,13 +419,6 @@
    "family_label": "Hydro",
    "mw": 13.7,
    "units": 5
-  },
-  {
-   "year": 2034,
-   "family": "nuclear",
-   "family_label": "Nuclear",
-   "mw": 593.1,
-   "units": 1
   },
   {
    "year": 2034,
@@ -723,6 +688,13 @@
   },
   {
    "year": 2050,
+   "family": "nuclear",
+   "family_label": "Nuclear",
+   "mw": 1871.2,
+   "units": 3
+  },
+  {
+   "year": 2050,
    "family": "wind",
    "family_label": "Wind",
    "mw": 522.0,
@@ -828,10 +800,10 @@
   }
  ],
  "deferred": {
-  "units": 102,
-  "mw": 13566.4,
-  "withdrawn_units": 39,
-  "withdrawn_mw": 5536.7,
+  "units": 103,
+  "mw": 13738.3,
+  "withdrawn_units": 37,
+  "withdrawn_mw": 5417.5,
   "median_years": 2.0,
   "by_family": [
    {
@@ -848,8 +820,8 @@
    },
    {
     "family": "gas_steam",
-    "mw": 1571.0,
-    "units": 8,
+    "mw": 1862.1,
+    "units": 11,
     "family_label": "Gas steam"
    },
    {
@@ -860,8 +832,8 @@
    },
    {
     "family": "oil",
-    "mw": 353.4,
-    "units": 14,
+    "mw": 234.2,
+    "units": 12,
     "family_label": "Oil"
    },
    {
@@ -889,8 +861,8 @@
     "family_label": "Solar"
    }
   ],
-  "from_vintage": "2025-08",
-  "to_vintage": "2026-08"
+  "from_vintage": "2025-09",
+  "to_vintage": "2026-09"
  },
  "deferred_rows": [
   {
@@ -1214,6 +1186,26 @@
    "deferred_years": null
   },
   {
+   "plant_name": "North Omaha",
+   "state": "NE",
+   "technology": "Natural Gas Steam Turbine",
+   "family": "gas_steam",
+   "nameplate_mw": 108.8,
+   "year_before": 2026,
+   "year_after": 2028,
+   "deferred_years": 2.0
+  },
+  {
+   "plant_name": "North Omaha",
+   "state": "NE",
+   "technology": "Natural Gas Steam Turbine",
+   "family": "gas_steam",
+   "nameplate_mw": 108.8,
+   "year_before": 2026,
+   "year_after": 2028,
+   "deferred_years": 2.0
+  },
+  {
    "plant_name": "F B Culley",
    "state": "IN",
    "technology": "Conventional Steam Coal",
@@ -1272,26 +1264,6 @@
    "year_before": 2027,
    "year_after": 2032,
    "deferred_years": 5.0
-  },
-  {
-   "plant_name": "Gadsby",
-   "state": "UT",
-   "technology": "Natural Gas Steam Turbine",
-   "family": "gas_steam",
-   "nameplate_mw": 69.0,
-   "year_before": 2032,
-   "year_after": null,
-   "deferred_years": null
-  },
-  {
-   "plant_name": "Gadsby",
-   "state": "UT",
-   "technology": "Natural Gas Steam Turbine",
-   "family": "gas_steam",
-   "nameplate_mw": 69.0,
-   "year_before": 2032,
-   "year_after": null,
-   "deferred_years": null
   }
  ]
 }
