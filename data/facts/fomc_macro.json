@@ -1,27 +1,27 @@
 {
  "project": "fomc-markets",
- "generated_at": "2026-10-26T14:24:11+00:00",
+ "generated_at": "2026-10-27T12:28:27+00:00",
  "window": {
   "from": "2025-01-01",
-  "to": "2026-10-26"
+  "to": "2026-10-27"
  },
  "forward_from": "2026-09-24",
  "series": {
   "DFEDTARU": {
    "label": "Federal funds target range, upper bound",
-   "last": "2026-10-26"
+   "last": "2026-10-27"
   },
   "DGS2": {
    "label": "2-year Treasury yield",
-   "last": "2026-10-22"
+   "last": "2026-10-23"
   },
   "T5YIE": {
    "label": "5-year breakeven inflation",
-   "last": "2026-10-23"
+   "last": "2026-10-26"
   },
   "T5YIFR": {
    "label": "5-year, 5-year forward inflation expectation",
-   "last": "2026-10-23"
+   "last": "2026-10-26"
   },
   "DCOILWTICO": {
    "label": "WTI crude oil, Cushing",
@@ -40,13 +40,13 @@
  "overlay": {
   "coverage": {
    "polymarket": {
-    "days": 664,
-    "with_next2": 663,
+    "days": 665,
+    "with_next2": 664,
     "first_next2": "2025-01-01"
    },
    "kalshi": {
-    "days": 664,
-    "with_next2": 445,
+    "days": 665,
+    "with_next2": 446,
     "first_next2": "2025-08-05"
    }
   },
@@ -67,7 +67,7 @@
    ],
    "dgs2": [
     4.25,
-    4.65
+    4.69
    ],
    "wti": [
     73.79,
@@ -89,15 +89,15 @@
   },
   "forward": {
    "from": "2026-09-24",
-   "to": "2026-10-26",
-   "n_days_2y": 19,
-   "corr_daily_change_vs_2y": 0.609,
+   "to": "2026-10-27",
+   "n_days_2y": 20,
+   "corr_daily_change_vs_2y": 0.618,
    "n_days_oil": 17,
    "corr_daily_change_vs_wti": 0.274,
    "wti_5pct_days": 3,
    "wti_5pct_same_direction": 2,
-   "n_days_both_platforms": 33,
-   "mean_abs_platform_gap_bps": 0.59,
+   "n_days_both_platforms": 34,
+   "mean_abs_platform_gap_bps": 0.57,
    "share_days_gap_over_5bps": 0.0
   }
  },
@@ -606,8 +606,8 @@
     "label": "Daily changes in the implied rate and the 2-year yield correlate",
     "threshold": "correlation > 0.3",
     "min_n": 60,
-    "n": 19,
-    "value": 0.609,
+    "n": 20,
+    "value": 0.618,
     "status": "collecting"
    },
    {
@@ -624,7 +624,7 @@
     "label": "Polymarket and Kalshi two-meeting expectations stay within 5 bps",
     "threshold": "share of days over 5 bps < 0.1",
     "min_n": 60,
-    "n": 33,
+    "n": 34,
     "value": 0.0,
     "status": "collecting"
    }
@@ -639,7 +639,7 @@
   {
    "name": "Market data current",
    "status": "pass",
-   "detail": "DFEDTARU 2026-10-26, DGS2 2026-10-22, T5YIE 2026-10-23, T5YIFR 2026-10-23, DCOILWTICO 2026-10-20, DCOILBRENTEU 2026-10-20"
+   "detail": "DFEDTARU 2026-10-27, DGS2 2026-10-23, T5YIE 2026-10-26, T5YIFR 2026-10-26, DCOILWTICO 2026-10-20, DCOILBRENTEU 2026-10-20"
   },
   {
    "name": "Claims as first printed",
@@ -649,7 +649,7 @@
   {
    "name": "Rolling expectation coverage",
    "status": "pass",
-   "detail": "polymarket: 663/664 days; kalshi: 445/664 days"
+   "detail": "polymarket: 664/665 days; kalshi: 446/665 days"
   },
   {
    "name": "Release calendar ahead",
