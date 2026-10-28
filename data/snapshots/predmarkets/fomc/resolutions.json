@@ -8557,7 +8557,29 @@
    "result": "yes",
    "settled_ts": "2026-10-22 21:51:39.953085+00",
    "recorded_at": "2026-10-23T11:50:43+00:00"
+  },
+  "polymarket:5765887": {
+   "platform": "polymarket",
+   "market_id": "5765887",
+   "event_id": "1197657",
+   "event_slug": "hike-25-bps-flips-no-change-for-october-fed-by-october-27",
+   "outcome_yes": null,
+   "question": "Hike 25 bps flips No change for October Fed by October 27?",
+   "result": "no",
+   "settled_ts": "2026-10-28 06:05:08.011601+00",
+   "recorded_at": "2026-10-28T13:11:39+00:00"
+  },
+  "polymarket:4913924": {
+   "platform": "polymarket",
+   "market_id": "4913924",
+   "event_id": "1075660",
+   "event_slug": "no-change-or-hike-25-bps-favored-on-october-27",
+   "outcome_yes": null,
+   "question": "No change or Hike 25 bps favored on October 27?",
+   "result": "yes",
+   "settled_ts": "2026-10-27 18:06:11.936036+00",
+   "recorded_at": "2026-10-28T13:11:39+00:00"
   }
  },
- "updated_at": "2026-10-27T12:25:52+00:00"
+ "updated_at": "2026-10-28T13:11:39+00:00"
 }
