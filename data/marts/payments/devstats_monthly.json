@@ -620,8 +620,8 @@
   "series": "Adyen",
   "company": "Adyen",
   "period": "2026-06-01",
-  "downloads": 1926006,
-  "index": 169.47505134391713
+  "downloads": 1998025,
+  "index": 175.81221941231234
  },
  {
   "side": "client",
@@ -1268,8 +1268,8 @@
   "series": "Airwallex",
   "company": "Airwallex",
   "period": "2026-06-01",
-  "downloads": 324917,
-  "index": 950.522189392388
+  "downloads": 339787,
+  "index": 994.0233449375421
  },
  {
   "side": "client",
@@ -1916,8 +1916,8 @@
   "series": "Checkout.com",
   "company": "Checkout.com",
   "period": "2026-06-01",
-  "downloads": 164971,
-  "index": 1991.441332689522
+  "downloads": 172951,
+  "index": 2087.77160791888
  },
  {
   "side": "client",
@@ -2564,8 +2564,8 @@
   "series": "PayPal",
   "company": "PayPal",
   "period": "2026-06-01",
-  "downloads": 6160860,
-  "index": 290.6718678344761
+  "downloads": 6423746,
+  "index": 303.07493569310844
  },
  {
   "side": "client",
@@ -3212,8 +3212,8 @@
   "series": "Stripe",
   "company": "Stripe",
   "period": "2026-06-01",
-  "downloads": 38510458,
-  "index": 463.7449676261453
+  "downloads": 40119104,
+  "index": 483.11636765446826
  },
  {
   "side": "client",
@@ -3238,6 +3238,654 @@
   "period": "2026-09-01",
   "downloads": 53463658,
   "index": 643.8121911815566
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2020-01-01",
+  "downloads": 7482,
+  "index": 2.5162943681013785
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2020-02-01",
+  "downloads": 7555,
+  "index": 2.5408452220002555
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2020-03-01",
+  "downloads": 8983,
+  "index": 3.0211002818303503
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2020-04-01",
+  "downloads": 9938,
+  "index": 3.3422792609184038
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2020-05-01",
+  "downloads": 18569,
+  "index": 6.24499734312677
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2020-06-01",
+  "downloads": 26346,
+  "index": 8.860504066024982
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2020-07-01",
+  "downloads": 25595,
+  "index": 8.60793295262694
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2020-08-01",
+  "downloads": 24613,
+  "index": 8.277673520726974
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2020-09-01",
+  "downloads": 30948,
+  "index": 10.40821680085558
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2020-10-01",
+  "downloads": 34869,
+  "index": 11.726900336985693
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2020-11-01",
+  "downloads": 38145,
+  "index": 12.828661944831204
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2020-12-01",
+  "downloads": 34865,
+  "index": 11.72555508471726
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2021-01-01",
+  "downloads": 37406,
+  "index": 12.58012658823846
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2021-02-01",
+  "downloads": 52033,
+  "index": 17.499377820825853
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2021-03-01",
+  "downloads": 54574,
+  "index": 18.35394932434705
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2021-04-01",
+  "downloads": 46449,
+  "index": 15.621405654095286
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2021-05-01",
+  "downloads": 47749,
+  "index": 16.058612641335564
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2021-06-01",
+  "downloads": 51332,
+  "index": 17.263622360783206
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2021-07-01",
+  "downloads": 57686,
+  "index": 19.40055558918686
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2021-08-01",
+  "downloads": 59138,
+  "index": 19.888882162627546
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2021-09-01",
+  "downloads": 62890,
+  "index": 21.150728790416423
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2021-10-01",
+  "downloads": 60095,
+  "index": 20.210733767849817
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2021-11-01",
+  "downloads": 64062,
+  "index": 21.54488770506689
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2021-12-01",
+  "downloads": 57984,
+  "index": 19.50077688318502
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2022-01-01",
+  "downloads": 55709,
+  "index": 18.735664655514526
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2022-02-01",
+  "downloads": 66839,
+  "index": 22.478829092425556
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2022-03-01",
+  "downloads": 78410,
+  "index": 26.370307591931173
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2022-04-01",
+  "downloads": 72078,
+  "index": 24.240773251003894
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2022-05-01",
+  "downloads": 83011,
+  "index": 27.917684013694664
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2022-06-01",
+  "downloads": 91664,
+  "index": 30.82780098337941
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2022-07-01",
+  "downloads": 81254,
+  "index": 27.32678195478607
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2022-08-01",
+  "downloads": 104915,
+  "index": 35.284285435626316
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2022-09-01",
+  "downloads": 108694,
+  "index": 36.5552125162271
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2022-10-01",
+  "downloads": 124778,
+  "index": 41.96447188759072
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2022-11-01",
+  "downloads": 132230,
+  "index": 44.47067686367886
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2022-12-01",
+  "downloads": 108571,
+  "index": 36.513846008972834
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2023-01-01",
+  "downloads": 131488,
+  "index": 44.221132567884794
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2023-02-01",
+  "downloads": 132010,
+  "index": 44.396687988915126
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2023-03-01",
+  "downloads": 149769,
+  "index": 50.369271747684486
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2023-04-01",
+  "downloads": 140797,
+  "index": 47.35187090959232
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2023-05-01",
+  "downloads": 168811,
+  "index": 56.77334517155329
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2023-06-01",
+  "downloads": 167830,
+  "index": 56.443422052720436
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2023-07-01",
+  "downloads": 175951,
+  "index": 59.174620470703765
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2023-08-01",
+  "downloads": 163912,
+  "index": 55.125747455791654
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2023-09-01",
+  "downloads": 168552,
+  "index": 56.686240087172344
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2023-10-01",
+  "downloads": 187803,
+  "index": 63.16060294206671
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2023-11-01",
+  "downloads": 180360,
+  "index": 60.657424783582535
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2023-12-01",
+  "downloads": 157104,
+  "index": 52.836128094920994
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2024-01-01",
+  "downloads": 203563,
+  "index": 68.46089687968735
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2024-02-01",
+  "downloads": 212085,
+  "index": 71.32695683758097
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2024-03-01",
+  "downloads": 232418,
+  "index": 78.16521043108608
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2024-04-01",
+  "downloads": 230878,
+  "index": 77.6472883077399
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2024-05-01",
+  "downloads": 257418,
+  "index": 86.57303710878382
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2024-06-01",
+  "downloads": 251874,
+  "index": 84.70851746473758
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2024-07-01",
+  "downloads": 295987,
+  "index": 99.54429579406879
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2024-08-01",
+  "downloads": 282104,
+  "index": 94.87526148340967
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2024-09-01",
+  "downloads": 279609,
+  "index": 94.03616038097545
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2024-10-01",
+  "downloads": 316409,
+  "index": 106.41248125054649
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2024-11-01",
+  "downloads": 309598,
+  "index": 104.12185295047453
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2024-12-01",
+  "downloads": 247929,
+  "index": 83.38176241499687
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2025-01-01",
+  "downloads": 297342,
+  "index": 100.0
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2025-02-01",
+  "downloads": 334857,
+  "index": 112.61678471255323
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2025-03-01",
+  "downloads": 362801,
+  "index": 122.01471705981663
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2025-04-01",
+  "downloads": 344234,
+  "index": 115.7703923428241
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2025-05-01",
+  "downloads": 352793,
+  "index": 118.64889588420068
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2025-06-01",
+  "downloads": 366545,
+  "index": 123.27387318306866
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2025-07-01",
+  "downloads": 439942,
+  "index": 147.95824336958788
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2025-08-01",
+  "downloads": 471775,
+  "index": 158.66409723483397
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2025-09-01",
+  "downloads": 663051,
+  "index": 222.99271545896647
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2025-10-01",
+  "downloads": 632859,
+  "index": 212.8387513368444
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2025-11-01",
+  "downloads": 525583,
+  "index": 176.76043074977633
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2025-12-01",
+  "downloads": 490608,
+  "index": 164.99788122767723
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2026-01-01",
+  "downloads": 576734,
+  "index": 193.96318044541303
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2026-02-01",
+  "downloads": 612265,
+  "index": 205.91272003282418
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2026-03-01",
+  "downloads": 721128,
+  "index": 242.52476945739252
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2026-04-01",
+  "downloads": 686110,
+  "index": 230.7477584734077
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2026-05-01",
+  "downloads": 771280,
+  "index": 259.39154239898835
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2026-06-01",
+  "downloads": 870184,
+  "index": 292.654249988229
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2026-07-01",
+  "downloads": 1097275,
+  "index": 369.0279207108313
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2026-08-01",
+  "downloads": 1308342,
+  "index": 440.0125108460964
+ },
+ {
+  "side": "server",
+  "series": "@adyen/api-library",
+  "company": "Adyen",
+  "period": "2026-09-01",
+  "downloads": 1076697,
+  "index": 362.1072704158847
  },
  {
   "side": "server",
@@ -3860,8 +4508,8 @@
   "series": "braintree",
   "company": "PayPal",
   "period": "2026-06-01",
-  "downloads": 804648,
-  "index": 217.34261427633763
+  "downloads": 835947,
+  "index": 225.79675383081997
  },
  {
   "side": "server",
@@ -4508,8 +5156,8 @@
   "series": "stripe",
   "company": "Stripe",
   "period": "2026-06-01",
-  "downloads": 57510694,
-  "index": 536.5881726608127
+  "downloads": 59757191,
+  "index": 557.5485130127827
  },
  {
   "side": "server",
