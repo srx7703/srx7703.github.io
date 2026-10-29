@@ -1,52 +1,52 @@
 {
  "project": "fomc-markets",
- "generated_at": "2026-10-28T13:14:21+00:00",
+ "generated_at": "2026-10-29T13:21:14+00:00",
  "window": {
   "from": "2025-01-01",
-  "to": "2026-10-28"
+  "to": "2026-10-29"
  },
  "forward_from": "2026-09-24",
  "series": {
   "DFEDTARU": {
    "label": "Federal funds target range, upper bound",
-   "last": "2026-10-28"
+   "last": "2026-10-29"
   },
   "DGS2": {
    "label": "2-year Treasury yield",
-   "last": "2026-10-26"
+   "last": "2026-10-27"
   },
   "T5YIE": {
    "label": "5-year breakeven inflation",
-   "last": "2026-10-27"
+   "last": "2026-10-28"
   },
   "T5YIFR": {
    "label": "5-year, 5-year forward inflation expectation",
-   "last": "2026-10-27"
+   "last": "2026-10-28"
   },
   "DCOILWTICO": {
    "label": "WTI crude oil, Cushing",
-   "last": "2026-10-20"
+   "last": "2026-10-27"
   },
   "DCOILBRENTEU": {
    "label": "Brent crude oil, Europe",
-   "last": "2026-10-20"
+   "last": "2026-10-27"
   }
  },
  "claims": {
   "series": "IC4WSA",
-  "n_first_prints": 97,
-  "last_release": "2026-10-22"
+  "n_first_prints": 98,
+  "last_release": "2026-10-29"
  },
  "overlay": {
   "coverage": {
    "polymarket": {
-    "days": 666,
-    "with_next2": 665,
+    "days": 667,
+    "with_next2": 666,
     "first_next2": "2025-01-01"
    },
    "kalshi": {
-    "days": 666,
-    "with_next2": 447,
+    "days": 667,
+    "with_next2": 448,
     "first_next2": "2025-08-05"
    }
   },
@@ -67,11 +67,11 @@
    ],
    "dgs2": [
     4.25,
-    4.68
+    4.7
    ],
    "wti": [
     73.79,
-    107.89
+    103.37
    ]
   },
   "in_sample": {
@@ -89,15 +89,15 @@
   },
   "forward": {
    "from": "2026-09-24",
-   "to": "2026-10-28",
-   "n_days_2y": 21,
-   "corr_daily_change_vs_2y": 0.616,
-   "n_days_oil": 17,
-   "corr_daily_change_vs_wti": 0.274,
-   "wti_5pct_days": 3,
-   "wti_5pct_same_direction": 2,
-   "n_days_both_platforms": 35,
-   "mean_abs_platform_gap_bps": 0.55,
+   "to": "2026-10-29",
+   "n_days_2y": 22,
+   "corr_daily_change_vs_2y": 0.618,
+   "n_days_oil": 22,
+   "corr_daily_change_vs_wti": 0.253,
+   "wti_5pct_days": 4,
+   "wti_5pct_same_direction": 3,
+   "n_days_both_platforms": 36,
+   "mean_abs_platform_gap_bps": 0.59,
    "share_days_gap_over_5bps": 0.0
   }
  },
@@ -362,7 +362,7 @@
   "official_releases": {
    "cpi": 21,
    "jobs": 21,
-   "pce": 20
+   "pce": 21
   },
   "unmatched": [
    {
@@ -601,8 +601,8 @@
     "label": "On days WTI moves 5% or more, the two-meeting expectation moves the same way",
     "threshold": "share > 0.5",
     "min_n": 8,
-    "n": 3,
-    "value": 0.667,
+    "n": 4,
+    "value": 0.75,
     "status": "collecting"
    },
    {
@@ -610,8 +610,8 @@
     "label": "Daily changes in the implied rate and the 2-year yield correlate",
     "threshold": "correlation > 0.3",
     "min_n": 60,
-    "n": 21,
-    "value": 0.616,
+    "n": 22,
+    "value": 0.618,
     "status": "collecting"
    },
    {
@@ -628,7 +628,7 @@
     "label": "Polymarket and Kalshi two-meeting expectations stay within 5 bps",
     "threshold": "share of days over 5 bps < 0.1",
     "min_n": 60,
-    "n": 35,
+    "n": 36,
     "value": 0.0,
     "status": "collecting"
    }
@@ -642,18 +642,18 @@
   },
   {
    "name": "Market data current",
-   "status": "warn",
-   "detail": "DFEDTARU 2026-10-28, DGS2 2026-10-26, T5YIE 2026-10-27, T5YIFR 2026-10-27, DCOILWTICO 2026-10-20, DCOILBRENTEU 2026-10-20"
+   "status": "pass",
+   "detail": "DFEDTARU 2026-10-29, DGS2 2026-10-27, T5YIE 2026-10-28, T5YIFR 2026-10-28, DCOILWTICO 2026-10-27, DCOILBRENTEU 2026-10-27"
   },
   {
    "name": "Claims as first printed",
    "status": "pass",
-   "detail": "97 weekly first prints from ALFRED vintages, each dated by its release day"
+   "detail": "98 weekly first prints from ALFRED vintages, each dated by its release day"
   },
   {
    "name": "Rolling expectation coverage",
    "status": "pass",
-   "detail": "polymarket: 665/666 days; kalshi: 447/666 days"
+   "detail": "polymarket: 666/667 days; kalshi: 448/667 days"
   },
   {
    "name": "Release calendar ahead",
@@ -663,7 +663,7 @@
   {
    "name": "Release matching",
    "status": "pass",
-   "detail": "56 of 62 releases matched to a Kalshi ladder still trading ten minutes before; dropped: cpi 2025-10-24 (no ladder trading at T0 - 10 min; KXCPI-25SEP closed 9 days earlier); jobs 2025-11-20 (no ladder trading at T0 - 10 min; KXPAYROLLS-25OCT closed 13 days earlier); pce 2025-04-30 (no ladder trading at T0 - 10 min; KXPCECORE-25MAR closed 1.6 hours earlier); pce 2025-12-05 (no ladder trading at T0 - 10 min; KXPCECORE-25OCT closed 9 days earlier); pce 2026-01-22 (no ladder trading at T0 - 10 min; KXPCECORE-25NOV closed 34 days earlier); pce 2026-02-20 (no ladder trading at T0 - 10 min; KXPCECORE-25DEC closed 22 days earlier)"
+   "detail": "56 of 63 releases matched to a Kalshi ladder still trading ten minutes before; dropped: cpi 2025-10-24 (no ladder trading at T0 - 10 min; KXCPI-25SEP closed 9 days earlier); jobs 2025-11-20 (no ladder trading at T0 - 10 min; KXPAYROLLS-25OCT closed 13 days earlier); pce 2025-04-30 (no ladder trading at T0 - 10 min; KXPCECORE-25MAR closed 1.6 hours earlier); pce 2025-12-05 (no ladder trading at T0 - 10 min; KXPCECORE-25OCT closed 9 days earlier); pce 2026-01-22 (no ladder trading at T0 - 10 min; KXPCECORE-25NOV closed 34 days earlier); pce 2026-02-20 (no ladder trading at T0 - 10 min; KXPCECORE-25DEC closed 22 days earlier)"
   },
   {
    "name": "Consensus and print",
