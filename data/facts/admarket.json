@@ -1,20 +1,20 @@
 {
- "generated_at": "2026-10-28T16:10:14+00:00",
- "last_updated": "2026-10-28",
+ "generated_at": "2026-10-29T16:17:02+00:00",
+ "last_updated": "2026-10-29",
  "status": "in-progress",
  "data": {
-  "n_filings": 287,
+  "n_filings": 289,
   "n_companies": 12,
   "n_series": 19,
   "first_quarter": "2019Q1",
   "last_quarter": "2026Q2",
   "latest_filing": {
-   "ticker": "META",
+   "ticker": "GOOGL",
    "form": "10-Q",
    "period": "2026-09-30",
-   "filed": "2026-10-22"
+   "filed": "2026-10-29"
   },
-  "n_text_filings": 41,
+  "n_text_filings": 42,
   "first_report": "2020-01-01"
  },
  "video": {
@@ -121,9 +121,10 @@
   "next_quarter": {
    "quarter": "2026Q3",
    "reported": [
+    "Google",
     "Meta"
    ],
-   "n_reported": 1,
+   "n_reported": 2,
    "n_members": 9
   },
   "four_quarter_mean_share": {
@@ -290,22 +291,22 @@
     "n_over": 0
    },
    "google_search_clicks": {
-    "n": 20,
+    "n": 21,
     "max_abs_gap_pp": 3.1,
-    "mean_abs_gap_pp": 0.92,
+    "mean_abs_gap_pp": 0.89,
     "usable": false,
     "worst_quarter": "2021Q2",
     "over_by_pp": 0.1,
     "n_over": 1
    },
    "google_network": {
-    "n": 17,
+    "n": 18,
     "max_abs_gap_pp": 3.3,
-    "mean_abs_gap_pp": 1.11,
+    "mean_abs_gap_pp": 1.23,
     "usable": false,
     "worst_quarter": "2025Q3",
     "over_by_pp": 0.3,
-    "n_over": 1
+    "n_over": 2
    }
   },
   "summary": {
@@ -385,10 +386,10 @@
    },
    "google_search_clicks": {
     "latest": {
-     "quarter": "2026Q2",
-     "volume": 13,
-     "price": 3,
-     "reported": 16.8
+     "quarter": "2026Q3",
+     "volume": 8,
+     "price": 4,
+     "reported": 12.0
     },
     "years": {
      "2020": {
@@ -434,11 +435,11 @@
       "n": 3
      },
      "2026": {
-      "vol_min": 13,
+      "vol_min": 8,
       "vol_max": 13,
       "price_min": 3,
       "price_max": 5,
-      "n": 2
+      "n": 3
      }
     },
     "price_min": {
@@ -459,10 +460,10 @@
    },
    "google_network": {
     "latest": {
-     "quarter": "2026Q2",
-     "volume": -12,
-     "price": 13,
-     "reported": -0.7
+     "quarter": "2026Q3",
+     "volume": -14,
+     "price": 14,
+     "reported": 1.4
     },
     "years": {
      "2021": {
@@ -501,11 +502,11 @@
       "n": 3
      },
      "2026": {
-      "vol_min": -12,
+      "vol_min": -14,
       "vol_max": -9,
       "price_min": 6,
-      "price_max": 13,
-      "n": 2
+      "price_max": 14,
+      "n": 3
      }
     },
     "price_min": {
@@ -526,7 +527,7 @@
    }
   },
   "max_gap_pp": 3.0,
-  "n_rows": 58
+  "n_rows": 60
  },
  "q5": {
   "status": "collecting",
@@ -536,8 +537,8 @@
  "forecasts": {
   "status": "partial",
   "n": 30,
-  "n_scored": 1,
-  "hits": 1,
+  "n_scored": 5,
+  "hits": 5,
   "hit_rate": 1.0,
   "verdict": null,
   "band": {
@@ -601,10 +602,10 @@
    {
     "id": "B7",
     "call": "Google Network's 2026Q3 revenue is lower than its 2025Q3 revenue (a fourth year of flat-to-down open-web revenue for Google).",
-    "status": "pending"
+    "status": "false"
    }
   ],
-  "calls_pending": 7,
+  "calls_pending": 6,
   "calls_true": 0
  },
  "prereg": {
@@ -628,17 +629,17 @@
   {
    "name": "Filing extracts",
    "status": "pass",
-   "detail": "287 10-Q/10-K filings across 12 companies; the latest is META 10-Q for 2026-09-30, filed 2026-10-22"
+   "detail": "289 10-Q/10-K filings across 12 companies; the latest is GOOGL 10-Q for 2026-09-30, filed 2026-10-29"
   },
   {
    "name": "Freshness",
    "status": "pass",
-   "detail": "latest filing 6 days ago (limit 140)"
+   "detail": "latest filing 0 days ago (limit 140)"
   },
   {
    "name": "Quarterly schema",
    "status": "pass",
-   "detail": "484 series-quarters pass the pandera schema (positive revenue, one row per series and quarter)"
+   "detail": "488 series-quarters pass the pandera schema (positive revenue, one row per series and quarter)"
   },
   {
    "name": "Derivation artefacts flagged",
@@ -648,7 +649,7 @@
   {
    "name": "Video subset complete",
    "status": "pass",
-   "detail": "all nine companies through 2026Q2; 2026Q3: 1 of 9 reported"
+   "detail": "all nine companies through 2026Q2; 2026Q3: 2 of 9 reported"
   },
   {
    "name": "Registered snapshot unchanged",
@@ -668,7 +669,7 @@
   {
    "name": "Volume/price text parsed",
    "status": "pass",
-   "detail": "Meta advertising: 21 quarters, Google Search & other: 20 quarters, Google Network: 20 quarters"
+   "detail": "Meta advertising: 21 quarters, Google Search & other: 21 quarters, Google Network: 21 quarters"
   },
   {
    "name": "Registered files unamended",

@@ -814,6 +814,17 @@
   "text": "text/GOOGL/2026-06-30_10-Q_0001652044-26-000071.json.gz"
  },
  {
+  "ticker": "GOOGL",
+  "cik": 1652044,
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-10-29",
+  "accession": "0001652044-26-000084",
+  "n_facts": 84,
+  "xbrl": "xbrl/GOOGL/2026-09-30_10-Q_0001652044-26-000084.json.gz",
+  "text": "text/GOOGL/2026-09-30_10-Q_0001652044-26-000084.json.gz"
+ },
+ {
   "ticker": "META",
   "cik": 1326801,
   "form": "10-Q",
@@ -1680,6 +1691,17 @@
   "accession": "0001193125-26-323660",
   "n_facts": 67,
   "xbrl": "xbrl/MSFT/2026-06-30_10-K_0001193125-26-323660.json.gz",
+  "text": null
+ },
+ {
+  "ticker": "MSFT",
+  "cik": 789019,
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-10-28",
+  "accession": "0001193125-26-436133",
+  "n_facts": 39,
+  "xbrl": "xbrl/MSFT/2026-09-30_10-Q_0001193125-26-436133.json.gz",
   "text": null
  },
  {

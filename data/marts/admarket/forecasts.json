@@ -5,10 +5,10 @@
   "point_m": 84881,
   "low_m": 80368,
   "high_m": 90214,
-  "actual_m": null,
-  "status": "pending",
-  "filed": null,
-  "error": null
+  "actual_m": 82012.0,
+  "status": "hit",
+  "filed": "2026-10-29",
+  "error": -0.03380026154263027
  },
  {
   "series": "Google",
@@ -27,10 +27,10 @@
   "point_m": 66046,
   "low_m": 62535,
   "high_m": 70196,
-  "actual_m": null,
-  "status": "pending",
-  "filed": null,
-  "error": null
+  "actual_m": 63350.0,
+  "status": "hit",
+  "filed": "2026-10-29",
+  "error": -0.040820034521394155
  },
  {
   "series": "Google Search",
@@ -49,10 +49,10 @@
   "point_m": 11580,
   "low_m": 10964,
   "high_m": 12307,
-  "actual_m": null,
-  "status": "pending",
-  "filed": null,
-  "error": null
+  "actual_m": 11207.0,
+  "status": "hit",
+  "filed": "2026-10-29",
+  "error": -0.032210708117443865
  },
  {
   "series": "YouTube",
@@ -71,10 +71,10 @@
   "point_m": 7303,
   "low_m": 6915,
   "high_m": 7762,
-  "actual_m": null,
-  "status": "pending",
-  "filed": null,
-  "error": null
+  "actual_m": 7455.0,
+  "status": "hit",
+  "filed": "2026-10-29",
+  "error": 0.02081336437080661
  },
  {
   "series": "Google Network",

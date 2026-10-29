@@ -270,6 +270,15 @@
   "flag": null
  },
  {
+  "series": "google_search",
+  "label": "Google Search & other",
+  "ticker": "GOOGL",
+  "quarter": "2026Q3",
+  "value_usd_m": 63350.0,
+  "method": "3M",
+  "flag": null
+ },
+ {
   "series": "youtube_ads",
   "label": "YouTube ads",
   "ticker": "GOOGL",
@@ -540,6 +549,15 @@
   "flag": null
  },
  {
+  "series": "youtube_ads",
+  "label": "YouTube ads",
+  "ticker": "GOOGL",
+  "quarter": "2026Q3",
+  "value_usd_m": 11207.0,
+  "method": "3M",
+  "flag": null
+ },
+ {
   "series": "google_network",
   "label": "Google Network",
   "ticker": "GOOGL",
@@ -770,6 +788,15 @@
   "ticker": "GOOGL",
   "quarter": "2026Q2",
   "value_usd_m": 7303.0,
+  "method": "3M",
+  "flag": null
+ },
+ {
+  "series": "google_network",
+  "label": "Google Network",
+  "ticker": "GOOGL",
+  "quarter": "2026Q3",
+  "value_usd_m": 7455.0,
   "method": "3M",
   "flag": null
  },
@@ -1040,6 +1067,15 @@
   "ticker": "GOOGL",
   "quarter": "2026Q2",
   "value_usd_m": 81629.0,
+  "method": "3M",
+  "flag": null
+ },
+ {
+  "series": "google_ads_total",
+  "label": "Google advertising",
+  "ticker": "GOOGL",
+  "quarter": "2026Q3",
+  "value_usd_m": 82012.0,
   "method": "3M",
   "flag": null
  },

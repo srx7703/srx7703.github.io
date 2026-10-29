@@ -59,7 +59,7 @@
    "question": "Rule A: 80% intervals for 2026Q3 and 2026Q4",
    "kind": "registered forecast",
    "status": "partial",
-   "detail": "1 of 30 intervals scored, 1 inside"
+   "detail": "5 of 30 intervals scored, 5 inside"
   },
   {
    "id": "B1",
@@ -107,8 +107,8 @@
    "id": "B7",
    "question": "Google Network's 2026Q3 revenue is lower than its 2025Q3 revenue (a fourth year of flat-to-down open-web revenue for Google).",
    "kind": "registered call (rule B)",
-   "status": "pending",
-   "detail": ""
+   "status": "false",
+   "detail": "first reported 2026Q3 figure against the 2025Q3 panel"
   }
  ]
 }
