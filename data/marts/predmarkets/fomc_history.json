@@ -8449,6 +8449,30 @@
  },
  {
   "meeting": "2026-12",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 13,
+  "side": "cut",
+  "prob": 0.01
+ },
+ {
+  "meeting": "2026-12",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 13,
+  "side": "hike",
+  "prob": 0.74
+ },
+ {
+  "meeting": "2026-12",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 13,
+  "side": "hold",
+  "prob": 0.265
+ },
+ {
+  "meeting": "2026-12",
   "platform": "polymarket",
   "date": "2026-07-30",
   "seg": 0,
@@ -10654,6 +10678,30 @@
   "seg": 0,
   "side": "hold",
   "prob": 0.255
+ },
+ {
+  "meeting": "2026-12",
+  "platform": "polymarket",
+  "date": "2026-10-30",
+  "seg": 0,
+  "side": "cut",
+  "prob": 0.015
+ },
+ {
+  "meeting": "2026-12",
+  "platform": "polymarket",
+  "date": "2026-10-30",
+  "seg": 0,
+  "side": "hike",
+  "prob": 0.7355
+ },
+ {
+  "meeting": "2026-12",
+  "platform": "polymarket",
+  "date": "2026-10-30",
+  "seg": 0,
+  "side": "hold",
+  "prob": 0.245
  },
  {
   "meeting": "2027-01",
@@ -18841,6 +18889,30 @@
  },
  {
   "meeting": "2027-01",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 10,
+  "side": "cut",
+  "prob": 0.025
+ },
+ {
+  "meeting": "2027-01",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 10,
+  "side": "hike",
+  "prob": 0.275
+ },
+ {
+  "meeting": "2027-01",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 10,
+  "side": "hold",
+  "prob": 0.705
+ },
+ {
+  "meeting": "2027-01",
   "platform": "polymarket",
   "date": "2026-07-30",
   "seg": 0,
@@ -21046,6 +21118,30 @@
   "seg": 0,
   "side": "hold",
   "prob": 0.715
+ },
+ {
+  "meeting": "2027-01",
+  "platform": "polymarket",
+  "date": "2026-10-30",
+  "seg": 0,
+  "side": "cut",
+  "prob": 0.017
+ },
+ {
+  "meeting": "2027-01",
+  "platform": "polymarket",
+  "date": "2026-10-30",
+  "seg": 0,
+  "side": "hike",
+  "prob": 0.274
+ },
+ {
+  "meeting": "2027-01",
+  "platform": "polymarket",
+  "date": "2026-10-30",
+  "seg": 0,
+  "side": "hold",
+  "prob": 0.705
  },
  {
   "meeting": "2027-03",
@@ -28920,6 +29016,102 @@
   "prob": 0.44
  },
  {
+  "meeting": "2027-03",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 7,
+  "side": "cut",
+  "prob": 0.065
+ },
+ {
+  "meeting": "2027-03",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 7,
+  "side": "hike",
+  "prob": 0.495
+ },
+ {
+  "meeting": "2027-03",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 7,
+  "side": "hold",
+  "prob": 0.475
+ },
+ {
+  "meeting": "2027-03",
+  "platform": "polymarket",
+  "date": "2026-10-28",
+  "seg": 0,
+  "side": "cut",
+  "prob": 0.0795
+ },
+ {
+  "meeting": "2027-03",
+  "platform": "polymarket",
+  "date": "2026-10-28",
+  "seg": 0,
+  "side": "hike",
+  "prob": 0.529
+ },
+ {
+  "meeting": "2027-03",
+  "platform": "polymarket",
+  "date": "2026-10-28",
+  "seg": 0,
+  "side": "hold",
+  "prob": 0.4
+ },
+ {
+  "meeting": "2027-03",
+  "platform": "polymarket",
+  "date": "2026-10-29",
+  "seg": 0,
+  "side": "cut",
+  "prob": 0.063
+ },
+ {
+  "meeting": "2027-03",
+  "platform": "polymarket",
+  "date": "2026-10-29",
+  "seg": 0,
+  "side": "hike",
+  "prob": 0.4975
+ },
+ {
+  "meeting": "2027-03",
+  "platform": "polymarket",
+  "date": "2026-10-29",
+  "seg": 0,
+  "side": "hold",
+  "prob": 0.42
+ },
+ {
+  "meeting": "2027-03",
+  "platform": "polymarket",
+  "date": "2026-10-30",
+  "seg": 0,
+  "side": "cut",
+  "prob": 0.062
+ },
+ {
+  "meeting": "2027-03",
+  "platform": "polymarket",
+  "date": "2026-10-30",
+  "seg": 0,
+  "side": "hike",
+  "prob": 0.4725
+ },
+ {
+  "meeting": "2027-03",
+  "platform": "polymarket",
+  "date": "2026-10-30",
+  "seg": 0,
+  "side": "hold",
+  "prob": 0.48
+ },
+ {
   "meeting": "2027-04",
   "platform": "kalshi",
   "date": "2025-10-06",
@@ -36744,6 +36936,102 @@
   "prob": 0.555
  },
  {
+  "meeting": "2027-04",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 9,
+  "side": "cut",
+  "prob": 0.11
+ },
+ {
+  "meeting": "2027-04",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 9,
+  "side": "hike",
+  "prob": 0.28
+ },
+ {
+  "meeting": "2027-04",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 9,
+  "side": "hold",
+  "prob": 0.555
+ },
+ {
+  "meeting": "2027-04",
+  "platform": "polymarket",
+  "date": "2026-10-28",
+  "seg": 0,
+  "side": "cut",
+  "prob": 0.23
+ },
+ {
+  "meeting": "2027-04",
+  "platform": "polymarket",
+  "date": "2026-10-28",
+  "seg": 0,
+  "side": "hike",
+  "prob": 0.315
+ },
+ {
+  "meeting": "2027-04",
+  "platform": "polymarket",
+  "date": "2026-10-28",
+  "seg": 0,
+  "side": "hold",
+  "prob": 0.505
+ },
+ {
+  "meeting": "2027-04",
+  "platform": "polymarket",
+  "date": "2026-10-29",
+  "seg": 0,
+  "side": "cut",
+  "prob": 0.145
+ },
+ {
+  "meeting": "2027-04",
+  "platform": "polymarket",
+  "date": "2026-10-29",
+  "seg": 0,
+  "side": "hike",
+  "prob": 0.288
+ },
+ {
+  "meeting": "2027-04",
+  "platform": "polymarket",
+  "date": "2026-10-29",
+  "seg": 0,
+  "side": "hold",
+  "prob": 0.555
+ },
+ {
+  "meeting": "2027-04",
+  "platform": "polymarket",
+  "date": "2026-10-30",
+  "seg": 0,
+  "side": "cut",
+  "prob": 0.15
+ },
+ {
+  "meeting": "2027-04",
+  "platform": "polymarket",
+  "date": "2026-10-30",
+  "seg": 0,
+  "side": "hike",
+  "prob": 0.257
+ },
+ {
+  "meeting": "2027-04",
+  "platform": "polymarket",
+  "date": "2026-10-30",
+  "seg": 0,
+  "side": "hold",
+  "prob": 0.575
+ },
+ {
   "meeting": "2027-06",
   "platform": "kalshi",
   "date": "2025-10-06",
@@ -43894,6 +44182,30 @@
   "seg": 8,
   "side": "hold",
   "prob": 0.575
+ },
+ {
+  "meeting": "2027-06",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 8,
+  "side": "cut",
+  "prob": 0.055
+ },
+ {
+  "meeting": "2027-06",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 8,
+  "side": "hike",
+  "prob": 0.32
+ },
+ {
+  "meeting": "2027-06",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 8,
+  "side": "hold",
+  "prob": 0.58
  },
  {
   "meeting": "2027-07",
@@ -52080,6 +52392,30 @@
   "prob": 0.735
  },
  {
+  "meeting": "2027-07",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 4,
+  "side": "cut",
+  "prob": 0.07
+ },
+ {
+  "meeting": "2027-07",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 4,
+  "side": "hike",
+  "prob": 0.205
+ },
+ {
+  "meeting": "2027-07",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 4,
+  "side": "hold",
+  "prob": 0.755
+ },
+ {
   "meeting": "2027-09",
   "platform": "kalshi",
   "date": "2025-10-06",
@@ -59254,6 +59590,30 @@
   "seg": 7,
   "side": "hold",
   "prob": 0.815
+ },
+ {
+  "meeting": "2027-09",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 7,
+  "side": "cut",
+  "prob": 0.105
+ },
+ {
+  "meeting": "2027-09",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 7,
+  "side": "hike",
+  "prob": 0.17
+ },
+ {
+  "meeting": "2027-09",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 7,
+  "side": "hold",
+  "prob": 0.82
  },
  {
   "meeting": "2027-10",
@@ -66624,6 +66984,30 @@
   "prob": 0.94
  },
  {
+  "meeting": "2027-10",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 11,
+  "side": "cut",
+  "prob": 0.08
+ },
+ {
+  "meeting": "2027-10",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 11,
+  "side": "hike",
+  "prob": 0.04
+ },
+ {
+  "meeting": "2027-10",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 11,
+  "side": "hold",
+  "prob": 0.945
+ },
+ {
   "meeting": "2027-12",
   "platform": "kalshi",
   "date": "2025-10-06",
@@ -73702,5 +74086,29 @@
   "seg": 13,
   "side": "hold",
   "prob": 0.645
+ },
+ {
+  "meeting": "2027-12",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 13,
+  "side": "cut",
+  "prob": 0.2
+ },
+ {
+  "meeting": "2027-12",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 13,
+  "side": "hike",
+  "prob": 0.115
+ },
+ {
+  "meeting": "2027-12",
+  "platform": "kalshi",
+  "date": "2026-10-30",
+  "seg": 13,
+  "side": "hold",
+  "prob": 0.635
  }
 ]

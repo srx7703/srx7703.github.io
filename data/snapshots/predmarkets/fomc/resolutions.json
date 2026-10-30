@@ -9162,7 +9162,18 @@
    "result": "no",
    "settled_ts": "2026-10-28 20:32:10.147149+00",
    "recorded_at": "2026-10-29T13:18:44+00:00"
+  },
+  "polymarket:5194866": {
+   "platform": "polymarket",
+   "market_id": "5194866",
+   "event_id": "1116497",
+   "event_slug": "how-low-will-2-year-treasury-yield-get-in-october",
+   "outcome_yes": null,
+   "question": "Will the 2-year Treasury yield dip below 4.64% in October?",
+   "result": "yes",
+   "settled_ts": "2026-10-29 21:53:15.059287+00",
+   "recorded_at": "2026-10-30T13:10:17+00:00"
   }
  },
- "updated_at": "2026-10-29T13:18:44+00:00"
+ "updated_at": "2026-10-30T13:10:17+00:00"
 }
