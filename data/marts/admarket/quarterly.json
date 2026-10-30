@@ -1836,6 +1836,15 @@
   "flag": null
  },
  {
+  "series": "amazon_ads",
+  "label": "Amazon advertising services",
+  "ticker": "AMZN",
+  "quarter": "2026Q3",
+  "value_usd_m": 19637.0,
+  "method": "3M",
+  "flag": null
+ },
+ {
   "series": "msft_search_ads",
   "label": "Microsoft search & news advertising",
   "ticker": "MSFT",
@@ -3114,6 +3123,15 @@
   "flag": null
  },
  {
+  "series": "pinterest_total",
+  "label": "Pinterest total revenue",
+  "ticker": "PINS",
+  "quarter": "2026Q3",
+  "value_usd_m": 1173.929,
+  "method": "3M",
+  "flag": null
+ },
+ {
   "series": "ttd_total",
   "label": "The Trade Desk total revenue",
   "ticker": "TTD",
@@ -3510,6 +3528,15 @@
   "flag": null
  },
  {
+  "series": "reddit_ads",
+  "label": "Reddit advertising",
+  "ticker": "RDDT",
+  "quarter": "2026Q3",
+  "value_usd_m": 846.996,
+  "method": "3M",
+  "flag": null
+ },
+ {
   "series": "reddit_total",
   "label": "Reddit total revenue",
   "ticker": "RDDT",
@@ -3632,6 +3659,15 @@
   "ticker": "RDDT",
   "quarter": "2026Q2",
   "value_usd_m": 804.905,
+  "method": "3M",
+  "flag": null
+ },
+ {
+  "series": "reddit_total",
+  "label": "Reddit total revenue",
+  "ticker": "RDDT",
+  "quarter": "2026Q3",
+  "value_usd_m": 894.957,
   "method": "3M",
   "flag": null
  },

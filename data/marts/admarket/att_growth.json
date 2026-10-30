@@ -470,6 +470,13 @@
    "g2": 0.17551931351724992
   },
   {
+   "series": "pinterest_total",
+   "label": "Pinterest total revenue",
+   "group": "affected",
+   "quarter": "2026Q3",
+   "g2": 0.14312196597151527
+  },
+  {
    "series": "google_search",
    "label": "Google Search & other",
    "group": "control",

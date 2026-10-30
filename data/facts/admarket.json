@@ -1,18 +1,18 @@
 {
- "generated_at": "2026-10-29T16:17:02+00:00",
- "last_updated": "2026-10-29",
+ "generated_at": "2026-10-30T16:01:58+00:00",
+ "last_updated": "2026-10-30",
  "status": "in-progress",
  "data": {
-  "n_filings": 289,
+  "n_filings": 292,
   "n_companies": 12,
   "n_series": 19,
   "first_quarter": "2019Q1",
   "last_quarter": "2026Q2",
   "latest_filing": {
-   "ticker": "GOOGL",
+   "ticker": "AMZN",
    "form": "10-Q",
    "period": "2026-09-30",
-   "filed": "2026-10-29"
+   "filed": "2026-10-30"
   },
   "n_text_filings": 42,
   "first_report": "2020-01-01"
@@ -122,9 +122,12 @@
    "quarter": "2026Q3",
    "reported": [
     "Google",
-    "Meta"
+    "Meta",
+    "Amazon",
+    "Pinterest",
+    "Reddit"
    ],
-   "n_reported": 2,
+   "n_reported": 5,
    "n_members": 9
   },
   "four_quarter_mean_share": {
@@ -537,9 +540,9 @@
  "forecasts": {
   "status": "partial",
   "n": 30,
-  "n_scored": 5,
+  "n_scored": 8,
   "hits": 5,
-  "hit_rate": 1.0,
+  "hit_rate": 0.625,
   "verdict": null,
   "band": {
    "1": {
@@ -592,7 +595,7 @@
    {
     "id": "B5",
     "call": "Reddit's 2026Q3 advertising revenue grows more than 40% year over year.",
-    "status": "pending"
+    "status": "true"
    },
    {
     "id": "B6",
@@ -605,8 +608,8 @@
     "status": "false"
    }
   ],
-  "calls_pending": 6,
-  "calls_true": 0
+  "calls_pending": 5,
+  "calls_true": 1
  },
  "prereg": {
   "files": [
@@ -629,7 +632,7 @@
   {
    "name": "Filing extracts",
    "status": "pass",
-   "detail": "289 10-Q/10-K filings across 12 companies; the latest is GOOGL 10-Q for 2026-09-30, filed 2026-10-29"
+   "detail": "292 10-Q/10-K filings across 12 companies; the latest is AMZN 10-Q for 2026-09-30, filed 2026-10-30"
   },
   {
    "name": "Freshness",
@@ -639,7 +642,7 @@
   {
    "name": "Quarterly schema",
    "status": "pass",
-   "detail": "488 series-quarters pass the pandera schema (positive revenue, one row per series and quarter)"
+   "detail": "492 series-quarters pass the pandera schema (positive revenue, one row per series and quarter)"
   },
   {
    "name": "Derivation artefacts flagged",
@@ -649,7 +652,7 @@
   {
    "name": "Video subset complete",
    "status": "pass",
-   "detail": "all nine companies through 2026Q2; 2026Q3: 2 of 9 reported"
+   "detail": "all nine companies through 2026Q2; 2026Q3: 5 of 9 reported"
   },
   {
    "name": "Registered snapshot unchanged",

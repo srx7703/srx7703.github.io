@@ -115,10 +115,10 @@
   "point_m": 22345,
   "low_m": 21157,
   "high_m": 23749,
-  "actual_m": null,
-  "status": "pending",
-  "filed": null,
-  "error": null
+  "actual_m": 19637.0,
+  "status": "miss",
+  "filed": "2026-10-30",
+  "error": -0.12119042291340343
  },
  {
   "series": "Amazon",
@@ -203,10 +203,10 @@
   "point_m": 1240,
   "low_m": 1174,
   "high_m": 1318,
-  "actual_m": null,
-  "status": "pending",
-  "filed": null,
-  "error": null
+  "actual_m": 1173.9,
+  "status": "miss",
+  "filed": "2026-10-29",
+  "error": -0.053283064516128964
  },
  {
   "series": "Pinterest",
@@ -247,10 +247,10 @@
   "point_m": 900,
   "low_m": 852,
   "high_m": 957,
-  "actual_m": null,
-  "status": "pending",
-  "filed": null,
-  "error": null
+  "actual_m": 847.0,
+  "status": "miss",
+  "filed": "2026-10-30",
+  "error": -0.05889333333333335
  },
  {
   "series": "Reddit",

@@ -286,6 +286,17 @@
   "text": null
  },
  {
+  "ticker": "AMZN",
+  "cik": 1018724,
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-10-30",
+  "accession": "0001018724-26-000040",
+  "n_facts": 60,
+  "xbrl": "xbrl/AMZN/2026-09-30_10-Q_0001018724-26-000040.json.gz",
+  "text": null
+ },
+ {
   "ticker": "APP",
   "cik": 1751008,
   "form": "10-Q",
@@ -1991,6 +2002,17 @@
   "text": null
  },
  {
+  "ticker": "PINS",
+  "cik": 1506293,
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-10-29",
+  "accession": "0001506293-26-000153",
+  "n_facts": 24,
+  "xbrl": "xbrl/PINS/2026-09-30_10-Q_0001506293-26-000153.json.gz",
+  "text": null
+ },
+ {
   "ticker": "PUBM",
   "cik": 1422930,
   "form": "10-Q",
@@ -2340,6 +2362,17 @@
   "accession": "0001713445-26-000100",
   "n_facts": 32,
   "xbrl": "xbrl/RDDT/2026-06-30_10-Q_0001713445-26-000100.json.gz",
+  "text": null
+ },
+ {
+  "ticker": "RDDT",
+  "cik": 1713445,
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-10-30",
+  "accession": "0001713445-26-000116",
+  "n_facts": 32,
+  "xbrl": "xbrl/RDDT/2026-09-30_10-Q_0001713445-26-000116.json.gz",
   "text": null
  },
  {

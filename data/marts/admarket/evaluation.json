@@ -59,7 +59,7 @@
    "question": "Rule A: 80% intervals for 2026Q3 and 2026Q4",
    "kind": "registered forecast",
    "status": "partial",
-   "detail": "5 of 30 intervals scored, 5 inside"
+   "detail": "8 of 30 intervals scored, 5 inside"
   },
   {
    "id": "B1",
@@ -93,8 +93,8 @@
    "id": "B5",
    "question": "Reddit's 2026Q3 advertising revenue grows more than 40% year over year.",
    "kind": "registered call (rule B)",
-   "status": "pending",
-   "detail": ""
+   "status": "true",
+   "detail": "first reported 2026Q3 figure against the 2025Q3 panel"
   },
   {
    "id": "B6",
