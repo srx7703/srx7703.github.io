@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-02T16:35:53.545856+00:00",
+ "generated_at": "2026-11-02T17:36:36.698234+00:00",
  "track": "ssb",
  "label": "Solid-state batteries",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-11-02T16:34:06+00:00",
- "as_of_estimates": "2026-10-26T14:37:05+00:00",
+ "as_of_price": "2026-11-02T17:26:17+00:00",
+ "as_of_estimates": "2026-11-02T17:29:24+00:00",
  "as_of_fx": "2026-10-23",
  "n_listings": 34,
  "n_issuers": 32,
@@ -16,25 +16,25 @@
  "n_thin": 7,
  "n_nm": 8,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 18.367074068611746,
- "median_fwd_pe_next": 13.927874163869973,
- "p25_fwd_pe_this": 11.772735047612047,
- "p75_fwd_pe_this": 33.01881028586675,
- "iqr_fwd_pe_this": 21.246075238254704,
- "median_growth": 0.36341143384385877,
- "median_trailing_pe": 19.44683184998672,
+ "median_fwd_pe_this": 19.213150861025785,
+ "median_fwd_pe_next": 14.058195689425151,
+ "p25_fwd_pe_this": 11.795617110102329,
+ "p75_fwd_pe_this": 32.706310824025785,
+ "iqr_fwd_pe_this": 20.910693713923457,
+ "median_growth": 0.36327333509638693,
+ "median_trailing_pe": 23.110011436316793,
  "cheapest": {
   "ticker": "3931.HK",
   "name": "CALB",
-  "fwd_pe_2026": 7.516082821031115,
-  "growth": 0.5692588449991172,
+  "fwd_pe_2026": 7.560590920877334,
+  "growth": 0.5690504859096084,
   "coverage": "covered"
  },
  "priciest": {
   "ticker": "247540.KQ",
   "name": "Ecopro BM",
-  "fwd_pe_2026": 1037.8576904409701,
-  "growth": 6.941483081736421,
+  "fwd_pe_2026": 1065.4003094172365,
+  "growth": 7.164627599212366,
   "coverage": "covered"
  },
  "nm_reasons": [
@@ -44,7 +44,7 @@
  "share": {
   "n_members": 12,
   "n_excluded": 20,
-  "pool_revenue_usd": 157237969502.07327,
+  "pool_revenue_usd": 159679562645.8006,
   "basis_counts": {
    "disclosed segment": 1,
    "total revenue": 11
@@ -55,9 +55,9 @@
    "not_recorded": 5,
    "no_data": 2
   },
-  "top3_share": 0.7659049105504063,
-  "top5_share": 0.8878452717575511,
-  "hhi": 3430.054078163987,
+  "top3_share": 0.7541937801630128,
+  "top5_share": 0.8895568926700853,
+  "hhi": 3345.712341490941,
   "leader": {
    "ticker": "300750.SZ",
    "name": "CATL",
@@ -69,7 +69,7 @@
    "basis": "total revenue",
    "note": "the company's whole revenue competes in this market",
    "period_end": "2026-09-30",
-   "share": 0.5556468674234263
+   "share": 0.5471507044871341
   },
   "members": [
    {
@@ -83,7 +83,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.5556468674234263
+    "share": 0.5471507044871341
    },
    {
     "ticker": "373220.KS",
@@ -96,7 +96,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.12458173222613998
+    "share": 0.12267680526994747
    },
    {
     "ticker": "300014.SZ",
@@ -109,33 +109,33 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.08567631090084012
+    "share": 0.08436627040593121
    },
    {
     "ticker": "300207.SZ",
     "name": "Sunwoda",
     "name_cn": "欣旺达",
     "purity": "main",
-    "revenue_usd": 11160031124.592966,
-    "revenue_native": 74439639607.26001,
+    "revenue_usd": 12469608962.422415,
+    "revenue_native": 83174785701.15,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-06-30",
-    "share": 0.07097542126709933
+    "period_end": "2026-09-30",
+    "share": 0.07809145238005417
    },
    {
     "ticker": "002074.SZ",
     "name": "Gotion High-tech",
     "name_cn": "国轩高科",
     "purity": "main",
-    "revenue_usd": 8013623671.967857,
-    "revenue_native": 53452472616.76,
+    "revenue_usd": 9145113641.081226,
+    "revenue_native": 60999737008.740005,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-06-30",
-    "share": 0.05096493994004542
+    "period_end": "2026-09-30",
+    "share": 0.05727166012701835
    },
    {
     "ticker": "3931.HK",
@@ -148,7 +148,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2025-12-31",
-    "share": 0.04233380865676694
+    "share": 0.041686500164361415
    },
    {
     "ticker": "6752.T",
@@ -161,7 +161,7 @@
     "basis": "disclosed segment",
     "note": "reportable segment information, Energy segment, sales to external customers, year ended 2026-03-31",
     "period_end": "FY2026",
-    "share": 0.038148343523333385
+    "share": 0.03756503322082627
    },
    {
     "ticker": "300438.SZ",
@@ -174,20 +174,20 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.02119476546746798
+    "share": 0.020870685208286235
    },
    {
     "ticker": "688567.SS",
     "name": "Farasis Energy",
     "name_cn": "孚能科技",
     "purity": "main",
-    "revenue_usd": 1256335792.7663338,
-    "revenue_native": 8380011004.91,
+    "revenue_usd": 1256861129.550838,
+    "revenue_native": 8383515106.33,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-06-30",
-    "share": 0.007990028087648184
+    "period_end": "2026-09-30",
+    "share": 0.007871145866918443
    },
    {
     "ticker": "MVST",
@@ -200,7 +200,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.0023376033229375523
+    "share": 0.002301860012075042
    },
    {
     "ticker": "SES",
@@ -213,7 +213,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.00014921968322473552
+    "share": 0.00014693802770518206
    },
    {
     "ticker": "IKA.L",
@@ -226,7 +226,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-04-30",
-    "share": 9.59501070115324e-07
+    "share": 9.448297421421306e-07
    }
   ],
   "excluded": [
@@ -405,21 +405,21 @@
    "name": "CATL",
    "primary": "300750.SZ",
    "secondary": "3750.HK",
-   "primary_pe": 12.246544107749601,
-   "secondary_pe": 15.58590790974134,
+   "primary_pe": 12.338072357710729,
+   "secondary_pe": 15.702393904686742,
    "basis": "both lines on 300750.SZ's consensus for calendar 2026",
    "nm": null,
-   "premium": -0.21425532739768116
+   "premium": -0.21425532739768127
   },
   {
    "name": "BYD",
    "primary": "002594.SZ",
    "secondary": "1211.HK",
-   "primary_pe": 19.656438622390823,
-   "secondary_pe": 13.996747111147403,
+   "primary_pe": 20.50521869796532,
+   "secondary_pe": 14.601137372222674,
    "basis": "both lines on 002594.SZ's consensus for calendar 2026",
    "nm": null,
-   "premium": 0.4043576315482533
+   "premium": 0.4043576315482531
   }
  ],
  "share_base_artefacts": [],
@@ -622,12 +622,12 @@
    "ticker": "QS",
    "name": "QuantumScape",
    "purity": "high",
-   "price": 4.16,
+   "price": 4.115,
    "price_currency": "USD",
-   "market_cap": 2575512320.0,
+   "market_cap": 2547652096.0,
    "ttm_revenue": null,
    "reporting_currency": "USD",
-   "eps_2026": -0.61719,
+   "eps_2026": -0.63053,
    "trailing_pe": null,
    "trailing_pe_nm": "loss-making over the trailing twelve months"
   },
@@ -635,9 +635,9 @@
    "ticker": "SLDP",
    "name": "Solid Power",
    "purity": "high",
-   "price": 2.065,
+   "price": 2.0201,
    "price_currency": "USD",
-   "market_cap": 471194240.0,
+   "market_cap": 460948896.0,
    "ttm_revenue": null,
    "reporting_currency": "USD",
    "eps_2026": -0.4,
@@ -648,9 +648,9 @@
    "ticker": "SES",
    "name": "SES AI",
    "purity": "high",
-   "price": 0.7861,
+   "price": 0.7877,
    "price_currency": "USD",
-   "market_cap": 291868992.0,
+   "market_cap": 292463072.0,
    "ttm_revenue": 23463000.0,
    "reporting_currency": "USD",
    "eps_2026": -0.14,
@@ -661,9 +661,9 @@
    "ticker": "IKA.L",
    "name": "Ilika",
    "purity": "high",
-   "price": 0.217,
+   "price": 0.22,
    "price_currency": "GBP",
-   "market_cap": 43158984.0,
+   "market_cap": 43755648.0,
    "ttm_revenue": 112800.0,
    "reporting_currency": "GBP",
    "eps_2026": -0.038066666666666665,
@@ -674,13 +674,13 @@
    "ticker": "MVST",
    "name": "Microvast",
    "purity": "high",
-   "price": 0.588,
+   "price": 0.5736,
    "price_currency": "USD",
-   "market_cap": 226922032.0,
+   "market_cap": 221364752.0,
    "ttm_revenue": 367560000.0,
    "reporting_currency": "USD",
    "eps_2026": -0.01,
-   "trailing_pe": 4.425760770776042,
+   "trailing_pe": 4.317374680631131,
    "trailing_pe_nm": null
   }
  ],
@@ -689,12 +689,12 @@
    "ticker": "QS",
    "name": "QuantumScape",
    "purity": "high",
-   "price": 4.16,
+   "price": 4.115,
    "price_currency": "USD",
-   "market_cap": 2575512320.0,
+   "market_cap": 2547652096.0,
    "ttm_revenue": null,
    "reporting_currency": "USD",
-   "eps_2026": -0.61719,
+   "eps_2026": -0.63053,
    "trailing_pe": null,
    "trailing_pe_nm": "loss-making over the trailing twelve months"
   },
@@ -702,9 +702,9 @@
    "ticker": "SLDP",
    "name": "Solid Power",
    "purity": "high",
-   "price": 2.065,
+   "price": 2.0201,
    "price_currency": "USD",
-   "market_cap": 471194240.0,
+   "market_cap": 460948896.0,
    "ttm_revenue": null,
    "reporting_currency": "USD",
    "eps_2026": -0.4,
@@ -715,9 +715,9 @@
    "ticker": "SES",
    "name": "SES AI",
    "purity": "high",
-   "price": 0.7861,
+   "price": 0.7877,
    "price_currency": "USD",
-   "market_cap": 291868992.0,
+   "market_cap": 292463072.0,
    "ttm_revenue": 23463000.0,
    "reporting_currency": "USD",
    "eps_2026": -0.14,
@@ -728,9 +728,9 @@
    "ticker": "IKA.L",
    "name": "Ilika",
    "purity": "high",
-   "price": 0.217,
+   "price": 0.22,
    "price_currency": "GBP",
-   "market_cap": 43158984.0,
+   "market_cap": 43755648.0,
    "ttm_revenue": 112800.0,
    "reporting_currency": "GBP",
    "eps_2026": -0.038066666666666665,
@@ -743,13 +743,13 @@
    "ticker": "MVST",
    "name": "Microvast",
    "purity": "high",
-   "price": 0.588,
+   "price": 0.5736,
    "price_currency": "USD",
-   "market_cap": 226922032.0,
+   "market_cap": 221364752.0,
    "ttm_revenue": 367560000.0,
    "reporting_currency": "USD",
    "eps_2026": -0.01,
-   "trailing_pe": 4.425760770776042,
+   "trailing_pe": 4.317374680631131,
    "trailing_pe_nm": null
   }
  ],
@@ -785,12 +785,12 @@
   {
    "name": "Trailing basis",
    "status": "pass",
-   "detail": "5 of 34 listings use the last full fiscal year instead of a trailing twelve months, because no quarterly statement is published for them; the table marks which"
+   "detail": "4 of 34 listings use the last full fiscal year instead of a trailing twelve months, because no quarterly statement is published for them; the table marks which"
   },
   {
    "name": "Trailing earnings",
    "status": "pass",
-   "detail": "26 of 34 listings have positive trailing profit; 34 have trailing financials at all"
+   "detail": "27 of 34 listings have positive trailing profit; 34 have trailing financials at all"
   },
   {
    "name": "Dual-listing share base",

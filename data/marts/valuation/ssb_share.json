@@ -12,7 +12,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.5556468674234263
+    "share": 0.5471507044871341
    },
    {
     "ticker": "373220.KS",
@@ -25,7 +25,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.12458173222613998
+    "share": 0.12267680526994747
    },
    {
     "ticker": "300014.SZ",
@@ -38,33 +38,33 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.08567631090084012
+    "share": 0.08436627040593121
    },
    {
     "ticker": "300207.SZ",
     "name": "Sunwoda",
     "name_cn": "欣旺达",
     "purity": "main",
-    "revenue_usd": 11160031124.592966,
-    "revenue_native": 74439639607.26001,
+    "revenue_usd": 12469608962.422415,
+    "revenue_native": 83174785701.15,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-06-30",
-    "share": 0.07097542126709933
+    "period_end": "2026-09-30",
+    "share": 0.07809145238005417
    },
    {
     "ticker": "002074.SZ",
     "name": "Gotion High-tech",
     "name_cn": "国轩高科",
     "purity": "main",
-    "revenue_usd": 8013623671.967857,
-    "revenue_native": 53452472616.76,
+    "revenue_usd": 9145113641.081226,
+    "revenue_native": 60999737008.740005,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-06-30",
-    "share": 0.05096493994004542
+    "period_end": "2026-09-30",
+    "share": 0.05727166012701835
    },
    {
     "ticker": "3931.HK",
@@ -77,7 +77,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2025-12-31",
-    "share": 0.04233380865676694
+    "share": 0.041686500164361415
    },
    {
     "ticker": "6752.T",
@@ -90,7 +90,7 @@
     "basis": "disclosed segment",
     "note": "reportable segment information, Energy segment, sales to external customers, year ended 2026-03-31",
     "period_end": "FY2026",
-    "share": 0.038148343523333385
+    "share": 0.03756503322082627
    },
    {
     "ticker": "300438.SZ",
@@ -103,20 +103,20 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.02119476546746798
+    "share": 0.020870685208286235
    },
    {
     "ticker": "688567.SS",
     "name": "Farasis Energy",
     "name_cn": "孚能科技",
     "purity": "main",
-    "revenue_usd": 1256335792.7663338,
-    "revenue_native": 8380011004.91,
+    "revenue_usd": 1256861129.550838,
+    "revenue_native": 8383515106.33,
     "currency": "CNY",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-06-30",
-    "share": 0.007990028087648184
+    "period_end": "2026-09-30",
+    "share": 0.007871145866918443
    },
    {
     "ticker": "MVST",
@@ -129,7 +129,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.0023376033229375523
+    "share": 0.002301860012075042
    },
    {
     "ticker": "SES",
@@ -142,7 +142,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.00014921968322473552
+    "share": 0.00014693802770518206
    },
    {
     "ticker": "IKA.L",
@@ -155,7 +155,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-04-30",
-    "share": 9.59501070115324e-07
+    "share": 9.448297421421306e-07
    }
   ],
   "excluded": [
@@ -300,7 +300,7 @@
     "reason_class": "other_layer"
    }
   ],
-  "pool_revenue_usd": 157237969502.07327,
+  "pool_revenue_usd": 159679562645.8006,
   "n_members": 12,
   "basis_counts": {
    "disclosed segment": 1,
@@ -312,9 +312,9 @@
    "not_recorded": 5,
    "no_data": 2
   },
-  "top3_share": 0.7659049105504063,
-  "top5_share": 0.8878452717575511,
-  "hhi": 3430.054078163987
+  "top3_share": 0.7541937801630128,
+  "top5_share": 0.8895568926700853,
+  "hhi": 3345.712341490941
  },
  "cited": [
   {
