@@ -1,11 +1,11 @@
 {
  "project": "saas-benchmark",
- "generated_at": "2026-10-26T14:17:00+00:00",
+ "generated_at": "2026-11-02T17:05:30+00:00",
  "first_refresh": "2026-09-16T06:34:15+00:00",
- "last_refresh": "2026-10-26T14:16:57+00:00",
- "n_refreshes": 7,
+ "last_refresh": "2026-11-02T17:05:27+00:00",
+ "n_refreshes": 8,
  "rule_of_40_p25": 42.5,
- "rule_of_40_p75": 52.8,
+ "rule_of_40_p75": 52.6,
  "companies": 29,
  "companies_scored": 27,
  "latest_quarter_end_max": "2026-09-30",
@@ -27,7 +27,7 @@
   },
   {
    "ticker": "PANW",
-   "name": "Palo Alto Networks, Inc",
+   "name": "Palo Alto Networks, Inc.",
    "quarter_end": "2026-07-31",
    "rule_of_40": 60.3,
    "rev_growth": 0.245,
@@ -69,7 +69,7 @@
   },
   {
    "ticker": "BILL",
-   "name": "BILL Holdings, Inc.",
+   "name": "BILL HOLDINGS, INC.",
    "quarter_end": "2026-06-30",
    "rule_of_40": 34.5,
    "rev_growth": 0.1303,
@@ -85,8 +85,8 @@
   }
  ],
  "reconciliation": {
-  "pairs": 5520,
-  "agree": 5395,
+  "pairs": 5537,
+  "agree": 5412,
   "rate": 0.9774,
   "tolerance": "0.5%"
  },
@@ -109,7 +109,7 @@
   {
    "name": "Reconciliation",
    "status": "pass",
-   "detail": "5,395 of 5,520 direct-vs-derived quarters agree within 0.5%"
+   "detail": "5,412 of 5,537 direct-vs-derived quarters agree within 0.5%"
   },
   {
    "name": "Freshness",
@@ -117,7 +117,7 @@
    "detail": "latest refresh 0.0 h ago (limit 192 h)"
   }
  ],
- "quarters_total": 1190,
+ "quarters_total": 1192,
  "missing_metrics": {},
  "missing_latest": {
   "INTU": [

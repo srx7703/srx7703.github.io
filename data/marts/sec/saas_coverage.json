@@ -181,7 +181,7 @@
   }
  },
  "BILL": {
-  "name": "BILL Holdings, Inc.",
+  "name": "BILL HOLDINGS, INC.",
   "tags": {
    "revenue": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
@@ -1356,7 +1356,7 @@
   }
  },
  "NOW": {
-  "name": "ServiceNow, Inc.",
+  "name": "SERVICENOW, INC.",
   "tags": {
    "revenue": [
     "RevenueFromContractWithCustomerExcludingAssessedTax",
@@ -1399,55 +1399,55 @@
    ]
   },
   "quarters": {
-   "revenue": 61,
-   "cogs": 61,
-   "gross_profit": 61,
-   "op_income": 61,
-   "net_income": 61,
-   "ocf": 59,
-   "capex": 59,
-   "sbc": 59,
-   "rnd": 61,
-   "snm": 61,
-   "gna": 61,
-   "diluted_shares": 31
+   "revenue": 62,
+   "cogs": 62,
+   "gross_profit": 62,
+   "op_income": 62,
+   "net_income": 62,
+   "ocf": 60,
+   "capex": 60,
+   "sbc": 60,
+   "rnd": 62,
+   "snm": 62,
+   "gna": 62,
+   "diluted_shares": 32
   },
   "reconciliation": {
    "revenue": {
-    "pairs": 30,
-    "agree": 30
+    "pairs": 31,
+    "agree": 31
    },
    "cogs": {
-    "pairs": 30,
-    "agree": 30
+    "pairs": 31,
+    "agree": 31
    },
    "gross_profit": {
-    "pairs": 30,
-    "agree": 30
+    "pairs": 31,
+    "agree": 31
    },
    "op_income": {
-    "pairs": 30,
-    "agree": 30
+    "pairs": 31,
+    "agree": 31
    },
    "net_income": {
-    "pairs": 30,
-    "agree": 29
+    "pairs": 31,
+    "agree": 30
    },
    "sbc": {
     "pairs": 10,
     "agree": 10
    },
    "rnd": {
-    "pairs": 30,
-    "agree": 30
+    "pairs": 31,
+    "agree": 31
    },
    "snm": {
-    "pairs": 30,
-    "agree": 30
+    "pairs": 31,
+    "agree": 31
    },
    "gna": {
-    "pairs": 30,
-    "agree": 30
+    "pairs": 31,
+    "agree": 31
    }
   }
  },
@@ -1551,7 +1551,7 @@
   }
  },
  "PANW": {
-  "name": "Palo Alto Networks, Inc",
+  "name": "Palo Alto Networks, Inc.",
   "tags": {
    "revenue": [
     "RevenueFromContractWithCustomerExcludingAssessedTax",
@@ -2384,56 +2384,56 @@
    ]
   },
   "quarters": {
-   "revenue": 45,
-   "cogs": 45,
-   "gross_profit": 45,
-   "op_income": 45,
-   "net_income": 45,
-   "ocf": 44,
+   "revenue": 46,
+   "cogs": 46,
+   "gross_profit": 46,
+   "op_income": 46,
+   "net_income": 46,
+   "ocf": 45,
    "capex": 29,
-   "cap_software": 44,
-   "sbc": 45,
-   "rnd": 45,
-   "snm": 45,
-   "gna": 45,
-   "diluted_shares": 20
+   "cap_software": 45,
+   "sbc": 46,
+   "rnd": 46,
+   "snm": 46,
+   "gna": 46,
+   "diluted_shares": 21
   },
   "reconciliation": {
    "revenue": {
-    "pairs": 22,
-    "agree": 22
+    "pairs": 23,
+    "agree": 23
    },
    "cogs": {
-    "pairs": 22,
-    "agree": 22
+    "pairs": 23,
+    "agree": 23
    },
    "gross_profit": {
-    "pairs": 22,
-    "agree": 22
+    "pairs": 23,
+    "agree": 23
    },
    "op_income": {
-    "pairs": 22,
-    "agree": 22
+    "pairs": 23,
+    "agree": 23
    },
    "net_income": {
-    "pairs": 20,
-    "agree": 20
+    "pairs": 21,
+    "agree": 21
    },
    "sbc": {
-    "pairs": 22,
-    "agree": 22
+    "pairs": 23,
+    "agree": 23
    },
    "rnd": {
-    "pairs": 22,
-    "agree": 22
+    "pairs": 23,
+    "agree": 23
    },
    "snm": {
-    "pairs": 22,
-    "agree": 22
+    "pairs": 23,
+    "agree": 23
    },
    "gna": {
-    "pairs": 22,
-    "agree": 22
+    "pairs": 23,
+    "agree": 23
    }
   }
  },
