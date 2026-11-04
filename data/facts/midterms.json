@@ -1,10 +1,10 @@
 {
  "project": "midterms-2026",
- "generated_at": "2026-11-04T14:43:36+00:00",
+ "generated_at": "2026-11-04T23:40:29+00:00",
  "election_day": "2026-11-03",
  "first_snapshot_ts": "2026-09-16T02:26:10+00:00",
- "last_snapshot_ts": "2026-11-04T14:41:07+00:00",
- "n_snapshots": 103,
+ "last_snapshot_ts": "2026-11-04T23:39:06+00:00",
+ "n_snapshots": 104,
  "n_days": 50,
  "markets_tracked": {
   "kalshi": 22770,
@@ -16,13 +16,13 @@
  },
  "quoted_definition": "both sides quoted, spread <= 10 cents, any volume",
  "last_full_snapshot_ts": "2026-11-04T14:41:07+00:00",
- "order_books_captured": 49211,
- "tier1_books_latest": 32,
+ "order_books_captured": 49233,
+ "tier1_books_latest": 22,
  "checks": [
   {
    "name": "Schema",
    "status": "pass",
-   "detail": "pandera schemas validated before every write (103 runs)"
+   "detail": "pandera schemas validated before every write (104 runs)"
   },
   {
    "name": "Probability range",
@@ -57,15 +57,15 @@
   },
   "bop_dr": {
    "label": "D Senate + R House",
-   "polymarket": 0.0005
+   "polymarket": 0.0
   },
   "bop_rd": {
    "label": "R Senate + D House",
-   "polymarket": 0.0005
+   "polymarket": 0.0
   },
   "bop_rr": {
    "label": "R Senate + R House",
-   "polymarket": 0.0005
+   "polymarket": 0.0
   },
   "house_dem": {
    "label": "Democrats win the House",
@@ -96,31 +96,31 @@
   {
    "event_slug": "alaska-senate-election-winner",
    "title": "Alaska Senate Election Winner",
-   "volume_usd": 4856533,
+   "volume_usd": 5704118,
    "markets": 29
   },
   {
    "event_slug": "mississippi-senate-election-winner",
    "title": "Mississippi Senate Election Winner",
-   "volume_usd": 4145117,
+   "volume_usd": 4747157,
    "markets": 13
   },
   {
    "event_slug": "alaska-governor-election-winner",
    "title": "Alaska Governor Election Winner  ",
-   "volume_usd": 1910091,
+   "volume_usd": 1911707,
    "markets": 40
   },
   {
    "event_slug": "kansas-governor-winner-2026",
    "title": "Kansas Governor Election Winner",
-   "volume_usd": 819466,
+   "volume_usd": 828788,
    "markets": 13
   },
   {
    "event_slug": "guam-governor-election-winner-2026",
    "title": "Guam Governor Election Winner",
-   "volume_usd": 15085,
+   "volume_usd": 15253,
    "markets": 5
   }
  ],
