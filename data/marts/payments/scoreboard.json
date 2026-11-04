@@ -77,7 +77,7 @@
   "status": "collecting",
   "reason": "Wise H1 FY27 take rate not in the waterfall inputs yet; FSB 2026 average cost not in the waterfall inputs yet",
   "graded": "2026-10 to 2026-11",
-  "next_grading": "2026-10",
+  "next_grading": "2026-11",
   "already_seen": "Wise 0.58% to 0.52%; FSB 1.5% in 2023, 1.6% in 2024 and 2025",
   "inputs": "waterfall inputs: Wise take rate (FY2026, H1 FY27), FSB average MSME B2B cost (2026)",
   "ci_only": false,

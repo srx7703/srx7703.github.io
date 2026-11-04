@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T14:32:40+00:00",
+ "generated_at": "2026-11-04T15:48:53+00:00",
  "slug": "payments-landscape",
  "registered": "2026-10-03",
  "kpis": [
@@ -1166,7 +1166,7 @@
   "acquisition_deals": 10,
   "acquisition_deals_no_value": 4,
   "metrics_in_dictionary": 236,
-  "share_rows": 311,
+  "share_rows": 303,
   "share_refusals": 80,
   "scoreboard": {
    "collecting": 9,
@@ -1178,7 +1178,6 @@
  "coverage": {
   "companies": [
    "Adyen",
-   "Adyen (@adyen/api-library)",
    "Affirm",
    "Afterpay/Block",
    "Airwallex",
@@ -1198,7 +1197,6 @@
    "Nium",
    "PayPal",
    "PayPal (Braintree)",
-   "PayPal (braintree)",
    "PayPal Pay Later",
    "Payoneer",
    "Ramp",
@@ -1206,13 +1204,12 @@
    "Shift4",
    "Shopify Payments",
    "Stripe",
-   "Stripe (stripe)",
    "Toast",
    "Wise",
    "Zip",
    "dLocal"
   ],
-  "n_companies": 34
+  "n_companies": 31
  },
  "scoreboard": [
   {
@@ -1229,10 +1226,10 @@
    "evidence": [
     {
      "label": "Stripe share of client-SDK npm downloads",
-     "value": 0.837097,
-     "qualifier": "=",
+     "value": null,
+     "qualifier": null,
      "unit": "fraction",
-     "period": "2026-09-01",
+     "period": null,
      "source_url": null,
      "note": null
     },
@@ -1241,7 +1238,7 @@
      "value": null,
      "qualifier": null,
      "unit": "ratio",
-     "period": "2026-09-01",
+     "period": null,
      "source_url": null,
      "note": "a lower bound on the ratio to the true volume share; the registered test grades it"
     },
@@ -1250,7 +1247,7 @@
      "value": 0.0,
      "qualifier": "=",
      "unit": "months",
-     "period": "2026-09-01",
+     "period": null,
      "source_url": null,
      "note": null
     },
@@ -1467,7 +1464,7 @@
    "status": "collecting",
    "reason": "Wise H1 FY27 take rate not in the waterfall inputs yet; FSB 2026 average cost not in the waterfall inputs yet",
    "graded": "2026-10 to 2026-11",
-   "next_grading": "2026-10",
+   "next_grading": "2026-11",
    "already_seen": "Wise 0.58% to 0.52%; FSB 1.5% in 2023, 1.6% in 2024 and 2025",
    "inputs": "waterfall inputs: Wise take rate (FY2026, H1 FY27), FSB average MSME B2B cost (2026)",
    "ci_only": false,
@@ -1551,7 +1548,7 @@
      "value": 0.0,
      "qualifier": "=",
      "unit": "companies",
-     "period": "to 2026-10-28",
+     "period": "to 2026-11-04",
      "source_url": null,
      "note": null
     }
@@ -1567,7 +1564,6 @@
  },
  "marts": {
   "devstats_monthly": "payments/devstats_monthly.json",
-  "devstats_q1": "payments/devstats_q1.json",
   "events": "payments/events.json",
   "formd_filings": "payments/formd_filings.json",
   "jobs_by_function": "payments/jobs_by_function.json",
@@ -1867,23 +1863,23 @@
   },
   {
    "name": "CI source: npm downloads (devstats)",
-   "status": "warn",
-   "detail": "devstats_client_monthly, devstats_server_monthly read; latest period 2026-09-01, 57 days old (limit 45)"
+   "status": "pass",
+   "detail": "devstats_client_monthly, devstats_server_monthly read; latest period 2026-10-01, 34 days old (limit 45)"
   },
   {
    "name": "CI source: HTTP Archive coverage (webtech)",
    "status": "pass",
-   "detail": "webtech_adoption, webtech_coverage read; latest period 2026-09-01, 57 days old (limit 75)"
+   "detail": "webtech_adoption, webtech_coverage read; latest period 2026-09-01, 64 days old (limit 75)"
   },
   {
    "name": "CI source: job-board counts (jobs)",
    "status": "pass",
-   "detail": "jobs_counts read; latest period 2026-10-28, 0 days old (limit 14)"
+   "detail": "jobs_counts read; latest period 2026-11-04, 0 days old (limit 14)"
   },
   {
    "name": "CI source: SEC Form D (formd)",
    "status": "warn",
-   "detail": "formd read; latest period 2026-05-20, 161 days old (limit 120)"
+   "detail": "formd read; latest period 2026-05-20, 168 days old (limit 120)"
   },
   {
    "name": "CI source: SEC financials (sec)",
@@ -1898,7 +1894,7 @@
   {
    "name": "Regression guard",
    "status": "pass",
-   "detail": "34 companies covered"
+   "detail": "31 companies covered"
   }
  ],
  "sources": [

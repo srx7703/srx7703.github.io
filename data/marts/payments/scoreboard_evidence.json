@@ -2,10 +2,10 @@
  {
   "id": "Q1",
   "label": "Stripe share of client-SDK npm downloads",
-  "value": 0.837097,
-  "qualifier": "=",
+  "value": null,
+  "qualifier": null,
   "unit": "fraction",
-  "period": "2026-09-01",
+  "period": null,
   "source_url": null,
   "note": null
  },
@@ -15,7 +15,7 @@
   "value": null,
   "qualifier": null,
   "unit": "ratio",
-  "period": "2026-09-01",
+  "period": null,
   "source_url": null,
   "note": "a lower bound on the ratio to the true volume share; the registered test grades it"
  },
@@ -25,7 +25,7 @@
   "value": 0.0,
   "qualifier": "=",
   "unit": "months",
-  "period": "2026-09-01",
+  "period": null,
   "source_url": null,
   "note": null
  },
@@ -235,7 +235,7 @@
   "value": 0.0,
   "qualifier": "=",
   "unit": "companies",
-  "period": "to 2026-10-28",
+  "period": "to 2026-11-04",
   "source_url": null,
   "note": null
  }
