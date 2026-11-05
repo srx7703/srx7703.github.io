@@ -2385,6 +2385,15 @@
   "flag": null
  },
  {
+  "series": "snap_total",
+  "label": "Snap total revenue",
+  "ticker": "SNAP",
+  "quarter": "2026Q3",
+  "value_usd_m": 1722.471,
+  "method": "3M",
+  "flag": null
+ },
+ {
   "series": "snap_ads",
   "label": "Snap advertising",
   "ticker": "SNAP",
@@ -2471,6 +2480,15 @@
   "ticker": "SNAP",
   "quarter": "2026Q2",
   "value_usd_m": 1282.522,
+  "method": "3M",
+  "flag": null
+ },
+ {
+  "series": "snap_ads",
+  "label": "Snap advertising",
+  "ticker": "SNAP",
+  "quarter": "2026Q3",
+  "value_usd_m": 1372.788,
   "method": "3M",
   "flag": null
  },
@@ -2849,6 +2867,15 @@
   "ticker": "APP",
   "quarter": "2026Q2",
   "value_usd_m": 1923.686,
+  "method": "3M",
+  "flag": null
+ },
+ {
+  "series": "applovin_total",
+  "label": "AppLovin total revenue",
+  "ticker": "APP",
+  "quarter": "2026Q3",
+  "value_usd_m": 2184.815,
   "method": "3M",
   "flag": null
  },
@@ -3942,6 +3969,15 @@
   "flag": null
  },
  {
+  "series": "magnite_total",
+  "label": "Magnite total revenue",
+  "ticker": "MGNI",
+  "quarter": "2026Q3",
+  "value_usd_m": 204.196,
+  "method": "3M",
+  "flag": null
+ },
+ {
   "series": "pubmatic_total",
   "label": "PubMatic total revenue",
   "ticker": "PUBM",
@@ -4424,6 +4460,15 @@
   "ticker": "U",
   "quarter": "2026Q2",
   "value_usd_m": 546.468,
+  "method": "3M",
+  "flag": null
+ },
+ {
+  "series": "unity_total",
+  "label": "Unity total revenue",
+  "ticker": "U",
+  "quarter": "2026Q3",
+  "value_usd_m": 622.092,
   "method": "3M",
   "flag": null
  }

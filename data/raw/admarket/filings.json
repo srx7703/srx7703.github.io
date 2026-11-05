@@ -539,6 +539,17 @@
   "text": null
  },
  {
+  "ticker": "APP",
+  "cik": 1751008,
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-11-04",
+  "accession": "0001751008-26-000069",
+  "n_facts": 20,
+  "xbrl": "xbrl/APP/2026-09-30_10-Q_0001751008-26-000069.json.gz",
+  "text": null
+ },
+ {
   "ticker": "GOOGL",
   "cik": 1652044,
   "form": "10-Q",
@@ -1416,6 +1427,17 @@
   "accession": "0001628280-26-053343",
   "n_facts": 44,
   "xbrl": "xbrl/MGNI/2026-06-30_10-Q_0001628280-26-053343.json.gz",
+  "text": null
+ },
+ {
+  "ticker": "MGNI",
+  "cik": 1595974,
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-11-04",
+  "accession": "0001595974-26-000041",
+  "n_facts": 44,
+  "xbrl": "xbrl/MGNI/2026-09-30_10-Q_0001595974-26-000041.json.gz",
   "text": null
  },
  {
@@ -2662,6 +2684,17 @@
   "text": null
  },
  {
+  "ticker": "SNAP",
+  "cik": 1564408,
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-11-05",
+  "accession": "0001564408-26-000067",
+  "n_facts": 40,
+  "xbrl": "xbrl/SNAP/2026-09-30_10-Q_0001564408-26-000067.json.gz",
+  "text": null
+ },
+ {
   "ticker": "TTD",
   "cik": 1671933,
   "form": "10-Q",
@@ -3209,6 +3242,17 @@
   "accession": "0001810806-26-000043",
   "n_facts": 40,
   "xbrl": "xbrl/U/2026-06-30_10-Q_0001810806-26-000043.json.gz",
+  "text": null
+ },
+ {
+  "ticker": "U",
+  "cik": 1810806,
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-11-05",
+  "accession": "0001810806-26-000055",
+  "n_facts": 40,
+  "xbrl": "xbrl/U/2026-09-30_10-Q_0001810806-26-000055.json.gz",
   "text": null
  }
 ]

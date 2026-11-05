@@ -316,6 +316,13 @@
    "g2": 0.13704894962806846
   },
   {
+   "series": "snap_total",
+   "label": "Snap total revenue",
+   "group": "affected",
+   "quarter": "2026Q3",
+   "g2": 0.12023226055719216
+  },
+  {
    "series": "pinterest_total",
    "label": "Pinterest total revenue",
    "group": "affected",
@@ -902,6 +909,11 @@
    "group": "affected",
    "quarter": "2026Q2",
    "g2": 0.18568872852368376
+  },
+  {
+   "group": "affected",
+   "quarter": "2026Q3",
+   "g2": 0.17358683881373285
   },
   {
    "group": "control",

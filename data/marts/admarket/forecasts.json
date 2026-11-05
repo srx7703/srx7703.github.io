@@ -159,10 +159,10 @@
   "point_m": 1791,
   "low_m": 1696,
   "high_m": 1904,
-  "actual_m": null,
-  "status": "pending",
-  "filed": null,
-  "error": null
+  "actual_m": 1722.5,
+  "status": "hit",
+  "filed": "2026-11-05",
+  "error": -0.038262981574539334
  },
  {
   "series": "Snap",
@@ -181,10 +181,10 @@
   "point_m": 2147,
   "low_m": 2033,
   "high_m": 2282,
-  "actual_m": null,
-  "status": "pending",
-  "filed": null,
-  "error": null
+  "actual_m": 2184.8,
+  "status": "hit",
+  "filed": "2026-11-04",
+  "error": 0.017612948299953413
  },
  {
   "series": "AppLovin",
@@ -269,10 +269,10 @@
   "point_m": 200,
   "low_m": 189,
   "high_m": 212,
-  "actual_m": null,
-  "status": "pending",
-  "filed": null,
-  "error": null
+  "actual_m": 204.2,
+  "status": "hit",
+  "filed": "2026-11-04",
+  "error": 0.02098
  },
  {
   "series": "Magnite",
@@ -313,10 +313,10 @@
   "point_m": 583,
   "low_m": 552,
   "high_m": 620,
-  "actual_m": null,
-  "status": "pending",
-  "filed": null,
-  "error": null
+  "actual_m": 622.1,
+  "status": "miss",
+  "filed": "2026-11-05",
+  "error": 0.06705317324185245
  },
  {
   "series": "Unity",

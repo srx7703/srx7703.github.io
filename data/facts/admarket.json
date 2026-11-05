@@ -1,18 +1,18 @@
 {
- "generated_at": "2026-11-04T17:23:29+00:00",
- "last_updated": "2026-11-04",
+ "generated_at": "2026-11-05T17:29:22+00:00",
+ "last_updated": "2026-11-05",
  "status": "in-progress",
  "data": {
-  "n_filings": 292,
+  "n_filings": 296,
   "n_companies": 12,
   "n_series": 19,
   "first_quarter": "2019Q1",
   "last_quarter": "2026Q2",
   "latest_filing": {
-   "ticker": "AMZN",
+   "ticker": "SNAP",
    "form": "10-Q",
    "period": "2026-09-30",
-   "filed": "2026-10-30"
+   "filed": "2026-11-05"
   },
   "n_text_filings": 42,
   "first_report": "2020-01-01"
@@ -124,10 +124,12 @@
     "Google",
     "Meta",
     "Amazon",
+    "Snap",
+    "AppLovin",
     "Pinterest",
     "Reddit"
    ],
-   "n_reported": 5,
+   "n_reported": 7,
    "n_members": 9
   },
   "four_quarter_mean_share": {
@@ -540,9 +542,9 @@
  "forecasts": {
   "status": "partial",
   "n": 30,
-  "n_scored": 8,
-  "hits": 5,
-  "hit_rate": 0.625,
+  "n_scored": 12,
+  "hits": 8,
+  "hit_rate": 0.6666666666666666,
   "verdict": null,
   "band": {
    "1": {
@@ -590,7 +592,7 @@
    {
     "id": "B4",
     "call": "AppLovin's 2026Q3 advertising revenue is larger than Snap's 2026Q3 total revenue.",
-    "status": "pending"
+    "status": "true"
    },
    {
     "id": "B5",
@@ -608,8 +610,8 @@
     "status": "false"
    }
   ],
-  "calls_pending": 5,
-  "calls_true": 1
+  "calls_pending": 4,
+  "calls_true": 2
  },
  "prereg": {
   "files": [
@@ -632,17 +634,17 @@
   {
    "name": "Filing extracts",
    "status": "pass",
-   "detail": "292 10-Q/10-K filings across 12 companies; the latest is AMZN 10-Q for 2026-09-30, filed 2026-10-30"
+   "detail": "296 10-Q/10-K filings across 12 companies; the latest is SNAP 10-Q for 2026-09-30, filed 2026-11-05"
   },
   {
    "name": "Freshness",
    "status": "pass",
-   "detail": "latest filing 5 days ago (limit 140)"
+   "detail": "latest filing 0 days ago (limit 140)"
   },
   {
    "name": "Quarterly schema",
    "status": "pass",
-   "detail": "492 series-quarters pass the pandera schema (positive revenue, one row per series and quarter)"
+   "detail": "497 series-quarters pass the pandera schema (positive revenue, one row per series and quarter)"
   },
   {
    "name": "Derivation artefacts flagged",
@@ -652,7 +654,7 @@
   {
    "name": "Video subset complete",
    "status": "pass",
-   "detail": "all nine companies through 2026Q2; 2026Q3: 5 of 9 reported"
+   "detail": "all nine companies through 2026Q2; 2026Q3: 7 of 9 reported"
   },
   {
    "name": "Registered snapshot unchanged",
