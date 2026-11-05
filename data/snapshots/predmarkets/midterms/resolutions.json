@@ -11109,7 +11109,260 @@
    "result": "no",
    "settled_ts": "2026-11-04 07:14:24.250959+00",
    "recorded_at": "2026-11-04T14:41:07+00:00"
+  },
+  "kalshi:KXRGOVCOUNT-26JUL08-AL19": {
+   "platform": "kalshi",
+   "market_id": "KXRGOVCOUNT-26JUL08-AL19",
+   "event_id": "KXRGOVCOUNT-26JUL08",
+   "event_slug": "KXRGOVCOUNT-26JUL08",
+   "outcome_yes": "At least 19",
+   "question": "Will the number of Republican governors be at least 19 once all gubernatorial elections scheduled for Nov 3, 2026 (including runoffs) are conclusively called or certified, per the USELECTION contract?",
+   "result": "yes",
+   "settled_ts": "2026-11-04T23:39:47.599315Z",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "kalshi:KXRGOVCOUNT-26JUL08-AL20": {
+   "platform": "kalshi",
+   "market_id": "KXRGOVCOUNT-26JUL08-AL20",
+   "event_id": "KXRGOVCOUNT-26JUL08",
+   "event_slug": "KXRGOVCOUNT-26JUL08",
+   "outcome_yes": "At least 20",
+   "question": "Will the number of Republican governors be at least 20 once all gubernatorial elections scheduled for Nov 3, 2026 (including runoffs) are conclusively called or certified, per the USELECTION contract?",
+   "result": "yes",
+   "settled_ts": "2026-11-04T23:39:47.599315Z",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:562828": {
+   "platform": "polymarket",
+   "market_id": "562828",
+   "event_id": "32228",
+   "event_slug": "balance-of-power-2026-midterms",
+   "outcome_yes": null,
+   "question": "2026 Balance of Power: D Senate, D House",
+   "result": "yes",
+   "settled_ts": "2026-11-04 17:47:20.261817+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:562829": {
+   "platform": "polymarket",
+   "market_id": "562829",
+   "event_id": "32228",
+   "event_slug": "balance-of-power-2026-midterms",
+   "outcome_yes": null,
+   "question": "2026 Balance of Power: D Senate, R House",
+   "result": "no",
+   "settled_ts": "2026-11-04 17:46:20.00772+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:562830": {
+   "platform": "polymarket",
+   "market_id": "562830",
+   "event_id": "32228",
+   "event_slug": "balance-of-power-2026-midterms",
+   "outcome_yes": null,
+   "question": "2026 Balance of Power: R Senate, D House",
+   "result": "no",
+   "settled_ts": "2026-11-04 17:46:50.149019+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:562831": {
+   "platform": "polymarket",
+   "market_id": "562831",
+   "event_id": "32228",
+   "event_slug": "balance-of-power-2026-midterms",
+   "outcome_yes": null,
+   "question": "2026 Balance of Power: R Senate, R House",
+   "result": "no",
+   "settled_ts": "2026-11-04 17:14:49.880606+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:562832": {
+   "platform": "polymarket",
+   "market_id": "562832",
+   "event_id": "32228",
+   "event_slug": "balance-of-power-2026-midterms",
+   "outcome_yes": null,
+   "question": "2026 Balance of Power: Other",
+   "result": "no",
+   "settled_ts": "2026-11-04 15:36:20.292195+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:4222458": {
+   "platform": "polymarket",
+   "market_id": "4222458",
+   "event_id": "965564",
+   "event_slug": "guam-governor-election-winner-2026",
+   "outcome_yes": null,
+   "question": "Will the Democratic Party candidate win the 2026 Guam gubernatorial election?",
+   "result": "no",
+   "settled_ts": "2026-11-05 01:07:04.145037+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:4222459": {
+   "platform": "polymarket",
+   "market_id": "4222459",
+   "event_id": "965564",
+   "event_slug": "guam-governor-election-winner-2026",
+   "outcome_yes": null,
+   "question": "Will the Republican Party candidate win the 2026 Guam gubernatorial election?",
+   "result": "yes",
+   "settled_ts": "2026-11-05 01:07:04.150834+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:4222460": {
+   "platform": "polymarket",
+   "market_id": "4222460",
+   "event_id": "965564",
+   "event_slug": "guam-governor-election-winner-2026",
+   "outcome_yes": null,
+   "question": "Will Person A win the 2026 Guam gubernatorial election?",
+   "result": "no",
+   "settled_ts": "2026-11-04 22:22:44.059435+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:4222461": {
+   "platform": "polymarket",
+   "market_id": "4222461",
+   "event_id": "965564",
+   "event_slug": "guam-governor-election-winner-2026",
+   "outcome_yes": null,
+   "question": "Will Person B win the 2026 Guam gubernatorial election?",
+   "result": "no",
+   "settled_ts": "2026-11-04 22:22:44.054552+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:4222462": {
+   "platform": "polymarket",
+   "market_id": "4222462",
+   "event_id": "965564",
+   "event_slug": "guam-governor-election-winner-2026",
+   "outcome_yes": null,
+   "question": "Will a candidate not listed above win the 2026 Guam gubernatorial election?",
+   "result": "no",
+   "settled_ts": "2026-11-04 19:22:34.270373+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:907688": {
+   "platform": "polymarket",
+   "market_id": "907688",
+   "event_id": "101856",
+   "event_slug": "how-many-republican-governors-after-the-2026-midterm-elections",
+   "outcome_yes": null,
+   "question": "Will the Republican Party hold exactly 24 or 25 governorships after the 2026 midterm elections?",
+   "result": "no",
+   "settled_ts": "2026-11-05 12:25:34.082443+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:907689": {
+   "platform": "polymarket",
+   "market_id": "907689",
+   "event_id": "101856",
+   "event_slug": "how-many-republican-governors-after-the-2026-midterm-elections",
+   "outcome_yes": null,
+   "question": "Will the Republican Party hold exactly 26 or 27 governorships after the 2026 midterm elections?",
+   "result": "no",
+   "settled_ts": "2026-11-04 14:58:20.179121+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:907690": {
+   "platform": "polymarket",
+   "market_id": "907690",
+   "event_id": "101856",
+   "event_slug": "how-many-republican-governors-after-the-2026-midterm-elections",
+   "outcome_yes": null,
+   "question": "Will the Republican Party hold exactly 28 or 29 governorships after the 2026 midterm elections?",
+   "result": "no",
+   "settled_ts": "2026-11-04 14:53:30.353921+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:907691": {
+   "platform": "polymarket",
+   "market_id": "907691",
+   "event_id": "101856",
+   "event_slug": "how-many-republican-governors-after-the-2026-midterm-elections",
+   "outcome_yes": null,
+   "question": "Will the Republican Party hold exactly 30 or 31 governorships after the 2026 midterm elections?",
+   "result": "no",
+   "settled_ts": "2026-11-04 14:53:30.357609+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:907692": {
+   "platform": "polymarket",
+   "market_id": "907692",
+   "event_id": "101856",
+   "event_slug": "how-many-republican-governors-after-the-2026-midterm-elections",
+   "outcome_yes": null,
+   "question": "Will the Republican Party hold 32 or more governorships after the 2026 midterm elections?",
+   "result": "no",
+   "settled_ts": "2026-11-04 14:53:30.350123+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:562805": {
+   "platform": "polymarket",
+   "market_id": "562805",
+   "event_id": "32225",
+   "event_slug": "which-party-will-win-the-house-in-2026",
+   "outcome_yes": null,
+   "question": "Will Party B control the House after the 2026 Midterm elections?",
+   "result": "no",
+   "settled_ts": "2026-11-04 14:57:49.915641+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:562806": {
+   "platform": "polymarket",
+   "market_id": "562806",
+   "event_id": "32225",
+   "event_slug": "which-party-will-win-the-house-in-2026",
+   "outcome_yes": null,
+   "question": "Will Party C control the House after the 2026 Midterm elections?",
+   "result": "no",
+   "settled_ts": "2026-11-04 15:32:21.985956+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:562807": {
+   "platform": "polymarket",
+   "market_id": "562807",
+   "event_id": "32225",
+   "event_slug": "which-party-will-win-the-house-in-2026",
+   "outcome_yes": null,
+   "question": "Will Party D control the House after the 2026 Midterm elections?",
+   "result": "no",
+   "settled_ts": "2026-11-04 15:32:50.100344+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:562808": {
+   "platform": "polymarket",
+   "market_id": "562808",
+   "event_id": "32225",
+   "event_slug": "which-party-will-win-the-house-in-2026",
+   "outcome_yes": null,
+   "question": "Will Party E control the House after the 2026 Midterm elections?",
+   "result": "no",
+   "settled_ts": "2026-11-04 15:32:50.104321+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:562809": {
+   "platform": "polymarket",
+   "market_id": "562809",
+   "event_id": "32225",
+   "event_slug": "which-party-will-win-the-house-in-2026",
+   "outcome_yes": null,
+   "question": "Will Party F control the House after the 2026 Midterm elections?",
+   "result": "no",
+   "settled_ts": "2026-11-04 15:33:20.189156+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:562810": {
+   "platform": "polymarket",
+   "market_id": "562810",
+   "event_id": "32225",
+   "event_slug": "which-party-will-win-the-house-in-2026",
+   "outcome_yes": null,
+   "question": "Will another party control the House after the 2026 Midterm elections?",
+   "result": "no",
+   "settled_ts": "2026-11-04 15:33:50.308542+00",
+   "recorded_at": "2026-11-05T14:46:31+00:00"
   }
  },
- "updated_at": "2026-11-04T14:41:07+00:00"
+ "updated_at": "2026-11-05T14:46:31+00:00"
 }

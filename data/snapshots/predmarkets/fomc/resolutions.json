@@ -9723,7 +9723,18 @@
    "result": "no",
    "settled_ts": "2026-11-01 06:21:50.060765+00",
    "recorded_at": "2026-11-01T13:37:37+00:00"
+  },
+  "polymarket:6071857": {
+   "platform": "polymarket",
+   "market_id": "6071857",
+   "event_id": "956932",
+   "event_slug": "how-low-will-5-year-treasury-yield-get-before-2027",
+   "outcome_yes": null,
+   "question": "Will the 5-year Treasury yield dip below 4.70% before 2027?",
+   "result": "yes",
+   "settled_ts": "2026-11-04 22:53:46.834601+00",
+   "recorded_at": "2026-11-05T14:47:28+00:00"
   }
  },
- "updated_at": "2026-11-04T14:42:11+00:00"
+ "updated_at": "2026-11-05T14:47:28+00:00"
 }

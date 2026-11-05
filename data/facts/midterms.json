@@ -1,28 +1,28 @@
 {
  "project": "midterms-2026",
- "generated_at": "2026-11-04T23:40:29+00:00",
+ "generated_at": "2026-11-05T14:48:51+00:00",
  "election_day": "2026-11-03",
  "first_snapshot_ts": "2026-09-16T02:26:10+00:00",
- "last_snapshot_ts": "2026-11-04T23:39:06+00:00",
- "n_snapshots": 104,
- "n_days": 50,
+ "last_snapshot_ts": "2026-11-05T14:46:31+00:00",
+ "n_snapshots": 105,
+ "n_days": 51,
  "markets_tracked": {
-  "kalshi": 22770,
-  "polymarket": 8325
+  "kalshi": 22510,
+  "polymarket": 7882
  },
  "quoted_markets_tracked": {
-  "kalshi": 4229,
-  "polymarket": 2564
+  "kalshi": 3701,
+  "polymarket": 2749
  },
  "quoted_definition": "both sides quoted, spread <= 10 cents, any volume",
- "last_full_snapshot_ts": "2026-11-04T14:41:07+00:00",
- "order_books_captured": 49233,
+ "last_full_snapshot_ts": "2026-11-05T14:46:31+00:00",
+ "order_books_captured": 49255,
  "tier1_books_latest": 22,
  "checks": [
   {
    "name": "Schema",
    "status": "pass",
-   "detail": "pandera schemas validated before every write (104 runs)"
+   "detail": "pandera schemas validated before every write (105 runs)"
   },
   {
    "name": "Probability range",
@@ -96,32 +96,26 @@
   {
    "event_slug": "alaska-senate-election-winner",
    "title": "Alaska Senate Election Winner",
-   "volume_usd": 5704118,
+   "volume_usd": 6099776,
    "markets": 29
   },
   {
    "event_slug": "mississippi-senate-election-winner",
    "title": "Mississippi Senate Election Winner",
-   "volume_usd": 4747157,
+   "volume_usd": 5244562,
    "markets": 13
   },
   {
    "event_slug": "alaska-governor-election-winner",
    "title": "Alaska Governor Election Winner  ",
-   "volume_usd": 1911707,
+   "volume_usd": 1930588,
    "markets": 40
   },
   {
    "event_slug": "kansas-governor-winner-2026",
    "title": "Kansas Governor Election Winner",
-   "volume_usd": 828788,
+   "volume_usd": 844816,
    "markets": 13
-  },
-  {
-   "event_slug": "guam-governor-election-winner-2026",
-   "title": "Guam Governor Election Winner",
-   "volume_usd": 15253,
-   "markets": 5
   }
  ],
  "sources": [

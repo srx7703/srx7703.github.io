@@ -7871,14 +7871,28 @@
   "date": "2026-11-04",
   "panel": "rate",
   "series": "implied_polymarket",
-  "value": 4.2608,
+  "value": 4.243,
   "segment": "2026-12"
  },
  {
   "date": "2026-11-04",
   "panel": "rate",
   "series": "implied_kalshi",
-  "value": 4.2662,
+  "value": 4.2525,
+  "segment": "2026-12"
+ },
+ {
+  "date": "2026-11-05",
+  "panel": "rate",
+  "series": "implied_polymarket",
+  "value": 4.2454,
+  "segment": "2026-12"
+ },
+ {
+  "date": "2026-11-05",
+  "panel": "rate",
+  "series": "implied_kalshi",
+  "value": 4.2638,
   "segment": "2026-12"
  },
  {
@@ -12593,6 +12607,13 @@
   "segment": null
  },
  {
+  "date": "2026-11-05",
+  "panel": "rate",
+  "series": "target",
+  "value": 4.0,
+  "segment": null
+ },
+ {
   "date": "2025-01-02",
   "panel": "rate",
   "series": "dgs2",
@@ -15803,6 +15824,13 @@
   "panel": "rate",
   "series": "dgs2",
   "value": 4.59,
+  "segment": null
+ },
+ {
+  "date": "2026-11-03",
+  "panel": "rate",
+  "series": "dgs2",
+  "value": 4.61,
   "segment": null
  },
  {
@@ -19026,6 +19054,13 @@
   "segment": null
  },
  {
+  "date": "2026-11-04",
+  "panel": "inflation",
+  "series": "t5yie",
+  "value": 2.3,
+  "segment": null
+ },
+ {
   "date": "2025-01-02",
   "panel": "inflation",
   "series": "t5yifr",
@@ -22246,6 +22281,13 @@
   "segment": null
  },
  {
+  "date": "2026-11-04",
+  "panel": "inflation",
+  "series": "t5yifr",
+  "value": 2.22,
+  "segment": null
+ },
+ {
   "date": "2025-01-02",
   "panel": "oil",
   "series": "wti",
@@ -25421,6 +25463,41 @@
   "panel": "oil",
   "series": "wti",
   "value": 103.37,
+  "segment": null
+ },
+ {
+  "date": "2026-10-28",
+  "panel": "oil",
+  "series": "wti",
+  "value": 106.25,
+  "segment": null
+ },
+ {
+  "date": "2026-10-29",
+  "panel": "oil",
+  "series": "wti",
+  "value": 105.51,
+  "segment": null
+ },
+ {
+  "date": "2026-10-30",
+  "panel": "oil",
+  "series": "wti",
+  "value": 107.56,
+  "segment": null
+ },
+ {
+  "date": "2026-11-02",
+  "panel": "oil",
+  "series": "wti",
+  "value": 100.06,
+  "segment": null
+ },
+ {
+  "date": "2026-11-03",
+  "panel": "oil",
+  "series": "wti",
+  "value": 99.64,
   "segment": null
  },
  {
@@ -28651,6 +28728,41 @@
   "segment": null
  },
  {
+  "date": "2026-10-28",
+  "panel": "oil",
+  "series": "brent",
+  "value": 119.2,
+  "segment": null
+ },
+ {
+  "date": "2026-10-29",
+  "panel": "oil",
+  "series": "brent",
+  "value": 115.28,
+  "segment": null
+ },
+ {
+  "date": "2026-10-30",
+  "panel": "oil",
+  "series": "brent",
+  "value": 120.15,
+  "segment": null
+ },
+ {
+  "date": "2026-11-02",
+  "panel": "oil",
+  "series": "brent",
+  "value": 107.39,
+  "segment": null
+ },
+ {
+  "date": "2026-11-03",
+  "panel": "oil",
+  "series": "brent",
+  "value": 107.03,
+  "segment": null
+ },
+ {
   "date": "2025-01-02",
   "panel": "claims",
   "series": "ic4wsa",
@@ -29271,6 +29383,13 @@
   "panel": "claims",
   "series": "ic4wsa",
   "value": 196.75,
+  "segment": null
+ },
+ {
+  "date": "2026-11-05",
+  "panel": "claims",
+  "series": "ic4wsa",
+  "value": 194.75,
   "segment": null
  }
 ]
