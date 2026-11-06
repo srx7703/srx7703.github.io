@@ -11362,7 +11362,29 @@
    "result": "no",
    "settled_ts": "2026-11-04 15:33:50.308542+00",
    "recorded_at": "2026-11-05T14:46:31+00:00"
+  },
+  "polymarket:2683268": {
+   "platform": "polymarket",
+   "market_id": "2683268",
+   "event_id": "633839",
+   "event_slug": "how-many-senate-and-house-seats-will-republicans-have-after-the-midterms-20260625152833634",
+   "outcome_yes": null,
+   "question": "Will Republicans hold ≤46 Senate seats and 193–207 House seats after the 2026 midterms?",
+   "result": "no",
+   "settled_ts": "2026-11-06 03:22:34.011672+00",
+   "recorded_at": "2026-11-06T14:24:03+00:00"
+  },
+  "polymarket:2683269": {
+   "platform": "polymarket",
+   "market_id": "2683269",
+   "event_id": "633839",
+   "event_slug": "how-many-senate-and-house-seats-will-republicans-have-after-the-midterms-20260625152833634",
+   "outcome_yes": null,
+   "question": "Will Republicans hold ≤46 Senate seats and ≤192 House seats after the 2026 midterms?",
+   "result": "yes",
+   "settled_ts": "2026-11-06 03:22:34.017529+00",
+   "recorded_at": "2026-11-06T14:24:03+00:00"
   }
  },
- "updated_at": "2026-11-05T14:46:31+00:00"
+ "updated_at": "2026-11-06T14:24:03+00:00"
 }

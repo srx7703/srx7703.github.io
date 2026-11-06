@@ -9734,7 +9734,51 @@
    "result": "yes",
    "settled_ts": "2026-11-04 22:53:46.834601+00",
    "recorded_at": "2026-11-05T14:47:28+00:00"
+  },
+  "polymarket:6069586": {
+   "platform": "polymarket",
+   "market_id": "6069586",
+   "event_id": "79123",
+   "event_slug": "how-low-will-10-year-treasury-yield-get-before-2027",
+   "outcome_yes": null,
+   "question": "Will the 10-year Treasury yield dip below 4.9% before 2027?",
+   "result": "yes",
+   "settled_ts": "2026-11-05 22:49:03.949785+00",
+   "recorded_at": "2026-11-06T14:24:53+00:00"
+  },
+  "polymarket:5194898": {
+   "platform": "polymarket",
+   "market_id": "5194898",
+   "event_id": "1116515",
+   "event_slug": "how-low-will-2-year-treasury-yield-get-before-2027",
+   "outcome_yes": null,
+   "question": "Will the 2-year Treasury yield dip below 4.50% before 2027?",
+   "result": "yes",
+   "settled_ts": "2026-11-05 22:50:06.163235+00",
+   "recorded_at": "2026-11-06T14:24:53+00:00"
+  },
+  "polymarket:6071859": {
+   "platform": "polymarket",
+   "market_id": "6071859",
+   "event_id": "956932",
+   "event_slug": "how-low-will-5-year-treasury-yield-get-before-2027",
+   "outcome_yes": null,
+   "question": "Will the 5-year Treasury yield dip below 4.60% before 2027?",
+   "result": "yes",
+   "settled_ts": "2026-11-05 22:50:06.135661+00",
+   "recorded_at": "2026-11-06T14:24:53+00:00"
+  },
+  "polymarket:6071860": {
+   "platform": "polymarket",
+   "market_id": "6071860",
+   "event_id": "956932",
+   "event_slug": "how-low-will-5-year-treasury-yield-get-before-2027",
+   "outcome_yes": null,
+   "question": "Will the 5-year Treasury yield dip below 4.65% before 2027?",
+   "result": "yes",
+   "settled_ts": "2026-11-05 22:50:06.107023+00",
+   "recorded_at": "2026-11-06T14:24:53+00:00"
   }
  },
- "updated_at": "2026-11-05T14:47:28+00:00"
+ "updated_at": "2026-11-06T14:24:53+00:00"
 }
