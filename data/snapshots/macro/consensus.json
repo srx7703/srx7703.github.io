@@ -4709,6 +4709,167 @@
    }
   ]
  },
+ "jobs_2026-11-06:KXPAYROLLS": {
+  "series": "KXPAYROLLS",
+  "event": "KXPAYROLLS-26OCT",
+  "n_strikes": 13,
+  "n_markets": 13,
+  "consensus": 69.425,
+  "actual": 165.0,
+  "actual_from": "expiration_value",
+  "surprise": 95.575,
+  "hawkish_surprise": 95.575,
+  "quotes": [
+   {
+    "ticker": "KXPAYROLLS-26OCT-T-25000",
+    "strike": -25000.0,
+    "p": 0.965
+   },
+   {
+    "ticker": "KXPAYROLLS-26OCT-T0",
+    "strike": 0.0,
+    "p": 0.905
+   },
+   {
+    "ticker": "KXPAYROLLS-26OCT-T10000",
+    "strike": 10000.0,
+    "p": 0.8300000000000001
+   },
+   {
+    "ticker": "KXPAYROLLS-26OCT-T20000",
+    "strike": 20000.0,
+    "p": 0.825
+   },
+   {
+    "ticker": "KXPAYROLLS-26OCT-T30000",
+    "strike": 30000.0,
+    "p": 0.775
+   },
+   {
+    "ticker": "KXPAYROLLS-26OCT-T40000",
+    "strike": 40000.0,
+    "p": 0.74
+   },
+   {
+    "ticker": "KXPAYROLLS-26OCT-T50000",
+    "strike": 50000.0,
+    "p": 0.675
+   },
+   {
+    "ticker": "KXPAYROLLS-26OCT-T60000",
+    "strike": 60000.0,
+    "p": 0.625
+   },
+   {
+    "ticker": "KXPAYROLLS-26OCT-T70000",
+    "strike": 70000.0,
+    "p": 0.48
+   },
+   {
+    "ticker": "KXPAYROLLS-26OCT-T80000",
+    "strike": 80000.0,
+    "p": 0.52
+   },
+   {
+    "ticker": "KXPAYROLLS-26OCT-T90000",
+    "strike": 90000.0,
+    "p": 0.315
+   },
+   {
+    "ticker": "KXPAYROLLS-26OCT-T100000",
+    "strike": 100000.0,
+    "p": 0.28500000000000003
+   },
+   {
+    "ticker": "KXPAYROLLS-26OCT-T125000",
+    "strike": 125000.0,
+    "p": 0.165
+   }
+  ]
+ },
+ "jobs_2026-11-06:KXU3": {
+  "series": "KXU3",
+  "event": "KXU3-26OCT",
+  "n_strikes": 14,
+  "n_markets": 14,
+  "consensus": 4.1885,
+  "actual": 4.1,
+  "actual_from": "expiration_value",
+  "surprise": -0.0885,
+  "hawkish_surprise": 0.0885,
+  "quotes": [
+   {
+    "ticker": "KXU3-26OCT-T3.7",
+    "strike": 3.7,
+    "p": 0.995
+   },
+   {
+    "ticker": "KXU3-26OCT-T3.8",
+    "strike": 3.8,
+    "p": 0.995
+   },
+   {
+    "ticker": "KXU3-26OCT-T3.9",
+    "strike": 3.9,
+    "p": 0.98
+   },
+   {
+    "ticker": "KXU3-26OCT-T4.0",
+    "strike": 4.0,
+    "p": 0.945
+   },
+   {
+    "ticker": "KXU3-26OCT-T4.1",
+    "strike": 4.1,
+    "p": 0.6699999999999999
+   },
+   {
+    "ticker": "KXU3-26OCT-T4.2",
+    "strike": 4.2,
+    "p": 0.215
+   },
+   {
+    "ticker": "KXU3-26OCT-T4.3",
+    "strike": 4.3,
+    "p": 0.045
+   },
+   {
+    "ticker": "KXU3-26OCT-T4.4",
+    "strike": 4.4,
+    "p": 0.01
+   },
+   {
+    "ticker": "KXU3-26OCT-T4.5",
+    "strike": 4.5,
+    "p": 0.005
+   },
+   {
+    "ticker": "KXU3-26OCT-T4.6",
+    "strike": 4.6,
+    "p": 0.005
+   },
+   {
+    "ticker": "KXU3-26OCT-T4.7",
+    "strike": 4.7,
+    "p": 0.005
+   },
+   {
+    "ticker": "KXU3-26OCT-T4.8",
+    "strike": 4.8,
+    "p": 0.005
+   },
+   {
+    "ticker": "KXU3-26OCT-T4.9",
+    "strike": 4.9,
+    "p": 0.005
+   },
+   {
+    "ticker": "KXU3-26OCT-T5.0",
+    "strike": 5.0,
+    "p": 0.005
+   }
+  ]
+ },
  "pce_2025-01-31:KXPCECORE": {
   "series": "KXPCECORE",
   "event": "KXPCECORE-24DEC",
