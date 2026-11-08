@@ -15550,5 +15550,101 @@
   "best_ask": 0.001,
   "volume": 14333086.447598998,
   "volume_24h": null
+ },
+ {
+  "snapshot_ts": "2026-11-08T22:01:34+00:00",
+  "key": "bop_dd",
+  "label": "D Senate + D House",
+  "platform": "polymarket",
+  "market_id": "562828",
+  "prob": 0.9995,
+  "best_bid": 0.999,
+  "best_ask": 1.0,
+  "volume": 20264994.643411,
+  "volume_24h": null
+ },
+ {
+  "snapshot_ts": "2026-11-08T22:01:34+00:00",
+  "key": "bop_dr",
+  "label": "D Senate + R House",
+  "platform": "polymarket",
+  "market_id": "562829",
+  "prob": 0.0,
+  "best_bid": null,
+  "best_ask": 0.001,
+  "volume": 11877556.492492,
+  "volume_24h": null
+ },
+ {
+  "snapshot_ts": "2026-11-08T22:01:34+00:00",
+  "key": "bop_rd",
+  "label": "R Senate + D House",
+  "platform": "polymarket",
+  "market_id": "562830",
+  "prob": 0.0,
+  "best_bid": null,
+  "best_ask": 0.001,
+  "volume": 10578469.224926999,
+  "volume_24h": null
+ },
+ {
+  "snapshot_ts": "2026-11-08T22:01:34+00:00",
+  "key": "bop_rr",
+  "label": "R Senate + R House",
+  "platform": "polymarket",
+  "market_id": "562831",
+  "prob": 0.0,
+  "best_bid": null,
+  "best_ask": 0.001,
+  "volume": 26226833.333175,
+  "volume_24h": null
+ },
+ {
+  "snapshot_ts": "2026-11-08T22:01:34+00:00",
+  "key": "house_dem",
+  "label": "Democrats win the House",
+  "platform": "polymarket",
+  "market_id": "562802",
+  "prob": 0.9995,
+  "best_bid": 0.999,
+  "best_ask": 1.0,
+  "volume": 37373961.506353006,
+  "volume_24h": null
+ },
+ {
+  "snapshot_ts": "2026-11-08T22:01:34+00:00",
+  "key": "house_rep",
+  "label": "Republicans win the House",
+  "platform": "polymarket",
+  "market_id": "562803",
+  "prob": 0.0,
+  "best_bid": null,
+  "best_ask": 0.001,
+  "volume": 25928654.211806003,
+  "volume_24h": null
+ },
+ {
+  "snapshot_ts": "2026-11-08T22:01:34+00:00",
+  "key": "senate_dem",
+  "label": "Democrats win the Senate",
+  "platform": "polymarket",
+  "market_id": "562793",
+  "prob": 0.9995,
+  "best_bid": 0.999,
+  "best_ask": 1.0,
+  "volume": 17129861.088641003,
+  "volume_24h": null
+ },
+ {
+  "snapshot_ts": "2026-11-08T22:01:34+00:00",
+  "key": "senate_rep",
+  "label": "Republicans win the Senate",
+  "platform": "polymarket",
+  "market_id": "562794",
+  "prob": 0.0,
+  "best_bid": null,
+  "best_ask": 0.001,
+  "volume": 14333086.447598998,
+  "volume_24h": null
  }
 ]
