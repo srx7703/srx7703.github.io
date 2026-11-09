@@ -11384,7 +11384,18 @@
    "result": "yes",
    "settled_ts": "2026-11-06 03:22:34.017529+00",
    "recorded_at": "2026-11-06T14:24:03+00:00"
+  },
+  "kalshi:KXSAMEPARTYCONGRESS-27FEB01": {
+   "platform": "kalshi",
+   "market_id": "KXSAMEPARTYCONGRESS-27FEB01",
+   "event_id": "KXSAMEPARTYCONGRESS-27FEB01",
+   "event_slug": "KXSAMEPARTYCONGRESS-27FEB01",
+   "outcome_yes": "Yes",
+   "question": "Will the number of parties that control both the U.S. House of Representatives and the U.S. Senate during February 1, 2027 be above 0?",
+   "result": "yes",
+   "settled_ts": "2026-11-08T15:00:27.050884Z",
+   "recorded_at": "2026-11-09T16:35:18+00:00"
   }
  },
- "updated_at": "2026-11-08T13:36:27+00:00"
+ "updated_at": "2026-11-09T16:35:18+00:00"
 }
