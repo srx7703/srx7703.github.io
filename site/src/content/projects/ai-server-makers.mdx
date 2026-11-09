@@ -1,0 +1,441 @@
+---
+title: "AI server makers: who builds the racks, who keeps the margin"
+summary: "Twenty-five listed server makers in four groups, rebuilt from SEC, Taiwan and mainland filings: whether the cloud's own contract makers are taking share from the brands, how thin the margins are and how much cash the inventory ties up, who the customers are, who can build a full AI rack, what the market pays for growth, the private makers, and whether Taiwan's monthly revenue tells you the cloud capex early."
+status: in-progress
+domain: ["hardware", "equities", "pre-registration"]
+tools: ["Python", "Polars", "MOPS", "SEC EDGAR XBRL", "East Money", "FRED", "Vega-Lite", "GitHub Actions"]
+featured: false
+order: 3
+started: "2026-11-09"
+---
+import facts from '@data/facts/servers.json';
+import KpiRow from '@components/KpiRow.astro';
+import KpiTile from '@components/KpiTile.astro';
+import ChartCard from '@components/ChartCard.astro';
+import VegaChart from '@components/VegaChart.astro';
+import SourceStamp from '@components/SourceStamp.astro';
+import Section from '@components/Section.astro';
+import DataQuality from '@components/DataQuality.astro';
+import DataTable from '@components/DataTable.astro';
+import DownloadCsv from '@components/DownloadCsv.astro';
+import PipelineStatus from '@components/PipelineStatus.astro';
+import Sidenote from '@components/Sidenote.astro';
+import Appendix from '@components/Appendix.astro';
+import { growthSpec, marginSpec, operatingSpec, inventorySpec, valuationSpec, q7Spec, GROUP_LABEL } from '@charts/servers/charts';
+import q7mart from '@data/marts/servers/q7.json';
+import { pct, dayUtc, dateUtc } from '@lib/fmt';
+export const generatedAt = dateUtc(facts.generated_at);
+export const word = { holds: 'holds', refuted: 'refuted', undecided: 'undecided', pending: 'pending' };
+export const sc = (k) => facts.scorecard.find((r) => r.key === k) ?? {};
+export const pp = (x) => (x == null ? '—' : `${(100 * x).toFixed(1)}%`);
+export const p0 = (x) => (x == null ? '—' : `${Math.round(100 * x)}%`);
+export const sgn = (x) => (x == null ? '—' : `${x >= 0 ? '+' : '−'}${Math.round(Math.abs(100 * x))}%`);
+export const ql = (q) => (q ? `Q${q[5]} ${q.slice(0, 4)}` : '—');
+export const idc = facts.idc_odm[0];
+export const dellIdc = facts.idc_vendors.find((v) => v.entity.startsWith('Dell'));
+export const smciIdc = facts.idc_vendors.find((v) => v.entity.startsWith('Supermicro'));
+export const gg = facts.group_growth.filter((r) => r.oem != null && r.odm != null);
+export const ggLast = gg[gg.length - 1];
+export const ggOdmLead = gg.filter((r) => r.odm > r.oem);
+export const runStart = (key, cmp) => { let q = null; for (const r of gg) { if (r[key] != null && cmp(r)) { q = q ?? r.quarter; } else { q = null; } } return q; };
+export const odmRunStart = (() => { let start = null, last = null; for (const r of gg) { if (r.odm > r.oem) { start = start ?? r.quarter; last = r.quarter; } else if (last) { break; } else { start = null; } } return start; })();
+export const robustRunStart = runStart('odm_robust', (r) => r.oem >= r.odm_robust);
+export const RU = facts.rules;
+export const TF = facts.trendforce_csp;
+export const q1 = facts.q1;
+export const prov = q1.provisional;
+export const q2 = facts.q2;
+export const q5 = facts.q5;
+export const q7 = facts.q7;
+export const F = facts.forecasts;
+export const dell = sc('DELL');
+export const smci = sc('SMCI');
+export const wiwynn = sc('6669');
+export const quanta = sc('2382');
+export const inspur = sc('000977.SZ');
+export const h3c = sc('000938.SZ');
+export const fii = sc('601138.SS');
+export const q5sorted = [...q5.rows].sort((a, b) => a.adj_pe - b.adj_pe);
+export const cheapest = q5sorted.slice(0, 3);
+export const groupOf = Object.fromEntries(facts.makers.map((m) => [m.key, m.group]).concat([['JBL', 'ems']]).concat(facts.makers.filter((m) => m.market === 'tw').map((m) => [`${m.key}.TW`, m.group])));
+export const scoreRows = facts.scorecard.map((r) => ({
+  name: r.comparator ? `${r.name} (comparator)` : r.name, group: GROUP_LABEL[r.group], ttm: ql(r.ttm_end),
+  growth: r.growth, gm: r.gross_margin, om: r.operating_margin, gm23: r.gross_margin_2023, om23: r.operating_margin_2023,
+  inv: r.inventory_days == null ? '—' : String(Math.round(r.inventory_days)),
+}));
+export const custRows = facts.customers.summary.map((s) => ({
+  name: facts.makers.find((m) => m.key === s.ticker)?.name ?? s.ticker,
+  largest: s.largest != null ? `${s.largest.toFixed(1)}%` : s.none_over_10 ? `none above ${p0(RU.big_customer)}` : 'not disclosed',
+  top5: s.top5_text ?? '—',
+  over10: (() => { const v = [...new Set([s.largest, ...s.over10].filter((x) => x != null && x >= 100 * RU.big_customer))].sort((a, b) => b - a); return v.length ? v.map((x) => `${x}%`).join(', ') : '—'; })(),
+  period: s.period.replace(/\s*\(.*\)/, ''),
+  named: facts.customers.named.filter((n) => n.ticker === s.ticker).map((n) => n.customer.replace(/,? Inc\.?$|,? L\.P\.$| Corporation$/, '')).join(', ') || '—',
+}));
+export const CAP = facts.capabilities.capabilities ?? {};
+export const capCols = ['rack_l10_l11', 'nvidia_gb_rack', 'amd_rack', 'custom_asic', 'liquid_cooling', 'us_mexico_capacity', 'china_domestic_chips'];
+export const capShort = { rack_l10_l11: 'Full rack', nvidia_gb_rack: 'NVIDIA NVL72 rack', amd_rack: 'AMD rack', custom_asic: 'Custom-chip servers', liquid_cooling: 'Liquid cooling', us_mexico_capacity: 'US / Mexico plant', china_domestic_chips: 'Chinese chips' };
+export const mark = (c) => (!c || c.value === 'unknown' ? '?' : c.value === 'yes' ? (c.self_claimed ? 'yes*' : 'yes') : c.value === 'partial' ? 'part' : 'no');
+export const en = (x) => x.replace(/^[\u3400-\u9fff\s/]+/, '');
+export const capRows = (facts.capabilities.rows ?? []).map((r) => Object.fromEntries([['name', en(r.entity)], ...capCols.map((k) => [k, mark(r.cells[k])])]));
+export const capYes = (k) => (facts.capabilities.rows ?? []).filter((r) => r.cells[k]?.value === 'yes').map((r) => en(r.entity).split(' (')[0]);
+export const privRows = facts.private.rows.map((r) => ({ name: r.name_cn ? `${r.name} ${r.name_cn}` : r.name, region: r.region, status: r.status, revenue: r.revenue, funding: r.funding }));
+export const fcRows = F.rows.map((r) => ({
+  name: r.name, point: r.point_k / 1e6, lo: r.lo80_k / 1e6, hi: r.hi80_k / 1e6,
+  actual: r.actual_k == null ? `due by ${dayUtc(RU.forecast_due)}` : (r.actual_k / 1e6).toFixed(1),
+  inside: r.actual_k == null ? '—' : r.inside ? 'inside' : 'outside',
+}));
+export const evalRows = [
+  { id: 'Q1', question: 'Are the Taiwan makers taking share from the brands?', status: word[q1.verdict], detail: `graded ${q1.grading_date}; provisional reading ${word[q1.provisional_verdict]}` },
+  { id: 'Q2', question: 'Is the gross-margin squeeze paid for by operating leverage?', status: word[q2.verdict], detail: `graded ${q2.grading_date}; provisional ${q2.shows} of ${q2.n} members show it` },
+  { id: 'Q5', question: 'Does the market price these makers on growth rather than margin?', status: word[q5.verdict], detail: `n = ${q5.n}; ρ(growth) ${q5.rho_growth.toFixed(2)}, ρ(margin) ${q5.rho_margin.toFixed(2)}` },
+  { id: 'Q7', question: "Does Taiwan's monthly revenue tell you the cloud capex early?", status: word[q7.verdict], detail: `correlation ${q7.primary.corr.toFixed(2)}, same direction ${p0(q7.primary.same_direction)} of ${q7.primary.n_changes} changes` },
+  { id: 'F1', question: 'November revenue of eight Taiwan makers', status: F.status, detail: F.scored ? `${F.inside} of ${F.scored} inside the interval` : `published by ${dayUtc(RU.forecast_due)}` },
+  { id: 'F2', question: "Dell servers and networking, fiscal Q3 2027: growth above half", status: 'pending', detail: 'reported late November' },
+  { id: 'F3', question: 'HPE Server segment, fiscal Q4 2026: growth above a fifth', status: 'pending', detail: 'reported early December; base corrected by amendment A1 the day it was registered' },
+  { id: 'F4', question: 'Quanta and Wiwynn: record revenue in Q4 2026', status: 'pending', detail: 'December revenue, published in January' },
+];
+
+<div class="lede">
+  <p>
+    The AI build-out is being assembled by a few dozen companies that most investors never look at: the brand makers
+    that sell under their own name, the Taiwan makers that build to a cloud company's own design, the contract
+    manufacturers, and China's server makers, which live in a separate market behind export
+    controls.<Sidenote>The page uses ODM for the Taiwan makers that build to a customer's design and sell straight to it,
+    OEM for brand makers such as Dell, and EMS for contract manufacturers such as Celestica. Hon Hai and Foxconn Industrial
+    Internet are both: they build to design and they run the largest contract factories in the world.</Sidenote>
+  </p>
+  <p>
+    The common story is that the cloud companies are cutting out the middlemen and buying straight from Taiwan. In the
+    year of the full-rack GPU system, the latest data points the other way. IDC puts servers that Taiwan makers sell directly to their customers at
+    {pp(idc.share)} of world server revenue in {idc.period}, down from {pp(idc.share_year_ago)} a year earlier, while
+    Dell's share went from {pp(dellIdc.share_year_ago)} to {pp(dellIdc.share)}. The brands appear to have won buyers outside
+    the largest clouds, and they paid for it in gross margin: Dell's fell from {pp(dell.gross_margin_2023)} to
+    {' '}{pp(dell.gross_margin)}, Super Micro's from {pp(smci.gross_margin_2023)} to {pp(smci.gross_margin)}, while Wiwynn,
+    the purest Taiwan maker, moved from {pp(wiwynn.gross_margin_2023)} to {pp(wiwynn.gross_margin)}.
+  </p>
+</div>
+
+<PipelineStatus lastSnapshot={facts.generated_at} firstSnapshot={facts.generated_at} nSnapshots={1} nDays={1} workflow="servers.yml" cadence="weekly, and on the 11th of each month for Taiwan's monthly revenue" detail={`Taiwan monthly revenue through ${facts.latest_month}; ${facts.scorecard.length} listed makers`} />
+
+<KpiRow>
+  <KpiTile label="Direct-from-maker share of world server revenue" value={pp(idc.share)} sub={`${idc.period}, IDC; ${pp(idc.share_year_ago)} a year earlier`} />
+  <KpiTile label="Dell gross margin" value={pp(dell.gross_margin)} sub={`trailing four quarters to ${ql(dell.ttm_end)}; ${pp(dell.gross_margin_2023)} to mid-2023`} />
+  <KpiTile label="Inspur inventory" value={`${Math.round(inspur.inventory_days)} days`} sub={`of cost of sales; ${Math.round(inspur.inventory_days_2023)} days to mid-2023`} />
+  <KpiTile label="Forward PE against growth" value={`ρ = ${q5.rho_growth.toFixed(2)}`} sub={`${q5.n} listed makers: the faster a maker grew, the lower its multiple`} />
+</KpiRow>
+
+<Section id="flow" title="Where the money went: back to the brands, for now" wide>
+
+Two rulers measure this, and they do not tell quite the same story. IDC's tracker counts what each vendor sells into
+the server market, and it has the brands gaining share across the past year. The filings measure what each company
+books, and the registered test compares the brand makers' server lines (Dell's servers and networking, HPE's server segment, Super Micro, Lenovo's infrastructure group)
+with the Taiwan makers' total revenue in US dollars.<Sidenote>Taiwan's totals include notebooks, which grew slowly, and
+Wistron's GPU boards and trays, which end up inside the brand makers' servers. The first understates the Taiwan makers'
+server growth; the second counts some of the brands' boom twice. The dashed line removes Wistron and uses Wiwynn, which
+is all servers.</Sidenote>
+
+<ChartCard size="full" title={`By the filings, the Taiwan makers grew faster from ${ql(odmRunStart)} to ${ql(ggOdmLead[ggOdmLead.length - 1]?.quarter)}; the brands caught up in ${ql(ggLast.quarter)}`} subtitle="Year-over-year growth of trailing-four-quarter revenue in US dollars. Brand makers: server lines only, fiscal quarters placed in the calendar quarter holding most of their days; series starts when all four have comparable segment history. Taiwan: consolidated monthly revenue at monthly average exchange rates.">
+  <VegaChart id="srv-growth" spec={growthSpec(facts.group_growth)} height={300} ariaLabel="Line chart of trailing-four-quarter growth: brand makers' server lines against Taiwan makers' revenue" />
+  <SourceStamp slot="stamp" sources={[facts.sources[0], facts.sources[1], facts.sources[3]]} asOf={generatedAt} note="descriptive; the graded version of this comparison is Q1 below" />
+</ChartCard>
+
+<p>
+  By the filings, the brands led through early 2025, the Taiwan makers led from {ql(odmRunStart)} to
+  {' '}{ql(ggOdmLead[ggOdmLead.length - 1]?.quarter)}, and the brands were ahead again in {ql(ggLast.quarter)} (from
+  {' '}{ql(robustRunStart)} with Wiwynn in place of Wistron). Part of the gap between the two rulers is Wistron: its totals
+  include the GPU boards and trays that go into the brands' own servers, which IDC counts inside the brand's server.
+</p>
+
+<p>
+  The registered version of this comparison (Q1) is graded on {dayUtc(q1.grading_date)}, once Dell, HPE and Lenovo have
+  reported their quarter ending in September or October. Provisionally, with each brand maker on its latest reported
+  quarter ({Object.entries(prov.quarters).map(([k, q]) => `${k === '0992.HK' ? 'Lenovo' : k} ${ql(q)}`).join(', ')}) and
+  the Taiwan makers on the registered window to September 2026, it reads <strong>{word[q1.provisional_verdict]}</strong>:
+  the brands' server lines grew {sgn(prov.g_oem)}, Quanta, Wistron and Inventec {sgn(prov.groups.primary.g_odm)}, and
+  {' '}{sgn(prov.groups.robustness.g_odm)} with Wiwynn in place of Wistron. The registered threshold for "the Taiwan makers
+  are taking share" is that they outgrow the brands by {sgn(RU.q1_holds_ratio - 1)} in relative terms; they are behind.
+</p>
+
+<p>
+  A likely cause is who is buying. TrendForce expects the five largest North American clouds' share of NVIDIA rack
+  purchases to fall: {TF ? TF.value : 'figure unavailable'} ({TF?.period}). The newer AI clouds, model labs and governments tend to buy
+  through the brands, which bring financing and service; the largest clouds still buy from Taiwan, but they are no
+  longer the only large buyers. The filings do not name the buyers, so this is an explanation consistent with the
+  numbers, not a measurement.
+</p>
+
+<DataTable id="idc" caption={`IDC's top five vendors and the direct-from-maker line, ${facts.idc_vendors.length ? '2Q26' : ''}`} columns={[
+  { key: 'entity', label: 'Vendor' },
+  { key: 'share', label: 'Share of server revenue', format: 'pct' },
+  { key: 'share_year_ago', label: 'A year earlier', format: 'pct' },
+]} rows={facts.idc_vendors} />
+
+</Section>
+
+<Section id="margins" title="The squeeze hit the brands and most mainland makers; the purest Taiwan makers barely moved" wide>
+
+Selling a full rack means reselling a great deal of NVIDIA silicon at little mark-up, so gross margin falls as AI's
+share of sales rises. What the filings add is where it falls. The Taiwan makers were already building to cost, mostly at single-digit
+gross margins, and the purest of them (Wiwynn, Inventec, Hon Hai) have barely moved. Most brands' and mainland makers'
+margins have fallen toward them, while the contract manufacturers' rose: they sell assembly and testing, not the GPUs.
+
+<ChartCard size="full" title="Most brand and mainland makers' gross margins fell; Wiwynn, Inventec and Hon Hai hardly moved" subtitle="Gross margin, trailing four quarters: hollow mark = four quarters to mid-2023, filled mark = latest four quarters reported. Company-level, reporting currency. Comparators and makers without a gross-profit line (HPE) are left out.">
+  <VegaChart id="srv-gm" spec={marginSpec(facts.scorecard)} height={440} ariaLabel="Dumbbell chart of gross margin, mid-2023 against latest, by company" />
+  <SourceStamp slot="stamp" sources={[facts.sources[0], facts.sources[1], facts.sources[2]]} asOf={generatedAt} />
+</ChartCard>
+
+<ChartCard size="full" title="Operating leverage paid for the squeeze at Dell, not at Super Micro" subtitle="Operating margin, trailing four quarters, same windows and marks. Operating profit: reported operating income (US, Hong Kong), 營業利益 (Taiwan), operating revenue less operating cost (mainland).">
+  <VegaChart id="srv-om" spec={operatingSpec(facts.scorecard)} height={460} ariaLabel="Dumbbell chart of operating margin, mid-2023 against latest, by company" />
+  <SourceStamp slot="stamp" sources={[facts.sources[0], facts.sources[1], facts.sources[2]]} asOf={generatedAt} />
+</ChartCard>
+
+<p>
+  The registered test (Q2) asks whether a maker's gross margin fell by at least half a point while its operating margin
+  held or rose. It is graded on {dayUtc(q2.grading_date)} on the four quarters to September 2026. Only {q2.n} graded
+  members have reported that quarter so far, and {q2.shows} of them shows the pattern; {q2.missing.length} have not
+  ({q2.missing.map((k) => facts.makers.find((m) => m.key === k)?.name ?? k).join(', ')}; Celestica has no 2023 quarters
+  on US forms and will drop out). The provisional reading, <strong>{word[q2.provisional_verdict]}</strong>, is likely to
+  change: on their latest quarters Dell, Quanta and Wistron all show the pattern. The weaker version, gross margin lower
+  and operating profit higher, holds for {q2.weak_shows} of {q2.n}; {q2.placebo_shows} of the three placebo companies
+  shows the pattern. Dell's operating margin rose from {pp(dell.operating_margin_2023)} to
+  {' '}{pp(dell.operating_margin)} on revenue that grew {sgn(dell.growth)} in a year; Super Micro's fell from
+  {' '}{pp(smci.operating_margin_2023)} to {pp(smci.operating_margin)}. Wiwynn and Inventec fail the test the other way:
+  their gross margins never fell far enough to count as a squeeze.
+</p>
+
+</Section>
+
+<Section id="inventory" title="The real risk is the inventory, not the margin" wide>
+
+A thin margin is survivable; a thin margin on a large unsold stock of GPUs is not. Inventory days measure how long a
+maker's stock would last at its current cost of sales.
+
+<ChartCard size="full" title={`Inventory roughly doubled or more against cost of sales at Dell, Inspur, H3C, Penguin and Huaqin`} subtitle="Inventory at the quarter end divided by a day's cost of sales (trailing four quarters). Hollow = mid-2023, filled = latest. Taiwan makers are missing: MOPS's statement summaries carry no inventory line.">
+  <VegaChart id="srv-inv" spec={inventorySpec(facts.scorecard)} height={300} ariaLabel="Dumbbell chart of inventory days, mid-2023 against latest, by company" />
+  <SourceStamp slot="stamp" sources={[facts.sources[1], facts.sources[2]]} asOf={generatedAt} />
+</ChartCard>
+
+<p>
+  Dell carries {Math.round(dell.inventory_days)} days of inventory against {Math.round(dell.inventory_days_2023)} in mid-2023;
+  Super Micro {Math.round(smci.inventory_days)} against {Math.round(smci.inventory_days_2023)}. Inspur, at {Math.round(inspur.inventory_days)} days, and
+  H3C's parent, at {Math.round(h3c.inventory_days)}, hold the most, both roughly double their 2023 levels. One possible
+  reason, which the filings do not state, is stocking accelerators ahead of export restrictions. Foxconn Industrial
+  Internet, which builds at the largest scale in the pool, held {Math.round(fii.inventory_days)} days, about where it was.
+</p>
+
+<DataTable id="scorecard" caption="Every listed maker: growth, margins and inventory" columns={[
+  { key: 'name', label: 'Company' }, { key: 'group', label: 'Group' }, { key: 'ttm', label: 'Four quarters to' },
+  { key: 'growth', label: 'Revenue growth', format: 'pct' }, { key: 'gm', label: 'Gross margin', format: 'pct' },
+  { key: 'gm23', label: 'GM mid-2023', format: 'pct' }, { key: 'om', label: 'Operating margin', format: 'pct' },
+  { key: 'om23', label: 'OM mid-2023', format: 'pct' }, { key: 'inv', label: 'Inventory days', align: 'right' },
+]} rows={scoreRows} />
+<DownloadCsv filename="server-makers-scorecard.csv" rows={scoreRows} />
+
+</Section>
+
+<Section id="customers" title="Most server-heavy makers depend on one to three customers" wide>
+
+Every number below is a share of the whole company's revenue, as each company's annual report or 10-K states it.
+Taiwan and mainland filers anonymize their customers; US filers mostly do not name them either. Where a company's own
+document names customers, they are listed, but no document in the pool says which name is the large one.
+
+<DataTable id="customers" caption="Customer concentration, latest annual report" columns={[
+  { key: 'name', label: 'Company' }, { key: 'largest', label: 'Largest customer' }, { key: 'over10', label: 'Every customer above 10%' },
+  { key: 'top5', label: 'Top five' }, { key: 'period', label: 'Period' }, { key: 'named', label: 'Named in company documents' },
+]} rows={custRows} />
+
+<p>
+  Wiwynn's largest customer was {pp(facts.customers.summary.find((s) => s.ticker === '6669')?.largest / 100)} of 2025
+  revenue, Inventec's {pp(facts.customers.summary.find((s) => s.ticker === '2356')?.largest / 100)}, MiTAC's
+  {' '}{pp(facts.customers.summary.find((s) => s.ticker === '3706')?.largest / 100)}. In mainland China the top five
+  customers took {pp(facts.customers.summary.find((s) => s.ticker === '603019.SS')?.top5 / 100)} of Sugon's revenue and
+  {' '}{pp(facts.customers.summary.find((s) => s.ticker === '000977.SZ')?.top5 / 100)} of Inspur's. Only Gigabyte and ASUS, and Flex for its full year, report no customer above {p0(RU.big_customer)}; Foxconn Industrial Internet,
+  Huaqin and Lenovo disclose only a top-five total. This is the
+  risk the multiples below are discounting.
+</p>
+
+</Section>
+
+<Section id="technology" title="Who can actually build an AI rack" wide>
+
+Since NVIDIA's NVL72, the unit of sale is a liquid-cooled rack of {RU.gpus_per_rack} GPUs, built and tested as one system (L10 to L11
+integration), not a server. The value moved to whoever can integrate, cool and test that rack at volume, close to the
+data center. Every cell below has a public source; "yes*" means only the company itself says so, "?" means no public
+source was found either way.
+
+<DataTable id="capabilities" caption="Capabilities, by company (sources in the downloadable file)" columns={[
+  { key: 'name', label: 'Company' }, ...capCols.map((k) => ({ key: k, label: capShort[k] })),
+]} rows={capRows} />
+<DownloadCsv filename="server-makers-capabilities.csv" rows={capRows} />
+
+<p>
+  Full NVL72 racks with a filing, release or third-party report behind them: {capYes('nvidia_gb_rack').join(', ')}.
+  Servers for a cloud company's own chips: {capYes('custom_asic').join(', ') || 'none confirmed'}. AMD's rack-scale
+  systems are younger: HPE has a first order and Wiwynn is expected to ship in the second half.
+</p>
+
+</Section>
+
+<Section id="valuation" title={`The market does not pay for this growth (registered test Q5: ${word[q5.verdict]})`} wide>
+
+If investors believed the growth would last, the fastest growers would trade at the highest multiples. In this pool
+they tend to trade at the lowest. Each company's forward multiple is divided by the median of its own market, so that a mainland listing is
+not compared with a Taiwan one on the raw number.
+
+<ChartCard size="full" title={`Faster growers tend to trade at lower forward multiples (ρ = ${q5.rho_growth.toFixed(2)})`} subtitle={`Forward PE on calendar-2027 consensus EPS divided by the median of its market group (US and Hong Kong / Taiwan / mainland), log scale, against trailing-four-quarter revenue growth. ${q5.n} listed makers with at least three analysts; snapshot ${dayUtc(facts.prereg.q5_snapshot ?? '2026-11-09')}.`}>
+  <VegaChart id="srv-val" spec={valuationSpec(q5.rows, groupOf)} height={340} ariaLabel="Scatter of market-adjusted forward PE against revenue growth" />
+  <SourceStamp slot="stamp" sources={[facts.sources[4]]} asOf={generatedAt} note={`not plotted: ${q5.excluded.join(', ')} (no calendar-2027 consensus after calendarising their fiscal years)`} />
+</ChartCard>
+
+<p>
+  The registered rule needed the correlation with growth to be at least {RU.q5_rho_growth_min.toFixed(2)} and to beat the
+  correlation with margin by {RU.q5_gap_min.toFixed(2)}, and it counts the claim as refuted if the correlation with margin is positive and at least as large as the one
+  with growth. The correlation with growth is {q5.rho_growth.toFixed(2)}, the wrong sign; with operating margin it is
+  {' '}{q5.rho_margin.toFixed(2)}, barely above zero. That is enough for <strong>{word[q5.verdict]}</strong> under the rule,
+  but the margin side of the result is weak: at a slightly negative margin correlation the verdict would have been
+  undecided. The robust part is the negative sign on growth. The three cheapest
+  relative to their markets are {cheapest.map((r) => r.name).join(', ')}. The reading most consistent with this is that
+  the market treats AI server revenue as a peak to be discounted rather than a level to be capitalised, which is also
+  what the customer concentration above would justify.
+</p>
+
+</Section>
+
+<Section id="private" title="The private makers" wide>
+
+Scope agreed for this page: whole-server and rack makers only. Cooling and power start-ups are named at the end of the
+section, not researched.
+
+<DataTable id="private-table" caption="Private, recently acquired and IPO-stage makers" columns={[
+  { key: 'name', label: 'Company' }, { key: 'region', label: 'Region' }, { key: 'status', label: 'Status' },
+  { key: 'revenue', label: 'Revenue (as published)' }, { key: 'funding', label: 'Funding or price' },
+]} rows={privRows} />
+
+<p>
+  The largest is xFusion, Huawei's former x86 business, whose draft IPO prospectus, as reported, shows the same squeeze
+  as the listed pool: main-business gross margin from 14.3% to 8.6% in two years as AI servers grew. Below it, China's domestic-chip tier is
+  populated by makers tied to local governments and Huawei's chips, winning the operators' tenders on thin equity. In
+  the West, ZT Systems is the case to remember: AMD kept the rack design team and sold the factories to Sanmina.
+  Adjacent cooling and power names, not researched here: {facts.private.adjacent.join(', ')}.
+</p>
+
+</Section>
+
+<Section id="monthly" title={`Can Taiwan's monthly revenue tell you the cloud capex early? (registered test Q7: ${word[q7.verdict]})`} wide>
+
+Taiwan's makers publish revenue every month, by the 10th. The cloud companies report capex about four weeks after the
+quarter ends. If the first two months of a quarter tracked the quarter's capex, a reader would know it about seven weeks
+before the cloud companies say it.
+
+<ChartCard size="full" title={`Same cycle (correlation ${q7.primary.corr.toFixed(2)}), but only ${p0(q7.primary.same_direction)} of quarter-to-quarter turns agree`} subtitle="Year-over-year growth. Taiwan: Quanta, Wistron and Inventec, first two months of each quarter, US dollars. Capex: cash purchases of property and equipment (Amazon gross), finance leases excluded.">
+  <VegaChart id="srv-q7" spec={q7Spec(q7mart.pairs)} height={300} ariaLabel="Line chart of Taiwan makers' revenue growth against cloud capex growth by quarter" />
+  <SourceStamp slot="stamp" sources={[facts.sources[0], facts.sources[1]]} asOf={generatedAt} />
+</ChartCard>
+
+<p>
+  The growth rates move together; the turns do not. The registered test needed both a correlation of {RU.q7_corr_min} and at least {p0(RU.q7_direction_min)} of
+  quarter-to-quarter changes in the same direction; the second came in at {p0(q7.primary.same_direction)}, and with
+  Wiwynn alone at {p0(q7.wiwynn.same_direction)}, so the answer is <strong>{word[q7.verdict]}</strong>. One thing the
+  registered rule did not test, and which is reported here only as an exploratory reading: the Taiwan series lines up
+  better with the <em>next</em> quarter's capex ({p0(q7.lead_exploratory.same_direction)} of turns agree). That fits a
+  supply chain in which the servers ship before the cloud company pays for them, but it was found, not predicted, and
+  it would need its own registered test.
+</p>
+
+<DataTable id="forecasts" caption={`Registered forecast: November 2026 revenue, NT$ billion (${p0(RU.forecast_interval)} interval from the same formula's past errors)`} columns={[
+  { key: 'name', label: 'Company' }, { key: 'point', label: 'Forecast', format: 'fixed1' },
+  { key: 'lo', label: 'Low', format: 'fixed1' }, { key: 'hi', label: 'High', format: 'fixed1' },
+  { key: 'actual', label: 'Actual' }, { key: 'inside', label: 'Inside?' },
+]} rows={fcRows} />
+
+</Section>
+
+<Appendix>
+
+<Section id="scope" title="Scope">
+
+<p>
+  {facts.makers.length} listed companies in four groups, of which three (Cisco, Pegatron, China Greatwall) are
+  comparators that never enter a group total or a graded test. Hon Hai and Foxconn Industrial Internet overlap: the
+  second is the first's mainland subsidiary, so they are never added together. Wistron consolidates Wiwynn (it holds
+  about 40% with control), so Wiwynn is never added to Wistron. "Server revenue" means a disclosed server line where one
+  exists (Dell, HPE, Lenovo) and total revenue otherwise; every table says which.
+</p>
+
+</Section>
+
+<Section id="method" title="Method">
+
+**Taiwan.** Monthly revenue pages for every month since 2016 and the quarterly income-statement summaries since 2019
+are read from MOPS and archived as served. Quarterly figures are year-to-date and are differenced within each year.
+**United States.** Each 10-Q and 10-K since 2019 is read from its XBRL instance, keeping dimensional facts, because the
+server segments of Dell and HPE exist only there. Dell's servers and networking line is its Infrastructure Solutions
+Group less storage. **Mainland.** East Money's copy of the statutory statements. **Lenovo** files in Hong Kong; its
+quarters are read from its results announcements by hand. **Valuation** comes from this site's valuation pipeline
+(Yahoo Finance and East Money consensus), frozen on the day the rules were registered.
+**Curated layer.** Customers, capabilities, private companies, IDC and TrendForce figures were collected by research
+passes and then re-checked against the cited pages by separate passes that tried to refute them; corrections are
+recorded in the files.
+
+<p>
+  <a href="https://github.com/srx7703/srx7703.github.io/tree/main/pipelines/servers">Pipeline source</a> ·
+  {' '}<a href="https://github.com/srx7703/srx7703.github.io/tree/main/data/reference/servers">curated files</a>
+</p>
+
+</Section>
+
+<Section id="limits" title="Limits">
+
+<ul>
+  <li><strong>Company-level margins mix businesses.</strong> Lenovo is mostly PCs, Hon Hai mostly consumer electronics; their margins say little about servers, which is why Q2 grades only the server-heavy makers.</li>
+  <li><strong>Fiscal calendars differ.</strong> Dell and HPE quarters end a month after the calendar quarter they are placed in.</li>
+  <li><strong>Capabilities are hard to verify.</strong> Many are claims in a company's own release, marked as such, and absence of a source is not evidence of absence.</li>
+  <li><strong>Shares from IDC are of all servers</strong>, not AI servers alone, and IDC does not split the direct-from-maker line by maker.</li>
+</ul>
+
+</Section>
+
+<Section id="evaluation" title="Evaluation (pre-registered)">
+
+<p>
+  The rules and forecasts were committed to <a href="https://github.com/srx7703/srx7703.github.io/tree/main/docs/prereg/ai-servers">docs/prereg/ai-servers</a> on
+  {' '}9 November 2026, before any of the tested quantities was computed; what had been seen is listed in the rules file.
+  Two independent reviews of the draft rules were folded in before registration. One amendment (A1) was appended the
+  same day, before HPE reported: a code review found that the base quoted in F3 mixed two segment definitions. Q5 and Q7 were graded the same day on
+  data that already existed: a blind analysis, with the rule written before the number was computed, not a forecast.
+  Q1 and Q2 are graded on
+  {' '}{dayUtc(q1.grading_date)}; until then this page shows a provisional reading.
+</p>
+
+<DataTable id="evaluation-table" caption="Every registered item and its status" columns={[
+  { key: 'id', label: 'Item' }, { key: 'question', label: 'Question' }, { key: 'status', label: 'Status' }, { key: 'detail', label: 'Detail' },
+]} rows={evalRows} />
+
+</Section>
+
+<Section id="data-quality" title="Data quality">
+  <DataQuality checks={facts.checks} note="Rebuilt from the archived raw pages and per-filing extracts on every run." />
+</Section>
+
+<Section id="sources" title="Sources">
+  <ul>
+    {facts.sources.map((s) => <li><a href={s.url}>{s.name}</a></li>)}
+  </ul>
+</Section>
+
+<Section id="build-notes" title="Build notes">
+
+The author chose the question and the pool, approved the research plan and its five scope decisions, and asked for
+every step to be checked by independent agents before publication. Claude Code wrote the pipeline, ran six research
+passes for the curated layer and six verification passes against them, drafted the pre-registered rules and had them
+reviewed by two further passes before committing them, and wrote this page.
+
+</Section>
+
+<Section id="changelog" title="Changelog">
+  <ul>
+    <li>9 November 2026: rules and November forecasts registered; page published with Q5 and Q7 graded and Q1, Q2 provisional.</li>
+  </ul>
+</Section>
+
+</Appendix>

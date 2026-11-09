@@ -432,3 +432,22 @@ Marts (`data/marts/admarket/`): `quarterly` (values in $m; flagged rows carry no
 (Q2 paths), `open_web` (Q3 index), `volume_price` (Q4 rows), `forecasts` (rule A intervals and status), `evaluation`.
 Facts: `data/facts/admarket.json`. `publish` writes nothing if a check fails; the reconcile test pins the research
 numbers of 2026-10-21.
+
+
+## AI server makers (`pipelines/servers/`)
+
+Pipeline: `tw` (MOPS monthly revenue and t163sb04 income summaries) · `sec` (10-Q/10-K XBRL instances, dimensional
+facts kept) · `cn` (East Money F10 statements) · `fx` (FRED monthly averages) → `metrics` → `publish`, via `servers.yml`.
+Rules and forecasts: `docs/prereg/ai-servers/` (registered 2026-11-09, append-only).
+
+| Layer | Path | Committed |
+|---|---|---|
+| Raw | `data/raw/servers/mops_monthly/<YYYY-MM>/<fetch date>.html.gz`, `mops_quarterly/t163sb04/<YYYYQn>/…`, `xbrl/<TICKER>/<period>_<form>_<accession>.json.gz`, `eastmoney/<code>/{income,balance}/<date>.json.gz`, `fred/<series>/<date>.csv.gz` | yes |
+| Snapshot | `data/snapshots/servers/{tw_monthly,tw_quarterly,sec_facts,cn_quarterly,fx_monthly}.parquet` (rebuilt from raw), `q5_valuation_2026-11-09.parquet` (frozen Q5 input) | yes |
+| Curated | `data/reference/servers/{lenovo,customers,capabilities,private,disclosures}.json`, `data/reference/share_servers.json` | yes |
+| Marts | `data/marts/servers/{quarterly,monthly,group_growth,q7}.json` | yes |
+| Facts | `data/facts/servers.json` (no `curator_notes`) | yes |
+
+Calendar placement: a fiscal quarter goes to the calendar quarter holding most of its days. Dell servers and networking
+= ISG − Storage. Taiwan quarterly figures are year-to-date differenced within each year; MOPS summaries carry no
+inventory, so Taiwan inventory days are not computed.

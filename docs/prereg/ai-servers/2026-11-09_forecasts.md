@@ -45,4 +45,9 @@ NT$434,617,690 thousand). Scored when December revenue is published (by 2027-01-
 
 ## Amendments
 
-(none)
+**A1 (2026-11-09, same day, before HPE reports the quarter).** The F3 base quoted above, US$4,182m, is not a recast
+figure. A code review found it mixes HPE's fiscal-2025 annual Server total on the old segment definition with nine
+months on the recast fiscal-2026 definition, so it is a quarter on neither basis. F3 is therefore scored against the
+prior-year fourth-quarter Server segment revenue as printed in HPE's fiscal-2026 fourth-quarter earnings release
+(the recast comparative). The forecast itself, growth of more than 20%, is unchanged. Nothing about the actual
+quarter was known when this was written.

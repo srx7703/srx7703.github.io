@@ -1,0 +1,2382 @@
+{
+ "kind": "capabilities",
+ "updated": "2026-11-09",
+ "capabilities": {
+  "rack_l10_l11": "Rack-scale / L10-L11 integration: full rack built, tested and shipped by this company",
+  "nvidia_gb_rack": "Ships NVIDIA GB200/GB300 NVL72 racks; detail distinguishes full-rack integrator of record vs compute-tray/board supplier",
+  "amd_rack": "AMD Instinct rack-scale builder (MI350-series racks / MI400 'Helios')",
+  "custom_asic": "Builds servers for hyperscaler custom silicon (Google TPU, AWS Trainium, Meta MTIA, Microsoft Maia) - named where known",
+  "liquid_cooling": "Direct liquid cooling at volume (in-house CDU / cold plates / stated capacity)",
+  "own_board_design": "Designs its own motherboards / OCP design contributor ('yes') vs builds mostly to customer design ('partial'/'no')",
+  "us_mexico_capacity": "Server assembly capacity in the US or Mexico (location and stated capacity)",
+  "china_domestic_chips": "Builds servers on Chinese domestic accelerators/CPUs (Huawei Ascend/Kunpeng, Hygon, Cambricon etc.)"
+ },
+ "note": "Company x capability matrix; every non-unknown cell has a public source. Re-checked against the cited pages (checks/C_verify.json); corrections applied in code/build_reference.py CAP_FIXES.",
+ "rows": [
+  {
+   "entity": "Super Micro Computer",
+   "ticker": "SMCI",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "Sells DCBBS: integrates servers, storage, networking, racks, liquid cooling, power into deployable blocks; CEO cites up to 3,000 racks/month global capacity.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1375365/000137536526000022/smci-20260630.htm",
+     "publish_date": "2026-08-31",
+     "confidence": "high",
+     "caveat": "Rack capacity figure is a CEO statement (StorageReview 2026-08-01), not an audited output number."
+    },
+    "nvidia_gb_rack": {
+     "value": "yes",
+     "detail": "10-K FY2026 lists delivered products incl. NVIDIA GB300 NVL72 and GB200 NVL72 (air- and liquid-cooled configs); full-rack seller of record under own brand.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1375365/000137536526000022/smci-20260630.htm",
+     "publish_date": "2026-08-31",
+     "confidence": "high",
+     "caveat": "Filing says products 'compatible with' GB300/GB200 NVL72 were delivered; it gives no NVL72 rack unit count."
+    },
+    "amd_rack": {
+     "value": "partial",
+     "detail": "Introduced MI350X/MI355X products and 'announced support for AMD's next-generation Helios platform' (72-GPU MI455X rack); no Helios shipments disclosed.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1375365/000137536526000022/smci-20260630.htm",
+     "publish_date": "2026-08-31",
+     "confidence": "high",
+     "caveat": "'Announced support' is not a shipment; MI355X products are 8-GPU servers, not a rack-scale design."
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "No public evidence found that SMCI builds TPU/Trainium/MTIA/Maia servers; not searched exhaustively.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "yes",
+     "detail": "In-house DLC-2 and CDUs within DCBBS; CEO: up to 2,000 liquid-cooled racks/month of 3,000 total.",
+     "evidence_type": "media",
+     "self_claimed": true,
+     "source_url": "https://storagereview.com/news/supermicro-rack-series-adds-ten-models-rated-for-5500-lb-and-3000-racks-a-month",
+     "publish_date": "2026-08-01",
+     "confidence": "high",
+     "caveat": "Capacity is a stated maximum, not shipments; older releases claimed 5,000 racks/month (2023-11-09) under a different definition."
+    },
+    "own_board_design": {
+     "value": "yes",
+     "detail": "10-K: 'Supermicro's expertise in motherboard, power, and chassis design'; designs and manufactures in-house (contract maker Compuware builds some boards).",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1375365/000137536526000022/smci-20260630.htm",
+     "publish_date": "2026-08-31",
+     "confidence": "high"
+    },
+    "us_mexico_capacity": {
+     "value": "yes",
+     "detail": "'We manufacture the majority of our systems at our San Jose, California headquarters'; FY2026 expanded US capacity incl. new Silicon Valley DCBBS campus. Mexico only named as expansion market.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1375365/000137536526000022/smci-20260630.htm",
+     "publish_date": "2026-08-31",
+     "confidence": "high",
+     "caveat": "No San Jose square-footage or rack capacity split given in the passage read."
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "US OEM; filing product list covers NVIDIA, AMD, Intel, Arm platforms only.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1375365/000137536526000022/smci-20260630.htm",
+     "publish_date": "2026-08-31",
+     "confidence": "low",
+     "caveat": "Absence in filing, not an explicit denial."
+    }
+   }
+  },
+  {
+   "entity": "Dell Technologies (ISG)",
+   "ticker": "DELL",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "Ships 'Dell Integrated Rack Scalable Systems' fully assembled and tested; first CoreWeave GB300 rack 'fully assembled, tested and deployed in the U.S.'",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://www.dell.com/en-us/blog/dell-delivers-market-s-first-nvidia-gb300-nvl72-to-coreweave/",
+     "publish_date": "2025-07-03",
+     "confidence": "high"
+    },
+    "nvidia_gb_rack": {
+     "value": "yes",
+     "detail": "Claims first to ship GB300 NVL72 (to CoreWeave, Jul 2025) and GB200 NVL72 seven months earlier; Dell is brand/integrator of record (PowerEdge XE9712).",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://www.dell.com/en-us/blog/dell-delivers-market-s-first-nvidia-gb300-nvl72-to-coreweave/",
+     "publish_date": "2025-07-03",
+     "confidence": "high",
+     "caveat": "'First to ship' is Dell's own claim; Dell also uses contract manufacturers, so the physical tray builder may be an ODM."
+    },
+    "amd_rack": {
+     "value": "partial",
+     "detail": "PowerEdge XE9785L: 8x MI355X, direct-to-chip liquid-cooled 3OU node for 44OU IR7000 rack. No Helios (MI450 rack-scale) commitment found.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://www.dell.com/en-us/shop/ipovw/poweredge-xe9785l",
+     "publish_date": "unconfirmed",
+     "confidence": "high",
+     "caveat": "8-GPU nodes in a Dell rack, not AMD's 72-GPU rack-scale design; product page has no date or shipment status."
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "No evidence found of Dell building hyperscaler custom-ASIC servers.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "yes",
+     "detail": "Delivers liquid-cooled IR7000-class NVL72 racks (PowerEdge XE9712) to CoreWeave.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://www.dell.com/en-us/blog/dell-delivers-market-s-first-nvidia-gb300-nvl72-to-coreweave/",
+     "publish_date": "2025-07-03",
+     "confidence": "low",
+     "caveat": "No in-house CDU or monthly liquid-cooled rack capacity figure found; 'at volume' inferred from repeated NVL72 shipments."
+    },
+    "own_board_design": {
+     "value": "partial",
+     "detail": "Brand OEM designing PowerEdge line, but 10-K says it uses 'contract manufacturers throughout the world to manufacture or assemble our products'.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1571996/000157199626000008/dell-20260130.htm",
+     "publish_date": "2026-03-16",
+     "confidence": "high",
+     "caveat": "Filing does not specify how much board design is in-house vs ODM-assisted."
+    },
+    "us_mexico_capacity": {
+     "value": "yes",
+     "detail": "10-K: 'We own manufacturing facilities located in the United States, Malaysia, China, Brazil, India, Poland, and Ireland.' No Mexico mentioned; no capacity figure.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1571996/000157199626000008/dell-20260130.htm",
+     "publish_date": "2026-03-16",
+     "confidence": "high",
+     "caveat": "US facility is not tied to AI-rack capacity in the filing."
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "US OEM; no domestic Chinese accelerator products found.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1571996/000157199626000008/dell-20260130.htm",
+     "publish_date": "2026-03-16",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "Hewlett Packard Enterprise (Server)",
+   "ticker": "HPE",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "10-K: 'HPE ProLiant servers and rack scale solutions'; Cray EX supercomputers are delivered as integrated liquid-cooled racks.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559025000130/hpe-20251031.htm",
+     "publish_date": "2025-12-18",
+     "confidence": "high"
+    },
+    "nvidia_gb_rack": {
+     "value": "yes",
+     "detail": "Press release: HPE 'has shipped its first NVIDIA Blackwell family-based solution, the NVIDIA GB200 NVL72', a 'rack-scale system by HPE' with HPE direct liquid cooling.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://www.silicon.co.uk/press-release/hpe-announces-shipment-of-its-first-nvidia-grace-blackwell-system",
+     "publish_date": "2025-02-13",
+     "confidence": "high",
+     "caveat": "First-shipment announcement only; HPE gave no volumes. Read via Business Wire syndication (hpe.com timed out)."
+    },
+    "amd_rack": {
+     "value": "partial",
+     "detail": "First Helios order ($1.2bn, Vultr, Sept 2026); no rack count or delivery date given.",
+     "evidence_type": "media",
+     "self_claimed": true,
+     "source_url": "https://www.theregister.com/2025/12/02/hpe_amd_helios_racks/",
+     "publish_date": "2025-12-02",
+     "confidence": "high",
+     "caveat": "Order announced; delivery not yet confirmed. Vultr order detail from search snippet of hpe.com release (page timed out), so that part is low confidence."
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "No evidence found.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "yes",
+     "detail": "10-K cites 'fanless direct liquid cooling that power our largest AI systems' (Cray EX heritage).",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559025000130/hpe-20251031.htm",
+     "publish_date": "2025-12-18",
+     "confidence": "high",
+     "caveat": "No volume/capacity figure disclosed."
+    },
+    "own_board_design": {
+     "value": "partial",
+     "detail": "10-K: uses ODMs 'to design or assist in the design and manufacture of HPE-branded products or to manufacture HPE-branded products that HPE designs'.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559025000130/hpe-20251031.htm",
+     "publish_date": "2025-12-18",
+     "confidence": "high"
+    },
+    "us_mexico_capacity": {
+     "value": "partial",
+     "detail": "10-K lists product development/services/manufacturing sites incl. Chippewa Falls, Houston, Spring, Milpitas, San Jose, Aguadilla (Puerto Rico); 'limited number of finished products' made in-house.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559025000130/hpe-20251031.htm",
+     "publish_date": "2025-12-18",
+     "confidence": "high",
+     "caveat": "List mixes R&D and manufacturing sites; no server assembly capacity given; most volume is outsourced."
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "No domestic Chinese accelerator products; HPE sold its China server business stake (H3C) - see 新华三 row.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1645590/000164559025000130/hpe-20251031.htm",
+     "publish_date": "2025-12-18",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "Celestica (CCS)",
+   "ticker": "CLS",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "10-K: CCS products incl. 'data center racks, servers' for hyperscalers; HPS integrates designs 'into rack-scale designs'.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1030894/000103089426000011/cls-20251231.htm",
+     "publish_date": "2026-02-27",
+     "confidence": "high"
+    },
+    "nvidia_gb_rack": {
+     "value": "unknown",
+     "detail": "No public source found tying Celestica to GB200/GB300 NVL72 rack integration.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "amd_rack": {
+     "value": "partial",
+     "detail": "Helios role = R&D, design and manufacturing of the scale-up networking switches (ORW form factor), not the full compute rack.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://iconnect007.com/article/149272/celestica-amd-announce-collaboration-to-advance-the-next-era-of-ai-with-helios-rackscale-ai-platform/149269/aep",
+     "publish_date": "2026-03-19",
+     "confidence": "high",
+     "caveat": "Switch-tray supplier for Helios, not rack integrator of record."
+    },
+    "custom_asic": {
+     "value": "partial",
+     "detail": "Media (Taiwan): Google TPU L10+ assembly was historically done by Google's own plants and Celestica.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://statementdog.com/news/15645",
+     "publish_date": "2026-01-22",
+     "confidence": "low",
+     "caveat": "Unattributed 'supply chain' claim in a Taiwan retail-investor site; Celestica does not name Google in filings."
+    },
+    "liquid_cooling": {
+     "value": "unknown",
+     "detail": "Celestica 10-K FY2025 has no 'liquid cool' mention; no capacity figure found.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "own_board_design": {
+     "value": "yes",
+     "detail": "10-K: HPS is 'broadly characterized as ODM'; designs products as customized, white-box or JDM engagements, creating own IP.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1030894/000103089426000011/cls-20251231.htm",
+     "publish_date": "2026-02-27",
+     "confidence": "high",
+     "caveat": "Mix of ODM and pure EMS; filing does not split revenue by design ownership."
+    },
+    "us_mexico_capacity": {
+     "value": "yes",
+     "detail": "10-K properties: Texas (4) ~673k sq ft and Mexico (2) ~732k sq ft, both ATS/CCS, leased.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1030894/000103089426000011/cls-20251231.htm",
+     "publish_date": "2026-02-27",
+     "confidence": "high",
+     "caveat": "Square footage of all activity at those sites, not AI-server-specific capacity."
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "No Chinese domestic accelerator programs found; customers are North American hyperscalers/OEMs.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1030894/000103089426000011/cls-20251231.htm",
+     "publish_date": "2026-02-27",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "Jabil (Intelligent Infrastructure)",
+   "ticker": "JBL",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "10-K: Hanley Energy acquisition to 'expand Jabil's rack-level data center infrastructure capabilities'; CEO refers to its 'racks and server business'.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/898293/000162828026067038/jbl-20260831.htm",
+     "publish_date": "2026-10-23",
+     "confidence": "high"
+    },
+    "nvidia_gb_rack": {
+     "value": "unknown",
+     "detail": "No source found naming Jabil as GB200/GB300 NVL72 integrator.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "Only an analyst question mentioned AMD/OpenAI projects (Dec-2025 call); no Jabil statement.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "CEO: Jabil is 'relatively agnostic in terms of chips'; no named hyperscaler silicon program disclosed.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://www.webull.com/news/14043767221863424",
+     "publish_date": "2025-12-17",
+     "confidence": "low",
+     "caveat": "Earnings-call transcript via Motley Fool/Webull; no specific ASIC customer named."
+    },
+    "liquid_cooling": {
+     "value": "partial",
+     "detail": "Acquired Mikros (liquid cooling, Oct-2024); retrofitting 'East Coast rack and silver factories to accommodate for liquid cooling'.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/898293/000162828026067038/jbl-20260831.htm",
+     "publish_date": "2026-10-23",
+     "confidence": "high",
+     "caveat": "Retrofit in progress at Dec-2025; no volume/capacity figure."
+    },
+    "own_board_design": {
+     "value": "partial",
+     "detail": "EMS model; builds mainly to customer design (no ODM server design claim found in 10-K).",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/898293/000162828026067038/jbl-20260831.htm",
+     "publish_date": "2026-10-23",
+     "confidence": "low"
+    },
+    "us_mexico_capacity": {
+     "value": "yes",
+     "detail": "Call: 'program wins with our second hyperscale customer in Mexico'; East Coast rack factories; North Carolina site due online in 6-8 months (Dec-2025).",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://www.webull.com/news/14043767221863424",
+     "publish_date": "2025-12-17",
+     "confidence": "low",
+     "caveat": "Transcript via third-party site; no capacity figure."
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "No Chinese domestic accelerator programs found.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/898293/000162828026067038/jbl-20260831.htm",
+     "publish_date": "2026-10-23",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "Flex (CPI)",
+   "ticker": "FLEX",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "10-K: CPI segment provides 'power and cooling products and integrated rack-scale compute systems'.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/866374/000086637426000012/flex-20260331.htm",
+     "publish_date": "2026-05-20",
+     "confidence": "high"
+    },
+    "nvidia_gb_rack": {
+     "value": "unknown",
+     "detail": "No source found naming Flex as NVL72 integrator.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "amd_rack": {
+     "value": "partial",
+     "detail": "Manufactures the complete 8-GPU AMD Instinct MI355X platform in Austin (from Mar-2026); will 'support the next generation' - Helios/MI450 not named.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://www.hpcwire.com/off-the-wire/flex-announces-us-manufacturing-collaboration-with-amd-to-accelerate-domestic-ai-infrastructure/",
+     "publish_date": "2026-03-02",
+     "confidence": "high",
+     "caveat": "8-GPU platform, not a rack-scale system."
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "No public evidence found.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "yes",
+     "detail": "Owns JetCool (acquired 2024); CPI sells 'advanced liquid cooling solutions'; MI355X units factory-tested with JetCool liquid cooling.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/866374/000086637426000012/flex-20260331.htm",
+     "publish_date": "2026-05-20",
+     "confidence": "high",
+     "caveat": "No liquid-cooled rack capacity figure disclosed."
+    },
+    "own_board_design": {
+     "value": "partial",
+     "detail": "EMS; builds to customer design (AMD platform design per release).",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://www.hpcwire.com/off-the-wire/flex-announces-us-manufacturing-collaboration-with-amd-to-accelerate-domestic-ai-infrastructure/",
+     "publish_date": "2026-03-02",
+     "confidence": "low"
+    },
+    "us_mexico_capacity": {
+     "value": "yes",
+     "detail": "Austin, Texas HQ site (1.4M sq ft per release) building MI355X; US footprint >7M sq ft across 17 facilities.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://www.hpcwire.com/off-the-wire/flex-announces-us-manufacturing-collaboration-with-amd-to-accelerate-domestic-ai-infrastructure/",
+     "publish_date": "2026-03-02",
+     "confidence": "low",
+     "caveat": "Footprint is all Flex US activity, not AI server capacity; sq-ft figures read from search snippet, not verbatim on fetched page."
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "No Chinese domestic accelerator programs found.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/866374/000086637426000012/flex-20260331.htm",
+     "publish_date": "2026-05-20",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "Sanmina (incl. ex-ZT Systems manufacturing)",
+   "ticker": "SANM",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "Acquired ZT Systems' data center infrastructure manufacturing (closed 2025-10-27): rack and cluster-scale AI systems for hyperscalers.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/897723/000110465925102349/tm2529502d1_ex99-1.htm",
+     "publish_date": "2025-10-27",
+     "confidence": "high"
+    },
+    "nvidia_gb_rack": {
+     "value": "unknown",
+     "detail": "ZT Systems built NVIDIA racks for hyperscalers pre-deal (memory); not verified on a live page.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "amd_rack": {
+     "value": "partial",
+     "detail": "'Preferred new product introduction (NPI) manufacturing partner' for AMD cloud rack and cluster-scale AI; Next Platform 'reasonably certain' Sanmina is initial Helios NPI partner.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/897723/000110465925102349/tm2529502d1_ex99-1.htm",
+     "publish_date": "2025-10-27",
+     "confidence": "high",
+     "caveat": "Helios builder role is a journalist inference (Next Platform 2026-02-23), not confirmed by AMD/Sanmina."
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "ZT's hyperscaler customers not named publicly in sources read.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "yes",
+     "detail": "ZT sites in NJ and Texas have 'large amounts of power and advanced liquid cooling capabilities'.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/897723/000110465925102349/tm2529502d1_ex99-1.htm",
+     "publish_date": "2025-10-27",
+     "confidence": "high",
+     "caveat": "No capacity figure."
+    },
+    "own_board_design": {
+     "value": "partial",
+     "detail": "EMS with some design services; Helios design owned by AMD (ex-ZT design team stayed at AMD).",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://www.nextplatform.com/compute/2026/02/23/amd-says-helios-racks-and-mi400-series-gpus-on-track-for-2h-2026/4092199",
+     "publish_date": "2026-02-23",
+     "confidence": "low"
+    },
+    "us_mexico_capacity": {
+     "value": "yes",
+     "detail": "ZT Systems 'large state-of-the-art manufacturing facilities located in New Jersey and Texas', plus Netherlands.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/897723/000110465925102349/tm2529502d1_ex99-1.htm",
+     "publish_date": "2025-10-27",
+     "confidence": "high",
+     "caveat": "No rack capacity figure."
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "No Chinese domestic accelerator programs found.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/897723/000089772325000042/sanm-20250927.htm",
+     "publish_date": "2025-11-13",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "鴻海 Hon Hai / Foxconn (cloud & networking)",
+   "ticker": "2317.TW",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "Largest NVL72 rack assembler per broker estimates; subsidiary FII reports GPU and ASIC 'AI 机柜' shipments.",
+     "evidence_type": "third_party_report",
+     "self_claimed": false,
+     "source_url": "https://finance.technews.tw/2026/09/10/morgan-stanley-is-bullish-on-nvidias-rack-server-shipments-expecting-them-to-double-this-year/",
+     "publish_date": "2026-09-10",
+     "confidence": "high",
+     "caveat": "Morgan Stanley figures as relayed by TechNews (broker estimate, not company disclosure)."
+    },
+    "nvidia_gb_rack": {
+     "value": "yes",
+     "detail": "MS est.: ~2,600 GB200/300 racks in Aug-2026, ~31.7k full-year; share 46% (2025) -> 39% (2026e). Full-rack integrator.",
+     "evidence_type": "third_party_report",
+     "self_claimed": false,
+     "source_url": "https://finance.technews.tw/2026/09/10/morgan-stanley-is-bullish-on-nvidias-rack-server-shipments-expecting-them-to-double-this-year/",
+     "publish_date": "2026-09-10",
+     "confidence": "high",
+     "caveat": "Morgan Stanley figures as relayed by TechNews (broker estimate, not company disclosure). Rack counts are estimates."
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "No source found.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "partial",
+     "detail": "Google TPU link is market talk and analyst comment only.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://money.udn.com/money/amp/story/5607/9637623",
+     "publish_date": "2026-07-20",
+     "confidence": "high",
+     "caveat": "Google pairing is analyst/media attribution; company does not name the ASIC customer."
+    },
+    "liquid_cooling": {
+     "value": "partial",
+     "detail": "FII (Hon Hai sub) says it co-develops next-gen AI server and '液冷技术' with top customers; lists 浸没式液冷 among cloud offerings.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-03-11/1225004420.PDF",
+     "publish_date": "2026-03-11",
+     "confidence": "high",
+     "caveat": "No liquid-cooled capacity figure."
+    },
+    "own_board_design": {
+     "value": "partial",
+     "detail": "Mix: builds NVIDIA MGX/HGX reference designs and customer designs; design arm Ingrasys (see row).",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-03-11/1225004420.PDF",
+     "publish_date": "2026-03-11",
+     "confidence": "low"
+    },
+    "us_mexico_capacity": {
+     "value": "yes",
+     "detail": "NVIDIA: Foxconn Houston plant for AI supercomputers; media: Texas, Wisconsin, Ohio, California sites and Mexico (Chihuahua) as main bases.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://blogs.nvidia.com/blog/nvidia-manufacture-american-made-ai-supercomputers-us/",
+     "publish_date": "2025-04-14",
+     "confidence": "high",
+     "caveat": "No rack capacity number disclosed; Mexico detail from Uanalyze 2026-09-16 (low confidence)."
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "No domestic-accelerator programs found.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://uanalyze.com.tw/articles/6235255398",
+     "publish_date": "2026-09-16",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "工业富联 Foxconn Industrial Internet (云计算)",
+   "ticker": "601138.SH",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "2026半年报：GPU AI 机柜出货量同比增长3.2倍；ASIC AI 机柜出货量同比增长3倍。",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-08-12/1225468066.PDF",
+     "publish_date": "2026-08-12",
+     "confidence": "high",
+     "caveat": "Growth multiples only; absolute rack counts not disclosed."
+    },
+    "nvidia_gb_rack": {
+     "value": "yes",
+     "detail": "Filing reports rack and ASIC shipment growth without naming NVIDIA; NVL72 attribution from broker data.",
+     "evidence_type": "third_party_report",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-08-12/1225468066.PDF",
+     "publish_date": "2026-08-12",
+     "confidence": "low",
+     "caveat": "Report does not name NVIDIA/GB300; link is via Hon Hai broker estimates."
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "yes",
+     "detail": "2025年报：'GPU 与 ASIC 方案相关产品均实现快速增长'；H1-2026 ASIC AI 机柜 +3x YoY. Customer not named.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-03-11/1225004420.PDF",
+     "publish_date": "2026-03-11",
+     "confidence": "high"
+    },
+    "liquid_cooling": {
+     "value": "partial",
+     "detail": "年报：与头部客户'共同攻克下一代 AI 服务器及液冷技术等核心环节'；云计算定义含'浸没式液冷'。",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-03-11/1225004420.PDF",
+     "publish_date": "2026-03-11",
+     "confidence": "high",
+     "caveat": "No volume figure."
+    },
+    "own_board_design": {
+     "value": "partial",
+     "detail": "年报：'通过高度客制化的解决方案'服务客户 - mostly customer/JDM designs.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-03-11/1225004420.PDF",
+     "publish_date": "2026-03-11",
+     "confidence": "low"
+    },
+    "us_mexico_capacity": {
+     "value": "yes",
+     "detail": "2025年报：主营业务收入按生产制造地 - 墨西哥 307,044,507 千元 (of 901,224,002 千元 total).",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-03-11/1225004420.PDF",
+     "publish_date": "2026-03-11",
+     "confidence": "high",
+     "caveat": "All FII segments produced in Mexico, not only servers; no US split disclosed."
+    },
+    "china_domestic_chips": {
+     "value": "unknown",
+     "detail": "No mention found.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    }
+   }
+  },
+  {
+   "entity": "廣達 Quanta (incl. QCT)",
+   "ticker": "2382.TW",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "US sites (Fremont CA, Nashville TN) do L10/L11 full-rack final assembly, power-on test and delivery.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://uanalyze.com.tw/articles/6235255398",
+     "publish_date": "2026-09-16",
+     "confidence": "high"
+    },
+    "nvidia_gb_rack": {
+     "value": "yes",
+     "detail": "MS est.: 2,500-2,550 GB200/300 racks in Aug-2026; ~18.7k full-year base case; share 23% -> 26%.",
+     "evidence_type": "third_party_report",
+     "self_claimed": false,
+     "source_url": "https://finance.technews.tw/2026/09/10/morgan-stanley-is-bullish-on-nvidias-rack-server-shipments-expecting-them-to-double-this-year/",
+     "publish_date": "2026-09-10",
+     "confidence": "high",
+     "caveat": "Morgan Stanley figures as relayed by TechNews (broker estimate, not company disclosure)."
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "No source found.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "partial",
+     "detail": "Company: began shipping ASIC products in 2025; ASIC <10% of AI server (Aug-2026 call). Customer not named.",
+     "evidence_type": "media",
+     "self_claimed": true,
+     "source_url": "https://statementdog.com/news/15684",
+     "publish_date": "2026-02-02",
+     "confidence": "high",
+     "caveat": "No hyperscaler/chip named."
+    },
+    "liquid_cooling": {
+     "value": "unknown",
+     "detail": "No liquid-cooling capacity statement found for Quanta.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "own_board_design": {
+     "value": "unknown",
+     "detail": "QCT designs own-brand servers (memory) - not verified on live page.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "us_mexico_capacity": {
+     "value": "yes",
+     "detail": "Fremont, CA and Nashville, TN main US sites; +3 California plants planned by end-2026; US$973M capital injection into US sub; Mexico AI line planned early-2026 (unconfirmed).",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://uanalyze.com.tw/articles/6235255398",
+     "publish_date": "2026-09-16",
+     "confidence": "high",
+     "caveat": "Plant counts/investment per media; no rack capacity number."
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "No domestic-accelerator programs found.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://uanalyze.com.tw/articles/6235255398",
+     "publish_date": "2026-09-16",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "緯創 Wistron",
+   "ticker": "3231.TW",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "partial",
+     "detail": "Broker counts Wistron NVL72 volume in 'compute tray' rack-equivalents - i.e., tray/board supplier more than full-rack integrator.",
+     "evidence_type": "third_party_report",
+     "self_claimed": false,
+     "source_url": "https://finance.technews.tw/2026/09/10/morgan-stanley-is-bullish-on-nvidias-rack-server-shipments-expecting-them-to-double-this-year/",
+     "publish_date": "2026-09-10",
+     "confidence": "high",
+     "caveat": "Morgan Stanley figures as relayed by TechNews (broker estimate, not company disclosure)."
+    },
+    "nvidia_gb_rack": {
+     "value": "partial",
+     "detail": "MS: Aug-2026 ~2,300-2,400 rack-equivalents '以算力匣估算'; ~17.9k full-year; share 22%. Compute-tray supplier.",
+     "evidence_type": "third_party_report",
+     "self_claimed": false,
+     "source_url": "https://finance.technews.tw/2026/09/10/morgan-stanley-is-bullish-on-nvidias-rack-server-shipments-expecting-them-to-double-this-year/",
+     "publish_date": "2026-09-10",
+     "confidence": "high",
+     "caveat": "Morgan Stanley figures as relayed by TechNews (broker estimate, not company disclosure)."
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "Listed among AMD's Taiwan ecosystem partners (onmsft, 403 on fetch) - not verified.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "partial",
+     "detail": "Media: one of the ODMs (鴻海、廣達、英業達、緯創、緯穎) that won N. American CSP ASIC server orders; customer not mapped.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://money.udn.com/money/amp/story/5607/9637623",
+     "publish_date": "2026-07-20",
+     "confidence": "high"
+    },
+    "liquid_cooling": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "own_board_design": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "us_mexico_capacity": {
+     "value": "yes",
+     "detail": "NVIDIA: Wistron building AI-supercomputer plant in Dallas, Texas (mass production within ~12-15 months of Apr-2025).",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://blogs.nvidia.com/blog/nvidia-manufacture-american-made-ai-supercomputers-us/",
+     "publish_date": "2025-04-14",
+     "confidence": "high",
+     "caveat": "Plan statement; actual Dallas output not verified."
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "No domestic-accelerator programs found.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://money.udn.com/money/amp/story/5607/9637623",
+     "publish_date": "2026-07-20",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "緯穎 Wiwynn",
+   "ticker": "6669.TW",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "partial",
+     "detail": "Shareholder materials: power pre-planned to 2028 for '機櫃整合廠' in US, Mexico, Malaysia (per search snippet); AMD MI450 server racks to ship 2H26.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://www.ctee.com.tw/news/20260616700285-439901",
+     "publish_date": "2026-06-16",
+     "confidence": "low",
+     "caveat": "機櫃整合廠 wording from search snippet, not read verbatim."
+    },
+    "nvidia_gb_rack": {
+     "value": "unknown",
+     "detail": "No source tying Wiwynn to GB200/GB300 NVL72 racks.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "amd_rack": {
+     "value": "partial",
+     "detail": "Broker notes expect MI450 rack shipments from 2H26; not yet shipping per a public source.",
+     "evidence_type": "third_party_report",
+     "self_claimed": false,
+     "source_url": "https://www.ctee.com.tw/news/20260616700285-439901",
+     "publish_date": "2026-06-16",
+     "confidence": "high",
+     "caveat": "Analyst/media expectation, not a confirmed shipment."
+    },
+    "custom_asic": {
+     "value": "yes",
+     "detail": "AWS Trainium T3 air-cooled ASIC servers began shipping 2Q26; also named in Google TPU supply chain (UDN 2026-07-20).",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://www.ctee.com.tw/news/20260616700285-439901",
+     "publish_date": "2026-06-16",
+     "confidence": "high",
+     "caveat": "Media attribution; Wiwynn does not name customers."
+    },
+    "liquid_cooling": {
+     "value": "unknown",
+     "detail": "Snippet: US new capacity to use 水冷 process design (LTN) - not verified.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "own_board_design": {
+     "value": "unknown",
+     "detail": "OCP contributor per memory - not verified on live page.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "us_mexico_capacity": {
+     "value": "yes",
+     "detail": "El Paso, Texas plant first capacity in mass production 1H26; ~2.5萬坪 more leased (2H27); Mexico ~70% of output; US ~20% by 2027e.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://uanalyze.com.tw/articles/6235255398",
+     "publish_date": "2026-09-16",
+     "confidence": "high",
+     "caveat": "Mexico 70% / US 20% are media/analyst figures."
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "No domestic-accelerator programs found.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://uanalyze.com.tw/articles/6235255398",
+     "publish_date": "2026-09-16",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "英業達 Inventec",
+   "ticker": "2356.TW",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "partial",
+     "detail": "Texas plant opened end-1Q26 and won N. American CSP L10 ASIC server orders; 2H26 AI shipments still mainly L6 boards.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://uanalyze.com.tw/articles/6235255398",
+     "publish_date": "2026-09-16",
+     "confidence": "high"
+    },
+    "nvidia_gb_rack": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "Listed among AMD Taiwan ecosystem partners (onmsft, 403) - not verified.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "partial",
+     "detail": "Long-standing TPU board supplier; rack-assembly role is unconfirmed talk.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://statementdog.com/news/15645",
+     "publish_date": "2026-01-22",
+     "confidence": "high",
+     "caveat": "'市場傳出' - unattributed market talk; Inventec does not confirm customers."
+    },
+    "liquid_cooling": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "own_board_design": {
+     "value": "partial",
+     "detail": "Mainboard (L6) supplier for TPU servers - builds boards to customer design.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://statementdog.com/news/15645",
+     "publish_date": "2026-01-22",
+     "confidence": "low"
+    },
+    "us_mexico_capacity": {
+     "value": "yes",
+     "detail": "Texas plant opened end-1Q26; Jul-2026 bought Katy site (~US$107M) + US$110M injection; new capacity 2027.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://uanalyze.com.tw/articles/6235255398",
+     "publish_date": "2026-09-16",
+     "confidence": "high"
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "No domestic-accelerator programs found.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://uanalyze.com.tw/articles/6235255398",
+     "publish_date": "2026-09-16",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "浪潮信息 Inspur Information",
+   "ticker": "000977.SZ",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "2025年报：推出'全液冷机柜'、'兆瓦级两相液冷 AI 整机柜'及超节点 AI 服务器；元脑算力工厂120天建成10MW智算中心。",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-04-11/1225096638.PDF",
+     "publish_date": "2026-04-11",
+     "confidence": "high",
+     "caveat": "Product launches; no rack shipment count disclosed."
+    },
+    "nvidia_gb_rack": {
+     "value": "unknown",
+     "detail": "No public source; Inspur is on the US Entity List, NVL72 sales into China restricted - not verified.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "No source found.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "Not applicable to US hyperscaler ASICs; Chinese CSP ASIC programs not found in AR.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "yes",
+     "detail": "年报：从部件、整机到数据中心液冷产品（冷板服务器、液冷机柜、兆瓦级CDU）；'连续 4 年蝉联中国液冷服务器市场第一'；1000余件液冷专利。",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-04-11/1225096638.PDF",
+     "publish_date": "2026-04-11",
+     "confidence": "high",
+     "caveat": "'市场第一' is the company's claim (underlying research house not named in passage read); no capacity figure."
+    },
+    "own_board_design": {
+     "value": "yes",
+     "detail": "年报：OCP/OCTC核心成员，核心参编《服务器通用计算主板单元技术要求》(OCM开放算力模组规范)。",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-04-11/1225096638.PDF",
+     "publish_date": "2026-04-11",
+     "confidence": "high"
+    },
+    "us_mexico_capacity": {
+     "value": "unknown",
+     "detail": "Annual report pages 1-60 have no US/Mexico manufacturing mention; full report not checked.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "china_domestic_chips": {
+     "value": "unknown",
+     "detail": "AR pages read do not name Ascend/Hygon/Cambricon products; '多元算力' wording only. Not verified.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    }
+   }
+  },
+  {
+   "entity": "紫光股份 / 新华三 H3C",
+   "ticker": "000938.SZ",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "2025年报：推出 H3C UniPoD S80000 超节点产品（关键部件液冷）。",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-04-15/1225101866.PDF",
+     "publish_date": "2026-04-15",
+     "confidence": "high",
+     "caveat": "Supernode launch; no shipment volume."
+    },
+    "nvidia_gb_rack": {
+     "value": "unknown",
+     "detail": "No source found.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "No source found.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "No source found.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "partial",
+     "detail": "年报：推出全冷板液冷服务器、冷板式及浸没式交换机、箱式浸没液冷、相变浸没式液冷等。",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-04-15/1225101866.PDF",
+     "publish_date": "2026-04-15",
+     "confidence": "high",
+     "caveat": "Product list; no volume/capacity."
+    },
+    "own_board_design": {
+     "value": "yes",
+     "detail": "Brand OEM with in-house server design (UniServer G7 系列); 年报称'聚焦自主技术研发'.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-04-15/1225101866.PDF",
+     "publish_date": "2026-04-15",
+     "confidence": "low"
+    },
+    "us_mexico_capacity": {
+     "value": "no",
+     "detail": "International revenue 46.20亿元 via channels; no US/Mexico manufacturing found in AR.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-04-15/1225101866.PDF",
+     "publish_date": "2026-04-15",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    },
+    "china_domestic_chips": {
+     "value": "yes",
+     "detail": "年报：'与多家国产 GPU 厂商深入合作，构建开放兼容的智算中心方案'；提升关键部件国产化水平。",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-04-15/1225101866.PDF",
+     "publish_date": "2026-04-15",
+     "confidence": "high",
+     "caveat": "GPU vendors not named in passage read."
+    }
+   }
+  },
+  {
+   "entity": "中科曙光 Sugon",
+   "ticker": "603019.SH",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "partial",
+     "detail": "scaleX rack products; its 2025 annual report says not yet deployed at scale.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-04-15/1225104539.PDF",
+     "publish_date": "2026-04-15",
+     "confidence": "high"
+    },
+    "nvidia_gb_rack": {
+     "value": "no",
+     "detail": "Sugon on US Entity List; scaleX uses '多品牌加速卡' - no NVL72 found.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-04-15/1225104539.PDF",
+     "publish_date": "2026-04-15",
+     "confidence": "low",
+     "caveat": "Absence-based inference."
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "N/A for US hyperscaler ASICs.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "yes",
+     "detail": "子公司曙光数创：2015年国内首款量产冷板式液冷方案；浸没液冷C8000、冷板液冷C7000系列。",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-04-15/1225104539.PDF",
+     "publish_date": "2026-04-15",
+     "confidence": "high",
+     "caveat": "No capacity figure."
+    },
+    "own_board_design": {
+     "value": "yes",
+     "detail": "年报：'覆盖硬件研发制造、软件适配优化、系统集成'的完整业务体系。",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-04-15/1225104539.PDF",
+     "publish_date": "2026-04-15",
+     "confidence": "high"
+    },
+    "us_mexico_capacity": {
+     "value": "no",
+     "detail": "Domestic manufacturing (北京/江苏/浙江 subsidiaries); none in US/Mexico found.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-04-15/1225104539.PDF",
+     "publish_date": "2026-04-15",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    },
+    "china_domestic_chips": {
+     "value": "yes",
+     "detail": "年报：围绕国产加速卡推出 DeepAI 深算智能引擎(DAP)；超节点硬件支持多品牌加速卡。Hygon (海光信息) is a related party.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-04-15/1225104539.PDF",
+     "publish_date": "2026-04-15",
+     "confidence": "high",
+     "caveat": "AR does not name which domestic accelerator brands ship in volume."
+    }
+   }
+  },
+  {
+   "entity": "华勤技术 Huaqin (数据中心)",
+   "ticker": "603296.SH",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "unknown",
+     "detail": "AR has no '机柜/L10/L11' mention; '超节点' cited only as industry trend.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "nvidia_gb_rack": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "Serves '头部 CSP 大客户' (unnamed); no US hyperscaler ASIC program found.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "unknown",
+     "detail": "AR mentions 散热 only generally.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "own_board_design": {
+     "value": "yes",
+     "detail": "ODM: 年报定义 ODM 厂商'拥有自主设计能力'；数据中心'跨平台的研发设计能力'，AI服务器/通用服务器/交换机/存储全栈。",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-03-24/1225025934.PDF",
+     "publish_date": "2026-03-24",
+     "confidence": "high"
+    },
+    "us_mexico_capacity": {
+     "value": "partial",
+     "detail": "'China+VMI' 布局：海外 VMI 基地在越南、墨西哥、印度；未说明墨西哥是否生产服务器。",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-03-24/1225025934.PDF",
+     "publish_date": "2026-03-24",
+     "confidence": "high",
+     "caveat": "Mexico base may be consumer electronics; server output there not disclosed."
+    },
+    "china_domestic_chips": {
+     "value": "unknown",
+     "detail": "AR notes '国产适配进程持续加快' as industry context only.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    }
+   }
+  },
+  {
+   "entity": "Lenovo (ISG)",
+   "ticker": "0992.HK",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "GB300 NVL72 datasheet: 'engineered as a turnkey, rack scale AI platform'.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://lenovopress.lenovo.com/datasheet/en-us/ds0207-lenovo-nvidia-gb300-nvl72",
+     "publish_date": "2026-03-16",
+     "confidence": "high"
+    },
+    "nvidia_gb_rack": {
+     "value": "partial",
+     "detail": "Offers Lenovo GB300 NVL72 rack (datasheet Mar-2026); no shipment/customer disclosure found.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://lenovopress.lenovo.com/datasheet/en-us/ds0207-lenovo-nvidia-gb300-nvl72",
+     "publish_date": "2026-03-16",
+     "confidence": "high",
+     "caveat": "Product availability, not confirmed shipments."
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "yes",
+     "detail": "GB300 NVL72 'relies primarily on warm water liquid cooling across CPUs, GPUs, NVLink switches, and power subsystems' (Neptune heritage).",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://lenovopress.lenovo.com/datasheet/en-us/ds0207-lenovo-nvidia-gb300-nvl72",
+     "publish_date": "2026-03-16",
+     "confidence": "high",
+     "caveat": "No liquid-cooled capacity figure; Neptune name not on this page."
+    },
+    "own_board_design": {
+     "value": "yes",
+     "detail": "Brand OEM; datasheet notes Lenovo has 'more than 30 manufacturing sites across 10 markets' (in-house manufacturing).",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://lenovopress.lenovo.com/datasheet/en-us/ds0207-lenovo-nvidia-gb300-nvl72",
+     "publish_date": "2026-03-16",
+     "confidence": "low",
+     "caveat": "Board-design ownership for NVL72 trays (NVIDIA reference) not stated."
+    },
+    "us_mexico_capacity": {
+     "value": "partial",
+     "detail": "Monterrey, Mexico plant exists (opened as PC plant, 2007); third-party profile lists it with an AI Innovation Centre - current server output unverified.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://www.enter.co/?p=6058",
+     "publish_date": "unconfirmed",
+     "confidence": "low",
+     "caveat": "No Lenovo 2025-26 statement found that Monterrey builds AI racks."
+    },
+    "china_domestic_chips": {
+     "value": "unknown",
+     "detail": "Lenovo China (问天) supernode news seen in search snippet only; chips not verified.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    }
+   }
+  },
+  {
+   "entity": "Penguin Solutions",
+   "ticker": "PENG",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "partial",
+     "detail": "10-K: R&D includes 'designs to enable integration of racks and clusters, including power and cooling design'; sells AI-factory design-build-deploy services.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1616533/000161653326000050/peng-20260828.htm",
+     "publish_date": "2026-10-20",
+     "confidence": "high",
+     "caveat": "Integrator of third-party servers; no rack output figure."
+    },
+    "nvidia_gb_rack": {
+     "value": "unknown",
+     "detail": "10-K names OriginAI reference architectures but no GB200/GB300 NVL72 mention found.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "no",
+     "detail": "No hyperscaler custom-silicon builds found; customers are enterprises, sovereign AI, neoclouds (10-K).",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1616533/000161653326000050/peng-20260828.htm",
+     "publish_date": "2026-10-20",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    },
+    "liquid_cooling": {
+     "value": "unknown",
+     "detail": "10-K has no 'liquid cool' mention.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "own_board_design": {
+     "value": "partial",
+     "detail": "10-K: Advanced Computing R&D covers 'server selection and occasional design' - mostly integrates others' servers.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1616533/000161653326000050/peng-20260828.htm",
+     "publish_date": "2026-10-20",
+     "confidence": "high"
+    },
+    "us_mexico_capacity": {
+     "value": "yes",
+     "detail": "10-K: 'manufacturing facilities in Newark and Fremont, California and Penang, Malaysia' support Integrated Memory and Advanced Computing.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1616533/000161653326000050/peng-20260828.htm",
+     "publish_date": "2026-10-20",
+     "confidence": "high",
+     "caveat": "Shared with memory business; no server capacity figure."
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "Non-Chinese vendor; no domestic Chinese accelerator products found.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1616533/000161653326000050/peng-20260828.htm",
+     "publish_date": "2026-10-20",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "Cisco (UCS) - comparator",
+   "ticker": "CSCO",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "unknown",
+     "detail": "Not researched beyond 10-K.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "nvidia_gb_rack": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "unknown",
+     "detail": "10-K 'liquid' hits are financial liquidity only.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "own_board_design": {
+     "value": "unknown",
+     "detail": "Designs own products; 10-K: 'We rely on contract manufacturers for our manufacturing needs' (PCBA, test, assembly).",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "",
+     "publish_date": "2026-09-02",
+     "confidence": "high"
+    },
+    "us_mexico_capacity": {
+     "value": "no",
+     "detail": "No owned server assembly; manufacturing outsourced to contract manufacturers.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000132/csco-20260725.htm",
+     "publish_date": "2026-09-02",
+     "confidence": "high",
+     "caveat": "Contract manufacturers' sites (possibly US/Mexico) not disclosed in passage read."
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "Non-Chinese vendor; no domestic Chinese accelerator products found.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000132/csco-20260725.htm",
+     "publish_date": "2026-09-02",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "技嘉 Gigabyte (Giga Computing)",
+   "ticker": "2376.TW",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "GIGAPOD/AI-DLC-POD rack-scale GB200 NVL72 offering with in-rack and in-row CDUs.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://www.gigabyte.com/Enterprise/GIGAPOD-Pod-Scale/AI-DLC-POD_NVIDIA-GB200-NVL72",
+     "publish_date": "unconfirmed",
+     "confidence": "low",
+     "caveat": "Read via search snippet only."
+    },
+    "nvidia_gb_rack": {
+     "value": "yes",
+     "detail": "工商時報: '技嘉與華碩今年亦皆有GB200 NVL72訂單出貨'; GB300 NVL72 in customer validation (Oct-2025).",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://www.ctee.com.tw/news/20251027700070-430502",
+     "publish_date": "2025-10-27",
+     "confidence": "high",
+     "caveat": "Small volumes vs ODMs; whole-industry 2025 total ~1,900 racks for brand players per article."
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "partial",
+     "detail": "Product page lists in-rack L2L CDU 200 kW and in-row 1,350 kW for GIGAPOD GB200 NVL72.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://www.gigabyte.com/Enterprise/GIGAPOD-Pod-Scale/AI-DLC-POD_NVIDIA-GB200-NVL72",
+     "publish_date": "unconfirmed",
+     "confidence": "low",
+     "caveat": "Snippet-level; no volume."
+    },
+    "own_board_design": {
+     "value": "unknown",
+     "detail": "Not verified.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "us_mexico_capacity": {
+     "value": "unknown",
+     "detail": "No source found.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "No domestic Chinese accelerator products found.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://www.ctee.com.tw/news/20251027700070-430502",
+     "publish_date": "2025-10-27",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "華碩 ASUS (servers)",
+   "ticker": "2357.TW",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "XA GB721-E2: GB300 NVL72 rack-scale system with manifold liquid cooling, plus integration/lifecycle services.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://servers.asus.com/news/ASUS-Rolls-Out-NVIDIA-GB300-NVL72-Rack-Solution-to-Usher-in-the-Next-Era-of-Datacenters",
+     "publish_date": "2025-10-30",
+     "confidence": "high"
+    },
+    "nvidia_gb_rack": {
+     "value": "partial",
+     "detail": "GB300 racks still in customer validation per the cited page.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://www.ctee.com.tw/news/20251027700070-430502",
+     "publish_date": "2025-10-27",
+     "confidence": "high",
+     "caveat": "No customer or volume named."
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "partial",
+     "detail": "'combines breakthrough performance, liquid cooling, and serviceability at rack scale'.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://servers.asus.com/news/ASUS-Rolls-Out-NVIDIA-GB300-NVL72-Rack-Solution-to-Usher-in-the-Next-Era-of-Datacenters",
+     "publish_date": "2025-10-30",
+     "confidence": "high",
+     "caveat": "No volume/capacity."
+    },
+    "own_board_design": {
+     "value": "unknown",
+     "detail": "Not verified.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "us_mexico_capacity": {
+     "value": "unknown",
+     "detail": "Manufacturing locations not stated.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "No domestic Chinese accelerator products found.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://servers.asus.com/news/ASUS-Rolls-Out-NVIDIA-GB300-NVL72-Rack-Solution-to-Usher-in-the-Next-Era-of-Datacenters",
+     "publish_date": "2025-10-30",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "神達 MiTAC (神雲 MiTAC Computing / Tyan)",
+   "ticker": "3706.TW",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "WAIC 2026: 52U high-density AI liquid-cooled rack with 12 x G4826Z5 8-GPU servers (96 MI355X).",
+     "evidence_type": "media",
+     "self_claimed": true,
+     "source_url": "https://www.ithome.com/0/978/912.htm",
+     "publish_date": "2026-07-20",
+     "confidence": "high"
+    },
+    "nvidia_gb_rack": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "amd_rack": {
+     "value": "partial",
+     "detail": "Rack of 96 AMD Instinct MI355X (12 x 8-GPU nodes) - AMD rack product but not Helios rack-scale design.",
+     "evidence_type": "media",
+     "self_claimed": true,
+     "source_url": "https://www.ithome.com/0/978/912.htm",
+     "publish_date": "2026-07-20",
+     "confidence": "high",
+     "caveat": "Exhibit/launch; no shipments."
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "partial",
+     "detail": "52U '高密度 AI 液冷机柜' with liquid-cooled G4826Z5 servers.",
+     "evidence_type": "media",
+     "self_claimed": true,
+     "source_url": "https://www.ithome.com/0/978/912.htm",
+     "publish_date": "2026-07-20",
+     "confidence": "high",
+     "caveat": "Product launch; no volume."
+    },
+    "own_board_design": {
+     "value": "unknown",
+     "detail": "Not verified (Tyan/ex-Intel DSG motherboard heritage not confirmed on a live page).",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "us_mexico_capacity": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "china_domestic_chips": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    }
+   }
+  },
+  {
+   "entity": "超聚变 xFusion (private; ChiNext IPO in review)",
+   "ticker": "private",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "招股书：形成'覆盖机架服务器、液冷整机柜及超节点的完整产品体系'。",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://reportdocs.static.szse.cn/UpFiles/rasinfodisc1/202611/RAS_202611_052105E0B0BD991EEC44A3BC886B762B9E0488.pdf",
+     "publish_date": "2026-11-05",
+     "confidence": "high"
+    },
+    "nvidia_gb_rack": {
+     "value": "unknown",
+     "detail": "Prospectus mentions NVIDIA only in industry context.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "N/A for US hyperscaler ASICs.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "yes",
+     "detail": "招股书引 IDC：'中国标准液冷服务器市场占有率连续四年稳居第一'；液冷数据中心为领先细分领域。",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://reportdocs.static.szse.cn/UpFiles/rasinfodisc1/202611/RAS_202611_052105E0B0BD991EEC44A3BC886B762B9E0488.pdf",
+     "publish_date": "2026-11-05",
+     "confidence": "high",
+     "caveat": "Same '4 years No.1' claim as Inspur but different scope ('标准液冷服务器' vs Inspur's '液冷服务器'); not reconciled."
+    },
+    "own_board_design": {
+     "value": "yes",
+     "detail": "In-house hardware + FusionOS; servers 'modular design' supporting domestic and foreign AI modules.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://reportdocs.static.szse.cn/UpFiles/rasinfodisc1/202611/RAS_202611_052105E0B0BD991EEC44A3BC886B762B9E0488.pdf",
+     "publish_date": "2026-11-05",
+     "confidence": "low"
+    },
+    "us_mexico_capacity": {
+     "value": "no",
+     "detail": "The prospectus lists its Mexico subsidiary as a sales entity, not a plant.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://reportdocs.static.szse.cn/UpFiles/rasinfodisc1/202611/RAS_202611_052105E0B0BD991EEC44A3BC886B762B9E0488.pdf",
+     "publish_date": "2026-11-05",
+     "confidence": "high",
+     "caveat": "Subsidiary existence, not confirmed production."
+    },
+    "china_domestic_chips": {
+     "value": "yes",
+     "detail": "招股书：'公司旗下国产 AI 训练服务器产品已实现规模化商用交付'；国产化服务器为核心业务。",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://reportdocs.static.szse.cn/UpFiles/rasinfodisc1/202611/RAS_202611_052105E0B0BD991EEC44A3BC886B762B9E0488.pdf",
+     "publish_date": "2026-11-05",
+     "confidence": "high",
+     "caveat": "Chip vendors (Ascend etc.) not named in passage read."
+    }
+   }
+  },
+  {
+   "entity": "宁畅 Nettrix (private)",
+   "ticker": "private",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "unknown",
+     "detail": "No live source reached: nettrix.com.cn returned empty; two searches found no Nettrix items.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "nvidia_gb_rack": {
+     "value": "unknown",
+     "detail": "No live source reached: nettrix.com.cn returned empty; two searches found no Nettrix items.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "No live source reached: nettrix.com.cn returned empty; two searches found no Nettrix items.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "No live source reached: nettrix.com.cn returned empty; two searches found no Nettrix items.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "unknown",
+     "detail": "No live source reached: nettrix.com.cn returned empty; two searches found no Nettrix items.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "own_board_design": {
+     "value": "unknown",
+     "detail": "No live source reached: nettrix.com.cn returned empty; two searches found no Nettrix items.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "us_mexico_capacity": {
+     "value": "unknown",
+     "detail": "No live source reached: nettrix.com.cn returned empty; two searches found no Nettrix items.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "china_domestic_chips": {
+     "value": "unknown",
+     "detail": "No live source reached: nettrix.com.cn returned empty; two searches found no Nettrix items.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    }
+   }
+  },
+  {
+   "entity": "ZT Systems (design team, now AMD)",
+   "ticker": "AMD (acquired)",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "AMD (closed 2025-03-31): deal 'combines industry-leading systems and rack-level expertise'; ZT design teams joined AMD Data Center Solutions; manufacturing sold to Sanmina (2025-10-27).",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/2488/000119312525067902/d943962dex991.htm",
+     "publish_date": "2025-03-31",
+     "confidence": "high",
+     "caveat": "Post-deal, ZT = AMD's in-house rack design team; physical building moved to Sanmina (see SANM row)."
+    },
+    "nvidia_gb_rack": {
+     "value": "unknown",
+     "detail": "Pre-deal NVIDIA rack work for hyperscalers not verified on a live page.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "amd_rack": {
+     "value": "partial",
+     "detail": "AMD's rack design team; nothing shipped as of Feb 2026.",
+     "evidence_type": "media",
+     "self_claimed": false,
+     "source_url": "https://www.nextplatform.com/compute/2026/02/23/amd-says-helios-racks-and-mi400-series-gpus-on-track-for-2h-2026/4092199",
+     "publish_date": "2026-02-23",
+     "confidence": "low",
+     "caveat": "Builder-of-record inference by Next Platform."
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "ZT described as provider to 'the world's largest hyperscale providers' - chips not named.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "yes",
+     "detail": "Ex-ZT NJ/Texas sites have 'advanced liquid cooling capabilities' (now Sanmina).",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/897723/000110465925102349/tm2529502d1_ex99-1.htm",
+     "publish_date": "2025-10-27",
+     "confidence": "high"
+    },
+    "own_board_design": {
+     "value": "yes",
+     "detail": "'World-class design teams will join the AMD Data Center Solutions business unit'.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/2488/000119312525067902/d943962dex991.htm",
+     "publish_date": "2025-03-31",
+     "confidence": "high"
+    },
+    "us_mexico_capacity": {
+     "value": "no",
+     "detail": "Plants sold to Sanmina (counted there).",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/897723/000110465925102349/tm2529502d1_ex99-1.htm",
+     "publish_date": "2025-10-27",
+     "confidence": "high",
+     "caveat": "No longer AMD-owned."
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "US company; no Chinese domestic chips.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/2488/000119312525067902/d943962dex991.htm",
+     "publish_date": "2025-03-31",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "Hyve Solutions (TD SYNNEX)",
+   "ticker": "SNX (sub)",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "Orion 'rack-level, plug-and-play solution' on NVIDIA HGX; Build-to-Order Rack & Roll; TD SYNNEX 10-K: hyperscale computing infrastructure 'via our Hyve business'.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://s21.q4cdn.com/109490932/files/doc_news/2025/03/1/Hyve-Solutions-Unveils-Comprehensive-AI-Infrastructure-Portfolio-at-NVIDIA-GTC-2025-2025.pdf",
+     "publish_date": "2025-03-18",
+     "confidence": "high"
+    },
+    "nvidia_gb_rack": {
+     "value": "unknown",
+     "detail": "No GB200/GB300 NVL72 shipment source found.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "amd_rack": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "Hyperscaler customers not named.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "partial",
+     "detail": "'bringing up liquid cooled pods in its Olive Branch, MS, facility in Summer of 2025' for NVIDIA GPU testing.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://s21.q4cdn.com/109490932/files/doc_news/2025/03/1/Hyve-Solutions-Unveils-Comprehensive-AI-Infrastructure-Portfolio-at-NVIDIA-GTC-2025-2025.pdf",
+     "publish_date": "2025-03-18",
+     "confidence": "high",
+     "caveat": "Plan as of Mar-2025; current status not verified."
+    },
+    "own_board_design": {
+     "value": "yes",
+     "detail": "'U.S. based fully vertically integrated company' delivering customized designs; NVIDIA HGX design partner (2024 release title).",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://s21.q4cdn.com/109490932/files/doc_news/2025/03/1/Hyve-Solutions-Unveils-Comprehensive-AI-Infrastructure-Portfolio-at-NVIDIA-GTC-2025-2025.pdf",
+     "publish_date": "2025-03-18",
+     "confidence": "high"
+    },
+    "us_mexico_capacity": {
+     "value": "yes",
+     "detail": "In-region manufacturing 'including U.S. surface-mount technology (SMT) lines'; Fremont HQ; Olive Branch, MS facility.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://s21.q4cdn.com/109490932/files/doc_news/2025/03/1/Hyve-Solutions-Unveils-Comprehensive-AI-Infrastructure-Portfolio-at-NVIDIA-GTC-2025-2025.pdf",
+     "publish_date": "2025-03-18",
+     "confidence": "high",
+     "caveat": "No capacity figure."
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "No Chinese domestic chips.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "https://www.sec.gov/Archives/edgar/data/1177394/000162828026003598/snx-20251130.htm",
+     "publish_date": "2026-01-27",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  },
+  {
+   "entity": "Ingrasys 鴻佰 (Hon Hai / FII subsidiary)",
+   "ticker": "private (FII sub)",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "Website lists rack-scale NVIDIA Vera Rubin NVL72, GB300 NVL72, plus rack components (compute tray, NVLink switch tray, busbar, manifold).",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://www.ingrasys.com/",
+     "publish_date": "unconfirmed",
+     "confidence": "high"
+    },
+    "nvidia_gb_rack": {
+     "value": "partial",
+     "detail": "Product listing only.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://www.ingrasys.com/",
+     "publish_date": "unconfirmed",
+     "confidence": "high",
+     "caveat": "Product listing; shipments are reported under Hon Hai/FII."
+    },
+    "amd_rack": {
+     "value": "partial",
+     "detail": "Lists 'AMD EPYC and Instinct solutions' - no Helios rack mentioned.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://www.ingrasys.com/",
+     "publish_date": "unconfirmed",
+     "confidence": "high"
+    },
+    "custom_asic": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "partial",
+     "detail": "'Advanced Cooling Technology' section: rack-level liquid cooling and immersion cooling.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://www.ingrasys.com/",
+     "publish_date": "unconfirmed",
+     "confidence": "high",
+     "caveat": "No capacity figure."
+    },
+    "own_board_design": {
+     "value": "partial",
+     "detail": "Rests on one executive biography.",
+     "evidence_type": "filing",
+     "self_claimed": false,
+     "source_url": "http://static.cninfo.com.cn/finalpage/2026-03-11/1225004420.PDF",
+     "publish_date": "2026-03-11",
+     "confidence": "low",
+     "caveat": "Indirect: from a director biography, not a product statement."
+    },
+    "us_mexico_capacity": {
+     "value": "unknown",
+     "detail": "Not stated on site.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "china_domestic_chips": {
+     "value": "unknown",
+     "detail": "No source.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    }
+   }
+  },
+  {
+   "entity": "Oxide Computer (private)",
+   "ticker": "private",
+   "cells": {
+    "rack_l10_l11": {
+     "value": "yes",
+     "detail": "'The fully assembled Oxide rack includes casters' - ships as integrated rack (up to 32 1st-gen or 24 2nd-gen sleds).",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://oxide.computer/product/specifications",
+     "publish_date": "unconfirmed",
+     "confidence": "high"
+    },
+    "nvidia_gb_rack": {
+     "value": "no",
+     "detail": "CPU-only rack (AMD EPYC); no GPU mentioned on specs page.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://oxide.computer/product/specifications",
+     "publish_date": "unconfirmed",
+     "confidence": "high"
+    },
+    "amd_rack": {
+     "value": "no",
+     "detail": "Uses AMD EPYC CPUs, not Instinct accelerators.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://oxide.computer/product/specifications",
+     "publish_date": "unconfirmed",
+     "confidence": "high"
+    },
+    "custom_asic": {
+     "value": "no",
+     "detail": "Not a hyperscaler supplier; sells on-prem 'Oxide Cloud Computer'.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://oxide.computer/",
+     "publish_date": "unconfirmed",
+     "confidence": "low"
+    },
+    "liquid_cooling": {
+     "value": "no",
+     "detail": "Air-cooled: specs give airflow requirement (CFM per kVA), cold/hot aisle; 15-30 kW rack.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://oxide.computer/product/specifications",
+     "publish_date": "unconfirmed",
+     "confidence": "high"
+    },
+    "own_board_design": {
+     "value": "partial",
+     "detail": "Hardware and software 'co-designed', open-source firmware, root of trust; specs page doesn't explicitly claim in-house board design.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://oxide.computer/",
+     "publish_date": "unconfirmed",
+     "confidence": "high"
+    },
+    "us_mexico_capacity": {
+     "value": "unknown",
+     "detail": "Manufacturing location not stated.",
+     "evidence_type": null,
+     "self_claimed": false,
+     "source_url": null,
+     "publish_date": null,
+     "confidence": "low"
+    },
+    "china_domestic_chips": {
+     "value": "no",
+     "detail": "US vendor; AMD EPYC / Intel Tofino 2 components.",
+     "evidence_type": "company_release",
+     "self_claimed": true,
+     "source_url": "https://oxide.computer/product/specifications",
+     "publish_date": "unconfirmed",
+     "confidence": "low",
+     "caveat": "Absence-based."
+    }
+   }
+  }
+ ]
+}

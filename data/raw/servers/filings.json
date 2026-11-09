@@ -1,0 +1,3413 @@
+[
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2026-07-31",
+  "filed": "2026-09-08",
+  "accession": "0001571996-26-000046",
+  "n_facts": 118,
+  "file": "xbrl/DELL/2026-07-31_10-Q_0001571996-26-000046.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2026-05-01",
+  "filed": "2026-06-09",
+  "accession": "0001571996-26-000030",
+  "n_facts": 68,
+  "file": "xbrl/DELL/2026-05-01_10-Q_0001571996-26-000030.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-K",
+  "period": "2026-01-30",
+  "filed": "2026-03-16",
+  "accession": "0001571996-26-000008",
+  "n_facts": 121,
+  "file": "xbrl/DELL/2026-01-30_10-K_0001571996-26-000008.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2025-10-31",
+  "filed": "2025-12-09",
+  "accession": "0001571996-25-000127",
+  "n_facts": 160,
+  "file": "xbrl/DELL/2025-10-31_10-Q_0001571996-25-000127.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2025-08-01",
+  "filed": "2025-09-08",
+  "accession": "0001571996-25-000102",
+  "n_facts": 162,
+  "file": "xbrl/DELL/2025-08-01_10-Q_0001571996-25-000102.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2025-05-02",
+  "filed": "2025-06-10",
+  "accession": "0001571996-25-000063",
+  "n_facts": 86,
+  "file": "xbrl/DELL/2025-05-02_10-Q_0001571996-25-000063.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-K",
+  "period": "2025-01-31",
+  "filed": "2025-03-25",
+  "accession": "0001571996-25-000034",
+  "n_facts": 239,
+  "file": "xbrl/DELL/2025-01-31_10-K_0001571996-25-000034.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2024-11-01",
+  "filed": "2024-12-10",
+  "accession": "0001571996-24-000143",
+  "n_facts": 140,
+  "file": "xbrl/DELL/2024-11-01_10-Q_0001571996-24-000143.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2024-08-02",
+  "filed": "2024-09-10",
+  "accession": "0001571996-24-000090",
+  "n_facts": 140,
+  "file": "xbrl/DELL/2024-08-02_10-Q_0001571996-24-000090.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2024-05-03",
+  "filed": "2024-06-11",
+  "accession": "0001571996-24-000062",
+  "n_facts": 75,
+  "file": "xbrl/DELL/2024-05-03_10-Q_0001571996-24-000062.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-K",
+  "period": "2024-02-02",
+  "filed": "2024-03-25",
+  "accession": "0001571996-24-000036",
+  "n_facts": 128,
+  "file": "xbrl/DELL/2024-02-02_10-K_0001571996-24-000036.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2023-11-03",
+  "filed": "2023-12-08",
+  "accession": "0001571996-23-000046",
+  "n_facts": 146,
+  "file": "xbrl/DELL/2023-11-03_10-Q_0001571996-23-000046.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2023-08-04",
+  "filed": "2023-09-12",
+  "accession": "0001571996-23-000032",
+  "n_facts": 130,
+  "file": "xbrl/DELL/2023-08-04_10-Q_0001571996-23-000032.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2023-05-05",
+  "filed": "2023-06-12",
+  "accession": "0001571996-23-000019",
+  "n_facts": 68,
+  "file": "xbrl/DELL/2023-05-05_10-Q_0001571996-23-000019.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-K",
+  "period": "2023-02-03",
+  "filed": "2023-03-30",
+  "accession": "0001571996-23-000007",
+  "n_facts": 119,
+  "file": "xbrl/DELL/2023-02-03_10-K_0001571996-23-000007.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2022-10-28",
+  "filed": "2022-12-05",
+  "accession": "0001571996-22-000044",
+  "n_facts": 148,
+  "file": "xbrl/DELL/2022-10-28_10-Q_0001571996-22-000044.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2022-07-29",
+  "filed": "2022-09-01",
+  "accession": "0001571996-22-000031",
+  "n_facts": 148,
+  "file": "xbrl/DELL/2022-07-29_10-Q_0001571996-22-000031.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2022-04-29",
+  "filed": "2022-06-06",
+  "accession": "0001571996-22-000021",
+  "n_facts": 80,
+  "file": "xbrl/DELL/2022-04-29_10-Q_0001571996-22-000021.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-K",
+  "period": "2022-01-28",
+  "filed": "2022-03-24",
+  "accession": "0001571996-22-000009",
+  "n_facts": 140,
+  "file": "xbrl/DELL/2022-01-28_10-K_0001571996-22-000009.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2021-10-29",
+  "filed": "2021-12-03",
+  "accession": "0001571996-21-000063",
+  "n_facts": 158,
+  "file": "xbrl/DELL/2021-10-29_10-Q_0001571996-21-000063.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2021-07-30",
+  "filed": "2021-09-03",
+  "accession": "0001571996-21-000040",
+  "n_facts": 158,
+  "file": "xbrl/DELL/2021-07-30_10-Q_0001571996-21-000040.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2021-04-30",
+  "filed": "2021-06-07",
+  "accession": "0001571996-21-000026",
+  "n_facts": 84,
+  "file": "xbrl/DELL/2021-04-30_10-Q_0001571996-21-000026.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-K",
+  "period": "2021-01-29",
+  "filed": "2021-03-26",
+  "accession": "0001571996-21-000007",
+  "n_facts": 141,
+  "file": "xbrl/DELL/2021-01-29_10-K_0001571996-21-000007.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2020-10-30",
+  "filed": "2020-12-07",
+  "accession": "0001571996-20-000051",
+  "n_facts": 160,
+  "file": "xbrl/DELL/2020-10-30_10-Q_0001571996-20-000051.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2020-07-31",
+  "filed": "2020-09-04",
+  "accession": "0001571996-20-000045",
+  "n_facts": 156,
+  "file": "xbrl/DELL/2020-07-31_10-Q_0001571996-20-000045.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2020-05-01",
+  "filed": "2020-06-08",
+  "accession": "0001571996-20-000034",
+  "n_facts": 83,
+  "file": "xbrl/DELL/2020-05-01_10-Q_0001571996-20-000034.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-K",
+  "period": "2020-01-31",
+  "filed": "2020-03-27",
+  "accession": "0001571996-20-000017",
+  "n_facts": 170,
+  "file": "xbrl/DELL/2020-01-31_10-K_0001571996-20-000017.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2019-11-01",
+  "filed": "2019-12-09",
+  "accession": "0001571996-19-000051",
+  "n_facts": 158,
+  "file": "xbrl/DELL/2019-11-01_10-Q_0001571996-19-000051.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2019-08-02",
+  "filed": "2019-09-10",
+  "accession": "0001571996-19-000039",
+  "n_facts": 158,
+  "file": "xbrl/DELL/2019-08-02_10-Q_0001571996-19-000039.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-Q",
+  "period": "2019-05-03",
+  "filed": "2019-06-10",
+  "accession": "0001571996-19-000025",
+  "n_facts": 84,
+  "file": "xbrl/DELL/2019-05-03_10-Q_0001571996-19-000025.json.gz"
+ },
+ {
+  "ticker": "DELL",
+  "form": "10-K",
+  "period": "2019-02-01",
+  "filed": "2019-03-29",
+  "accession": "0001571996-19-000008",
+  "n_facts": 206,
+  "file": "xbrl/DELL/2019-02-01_10-K_0001571996-19-000008.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2026-07-31",
+  "filed": "2026-09-03",
+  "accession": "0001645590-26-000080",
+  "n_facts": 164,
+  "file": "xbrl/HPE/2026-07-31_10-Q_0001645590-26-000080.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2026-04-30",
+  "filed": "2026-06-02",
+  "accession": "0001645590-26-000055",
+  "n_facts": 164,
+  "file": "xbrl/HPE/2026-04-30_10-Q_0001645590-26-000055.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2026-01-31",
+  "filed": "2026-03-10",
+  "accession": "0001645590-26-000032",
+  "n_facts": 88,
+  "file": "xbrl/HPE/2026-01-31_10-Q_0001645590-26-000032.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-K",
+  "period": "2025-10-31",
+  "filed": "2025-12-18",
+  "accession": "0001645590-25-000130",
+  "n_facts": 160,
+  "file": "xbrl/HPE/2025-10-31_10-K_0001645590-25-000130.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2025-07-31",
+  "filed": "2025-09-04",
+  "accession": "0001645590-25-000101",
+  "n_facts": 176,
+  "file": "xbrl/HPE/2025-07-31_10-Q_0001645590-25-000101.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2025-04-30",
+  "filed": "2025-06-04",
+  "accession": "0001645590-25-000068",
+  "n_facts": 176,
+  "file": "xbrl/HPE/2025-04-30_10-Q_0001645590-25-000068.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2025-01-31",
+  "filed": "2025-03-07",
+  "accession": "0001645590-25-000039",
+  "n_facts": 94,
+  "file": "xbrl/HPE/2025-01-31_10-Q_0001645590-25-000039.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-K",
+  "period": "2024-10-31",
+  "filed": "2024-12-19",
+  "accession": "0001645590-24-000139",
+  "n_facts": 143,
+  "file": "xbrl/HPE/2024-10-31_10-K_0001645590-24-000139.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2024-07-31",
+  "filed": "2024-09-05",
+  "accession": "0001645590-24-000119",
+  "n_facts": 176,
+  "file": "xbrl/HPE/2024-07-31_10-Q_0001645590-24-000119.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2024-04-30",
+  "filed": "2024-06-05",
+  "accession": "0001645590-24-000098",
+  "n_facts": 177,
+  "file": "xbrl/HPE/2024-04-30_10-Q_0001645590-24-000098.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2024-01-31",
+  "filed": "2024-03-05",
+  "accession": "0001645590-24-000069",
+  "n_facts": 94,
+  "file": "xbrl/HPE/2024-01-31_10-Q_0001645590-24-000069.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-K",
+  "period": "2023-10-31",
+  "filed": "2023-12-22",
+  "accession": "0001645590-23-000117",
+  "n_facts": 161,
+  "file": "xbrl/HPE/2023-10-31_10-K_0001645590-23-000117.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2023-07-31",
+  "filed": "2023-09-01",
+  "accession": "0001645590-23-000087",
+  "n_facts": 194,
+  "file": "xbrl/HPE/2023-07-31_10-Q_0001645590-23-000087.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2023-04-30",
+  "filed": "2023-06-02",
+  "accession": "0001645590-23-000066",
+  "n_facts": 193,
+  "file": "xbrl/HPE/2023-04-30_10-Q_0001645590-23-000066.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2023-01-31",
+  "filed": "2023-03-07",
+  "accession": "0001645590-23-000035",
+  "n_facts": 102,
+  "file": "xbrl/HPE/2023-01-31_10-Q_0001645590-23-000035.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-K",
+  "period": "2022-10-31",
+  "filed": "2022-12-08",
+  "accession": "0001645590-22-000071",
+  "n_facts": 156,
+  "file": "xbrl/HPE/2022-10-31_10-K_0001645590-22-000071.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2022-07-31",
+  "filed": "2022-09-01",
+  "accession": "0001645590-22-000052",
+  "n_facts": 194,
+  "file": "xbrl/HPE/2022-07-31_10-Q_0001645590-22-000052.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2022-04-30",
+  "filed": "2022-06-03",
+  "accession": "0001645590-22-000032",
+  "n_facts": 194,
+  "file": "xbrl/HPE/2022-04-30_10-Q_0001645590-22-000032.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2022-01-31",
+  "filed": "2022-03-03",
+  "accession": "0001645590-22-000016",
+  "n_facts": 102,
+  "file": "xbrl/HPE/2022-01-31_10-Q_0001645590-22-000016.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-K",
+  "period": "2021-10-31",
+  "filed": "2021-12-10",
+  "accession": "0001645590-21-000068",
+  "n_facts": 149,
+  "file": "xbrl/HPE/2021-10-31_10-K_0001645590-21-000068.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2021-07-31",
+  "filed": "2021-09-03",
+  "accession": "0001645590-21-000055",
+  "n_facts": 192,
+  "file": "xbrl/HPE/2021-07-31_10-Q_0001645590-21-000055.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2021-04-30",
+  "filed": "2021-06-03",
+  "accession": "0001645590-21-000041",
+  "n_facts": 192,
+  "file": "xbrl/HPE/2021-04-30_10-Q_0001645590-21-000041.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2021-01-31",
+  "filed": "2021-03-04",
+  "accession": "0001645590-21-000016",
+  "n_facts": 102,
+  "file": "xbrl/HPE/2021-01-31_10-Q_0001645590-21-000016.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-K",
+  "period": "2020-10-31",
+  "filed": "2020-12-10",
+  "accession": "0001645590-20-000056",
+  "n_facts": 185,
+  "file": "xbrl/HPE/2020-10-31_10-K_0001645590-20-000056.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2020-07-31",
+  "filed": "2020-09-03",
+  "accession": "0001645590-20-000041",
+  "n_facts": 208,
+  "file": "xbrl/HPE/2020-07-31_10-Q_0001645590-20-000041.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2020-04-30",
+  "filed": "2020-06-02",
+  "accession": "0001645590-20-000025",
+  "n_facts": 208,
+  "file": "xbrl/HPE/2020-04-30_10-Q_0001645590-20-000025.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2020-01-31",
+  "filed": "2020-03-09",
+  "accession": "0001645590-20-000009",
+  "n_facts": 110,
+  "file": "xbrl/HPE/2020-01-31_10-Q_0001645590-20-000009.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-K",
+  "period": "2019-10-31",
+  "filed": "2019-12-13",
+  "accession": "0001645590-19-000044",
+  "n_facts": 195,
+  "file": "xbrl/HPE/2019-10-31_10-K_0001645590-19-000044.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2019-07-31",
+  "filed": "2019-08-30",
+  "accession": "0001645590-19-000030",
+  "n_facts": 212,
+  "file": "xbrl/HPE/2019-07-31_10-Q_0001645590-19-000030.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2019-04-30",
+  "filed": "2019-05-31",
+  "accession": "0001645590-19-000017",
+  "n_facts": 154,
+  "file": "xbrl/HPE/2019-04-30_10-Q_0001645590-19-000017.json.gz"
+ },
+ {
+  "ticker": "HPE",
+  "form": "10-Q",
+  "period": "2019-01-31",
+  "filed": "2019-03-05",
+  "accession": "0001628280-19-002482",
+  "n_facts": 85,
+  "file": "xbrl/HPE/2019-01-31_10-Q_0001628280-19-002482.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-11-06",
+  "accession": "0001375365-26-000027",
+  "n_facts": 109,
+  "file": "xbrl/SMCI/2026-09-30_10-Q_0001375365-26-000027.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-K",
+  "period": "2026-06-30",
+  "filed": "2026-08-31",
+  "accession": "0001375365-26-000022",
+  "n_facts": 156,
+  "file": "xbrl/SMCI/2026-06-30_10-K_0001375365-26-000022.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2026-03-31",
+  "filed": "2026-05-11",
+  "accession": "0001375365-26-000014",
+  "n_facts": 174,
+  "file": "xbrl/SMCI/2026-03-31_10-Q_0001375365-26-000014.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2025-12-31",
+  "filed": "2026-02-06",
+  "accession": "0001375365-26-000007",
+  "n_facts": 175,
+  "file": "xbrl/SMCI/2025-12-31_10-Q_0001375365-26-000007.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2025-09-30",
+  "filed": "2025-11-07",
+  "accession": "0001375365-25-000030",
+  "n_facts": 110,
+  "file": "xbrl/SMCI/2025-09-30_10-Q_0001375365-25-000030.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-K",
+  "period": "2025-06-30",
+  "filed": "2025-08-28",
+  "accession": "0001375365-25-000027",
+  "n_facts": 158,
+  "file": "xbrl/SMCI/2025-06-30_10-K_0001375365-25-000027.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2025-03-31",
+  "filed": "2025-05-12",
+  "accession": "0001375365-25-000014",
+  "n_facts": 177,
+  "file": "xbrl/SMCI/2025-03-31_10-Q_0001375365-25-000014.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2024-12-31",
+  "filed": "2025-02-25",
+  "accession": "0001375365-25-000006",
+  "n_facts": 172,
+  "file": "xbrl/SMCI/2024-12-31_10-Q_0001375365-25-000006.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2024-09-30",
+  "filed": "2025-02-25",
+  "accession": "0001375365-25-000005",
+  "n_facts": 110,
+  "file": "xbrl/SMCI/2024-09-30_10-Q_0001375365-25-000005.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-K",
+  "period": "2024-06-30",
+  "filed": "2025-02-25",
+  "accession": "0001375365-25-000004",
+  "n_facts": 158,
+  "file": "xbrl/SMCI/2024-06-30_10-K_0001375365-25-000004.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2024-03-31",
+  "filed": "2024-05-06",
+  "accession": "0001375365-24-000022",
+  "n_facts": 148,
+  "file": "xbrl/SMCI/2024-03-31_10-Q_0001375365-24-000022.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2023-12-31",
+  "filed": "2024-02-02",
+  "accession": "0001375365-24-000011",
+  "n_facts": 150,
+  "file": "xbrl/SMCI/2023-12-31_10-Q_0001375365-24-000011.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2023-09-30",
+  "filed": "2023-11-03",
+  "accession": "0001375365-23-000041",
+  "n_facts": 89,
+  "file": "xbrl/SMCI/2023-09-30_10-Q_0001375365-23-000041.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-K",
+  "period": "2023-06-30",
+  "filed": "2023-08-28",
+  "accession": "0001375365-23-000036",
+  "n_facts": 143,
+  "file": "xbrl/SMCI/2023-06-30_10-K_0001375365-23-000036.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2023-03-31",
+  "filed": "2023-05-05",
+  "accession": "0001375365-23-000028",
+  "n_facts": 67,
+  "file": "xbrl/SMCI/2023-03-31_10-Q_0001375365-23-000028.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2022-12-31",
+  "filed": "2023-02-03",
+  "accession": "0001375365-23-000012",
+  "n_facts": 67,
+  "file": "xbrl/SMCI/2022-12-31_10-Q_0001375365-23-000012.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2022-09-30",
+  "filed": "2022-11-04",
+  "accession": "0001375365-22-000119",
+  "n_facts": 41,
+  "file": "xbrl/SMCI/2022-09-30_10-Q_0001375365-22-000119.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-K",
+  "period": "2022-06-30",
+  "filed": "2022-08-29",
+  "accession": "0001375365-22-000103",
+  "n_facts": 57,
+  "file": "xbrl/SMCI/2022-06-30_10-K_0001375365-22-000103.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2022-03-31",
+  "filed": "2022-05-06",
+  "accession": "0001375365-22-000058",
+  "n_facts": 63,
+  "file": "xbrl/SMCI/2022-03-31_10-Q_0001375365-22-000058.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2021-12-31",
+  "filed": "2022-02-04",
+  "accession": "0001375365-22-000013",
+  "n_facts": 64,
+  "file": "xbrl/SMCI/2021-12-31_10-Q_0001375365-22-000013.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2021-09-30",
+  "filed": "2021-11-05",
+  "accession": "0001375365-21-000083",
+  "n_facts": 39,
+  "file": "xbrl/SMCI/2021-09-30_10-Q_0001375365-21-000083.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-K",
+  "period": "2021-06-30",
+  "filed": "2021-08-27",
+  "accession": "0001375365-21-000060",
+  "n_facts": 56,
+  "file": "xbrl/SMCI/2021-06-30_10-K_0001375365-21-000060.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2021-03-31",
+  "filed": "2021-05-07",
+  "accession": "0001375365-21-000034",
+  "n_facts": 67,
+  "file": "xbrl/SMCI/2021-03-31_10-Q_0001375365-21-000034.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2020-12-31",
+  "filed": "2021-02-05",
+  "accession": "0001375365-21-000011",
+  "n_facts": 62,
+  "file": "xbrl/SMCI/2020-12-31_10-Q_0001375365-21-000011.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2020-09-30",
+  "filed": "2020-11-06",
+  "accession": "0001375365-20-000074",
+  "n_facts": 36,
+  "file": "xbrl/SMCI/2020-09-30_10-Q_0001375365-20-000074.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-K",
+  "period": "2020-06-30",
+  "filed": "2020-08-31",
+  "accession": "0001375365-20-000064",
+  "n_facts": 76,
+  "file": "xbrl/SMCI/2020-06-30_10-K_0001375365-20-000064.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2020-03-31",
+  "filed": "2020-05-11",
+  "accession": "0001375365-20-000033",
+  "n_facts": 70,
+  "file": "xbrl/SMCI/2020-03-31_10-Q_0001375365-20-000033.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2019-12-31",
+  "filed": "2020-02-07",
+  "accession": "0001375365-20-000011",
+  "n_facts": 58,
+  "file": "xbrl/SMCI/2019-12-31_10-Q_0001375365-20-000011.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2019-09-30",
+  "filed": "2019-12-20",
+  "accession": "0001375365-19-000084",
+  "n_facts": 34,
+  "file": "xbrl/SMCI/2019-09-30_10-Q_0001375365-19-000084.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-K",
+  "period": "2019-06-30",
+  "filed": "2019-12-19",
+  "accession": "0001375365-19-000079",
+  "n_facts": 66,
+  "file": "xbrl/SMCI/2019-06-30_10-K_0001375365-19-000079.json.gz"
+ },
+ {
+  "ticker": "SMCI",
+  "form": "10-Q",
+  "period": "2019-03-31",
+  "filed": "2019-12-19",
+  "accession": "0001375365-19-000078",
+  "n_facts": 64,
+  "file": "xbrl/SMCI/2019-03-31_10-Q_0001375365-19-000078.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-K",
+  "period": "2026-08-28",
+  "filed": "2026-10-20",
+  "accession": "0001616533-26-000050",
+  "n_facts": 133,
+  "file": "xbrl/PENG/2026-08-28_10-K_0001616533-26-000050.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2026-05-29",
+  "filed": "2026-07-07",
+  "accession": "0001616533-26-000043",
+  "n_facts": 98,
+  "file": "xbrl/PENG/2026-05-29_10-Q_0001616533-26-000043.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2026-02-27",
+  "filed": "2026-04-01",
+  "accession": "0001616533-26-000030",
+  "n_facts": 98,
+  "file": "xbrl/PENG/2026-02-27_10-Q_0001616533-26-000030.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2025-11-28",
+  "filed": "2026-01-06",
+  "accession": "0001616533-26-000010",
+  "n_facts": 55,
+  "file": "xbrl/PENG/2025-11-28_10-Q_0001616533-26-000010.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-K",
+  "period": "2025-08-29",
+  "filed": "2025-10-21",
+  "accession": "0001616533-25-000061",
+  "n_facts": 118,
+  "file": "xbrl/PENG/2025-08-29_10-K_0001616533-25-000061.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2025-05-30",
+  "filed": "2025-07-08",
+  "accession": "0001628280-25-034541",
+  "n_facts": 78,
+  "file": "xbrl/PENG/2025-05-30_10-Q_0001628280-25-034541.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2025-02-28",
+  "filed": "2025-04-02",
+  "accession": "0001628280-25-016182",
+  "n_facts": 78,
+  "file": "xbrl/PENG/2025-02-28_10-Q_0001628280-25-016182.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2024-11-29",
+  "filed": "2025-01-08",
+  "accession": "0001628280-25-000944",
+  "n_facts": 44,
+  "file": "xbrl/PENG/2024-11-29_10-Q_0001628280-25-000944.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-K",
+  "period": "2024-08-30",
+  "filed": "2024-10-24",
+  "accession": "0001628280-24-043646",
+  "n_facts": 102,
+  "file": "xbrl/PENG/2024-08-30_10-K_0001628280-24-043646.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2024-05-31",
+  "filed": "2024-07-09",
+  "accession": "0001628280-24-031519",
+  "n_facts": 78,
+  "file": "xbrl/PENG/2024-05-31_10-Q_0001628280-24-031519.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2024-03-01",
+  "filed": "2024-04-09",
+  "accession": "0001628280-24-015494",
+  "n_facts": 78,
+  "file": "xbrl/PENG/2024-03-01_10-Q_0001628280-24-015494.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2023-12-01",
+  "filed": "2024-01-09",
+  "accession": "0001628280-24-000961",
+  "n_facts": 44,
+  "file": "xbrl/PENG/2023-12-01_10-Q_0001628280-24-000961.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-K",
+  "period": "2023-08-25",
+  "filed": "2023-10-20",
+  "accession": "0001628280-23-034807",
+  "n_facts": 105,
+  "file": "xbrl/PENG/2023-08-25_10-K_0001628280-23-034807.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2023-05-26",
+  "filed": "2023-06-30",
+  "accession": "0001628280-23-023925",
+  "n_facts": 80,
+  "file": "xbrl/PENG/2023-05-26_10-Q_0001628280-23-023925.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2023-02-24",
+  "filed": "2023-04-04",
+  "accession": "0001628280-23-010675",
+  "n_facts": 80,
+  "file": "xbrl/PENG/2023-02-24_10-Q_0001628280-23-010675.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2022-11-25",
+  "filed": "2023-01-03",
+  "accession": "0001628280-23-000100",
+  "n_facts": 46,
+  "file": "xbrl/PENG/2022-11-25_10-Q_0001628280-23-000100.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-K",
+  "period": "2022-08-26",
+  "filed": "2022-10-14",
+  "accession": "0001628280-22-026409",
+  "n_facts": 82,
+  "file": "xbrl/PENG/2022-08-26_10-K_0001628280-22-026409.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2022-05-27",
+  "filed": "2022-06-30",
+  "accession": "0001628280-22-018285",
+  "n_facts": 79,
+  "file": "xbrl/PENG/2022-05-27_10-Q_0001628280-22-018285.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2022-02-25",
+  "filed": "2022-04-05",
+  "accession": "0001628280-22-008434",
+  "n_facts": 79,
+  "file": "xbrl/PENG/2022-02-25_10-Q_0001628280-22-008434.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2021-11-26",
+  "filed": "2022-01-04",
+  "accession": "0001564590-22-000310",
+  "n_facts": 42,
+  "file": "xbrl/PENG/2021-11-26_10-Q_0001564590-22-000310.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-K",
+  "period": "2021-08-27",
+  "filed": "2021-10-25",
+  "accession": "0001564590-21-051710",
+  "n_facts": 77,
+  "file": "xbrl/PENG/2021-08-27_10-K_0001564590-21-051710.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2021-05-28",
+  "filed": "2021-07-06",
+  "accession": "0001564590-21-035883",
+  "n_facts": 99,
+  "file": "xbrl/PENG/2021-05-28_10-Q_0001564590-21-035883.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2021-02-26",
+  "filed": "2021-04-06",
+  "accession": "0001564590-21-017805",
+  "n_facts": 97,
+  "file": "xbrl/PENG/2021-02-26_10-Q_0001564590-21-017805.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2020-11-27",
+  "filed": "2021-01-05",
+  "accession": "0001564590-21-000281",
+  "n_facts": 52,
+  "file": "xbrl/PENG/2020-11-27_10-Q_0001564590-21-000281.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-K",
+  "period": "2020-08-28",
+  "filed": "2020-10-22",
+  "accession": "0001564590-20-047291",
+  "n_facts": 82,
+  "file": "xbrl/PENG/2020-08-28_10-K_0001564590-20-047291.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2020-05-29",
+  "filed": "2020-07-07",
+  "accession": "0001564590-20-031962",
+  "n_facts": 78,
+  "file": "xbrl/PENG/2020-05-29_10-Q_0001564590-20-031962.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2020-02-28",
+  "filed": "2020-04-07",
+  "accession": "0001564590-20-015742",
+  "n_facts": 79,
+  "file": "xbrl/PENG/2020-02-28_10-Q_0001564590-20-015742.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2019-11-29",
+  "filed": "2019-12-20",
+  "accession": "0001564590-19-046559",
+  "n_facts": 48,
+  "file": "xbrl/PENG/2019-11-29_10-Q_0001564590-19-046559.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-K",
+  "period": "2019-08-30",
+  "filed": "2019-11-06",
+  "accession": "0001564590-19-041109",
+  "n_facts": 102,
+  "file": "xbrl/PENG/2019-08-30_10-K_0001564590-19-041109.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2019-05-31",
+  "filed": "2019-06-27",
+  "accession": "0001564590-19-023864",
+  "n_facts": 99,
+  "file": "xbrl/PENG/2019-05-31_10-Q_0001564590-19-023864.json.gz"
+ },
+ {
+  "ticker": "PENG",
+  "form": "10-Q",
+  "period": "2019-03-01",
+  "filed": "2019-03-28",
+  "accession": "0001564590-19-009858",
+  "n_facts": 100,
+  "file": "xbrl/PENG/2019-03-01_10-Q_0001564590-19-009858.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-K",
+  "period": "2026-07-25",
+  "filed": "2026-09-02",
+  "accession": "0000858877-26-000132",
+  "n_facts": 149,
+  "file": "xbrl/CSCO/2026-07-25_10-K_0000858877-26-000132.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2026-04-25",
+  "filed": "2026-05-19",
+  "accession": "0000858877-26-000078",
+  "n_facts": 192,
+  "file": "xbrl/CSCO/2026-04-25_10-Q_0000858877-26-000078.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2026-01-24",
+  "filed": "2026-02-17",
+  "accession": "0000858877-26-000021",
+  "n_facts": 192,
+  "file": "xbrl/CSCO/2026-01-24_10-Q_0000858877-26-000021.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2025-10-25",
+  "filed": "2025-11-18",
+  "accession": "0000858877-25-000171",
+  "n_facts": 102,
+  "file": "xbrl/CSCO/2025-10-25_10-Q_0000858877-25-000171.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-K",
+  "period": "2025-07-26",
+  "filed": "2025-09-03",
+  "accession": "0000858877-25-000111",
+  "n_facts": 150,
+  "file": "xbrl/CSCO/2025-07-26_10-K_0000858877-25-000111.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2025-04-26",
+  "filed": "2025-05-20",
+  "accession": "0000858877-25-000033",
+  "n_facts": 156,
+  "file": "xbrl/CSCO/2025-04-26_10-Q_0000858877-25-000033.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2025-01-25",
+  "filed": "2025-02-18",
+  "accession": "0000858877-25-000007",
+  "n_facts": 156,
+  "file": "xbrl/CSCO/2025-01-25_10-Q_0000858877-25-000007.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2024-10-26",
+  "filed": "2024-11-19",
+  "accession": "0000858877-24-000030",
+  "n_facts": 84,
+  "file": "xbrl/CSCO/2024-10-26_10-Q_0000858877-24-000030.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-K",
+  "period": "2024-07-27",
+  "filed": "2024-09-05",
+  "accession": "0000858877-24-000017",
+  "n_facts": 122,
+  "file": "xbrl/CSCO/2024-07-27_10-K_0000858877-24-000017.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2024-04-27",
+  "filed": "2024-05-21",
+  "accession": "0000858877-24-000007",
+  "n_facts": 144,
+  "file": "xbrl/CSCO/2024-04-27_10-Q_0000858877-24-000007.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2024-01-27",
+  "filed": "2024-02-20",
+  "accession": "0000858877-24-000003",
+  "n_facts": 144,
+  "file": "xbrl/CSCO/2024-01-27_10-Q_0000858877-24-000003.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2023-10-28",
+  "filed": "2023-11-21",
+  "accession": "0000858877-23-000031",
+  "n_facts": 78,
+  "file": "xbrl/CSCO/2023-10-28_10-Q_0000858877-23-000031.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-K",
+  "period": "2023-07-29",
+  "filed": "2023-09-07",
+  "accession": "0000858877-23-000023",
+  "n_facts": 125,
+  "file": "xbrl/CSCO/2023-07-29_10-K_0000858877-23-000023.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2023-04-29",
+  "filed": "2023-05-24",
+  "accession": "0000858877-23-000013",
+  "n_facts": 160,
+  "file": "xbrl/CSCO/2023-04-29_10-Q_0000858877-23-000013.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2023-01-28",
+  "filed": "2023-02-21",
+  "accession": "0000858877-23-000005",
+  "n_facts": 160,
+  "file": "xbrl/CSCO/2023-01-28_10-Q_0000858877-23-000005.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2022-10-29",
+  "filed": "2022-11-22",
+  "accession": "0000858877-22-000025",
+  "n_facts": 86,
+  "file": "xbrl/CSCO/2022-10-29_10-Q_0000858877-22-000025.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-K",
+  "period": "2022-07-30",
+  "filed": "2022-09-08",
+  "accession": "0000858877-22-000013",
+  "n_facts": 125,
+  "file": "xbrl/CSCO/2022-07-30_10-K_0000858877-22-000013.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2022-04-30",
+  "filed": "2022-05-25",
+  "accession": "0000858877-22-000009",
+  "n_facts": 160,
+  "file": "xbrl/CSCO/2022-04-30_10-Q_0000858877-22-000009.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2022-01-29",
+  "filed": "2022-02-22",
+  "accession": "0000858877-22-000004",
+  "n_facts": 160,
+  "file": "xbrl/CSCO/2022-01-29_10-Q_0000858877-22-000004.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2021-10-30",
+  "filed": "2021-11-23",
+  "accession": "0000858877-21-000018",
+  "n_facts": 86,
+  "file": "xbrl/CSCO/2021-10-30_10-Q_0000858877-21-000018.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-K",
+  "period": "2021-07-31",
+  "filed": "2021-09-09",
+  "accession": "0000858877-21-000013",
+  "n_facts": 115,
+  "file": "xbrl/CSCO/2021-07-31_10-K_0000858877-21-000013.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2021-05-01",
+  "filed": "2021-05-25",
+  "accession": "0000858877-21-000008",
+  "n_facts": 144,
+  "file": "xbrl/CSCO/2021-05-01_10-Q_0000858877-21-000008.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2021-01-23",
+  "filed": "2021-02-16",
+  "accession": "0000858877-21-000004",
+  "n_facts": 144,
+  "file": "xbrl/CSCO/2021-01-23_10-Q_0000858877-21-000004.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2020-10-24",
+  "filed": "2020-11-17",
+  "accession": "0000858877-20-000015",
+  "n_facts": 78,
+  "file": "xbrl/CSCO/2020-10-24_10-Q_0000858877-20-000015.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-K",
+  "period": "2020-07-25",
+  "filed": "2020-09-03",
+  "accession": "0000858877-20-000010",
+  "n_facts": 151,
+  "file": "xbrl/CSCO/2020-07-25_10-K_0000858877-20-000010.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2020-04-25",
+  "filed": "2020-05-18",
+  "accession": "0000858877-20-000006",
+  "n_facts": 162,
+  "file": "xbrl/CSCO/2020-04-25_10-Q_0000858877-20-000006.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2020-01-25",
+  "filed": "2020-02-18",
+  "accession": "0000858877-20-000004",
+  "n_facts": 161,
+  "file": "xbrl/CSCO/2020-01-25_10-Q_0000858877-20-000004.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2019-10-26",
+  "filed": "2019-11-19",
+  "accession": "0000858877-19-000018",
+  "n_facts": 88,
+  "file": "xbrl/CSCO/2019-10-26_10-Q_0000858877-19-000018.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-K",
+  "period": "2019-07-27",
+  "filed": "2019-09-05",
+  "accession": "0000858877-19-000012",
+  "n_facts": 118,
+  "file": "xbrl/CSCO/2019-07-27_10-K_0000858877-19-000012.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2019-04-27",
+  "filed": "2019-05-21",
+  "accession": "0000858877-19-000007",
+  "n_facts": 120,
+  "file": "xbrl/CSCO/2019-04-27_10-Q_0000858877-19-000007.json.gz"
+ },
+ {
+  "ticker": "CSCO",
+  "form": "10-Q",
+  "period": "2019-01-26",
+  "filed": "2019-02-19",
+  "accession": "0000858877-19-000003",
+  "n_facts": 120,
+  "file": "xbrl/CSCO/2019-01-26_10-Q_0000858877-19-000003.json.gz"
+ },
+ {
+  "ticker": "CLS",
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-10-26",
+  "accession": "0001030894-26-000050",
+  "n_facts": 60,
+  "file": "xbrl/CLS/2026-09-30_10-Q_0001030894-26-000050.json.gz"
+ },
+ {
+  "ticker": "CLS",
+  "form": "10-Q",
+  "period": "2026-06-30",
+  "filed": "2026-07-27",
+  "accession": "0001030894-26-000044",
+  "n_facts": 60,
+  "file": "xbrl/CLS/2026-06-30_10-Q_0001030894-26-000044.json.gz"
+ },
+ {
+  "ticker": "CLS",
+  "form": "10-Q",
+  "period": "2026-03-31",
+  "filed": "2026-04-27",
+  "accession": "0001030894-26-000032",
+  "n_facts": 32,
+  "file": "xbrl/CLS/2026-03-31_10-Q_0001030894-26-000032.json.gz"
+ },
+ {
+  "ticker": "CLS",
+  "form": "10-K",
+  "period": "2025-12-31",
+  "filed": "2026-02-27",
+  "accession": "0001030894-26-000011",
+  "n_facts": 46,
+  "file": "xbrl/CLS/2025-12-31_10-K_0001030894-26-000011.json.gz"
+ },
+ {
+  "ticker": "CLS",
+  "form": "10-Q",
+  "period": "2025-09-30",
+  "filed": "2025-10-27",
+  "accession": "0001030894-25-000053",
+  "n_facts": 60,
+  "file": "xbrl/CLS/2025-09-30_10-Q_0001030894-25-000053.json.gz"
+ },
+ {
+  "ticker": "CLS",
+  "form": "10-Q",
+  "period": "2025-06-30",
+  "filed": "2025-07-28",
+  "accession": "0001030894-25-000047",
+  "n_facts": 60,
+  "file": "xbrl/CLS/2025-06-30_10-Q_0001030894-25-000047.json.gz"
+ },
+ {
+  "ticker": "CLS",
+  "form": "10-Q",
+  "period": "2025-03-31",
+  "filed": "2025-04-24",
+  "accession": "0001030894-25-000028",
+  "n_facts": 32,
+  "file": "xbrl/CLS/2025-03-31_10-Q_0001030894-25-000028.json.gz"
+ },
+ {
+  "ticker": "CLS",
+  "form": "10-K",
+  "period": "2024-12-31",
+  "filed": "2025-03-03",
+  "accession": "0001030894-25-000014",
+  "n_facts": 46,
+  "file": "xbrl/CLS/2024-12-31_10-K_0001030894-25-000014.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-K",
+  "period": "2026-08-31",
+  "filed": "2026-10-23",
+  "accession": "0001628280-26-067038",
+  "n_facts": 94,
+  "file": "xbrl/JBL/2026-08-31_10-K_0001628280-26-067038.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2026-05-31",
+  "filed": "2026-06-30",
+  "accession": "0001628280-26-046138",
+  "n_facts": 92,
+  "file": "xbrl/JBL/2026-05-31_10-Q_0001628280-26-046138.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2026-02-28",
+  "filed": "2026-04-08",
+  "accession": "0001628280-26-024148",
+  "n_facts": 92,
+  "file": "xbrl/JBL/2026-02-28_10-Q_0001628280-26-024148.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2025-11-30",
+  "filed": "2026-01-09",
+  "accession": "0001628280-26-001450",
+  "n_facts": 50,
+  "file": "xbrl/JBL/2025-11-30_10-Q_0001628280-26-001450.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-K",
+  "period": "2025-08-31",
+  "filed": "2025-10-17",
+  "accession": "0001628280-25-045293",
+  "n_facts": 94,
+  "file": "xbrl/JBL/2025-08-31_10-K_0001628280-25-045293.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2025-05-31",
+  "filed": "2025-06-30",
+  "accession": "0001628280-25-033410",
+  "n_facts": 72,
+  "file": "xbrl/JBL/2025-05-31_10-Q_0001628280-25-033410.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2025-02-28",
+  "filed": "2025-04-08",
+  "accession": "0001628280-25-017004",
+  "n_facts": 72,
+  "file": "xbrl/JBL/2025-02-28_10-Q_0001628280-25-017004.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2024-11-30",
+  "filed": "2025-01-10",
+  "accession": "0001628280-25-001058",
+  "n_facts": 40,
+  "file": "xbrl/JBL/2024-11-30_10-Q_0001628280-25-001058.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-K",
+  "period": "2024-08-31",
+  "filed": "2024-10-28",
+  "accession": "0001628280-24-043960",
+  "n_facts": 70,
+  "file": "xbrl/JBL/2024-08-31_10-K_0001628280-24-043960.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2024-05-31",
+  "filed": "2024-07-09",
+  "accession": "0001628280-24-031429",
+  "n_facts": 64,
+  "file": "xbrl/JBL/2024-05-31_10-Q_0001628280-24-031429.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2024-02-29",
+  "filed": "2024-04-05",
+  "accession": "0001628280-24-014951",
+  "n_facts": 64,
+  "file": "xbrl/JBL/2024-02-29_10-Q_0001628280-24-014951.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2023-11-30",
+  "filed": "2024-01-09",
+  "accession": "0001193125-24-004852",
+  "n_facts": 36,
+  "file": "xbrl/JBL/2023-11-30_10-Q_0001193125-24-004852.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-K",
+  "period": "2023-08-31",
+  "filed": "2023-10-20",
+  "accession": "0001193125-23-259599",
+  "n_facts": 81,
+  "file": "xbrl/JBL/2023-08-31_10-K_0001193125-23-259599.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2023-05-31",
+  "filed": "2023-06-30",
+  "accession": "0001193125-23-179422",
+  "n_facts": 64,
+  "file": "xbrl/JBL/2023-05-31_10-Q_0001193125-23-179422.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2023-02-28",
+  "filed": "2023-04-05",
+  "accession": "0001193125-23-091542",
+  "n_facts": 64,
+  "file": "xbrl/JBL/2023-02-28_10-Q_0001193125-23-091542.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2022-11-30",
+  "filed": "2023-01-06",
+  "accession": "0001193125-23-003543",
+  "n_facts": 36,
+  "file": "xbrl/JBL/2022-11-30_10-Q_0001193125-23-003543.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-K",
+  "period": "2022-08-31",
+  "filed": "2022-10-25",
+  "accession": "0001193125-22-268383",
+  "n_facts": 81,
+  "file": "xbrl/JBL/2022-08-31_10-K_0001193125-22-268383.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2022-05-31",
+  "filed": "2022-07-01",
+  "accession": "0001193125-22-186715",
+  "n_facts": 64,
+  "file": "xbrl/JBL/2022-05-31_10-Q_0001193125-22-186715.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2022-02-28",
+  "filed": "2022-04-01",
+  "accession": "0001193125-22-092806",
+  "n_facts": 64,
+  "file": "xbrl/JBL/2022-02-28_10-Q_0001193125-22-092806.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2021-11-30",
+  "filed": "2022-01-07",
+  "accession": "0001193125-22-004029",
+  "n_facts": 36,
+  "file": "xbrl/JBL/2021-11-30_10-Q_0001193125-22-004029.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-K",
+  "period": "2021-08-31",
+  "filed": "2021-10-22",
+  "accession": "0001193125-21-305429",
+  "n_facts": 79,
+  "file": "xbrl/JBL/2021-08-31_10-K_0001193125-21-305429.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2021-05-31",
+  "filed": "2021-07-02",
+  "accession": "0001193125-21-207682",
+  "n_facts": 64,
+  "file": "xbrl/JBL/2021-05-31_10-Q_0001193125-21-207682.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2021-02-28",
+  "filed": "2021-04-02",
+  "accession": "0001193125-21-104662",
+  "n_facts": 64,
+  "file": "xbrl/JBL/2021-02-28_10-Q_0001193125-21-104662.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2020-11-30",
+  "filed": "2021-01-08",
+  "accession": "0001193125-21-004678",
+  "n_facts": 36,
+  "file": "xbrl/JBL/2020-11-30_10-Q_0001193125-21-004678.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-K",
+  "period": "2020-08-31",
+  "filed": "2020-10-22",
+  "accession": "0001193125-20-274411",
+  "n_facts": 80,
+  "file": "xbrl/JBL/2020-08-31_10-K_0001193125-20-274411.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2020-05-31",
+  "filed": "2020-06-29",
+  "accession": "0001193125-20-183269",
+  "n_facts": 100,
+  "file": "xbrl/JBL/2020-05-31_10-Q_0001193125-20-183269.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2020-02-29",
+  "filed": "2020-04-01",
+  "accession": "0001193125-20-094625",
+  "n_facts": 100,
+  "file": "xbrl/JBL/2020-02-29_10-Q_0001193125-20-094625.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2019-11-30",
+  "filed": "2020-01-03",
+  "accession": "0001193125-20-001434",
+  "n_facts": 36,
+  "file": "xbrl/JBL/2019-11-30_10-Q_0001193125-20-001434.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-K",
+  "period": "2019-08-31",
+  "filed": "2019-10-22",
+  "accession": "0001193125-19-271646",
+  "n_facts": 75,
+  "file": "xbrl/JBL/2019-08-31_10-K_0001193125-19-271646.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2019-05-31",
+  "filed": "2019-06-28",
+  "accession": "0001193125-19-186025",
+  "n_facts": 62,
+  "file": "xbrl/JBL/2019-05-31_10-Q_0001193125-19-186025.json.gz"
+ },
+ {
+  "ticker": "JBL",
+  "form": "10-Q",
+  "period": "2019-02-28",
+  "filed": "2019-04-04",
+  "accession": "0001193125-19-097892",
+  "n_facts": 63,
+  "file": "xbrl/JBL/2019-02-28_10-Q_0001193125-19-097892.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2026-09-25",
+  "filed": "2026-10-30",
+  "accession": "0000866374-26-000042",
+  "n_facts": 102,
+  "file": "xbrl/FLEX/2026-09-25_10-Q_0000866374-26-000042.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2026-06-26",
+  "filed": "2026-07-31",
+  "accession": "0000866374-26-000030",
+  "n_facts": 56,
+  "file": "xbrl/FLEX/2026-06-26_10-Q_0000866374-26-000030.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-K",
+  "period": "2026-03-31",
+  "filed": "2026-05-20",
+  "accession": "0000866374-26-000012",
+  "n_facts": 99,
+  "file": "xbrl/FLEX/2026-03-31_10-K_0000866374-26-000012.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2025-12-31",
+  "filed": "2026-02-06",
+  "accession": "0000866374-26-000005",
+  "n_facts": 78,
+  "file": "xbrl/FLEX/2025-12-31_10-Q_0000866374-26-000005.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2025-09-26",
+  "filed": "2025-10-31",
+  "accession": "0000866374-25-000051",
+  "n_facts": 78,
+  "file": "xbrl/FLEX/2025-09-26_10-Q_0000866374-25-000051.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2025-06-27",
+  "filed": "2025-07-25",
+  "accession": "0000866374-25-000043",
+  "n_facts": 44,
+  "file": "xbrl/FLEX/2025-06-27_10-Q_0000866374-25-000043.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-K",
+  "period": "2025-03-31",
+  "filed": "2025-05-21",
+  "accession": "0000866374-25-000027",
+  "n_facts": 111,
+  "file": "xbrl/FLEX/2025-03-31_10-K_0000866374-25-000027.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2024-12-31",
+  "filed": "2025-01-31",
+  "accession": "0000866374-25-000008",
+  "n_facts": 90,
+  "file": "xbrl/FLEX/2024-12-31_10-Q_0000866374-25-000008.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2024-09-27",
+  "filed": "2024-10-31",
+  "accession": "0000866374-24-000053",
+  "n_facts": 90,
+  "file": "xbrl/FLEX/2024-09-27_10-Q_0000866374-24-000053.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2024-06-28",
+  "filed": "2024-07-26",
+  "accession": "0000866374-24-000034",
+  "n_facts": 50,
+  "file": "xbrl/FLEX/2024-06-28_10-Q_0000866374-24-000034.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-K",
+  "period": "2024-03-31",
+  "filed": "2024-05-17",
+  "accession": "0000866374-24-000021",
+  "n_facts": 120,
+  "file": "xbrl/FLEX/2024-03-31_10-K_0000866374-24-000021.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2023-12-31",
+  "filed": "2024-02-02",
+  "accession": "0000866374-24-000012",
+  "n_facts": 130,
+  "file": "xbrl/FLEX/2023-12-31_10-Q_0000866374-24-000012.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2023-09-29",
+  "filed": "2023-10-30",
+  "accession": "0000866374-23-000066",
+  "n_facts": 130,
+  "file": "xbrl/FLEX/2023-09-29_10-Q_0000866374-23-000066.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2023-06-30",
+  "filed": "2023-07-31",
+  "accession": "0000866374-23-000058",
+  "n_facts": 72,
+  "file": "xbrl/FLEX/2023-06-30_10-Q_0000866374-23-000058.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-K",
+  "period": "2023-03-31",
+  "filed": "2023-05-19",
+  "accession": "0000866374-23-000028",
+  "n_facts": 125,
+  "file": "xbrl/FLEX/2023-03-31_10-K_0000866374-23-000028.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2022-12-31",
+  "filed": "2023-01-27",
+  "accession": "0000866374-23-000007",
+  "n_facts": 126,
+  "file": "xbrl/FLEX/2022-12-31_10-Q_0000866374-23-000007.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2022-09-30",
+  "filed": "2022-10-31",
+  "accession": "0000866374-22-000074",
+  "n_facts": 130,
+  "file": "xbrl/FLEX/2022-09-30_10-Q_0000866374-22-000074.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2022-07-01",
+  "filed": "2022-07-29",
+  "accession": "0000866374-22-000052",
+  "n_facts": 70,
+  "file": "xbrl/FLEX/2022-07-01_10-Q_0000866374-22-000052.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-K",
+  "period": "2022-03-31",
+  "filed": "2022-05-20",
+  "accession": "0000866374-22-000035",
+  "n_facts": 133,
+  "file": "xbrl/FLEX/2022-03-31_10-K_0000866374-22-000035.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2021-12-31",
+  "filed": "2022-02-04",
+  "accession": "0000866374-22-000016",
+  "n_facts": 79,
+  "file": "xbrl/FLEX/2021-12-31_10-Q_0000866374-22-000016.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2021-10-01",
+  "filed": "2021-10-29",
+  "accession": "0000866374-21-000062",
+  "n_facts": 79,
+  "file": "xbrl/FLEX/2021-10-01_10-Q_0000866374-21-000062.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2021-07-02",
+  "filed": "2021-07-30",
+  "accession": "0000866374-21-000043",
+  "n_facts": 40,
+  "file": "xbrl/FLEX/2021-07-02_10-Q_0000866374-21-000043.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-K",
+  "period": "2021-03-31",
+  "filed": "2021-05-19",
+  "accession": "0000866374-21-000030",
+  "n_facts": 81,
+  "file": "xbrl/FLEX/2021-03-31_10-K_0000866374-21-000030.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2020-12-31",
+  "filed": "2021-01-29",
+  "accession": "0000866374-21-000019",
+  "n_facts": 70,
+  "file": "xbrl/FLEX/2020-12-31_10-Q_0000866374-21-000019.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2020-09-25",
+  "filed": "2020-11-02",
+  "accession": "0000866374-20-000030",
+  "n_facts": 70,
+  "file": "xbrl/FLEX/2020-09-25_10-Q_0000866374-20-000030.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2020-06-26",
+  "filed": "2020-08-05",
+  "accession": "0000866374-20-000012",
+  "n_facts": 40,
+  "file": "xbrl/FLEX/2020-06-26_10-Q_0000866374-20-000012.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-K",
+  "period": "2020-03-31",
+  "filed": "2020-05-28",
+  "accession": "0000866374-20-000009",
+  "n_facts": 127,
+  "file": "xbrl/FLEX/2020-03-31_10-K_0000866374-20-000009.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2019-12-31",
+  "filed": "2020-01-31",
+  "accession": "0000866374-20-000003",
+  "n_facts": 104,
+  "file": "xbrl/FLEX/2019-12-31_10-Q_0000866374-20-000003.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2019-09-27",
+  "filed": "2019-10-30",
+  "accession": "0000866374-19-000013",
+  "n_facts": 107,
+  "file": "xbrl/FLEX/2019-09-27_10-Q_0000866374-19-000013.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-Q",
+  "period": "2019-06-28",
+  "filed": "2019-07-26",
+  "accession": "0000866374-19-000010",
+  "n_facts": 58,
+  "file": "xbrl/FLEX/2019-06-28_10-Q_0000866374-19-000010.json.gz"
+ },
+ {
+  "ticker": "FLEX",
+  "form": "10-K",
+  "period": "2019-03-31",
+  "filed": "2019-05-21",
+  "accession": "0000866374-19-000006",
+  "n_facts": 120,
+  "file": "xbrl/FLEX/2019-03-31_10-K_0000866374-19-000006.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2026-06-27",
+  "filed": "2026-07-27",
+  "accession": "0000897723-26-000037",
+  "n_facts": 118,
+  "file": "xbrl/SANM/2026-06-27_10-Q_0000897723-26-000037.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2026-03-28",
+  "filed": "2026-04-27",
+  "accession": "0000897723-26-000025",
+  "n_facts": 118,
+  "file": "xbrl/SANM/2026-03-28_10-Q_0000897723-26-000025.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2025-12-27",
+  "filed": "2026-01-26",
+  "accession": "0000897723-26-000015",
+  "n_facts": 63,
+  "file": "xbrl/SANM/2025-12-27_10-Q_0000897723-26-000015.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-K",
+  "period": "2025-09-27",
+  "filed": "2025-11-13",
+  "accession": "0000897723-25-000042",
+  "n_facts": 89,
+  "file": "xbrl/SANM/2025-09-27_10-K_0000897723-25-000042.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2025-06-28",
+  "filed": "2025-07-28",
+  "accession": "0000897723-25-000031",
+  "n_facts": 122,
+  "file": "xbrl/SANM/2025-06-28_10-Q_0000897723-25-000031.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2025-03-29",
+  "filed": "2025-04-28",
+  "accession": "0000897723-25-000016",
+  "n_facts": 122,
+  "file": "xbrl/SANM/2025-03-29_10-Q_0000897723-25-000016.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2024-12-28",
+  "filed": "2025-01-28",
+  "accession": "0000897723-25-000007",
+  "n_facts": 64,
+  "file": "xbrl/SANM/2024-12-28_10-Q_0000897723-25-000007.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-K",
+  "period": "2024-09-28",
+  "filed": "2024-11-27",
+  "accession": "0000897723-24-000056",
+  "n_facts": 89,
+  "file": "xbrl/SANM/2024-09-28_10-K_0000897723-24-000056.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2024-06-29",
+  "filed": "2024-07-31",
+  "accession": "0000897723-24-000046",
+  "n_facts": 122,
+  "file": "xbrl/SANM/2024-06-29_10-Q_0000897723-24-000046.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2024-03-30",
+  "filed": "2024-05-01",
+  "accession": "0000897723-24-000031",
+  "n_facts": 122,
+  "file": "xbrl/SANM/2024-03-30_10-Q_0000897723-24-000031.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2023-12-30",
+  "filed": "2024-01-31",
+  "accession": "0000897723-24-000009",
+  "n_facts": 52,
+  "file": "xbrl/SANM/2023-12-30_10-Q_0000897723-24-000009.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-K",
+  "period": "2023-09-30",
+  "filed": "2023-11-16",
+  "accession": "0000897723-23-000028",
+  "n_facts": 71,
+  "file": "xbrl/SANM/2023-09-30_10-K_0000897723-23-000028.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2023-07-01",
+  "filed": "2023-08-02",
+  "accession": "0000897723-23-000016",
+  "n_facts": 148,
+  "file": "xbrl/SANM/2023-07-01_10-Q_0000897723-23-000016.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2023-04-01",
+  "filed": "2023-05-22",
+  "accession": "0001104659-23-062830",
+  "n_facts": 146,
+  "file": "xbrl/SANM/2023-04-01_10-Q_0001104659-23-062830.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2022-12-31",
+  "filed": "2023-02-01",
+  "accession": "0000897723-23-000007",
+  "n_facts": 62,
+  "file": "xbrl/SANM/2022-12-31_10-Q_0000897723-23-000007.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-K",
+  "period": "2022-10-01",
+  "filed": "2022-11-10",
+  "accession": "0000897723-22-000029",
+  "n_facts": 84,
+  "file": "xbrl/SANM/2022-10-01_10-K_0000897723-22-000029.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2022-07-02",
+  "filed": "2022-08-03",
+  "accession": "0000897723-22-000025",
+  "n_facts": 116,
+  "file": "xbrl/SANM/2022-07-02_10-Q_0000897723-22-000025.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2022-04-02",
+  "filed": "2022-05-04",
+  "accession": "0000897723-22-000016",
+  "n_facts": 116,
+  "file": "xbrl/SANM/2022-04-02_10-Q_0000897723-22-000016.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2022-01-01",
+  "filed": "2022-02-02",
+  "accession": "0000897723-22-000007",
+  "n_facts": 62,
+  "file": "xbrl/SANM/2022-01-01_10-Q_0000897723-22-000007.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-K",
+  "period": "2021-10-02",
+  "filed": "2021-11-12",
+  "accession": "0000897723-21-000028",
+  "n_facts": 90,
+  "file": "xbrl/SANM/2021-10-02_10-K_0000897723-21-000028.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2021-07-03",
+  "filed": "2021-08-04",
+  "accession": "0000897723-21-000021",
+  "n_facts": 116,
+  "file": "xbrl/SANM/2021-07-03_10-Q_0000897723-21-000021.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2021-04-03",
+  "filed": "2021-05-05",
+  "accession": "0000897723-21-000013",
+  "n_facts": 116,
+  "file": "xbrl/SANM/2021-04-03_10-Q_0000897723-21-000013.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2021-01-02",
+  "filed": "2021-02-04",
+  "accession": "0000897723-21-000008",
+  "n_facts": 62,
+  "file": "xbrl/SANM/2021-01-02_10-Q_0000897723-21-000008.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-K",
+  "period": "2020-10-03",
+  "filed": "2020-11-13",
+  "accession": "0000897723-20-000034",
+  "n_facts": 93,
+  "file": "xbrl/SANM/2020-10-03_10-K_0000897723-20-000034.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2020-06-27",
+  "filed": "2020-07-31",
+  "accession": "0000897723-20-000028",
+  "n_facts": 118,
+  "file": "xbrl/SANM/2020-06-27_10-Q_0000897723-20-000028.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2020-03-28",
+  "filed": "2020-04-29",
+  "accession": "0000897723-20-000014",
+  "n_facts": 120,
+  "file": "xbrl/SANM/2020-03-28_10-Q_0000897723-20-000014.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2019-12-28",
+  "filed": "2020-01-30",
+  "accession": "0000897723-20-000006",
+  "n_facts": 64,
+  "file": "xbrl/SANM/2019-12-28_10-Q_0000897723-20-000006.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-K",
+  "period": "2019-09-28",
+  "filed": "2019-11-08",
+  "accession": "0000897723-19-000034",
+  "n_facts": 92,
+  "file": "xbrl/SANM/2019-09-28_10-K_0000897723-19-000034.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2019-06-29",
+  "filed": "2019-08-01",
+  "accession": "0000897723-19-000028",
+  "n_facts": 133,
+  "file": "xbrl/SANM/2019-06-29_10-Q_0000897723-19-000028.json.gz"
+ },
+ {
+  "ticker": "SANM",
+  "form": "10-Q",
+  "period": "2019-03-30",
+  "filed": "2019-05-02",
+  "accession": "0000897723-19-000022",
+  "n_facts": 99,
+  "file": "xbrl/SANM/2019-03-30_10-Q_0000897723-19-000022.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-10-28",
+  "accession": "0001193125-26-436133",
+  "n_facts": 69,
+  "file": "xbrl/MSFT/2026-09-30_10-Q_0001193125-26-436133.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-K",
+  "period": "2026-06-30",
+  "filed": "2026-07-29",
+  "accession": "0001193125-26-323660",
+  "n_facts": 116,
+  "file": "xbrl/MSFT/2026-06-30_10-K_0001193125-26-323660.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2026-03-31",
+  "filed": "2026-04-29",
+  "accession": "0001193125-26-191507",
+  "n_facts": 152,
+  "file": "xbrl/MSFT/2026-03-31_10-Q_0001193125-26-191507.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2025-12-31",
+  "filed": "2026-01-28",
+  "accession": "0001193125-26-027207",
+  "n_facts": 152,
+  "file": "xbrl/MSFT/2025-12-31_10-Q_0001193125-26-027207.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2025-09-30",
+  "filed": "2025-10-29",
+  "accession": "0001193125-25-256321",
+  "n_facts": 78,
+  "file": "xbrl/MSFT/2025-09-30_10-Q_0001193125-25-256321.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-K",
+  "period": "2025-06-30",
+  "filed": "2025-07-30",
+  "accession": "0000950170-25-100235",
+  "n_facts": 115,
+  "file": "xbrl/MSFT/2025-06-30_10-K_0000950170-25-100235.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2025-03-31",
+  "filed": "2025-04-30",
+  "accession": "0000950170-25-061046",
+  "n_facts": 138,
+  "file": "xbrl/MSFT/2025-03-31_10-Q_0000950170-25-061046.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2024-12-31",
+  "filed": "2025-01-29",
+  "accession": "0000950170-25-010491",
+  "n_facts": 138,
+  "file": "xbrl/MSFT/2024-12-31_10-Q_0000950170-25-010491.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2024-09-30",
+  "filed": "2024-10-30",
+  "accession": "0000950170-24-118967",
+  "n_facts": 72,
+  "file": "xbrl/MSFT/2024-09-30_10-Q_0000950170-24-118967.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-K",
+  "period": "2024-06-30",
+  "filed": "2024-07-30",
+  "accession": "0000950170-24-087843",
+  "n_facts": 105,
+  "file": "xbrl/MSFT/2024-06-30_10-K_0000950170-24-087843.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2024-03-31",
+  "filed": "2024-04-25",
+  "accession": "0000950170-24-048288",
+  "n_facts": 138,
+  "file": "xbrl/MSFT/2024-03-31_10-Q_0000950170-24-048288.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2023-12-31",
+  "filed": "2024-01-30",
+  "accession": "0000950170-24-008814",
+  "n_facts": 138,
+  "file": "xbrl/MSFT/2023-12-31_10-Q_0000950170-24-008814.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2023-09-30",
+  "filed": "2023-10-24",
+  "accession": "0000950170-23-054855",
+  "n_facts": 72,
+  "file": "xbrl/MSFT/2023-09-30_10-Q_0000950170-23-054855.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-K",
+  "period": "2023-06-30",
+  "filed": "2023-07-27",
+  "accession": "0000950170-23-035122",
+  "n_facts": 106,
+  "file": "xbrl/MSFT/2023-06-30_10-K_0000950170-23-035122.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2023-03-31",
+  "filed": "2023-04-25",
+  "accession": "0000950170-23-014423",
+  "n_facts": 136,
+  "file": "xbrl/MSFT/2023-03-31_10-Q_0000950170-23-014423.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2022-12-31",
+  "filed": "2023-01-24",
+  "accession": "0001564590-23-000733",
+  "n_facts": 136,
+  "file": "xbrl/MSFT/2022-12-31_10-Q_0001564590-23-000733.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2022-09-30",
+  "filed": "2022-10-25",
+  "accession": "0001564590-22-035087",
+  "n_facts": 71,
+  "file": "xbrl/MSFT/2022-09-30_10-Q_0001564590-22-035087.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-K",
+  "period": "2022-06-30",
+  "filed": "2022-07-28",
+  "accession": "0001564590-22-026876",
+  "n_facts": 102,
+  "file": "xbrl/MSFT/2022-06-30_10-K_0001564590-22-026876.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2022-03-31",
+  "filed": "2022-04-26",
+  "accession": "0001564590-22-015675",
+  "n_facts": 134,
+  "file": "xbrl/MSFT/2022-03-31_10-Q_0001564590-22-015675.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2021-12-31",
+  "filed": "2022-01-25",
+  "accession": "0001564590-22-002324",
+  "n_facts": 134,
+  "file": "xbrl/MSFT/2021-12-31_10-Q_0001564590-22-002324.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2021-09-30",
+  "filed": "2021-10-26",
+  "accession": "0001564590-21-051992",
+  "n_facts": 70,
+  "file": "xbrl/MSFT/2021-09-30_10-Q_0001564590-21-051992.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-K",
+  "period": "2021-06-30",
+  "filed": "2021-07-29",
+  "accession": "0001564590-21-039151",
+  "n_facts": 103,
+  "file": "xbrl/MSFT/2021-06-30_10-K_0001564590-21-039151.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2021-03-31",
+  "filed": "2021-04-27",
+  "accession": "0001564590-21-020891",
+  "n_facts": 136,
+  "file": "xbrl/MSFT/2021-03-31_10-Q_0001564590-21-020891.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2020-12-31",
+  "filed": "2021-01-26",
+  "accession": "0001564590-21-002316",
+  "n_facts": 136,
+  "file": "xbrl/MSFT/2020-12-31_10-Q_0001564590-21-002316.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2020-09-30",
+  "filed": "2020-10-27",
+  "accession": "0001564590-20-047996",
+  "n_facts": 71,
+  "file": "xbrl/MSFT/2020-09-30_10-Q_0001564590-20-047996.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-K",
+  "period": "2020-06-30",
+  "filed": "2020-07-30",
+  "accession": "0001564590-20-034944",
+  "n_facts": 132,
+  "file": "xbrl/MSFT/2020-06-30_10-K_0001564590-20-034944.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2020-03-31",
+  "filed": "2020-04-29",
+  "accession": "0001564590-20-019706",
+  "n_facts": 134,
+  "file": "xbrl/MSFT/2020-03-31_10-Q_0001564590-20-019706.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2019-12-31",
+  "filed": "2020-01-29",
+  "accession": "0001564590-20-002450",
+  "n_facts": 134,
+  "file": "xbrl/MSFT/2019-12-31_10-Q_0001564590-20-002450.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2019-09-30",
+  "filed": "2019-10-23",
+  "accession": "0001564590-19-037549",
+  "n_facts": 70,
+  "file": "xbrl/MSFT/2019-09-30_10-Q_0001564590-19-037549.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-K",
+  "period": "2019-06-30",
+  "filed": "2019-08-01",
+  "accession": "0001564590-19-027952",
+  "n_facts": 115,
+  "file": "xbrl/MSFT/2019-06-30_10-K_0001564590-19-027952.json.gz"
+ },
+ {
+  "ticker": "MSFT",
+  "form": "10-Q",
+  "period": "2019-03-31",
+  "filed": "2019-04-24",
+  "accession": "0001564590-19-012709",
+  "n_facts": 116,
+  "file": "xbrl/MSFT/2019-03-31_10-Q_0001564590-19-012709.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-10-29",
+  "accession": "0001652044-26-000084",
+  "n_facts": 120,
+  "file": "xbrl/GOOGL/2026-09-30_10-Q_0001652044-26-000084.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2026-06-30",
+  "filed": "2026-07-23",
+  "accession": "0001652044-26-000071",
+  "n_facts": 120,
+  "file": "xbrl/GOOGL/2026-06-30_10-Q_0001652044-26-000071.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2026-03-31",
+  "filed": "2026-04-30",
+  "accession": "0001652044-26-000048",
+  "n_facts": 62,
+  "file": "xbrl/GOOGL/2026-03-31_10-Q_0001652044-26-000048.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-K",
+  "period": "2025-12-31",
+  "filed": "2026-02-05",
+  "accession": "0001652044-26-000018",
+  "n_facts": 92,
+  "file": "xbrl/GOOGL/2025-12-31_10-K_0001652044-26-000018.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2025-09-30",
+  "filed": "2025-10-30",
+  "accession": "0001652044-25-000091",
+  "n_facts": 120,
+  "file": "xbrl/GOOGL/2025-09-30_10-Q_0001652044-25-000091.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2025-06-30",
+  "filed": "2025-07-24",
+  "accession": "0001652044-25-000062",
+  "n_facts": 118,
+  "file": "xbrl/GOOGL/2025-06-30_10-Q_0001652044-25-000062.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2025-03-31",
+  "filed": "2025-04-25",
+  "accession": "0001652044-25-000043",
+  "n_facts": 62,
+  "file": "xbrl/GOOGL/2025-03-31_10-Q_0001652044-25-000043.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-K",
+  "period": "2024-12-31",
+  "filed": "2025-02-05",
+  "accession": "0001652044-25-000014",
+  "n_facts": 92,
+  "file": "xbrl/GOOGL/2024-12-31_10-K_0001652044-25-000014.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2024-09-30",
+  "filed": "2024-10-30",
+  "accession": "0001652044-24-000118",
+  "n_facts": 118,
+  "file": "xbrl/GOOGL/2024-09-30_10-Q_0001652044-24-000118.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2024-06-30",
+  "filed": "2024-07-24",
+  "accession": "0001652044-24-000079",
+  "n_facts": 118,
+  "file": "xbrl/GOOGL/2024-06-30_10-Q_0001652044-24-000079.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2024-03-31",
+  "filed": "2024-04-26",
+  "accession": "0001652044-24-000053",
+  "n_facts": 62,
+  "file": "xbrl/GOOGL/2024-03-31_10-Q_0001652044-24-000053.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-K",
+  "period": "2023-12-31",
+  "filed": "2024-01-31",
+  "accession": "0001652044-24-000022",
+  "n_facts": 92,
+  "file": "xbrl/GOOGL/2023-12-31_10-K_0001652044-24-000022.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2023-09-30",
+  "filed": "2023-10-25",
+  "accession": "0001652044-23-000094",
+  "n_facts": 120,
+  "file": "xbrl/GOOGL/2023-09-30_10-Q_0001652044-23-000094.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2023-06-30",
+  "filed": "2023-07-26",
+  "accession": "0001652044-23-000070",
+  "n_facts": 120,
+  "file": "xbrl/GOOGL/2023-06-30_10-Q_0001652044-23-000070.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2023-03-31",
+  "filed": "2023-04-26",
+  "accession": "0001652044-23-000045",
+  "n_facts": 64,
+  "file": "xbrl/GOOGL/2023-03-31_10-Q_0001652044-23-000045.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-K",
+  "period": "2022-12-31",
+  "filed": "2023-02-03",
+  "accession": "0001652044-23-000016",
+  "n_facts": 94,
+  "file": "xbrl/GOOGL/2022-12-31_10-K_0001652044-23-000016.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2022-09-30",
+  "filed": "2022-10-26",
+  "accession": "0001652044-22-000090",
+  "n_facts": 120,
+  "file": "xbrl/GOOGL/2022-09-30_10-Q_0001652044-22-000090.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2022-06-30",
+  "filed": "2022-07-27",
+  "accession": "0001652044-22-000071",
+  "n_facts": 120,
+  "file": "xbrl/GOOGL/2022-06-30_10-Q_0001652044-22-000071.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2022-03-31",
+  "filed": "2022-04-27",
+  "accession": "0001652044-22-000029",
+  "n_facts": 64,
+  "file": "xbrl/GOOGL/2022-03-31_10-Q_0001652044-22-000029.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-K",
+  "period": "2021-12-31",
+  "filed": "2022-02-02",
+  "accession": "0001652044-22-000019",
+  "n_facts": 94,
+  "file": "xbrl/GOOGL/2021-12-31_10-K_0001652044-22-000019.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2021-09-30",
+  "filed": "2021-10-27",
+  "accession": "0001652044-21-000057",
+  "n_facts": 120,
+  "file": "xbrl/GOOGL/2021-09-30_10-Q_0001652044-21-000057.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2021-06-30",
+  "filed": "2021-07-28",
+  "accession": "0001652044-21-000047",
+  "n_facts": 120,
+  "file": "xbrl/GOOGL/2021-06-30_10-Q_0001652044-21-000047.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2021-03-31",
+  "filed": "2021-04-28",
+  "accession": "0001652044-21-000020",
+  "n_facts": 64,
+  "file": "xbrl/GOOGL/2021-03-31_10-Q_0001652044-21-000020.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-K",
+  "period": "2020-12-31",
+  "filed": "2021-02-03",
+  "accession": "0001652044-21-000010",
+  "n_facts": 94,
+  "file": "xbrl/GOOGL/2020-12-31_10-K_0001652044-21-000010.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2020-09-30",
+  "filed": "2020-10-30",
+  "accession": "0001652044-20-000050",
+  "n_facts": 132,
+  "file": "xbrl/GOOGL/2020-09-30_10-Q_0001652044-20-000050.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2020-06-30",
+  "filed": "2020-07-31",
+  "accession": "0001652044-20-000032",
+  "n_facts": 132,
+  "file": "xbrl/GOOGL/2020-06-30_10-Q_0001652044-20-000032.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2020-03-31",
+  "filed": "2020-04-29",
+  "accession": "0001652044-20-000021",
+  "n_facts": 70,
+  "file": "xbrl/GOOGL/2020-03-31_10-Q_0001652044-20-000021.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-K",
+  "period": "2019-12-31",
+  "filed": "2020-02-04",
+  "accession": "0001652044-20-000008",
+  "n_facts": 103,
+  "file": "xbrl/GOOGL/2019-12-31_10-K_0001652044-20-000008.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2019-09-30",
+  "filed": "2019-10-29",
+  "accession": "0001652044-19-000032",
+  "n_facts": 116,
+  "file": "xbrl/GOOGL/2019-09-30_10-Q_0001652044-19-000032.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2019-06-30",
+  "filed": "2019-07-26",
+  "accession": "0001652044-19-000023",
+  "n_facts": 116,
+  "file": "xbrl/GOOGL/2019-06-30_10-Q_0001652044-19-000023.json.gz"
+ },
+ {
+  "ticker": "GOOGL",
+  "form": "10-Q",
+  "period": "2019-03-31",
+  "filed": "2019-04-30",
+  "accession": "0001652044-19-000015",
+  "n_facts": 62,
+  "file": "xbrl/GOOGL/2019-03-31_10-Q_0001652044-19-000015.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-10-30",
+  "accession": "0001018724-26-000040",
+  "n_facts": 106,
+  "file": "xbrl/AMZN/2026-09-30_10-Q_0001018724-26-000040.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2026-06-30",
+  "filed": "2026-07-31",
+  "accession": "0001018724-26-000026",
+  "n_facts": 106,
+  "file": "xbrl/AMZN/2026-06-30_10-Q_0001018724-26-000026.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2026-03-31",
+  "filed": "2026-04-30",
+  "accession": "0001018724-26-000014",
+  "n_facts": 60,
+  "file": "xbrl/AMZN/2026-03-31_10-Q_0001018724-26-000014.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-K",
+  "period": "2025-12-31",
+  "filed": "2026-02-06",
+  "accession": "0001018724-26-000004",
+  "n_facts": 97,
+  "file": "xbrl/AMZN/2025-12-31_10-K_0001018724-26-000004.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2025-09-30",
+  "filed": "2025-10-31",
+  "accession": "0001018724-25-000123",
+  "n_facts": 106,
+  "file": "xbrl/AMZN/2025-09-30_10-Q_0001018724-25-000123.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2025-06-30",
+  "filed": "2025-08-01",
+  "accession": "0001018724-25-000086",
+  "n_facts": 106,
+  "file": "xbrl/AMZN/2025-06-30_10-Q_0001018724-25-000086.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2025-03-31",
+  "filed": "2025-05-02",
+  "accession": "0001018724-25-000036",
+  "n_facts": 60,
+  "file": "xbrl/AMZN/2025-03-31_10-Q_0001018724-25-000036.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-K",
+  "period": "2024-12-31",
+  "filed": "2025-02-07",
+  "accession": "0001018724-25-000004",
+  "n_facts": 97,
+  "file": "xbrl/AMZN/2024-12-31_10-K_0001018724-25-000004.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2024-09-30",
+  "filed": "2024-11-01",
+  "accession": "0001018724-24-000161",
+  "n_facts": 114,
+  "file": "xbrl/AMZN/2024-09-30_10-Q_0001018724-24-000161.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2024-06-30",
+  "filed": "2024-08-02",
+  "accession": "0001018724-24-000130",
+  "n_facts": 114,
+  "file": "xbrl/AMZN/2024-06-30_10-Q_0001018724-24-000130.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2024-03-31",
+  "filed": "2024-05-01",
+  "accession": "0001018724-24-000083",
+  "n_facts": 68,
+  "file": "xbrl/AMZN/2024-03-31_10-Q_0001018724-24-000083.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-K",
+  "period": "2023-12-31",
+  "filed": "2024-02-02",
+  "accession": "0001018724-24-000008",
+  "n_facts": 109,
+  "file": "xbrl/AMZN/2023-12-31_10-K_0001018724-24-000008.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2023-09-30",
+  "filed": "2023-10-27",
+  "accession": "0001018724-23-000018",
+  "n_facts": 114,
+  "file": "xbrl/AMZN/2023-09-30_10-Q_0001018724-23-000018.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2023-06-30",
+  "filed": "2023-08-04",
+  "accession": "0001018724-23-000012",
+  "n_facts": 114,
+  "file": "xbrl/AMZN/2023-06-30_10-Q_0001018724-23-000012.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2023-03-31",
+  "filed": "2023-04-28",
+  "accession": "0001018724-23-000008",
+  "n_facts": 66,
+  "file": "xbrl/AMZN/2023-03-31_10-Q_0001018724-23-000008.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-K",
+  "period": "2022-12-31",
+  "filed": "2023-02-03",
+  "accession": "0001018724-23-000004",
+  "n_facts": 106,
+  "file": "xbrl/AMZN/2022-12-31_10-K_0001018724-23-000004.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2022-09-30",
+  "filed": "2022-10-28",
+  "accession": "0001018724-22-000023",
+  "n_facts": 112,
+  "file": "xbrl/AMZN/2022-09-30_10-Q_0001018724-22-000023.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2022-06-30",
+  "filed": "2022-07-29",
+  "accession": "0001018724-22-000019",
+  "n_facts": 112,
+  "file": "xbrl/AMZN/2022-06-30_10-Q_0001018724-22-000019.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2022-03-31",
+  "filed": "2022-04-29",
+  "accession": "0001018724-22-000013",
+  "n_facts": 66,
+  "file": "xbrl/AMZN/2022-03-31_10-Q_0001018724-22-000013.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-K",
+  "period": "2021-12-31",
+  "filed": "2022-02-04",
+  "accession": "0001018724-22-000005",
+  "n_facts": 107,
+  "file": "xbrl/AMZN/2021-12-31_10-K_0001018724-22-000005.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2021-09-30",
+  "filed": "2021-10-29",
+  "accession": "0001018724-21-000028",
+  "n_facts": 102,
+  "file": "xbrl/AMZN/2021-09-30_10-Q_0001018724-21-000028.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2021-06-30",
+  "filed": "2021-07-30",
+  "accession": "0001018724-21-000020",
+  "n_facts": 102,
+  "file": "xbrl/AMZN/2021-06-30_10-Q_0001018724-21-000020.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2021-03-31",
+  "filed": "2021-04-30",
+  "accession": "0001018724-21-000010",
+  "n_facts": 58,
+  "file": "xbrl/AMZN/2021-03-31_10-Q_0001018724-21-000010.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-K",
+  "period": "2020-12-31",
+  "filed": "2021-02-03",
+  "accession": "0001018724-21-000004",
+  "n_facts": 110,
+  "file": "xbrl/AMZN/2020-12-31_10-K_0001018724-21-000004.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2020-09-30",
+  "filed": "2020-10-30",
+  "accession": "0001018724-20-000030",
+  "n_facts": 102,
+  "file": "xbrl/AMZN/2020-09-30_10-Q_0001018724-20-000030.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2020-06-30",
+  "filed": "2020-07-31",
+  "accession": "0001018724-20-000021",
+  "n_facts": 102,
+  "file": "xbrl/AMZN/2020-06-30_10-Q_0001018724-20-000021.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2020-03-31",
+  "filed": "2020-05-01",
+  "accession": "0001018724-20-000010",
+  "n_facts": 58,
+  "file": "xbrl/AMZN/2020-03-31_10-Q_0001018724-20-000010.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-K",
+  "period": "2019-12-31",
+  "filed": "2020-01-31",
+  "accession": "0001018724-20-000004",
+  "n_facts": 117,
+  "file": "xbrl/AMZN/2019-12-31_10-K_0001018724-20-000004.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2019-09-30",
+  "filed": "2019-10-25",
+  "accession": "0001018724-19-000089",
+  "n_facts": 102,
+  "file": "xbrl/AMZN/2019-09-30_10-Q_0001018724-19-000089.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2019-06-30",
+  "filed": "2019-07-26",
+  "accession": "0001018724-19-000071",
+  "n_facts": 102,
+  "file": "xbrl/AMZN/2019-06-30_10-Q_0001018724-19-000071.json.gz"
+ },
+ {
+  "ticker": "AMZN",
+  "form": "10-Q",
+  "period": "2019-03-31",
+  "filed": "2019-04-26",
+  "accession": "0001018724-19-000043",
+  "n_facts": 52,
+  "file": "xbrl/AMZN/2019-03-31_10-Q_0001018724-19-000043.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-10-22",
+  "accession": "0001628280-26-066773",
+  "n_facts": 82,
+  "file": "xbrl/META/2026-09-30_10-Q_0001628280-26-066773.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2026-06-30",
+  "filed": "2026-07-30",
+  "accession": "0001628280-26-050705",
+  "n_facts": 82,
+  "file": "xbrl/META/2026-06-30_10-Q_0001628280-26-050705.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2026-03-31",
+  "filed": "2026-04-30",
+  "accession": "0001628280-26-028526",
+  "n_facts": 44,
+  "file": "xbrl/META/2026-03-31_10-Q_0001628280-26-028526.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-K",
+  "period": "2025-12-31",
+  "filed": "2026-01-29",
+  "accession": "0001628280-26-003942",
+  "n_facts": 68,
+  "file": "xbrl/META/2025-12-31_10-K_0001628280-26-003942.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2025-09-30",
+  "filed": "2025-10-30",
+  "accession": "0001628280-25-047240",
+  "n_facts": 82,
+  "file": "xbrl/META/2025-09-30_10-Q_0001628280-25-047240.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2025-06-30",
+  "filed": "2025-07-31",
+  "accession": "0001628280-25-036791",
+  "n_facts": 82,
+  "file": "xbrl/META/2025-06-30_10-Q_0001628280-25-036791.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2025-03-31",
+  "filed": "2025-05-01",
+  "accession": "0001326801-25-000054",
+  "n_facts": 44,
+  "file": "xbrl/META/2025-03-31_10-Q_0001326801-25-000054.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-K",
+  "period": "2024-12-31",
+  "filed": "2025-01-30",
+  "accession": "0001326801-25-000017",
+  "n_facts": 71,
+  "file": "xbrl/META/2024-12-31_10-K_0001326801-25-000017.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2024-09-30",
+  "filed": "2024-10-31",
+  "accession": "0001326801-24-000081",
+  "n_facts": 82,
+  "file": "xbrl/META/2024-09-30_10-Q_0001326801-24-000081.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2024-06-30",
+  "filed": "2024-08-01",
+  "accession": "0001326801-24-000069",
+  "n_facts": 82,
+  "file": "xbrl/META/2024-06-30_10-Q_0001326801-24-000069.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2024-03-31",
+  "filed": "2024-04-25",
+  "accession": "0001326801-24-000049",
+  "n_facts": 44,
+  "file": "xbrl/META/2024-03-31_10-Q_0001326801-24-000049.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-K",
+  "period": "2023-12-31",
+  "filed": "2024-02-02",
+  "accession": "0001326801-24-000012",
+  "n_facts": 71,
+  "file": "xbrl/META/2023-12-31_10-K_0001326801-24-000012.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2023-09-30",
+  "filed": "2023-10-26",
+  "accession": "0001326801-23-000103",
+  "n_facts": 86,
+  "file": "xbrl/META/2023-09-30_10-Q_0001326801-23-000103.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2023-06-30",
+  "filed": "2023-07-27",
+  "accession": "0001326801-23-000093",
+  "n_facts": 86,
+  "file": "xbrl/META/2023-06-30_10-Q_0001326801-23-000093.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2023-03-31",
+  "filed": "2023-04-27",
+  "accession": "0001326801-23-000067",
+  "n_facts": 46,
+  "file": "xbrl/META/2023-03-31_10-Q_0001326801-23-000067.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-K",
+  "period": "2022-12-31",
+  "filed": "2023-02-02",
+  "accession": "0001326801-23-000013",
+  "n_facts": 68,
+  "file": "xbrl/META/2022-12-31_10-K_0001326801-23-000013.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2022-09-30",
+  "filed": "2022-10-27",
+  "accession": "0001326801-22-000108",
+  "n_facts": 86,
+  "file": "xbrl/META/2022-09-30_10-Q_0001326801-22-000108.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2022-06-30",
+  "filed": "2022-07-28",
+  "accession": "0001326801-22-000082",
+  "n_facts": 86,
+  "file": "xbrl/META/2022-06-30_10-Q_0001326801-22-000082.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2022-03-31",
+  "filed": "2022-04-28",
+  "accession": "0001326801-22-000057",
+  "n_facts": 46,
+  "file": "xbrl/META/2022-03-31_10-Q_0001326801-22-000057.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-K",
+  "period": "2021-12-31",
+  "filed": "2022-02-03",
+  "accession": "0001326801-22-000018",
+  "n_facts": 68,
+  "file": "xbrl/META/2021-12-31_10-K_0001326801-22-000018.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2021-09-30",
+  "filed": "2021-10-26",
+  "accession": "0001326801-21-000065",
+  "n_facts": 54,
+  "file": "xbrl/META/2021-09-30_10-Q_0001326801-21-000065.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2021-06-30",
+  "filed": "2021-07-29",
+  "accession": "0001326801-21-000049",
+  "n_facts": 54,
+  "file": "xbrl/META/2021-06-30_10-Q_0001326801-21-000049.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2021-03-31",
+  "filed": "2021-04-29",
+  "accession": "0001326801-21-000033",
+  "n_facts": 30,
+  "file": "xbrl/META/2021-03-31_10-Q_0001326801-21-000033.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-K",
+  "period": "2020-12-31",
+  "filed": "2021-01-28",
+  "accession": "0001326801-21-000014",
+  "n_facts": 46,
+  "file": "xbrl/META/2020-12-31_10-K_0001326801-21-000014.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2020-09-30",
+  "filed": "2020-10-30",
+  "accession": "0001326801-20-000084",
+  "n_facts": 55,
+  "file": "xbrl/META/2020-09-30_10-Q_0001326801-20-000084.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2020-06-30",
+  "filed": "2020-07-31",
+  "accession": "0001326801-20-000076",
+  "n_facts": 55,
+  "file": "xbrl/META/2020-06-30_10-Q_0001326801-20-000076.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2020-03-31",
+  "filed": "2020-04-30",
+  "accession": "0001326801-20-000048",
+  "n_facts": 31,
+  "file": "xbrl/META/2020-03-31_10-Q_0001326801-20-000048.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-K",
+  "period": "2019-12-31",
+  "filed": "2020-01-30",
+  "accession": "0001326801-20-000013",
+  "n_facts": 44,
+  "file": "xbrl/META/2019-12-31_10-K_0001326801-20-000013.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2019-09-30",
+  "filed": "2019-10-31",
+  "accession": "0001326801-19-000069",
+  "n_facts": 54,
+  "file": "xbrl/META/2019-09-30_10-Q_0001326801-19-000069.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2019-06-30",
+  "filed": "2019-07-25",
+  "accession": "0001326801-19-000055",
+  "n_facts": 54,
+  "file": "xbrl/META/2019-06-30_10-Q_0001326801-19-000055.json.gz"
+ },
+ {
+  "ticker": "META",
+  "form": "10-Q",
+  "period": "2019-03-31",
+  "filed": "2019-04-25",
+  "accession": "0001326801-19-000037",
+  "n_facts": 26,
+  "file": "xbrl/META/2019-03-31_10-Q_0001326801-19-000037.json.gz"
+ }
+]

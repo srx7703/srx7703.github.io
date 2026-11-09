@@ -30,6 +30,7 @@ RENDERED = {
     "surgical": (),
     # the cyber page has no market-share layer; its curated private-company data lives under data/reference/cyber
     "cyber": (),
+    "servers": ("cited_share",),
 }
 
 # Phrases that address the pipeline's own authors rather than a reader. None of them belongs in a

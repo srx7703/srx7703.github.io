@@ -348,13 +348,58 @@ SURGICAL: list[Company] = [
 ]
 
 
+_NO_SERVER_SHARE = (
+    "the server page computes its own group shares from segment and monthly revenue (pipelines/servers); a "
+    "total-revenue share here would put Hon Hai's phones and Lenovo's PCs into a server market"
+)
+
+
+def _srv(ticker, name, purity, market, fy=12, **kw) -> Company:
+    if market == "cn":
+        return _cn(ticker, name, kw.pop("name_cn"), "servers", purity, share_basis="none",
+                   share_note=_NO_SERVER_SHARE, **kw)
+    return Company(ticker, name, "servers", purity, market, fy, share_basis="none", share_note=_NO_SERVER_SHARE, **kw)
+
+
+#: AI / data-center server makers. Cisco and Jabil are in the pool too, but already priced by the optical track
+#: (BY_TICKER holds one Company per ticker); the server page reads them by ticker from that track.
+SERVERS: list[Company] = [
+    _srv("DELL", "Dell Technologies", "partial", "us", 1, note="Servers and networking inside ISG; PCs are the rest"),
+    _srv("HPE", "Hewlett Packard Enterprise", "partial", "us", 10, note="Server segment; Juniper acquired 2025"),
+    _srv("SMCI", "Super Micro Computer", "high", "us", 6),
+    _srv("0992.HK", "Lenovo Group", "partial", "hk", 3, name_cn="联想集团", note="ISG; PCs are most of revenue"),
+    _srv("PENG", "Penguin Solutions", "partial", "us", 8, note="Advanced Computing beside memory and LED"),
+    _srv("2382.TW", "Quanta Computer", "main", "tw", name_cn="广达", note="servers and notebooks"),
+    _srv("6669.TW", "Wiwynn", "high", "tw", name_cn="纬颖", note="consolidated by Wistron"),
+    _srv("3231.TW", "Wistron", "main", "tw", name_cn="纬创", note="consolidates Wiwynn"),
+    _srv("2356.TW", "Inventec", "main", "tw", name_cn="英业达", note="servers and notebooks"),
+    _srv("2317.TW", "Hon Hai Precision (Foxconn)", "partial", "tw", name_cn="鸿海",
+         note="cloud and networking products beside consumer electronics"),
+    _srv("2376.TW", "Gigabyte", "partial", "tw", name_cn="技嘉", note="servers beside boards and graphics cards"),
+    _srv("2357.TW", "ASUS", "partial", "tw", name_cn="华硕", note="servers are a small part"),
+    _srv("3706.TW", "MiTAC Holdings", "main", "tw", name_cn="神达"),
+    _srv("4938.TW", "Pegatron", "partial", "tw", name_cn="和硕", note="comparator"),
+    _srv("601138.SS", "Foxconn Industrial Internet", "main", "cn", name_cn="工业富联",
+         note="cloud computing beside communications equipment"),
+    _srv("CLS", "Celestica", "main", "us", note="CCS segment holds the hyperscaler business"),
+    _srv("FLEX", "Flex", "partial", "us", 3),
+    _srv("SANM", "Sanmina", "partial", "us", 9, note="took over ZT Systems' manufacturing"),
+    _srv("000977.SZ", "Inspur Electronic Information", "high", "cn", name_cn="浪潮信息"),
+    _srv("000938.SZ", "Unisplendour (H3C)", "partial", "cn", name_cn="紫光股份"),
+    _srv("603019.SS", "Sugon", "main", "cn", name_cn="中科曙光"),
+    _srv("603296.SS", "Huaqin Technology", "partial", "cn", name_cn="华勤技术",
+         note="data-center business beside phones and PCs"),
+    _srv("000066.SZ", "China Greatwall Technology", "partial", "cn", name_cn="中国长城", note="comparator"),
+]
+
+
 def _cyber() -> list[Company]:
     """Ring A of ``pipelines/cyber/pool.py``: the one place that says which cybersecurity listings are priced."""
     out = []
     # A listing another track already prices keeps that track: BY_TICKER holds one Company per ticker, and moving
     # Cisco from the optical page to this one would change a live page. The cyber page reads its price and
     # consensus by ticker, so the pool still counts it.
-    taken = {c.ticker for c in OPTICAL + SSB + POWER + SURGICAL}
+    taken = {c.ticker for c in OPTICAL + SSB + POWER + SURGICAL + SERVERS}
     for e in ring("A"):
         if e.ticker in taken:
             continue
@@ -383,7 +428,7 @@ def _cyber() -> list[Company]:
 CYBER: list[Company] = _cyber()
 
 
-COMPANIES: list[Company] = OPTICAL + SSB + POWER + SURGICAL + CYBER
+COMPANIES: list[Company] = OPTICAL + SSB + POWER + SURGICAL + SERVERS + CYBER
 BY_TICKER: dict[str, Company] = {c.ticker: c for c in COMPANIES}
 
 TRACKS = {
@@ -413,6 +458,13 @@ TRACKS = {
         "label": "Data-center power",
         "facts": "valuation_power",
         "reference": "share_power.json",
+        "share": False,
+    },
+    "servers": {
+        "slug": "ai-server-makers",
+        "label": "AI server makers",
+        "facts": "valuation_servers",
+        "reference": "share_servers.json",
         "share": False,
     },
     "cyber": {

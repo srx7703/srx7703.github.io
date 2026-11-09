@@ -90,7 +90,8 @@ CAPEX_CIKS = {"MSFT": 789019, "GOOGL": 1652044, "AMZN": 1018724, "META": 1326801
 SEC_CIKS = {m.key: m.cik for m in MAKERS if m.cik} | CAPEX_CIKS
 
 # ---- registered series (docs/prereg/ai-servers/2026-11-09_test_rules.md) ----------------------------------
-Q1_ODM = ("2382", "3231", "2356")             # Wiwynn is inside Wistron's consolidation; added separately = double count
+# Wiwynn is inside Wistron's consolidation, so adding it separately would double count
+Q1_ODM = ("2382", "3231", "2356")
 Q7_SIGNAL = ("2382", "3231", "2356")
 Q7_CAPEX = ("MSFT", "GOOGL", "AMZN", "META")
 Q7_FIRST, Q7_LAST = "2019Q1", "2026Q3"
