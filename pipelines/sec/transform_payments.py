@@ -40,7 +40,7 @@ import polars as pl
 from pipelines.common.checks import check, freshness, uniqueness
 from pipelines.common.log import setup_logging
 from pipelines.common.storage import MARTS_DIR, SNAP_DIR, utc_now, write_json, write_parquet
-from pipelines.sec.config import PAYMENTS_FILERS, UNIVERSES
+from pipelines.sec.config import PAYMENTS_FILERS, PAYMENTS_TAG_OVERRIDES, UNIVERSES
 from pipelines.sec.ingest import FRAMES_FORM
 from pipelines.sec.transform import (
     Q_MIN,
@@ -169,8 +169,9 @@ def build(snap_dir: Path | None = None, marts_dir: Path | None = None) -> dict:
             "quarters": {},
             "ltm_basis": {},
         }
-        for metric in universe.tag_map:
-            spans, used = merge_metric_facts(df, metric, universe.tag_map)
+        tag_map = filer_tag_map(universe.tag_map, ticker)
+        for metric in tag_map:
+            spans, used = merge_metric_facts(df, metric, tag_map)
             if not spans:
                 continue
             cov["tags"][metric] = used
@@ -266,6 +267,14 @@ def build(snap_dir: Path | None = None, marts_dir: Path | None = None) -> dict:
     }
     write_json(result, out_root / "sec_coverage.json")
     return result
+
+
+def filer_tag_map(
+    tag_map: dict[str, tuple[tuple[str, ...], str]], ticker: str
+) -> dict[str, tuple[tuple[str, ...], str]]:
+    """The universe tag map with this filer's overrides (config.PAYMENTS_TAG_OVERRIDES) swapped in."""
+    over = PAYMENTS_TAG_OVERRIDES.get(ticker, {})
+    return {m: (over.get(m, tags), unit) for m, (tags, unit) in tag_map.items()}
 
 
 def latest_table(ltm: pl.DataFrame, names: dict[str, str], frames_ends: dict[str, set[str]]) -> pl.DataFrame:

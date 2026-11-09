@@ -280,3 +280,13 @@ def test_all_failed_run_keeps_last_good_snapshot(tmp_path):
     assert out["companies"] == {} and len(out["failed"]) == 2
     assert (snap / "companies.json").read_text() == '{"companies": {"MQ": {}}}'
     assert not (snap / "refresh_log.jsonl").exists()
+
+
+def test_circle_revenue_uses_total_revenue_and_reserve_income() -> None:
+    from pipelines.sec.config import PAYMENTS_TAG_MAP
+    from pipelines.sec.transform_payments import filer_tag_map
+
+    crcl = filer_tag_map(PAYMENTS_TAG_MAP, "CRCL")
+    assert crcl["revenue"][0] == ("us-gaap:Revenues",)
+    assert crcl["op_income"] == PAYMENTS_TAG_MAP["op_income"], "only the overridden metric changes"
+    assert filer_tag_map(PAYMENTS_TAG_MAP, "MQ") == PAYMENTS_TAG_MAP, "filers without an override keep the default"

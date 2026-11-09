@@ -154,6 +154,20 @@ PAYMENTS_TAG_MAP: dict[str, tuple[tuple[str, ...], str]] = {
     ),
 }
 
+# Per-filer replacements for a metric's tag list, used where the default priority picks the wrong line.
+# These four tag only fee income as contract revenue (RevenueFromContractWithCustomer...); the total they report,
+# which includes interest income (Affirm, Sezzle), interest on customer balances (Payoneer) or reserve income
+# (Circle), is us-gaap:Revenues. Taking the contract line first understated revenue 1.3x to 25x (latest fiscal year)
+# and pushed margins above 100%, which failed the margin check and stopped the weekly refresh from 2026-10-07.
+# Every other filer's two revenue tags agree within 3%.
+_TOTAL_REVENUE = {"revenue": ("us-gaap:Revenues",)}
+PAYMENTS_TAG_OVERRIDES: dict[str, dict[str, tuple[str, ...]]] = {
+    "AFRM": _TOTAL_REVENUE,
+    "CRCL": _TOTAL_REVENUE,
+    "PAYO": _TOTAL_REVENUE,
+    "SEZL": _TOTAL_REVENUE,
+}
+
 # Income-statement metrics are reported as discrete quarters, so a calendar-quarter `frames` cell can fill a
 # missing latest quarter. Cash-flow items are year-to-date only and never appear in a quarterly frame.
 FRAMES_METRICS: tuple[str, ...] = ("revenue", "op_income", "net_income")
