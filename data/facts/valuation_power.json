@@ -1,40 +1,40 @@
 {
- "generated_at": "2026-11-09T16:54:15.287050+00:00",
+ "generated_at": "2026-11-09T17:58:56.352789+00:00",
  "track": "power",
  "label": "Data-center power",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-11-09T16:52:27+00:00",
- "as_of_estimates": "2026-11-02T17:29:24+00:00",
+ "as_of_price": "2026-11-09T17:48:33+00:00",
+ "as_of_estimates": "2026-11-09T17:51:40+00:00",
  "as_of_fx": "2026-10-30",
  "n_listings": 30,
  "n_issuers": 30,
  "n_priced": 30,
  "n_with_consensus": 26,
- "n_thin": 0,
+ "n_thin": 1,
  "n_nm": 4,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 21.96320952143817,
- "median_fwd_pe_next": 19.271719643381548,
- "p25_fwd_pe_this": 19.179935974972118,
- "p75_fwd_pe_this": 26.081400884086044,
- "iqr_fwd_pe_this": 6.901464909113926,
- "median_growth": 0.16660792835100247,
- "median_trailing_pe": 31.568994614358367,
+ "median_fwd_pe_this": 22.19278486337545,
+ "median_fwd_pe_next": 19.27020141663569,
+ "p25_fwd_pe_this": 19.501595813917238,
+ "p75_fwd_pe_this": 26.04092569111249,
+ "iqr_fwd_pe_this": 6.539329877195254,
+ "median_growth": 0.16067849547056823,
+ "median_trailing_pe": 30.04641014824592,
  "cheapest": {
   "ticker": "FSLR",
   "name": "First Solar",
-  "fwd_pe_2026": 10.73241223741717,
-  "growth": 0.3083230627197191,
+  "fwd_pe_2026": 10.918880722929922,
+  "growth": 0.31242297039789335,
   "coverage": "covered"
  },
  "priciest": {
   "ticker": "TSLA",
   "name": "Tesla",
-  "fwd_pe_2026": 217.22838902628402,
-  "growth": 0.24185886006786683,
+  "fwd_pe_2026": 219.02983343386074,
+  "growth": 0.2522734654108476,
   "coverage": "covered"
  },
  "nm_reasons": [
@@ -102,17 +102,17 @@
   {
    "name": "Analyst depth",
    "status": "pass",
-   "detail": "0 of 30 listings are covered by fewer than three analysts"
+   "detail": "1 of 30 listings are covered by fewer than three analysts"
   },
   {
    "name": "Trailing basis",
    "status": "pass",
-   "detail": "2 of 30 listings use the last full fiscal year instead of a trailing twelve months, because no quarterly statement is published for them; the table marks which"
+   "detail": "1 of 30 listings use the last full fiscal year instead of a trailing twelve months, because no quarterly statement is published for them; the table marks which"
   },
   {
    "name": "Trailing earnings",
    "status": "pass",
-   "detail": "20 of 30 listings have positive trailing profit; 25 have trailing financials at all"
+   "detail": "21 of 30 listings have positive trailing profit; 25 have trailing financials at all"
   },
   {
    "name": "Dual-listing share base",

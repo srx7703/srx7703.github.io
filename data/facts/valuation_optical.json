@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-09T16:54:15.287050+00:00",
+ "generated_at": "2026-11-09T17:58:56.352789+00:00",
  "track": "optical",
  "label": "Optical modules",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-11-09T16:52:27+00:00",
- "as_of_estimates": "2026-11-02T17:29:24+00:00",
+ "as_of_price": "2026-11-09T17:48:33+00:00",
+ "as_of_estimates": "2026-11-09T17:51:40+00:00",
  "as_of_fx": "2026-10-30",
  "n_listings": 34,
  "n_issuers": 33,
@@ -16,18 +16,18 @@
  "n_thin": 3,
  "n_nm": 0,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 34.42002839478627,
- "median_fwd_pe_next": 20.210201237729365,
- "p25_fwd_pe_this": 21.297556958715255,
- "p75_fwd_pe_this": 46.852360849483674,
- "iqr_fwd_pe_this": 25.55480389076842,
- "median_growth": 0.7364627072346244,
- "median_trailing_pe": 51.6736756125453,
+ "median_fwd_pe_this": 33.61307674854851,
+ "median_fwd_pe_next": 18.607893325841868,
+ "p25_fwd_pe_this": 21.113529091890875,
+ "p75_fwd_pe_this": 46.75106720618565,
+ "iqr_fwd_pe_this": 25.637538114294777,
+ "median_growth": 0.7153511087645195,
+ "median_trailing_pe": 50.97318938757629,
  "cheapest": {
   "ticker": "6869.HK",
   "name": "YOFC (H)",
-  "fwd_pe_2026": 6.2607733992773165,
-  "growth": 0.09386525470147888,
+  "fwd_pe_2026": 6.808865236030003,
+  "growth": 0.29978299616579274,
   "coverage": "thin"
  },
  "priciest": {
@@ -41,7 +41,7 @@
  "share": {
   "n_members": 16,
   "n_excluded": 17,
-  "pool_revenue_usd": 37374576841.5266,
+  "pool_revenue_usd": 37591097693.01479,
   "basis_counts": {
    "disclosed segment": 3,
    "total revenue": 13
@@ -52,9 +52,9 @@
    "not_recorded": 10,
    "no_data": 0
   },
-  "top3_share": 0.6356096362630874,
-  "top5_share": 0.833417241914283,
-  "hhi": 1822.1536401309945,
+  "top3_share": 0.6319485902148536,
+  "top5_share": 0.8286168444282114,
+  "hhi": 1802.753486822396,
   "leader": {
    "ticker": "300308.SZ",
    "name": "Innolight",
@@ -66,7 +66,7 @@
    "basis": "total revenue",
    "note": "the company's whole revenue competes in this market",
    "period_end": "2026-09-30",
-   "share": 0.33288244886225504
+   "share": 0.3309650802378607
   },
   "members": [
    {
@@ -80,7 +80,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.33288244886225504
+    "share": 0.3309650802378607
    },
    {
     "ticker": "300502.SZ",
@@ -93,7 +93,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.16159916814953662
+    "share": 0.16066837358287459
    },
    {
     "ticker": "COHR",
@@ -106,7 +106,7 @@
     "basis": "disclosed segment",
     "note": "Segment Revenues, Datacenter & Communications segment, fiscal year ended 2026-06-30 (earnings release Table 5; audited equivalent in FY2026 Form 10-K Note 20)",
     "period_end": "FY2026",
-    "share": 0.14112801925129578
+    "share": 0.14031513639411838
    },
    {
     "ticker": "5803.T",
@@ -119,7 +119,7 @@
     "basis": "disclosed segment",
     "note": "reportable segment information, 情報通信事業部門 (Information and Telecommunications), sales to external customers, year ended 2026-03-31",
     "period_end": "FY2026",
-    "share": 0.11094909715851714
+    "share": 0.11031004178469464
    },
    {
     "ticker": "CIEN",
@@ -132,7 +132,7 @@
     "basis": "disclosed segment",
     "note": "Revenue by Segment, Optical Networking product line within Networking Platforms, fiscal year ended 2025-11-01",
     "period_end": "FY2025",
-    "share": 0.0868585084926784
+    "share": 0.08635821242866312
    },
    {
     "ticker": "002281.SZ",
@@ -145,7 +145,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.06064004114665768
+    "share": 0.06029076075451332
    },
    {
     "ticker": "603083.SS",
@@ -158,7 +158,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.025672534178207255
+    "share": 0.02552466302516141
    },
    {
     "ticker": "300394.SZ",
@@ -171,20 +171,20 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.024111540569255942
+    "share": 0.023972660578642703
    },
    {
     "ticker": "AAOI",
     "name": "Applied Optoelectronics",
     "name_cn": null,
     "purity": "high",
-    "revenue_usd": 595970000.0,
-    "revenue_native": 595970000.0,
+    "revenue_usd": 747215000.0,
+    "revenue_native": 747215000.0,
     "currency": "USD",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-06-30",
-    "share": 0.015945866157281073
+    "period_end": "2026-09-30",
+    "share": 0.019877445614971973
    },
    {
     "ticker": "688313.SS",
@@ -197,7 +197,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.013233594880352792
+    "share": 0.013157370736670067
    },
    {
     "ticker": "300570.SZ",
@@ -210,7 +210,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.009411831025891887
+    "share": 0.009357619848436227
    },
    {
     "ticker": "301205.SZ",
@@ -223,7 +223,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.006778296855270273
+    "share": 0.006739254563429576
    },
    {
     "ticker": "688205.SS",
@@ -236,7 +236,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.004321417207853969
+    "share": 0.0042965262897668895
    },
    {
     "ticker": "4979.TWO",
@@ -249,20 +249,20 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.0038693719672978086
+    "share": 0.0038470847832436025
    },
    {
     "ticker": "3081.TWO",
     "name": "LandMark Optoelectronics",
     "name_cn": "联亚光电",
     "purity": "high",
-    "revenue_usd": 67591960.72414851,
-    "revenue_native": 2202822000.0,
+    "revenue_usd": 132867812.21233507,
+    "revenue_native": 4330162000.0,
     "currency": "TWD",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
-    "period_end": "2025-12-31",
-    "share": 0.0018085010302791604
+    "period_end": "2026-09-30",
+    "share": 0.0035345552635198695
    },
    {
     "ticker": "4977.TW",
@@ -275,7 +275,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-06-30",
-    "share": 0.000789763067369207
+    "share": 0.000785214113432901
    }
   ],
   "excluded": [
@@ -788,7 +788,7 @@
   {
    "name": "Trailing basis",
    "status": "pass",
-   "detail": "3 of 34 listings use the last full fiscal year instead of a trailing twelve months, because no quarterly statement is published for them; the table marks which"
+   "detail": "1 of 34 listings use the last full fiscal year instead of a trailing twelve months, because no quarterly statement is published for them; the table marks which"
   },
   {
    "name": "Trailing earnings",

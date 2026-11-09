@@ -1,7 +1,10 @@
 {
- "generated_at": "2026-11-09T16:54:16.380567+00:00",
+ "generated_at": "2026-11-09T17:58:57.475155+00:00",
  "plan": "docs/EVALUATION_PLAN.md",
- "snapshot_vintages_written": [],
+ "snapshot_vintages_written": [
+  "/home/runner/work/srx7703.github.io/srx7703.github.io/data/snapshots/valuation/vintages/2026-11-02-snapshot.parquet",
+  "/home/runner/work/srx7703.github.io/srx7703.github.io/data/snapshots/valuation/vintages/2026-11-09-snapshot.parquet"
+ ],
  "tracks": {
   "optical": {
    "consensus_accuracy": {
@@ -10,22 +13,22 @@
    },
    "revision_persistence": {
     "status": "not_yet",
-    "why": "no window yet has 10 listings whose consensus moved; 33 windows were dropped for being too quiet"
+    "why": "no window yet has 10 listings whose consensus moved; 37 windows were dropped for being too quiet"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-11-09T16:54:15.287050+00:00",
-    "iqr": 25.55480389076842,
-    "p25": 21.297556958715255,
-    "p75": 46.852360849483674,
-    "median": 34.42002839478627,
+    "as_of": "2026-11-09T17:58:56.352789+00:00",
+    "iqr": 25.637538114294777,
+    "p25": 21.113529091890875,
+    "p75": 46.75106720618565,
+    "median": 33.61307674854851,
     "n_priced": 34,
     "n_listings": 34,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
    },
    "dual_listing_premium": {
     "status": "partial",
-    "as_of": "2026-11-09T16:54:15.287050+00:00",
+    "as_of": "2026-11-09T17:58:56.352789+00:00",
     "pairs": [
      {
       "name": "YOFC",
@@ -54,7 +57,7 @@
     },
     "rank_correlation_why": null,
     "share_difference": {
-     "median_abs_difference": 0.001640041146657674,
+     "median_abs_difference": 0.0012907607545133148,
      "n": 1,
      "source_name": "武汉光迅科技股份有限公司 2025年年度报告全文 (披露日期 2026-04-23), p.9–10",
      "source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-04-23/2cd37123-8015-43e0-bffe-2190652dd502.PDF",
@@ -63,10 +66,10 @@
       {
        "name": "Accelink",
        "ticker": "002281.SZ",
-       "computed_share": 0.06064004114665768,
+       "computed_share": 0.06029076075451332,
        "cited_value": 0.059000000000000004,
        "cited_rank": null,
-       "difference": 0.001640041146657674,
+       "difference": 0.0012907607545133148,
        "cited_text": "5.9% share, rank 5 globally overall; datacom optical components rank 4 (5.9%); telecom rank 5 (5.6%); access rank 4 (7.6%)"
       }
      ]
@@ -86,7 +89,7 @@
        {
         "name": "Innolight",
         "ticker": "300308.SZ",
-        "computed_share": 0.33288244886225504,
+        "computed_share": 0.3309650802378607,
         "cited_value": -1.0,
         "cited_rank": 1,
         "difference": null,
@@ -95,7 +98,7 @@
        {
         "name": "Eoptolink",
         "ticker": "300502.SZ",
-        "computed_share": 0.16159916814953662,
+        "computed_share": 0.16066837358287459,
         "cited_value": -2.0,
         "cited_rank": 2,
         "difference": null,
@@ -104,7 +107,7 @@
        {
         "name": "Coherent",
         "ticker": "COHR",
-        "computed_share": 0.14112801925129578,
+        "computed_share": 0.14031513639411838,
         "cited_value": -3.0,
         "cited_rank": 3,
         "difference": null,
@@ -113,7 +116,7 @@
        {
         "name": "Accelink",
         "ticker": "002281.SZ",
-        "computed_share": 0.06064004114665768,
+        "computed_share": 0.06029076075451332,
         "cited_value": -4.0,
         "cited_rank": 4,
         "difference": null,
@@ -122,7 +125,7 @@
        {
         "name": "CIG Shanghai",
         "ticker": "603083.SS",
-        "computed_share": 0.025672534178207255,
+        "computed_share": 0.02552466302516141,
         "cited_value": -10.0,
         "cited_rank": 10,
         "difference": null,
@@ -143,7 +146,7 @@
        {
         "name": "Innolight",
         "ticker": "300308.SZ",
-        "computed_share": 0.33288244886225504,
+        "computed_share": 0.3309650802378607,
         "cited_value": -1.0,
         "cited_rank": 1,
         "difference": null,
@@ -152,7 +155,7 @@
        {
         "name": "Eoptolink",
         "ticker": "300502.SZ",
-        "computed_share": 0.16159916814953662,
+        "computed_share": 0.16066837358287459,
         "cited_value": -2.0,
         "cited_rank": 2,
         "difference": null,
@@ -161,7 +164,7 @@
        {
         "name": "Accelink",
         "ticker": "002281.SZ",
-        "computed_share": 0.06064004114665768,
+        "computed_share": 0.06029076075451332,
         "cited_value": -4.0,
         "cited_rank": 4,
         "difference": null,
@@ -170,7 +173,7 @@
        {
         "name": "CIG Shanghai",
         "ticker": "603083.SS",
-        "computed_share": 0.025672534178207255,
+        "computed_share": 0.02552466302516141,
         "cited_value": -10.0,
         "cited_rank": 10,
         "difference": null,
@@ -186,15 +189,15 @@
       "period": "rolling four quarters 2024Q4–2025Q3 — NOT FY2025; relabelling it \"2025\" would be wrong",
       "n": 1,
       "spearman": null,
-      "median_abs_difference": 0.001640041146657674,
+      "median_abs_difference": 0.0012907607545133148,
       "pairs": [
        {
         "name": "Accelink",
         "ticker": "002281.SZ",
-        "computed_share": 0.06064004114665768,
+        "computed_share": 0.06029076075451332,
         "cited_value": 0.059000000000000004,
         "cited_rank": null,
-        "difference": 0.001640041146657674,
+        "difference": 0.0012907607545133148,
         "cited_text": "5.9% share, rank 5 globally overall; datacom optical components rank 4 (5.9%); telecom rank 5 (5.6%); access rank 4 (7.6%)"
        }
       ]
@@ -234,38 +237,38 @@
    },
    "revision_persistence": {
     "status": "partial",
-    "periods_used": 1,
-    "periods_dropped_as_quiet": 32,
-    "n_transitions": 28,
+    "periods_used": 2,
+    "periods_dropped_as_quiet": 35,
+    "n_transitions": 60,
     "step_days": 7,
     "horizon_days": 28,
     "matrix": {
      "up": {
-      "up": 2,
+      "up": 6,
       "unchanged": 2,
-      "down": 6
+      "down": 10
      },
      "unchanged": {
-      "up": 7,
-      "unchanged": 5,
-      "down": 5
+      "up": 12,
+      "unchanged": 12,
+      "down": 15
      },
      "down": {
       "up": 0,
       "unchanged": 0,
-      "down": 1
+      "down": 3
      }
     },
     "row_shares": {
      "up": {
-      "up": 0.2,
-      "unchanged": 0.2,
-      "down": 0.6
+      "up": 0.3333333333333333,
+      "unchanged": 0.1111111111111111,
+      "down": 0.5555555555555556
      },
      "unchanged": {
-      "up": 0.4117647058823529,
-      "unchanged": 0.29411764705882354,
-      "down": 0.29411764705882354
+      "up": 0.3076923076923077,
+      "unchanged": 0.3076923076923077,
+      "down": 0.38461538461538464
      },
      "down": {
       "up": 0.0,
@@ -274,52 +277,52 @@
      }
     },
     "chi_square": {
-     "statistic": 3.8588235294117648,
+     "statistic": 6.446886446886447,
      "df": 4,
-     "p_value": 0.42544903080689267,
-     "min_expected": 0.25,
+     "p_value": 0.16816788243155065,
+     "min_expected": 0.7,
      "reliable": false,
-     "why": "the thinnest expected cell is 0.25, below 5; the asymptotic p-value is not dependable at that count"
+     "why": "the thinnest expected cell is 0.70, below 5; the asymptotic p-value is not dependable at that count"
     },
     "note": "a short history, and the same listing contributes to overlapping windows, so the transitions are not independent observations and the p-value is optimistic. Reported as a description of what has happened, not as evidence of persistence"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-11-09T16:54:15.287050+00:00",
-    "iqr": 19.68308133077631,
-    "p25": 12.276275577976286,
-    "p75": 31.959356908752596,
-    "median": 16.520852851723646,
-    "n_priced": 26,
+    "as_of": "2026-11-09T17:58:56.352789+00:00",
+    "iqr": 13.594272951148273,
+    "p25": 12.110990206746465,
+    "p75": 25.705263157894738,
+    "median": 16.299690961432546,
+    "n_priced": 25,
     "n_listings": 34,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
    },
    "dual_listing_premium": {
     "status": "partial",
-    "as_of": "2026-11-09T16:54:15.287050+00:00",
+    "as_of": "2026-11-09T17:58:56.352789+00:00",
     "pairs": [
      {
       "name": "CATL",
       "primary": "300750.SZ",
       "secondary": "3750.HK",
-      "primary_pe": 12.772131691665745,
-      "secondary_pe": 16.11170970414665,
+      "primary_pe": 12.792176522157876,
+      "secondary_pe": 16.13699573295958,
       "basis": "both lines on 300750.SZ's consensus for calendar 2026",
       "nm": null,
-      "premium": -0.20727645133907813
+      "premium": -0.2072764513390779
      },
      {
       "name": "BYD",
       "primary": "002594.SZ",
       "secondary": "1211.HK",
-      "primary_pe": 20.687974657840233,
-      "secondary_pe": 14.97376475440053,
+      "primary_pe": 21.116776520333293,
+      "secondary_pe": 15.28412757731643,
       "basis": "both lines on 002594.SZ's consensus for calendar 2026",
       "nm": null,
       "premium": 0.38161477738992766
      }
     ],
-    "median_premium": 0.08716916302542477,
+    "median_premium": 0.08716916302542488,
     "note": "the premium is the A line over the H line on identical reported earnings"
    },
    "share_bases": {
@@ -623,15 +626,15 @@
    },
    "revision_persistence": {
     "status": "not_yet",
-    "why": "no window yet has 10 listings whose consensus moved; 24 windows were dropped for being too quiet"
+    "why": "no window yet has 10 listings whose consensus moved; 28 windows were dropped for being too quiet"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-11-09T16:54:15.287050+00:00",
-    "iqr": 89.17382547861885,
-    "p25": 19.50783147476502,
-    "p75": 108.68165695338388,
-    "median": 33.02902649316898,
+    "as_of": "2026-11-09T17:58:56.352789+00:00",
+    "iqr": 89.08356165701346,
+    "p25": 19.60830562557222,
+    "p75": 108.69186728258569,
+    "median": 33.12296512368161,
     "n_priced": 6,
     "n_listings": 8,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
@@ -652,38 +655,38 @@
    },
    "revision_persistence": {
     "status": "partial",
-    "periods_used": 2,
-    "periods_dropped_as_quiet": 26,
-    "n_transitions": 58,
+    "periods_used": 3,
+    "periods_dropped_as_quiet": 29,
+    "n_transitions": 87,
     "step_days": 7,
     "horizon_days": 28,
     "matrix": {
      "up": {
-      "up": 2,
-      "unchanged": 11,
-      "down": 6
+      "up": 5,
+      "unchanged": 15,
+      "down": 8
      },
      "unchanged": {
-      "up": 13,
-      "unchanged": 15,
-      "down": 7
+      "up": 14,
+      "unchanged": 27,
+      "down": 10
      },
      "down": {
-      "up": 1,
-      "unchanged": 1,
-      "down": 2
+      "up": 2,
+      "unchanged": 2,
+      "down": 4
      }
     },
     "row_shares": {
      "up": {
-      "up": 0.10526315789473684,
-      "unchanged": 0.5789473684210527,
-      "down": 0.3157894736842105
+      "up": 0.17857142857142858,
+      "unchanged": 0.5357142857142857,
+      "down": 0.2857142857142857
      },
      "unchanged": {
-      "up": 0.37142857142857144,
-      "unchanged": 0.42857142857142855,
-      "down": 0.2
+      "up": 0.27450980392156865,
+      "unchanged": 0.5294117647058824,
+      "down": 0.19607843137254902
      },
      "down": {
       "up": 0.25,
@@ -692,22 +695,22 @@
      }
     },
     "chi_square": {
-     "statistic": 5.806167850181009,
+     "statistic": 4.534843482847684,
      "df": 4,
-     "p_value": 0.21409896139843487,
-     "min_expected": 1.0344827586206897,
+     "p_value": 0.33843591476085977,
+     "min_expected": 1.9310344827586208,
      "reliable": false,
-     "why": "the thinnest expected cell is 1.03, below 5; the asymptotic p-value is not dependable at that count"
+     "why": "the thinnest expected cell is 1.93, below 5; the asymptotic p-value is not dependable at that count"
     },
     "note": "a short history, and the same listing contributes to overlapping windows, so the transitions are not independent observations and the p-value is optimistic. Reported as a description of what has happened, not as evidence of persistence"
    },
    "valuation_dispersion": {
     "status": "partial",
-    "as_of": "2026-11-09T16:54:15.287050+00:00",
-    "iqr": 6.901464909113926,
-    "p25": 19.179935974972118,
-    "p75": 26.081400884086044,
-    "median": 21.96320952143817,
+    "as_of": "2026-11-09T17:58:56.352789+00:00",
+    "iqr": 6.539329877195254,
+    "p25": 19.501595813917238,
+    "p75": 26.04092569111249,
+    "median": 22.19278486337545,
     "n_priced": 26,
     "n_listings": 30,
     "note": "one observation so far; the series needs quarter ends to answer whether the spread narrows"
