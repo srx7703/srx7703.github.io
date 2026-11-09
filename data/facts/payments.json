@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T15:48:53+00:00",
+ "generated_at": "2026-11-09T08:08:04+00:00",
  "slug": "payments-landscape",
  "registered": "2026-10-03",
  "kpis": [
@@ -1166,18 +1166,19 @@
   "acquisition_deals": 10,
   "acquisition_deals_no_value": 4,
   "metrics_in_dictionary": 236,
-  "share_rows": 303,
+  "share_rows": 311,
   "share_refusals": 80,
   "scoreboard": {
-   "collecting": 9,
+   "collecting": 8,
    "holds": 0,
    "falsified": 0,
-   "undecidable": 0
+   "undecidable": 1
   }
  },
  "coverage": {
   "companies": [
    "Adyen",
+   "Adyen (@adyen/api-library)",
    "Affirm",
    "Afterpay/Block",
    "Airwallex",
@@ -1197,6 +1198,7 @@
    "Nium",
    "PayPal",
    "PayPal (Braintree)",
+   "PayPal (braintree)",
    "PayPal Pay Later",
    "Payoneer",
    "Ramp",
@@ -1204,21 +1206,22 @@
    "Shift4",
    "Shopify Payments",
    "Stripe",
+   "Stripe (stripe)",
    "Toast",
    "Wise",
    "Zip",
    "dLocal"
   ],
-  "n_companies": 31
+  "n_companies": 34
  },
  "scoreboard": [
   {
    "id": "Q1",
    "title": "Developer mindshare is more concentrated than money",
-   "status": "collecting",
-   "reason": "only pre-registration months so far; graded from 2026-10",
+   "status": "undecidable",
+   "reason": "volume-share upper bound rests on members with no comparable calendar-year volume (Airwallex, Checkout.com)",
    "graded": "monthly; 2027-02 (Stripe's next annual letter)",
-   "next_grading": "2027-02",
+   "next_grading": null,
    "already_seen": "download share 84-90% depending on the whitelist; volume share about 32% (computed)",
    "inputs": "devstats (npm client SDKs, CI only); share.q1_volume_share (curated KPI and private ledger)",
    "ci_only": true,
@@ -1226,10 +1229,10 @@
    "evidence": [
     {
      "label": "Stripe share of client-SDK npm downloads",
-     "value": null,
-     "qualifier": null,
+     "value": 0.84781,
+     "qualifier": "=",
      "unit": "fraction",
-     "period": null,
+     "period": "2026-10-01",
      "source_url": null,
      "note": null
     },
@@ -1238,7 +1241,7 @@
      "value": null,
      "qualifier": null,
      "unit": "ratio",
-     "period": null,
+     "period": "2026-10-01",
      "source_url": null,
      "note": "a lower bound on the ratio to the true volume share; the registered test grades it"
     },
@@ -1247,7 +1250,7 @@
      "value": 0.0,
      "qualifier": "=",
      "unit": "months",
-     "period": null,
+     "period": "2026-10-01",
      "source_url": null,
      "note": null
     },
@@ -1548,7 +1551,7 @@
      "value": 0.0,
      "qualifier": "=",
      "unit": "companies",
-     "period": "to 2026-11-04",
+     "period": "to 2026-11-09",
      "source_url": null,
      "note": null
     }
@@ -1560,10 +1563,11 @@
   "webtech": true,
   "jobs": true,
   "formd": true,
-  "sec": false
+  "sec": true
  },
  "marts": {
   "devstats_monthly": "payments/devstats_monthly.json",
+  "devstats_q1": "payments/devstats_q1.json",
   "events": "payments/events.json",
   "formd_filings": "payments/formd_filings.json",
   "jobs_by_function": "payments/jobs_by_function.json",
@@ -1577,6 +1581,7 @@
   "reported_unconfirmed": "payments/reported_unconfirmed.json",
   "scoreboard": "payments/scoreboard.json",
   "scoreboard_evidence": "payments/scoreboard_evidence.json",
+  "sec_latest": "payments/sec_latest.json",
   "sensitivity": "payments/sensitivity.json",
   "share_lenses": "payments/share_lenses.json",
   "share_pool_hhi": "payments/share_pool_hhi.json",
@@ -1864,27 +1869,27 @@
   {
    "name": "CI source: npm downloads (devstats)",
    "status": "pass",
-   "detail": "devstats_client_monthly, devstats_server_monthly read; latest period 2026-10-01, 34 days old (limit 45)"
+   "detail": "devstats_client_monthly, devstats_server_monthly read; latest period 2026-10-01, 39 days old (limit 45)"
   },
   {
    "name": "CI source: HTTP Archive coverage (webtech)",
    "status": "pass",
-   "detail": "webtech_adoption, webtech_coverage read; latest period 2026-09-01, 64 days old (limit 75)"
+   "detail": "webtech_adoption, webtech_coverage read; latest period 2026-09-01, 69 days old (limit 75)"
   },
   {
    "name": "CI source: job-board counts (jobs)",
    "status": "pass",
-   "detail": "jobs_counts read; latest period 2026-11-04, 0 days old (limit 14)"
+   "detail": "jobs_counts read; latest period 2026-11-09, 0 days old (limit 14)"
   },
   {
    "name": "CI source: SEC Form D (formd)",
    "status": "warn",
-   "detail": "formd read; latest period 2026-05-20, 168 days old (limit 120)"
+   "detail": "formd read; latest period 2026-05-20, 173 days old (limit 120)"
   },
   {
    "name": "CI source: SEC financials (sec)",
-   "status": "warn",
-   "detail": "absent: written only by the scheduled CI run; dependent views and questions wait"
+   "status": "pass",
+   "detail": "sec_latest read; latest period 2026-09-30, 40 days old (limit 200)"
   },
   {
    "name": "Curator notes never published",
@@ -1894,7 +1899,7 @@
   {
    "name": "Regression guard",
    "status": "pass",
-   "detail": "31 companies covered"
+   "detail": "34 companies covered"
   }
  ],
  "sources": [

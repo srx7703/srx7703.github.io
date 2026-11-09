@@ -1,0 +1,1100 @@
+{
+ "generated_at": "2026-11-09T08:05:06+00:00",
+ "companies": {
+  "AFRM": {
+   "company": "Affirm",
+   "name": "Affirm Holdings, Inc.",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "10-K",
+    "10-Q"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:Revenues"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+    ],
+    "sbc": [
+     "us-gaap:ShareBasedCompensation",
+     "us-gaap:AllocatedShareBasedCompensationExpense"
+    ]
+   },
+   "quarters": {
+    "revenue": 28,
+    "op_income": 28,
+    "net_income": 29,
+    "ocf": 27,
+    "capex": 27,
+    "sbc": 28
+   },
+   "ltm_basis": {
+    "revenue": "4Q",
+    "op_income": "4Q",
+    "net_income": "4Q",
+    "ocf": "4Q",
+    "capex": "4Q",
+    "sbc": "4Q"
+   }
+  },
+  "BILL": {
+   "company": "BILL",
+   "name": "BILL HOLDINGS, INC.",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "10-K",
+    "10-K/A",
+    "10-Q"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+    ],
+    "gross_profit": [
+     "us-gaap:GrossProfit"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+    ],
+    "cap_software": [
+     "us-gaap:PaymentsToDevelopSoftware"
+    ],
+    "sbc": [
+     "us-gaap:ShareBasedCompensation",
+     "us-gaap:AllocatedShareBasedCompensationExpense"
+    ]
+   },
+   "quarters": {
+    "revenue": 33,
+    "gross_profit": 33,
+    "op_income": 33,
+    "net_income": 33,
+    "ocf": 31,
+    "capex": 31,
+    "cap_software": 31,
+    "sbc": 32
+   },
+   "ltm_basis": {
+    "revenue": "4Q",
+    "gross_profit": "4Q",
+    "op_income": "4Q",
+    "net_income": "4Q",
+    "ocf": "4Q",
+    "capex": "4Q",
+    "cap_software": "4Q",
+    "sbc": "4Q"
+   }
+  },
+  "CPAY": {
+   "company": "Corpay",
+   "name": "Corpay, Inc",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "10-K",
+    "10-Q"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "us-gaap:Revenues"
+    ],
+    "gross_profit": [
+     "us-gaap:GrossProfit"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "us-gaap:NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+    ],
+    "sbc": [
+     "us-gaap:ShareBasedCompensation",
+     "us-gaap:AllocatedShareBasedCompensationExpense"
+    ]
+   },
+   "quarters": {
+    "revenue": 39,
+    "gross_profit": 4,
+    "op_income": 67,
+    "net_income": 67,
+    "ocf": 65,
+    "capex": 65,
+    "sbc": 65
+   },
+   "ltm_basis": {
+    "revenue": "4Q",
+    "op_income": "4Q",
+    "net_income": "4Q",
+    "ocf": "4Q",
+    "capex": "4Q",
+    "sbc": "4Q"
+   }
+  },
+  "CRCL": {
+   "company": "Circle",
+   "name": "CIRCLE INTERNET GROUP, INC.",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "10-K",
+    "10-Q"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:Revenues"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+    ],
+    "cap_software": [
+     "us-gaap:PaymentsToDevelopSoftware"
+    ],
+    "sbc": [
+     "us-gaap:ShareBasedCompensation"
+    ]
+   },
+   "quarters": {
+    "revenue": 10,
+    "op_income": 10,
+    "net_income": 11,
+    "ocf": 9,
+    "capex": 9,
+    "cap_software": 9,
+    "sbc": 10
+   },
+   "ltm_basis": {
+    "revenue": "4Q",
+    "op_income": "4Q",
+    "net_income": "4Q",
+    "ocf": "4Q",
+    "capex": "4Q",
+    "cap_software": "4Q",
+    "sbc": "4Q"
+   }
+  },
+  "DLO": {
+   "company": "dLocal",
+   "name": "DLocal Limited",
+   "currency": "USD",
+   "taxonomy": [
+    "ifrs-full"
+   ],
+   "forms": [
+    "20-F",
+    "6-K"
+   ],
+   "tags": {
+    "revenue": [
+     "ifrs-full:Revenue"
+    ],
+    "gross_profit": [
+     "ifrs-full:GrossProfit"
+    ],
+    "op_income": [
+     "ifrs-full:ProfitLossFromOperatingActivities"
+    ],
+    "net_income": [
+     "ifrs-full:ProfitLoss",
+     "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+    ],
+    "ocf": [
+     "ifrs-full:CashFlowsFromUsedInOperatingActivities"
+    ],
+    "capex": [
+     "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities"
+    ],
+    "cap_software": [
+     "ifrs-full:PurchaseOfIntangibleAssetsClassifiedAsInvestingActivities"
+    ],
+    "sbc": [
+     "ifrs-full:AdjustmentsForSharebasedPayments"
+    ]
+   },
+   "quarters": {
+    "revenue": 4,
+    "gross_profit": 4,
+    "op_income": 4,
+    "net_income": 4,
+    "ocf": 2,
+    "capex": 2,
+    "cap_software": 2,
+    "sbc": 2
+   },
+   "ltm_basis": {
+    "revenue": "FY",
+    "gross_profit": "FY",
+    "op_income": "FY",
+    "net_income": "FY",
+    "ocf": "FY",
+    "capex": "FY",
+    "cap_software": "FY",
+    "sbc": "FY"
+   }
+  },
+  "FISV": {
+   "company": "Fiserv Clover",
+   "name": "FISERV, INC.",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "10-K",
+    "10-Q"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "us-gaap:Revenues"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "us-gaap:NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+    ],
+    "sbc": [
+     "us-gaap:ShareBasedCompensation",
+     "us-gaap:AllocatedShareBasedCompensationExpense"
+    ]
+   },
+   "quarters": {
+    "revenue": 74,
+    "op_income": 74,
+    "net_income": 74,
+    "ocf": 73,
+    "capex": 73,
+    "sbc": 73
+   },
+   "ltm_basis": {
+    "revenue": "4Q",
+    "op_income": "4Q",
+    "net_income": "4Q",
+    "ocf": "4Q",
+    "capex": "4Q",
+    "sbc": "4Q"
+   }
+  },
+  "FLYW": {
+   "company": "Flywire",
+   "name": "FLYWIRE CORPORATION",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "10-K",
+    "10-Q"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "us-gaap:Revenues"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+    ],
+    "sbc": [
+     "us-gaap:ShareBasedCompensation",
+     "us-gaap:AllocatedShareBasedCompensationExpense"
+    ]
+   },
+   "quarters": {
+    "revenue": 26,
+    "op_income": 26,
+    "net_income": 26,
+    "ocf": 25,
+    "capex": 25,
+    "sbc": 26
+   },
+   "ltm_basis": {
+    "revenue": "4Q",
+    "op_income": "4Q",
+    "net_income": "4Q",
+    "ocf": "4Q",
+    "capex": "4Q",
+    "sbc": "4Q"
+   }
+  },
+  "FOUR": {
+   "company": "Shift4",
+   "name": "SHIFT4 PAYMENTS, INC.",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "10-K",
+    "10-K/A",
+    "10-Q",
+    "10-Q/A"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+    ],
+    "gross_profit": [
+     "us-gaap:GrossProfit"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss",
+     "us-gaap:ProfitLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+    ],
+    "cap_software": [
+     "us-gaap:PaymentsToDevelopSoftware"
+    ],
+    "sbc": [
+     "us-gaap:ShareBasedCompensation",
+     "us-gaap:AllocatedShareBasedCompensationExpense"
+    ]
+   },
+   "quarters": {
+    "revenue": 31,
+    "gross_profit": 14,
+    "op_income": 31,
+    "net_income": 31,
+    "ocf": 29,
+    "capex": 29,
+    "cap_software": 10,
+    "sbc": 26
+   },
+   "ltm_basis": {
+    "revenue": "4Q",
+    "gross_profit": "4Q",
+    "op_income": "4Q",
+    "net_income": "4Q",
+    "ocf": "4Q",
+    "capex": "4Q",
+    "cap_software": "4Q",
+    "sbc": "4Q"
+   }
+  },
+  "GPN": {
+   "company": "Global Payments",
+   "name": "GLOBAL PAYMENTS INC.",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "10-K",
+    "10-K/A",
+    "10-KT",
+    "10-Q"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "us-gaap:Revenues"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+     "us-gaap:PaymentsToAcquireProductiveAssets"
+    ],
+    "sbc": [
+     "us-gaap:ShareBasedCompensation",
+     "us-gaap:AllocatedShareBasedCompensationExpense"
+    ]
+   },
+   "quarters": {
+    "revenue": 69,
+    "op_income": 73,
+    "net_income": 73,
+    "ocf": 72,
+    "capex": 68,
+    "sbc": 72
+   },
+   "ltm_basis": {
+    "revenue": "4Q",
+    "op_income": "4Q",
+    "net_income": "4Q",
+    "ocf": "4Q",
+    "capex": "4Q",
+    "sbc": "4Q"
+   }
+  },
+  "KLAR": {
+   "company": "Klarna",
+   "name": "Klarna Group plc",
+   "currency": "USD",
+   "taxonomy": [
+    "ifrs-full"
+   ],
+   "forms": [
+    "20-F"
+   ],
+   "tags": {
+    "revenue": [
+     "ifrs-full:Revenue"
+    ],
+    "op_income": [
+     "ifrs-full:ProfitLossFromOperatingActivities"
+    ],
+    "net_income": [
+     "ifrs-full:ProfitLoss"
+    ],
+    "ocf": [
+     "ifrs-full:CashFlowsFromUsedInOperatingActivities"
+    ],
+    "capex": [
+     "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities"
+    ],
+    "cap_software": [
+     "ifrs-full:PurchaseOfIntangibleAssetsClassifiedAsInvestingActivities"
+    ],
+    "sbc": [
+     "ifrs-full:AdjustmentsForSharebasedPayments"
+    ]
+   },
+   "quarters": {
+    "revenue": 0,
+    "op_income": 0,
+    "net_income": 0,
+    "ocf": 0,
+    "capex": 0,
+    "cap_software": 0,
+    "sbc": 0
+   },
+   "ltm_basis": {
+    "revenue": "FY",
+    "op_income": "FY",
+    "net_income": "FY",
+    "ocf": "FY",
+    "capex": "FY",
+    "cap_software": "FY",
+    "sbc": "FY"
+   }
+  },
+  "MQ": {
+   "company": "Marqeta",
+   "name": "Marqeta, Inc.",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "10-K",
+    "10-Q"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+    ],
+    "gross_profit": [
+     "us-gaap:GrossProfit"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+    ],
+    "cap_software": [
+     "us-gaap:PaymentsForSoftware"
+    ],
+    "sbc": [
+     "us-gaap:ShareBasedCompensation",
+     "us-gaap:AllocatedShareBasedCompensationExpense"
+    ]
+   },
+   "quarters": {
+    "revenue": 26,
+    "gross_profit": 26,
+    "op_income": 26,
+    "net_income": 27,
+    "ocf": 25,
+    "capex": 25,
+    "cap_software": 17,
+    "sbc": 26
+   },
+   "ltm_basis": {
+    "revenue": "4Q",
+    "gross_profit": "4Q",
+    "op_income": "4Q",
+    "net_income": "4Q",
+    "ocf": "4Q",
+    "capex": "4Q",
+    "cap_software": "4Q",
+    "sbc": "4Q"
+   }
+  },
+  "NAVN": {
+   "company": "Navan",
+   "name": "NAVAN, INC.",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "10-K",
+    "10-Q"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+    ],
+    "gross_profit": [
+     "us-gaap:GrossProfit"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+    ],
+    "cap_software": [
+     "us-gaap:PaymentsToDevelopSoftware"
+    ],
+    "sbc": [
+     "us-gaap:ShareBasedCompensation",
+     "us-gaap:AllocatedShareBasedCompensationExpense"
+    ]
+   },
+   "quarters": {
+    "revenue": 8,
+    "gross_profit": 8,
+    "op_income": 8,
+    "net_income": 10,
+    "ocf": 7,
+    "capex": 7,
+    "cap_software": 7,
+    "sbc": 8
+   },
+   "ltm_basis": {
+    "revenue": "4Q",
+    "gross_profit": "4Q",
+    "op_income": "4Q",
+    "net_income": "4Q",
+    "ocf": "4Q",
+    "capex": "4Q",
+    "cap_software": "4Q",
+    "sbc": "4Q"
+   }
+  },
+  "PAYO": {
+   "company": "Payoneer",
+   "name": "Payoneer Global Inc.",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "10-K",
+    "10-Q"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:Revenues"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+    ],
+    "cap_software": [
+     "us-gaap:PaymentsToDevelopSoftware"
+    ],
+    "sbc": [
+     "us-gaap:ShareBasedCompensation",
+     "us-gaap:AllocatedShareBasedCompensationExpense"
+    ]
+   },
+   "quarters": {
+    "revenue": 26,
+    "op_income": 26,
+    "net_income": 26,
+    "ocf": 25,
+    "capex": 25,
+    "cap_software": 25,
+    "sbc": 26
+   },
+   "ltm_basis": {
+    "revenue": "4Q",
+    "op_income": "4Q",
+    "net_income": "4Q",
+    "ocf": "4Q",
+    "capex": "4Q",
+    "cap_software": "4Q",
+    "sbc": "4Q"
+   }
+  },
+  "PYPL": {
+   "company": "PayPal",
+   "name": "PayPal Holdings, Inc.",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "10-K",
+    "10-Q"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "us-gaap:Revenues"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+    ],
+    "sbc": [
+     "us-gaap:ShareBasedCompensation",
+     "us-gaap:AllocatedShareBasedCompensationExpense"
+    ]
+   },
+   "quarters": {
+    "revenue": 39,
+    "op_income": 50,
+    "net_income": 51,
+    "ocf": 49,
+    "capex": 49,
+    "sbc": 50
+   },
+   "ltm_basis": {
+    "revenue": "4Q",
+    "op_income": "4Q",
+    "net_income": "4Q",
+    "ocf": "4Q",
+    "capex": "4Q",
+    "sbc": "4Q"
+   }
+  },
+  "SEZL": {
+   "company": "Sezzle",
+   "name": "SEZZLE INC.",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "10-K",
+    "10-Q"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:Revenues"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+    ],
+    "cap_software": [
+     "us-gaap:PaymentsToDevelopSoftware"
+    ],
+    "sbc": [
+     "us-gaap:ShareBasedCompensation"
+    ]
+   },
+   "quarters": {
+    "revenue": 26,
+    "op_income": 26,
+    "net_income": 26,
+    "ocf": 25,
+    "capex": 25,
+    "cap_software": 25,
+    "sbc": 25
+   },
+   "ltm_basis": {
+    "revenue": "4Q",
+    "op_income": "4Q",
+    "net_income": "4Q",
+    "ocf": "4Q",
+    "capex": "4Q",
+    "cap_software": "4Q",
+    "sbc": "4Q"
+   }
+  },
+  "SHOP": {
+   "company": "Shopify Payments",
+   "name": "Shopify Inc.",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "10-K",
+    "10-Q",
+    "20-F",
+    "40-F"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "us-gaap:Revenues"
+    ],
+    "gross_profit": [
+     "us-gaap:GrossProfit"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+    ],
+    "sbc": [
+     "us-gaap:AllocatedShareBasedCompensationExpense"
+    ]
+   },
+   "quarters": {
+    "revenue": 11,
+    "gross_profit": 11,
+    "op_income": 11,
+    "net_income": 11,
+    "ocf": 11,
+    "capex": 11,
+    "sbc": 11
+   },
+   "ltm_basis": {
+    "revenue": "4Q",
+    "gross_profit": "4Q",
+    "op_income": "4Q",
+    "net_income": "4Q",
+    "ocf": "4Q",
+    "capex": "4Q",
+    "sbc": "4Q"
+   }
+  },
+  "TOST": {
+   "company": "Toast",
+   "name": "Toast, Inc.",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "10-K",
+    "10-Q"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+    ],
+    "gross_profit": [
+     "us-gaap:GrossProfit"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+     "us-gaap:PaymentsToAcquireProductiveAssets"
+    ],
+    "cap_software": [
+     "us-gaap:PaymentsForSoftware"
+    ],
+    "sbc": [
+     "us-gaap:ShareBasedCompensation",
+     "us-gaap:AllocatedShareBasedCompensationExpense"
+    ]
+   },
+   "quarters": {
+    "revenue": 25,
+    "gross_profit": 25,
+    "op_income": 25,
+    "net_income": 25,
+    "ocf": 24,
+    "capex": 24,
+    "cap_software": 12,
+    "sbc": 25
+   },
+   "ltm_basis": {
+    "revenue": "4Q",
+    "gross_profit": "4Q",
+    "op_income": "4Q",
+    "net_income": "4Q",
+    "ocf": "4Q",
+    "capex": "4Q",
+    "cap_software": "4Q",
+    "sbc": "4Q"
+   }
+  },
+  "WSE": {
+   "company": "Wise",
+   "name": "Wise Group plc",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "20-F"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+    ],
+    "sbc": [
+     "us-gaap:ShareBasedCompensation"
+    ]
+   },
+   "quarters": {
+    "revenue": 0,
+    "op_income": 0,
+    "net_income": 0,
+    "ocf": 0,
+    "capex": 0,
+    "sbc": 0
+   },
+   "ltm_basis": {
+    "revenue": "FY",
+    "op_income": "FY",
+    "net_income": "FY",
+    "ocf": "FY",
+    "capex": "FY",
+    "sbc": "FY"
+   }
+  },
+  "XYZ": {
+   "company": "Block/Square",
+   "name": "Block, Inc.",
+   "currency": "USD",
+   "taxonomy": [
+    "us-gaap"
+   ],
+   "forms": [
+    "10-K",
+    "10-Q"
+   ],
+   "tags": {
+    "revenue": [
+     "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "us-gaap:Revenues"
+    ],
+    "gross_profit": [
+     "us-gaap:GrossProfit"
+    ],
+    "op_income": [
+     "us-gaap:OperatingIncomeLoss"
+    ],
+    "net_income": [
+     "us-gaap:NetIncomeLoss"
+    ],
+    "ocf": [
+     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+    ],
+    "capex": [
+     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+    ],
+    "sbc": [
+     "us-gaap:ShareBasedCompensation",
+     "us-gaap:AllocatedShareBasedCompensationExpense"
+    ]
+   },
+   "quarters": {
+    "revenue": 38,
+    "gross_profit": 47,
+    "op_income": 47,
+    "net_income": 47,
+    "ocf": 47,
+    "capex": 47,
+    "sbc": 47
+   },
+   "ltm_basis": {
+    "revenue": "4Q",
+    "gross_profit": "4Q",
+    "op_income": "4Q",
+    "net_income": "4Q",
+    "ocf": "4Q",
+    "capex": "4Q",
+    "sbc": "4Q"
+   }
+  }
+ },
+ "checks": [
+  {
+   "name": "Frames DLO revenue",
+   "status": "warn",
+   "detail": "DLO revenue CY2026Q1 missing in companyfacts and in frames ifrs-full/Revenue"
+  },
+  {
+   "name": "Frames DLO revenue",
+   "status": "warn",
+   "detail": "DLO revenue CY2026Q2 missing in companyfacts and in frames ifrs-full/Revenue"
+  },
+  {
+   "name": "Frames DLO op_income",
+   "status": "warn",
+   "detail": "DLO op_income CY2026Q1 missing in companyfacts and in frames ifrs-full/ProfitLossFromOperatingActivities"
+  },
+  {
+   "name": "Frames DLO op_income",
+   "status": "warn",
+   "detail": "DLO op_income CY2026Q2 missing in companyfacts and in frames ifrs-full/ProfitLossFromOperatingActivities"
+  },
+  {
+   "name": "Frames DLO net_income",
+   "status": "warn",
+   "detail": "DLO net_income CY2026Q1 missing in companyfacts and in frames ifrs-full/ProfitLossAttributableToOwnersOfParent"
+  },
+  {
+   "name": "Frames DLO net_income",
+   "status": "warn",
+   "detail": "DLO net_income CY2026Q2 missing in companyfacts and in frames ifrs-full/ProfitLossAttributableToOwnersOfParent"
+  },
+  {
+   "name": "Companies with financials",
+   "status": "pass",
+   "detail": "19 of 19 payments filers have a latest LTM revenue"
+  },
+  {
+   "name": "Key uniqueness",
+   "status": "pass",
+   "detail": "0 duplicate companies on (ticker)"
+  },
+  {
+   "name": "Latest period",
+   "status": "warn",
+   "detail": "latest LTM older than 200 days: DLO, KLAR, WSE"
+  },
+  {
+   "name": "Freshness",
+   "status": "pass",
+   "detail": "latest SEC refresh 0.0 h ago (limit 192 h)"
+  }
+ ],
+ "sources": [
+  {
+   "name": "SEC EDGAR XBRL companyfacts and frames APIs",
+   "url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces"
+  }
+ ]
+}

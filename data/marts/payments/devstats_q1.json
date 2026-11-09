@@ -1015,9 +1015,9 @@
  },
  {
   "month": "2026-07-01",
-  "stripe_downloads": 44255396,
-  "pool_downloads": 53639128,
-  "download_share": 0.8250580807353916,
+  "stripe_downloads": 44995789,
+  "pool_downloads": 54471916,
+  "download_share": 0.8260364662039793,
   "volume_share_upper": null,
   "ratio": null,
   "ratio_qualifier": null,
@@ -1028,9 +1028,9 @@
  },
  {
   "month": "2026-08-01",
-  "stripe_downloads": 48988042,
-  "pool_downloads": 59254447,
-  "download_share": 0.8267403457499147,
+  "stripe_downloads": 50830928,
+  "pool_downloads": 61489632,
+  "download_share": 0.8266585170000692,
   "volume_share_upper": null,
   "ratio": null,
   "ratio_qualifier": null,
@@ -1041,9 +1041,9 @@
  },
  {
   "month": "2026-09-01",
-  "stripe_downloads": 53463658,
-  "pool_downloads": 63867919,
-  "download_share": 0.837097228735447,
+  "stripe_downloads": 55857859,
+  "pool_downloads": 66770475,
+  "download_share": 0.8365652483376822,
   "volume_share_upper": null,
   "ratio": null,
   "ratio_qualifier": null,
@@ -1051,5 +1051,18 @@
   "below_refute": false,
   "consecutive_below": 0,
   "status": "collecting"
+ },
+ {
+  "month": "2026-10-01",
+  "stripe_downloads": 61786693,
+  "pool_downloads": 72878032,
+  "download_share": 0.8478095703791781,
+  "volume_share_upper": null,
+  "ratio": null,
+  "ratio_qualifier": null,
+  "graded": true,
+  "below_refute": false,
+  "consecutive_below": 0,
+  "status": "undecidable"
  }
 ]

@@ -1,18 +1,18 @@
 {
- "generated_at": "2026-11-04T15:46:22+00:00",
+ "generated_at": "2026-11-09T08:05:04+00:00",
  "companies": {
   "PYPL": {
    "cik": "0001633917",
    "name": "PayPal Holdings, Inc.",
-   "fetched_at": "2026-11-04T15:46:18+00:00",
+   "fetched_at": "2026-11-09T08:05:00+00:00",
    "facts": 465,
    "facts_per_metric": {
     "op_income": 77,
-    "ocf": 51,
-    "revenue": 73,
     "capex": 51,
     "sbc": 128,
-    "net_income": 85
+    "revenue": 73,
+    "net_income": 85,
+    "ocf": 51
    },
    "last_end": "2026-09-30",
    "currency": "USD",
@@ -25,16 +25,16 @@
   "XYZ": {
    "cik": "0001512673",
    "name": "Block, Inc.",
-   "fetched_at": "2026-11-04T15:46:18+00:00",
+   "fetched_at": "2026-11-09T08:05:00+00:00",
    "facts": 538,
    "facts_per_metric": {
-    "capex": 48,
-    "revenue": 65,
+    "ocf": 48,
     "gross_profit": 72,
-    "net_income": 114,
+    "capex": 48,
     "op_income": 72,
-    "sbc": 119,
-    "ocf": 48
+    "net_income": 114,
+    "revenue": 65,
+    "sbc": 119
    },
    "last_end": "2026-09-30",
    "currency": "USD",
@@ -47,17 +47,17 @@
   "TOST": {
    "cik": "0001650164",
    "name": "Toast, Inc.",
-   "fetched_at": "2026-11-04T15:46:18+00:00",
+   "fetched_at": "2026-11-09T08:05:01+00:00",
    "facts": 292,
    "facts_per_metric": {
-    "ocf": 26,
-    "revenue": 39,
     "op_income": 39,
-    "cap_software": 14,
-    "gross_profit": 39,
+    "sbc": 65,
     "capex": 31,
+    "gross_profit": 39,
+    "ocf": 26,
     "net_income": 39,
-    "sbc": 65
+    "revenue": 39,
+    "cap_software": 14
    },
    "last_end": "2026-09-30",
    "currency": "USD",
@@ -70,15 +70,15 @@
   "FISV": {
    "cik": "0000798354",
    "name": "FISERV, INC.",
-   "fetched_at": "2026-11-04T15:46:19+00:00",
+   "fetched_at": "2026-11-09T08:05:01+00:00",
    "facts": 763,
    "facts_per_metric": {
-    "revenue": 146,
-    "capex": 75,
     "sbc": 161,
+    "revenue": 146,
+    "ocf": 80,
     "op_income": 125,
-    "net_income": 176,
-    "ocf": 80
+    "capex": 75,
+    "net_income": 176
    },
    "last_end": "2026-09-30",
    "currency": "USD",
@@ -91,17 +91,17 @@
   "GPN": {
    "cik": "0001123360",
    "name": "GLOBAL PAYMENTS INC.",
-   "fetched_at": "2026-11-04T15:46:19+00:00",
-   "facts": 811,
+   "fetched_at": "2026-11-09T08:05:01+00:00",
+   "facts": 824,
    "facts_per_metric": {
-    "net_income": 244,
-    "revenue": 129,
-    "op_income": 123,
-    "sbc": 171,
-    "capex": 71,
-    "ocf": 73
+    "net_income": 248,
+    "capex": 72,
+    "op_income": 125,
+    "revenue": 131,
+    "ocf": 74,
+    "sbc": 174
    },
-   "last_end": "2026-06-30",
+   "last_end": "2026-09-30",
    "currency": "USD",
    "taxonomy": [
     "us-gaap"
@@ -112,19 +112,19 @@
   "FOUR": {
    "cik": "0001794669",
    "name": "SHIFT4 PAYMENTS, INC.",
-   "fetched_at": "2026-11-04T15:46:19+00:00",
-   "facts": 351,
+   "fetched_at": "2026-11-09T08:05:01+00:00",
+   "facts": 364,
    "facts_per_metric": {
-    "sbc": 64,
-    "cap_software": 12,
-    "ocf": 30,
+    "capex": 31,
+    "op_income": 50,
+    "revenue": 50,
+    "net_income": 99,
+    "sbc": 67,
     "gross_profit": 24,
-    "revenue": 48,
-    "net_income": 95,
-    "op_income": 48,
-    "capex": 30
+    "cap_software": 12,
+    "ocf": 31
    },
-   "last_end": "2026-06-30",
+   "last_end": "2026-09-30",
    "currency": "USD",
    "taxonomy": [
     "us-gaap"
@@ -135,16 +135,16 @@
   "SHOP": {
    "cik": "0001594805",
    "name": "Shopify Inc.",
-   "fetched_at": "2026-11-04T15:46:19+00:00",
+   "fetched_at": "2026-11-09T08:05:01+00:00",
    "facts": 194,
    "facts_per_metric": {
-    "gross_profit": 28,
-    "sbc": 28,
-    "op_income": 28,
+    "capex": 28,
+    "net_income": 28,
     "ocf": 28,
     "revenue": 26,
-    "capex": 28,
-    "net_income": 28
+    "gross_profit": 28,
+    "op_income": 28,
+    "sbc": 28
    },
    "last_end": "2026-09-30",
    "currency": "USD",
@@ -157,17 +157,17 @@
   "AFRM": {
    "cik": "0001820953",
    "name": "Affirm Holdings, Inc.",
-   "fetched_at": "2026-11-04T15:46:19+00:00",
-   "facts": 293,
+   "fetched_at": "2026-11-09T08:05:01+00:00",
+   "facts": 301,
    "facts_per_metric": {
-    "sbc": 70,
-    "net_income": 43,
-    "ocf": 28,
-    "revenue": 82,
-    "op_income": 42,
-    "capex": 28
+    "net_income": 44,
+    "op_income": 43,
+    "ocf": 29,
+    "revenue": 84,
+    "capex": 29,
+    "sbc": 72
    },
-   "last_end": "2026-06-30",
+   "last_end": "2026-09-30",
    "currency": "USD",
    "taxonomy": [
     "us-gaap"
@@ -178,16 +178,16 @@
   "KLAR": {
    "cik": "0002003292",
    "name": "Klarna Group plc",
-   "fetched_at": "2026-11-04T15:46:19+00:00",
+   "fetched_at": "2026-11-09T08:05:02+00:00",
    "facts": 21,
    "facts_per_metric": {
-    "cap_software": 3,
-    "sbc": 3,
     "revenue": 3,
+    "net_income": 3,
     "capex": 3,
-    "op_income": 3,
     "ocf": 3,
-    "net_income": 3
+    "op_income": 3,
+    "cap_software": 3,
+    "sbc": 3
    },
    "last_end": "2025-12-31",
    "currency": "USD",
@@ -200,18 +200,18 @@
   "SEZL": {
    "cik": "0001662991",
    "name": "SEZZLE INC.",
-   "fetched_at": "2026-11-04T15:46:20+00:00",
-   "facts": 242,
+   "fetched_at": "2026-11-09T08:05:02+00:00",
+   "facts": 254,
    "facts_per_metric": {
-    "capex": 25,
-    "revenue": 60,
-    "op_income": 38,
-    "net_income": 38,
-    "cap_software": 25,
-    "sbc": 31,
-    "ocf": 25
+    "net_income": 40,
+    "cap_software": 26,
+    "ocf": 26,
+    "capex": 26,
+    "revenue": 64,
+    "sbc": 32,
+    "op_income": 40
    },
-   "last_end": "2026-06-30",
+   "last_end": "2026-09-30",
    "currency": "USD",
    "taxonomy": [
     "us-gaap"
@@ -222,19 +222,19 @@
   "BILL": {
    "cik": "0001786352",
    "name": "BILL HOLDINGS, INC.",
-   "fetched_at": "2026-11-04T15:46:20+00:00",
-   "facts": 412,
+   "fetched_at": "2026-11-09T08:05:02+00:00",
+   "facts": 422,
    "facts_per_metric": {
-    "sbc": 80,
-    "net_income": 83,
-    "ocf": 32,
-    "cap_software": 32,
-    "revenue": 51,
-    "gross_profit": 51,
-    "op_income": 51,
-    "capex": 32
+    "cap_software": 33,
+    "gross_profit": 52,
+    "op_income": 52,
+    "capex": 33,
+    "sbc": 82,
+    "ocf": 33,
+    "net_income": 85,
+    "revenue": 52
    },
-   "last_end": "2026-06-30",
+   "last_end": "2026-09-30",
    "currency": "USD",
    "taxonomy": [
     "us-gaap"
@@ -245,17 +245,17 @@
   "NAVN": {
    "cik": "0001639723",
    "name": "NAVAN, INC.",
-   "fetched_at": "2026-11-04T15:46:20+00:00",
+   "fetched_at": "2026-11-09T08:05:02+00:00",
    "facts": 103,
    "facts_per_metric": {
-    "revenue": 13,
-    "ocf": 9,
-    "capex": 9,
-    "net_income": 15,
-    "cap_software": 9,
     "gross_profit": 13,
+    "net_income": 15,
+    "ocf": 9,
+    "op_income": 13,
     "sbc": 22,
-    "op_income": 13
+    "revenue": 13,
+    "cap_software": 9,
+    "capex": 9
    },
    "last_end": "2026-07-31",
    "currency": "USD",
@@ -268,18 +268,18 @@
   "CPAY": {
    "cik": "0001175454",
    "name": "Corpay, Inc",
-   "fetched_at": "2026-11-04T15:46:20+00:00",
-   "facts": 614,
+   "fetched_at": "2026-11-09T08:05:02+00:00",
+   "facts": 625,
    "facts_per_metric": {
-    "revenue": 65,
-    "sbc": 122,
-    "net_income": 136,
-    "ocf": 78,
-    "capex": 91,
-    "gross_profit": 8,
-    "op_income": 114
+    "revenue": 67,
+    "op_income": 116,
+    "capex": 92,
+    "net_income": 140,
+    "sbc": 123,
+    "ocf": 79,
+    "gross_profit": 8
    },
-   "last_end": "2026-06-30",
+   "last_end": "2026-09-30",
    "currency": "USD",
    "taxonomy": [
     "us-gaap"
@@ -290,15 +290,15 @@
   "WSE": {
    "cik": "0002099039",
    "name": "Wise Group plc",
-   "fetched_at": "2026-11-04T15:46:20+00:00",
+   "fetched_at": "2026-11-09T08:05:03+00:00",
    "facts": 24,
    "facts_per_metric": {
     "ocf": 3,
-    "op_income": 3,
-    "sbc": 3,
-    "capex": 3,
     "net_income": 6,
-    "revenue": 6
+    "revenue": 6,
+    "capex": 3,
+    "sbc": 3,
+    "op_income": 3
    },
    "last_end": "2026-03-31",
    "currency": "USD",
@@ -311,18 +311,18 @@
   "PAYO": {
    "cik": "0001845815",
    "name": "Payoneer Global Inc.",
-   "fetched_at": "2026-11-04T15:46:20+00:00",
-   "facts": 301,
+   "fetched_at": "2026-11-09T08:05:03+00:00",
+   "facts": 315,
    "facts_per_metric": {
-    "net_income": 41,
-    "ocf": 26,
-    "op_income": 39,
-    "cap_software": 26,
-    "capex": 26,
-    "revenue": 78,
-    "sbc": 65
+    "sbc": 68,
+    "capex": 27,
+    "revenue": 82,
+    "ocf": 27,
+    "net_income": 43,
+    "cap_software": 27,
+    "op_income": 41
    },
-   "last_end": "2026-06-30",
+   "last_end": "2026-09-30",
    "currency": "USD",
    "taxonomy": [
     "us-gaap"
@@ -333,16 +333,16 @@
   "DLO": {
    "cik": "0001846832",
    "name": "DLocal Limited",
-   "fetched_at": "2026-11-04T15:46:21+00:00",
+   "fetched_at": "2026-11-09T08:05:04+00:00",
    "facts": 89,
    "facts_per_metric": {
+    "revenue": 11,
+    "gross_profit": 11,
+    "capex": 9,
     "op_income": 11,
     "sbc": 9,
     "ocf": 9,
-    "capex": 9,
     "net_income": 20,
-    "revenue": 11,
-    "gross_profit": 11,
     "cap_software": 9
    },
    "last_end": "2025-12-31",
@@ -356,15 +356,15 @@
   "FLYW": {
    "cik": "0001580560",
    "name": "FLYWIRE CORPORATION",
-   "fetched_at": "2026-11-04T15:46:22+00:00",
+   "fetched_at": "2026-11-09T08:05:04+00:00",
    "facts": 243,
    "facts_per_metric": {
-    "revenue": 45,
     "ocf": 27,
-    "capex": 27,
+    "revenue": 45,
     "op_income": 41,
-    "net_income": 41,
-    "sbc": 62
+    "sbc": 62,
+    "capex": 27,
+    "net_income": 41
    },
    "last_end": "2026-09-30",
    "currency": "USD",
@@ -377,17 +377,17 @@
   "MQ": {
    "cik": "0001522540",
    "name": "Marqeta, Inc.",
-   "fetched_at": "2026-11-04T15:46:22+00:00",
+   "fetched_at": "2026-11-09T08:05:04+00:00",
    "facts": 306,
    "facts_per_metric": {
-    "op_income": 41,
-    "net_income": 42,
-    "sbc": 68,
-    "capex": 27,
-    "gross_profit": 41,
+    "cap_software": 19,
     "ocf": 27,
-    "revenue": 41,
-    "cap_software": 19
+    "gross_profit": 41,
+    "sbc": 68,
+    "net_income": 42,
+    "op_income": 41,
+    "capex": 27,
+    "revenue": 41
    },
    "last_end": "2026-09-30",
    "currency": "USD",
@@ -400,16 +400,16 @@
   "CRCL": {
    "cik": "0001876042",
    "name": "CIRCLE INTERNET GROUP, INC.",
-   "fetched_at": "2026-11-04T15:46:22+00:00",
+   "fetched_at": "2026-11-09T08:05:04+00:00",
    "facts": 132,
    "facts_per_metric": {
-    "ocf": 11,
     "op_income": 17,
+    "ocf": 11,
+    "capex": 11,
+    "sbc": 17,
     "cap_software": 11,
     "revenue": 34,
-    "net_income": 31,
-    "sbc": 17,
-    "capex": 11
+    "net_income": 31
    },
    "last_end": "2026-09-30",
    "currency": "USD",

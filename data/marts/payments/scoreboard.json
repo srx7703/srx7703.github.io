@@ -2,10 +2,10 @@
  {
   "id": "Q1",
   "title": "Developer mindshare is more concentrated than money",
-  "status": "collecting",
-  "reason": "only pre-registration months so far; graded from 2026-10",
+  "status": "undecidable",
+  "reason": "volume-share upper bound rests on members with no comparable calendar-year volume (Airwallex, Checkout.com)",
   "graded": "monthly; 2027-02 (Stripe's next annual letter)",
-  "next_grading": "2027-02",
+  "next_grading": null,
   "already_seen": "download share 84-90% depending on the whitelist; volume share about 32% (computed)",
   "inputs": "devstats (npm client SDKs, CI only); share.q1_volume_share (curated KPI and private ledger)",
   "ci_only": true,
