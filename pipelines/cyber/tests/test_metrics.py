@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from datetime import date
 
+import polars as pl
 import pytest
 
 from pipelines.cyber import frozen as F
@@ -55,11 +56,18 @@ def test_china_rows_carry_east_money_ratings_and_others_do_not(rows) -> None:
     assert {r["market_group"] for r in rows} == {"us", "other_overseas", "china"}
 
 
-def test_load_runs_and_latest_on_the_committed_baseline() -> None:
-    frame = M.load_runs()
+def test_latest_on_the_committed_baseline() -> None:
+    # Read the frozen baseline file only: the consensus folder grows with every weekly capture, so a pinned date
+    # checked against load_runs() breaks the build the first time a new run lands (it did on 2026-10-26).
+    frame = pl.read_parquet(F.BASELINE_FILE)
     got = M.latest(frame)
     assert got is not None and got[0] == date(2026, 10, 17) and got[2].height == 73
     assert M.latest(frame.head(10)) is None, "ten priced rows are not a snapshot"
+
+
+def test_load_runs_includes_the_baseline_and_newer_runs() -> None:
+    got = M.latest(M.load_runs())
+    assert got is not None and got[0] >= date(2026, 10, 17) and got[2].height == 73
 
 
 # --- the enterprise value in dollars --------------------------------------------------------------------------------
