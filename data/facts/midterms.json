@@ -1,11 +1,11 @@
 {
  "project": "midterms-2026",
- "generated_at": "2026-11-09T17:37:44+00:00",
+ "generated_at": "2026-11-10T01:31:25+00:00",
  "election_day": "2026-11-03",
  "first_snapshot_ts": "2026-09-16T02:26:10+00:00",
- "last_snapshot_ts": "2026-11-09T16:35:18+00:00",
- "n_snapshots": 113,
- "n_days": 55,
+ "last_snapshot_ts": "2026-11-10T01:30:09+00:00",
+ "n_snapshots": 114,
+ "n_days": 56,
  "markets_tracked": {
   "kalshi": 22376,
   "polymarket": 7397
@@ -16,13 +16,13 @@
  },
  "quoted_definition": "both sides quoted, spread <= 10 cents, any volume",
  "last_full_snapshot_ts": "2026-11-09T16:35:18+00:00",
- "order_books_captured": 49376,
- "tier1_books_latest": 16,
+ "order_books_captured": 49385,
+ "tier1_books_latest": 9,
  "checks": [
   {
    "name": "Schema",
    "status": "pass",
-   "detail": "pandera schemas validated before every write (113 runs)"
+   "detail": "pandera schemas validated before every write (114 runs)"
   },
   {
    "name": "Probability range",
@@ -47,7 +47,7 @@
   {
    "name": "Freshness",
    "status": "pass",
-   "detail": "latest snapshot 1.0 h ago (limit 14 h)"
+   "detail": "latest snapshot 0.0 h ago (limit 14 h)"
   }
  ],
  "headline": {
@@ -96,25 +96,25 @@
   {
    "event_slug": "alaska-senate-election-winner",
    "title": "Alaska Senate Election Winner",
-   "volume_usd": 8039927,
+   "volume_usd": 8163222,
    "markets": 29
   },
   {
    "event_slug": "mississippi-senate-election-winner",
    "title": "Mississippi Senate Election Winner",
-   "volume_usd": 6287740,
+   "volume_usd": 6290235,
    "markets": 13
   },
   {
    "event_slug": "alaska-governor-election-winner",
    "title": "Alaska Governor Election Winner  ",
-   "volume_usd": 1953690,
+   "volume_usd": 1953908,
    "markets": 40
   },
   {
    "event_slug": "kansas-governor-winner-2026",
    "title": "Kansas Governor Election Winner",
-   "volume_usd": 869352,
+   "volume_usd": 869374,
    "markets": 13
   }
  ],
