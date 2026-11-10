@@ -225,10 +225,10 @@
   "point_m": 762,
   "low_m": 721,
   "high_m": 810,
-  "actual_m": null,
-  "status": "pending",
-  "filed": null,
-  "error": null
+  "actual_m": 736.0,
+  "status": "hit",
+  "filed": "2026-11-09",
+  "error": -0.03416666666666668
  },
  {
   "series": "TradeDesk",
@@ -291,10 +291,10 @@
   "point_m": 75,
   "low_m": 71,
   "high_m": 80,
-  "actual_m": null,
-  "status": "pending",
-  "filed": null,
-  "error": null
+  "actual_m": 79.6,
+  "status": "hit",
+  "filed": "2026-11-09",
+  "error": 0.06102666666666656
  },
  {
   "series": "PubMatic",

@@ -1,18 +1,18 @@
 {
- "generated_at": "2026-11-09T19:55:30+00:00",
- "last_updated": "2026-11-09",
+ "generated_at": "2026-11-10T17:10:08+00:00",
+ "last_updated": "2026-11-10",
  "status": "in-progress",
  "data": {
-  "n_filings": 296,
+  "n_filings": 298,
   "n_companies": 12,
   "n_series": 19,
   "first_quarter": "2019Q1",
   "last_quarter": "2026Q2",
   "latest_filing": {
-   "ticker": "SNAP",
+   "ticker": "PUBM",
    "form": "10-Q",
    "period": "2026-09-30",
-   "filed": "2026-11-05"
+   "filed": "2026-11-09"
   },
   "n_text_filings": 42,
   "first_report": "2020-01-01"
@@ -127,9 +127,10 @@
     "Snap",
     "AppLovin",
     "Pinterest",
+    "TradeDesk",
     "Reddit"
    ],
-   "n_reported": 7,
+   "n_reported": 8,
    "n_members": 9
   },
   "four_quarter_mean_share": {
@@ -536,15 +537,15 @@
  },
  "q5": {
   "status": "collecting",
-  "quarters_in": 0,
+  "quarters_in": 1,
   "quarters_needed": 4
  },
  "forecasts": {
   "status": "partial",
   "n": 30,
-  "n_scored": 12,
-  "hits": 8,
-  "hit_rate": 0.6666666666666666,
+  "n_scored": 14,
+  "hits": 10,
+  "hit_rate": 0.7142857142857143,
   "verdict": null,
   "band": {
    "1": {
@@ -587,7 +588,7 @@
    {
     "id": "B3",
     "call": "Trade Desk's 2026Q3 revenue grows less than 10% year over year.",
-    "status": "pending"
+    "status": "true"
    },
    {
     "id": "B4",
@@ -610,8 +611,8 @@
     "status": "false"
    }
   ],
-  "calls_pending": 4,
-  "calls_true": 2
+  "calls_pending": 3,
+  "calls_true": 3
  },
  "prereg": {
   "files": [
@@ -634,17 +635,17 @@
   {
    "name": "Filing extracts",
    "status": "pass",
-   "detail": "296 10-Q/10-K filings across 12 companies; the latest is SNAP 10-Q for 2026-09-30, filed 2026-11-05"
+   "detail": "298 10-Q/10-K filings across 12 companies; the latest is PUBM 10-Q for 2026-09-30, filed 2026-11-09"
   },
   {
    "name": "Freshness",
    "status": "pass",
-   "detail": "latest filing 4 days ago (limit 140)"
+   "detail": "latest filing 1 days ago (limit 140)"
   },
   {
    "name": "Quarterly schema",
    "status": "pass",
-   "detail": "497 series-quarters pass the pandera schema (positive revenue, one row per series and quarter)"
+   "detail": "499 series-quarters pass the pandera schema (positive revenue, one row per series and quarter)"
   },
   {
    "name": "Derivation artefacts flagged",
@@ -654,7 +655,7 @@
   {
    "name": "Video subset complete",
    "status": "pass",
-   "detail": "all nine companies through 2026Q2; 2026Q3: 7 of 9 reported"
+   "detail": "all nine companies through 2026Q2; 2026Q3: 8 of 9 reported"
   },
   {
    "name": "Registered snapshot unchanged",

@@ -3429,6 +3429,15 @@
   "flag": null
  },
  {
+  "series": "ttd_total",
+  "label": "The Trade Desk total revenue",
+  "ticker": "TTD",
+  "quarter": "2026Q3",
+  "value_usd_m": 735.965,
+  "method": "3M",
+  "flag": null
+ },
+ {
   "series": "reddit_ads",
   "label": "Reddit advertising",
   "ticker": "RDDT",
@@ -4208,6 +4217,15 @@
   "ticker": "PUBM",
   "quarter": "2026Q2",
   "value_usd_m": 78.593,
+  "method": "3M",
+  "flag": null
+ },
+ {
+  "series": "pubmatic_total",
+  "label": "PubMatic total revenue",
+  "ticker": "PUBM",
+  "quarter": "2026Q3",
+  "value_usd_m": 79.577,
   "method": "3M",
   "flag": null
  },

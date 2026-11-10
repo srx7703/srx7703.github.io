@@ -2277,6 +2277,17 @@
   "text": null
  },
  {
+  "ticker": "PUBM",
+  "cik": 1422930,
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-11-09",
+  "accession": "0001422930-26-000038",
+  "n_facts": 28,
+  "xbrl": "xbrl/PUBM/2026-09-30_10-Q_0001422930-26-000038.json.gz",
+  "text": null
+ },
+ {
   "ticker": "RDDT",
   "cik": 1713445,
   "form": "10-Q",
@@ -2978,6 +2989,17 @@
   "accession": "0001671933-26-000086",
   "n_facts": 4,
   "xbrl": "xbrl/TTD/2026-06-30_10-Q_0001671933-26-000086.json.gz",
+  "text": null
+ },
+ {
+  "ticker": "TTD",
+  "cik": 1671933,
+  "form": "10-Q",
+  "period": "2026-09-30",
+  "filed": "2026-11-09",
+  "accession": "0001671933-26-000116",
+  "n_facts": 4,
+  "xbrl": "xbrl/TTD/2026-09-30_10-Q_0001671933-26-000116.json.gz",
   "text": null
  },
  {
