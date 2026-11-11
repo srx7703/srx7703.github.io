@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T19:21:15+00:00",
+ "generated_at": "2026-11-11T17:08:17+00:00",
  "groups": {
   "oem": "Brand makers (OEM)",
   "odm": "Taiwan makers building to the customer's design (ODM)",
@@ -324,12 +324,12 @@
    "name_cn": "广达",
    "group": "odm",
    "comparator": false,
-   "ttm_end": "2026Q2",
+   "ttm_end": "2026Q3",
    "currency": "TWD",
-   "revenue": 2979709572000.0,
-   "growth": 0.6267846757240427,
-   "gross_margin": 0.05540555514247279,
-   "operating_margin": 0.03344652074031059,
+   "revenue": 3599995712000.0,
+   "growth": 0.8923791389569202,
+   "gross_margin": 0.05116629677807794,
+   "operating_margin": 0.031525135883272964,
    "gross_margin_2023": 0.06646711372959259,
    "operating_margin_2023": 0.03229399609439156,
    "inventory_days": null,
@@ -360,12 +360,12 @@
    "name_cn": "纬创",
    "group": "odm",
    "comparator": false,
-   "ttm_end": "2026Q2",
+   "ttm_end": "2026Q3",
    "currency": "TWD",
-   "revenue": 3030491758000.0,
-   "growth": 1.0650702763009399,
-   "gross_margin": 0.058482885337713564,
-   "operating_margin": 0.038013882960047304,
+   "revenue": 3611776904000.0,
+   "growth": 1.048928726325773,
+   "gross_margin": 0.056223690830711395,
+   "operating_margin": 0.037856769295072715,
    "gross_margin_2023": 0.07614985796363867,
    "operating_margin_2023": 0.02955696827303389,
    "inventory_days": null,
@@ -378,12 +378,12 @@
    "name_cn": "英业达",
    "group": "odm",
    "comparator": false,
-   "ttm_end": "2026Q2",
+   "ttm_end": "2026Q3",
    "currency": "TWD",
-   "revenue": 817746201000.0,
-   "growth": 0.15958006549083392,
-   "gross_margin": 0.0481715120801888,
-   "operating_margin": 0.01707239970412287,
+   "revenue": 913554461000.0,
+   "growth": 0.27292897988313847,
+   "gross_margin": 0.045809638928576146,
+   "operating_margin": 0.016712133377672817,
    "gross_margin_2023": 0.04978613647134275,
    "operating_margin_2023": 0.012732825515871914,
    "inventory_days": null,
@@ -811,9 +811,14 @@
      "operating_margin": 0.03229399609439156,
      "operating_income": 39379010000.0
     },
-    "after": null,
-    "pattern": null,
-    "weak_pattern": null
+    "after": {
+     "revenue": 3599995712000.0,
+     "gross_margin": 0.05116629677807794,
+     "operating_margin": 0.031525135883272964,
+     "operating_income": 113490354000.0
+    },
+    "pattern": false,
+    "weak_pattern": true
    },
    "6669": {
     "before": {
@@ -838,9 +843,14 @@
      "operating_margin": 0.02955696827303389,
      "operating_income": 27589496000.0
     },
-    "after": null,
-    "pattern": null,
-    "weak_pattern": null
+    "after": {
+     "revenue": 3611776904000.0,
+     "gross_margin": 0.056223690830711395,
+     "operating_margin": 0.037856769295072715,
+     "operating_income": 136730205000.0
+    },
+    "pattern": true,
+    "weak_pattern": true
    },
    "2356": {
     "before": {
@@ -849,9 +859,14 @@
      "operating_margin": 0.012732825515871914,
      "operating_income": 6723483000.0
     },
-    "after": null,
-    "pattern": null,
-    "weak_pattern": null
+    "after": {
+     "revenue": 913554461000.0,
+     "gross_margin": 0.045809638928576146,
+     "operating_margin": 0.016712133377672817,
+     "operating_income": 15267444000.0
+    },
+    "pattern": false,
+    "weak_pattern": true
    },
    "601138.SS": {
     "before": {
@@ -952,32 +967,29 @@
     "weak_pattern": true
    }
   },
-  "n": 4,
-  "shows": 1,
+  "n": 7,
+  "shows": 2,
   "placebo_shows": 1,
   "verdict": "pending",
   "missing": [
    "DELL",
-   "CLS",
-   "2382",
-   "3231",
-   "2356"
+   "CLS"
   ],
   "without_wistron": {
-   "n": 4,
+   "n": 6,
    "shows": 1
   },
-  "weak_shows": 4,
+  "weak_shows": 7,
   "grading_date": "2026-12-31",
   "provisional_verdict": "refuted",
   "latest_quarters": {
    "DELL": "2026Q2",
    "SMCI": "2026Q3",
    "CLS": "2026Q3",
-   "2382": "2026Q2",
+   "2382": "2026Q3",
    "6669": "2026Q3",
-   "3231": "2026Q2",
-   "2356": "2026Q2",
+   "3231": "2026Q3",
+   "2356": "2026Q3",
    "601138.SS": "2026Q3",
    "000977.SZ": "2026Q3",
    "0992.HK": "2026Q2",
