@@ -9778,7 +9778,29 @@
    "result": "yes",
    "settled_ts": "2026-11-05 22:50:06.107023+00",
    "recorded_at": "2026-11-06T14:24:53+00:00"
+  },
+  "polymarket:6594265": {
+   "platform": "polymarket",
+   "market_id": "6594265",
+   "event_id": "1302869",
+   "event_slug": "how-high-will-2-year-treasury-yield-go-in-november",
+   "outcome_yes": null,
+   "question": "Will the 2-year Treasury yield hit 4.68% in November?",
+   "result": "yes",
+   "settled_ts": "2026-11-10 22:50:06.263374+00",
+   "recorded_at": "2026-11-11T14:32:51+00:00"
+  },
+  "polymarket:6594266": {
+   "platform": "polymarket",
+   "market_id": "6594266",
+   "event_id": "1302869",
+   "event_slug": "how-high-will-2-year-treasury-yield-go-in-november",
+   "outcome_yes": null,
+   "question": "Will the 2-year Treasury yield hit 4.72% in November?",
+   "result": "yes",
+   "settled_ts": "2026-11-10 22:50:06.294407+00",
+   "recorded_at": "2026-11-11T14:32:51+00:00"
   }
  },
- "updated_at": "2026-11-10T15:00:50+00:00"
+ "updated_at": "2026-11-11T14:32:51+00:00"
 }
