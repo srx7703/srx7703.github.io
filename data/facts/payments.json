@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T08:08:04+00:00",
+ "generated_at": "2026-11-11T15:41:07+00:00",
  "slug": "payments-landscape",
  "registered": "2026-10-03",
  "kpis": [
@@ -1166,13 +1166,13 @@
   "acquisition_deals": 10,
   "acquisition_deals_no_value": 4,
   "metrics_in_dictionary": 236,
-  "share_rows": 311,
-  "share_refusals": 80,
+  "share_rows": 304,
+  "share_refusals": 78,
   "scoreboard": {
-   "collecting": 8,
+   "collecting": 9,
    "holds": 0,
    "falsified": 0,
-   "undecidable": 1
+   "undecidable": 0
   }
  },
  "coverage": {
@@ -1218,10 +1218,10 @@
   {
    "id": "Q1",
    "title": "Developer mindshare is more concentrated than money",
-   "status": "undecidable",
-   "reason": "volume-share upper bound rests on members with no comparable calendar-year volume (Airwallex, Checkout.com)",
+   "status": "collecting",
+   "reason": "only pre-registration months so far; graded from 2026-10",
    "graded": "monthly; 2027-02 (Stripe's next annual letter)",
-   "next_grading": null,
+   "next_grading": "2027-02",
    "already_seen": "download share 84-90% depending on the whitelist; volume share about 32% (computed)",
    "inputs": "devstats (npm client SDKs, CI only); share.q1_volume_share (curated KPI and private ledger)",
    "ci_only": true,
@@ -1229,10 +1229,10 @@
    "evidence": [
     {
      "label": "Stripe share of client-SDK npm downloads",
-     "value": 0.84781,
-     "qualifier": "=",
+     "value": null,
+     "qualifier": null,
      "unit": "fraction",
-     "period": "2026-10-01",
+     "period": null,
      "source_url": null,
      "note": null
     },
@@ -1241,7 +1241,7 @@
      "value": null,
      "qualifier": null,
      "unit": "ratio",
-     "period": "2026-10-01",
+     "period": null,
      "source_url": null,
      "note": "a lower bound on the ratio to the true volume share; the registered test grades it"
     },
@@ -1250,7 +1250,7 @@
      "value": 0.0,
      "qualifier": "=",
      "unit": "months",
-     "period": "2026-10-01",
+     "period": null,
      "source_url": null,
      "note": null
     },
@@ -1278,7 +1278,7 @@
    "id": "Q2",
    "title": "The top of the web is changing hands",
    "status": "collecting",
-   "reason": "1 of 6 graded crawls in; no refutation so far",
+   "reason": "2 of 6 graded crawls in; no refutation so far",
    "graded": "2027-03",
    "next_grading": "2027-03",
    "already_seen": "Stripe 522, PayPal 478 (2026-08 crawl)",
@@ -1297,37 +1297,37 @@
     },
     {
      "label": "Stripe, top-10k US mobile (3-crawl mean)",
-     "value": 518.333333,
+     "value": 508.333333,
      "qualifier": "=",
      "unit": "origins",
-     "period": "2026-09",
+     "period": "2026-10",
      "source_url": null,
      "note": null
     },
     {
      "label": "PayPal, top-10k US mobile (3-crawl mean)",
-     "value": 489.333333,
+     "value": 468.0,
      "qualifier": "=",
      "unit": "origins",
-     "period": "2026-09",
+     "period": "2026-10",
      "source_url": null,
      "note": null
     },
     {
      "label": "Graded crawls observed",
-     "value": 1.0,
+     "value": 2.0,
      "qualifier": "=",
      "unit": "crawls",
-     "period": "2026-09",
+     "period": "2026-10",
      "source_url": null,
      "note": "of 6"
     },
     {
      "label": "PayPal minus Stripe, all US origins (context, not graded)",
-     "value": 58764.666667,
+     "value": 60355.666667,
      "qualifier": "=",
      "unit": "origins",
-     "period": "2026-09",
+     "period": "2026-10",
      "source_url": null,
      "note": "section H also says PayPal still leads across all US origins; its refutation clause grades only the top-10k slice"
     }
@@ -1551,7 +1551,7 @@
      "value": 0.0,
      "qualifier": "=",
      "unit": "companies",
-     "period": "to 2026-11-09",
+     "period": "to 2026-11-11",
      "source_url": null,
      "note": null
     }
@@ -1567,7 +1567,6 @@
  },
  "marts": {
   "devstats_monthly": "payments/devstats_monthly.json",
-  "devstats_q1": "payments/devstats_q1.json",
   "events": "payments/events.json",
   "formd_filings": "payments/formd_filings.json",
   "jobs_by_function": "payments/jobs_by_function.json",
@@ -1869,27 +1868,27 @@
   {
    "name": "CI source: npm downloads (devstats)",
    "status": "pass",
-   "detail": "devstats_client_monthly, devstats_server_monthly read; latest period 2026-10-01, 39 days old (limit 45)"
+   "detail": "devstats_client_monthly, devstats_server_monthly read; latest period 2026-10-01, 41 days old (limit 45)"
   },
   {
    "name": "CI source: HTTP Archive coverage (webtech)",
    "status": "pass",
-   "detail": "webtech_adoption, webtech_coverage read; latest period 2026-09-01, 69 days old (limit 75)"
+   "detail": "webtech_adoption, webtech_coverage read; latest period 2026-10-01, 41 days old (limit 75)"
   },
   {
    "name": "CI source: job-board counts (jobs)",
    "status": "pass",
-   "detail": "jobs_counts read; latest period 2026-11-09, 0 days old (limit 14)"
+   "detail": "jobs_counts read; latest period 2026-11-11, 0 days old (limit 14)"
   },
   {
    "name": "CI source: SEC Form D (formd)",
    "status": "warn",
-   "detail": "formd read; latest period 2026-05-20, 173 days old (limit 120)"
+   "detail": "formd read; latest period 2026-05-20, 175 days old (limit 120)"
   },
   {
    "name": "CI source: SEC financials (sec)",
    "status": "pass",
-   "detail": "sec_latest read; latest period 2026-09-30, 40 days old (limit 200)"
+   "detail": "sec_latest read; latest period 2026-09-30, 42 days old (limit 200)"
   },
   {
    "name": "Curator notes never published",
