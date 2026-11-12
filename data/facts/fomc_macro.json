@@ -1,15 +1,15 @@
 {
  "project": "fomc-markets",
- "generated_at": "2026-11-11T14:35:36+00:00",
+ "generated_at": "2026-11-12T15:28:15+00:00",
  "window": {
   "from": "2025-01-01",
-  "to": "2026-11-11"
+  "to": "2026-11-12"
  },
  "forward_from": "2026-09-24",
  "series": {
   "DFEDTARU": {
    "label": "Federal funds target range, upper bound",
-   "last": "2026-11-11"
+   "last": "2026-11-12"
   },
   "DGS2": {
    "label": "2-year Treasury yield",
@@ -34,19 +34,19 @@
  },
  "claims": {
   "series": "IC4WSA",
-  "n_first_prints": 99,
-  "last_release": "2026-11-05"
+  "n_first_prints": 100,
+  "last_release": "2026-11-12"
  },
  "overlay": {
   "coverage": {
    "polymarket": {
-    "days": 680,
-    "with_next2": 679,
+    "days": 681,
+    "with_next2": 680,
     "first_next2": "2025-01-01"
    },
    "kalshi": {
-    "days": 680,
-    "with_next2": 461,
+    "days": 681,
+    "with_next2": 462,
     "first_next2": "2025-08-05"
    }
   },
@@ -89,14 +89,14 @@
   },
   "forward": {
    "from": "2026-09-24",
-   "to": "2026-11-11",
+   "to": "2026-11-12",
    "n_days_2y": 30,
    "corr_daily_change_vs_2y": 0.703,
    "n_days_oil": 26,
    "corr_daily_change_vs_wti": 0.214,
    "wti_5pct_days": 5,
    "wti_5pct_same_direction": 3,
-   "n_days_both_platforms": 49,
+   "n_days_both_platforms": 50,
    "mean_abs_platform_gap_bps": 0.7,
    "share_days_gap_over_5bps": 0.0
   }
@@ -636,7 +636,7 @@
     "label": "Polymarket and Kalshi two-meeting expectations stay within 5 bps",
     "threshold": "share of days over 5 bps < 0.1",
     "min_n": 60,
-    "n": 49,
+    "n": 50,
     "value": 0.0,
     "status": "collecting"
    }
@@ -651,17 +651,17 @@
   {
    "name": "Market data current",
    "status": "warn",
-   "detail": "DFEDTARU 2026-11-11, DGS2 2026-11-09, T5YIE 2026-11-10, T5YIFR 2026-11-10, DCOILWTICO 2026-11-03, DCOILBRENTEU 2026-11-03"
+   "detail": "DFEDTARU 2026-11-12, DGS2 2026-11-09, T5YIE 2026-11-10, T5YIFR 2026-11-10, DCOILWTICO 2026-11-03, DCOILBRENTEU 2026-11-03"
   },
   {
    "name": "Claims as first printed",
    "status": "pass",
-   "detail": "99 weekly first prints from ALFRED vintages, each dated by its release day"
+   "detail": "100 weekly first prints from ALFRED vintages, each dated by its release day"
   },
   {
    "name": "Rolling expectation coverage",
    "status": "pass",
-   "detail": "polymarket: 679/680 days; kalshi: 461/680 days"
+   "detail": "polymarket: 680/681 days; kalshi: 462/681 days"
   },
   {
    "name": "Release calendar ahead",
