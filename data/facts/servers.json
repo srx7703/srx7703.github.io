@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T17:08:17+00:00",
+ "generated_at": "2026-11-12T17:39:30+00:00",
  "groups": {
   "oem": "Brand makers (OEM)",
   "odm": "Taiwan makers building to the customer's design (ODM)",
@@ -432,12 +432,12 @@
    "name_cn": "华硕",
    "group": "odm",
    "comparator": false,
-   "ttm_end": "2026Q2",
+   "ttm_end": "2026Q3",
    "currency": "TWD",
-   "revenue": 869307027000.0,
-   "growth": 0.32479346689379707,
-   "gross_margin": 0.15674993157509584,
-   "operating_margin": 0.059945632994405786,
+   "revenue": 945355220000.0,
+   "growth": 0.3702713784469549,
+   "gross_margin": 0.161885274193546,
+   "operating_margin": 0.06934240972404003,
    "gross_margin_2023": 0.11512626980601155,
    "operating_margin_2023": -0.0037084586686403115,
    "inventory_days": null,
@@ -468,12 +468,12 @@
    "name_cn": "和硕",
    "group": "odm",
    "comparator": true,
-   "ttm_end": "2026Q2",
+   "ttm_end": "2026Q3",
    "currency": "TWD",
-   "revenue": 1095944378000.0,
-   "growth": -0.056036839032852614,
-   "gross_margin": 0.042808925290184756,
-   "operating_margin": 0.013396560349890311,
+   "revenue": 1227154101000.0,
+   "growth": 0.09115647781233127,
+   "gross_margin": 0.04361631351464636,
+   "operating_margin": 0.01589073123262129,
    "gross_margin_2023": 0.03989955698496716,
    "operating_margin_2023": 0.01566756142303674,
    "inventory_days": null,
@@ -946,9 +946,14 @@
      "operating_margin": 0.01566756142303674,
      "operating_income": 20508241000.0
     },
-    "after": null,
-    "pattern": null,
-    "weak_pattern": null
+    "after": {
+     "revenue": 1227154101000.0,
+     "gross_margin": 0.04361631351464636,
+     "operating_margin": 0.01589073123262129,
+     "operating_income": 19500376000.0
+    },
+    "pattern": false,
+    "weak_pattern": false
    },
    "000066.SZ": {
     "before": {
@@ -996,7 +1001,7 @@
    "HPE": "2026Q2",
    "2376": "2026Q2",
    "CSCO": "2026Q2",
-   "4938": "2026Q2",
+   "4938": "2026Q3",
    "000066.SZ": "2026Q3"
   }
  },
