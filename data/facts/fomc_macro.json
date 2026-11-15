@@ -1,15 +1,15 @@
 {
  "project": "fomc-markets",
- "generated_at": "2026-11-14T13:42:18+00:00",
+ "generated_at": "2026-11-15T14:07:19+00:00",
  "window": {
   "from": "2025-01-01",
-  "to": "2026-11-14"
+  "to": "2026-11-15"
  },
  "forward_from": "2026-09-24",
  "series": {
   "DFEDTARU": {
    "label": "Federal funds target range, upper bound",
-   "last": "2026-11-14"
+   "last": "2026-11-15"
   },
   "DGS2": {
    "label": "2-year Treasury yield",
@@ -40,13 +40,13 @@
  "overlay": {
   "coverage": {
    "polymarket": {
-    "days": 683,
-    "with_next2": 682,
+    "days": 684,
+    "with_next2": 683,
     "first_next2": "2025-01-01"
    },
    "kalshi": {
-    "days": 683,
-    "with_next2": 464,
+    "days": 684,
+    "with_next2": 465,
     "first_next2": "2025-08-05"
    }
   },
@@ -89,14 +89,14 @@
   },
   "forward": {
    "from": "2026-09-24",
-   "to": "2026-11-14",
+   "to": "2026-11-15",
    "n_days_2y": 32,
    "corr_daily_change_vs_2y": 0.775,
    "n_days_oil": 31,
    "corr_daily_change_vs_wti": 0.07,
    "wti_5pct_days": 6,
    "wti_5pct_same_direction": 4,
-   "n_days_both_platforms": 52,
+   "n_days_both_platforms": 53,
    "mean_abs_platform_gap_bps": 0.72,
    "share_days_gap_over_5bps": 0.0
   }
@@ -636,7 +636,7 @@
     "label": "Polymarket and Kalshi two-meeting expectations stay within 5 bps",
     "threshold": "share of days over 5 bps < 0.1",
     "min_n": 60,
-    "n": 52,
+    "n": 53,
     "value": 0.0,
     "status": "collecting"
    }
@@ -651,7 +651,7 @@
   {
    "name": "Market data current",
    "status": "pass",
-   "detail": "DFEDTARU 2026-11-14, DGS2 2026-11-12, T5YIE 2026-11-13, T5YIFR 2026-11-13, DCOILWTICO 2026-11-11, DCOILBRENTEU 2026-11-11"
+   "detail": "DFEDTARU 2026-11-15, DGS2 2026-11-12, T5YIE 2026-11-13, T5YIFR 2026-11-13, DCOILWTICO 2026-11-11, DCOILBRENTEU 2026-11-11"
   },
   {
    "name": "Claims as first printed",
@@ -661,7 +661,7 @@
   {
    "name": "Rolling expectation coverage",
    "status": "pass",
-   "detail": "polymarket: 682/683 days; kalshi: 464/683 days"
+   "detail": "polymarket: 683/684 days; kalshi: 465/684 days"
   },
   {
    "name": "Release calendar ahead",
