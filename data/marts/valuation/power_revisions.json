@@ -198,6 +198,20 @@
  {
   "ticker": "GEV",
   "name": "GE Vernova",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 30.81139
+ },
+ {
+  "ticker": "GEV",
+  "name": "GE Vernova",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 24.67248
+ },
+ {
+  "ticker": "GEV",
+  "name": "GE Vernova",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 30.84574
@@ -352,6 +366,20 @@
  {
   "ticker": "GEV",
   "name": "GE Vernova",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 30.73907
+ },
+ {
+  "ticker": "GEV",
+  "name": "GE Vernova",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 24.58298
+ },
+ {
+  "ticker": "GEV",
+  "name": "GE Vernova",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 30.79553
@@ -478,6 +506,20 @@
  {
   "ticker": "GEV",
   "name": "GE Vernova",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 30.47483
+ },
+ {
+  "ticker": "GEV",
+  "name": "GE Vernova",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 24.53707
+ },
+ {
+  "ticker": "GEV",
+  "name": "GE Vernova",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 30.42933
@@ -530,6 +572,20 @@
   "as_of": "2026-11-09",
   "year": 2027,
   "eps": 25.84496
+ },
+ {
+  "ticker": "GEV",
+  "name": "GE Vernova",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 31.79654
+ },
+ {
+  "ticker": "GEV",
+  "name": "GE Vernova",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 25.95559
  },
  {
   "ticker": "ENR.DE",
@@ -632,6 +688,13 @@
  {
   "ticker": "ENR.DE",
   "name": "Siemens Energy",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 6.6401775
+ },
+ {
+  "ticker": "ENR.DE",
+  "name": "Siemens Energy",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 4.883525000000001
@@ -709,6 +772,13 @@
  {
   "ticker": "ENR.DE",
   "name": "Siemens Energy",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 6.684355
+ },
+ {
+  "ticker": "ENR.DE",
+  "name": "Siemens Energy",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 4.90332
@@ -772,6 +842,13 @@
  {
   "ticker": "ENR.DE",
   "name": "Siemens Energy",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 6.7318375
+ },
+ {
+  "ticker": "ENR.DE",
+  "name": "Siemens Energy",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 4.9320875
@@ -795,7 +872,14 @@
   "name": "Siemens Energy",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": 4.939855
+  "eps": 6.7372975
+ },
+ {
+  "ticker": "ENR.DE",
+  "name": "Siemens Energy",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 6.9872975
  },
  {
   "ticker": "7011.T",
@@ -898,6 +982,13 @@
  {
   "ticker": "7011.T",
   "name": "Mitsubishi Heavy Industries",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 142.84675249999998
+ },
+ {
+  "ticker": "7011.T",
+  "name": "Mitsubishi Heavy Industries",
   "as_of": "2026-08-19",
   "year": 2027,
   "eps": 142.3882475
@@ -971,6 +1062,13 @@
   "as_of": "2026-09-14",
   "year": 2027,
   "eps": 144.81086
+ },
+ {
+  "ticker": "7011.T",
+  "name": "Mitsubishi Heavy Industries",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 145.217615
  },
  {
   "ticker": "7011.T",
@@ -1073,6 +1171,13 @@
  {
   "ticker": "7011.T",
   "name": "Mitsubishi Heavy Industries",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 146.9220225
+ },
+ {
+  "ticker": "7011.T",
+  "name": "Mitsubishi Heavy Industries",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 123.0608125
@@ -1116,8 +1221,22 @@
   "ticker": "7011.T",
   "name": "Mitsubishi Heavy Industries",
   "as_of": "2026-11-09",
+  "year": 2026,
+  "eps": 125.7233125
+ },
+ {
+  "ticker": "7011.T",
+  "name": "Mitsubishi Heavy Industries",
+  "as_of": "2026-11-09",
   "year": 2027,
-  "eps": 152.14817
+  "eps": 148.471975
+ },
+ {
+  "ticker": "7011.T",
+  "name": "Mitsubishi Heavy Industries",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 152.86636000000001
  },
  {
   "ticker": "CAT",
@@ -1318,6 +1437,20 @@
  {
   "ticker": "CAT",
   "name": "Caterpillar",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 27.06406
+ },
+ {
+  "ticker": "CAT",
+  "name": "Caterpillar",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 32.05457
+ },
+ {
+  "ticker": "CAT",
+  "name": "Caterpillar",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 27.06406
@@ -1472,6 +1605,20 @@
  {
   "ticker": "CAT",
   "name": "Caterpillar",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 27.18657
+ },
+ {
+  "ticker": "CAT",
+  "name": "Caterpillar",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 32.37734
+ },
+ {
+  "ticker": "CAT",
+  "name": "Caterpillar",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 27.18657
@@ -1594,6 +1741,20 @@
   "as_of": "2026-10-12",
   "year": 2027,
   "eps": 32.41743
+ },
+ {
+  "ticker": "CAT",
+  "name": "Caterpillar",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 27.20005
+ },
+ {
+  "ticker": "CAT",
+  "name": "Caterpillar",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 32.43602
  },
  {
   "ticker": "CAT",
@@ -1642,14 +1803,28 @@
   "name": "Caterpillar",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": 27.11168
+  "eps": 27.12001
  },
  {
   "ticker": "CAT",
   "name": "Caterpillar",
   "as_of": "2026-11-09",
   "year": 2027,
-  "eps": 32.24703
+  "eps": 32.25259
+ },
+ {
+  "ticker": "CAT",
+  "name": "Caterpillar",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 27.02847
+ },
+ {
+  "ticker": "CAT",
+  "name": "Caterpillar",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 32.1774
  },
  {
   "ticker": "CMI",
@@ -1850,6 +2025,20 @@
  {
   "ticker": "CMI",
   "name": "Cummins",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 28.79946
+ },
+ {
+  "ticker": "CMI",
+  "name": "Cummins",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 33.78117
+ },
+ {
+  "ticker": "CMI",
+  "name": "Cummins",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 28.38816
@@ -2004,6 +2193,20 @@
  {
   "ticker": "CMI",
   "name": "Cummins",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 28.2241
+ },
+ {
+  "ticker": "CMI",
+  "name": "Cummins",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 33.73172
+ },
+ {
+  "ticker": "CMI",
+  "name": "Cummins",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 28.56962
@@ -2130,6 +2333,20 @@
  {
   "ticker": "CMI",
   "name": "Cummins",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 28.24108
+ },
+ {
+  "ticker": "CMI",
+  "name": "Cummins",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 34.22257
+ },
+ {
+  "ticker": "CMI",
+  "name": "Cummins",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 28.58399
@@ -2174,14 +2391,28 @@
   "name": "Cummins",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": 27.92345
+  "eps": 28.08471
  },
  {
   "ticker": "CMI",
   "name": "Cummins",
   "as_of": "2026-11-09",
   "year": 2027,
-  "eps": 33.51438
+  "eps": 34.34487
+ },
+ {
+  "ticker": "CMI",
+  "name": "Cummins",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 27.69039
+ },
+ {
+  "ticker": "CMI",
+  "name": "Cummins",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 33.38547
  },
  {
   "ticker": "BKR",
@@ -2382,6 +2613,20 @@
  {
   "ticker": "BKR",
   "name": "Baker Hughes",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 2.59445
+ },
+ {
+  "ticker": "BKR",
+  "name": "Baker Hughes",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 3.16352
+ },
+ {
+  "ticker": "BKR",
+  "name": "Baker Hughes",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 2.62236
@@ -2532,6 +2777,20 @@
   "as_of": "2026-09-14",
   "year": 2027,
   "eps": 3.16079
+ },
+ {
+  "ticker": "BKR",
+  "name": "Baker Hughes",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 2.57409
+ },
+ {
+  "ticker": "BKR",
+  "name": "Baker Hughes",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 3.11009
  },
  {
   "ticker": "BKR",
@@ -2662,6 +2921,20 @@
  {
   "ticker": "BKR",
   "name": "Baker Hughes",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 2.55796
+ },
+ {
+  "ticker": "BKR",
+  "name": "Baker Hughes",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 2.95512
+ },
+ {
+  "ticker": "BKR",
+  "name": "Baker Hughes",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 2.55796
@@ -2706,14 +2979,28 @@
   "name": "Baker Hughes",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": 2.5959
+  "eps": 2.60248
  },
  {
   "ticker": "BKR",
   "name": "Baker Hughes",
   "as_of": "2026-11-09",
   "year": 2027,
-  "eps": 2.83349
+  "eps": 2.85781
+ },
+ {
+  "ticker": "BKR",
+  "name": "Baker Hughes",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 2.60064
+ },
+ {
+  "ticker": "BKR",
+  "name": "Baker Hughes",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 2.82294
  },
  {
   "ticker": "BE",
@@ -2914,6 +3201,20 @@
  {
   "ticker": "BE",
   "name": "Bloom Energy",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 2.71126
+ },
+ {
+  "ticker": "BE",
+  "name": "Bloom Energy",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 4.88517
+ },
+ {
+  "ticker": "BE",
+  "name": "Bloom Energy",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 2.71126
@@ -3068,6 +3369,20 @@
  {
   "ticker": "BE",
   "name": "Bloom Energy",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 2.69085
+ },
+ {
+  "ticker": "BE",
+  "name": "Bloom Energy",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 4.95125
+ },
+ {
+  "ticker": "BE",
+  "name": "Bloom Energy",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 2.70582
@@ -3194,6 +3509,20 @@
  {
   "ticker": "BE",
   "name": "Bloom Energy",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 2.70997
+ },
+ {
+  "ticker": "BE",
+  "name": "Bloom Energy",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 4.89572
+ },
+ {
+  "ticker": "BE",
+  "name": "Bloom Energy",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 2.70788
@@ -3244,6 +3573,20 @@
   "ticker": "BE",
   "name": "Bloom Energy",
   "as_of": "2026-11-09",
+  "year": 2027,
+  "eps": 5.32391
+ },
+ {
+  "ticker": "BE",
+  "name": "Bloom Energy",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 3.27299
+ },
+ {
+  "ticker": "BE",
+  "name": "Bloom Energy",
+  "as_of": "2026-11-16",
   "year": 2027,
   "eps": 5.32391
  },
@@ -3446,6 +3789,20 @@
  {
   "ticker": "CEG",
   "name": "Constellation Energy",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 11.92178
+ },
+ {
+  "ticker": "CEG",
+  "name": "Constellation Energy",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 13.37858
+ },
+ {
+  "ticker": "CEG",
+  "name": "Constellation Energy",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 11.90916
@@ -3600,6 +3957,20 @@
  {
   "ticker": "CEG",
   "name": "Constellation Energy",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 12.11533
+ },
+ {
+  "ticker": "CEG",
+  "name": "Constellation Energy",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 13.2985
+ },
+ {
+  "ticker": "CEG",
+  "name": "Constellation Energy",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 12.12659
@@ -3726,6 +4097,20 @@
  {
   "ticker": "CEG",
   "name": "Constellation Energy",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 12.13056
+ },
+ {
+  "ticker": "CEG",
+  "name": "Constellation Energy",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 13.32286
+ },
+ {
+  "ticker": "CEG",
+  "name": "Constellation Energy",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 12.1311
@@ -3770,7 +4155,7 @@
   "name": "Constellation Energy",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": 12.21608
+  "eps": 12.20428
  },
  {
   "ticker": "CEG",
@@ -3778,6 +4163,20 @@
   "as_of": "2026-11-09",
   "year": 2027,
   "eps": 13.4003
+ },
+ {
+  "ticker": "CEG",
+  "name": "Constellation Energy",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 12.51212
+ },
+ {
+  "ticker": "CEG",
+  "name": "Constellation Energy",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 13.43428
  },
  {
   "ticker": "VST",
@@ -3978,6 +4377,20 @@
  {
   "ticker": "VST",
   "name": "Vistra",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 9.64062
+ },
+ {
+  "ticker": "VST",
+  "name": "Vistra",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 10.58314
+ },
+ {
+  "ticker": "VST",
+  "name": "Vistra",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 9.89168
@@ -4132,6 +4545,20 @@
  {
   "ticker": "VST",
   "name": "Vistra",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 9.63828
+ },
+ {
+  "ticker": "VST",
+  "name": "Vistra",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 10.41571
+ },
+ {
+  "ticker": "VST",
+  "name": "Vistra",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 9.58625
@@ -4258,6 +4685,20 @@
  {
   "ticker": "VST",
   "name": "Vistra",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 9.62953
+ },
+ {
+  "ticker": "VST",
+  "name": "Vistra",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 10.29892
+ },
+ {
+  "ticker": "VST",
+  "name": "Vistra",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 9.57847
@@ -4309,7 +4750,21 @@
   "name": "Vistra",
   "as_of": "2026-11-09",
   "year": 2027,
-  "eps": 10.58424
+  "eps": 10.33158
+ },
+ {
+  "ticker": "VST",
+  "name": "Vistra",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 9.37915
+ },
+ {
+  "ticker": "VST",
+  "name": "Vistra",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 10.15409
  },
  {
   "ticker": "TLN",
@@ -4510,6 +4965,20 @@
  {
   "ticker": "TLN",
   "name": "Talen Energy",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 21.28693
+ },
+ {
+  "ticker": "TLN",
+  "name": "Talen Energy",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 29.14208
+ },
+ {
+  "ticker": "TLN",
+  "name": "Talen Energy",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 21.28693
@@ -4664,6 +5133,20 @@
  {
   "ticker": "TLN",
   "name": "Talen Energy",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 22.31129
+ },
+ {
+  "ticker": "TLN",
+  "name": "Talen Energy",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 30.76806
+ },
+ {
+  "ticker": "TLN",
+  "name": "Talen Energy",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 22.26295
@@ -4784,6 +5267,20 @@
   "ticker": "TLN",
   "name": "Talen Energy",
   "as_of": "2026-10-12",
+  "year": 2027,
+  "eps": 30.75472
+ },
+ {
+  "ticker": "TLN",
+  "name": "Talen Energy",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 22.26295
+ },
+ {
+  "ticker": "TLN",
+  "name": "Talen Energy",
+  "as_of": "2026-10-17",
   "year": 2027,
   "eps": 30.75472
  },
@@ -4834,7 +5331,7 @@
   "name": "Talen Energy",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": 16.99
+  "eps": 22.924
  },
  {
   "ticker": "TLN",
@@ -4842,6 +5339,20 @@
   "as_of": "2026-11-09",
   "year": 2027,
   "eps": 30.535
+ },
+ {
+  "ticker": "TLN",
+  "name": "Talen Energy",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 22.42
+ },
+ {
+  "ticker": "TLN",
+  "name": "Talen Energy",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 30.94
  },
  {
   "ticker": "OKLO",
@@ -5042,6 +5553,20 @@
  {
   "ticker": "OKLO",
   "name": "Oklo",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": -0.93955
+ },
+ {
+  "ticker": "OKLO",
+  "name": "Oklo",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": -0.96019
+ },
+ {
+  "ticker": "OKLO",
+  "name": "Oklo",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": -0.88766
@@ -5196,6 +5721,20 @@
  {
   "ticker": "OKLO",
   "name": "Oklo",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": -0.97459
+ },
+ {
+  "ticker": "OKLO",
+  "name": "Oklo",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": -0.98018
+ },
+ {
+  "ticker": "OKLO",
+  "name": "Oklo",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": -0.97459
@@ -5322,6 +5861,20 @@
  {
   "ticker": "OKLO",
   "name": "Oklo",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": -0.95326
+ },
+ {
+  "ticker": "OKLO",
+  "name": "Oklo",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": -1.05659
+ },
+ {
+  "ticker": "OKLO",
+  "name": "Oklo",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": -0.95326
@@ -5366,14 +5919,28 @@
   "name": "Oklo",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": -0.96223
+  "eps": -0.96086
  },
  {
   "ticker": "OKLO",
   "name": "Oklo",
   "as_of": "2026-11-09",
   "year": 2027,
-  "eps": -1.08881
+  "eps": -1.03151
+ },
+ {
+  "ticker": "OKLO",
+  "name": "Oklo",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": -0.94533
+ },
+ {
+  "ticker": "OKLO",
+  "name": "Oklo",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": -1.11986
  },
  {
   "ticker": "SMR",
@@ -5574,6 +6141,20 @@
  {
   "ticker": "SMR",
   "name": "NuScale Power",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": -0.48258
+ },
+ {
+  "ticker": "SMR",
+  "name": "NuScale Power",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": -0.71246
+ },
+ {
+  "ticker": "SMR",
+  "name": "NuScale Power",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": -0.48258
@@ -5728,6 +6309,20 @@
  {
   "ticker": "SMR",
   "name": "NuScale Power",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": -0.48258
+ },
+ {
+  "ticker": "SMR",
+  "name": "NuScale Power",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": -0.72371
+ },
+ {
+  "ticker": "SMR",
+  "name": "NuScale Power",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": -0.48401
@@ -5848,6 +6443,20 @@
   "ticker": "SMR",
   "name": "NuScale Power",
   "as_of": "2026-10-12",
+  "year": 2027,
+  "eps": -0.72671
+ },
+ {
+  "ticker": "SMR",
+  "name": "NuScale Power",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": -0.48401
+ },
+ {
+  "ticker": "SMR",
+  "name": "NuScale Power",
+  "as_of": "2026-10-17",
   "year": 2027,
   "eps": -0.72671
  },
@@ -5898,14 +6507,28 @@
   "name": "NuScale Power",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": -0.47866
+  "eps": -0.49616
  },
  {
   "ticker": "SMR",
   "name": "NuScale Power",
   "as_of": "2026-11-09",
   "year": 2027,
-  "eps": -0.70067
+  "eps": -0.72249
+ },
+ {
+  "ticker": "SMR",
+  "name": "NuScale Power",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": -0.53881
+ },
+ {
+  "ticker": "SMR",
+  "name": "NuScale Power",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": -0.70703
  },
  {
   "ticker": "BWXT",
@@ -6106,6 +6729,20 @@
  {
   "ticker": "BWXT",
   "name": "BWX Technologies",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 4.73851
+ },
+ {
+  "ticker": "BWXT",
+  "name": "BWX Technologies",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 5.24793
+ },
+ {
+  "ticker": "BWXT",
+  "name": "BWX Technologies",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 4.73851
@@ -6260,6 +6897,20 @@
  {
   "ticker": "BWXT",
   "name": "BWX Technologies",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 4.73923
+ },
+ {
+  "ticker": "BWXT",
+  "name": "BWX Technologies",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 5.26341
+ },
+ {
+  "ticker": "BWXT",
+  "name": "BWX Technologies",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 4.7428
@@ -6386,6 +7037,20 @@
  {
   "ticker": "BWXT",
   "name": "BWX Technologies",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 4.7428
+ },
+ {
+  "ticker": "BWXT",
+  "name": "BWX Technologies",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 5.22514
+ },
+ {
+  "ticker": "BWXT",
+  "name": "BWX Technologies",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 4.7428
@@ -6430,12 +7095,26 @@
   "name": "BWX Technologies",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": 4.75779
+  "eps": 4.74261
  },
  {
   "ticker": "BWXT",
   "name": "BWX Technologies",
   "as_of": "2026-11-09",
+  "year": 2027,
+  "eps": 5.23018
+ },
+ {
+  "ticker": "BWXT",
+  "name": "BWX Technologies",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 4.75779
+ },
+ {
+  "ticker": "BWXT",
+  "name": "BWX Technologies",
+  "as_of": "2026-11-16",
   "year": 2027,
   "eps": 5.21871
  },
@@ -6638,6 +7317,20 @@
  {
   "ticker": "NEE",
   "name": "NextEra Energy",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 4.04843
+ },
+ {
+  "ticker": "NEE",
+  "name": "NextEra Energy",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 4.41817
+ },
+ {
+  "ticker": "NEE",
+  "name": "NextEra Energy",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 4.05004
@@ -6792,6 +7485,20 @@
  {
   "ticker": "NEE",
   "name": "NextEra Energy",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 4.05215
+ },
+ {
+  "ticker": "NEE",
+  "name": "NextEra Energy",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 4.39474
+ },
+ {
+  "ticker": "NEE",
+  "name": "NextEra Energy",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 4.05215
@@ -6918,6 +7625,20 @@
  {
   "ticker": "NEE",
   "name": "NextEra Energy",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 4.03404
+ },
+ {
+  "ticker": "NEE",
+  "name": "NextEra Energy",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 4.37498
+ },
+ {
+  "ticker": "NEE",
+  "name": "NextEra Energy",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 4.03404
@@ -6968,6 +7689,20 @@
   "ticker": "NEE",
   "name": "NextEra Energy",
   "as_of": "2026-11-09",
+  "year": 2027,
+  "eps": 4.37527
+ },
+ {
+  "ticker": "NEE",
+  "name": "NextEra Energy",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 4.02862
+ },
+ {
+  "ticker": "NEE",
+  "name": "NextEra Energy",
+  "as_of": "2026-11-16",
   "year": 2027,
   "eps": 4.37527
  },
@@ -7170,6 +7905,20 @@
  {
   "ticker": "FSLR",
   "name": "First Solar",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 17.41565
+ },
+ {
+  "ticker": "FSLR",
+  "name": "First Solar",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 23.14631
+ },
+ {
+  "ticker": "FSLR",
+  "name": "First Solar",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 17.48188
@@ -7324,6 +8073,20 @@
  {
   "ticker": "FSLR",
   "name": "First Solar",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 17.48962
+ },
+ {
+  "ticker": "FSLR",
+  "name": "First Solar",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 23.1202
+ },
+ {
+  "ticker": "FSLR",
+  "name": "First Solar",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 17.48962
@@ -7450,6 +8213,20 @@
  {
   "ticker": "FSLR",
   "name": "First Solar",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 17.4682
+ },
+ {
+  "ticker": "FSLR",
+  "name": "First Solar",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 23.4358
+ },
+ {
+  "ticker": "FSLR",
+  "name": "First Solar",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 17.4682
@@ -7502,6 +8279,20 @@
   "as_of": "2026-11-09",
   "year": 2027,
   "eps": 23.08636
+ },
+ {
+  "ticker": "FSLR",
+  "name": "First Solar",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 17.59022
+ },
+ {
+  "ticker": "FSLR",
+  "name": "First Solar",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 23.10806
  },
  {
   "ticker": "FLNC",
@@ -7604,6 +8395,13 @@
  {
   "ticker": "FLNC",
   "name": "Fluence Energy",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": -0.052294999999999994
+ },
+ {
+  "ticker": "FLNC",
+  "name": "Fluence Energy",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": -0.11860500000000003
@@ -7681,6 +8479,13 @@
  {
   "ticker": "FLNC",
   "name": "Fluence Energy",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": -0.2172825
+ },
+ {
+  "ticker": "FLNC",
+  "name": "Fluence Energy",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": -0.7355325
@@ -7744,6 +8549,13 @@
  {
   "ticker": "FLNC",
   "name": "Fluence Energy",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": -0.7355325
+ },
+ {
+  "ticker": "FLNC",
+  "name": "Fluence Energy",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": -0.7355325
@@ -7766,6 +8578,13 @@
   "ticker": "FLNC",
   "name": "Fluence Energy",
   "as_of": "2026-11-09",
+  "year": 2026,
+  "eps": -1.1097175
+ },
+ {
+  "ticker": "FLNC",
+  "name": "Fluence Energy",
+  "as_of": "2026-11-16",
   "year": 2026,
   "eps": -1.1097175
  },
@@ -7968,6 +8787,20 @@
  {
   "ticker": "TSLA",
   "name": "Tesla",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 1.76971
+ },
+ {
+  "ticker": "TSLA",
+  "name": "Tesla",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 2.25195
+ },
+ {
+  "ticker": "TSLA",
+  "name": "Tesla",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 1.77267
@@ -8122,6 +8955,20 @@
  {
   "ticker": "TSLA",
   "name": "Tesla",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 1.76564
+ },
+ {
+  "ticker": "TSLA",
+  "name": "Tesla",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 2.25195
+ },
+ {
+  "ticker": "TSLA",
+  "name": "Tesla",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 1.7779
@@ -8248,6 +9095,20 @@
  {
   "ticker": "TSLA",
   "name": "Tesla",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 1.7506
+ },
+ {
+  "ticker": "TSLA",
+  "name": "Tesla",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 2.27549
+ },
+ {
+  "ticker": "TSLA",
+  "name": "Tesla",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 1.74386
@@ -8302,6 +9163,20 @@
   "eps": 2.15922
  },
  {
+  "ticker": "TSLA",
+  "name": "Tesla",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 1.72424
+ },
+ {
+  "ticker": "TSLA",
+  "name": "Tesla",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 2.15922
+ },
+ {
   "ticker": "EOSE",
   "name": "Eos Energy",
   "as_of": "2026-06-20",
@@ -8500,6 +9375,20 @@
  {
   "ticker": "EOSE",
   "name": "Eos Energy",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": -0.57635
+ },
+ {
+  "ticker": "EOSE",
+  "name": "Eos Energy",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": -0.14955
+ },
+ {
+  "ticker": "EOSE",
+  "name": "Eos Energy",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": -0.57635
@@ -8654,6 +9543,20 @@
  {
   "ticker": "EOSE",
   "name": "Eos Energy",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": -0.28039
+ },
+ {
+  "ticker": "EOSE",
+  "name": "Eos Energy",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": -0.14955
+ },
+ {
+  "ticker": "EOSE",
+  "name": "Eos Energy",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": -0.08831
@@ -8776,6 +9679,20 @@
   "as_of": "2026-10-12",
   "year": 2027,
   "eps": -0.14955
+ },
+ {
+  "ticker": "EOSE",
+  "name": "Eos Energy",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": -0.08831
+ },
+ {
+  "ticker": "EOSE",
+  "name": "Eos Energy",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": -0.17355
  },
  {
   "ticker": "EOSE",
@@ -8824,14 +9741,28 @@
   "name": "Eos Energy",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": -0.3325
+  "eps": -0.09041
  },
  {
   "ticker": "EOSE",
   "name": "Eos Energy",
   "as_of": "2026-11-09",
   "year": 2027,
-  "eps": -0.17852
+  "eps": -0.17477
+ },
+ {
+  "ticker": "EOSE",
+  "name": "Eos Energy",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 0.64942
+ },
+ {
+  "ticker": "EOSE",
+  "name": "Eos Energy",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": -0.22852
  },
  {
   "ticker": "ETN",
@@ -9032,6 +9963,20 @@
  {
   "ticker": "ETN",
   "name": "Eaton",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 13.50587
+ },
+ {
+  "ticker": "ETN",
+  "name": "Eaton",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 16.02188
+ },
+ {
+  "ticker": "ETN",
+  "name": "Eaton",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 13.50587
@@ -9186,6 +10131,20 @@
  {
   "ticker": "ETN",
   "name": "Eaton",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 13.55393
+ },
+ {
+  "ticker": "ETN",
+  "name": "Eaton",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 16.13274
+ },
+ {
+  "ticker": "ETN",
+  "name": "Eaton",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 13.55393
@@ -9312,6 +10271,20 @@
  {
   "ticker": "ETN",
   "name": "Eaton",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 13.58251
+ },
+ {
+  "ticker": "ETN",
+  "name": "Eaton",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 16.26302
+ },
+ {
+  "ticker": "ETN",
+  "name": "Eaton",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 13.58051
@@ -9356,14 +10329,28 @@
   "name": "Eaton",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": 13.78131
+  "eps": 13.74287
  },
  {
   "ticker": "ETN",
   "name": "Eaton",
   "as_of": "2026-11-09",
   "year": 2027,
-  "eps": 16.45731
+  "eps": 16.46195
+ },
+ {
+  "ticker": "ETN",
+  "name": "Eaton",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 13.78779
+ },
+ {
+  "ticker": "ETN",
+  "name": "Eaton",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 16.43611
  },
  {
   "ticker": "VRT",
@@ -9564,6 +10551,20 @@
  {
   "ticker": "VRT",
   "name": "Vertiv",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 6.70757
+ },
+ {
+  "ticker": "VRT",
+  "name": "Vertiv",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 9.09879
+ },
+ {
+  "ticker": "VRT",
+  "name": "Vertiv",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 6.70757
@@ -9712,6 +10713,20 @@
   "ticker": "VRT",
   "name": "Vertiv",
   "as_of": "2026-09-14",
+  "year": 2027,
+  "eps": 9.12236
+ },
+ {
+  "ticker": "VRT",
+  "name": "Vertiv",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 6.73489
+ },
+ {
+  "ticker": "VRT",
+  "name": "Vertiv",
+  "as_of": "2026-09-17",
   "year": 2027,
   "eps": 9.12236
  },
@@ -9844,6 +10859,20 @@
  {
   "ticker": "VRT",
   "name": "Vertiv",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 6.7393
+ },
+ {
+  "ticker": "VRT",
+  "name": "Vertiv",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 9.19281
+ },
+ {
+  "ticker": "VRT",
+  "name": "Vertiv",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 6.73516
@@ -9896,6 +10925,20 @@
   "as_of": "2026-11-09",
   "year": 2027,
   "eps": 9.84233
+ },
+ {
+  "ticker": "VRT",
+  "name": "Vertiv",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 7.1907
+ },
+ {
+  "ticker": "VRT",
+  "name": "Vertiv",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 9.87387
  },
  {
   "ticker": "SU.PA",
@@ -10096,6 +11139,20 @@
  {
   "ticker": "SU.PA",
   "name": "Schneider Electric",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 10.28042
+ },
+ {
+  "ticker": "SU.PA",
+  "name": "Schneider Electric",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 12.09476
+ },
+ {
+  "ticker": "SU.PA",
+  "name": "Schneider Electric",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 10.29781
@@ -10250,6 +11307,20 @@
  {
   "ticker": "SU.PA",
   "name": "Schneider Electric",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 10.2747
+ },
+ {
+  "ticker": "SU.PA",
+  "name": "Schneider Electric",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 12.11798
+ },
+ {
+  "ticker": "SU.PA",
+  "name": "Schneider Electric",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 10.29015
@@ -10376,6 +11447,20 @@
  {
   "ticker": "SU.PA",
   "name": "Schneider Electric",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 10.34731
+ },
+ {
+  "ticker": "SU.PA",
+  "name": "Schneider Electric",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 12.30419
+ },
+ {
+  "ticker": "SU.PA",
+  "name": "Schneider Electric",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 10.45132
@@ -10420,12 +11505,26 @@
   "name": "Schneider Electric",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": 10.37155
+  "eps": 10.3715
  },
  {
   "ticker": "SU.PA",
   "name": "Schneider Electric",
   "as_of": "2026-11-09",
+  "year": 2027,
+  "eps": 12.59293
+ },
+ {
+  "ticker": "SU.PA",
+  "name": "Schneider Electric",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 10.37155
+ },
+ {
+  "ticker": "SU.PA",
+  "name": "Schneider Electric",
+  "as_of": "2026-11-16",
   "year": 2027,
   "eps": 12.5932
  },
@@ -10628,6 +11727,20 @@
  {
   "ticker": "ABBN.SW",
   "name": "ABB",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 3.19349
+ },
+ {
+  "ticker": "ABBN.SW",
+  "name": "ABB",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 3.54454
+ },
+ {
+  "ticker": "ABBN.SW",
+  "name": "ABB",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 3.18089
@@ -10782,6 +11895,20 @@
  {
   "ticker": "ABBN.SW",
   "name": "ABB",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 3.20006
+ },
+ {
+  "ticker": "ABBN.SW",
+  "name": "ABB",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 3.57623
+ },
+ {
+  "ticker": "ABBN.SW",
+  "name": "ABB",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 3.18793
@@ -10908,6 +12035,20 @@
  {
   "ticker": "ABBN.SW",
   "name": "ABB",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 3.20877
+ },
+ {
+  "ticker": "ABBN.SW",
+  "name": "ABB",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 3.58262
+ },
+ {
+  "ticker": "ABBN.SW",
+  "name": "ABB",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 3.21069
@@ -10952,14 +12093,28 @@
   "name": "ABB",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": 3.24343
+  "eps": 3.25366
  },
  {
   "ticker": "ABBN.SW",
   "name": "ABB",
   "as_of": "2026-11-09",
   "year": 2027,
-  "eps": 3.72611
+  "eps": 3.74329
+ },
+ {
+  "ticker": "ABBN.SW",
+  "name": "ABB",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 3.24346
+ },
+ {
+  "ticker": "ABBN.SW",
+  "name": "ABB",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 3.72853
  },
  {
   "ticker": "HUBB",
@@ -11160,6 +12315,20 @@
  {
   "ticker": "HUBB",
   "name": "Hubbell",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 20.45197
+ },
+ {
+  "ticker": "HUBB",
+  "name": "Hubbell",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 22.87115
+ },
+ {
+  "ticker": "HUBB",
+  "name": "Hubbell",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 20.45197
@@ -11308,6 +12477,20 @@
   "ticker": "HUBB",
   "name": "Hubbell",
   "as_of": "2026-09-14",
+  "year": 2027,
+  "eps": 22.91317
+ },
+ {
+  "ticker": "HUBB",
+  "name": "Hubbell",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 20.46293
+ },
+ {
+  "ticker": "HUBB",
+  "name": "Hubbell",
+  "as_of": "2026-09-17",
   "year": 2027,
   "eps": 22.91317
  },
@@ -11440,6 +12623,20 @@
  {
   "ticker": "HUBB",
   "name": "Hubbell",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 20.49566
+ },
+ {
+  "ticker": "HUBB",
+  "name": "Hubbell",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 22.96434
+ },
+ {
+  "ticker": "HUBB",
+  "name": "Hubbell",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 20.49566
@@ -11492,6 +12689,20 @@
   "as_of": "2026-11-09",
   "year": 2027,
   "eps": 23.05321
+ },
+ {
+  "ticker": "HUBB",
+  "name": "Hubbell",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 20.58843
+ },
+ {
+  "ticker": "HUBB",
+  "name": "Hubbell",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 23.06521
  },
  {
   "ticker": "PWR",
@@ -11692,6 +12903,20 @@
  {
   "ticker": "PWR",
   "name": "Quanta Services",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 16.71115
+ },
+ {
+  "ticker": "PWR",
+  "name": "Quanta Services",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 19.4757
+ },
+ {
+  "ticker": "PWR",
+  "name": "Quanta Services",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 16.71115
@@ -11842,6 +13067,20 @@
   "as_of": "2026-09-14",
   "year": 2027,
   "eps": 19.6413
+ },
+ {
+  "ticker": "PWR",
+  "name": "Quanta Services",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 16.62986
+ },
+ {
+  "ticker": "PWR",
+  "name": "Quanta Services",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 19.59971
  },
  {
   "ticker": "PWR",
@@ -11972,6 +13211,20 @@
  {
   "ticker": "PWR",
   "name": "Quanta Services",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 16.74256
+ },
+ {
+  "ticker": "PWR",
+  "name": "Quanta Services",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 19.77394
+ },
+ {
+  "ticker": "PWR",
+  "name": "Quanta Services",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 16.74448
@@ -12016,14 +13269,28 @@
   "name": "Quanta Services",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": 18.1664
+  "eps": 18.16494
  },
  {
   "ticker": "PWR",
   "name": "Quanta Services",
   "as_of": "2026-11-09",
   "year": 2027,
-  "eps": 21.63806
+  "eps": 21.57075
+ },
+ {
+  "ticker": "PWR",
+  "name": "Quanta Services",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 18.17334
+ },
+ {
+  "ticker": "PWR",
+  "name": "Quanta Services",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 21.73383
  },
  {
   "ticker": "267260.KS",
@@ -12224,6 +13491,20 @@
  {
   "ticker": "267260.KS",
   "name": "HD Hyundai Electric",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 27006.514
+ },
+ {
+  "ticker": "267260.KS",
+  "name": "HD Hyundai Electric",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 34470.49
+ },
+ {
+  "ticker": "267260.KS",
+  "name": "HD Hyundai Electric",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 27006.514
@@ -12372,6 +13653,20 @@
   "ticker": "267260.KS",
   "name": "HD Hyundai Electric",
   "as_of": "2026-09-14",
+  "year": 2027,
+  "eps": 34153.75
+ },
+ {
+  "ticker": "267260.KS",
+  "name": "HD Hyundai Electric",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 26670.525
+ },
+ {
+  "ticker": "267260.KS",
+  "name": "HD Hyundai Electric",
+  "as_of": "2026-09-17",
   "year": 2027,
   "eps": 34153.75
  },
@@ -12504,6 +13799,20 @@
  {
   "ticker": "267260.KS",
   "name": "HD Hyundai Electric",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 26301.615
+ },
+ {
+  "ticker": "267260.KS",
+  "name": "HD Hyundai Electric",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 33655.85
+ },
+ {
+  "ticker": "267260.KS",
+  "name": "HD Hyundai Electric",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 26203.678
@@ -12554,6 +13863,20 @@
   "ticker": "267260.KS",
   "name": "HD Hyundai Electric",
   "as_of": "2026-11-09",
+  "year": 2027,
+  "eps": 32001.129
+ },
+ {
+  "ticker": "267260.KS",
+  "name": "HD Hyundai Electric",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 24212.46
+ },
+ {
+  "ticker": "267260.KS",
+  "name": "HD Hyundai Electric",
+  "as_of": "2026-11-16",
   "year": 2027,
   "eps": 32001.129
  },
@@ -12756,6 +14079,20 @@
  {
   "ticker": "GNRC",
   "name": "Generac",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 9.74759
+ },
+ {
+  "ticker": "GNRC",
+  "name": "Generac",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 11.82023
+ },
+ {
+  "ticker": "GNRC",
+  "name": "Generac",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 9.74759
@@ -12904,6 +14241,20 @@
   "ticker": "GNRC",
   "name": "Generac",
   "as_of": "2026-09-14",
+  "year": 2027,
+  "eps": 11.82023
+ },
+ {
+  "ticker": "GNRC",
+  "name": "Generac",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 9.74759
+ },
+ {
+  "ticker": "GNRC",
+  "name": "Generac",
+  "as_of": "2026-09-17",
   "year": 2027,
   "eps": 11.82023
  },
@@ -13036,6 +14387,20 @@
  {
   "ticker": "GNRC",
   "name": "Generac",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 9.70469
+ },
+ {
+  "ticker": "GNRC",
+  "name": "Generac",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 12.9942
+ },
+ {
+  "ticker": "GNRC",
+  "name": "Generac",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 9.70469
@@ -13080,14 +14445,28 @@
   "name": "Generac",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": 9.87862
+  "eps": 9.89806
  },
  {
   "ticker": "GNRC",
   "name": "Generac",
   "as_of": "2026-11-09",
   "year": 2027,
-  "eps": 13.93766
+  "eps": 13.97516
+ },
+ {
+  "ticker": "GNRC",
+  "name": "Generac",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 9.89806
+ },
+ {
+  "ticker": "GNRC",
+  "name": "Generac",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 13.97516
  },
  {
   "ticker": "D",
@@ -13288,6 +14667,20 @@
  {
   "ticker": "D",
   "name": "Dominion Energy",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 3.58792
+ },
+ {
+  "ticker": "D",
+  "name": "Dominion Energy",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 3.81575
+ },
+ {
+  "ticker": "D",
+  "name": "Dominion Energy",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 3.58692
@@ -13442,6 +14835,20 @@
  {
   "ticker": "D",
   "name": "Dominion Energy",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 3.58485
+ },
+ {
+  "ticker": "D",
+  "name": "Dominion Energy",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 3.81541
+ },
+ {
+  "ticker": "D",
+  "name": "Dominion Energy",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 3.58485
@@ -13564,6 +14971,20 @@
   "as_of": "2026-10-12",
   "year": 2027,
   "eps": 3.81423
+ },
+ {
+  "ticker": "D",
+  "name": "Dominion Energy",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 3.58515
+ },
+ {
+  "ticker": "D",
+  "name": "Dominion Energy",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 3.81566
  },
  {
   "ticker": "D",
@@ -13618,6 +15039,20 @@
   "ticker": "D",
   "name": "Dominion Energy",
   "as_of": "2026-11-09",
+  "year": 2027,
+  "eps": 3.81921
+ },
+ {
+  "ticker": "D",
+  "name": "Dominion Energy",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 3.60231
+ },
+ {
+  "ticker": "D",
+  "name": "Dominion Energy",
+  "as_of": "2026-11-16",
   "year": 2027,
   "eps": 3.81921
  },
@@ -13820,6 +15255,20 @@
  {
   "ticker": "AEP",
   "name": "American Electric Power",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 6.37053
+ },
+ {
+  "ticker": "AEP",
+  "name": "American Electric Power",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 6.85587
+ },
+ {
+  "ticker": "AEP",
+  "name": "American Electric Power",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 6.3733
@@ -13974,6 +15423,20 @@
  {
   "ticker": "AEP",
   "name": "American Electric Power",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 6.37939
+ },
+ {
+  "ticker": "AEP",
+  "name": "American Electric Power",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 6.85684
+ },
+ {
+  "ticker": "AEP",
+  "name": "American Electric Power",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 6.38203
@@ -14096,6 +15559,20 @@
   "as_of": "2026-10-12",
   "year": 2027,
   "eps": 6.85684
+ },
+ {
+  "ticker": "AEP",
+  "name": "American Electric Power",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 6.38524
+ },
+ {
+  "ticker": "AEP",
+  "name": "American Electric Power",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 6.86253
  },
  {
   "ticker": "AEP",
@@ -14150,6 +15627,20 @@
   "ticker": "AEP",
   "name": "American Electric Power",
   "as_of": "2026-11-09",
+  "year": 2027,
+  "eps": 6.8981
+ },
+ {
+  "ticker": "AEP",
+  "name": "American Electric Power",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 6.45758
+ },
+ {
+  "ticker": "AEP",
+  "name": "American Electric Power",
+  "as_of": "2026-11-16",
   "year": 2027,
   "eps": 6.8981
  },
@@ -14352,6 +15843,20 @@
  {
   "ticker": "SO",
   "name": "Southern Company",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 4.58582
+ },
+ {
+  "ticker": "SO",
+  "name": "Southern Company",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 4.92406
+ },
+ {
+  "ticker": "SO",
+  "name": "Southern Company",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 4.58314
@@ -14506,6 +16011,20 @@
  {
   "ticker": "SO",
   "name": "Southern Company",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 4.58869
+ },
+ {
+  "ticker": "SO",
+  "name": "Southern Company",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 4.92431
+ },
+ {
+  "ticker": "SO",
+  "name": "Southern Company",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 4.58869
@@ -14632,6 +16151,20 @@
  {
   "ticker": "SO",
   "name": "Southern Company",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 4.59249
+ },
+ {
+  "ticker": "SO",
+  "name": "Southern Company",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 4.92312
+ },
+ {
+  "ticker": "SO",
+  "name": "Southern Company",
   "as_of": "2026-10-19",
   "year": 2026,
   "eps": 4.59249
@@ -14676,14 +16209,28 @@
   "name": "Southern Company",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": 4.63055
+  "eps": 4.62601
  },
  {
   "ticker": "SO",
   "name": "Southern Company",
   "as_of": "2026-11-09",
   "year": 2027,
-  "eps": 4.93376
+  "eps": 4.93314
+ },
+ {
+  "ticker": "SO",
+  "name": "Southern Company",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 4.63571
+ },
+ {
+  "ticker": "SO",
+  "name": "Southern Company",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 4.93488
  },
  {
   "ticker": "ETR",
@@ -14884,6 +16431,20 @@
  {
   "ticker": "ETR",
   "name": "Entergy",
+  "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 4.39685
+ },
+ {
+  "ticker": "ETR",
+  "name": "Entergy",
+  "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 5.09667
+ },
+ {
+  "ticker": "ETR",
+  "name": "Entergy",
   "as_of": "2026-08-19",
   "year": 2026,
   "eps": 4.39605
@@ -15038,6 +16599,20 @@
  {
   "ticker": "ETR",
   "name": "Entergy",
+  "as_of": "2026-09-17",
+  "year": 2026,
+  "eps": 4.39963
+ },
+ {
+  "ticker": "ETR",
+  "name": "Entergy",
+  "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 5.1044
+ },
+ {
+  "ticker": "ETR",
+  "name": "Entergy",
   "as_of": "2026-09-18",
   "year": 2026,
   "eps": 4.3987
@@ -15160,6 +16735,20 @@
   "as_of": "2026-10-12",
   "year": 2027,
   "eps": 5.1044
+ },
+ {
+  "ticker": "ETR",
+  "name": "Entergy",
+  "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 4.40264
+ },
+ {
+  "ticker": "ETR",
+  "name": "Entergy",
+  "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 5.10289
  },
  {
   "ticker": "ETR",
@@ -15208,7 +16797,7 @@
   "name": "Entergy",
   "as_of": "2026-11-09",
   "year": 2026,
-  "eps": 4.40563
+  "eps": 4.40122
  },
  {
   "ticker": "ETR",
@@ -15216,5 +16805,19 @@
   "as_of": "2026-11-09",
   "year": 2027,
   "eps": 5.11352
+ },
+ {
+  "ticker": "ETR",
+  "name": "Entergy",
+  "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 4.404
+ },
+ {
+  "ticker": "ETR",
+  "name": "Entergy",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 5.11465
  }
 ]
