@@ -2241,7 +2241,7 @@
   }
  },
  "TTD": {
-  "name": "The Trade Desk, Inc.",
+  "name": "TRADE DESK, INC.",
   "tags": {
    "revenue": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
@@ -2287,52 +2287,52 @@
    ]
   },
   "quarters": {
-   "revenue": 37,
-   "cogs": 44,
-   "op_income": 44,
-   "net_income": 44,
-   "ocf": 43,
-   "capex": 43,
-   "cap_software": 43,
-   "sbc": 44,
-   "rnd": 44,
-   "snm": 44,
-   "gna": 44,
-   "diluted_shares": 33,
-   "gross_profit": 37
+   "revenue": 38,
+   "cogs": 45,
+   "op_income": 45,
+   "net_income": 45,
+   "ocf": 44,
+   "capex": 44,
+   "cap_software": 44,
+   "sbc": 45,
+   "rnd": 45,
+   "snm": 45,
+   "gna": 45,
+   "diluted_shares": 34,
+   "gross_profit": 38
   },
   "reconciliation": {
    "revenue": {
-    "pairs": 18,
-    "agree": 18
+    "pairs": 19,
+    "agree": 19
    },
    "cogs": {
-    "pairs": 21,
-    "agree": 21
+    "pairs": 22,
+    "agree": 22
    },
    "op_income": {
-    "pairs": 21,
-    "agree": 21
+    "pairs": 22,
+    "agree": 22
    },
    "net_income": {
-    "pairs": 21,
-    "agree": 21
+    "pairs": 22,
+    "agree": 22
    },
    "sbc": {
-    "pairs": 21,
-    "agree": 21
+    "pairs": 22,
+    "agree": 22
    },
    "rnd": {
-    "pairs": 21,
-    "agree": 21
+    "pairs": 22,
+    "agree": 22
    },
    "snm": {
-    "pairs": 21,
-    "agree": 21
+    "pairs": 22,
+    "agree": 22
    },
    "gna": {
-    "pairs": 21,
-    "agree": 21
+    "pairs": 22,
+    "agree": 22
    }
   }
  },
