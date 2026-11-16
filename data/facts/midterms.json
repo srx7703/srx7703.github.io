@@ -1,28 +1,28 @@
 {
  "project": "midterms-2026",
- "generated_at": "2026-11-15T22:48:15+00:00",
+ "generated_at": "2026-11-16T16:02:11+00:00",
  "election_day": "2026-11-03",
  "first_snapshot_ts": "2026-09-16T02:26:10+00:00",
- "last_snapshot_ts": "2026-11-15T22:47:05+00:00",
- "n_snapshots": 126,
- "n_days": 61,
+ "last_snapshot_ts": "2026-11-16T16:00:16+00:00",
+ "n_snapshots": 127,
+ "n_days": 62,
  "markets_tracked": {
-  "kalshi": 21127,
-  "polymarket": 6733
+  "kalshi": 21135,
+  "polymarket": 6716
  },
  "quoted_markets_tracked": {
-  "kalshi": 10410,
-  "polymarket": 2270
+  "kalshi": 9726,
+  "polymarket": 2296
  },
  "quoted_definition": "both sides quoted, spread <= 10 cents, any volume",
- "last_full_snapshot_ts": "2026-11-15T14:04:01+00:00",
- "order_books_captured": 49476,
- "tier1_books_latest": 3,
+ "last_full_snapshot_ts": "2026-11-16T16:00:16+00:00",
+ "order_books_captured": 49484,
+ "tier1_books_latest": 8,
  "checks": [
   {
    "name": "Schema",
    "status": "pass",
-   "detail": "pandera schemas validated before every write (126 runs)"
+   "detail": "pandera schemas validated before every write (127 runs)"
   },
   {
    "name": "Probability range",
@@ -96,7 +96,7 @@
   {
    "event_slug": "alaska-senate-election-winner",
    "title": "Alaska Senate Election Winner",
-   "volume_usd": 9748451,
+   "volume_usd": 9776279,
    "markets": 29
   }
  ],
