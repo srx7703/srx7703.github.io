@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T16:28:48.662638+00:00",
+ "generated_at": "2026-11-17T17:41:23.955932+00:00",
  "inventory_vintage": "2026-09",
  "headline": {
   "commercial_share_of_us_growth": 0.712,
@@ -998,7 +998,7 @@
   ],
   "steo": {
    "status": "ok",
-   "vintage": "2026-10",
+   "vintage": "2026-11",
    "history_through": "2025",
    "annual": [
     {
@@ -1026,21 +1026,21 @@
      "series_id": "ELCCP_US",
      "label": "Commercial sector",
      "period": "2025",
-     "value": 1493.5,
+     "value": 1503.3,
      "unit": "billion kWh"
     },
     {
      "series_id": "ELCCP_US",
      "label": "Commercial sector",
      "period": "2026",
-     "value": 1548.7,
+     "value": 1557.0,
      "unit": "billion kWh"
     },
     {
      "series_id": "ELCCP_US",
      "label": "Commercial sector",
      "period": "2027",
-     "value": 1592.4,
+     "value": 1600.2,
      "unit": "billion kWh"
     },
     {
@@ -1068,21 +1068,21 @@
      "series_id": "ELICP_US",
      "label": "Industrial sector",
      "period": "2025",
-     "value": 1042.2,
+     "value": 1050.1,
      "unit": "billion kWh"
     },
     {
      "series_id": "ELICP_US",
      "label": "Industrial sector",
      "period": "2026",
-     "value": 1055.2,
+     "value": 1061.1,
      "unit": "billion kWh"
     },
     {
      "series_id": "ELICP_US",
      "label": "Industrial sector",
      "period": "2027",
-     "value": 1083.4,
+     "value": 1086.0,
      "unit": "billion kWh"
     },
     {
@@ -1110,21 +1110,21 @@
      "series_id": "ELRCP_US",
      "label": "Residential sector",
      "period": "2025",
-     "value": 1515.0,
+     "value": 1519.2,
      "unit": "billion kWh"
     },
     {
      "series_id": "ELRCP_US",
      "label": "Residential sector",
      "period": "2026",
-     "value": 1541.2,
+     "value": 1545.8,
      "unit": "billion kWh"
     },
     {
      "series_id": "ELRCP_US",
      "label": "Residential sector",
      "period": "2027",
-     "value": 1534.2,
+     "value": 1538.8,
      "unit": "billion kWh"
     }
    ],
@@ -1132,23 +1132,23 @@
     "ELCCP_US": {
      "from_year": "2025",
      "to_year": "2027",
-     "from": 1493.5,
-     "to": 1592.4,
-     "change_twh": 98.9
+     "from": 1503.3,
+     "to": 1600.2,
+     "change_twh": 96.9
     },
     "ELICP_US": {
      "from_year": "2025",
      "to_year": "2027",
-     "from": 1042.2,
-     "to": 1083.4,
-     "change_twh": 41.2
+     "from": 1050.1,
+     "to": 1086.0,
+     "change_twh": 35.9
     },
     "ELRCP_US": {
      "from_year": "2025",
      "to_year": "2027",
-     "from": 1515.0,
-     "to": 1534.2,
-     "change_twh": 19.2
+     "from": 1519.2,
+     "to": 1538.8,
+     "change_twh": 19.6
     }
    },
    "commercial_share_of_growth": null
@@ -6030,7 +6030,7 @@
   {
    "name": "EIA forecast",
    "status": "pass",
-   "detail": "STEO 2026-10, 18 annual points"
+   "detail": "STEO 2026-11, 18 annual points"
   },
   {
    "name": "Regional attribution",
