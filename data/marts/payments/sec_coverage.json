@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T15:37:49+00:00",
+ "generated_at": "2026-11-18T16:43:20+00:00",
  "companies": {
   "AFRM": {
    "company": "Affirm",
@@ -1041,6 +1041,21 @@
  },
  "checks": [
   {
+   "name": "Frames NAVN revenue",
+   "status": "warn",
+   "detail": "NAVN revenue CY2026Q3 missing in companyfacts and in frames us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax"
+  },
+  {
+   "name": "Frames NAVN op_income",
+   "status": "warn",
+   "detail": "NAVN op_income CY2026Q3 missing in companyfacts and in frames us-gaap/OperatingIncomeLoss"
+  },
+  {
+   "name": "Frames NAVN net_income",
+   "status": "warn",
+   "detail": "NAVN net_income CY2026Q3 missing in companyfacts and in frames us-gaap/NetIncomeLoss"
+  },
+  {
    "name": "Frames DLO revenue",
    "status": "warn",
    "detail": "DLO revenue CY2026Q1 missing in companyfacts and in frames ifrs-full/Revenue"
@@ -1049,6 +1064,11 @@
    "name": "Frames DLO revenue",
    "status": "warn",
    "detail": "DLO revenue CY2026Q2 missing in companyfacts and in frames ifrs-full/Revenue"
+  },
+  {
+   "name": "Frames DLO revenue",
+   "status": "warn",
+   "detail": "DLO revenue CY2026Q3 missing in companyfacts and in frames ifrs-full/Revenue"
   },
   {
    "name": "Frames DLO op_income",
@@ -1061,6 +1081,11 @@
    "detail": "DLO op_income CY2026Q2 missing in companyfacts and in frames ifrs-full/ProfitLossFromOperatingActivities"
   },
   {
+   "name": "Frames DLO op_income",
+   "status": "warn",
+   "detail": "DLO op_income CY2026Q3 missing in companyfacts and in frames ifrs-full/ProfitLossFromOperatingActivities"
+  },
+  {
    "name": "Frames DLO net_income",
    "status": "warn",
    "detail": "DLO net_income CY2026Q1 missing in companyfacts and in frames ifrs-full/ProfitLossAttributableToOwnersOfParent"
@@ -1069,6 +1094,11 @@
    "name": "Frames DLO net_income",
    "status": "warn",
    "detail": "DLO net_income CY2026Q2 missing in companyfacts and in frames ifrs-full/ProfitLossAttributableToOwnersOfParent"
+  },
+  {
+   "name": "Frames DLO net_income",
+   "status": "warn",
+   "detail": "DLO net_income CY2026Q3 missing in companyfacts and in frames ifrs-full/ProfitLossAttributableToOwnersOfParent"
   },
   {
    "name": "Companies with financials",
