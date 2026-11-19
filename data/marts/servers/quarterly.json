@@ -1859,6 +1859,17 @@
   "operating_margin": 0.24715974959424994
  },
  {
+  "key": "CSCO",
+  "name": "Cisco",
+  "group": "oem",
+  "quarter": "2026Q3",
+  "currency": "USD",
+  "revenue": 18517000000.0,
+  "revenue_usd": 18517000000.0,
+  "gross_margin": 0.6366042015445267,
+  "operating_margin": 0.3023167899767781
+ },
+ {
   "key": "2382",
   "name": "Quanta Computer",
   "group": "odm",
@@ -3553,6 +3564,17 @@
   "operating_margin": 0.03753246009074204
  },
  {
+  "key": "2317",
+  "name": "Hon Hai (Foxconn)",
+  "group": "odm",
+  "quarter": "2026Q3",
+  "currency": "TWD",
+  "revenue": 3015633915000.0,
+  "revenue_usd": 94260357551.43378,
+  "gross_margin": 0.060190758267155246,
+  "operating_margin": 0.03825081301355506
+ },
+ {
   "key": "2376",
   "name": "Gigabyte",
   "group": "odm",
@@ -3881,6 +3903,17 @@
   "revenue_usd": 4563714181.435369,
   "gross_margin": 0.09619792354625144,
   "operating_margin": 0.05630672902205287
+ },
+ {
+  "key": "2376",
+  "name": "Gigabyte",
+  "group": "odm",
+  "quarter": "2026Q3",
+  "currency": "TWD",
+  "revenue": 154711244000.0,
+  "revenue_usd": 4835844664.078568,
+  "gross_margin": 0.14001188562610226,
+  "operating_margin": 0.08298190660272889
  },
  {
   "key": "2357",
@@ -4552,6 +4585,17 @@
   "revenue_usd": 1296011696.1161678,
   "gross_margin": 0.09148901487004824,
   "operating_margin": 0.04143604359515901
+ },
+ {
+  "key": "3706",
+  "name": "MiTAC Holdings",
+  "group": "odm",
+  "quarter": "2026Q3",
+  "currency": "TWD",
+  "revenue": 45303659000.0,
+  "revenue_usd": 1416066809.1996274,
+  "gross_margin": 0.09555018503030847,
+  "operating_margin": 0.03977228417686969
  },
  {
   "key": "4938",
@@ -6367,6 +6411,17 @@
   "revenue_usd": 3464016000.0,
   "gross_margin": 0.1048797118720006,
   "operating_margin": 0.0638637350404848
+ },
+ {
+  "key": "SANM",
+  "name": "Sanmina",
+  "group": "ems",
+  "quarter": "2026Q3",
+  "currency": "USD",
+  "revenue": 3858022000.0,
+  "revenue_usd": 3858022000.0,
+  "gross_margin": 0.11283243071190366,
+  "operating_margin": 0.05953465273137375
  },
  {
   "key": "000977.SZ",

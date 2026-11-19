@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T17:43:41+00:00",
+ "generated_at": "2026-11-19T18:22:37+00:00",
  "groups": {
   "oem": "Brand makers (OEM)",
   "odm": "Taiwan makers building to the customer's design (ODM)",
@@ -306,17 +306,17 @@
    "name_cn": "思科",
    "group": "oem",
    "comparator": true,
-   "ttm_end": "2026Q2",
+   "ttm_end": "2026Q3",
    "currency": "USD",
-   "revenue": 63325000000.0,
-   "growth": 0.1177498499664631,
-   "gross_margin": 0.645242795104619,
-   "operating_margin": 0.24268456375838926,
+   "revenue": 66959000000.0,
+   "growth": 0.1605483915696062,
+   "gross_margin": 0.6407353753789633,
+   "operating_margin": 0.26289221762571124,
    "gross_margin_2023": 0.6272676234253833,
    "operating_margin_2023": 0.26371100740376857,
-   "inventory_days": 92.51324282216783,
+   "inventory_days": 96.86398403724642,
    "inventory_days_2023": 62.60578959755236,
-   "receivable_days": 43.22937228582708
+   "receivable_days": 32.1614719455189
   },
   {
    "key": "2382",
@@ -396,12 +396,12 @@
    "name_cn": "鸿海",
    "group": "odm",
    "comparator": false,
-   "ttm_end": "2026Q2",
+   "ttm_end": "2026Q3",
    "currency": "TWD",
-   "revenue": 9310748978000.0,
-   "growth": 0.25433502624493665,
-   "gross_margin": 0.061176334508199,
-   "operating_margin": 0.03507542763441045,
+   "revenue": 10267433766000.0,
+   "growth": 0.34615383625006757,
+   "gross_margin": 0.06041959053627072,
+   "operating_margin": 0.0361719163195233,
    "gross_margin_2023": 0.06030977334758941,
    "operating_margin_2023": 0.02535743451507161,
    "inventory_days": null,
@@ -414,12 +414,12 @@
    "name_cn": "技嘉",
    "group": "odm",
    "comparator": false,
-   "ttm_end": "2026Q2",
+   "ttm_end": "2026Q3",
    "currency": "TWD",
-   "revenue": 418202877000.0,
-   "growth": 0.3753661985974479,
-   "gross_margin": 0.10415901084295984,
-   "operating_margin": 0.054455890316603445,
+   "revenue": 493332647000.0,
+   "growth": 0.5751251767288916,
+   "gross_margin": 0.1162258089925275,
+   "operating_margin": 0.06521966708600982,
    "gross_margin_2023": 0.11523758152658231,
    "operating_margin_2023": 0.030852590292962518,
    "inventory_days": null,
@@ -450,12 +450,12 @@
    "name_cn": "神达",
    "group": "odm",
    "comparator": false,
-   "ttm_end": "2026Q2",
+   "ttm_end": "2026Q3",
    "currency": "TWD",
-   "revenue": 128105894000.0,
-   "growth": 0.4412123347879646,
-   "gross_margin": 0.10168982545018576,
-   "operating_margin": 0.04500038850671461,
+   "revenue": 148647679000.0,
+   "growth": 0.5091195288639023,
+   "gross_margin": 0.09465587417614506,
+   "operating_margin": 0.039656683775062505,
    "gross_margin_2023": 0.08578915583060942,
    "operating_margin_2023": -0.02675046087084387,
    "inventory_days": null,
@@ -558,15 +558,15 @@
    "name_cn": "新美亚",
    "group": "ems",
    "comparator": false,
-   "ttm_end": "2026Q2",
+   "ttm_end": "2026Q3",
    "currency": "USD",
-   "revenue": 12763372000.0,
-   "growth": 0.5856115197288774,
-   "gross_margin": 0.09014976606495524,
-   "operating_margin": 0.04154826796555017,
+   "revenue": 14525002000.0,
+   "growth": 0.7869487433046332,
+   "gross_margin": 0.09602532240615182,
+   "operating_margin": 0.04692026892664111,
    "gross_margin_2023": 0.08146910800674667,
    "operating_margin_2023": 0.050477311220354565,
-   "inventory_days": 99.07812201701972,
+   "inventory_days": 100.33201388490106,
    "inventory_days_2023": 64.97318513457398,
    "receivable_days": null
   },
@@ -924,9 +924,14 @@
      "operating_margin": 0.030852590292962518,
      "operating_income": 3275174000.0
     },
-    "after": null,
-    "pattern": null,
-    "weak_pattern": null
+    "after": {
+     "revenue": 493332647000.0,
+     "gross_margin": 0.1162258089925275,
+     "operating_margin": 0.06521966708600982,
+     "operating_income": 32174991000.0
+    },
+    "pattern": false,
+    "weak_pattern": false
    },
    "CSCO": {
     "before": {
@@ -935,9 +940,14 @@
      "operating_margin": 0.26371100740376857,
      "operating_income": 15031000000.0
     },
-    "after": null,
-    "pattern": null,
-    "weak_pattern": null
+    "after": {
+     "revenue": 66959000000.0,
+     "gross_margin": 0.6407353753789633,
+     "operating_margin": 0.26289221762571124,
+     "operating_income": 17603000000.0
+    },
+    "pattern": false,
+    "weak_pattern": false
    },
    "4938": {
     "before": {
@@ -999,8 +1009,8 @@
    "000977.SZ": "2026Q3",
    "0992.HK": "2026Q2",
    "HPE": "2026Q2",
-   "2376": "2026Q2",
-   "CSCO": "2026Q2",
+   "2376": "2026Q3",
+   "CSCO": "2026Q3",
    "4938": "2026Q3",
    "000066.SZ": "2026Q3"
   }
@@ -7577,7 +7587,7 @@
   {
    "name": "SEC filings",
    "status": "pass",
-   "detail": "13 filers, 31821 facts"
+   "detail": "13 filers, 31973 facts"
   },
   {
    "name": "A-share statements",
