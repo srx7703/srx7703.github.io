@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-18T16:00:48.402247+00:00",
+ "generated_at": "2026-11-19T16:06:35.996029+00:00",
  "track": "servers",
  "label": "AI server makers",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-11-18T15:58:47+00:00",
+ "as_of_price": "2026-11-19T16:04:35+00:00",
  "as_of_estimates": "2026-11-16T17:30:37+00:00",
  "as_of_fx": "2026-11-13",
  "n_listings": 23,
@@ -16,24 +16,24 @@
  "n_thin": 0,
  "n_nm": 0,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 12.330191745206369,
- "median_fwd_pe_next": 10.284720566309954,
- "p25_fwd_pe_this": 10.085266487295169,
- "p75_fwd_pe_this": 15.42472904584939,
- "iqr_fwd_pe_this": 5.339462558554221,
+ "median_fwd_pe_this": 12.255443613909653,
+ "median_fwd_pe_next": 9.863215625067742,
+ "p25_fwd_pe_this": 9.833132886616523,
+ "p75_fwd_pe_this": 15.249931553416097,
+ "iqr_fwd_pe_this": 5.416798666799574,
  "median_growth": 0.3324104885768311,
- "median_trailing_pe": 14.763592215485978,
+ "median_trailing_pe": 14.204812055598284,
  "cheapest": {
   "ticker": "SMCI",
   "name": "Super Micro Computer",
-  "fwd_pe_2026": 4.844025491760488,
+  "fwd_pe_2026": 4.875742442599214,
   "growth": 0.3265329038739988,
   "coverage": "covered"
  },
  "priciest": {
   "ticker": "000066.SZ",
   "name": "China Greatwall Technology",
-  "fwd_pe_2026": 91.23076923076923,
+  "fwd_pe_2026": 87.07692307692308,
   "growth": -0.20512820512820518,
   "coverage": "covered"
  },
