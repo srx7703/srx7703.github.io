@@ -1,5 +1,5 @@
 {
- "today": "2026-11-12",
+ "today": "2026-11-19",
  "spec": {
   "model": "ln(EV/NTM revenue) = a + b*growth + c*FCF margin + d*China + layer groups",
   "fitted_on": "the Q1 and Q2 population of the week plus the Q7 A-share group, one run",
@@ -34,33 +34,33 @@
  },
  "latest_age_days": 3,
  "latest": {
-  "as_of": "2026-11-09",
-  "run_ts": "2026-11-09T17:52:13+00:00",
-  "n": 24,
-  "n_us": 18,
+  "as_of": "2026-11-16",
+  "run_ts": "2026-11-16T17:31:18+00:00",
+  "n": 25,
+  "n_us": 19,
   "n_cn": 6,
   "n_params": 8,
   "fitted": true,
   "reason": null,
-  "r2": 0.7637472338562591,
-  "adj_r2": 0.6603866486683725,
-  "adj_r2_no_layer": 0.6989486135533344,
-  "slope": 5.720232862131254,
+  "r2": 0.7973663254557786,
+  "adj_r2": 0.7139289300552167,
+  "adj_r2_no_layer": 0.74686780699228,
+  "slope": 5.481970896347075,
   "slope_ci": [
-   2.828106876294306,
-   7.8094925084025455
+   2.7906185573984326,
+   7.049665006863571
   ],
-  "fcf_coef": 0.27621984143196254,
+  "fcf_coef": 0.5232152419679112,
   "fcf_ci": [
-   -1.1581204290550198,
-   4.655815504929795
+   -0.5217628657679434,
+   5.262583387402487
   ],
-  "china_dummy": -0.6905501728015808,
+  "china_dummy": -0.6488573185333197,
   "china_ci": [
-   -1.5211007480216976,
-   0.8106733885703479
+   -1.3523933502995693,
+   0.9214544182247855
   ],
-  "ci_draws": 9990,
+  "ci_draws": 9982,
   "layer_coefs": [
    {
     "layer": "endpoint",
@@ -70,26 +70,26 @@
    },
    {
     "layer": "identity",
-    "n": 4,
-    "coef": 0.14389446589228505,
+    "n": 5,
+    "coef": 0.1511047236105536,
     "reference": false
    },
    {
     "layer": "network_edge",
     "n": 9,
-    "coef": 0.2778083747281914,
+    "coef": 0.29396513426216986,
     "reference": false
    },
    {
     "layer": "other",
     "n": 3,
-    "coef": 0.033261403865186515,
+    "coef": 0.08632872696992977,
     "reference": false
    },
    {
     "layer": "secops",
     "n": 4,
-    "coef": 0.32244672560833154,
+    "coef": 0.2748733482296186,
     "reference": false
    }
   ],
@@ -104,6 +104,7 @@
    "CRWD",
    "FTNT",
    "GEN",
+   "IDN",
    "MITK",
    "NET",
    "NTSK",
@@ -134,20 +135,20 @@
    "r2": 0.8100100576970212,
    "adj_r2": 0.7213480846222977,
    "adj_r2_no_layer": 0.7512666313872278,
-   "slope": 6.0006653980004,
+   "slope": 6.0006653980003986,
    "slope_ci": [
-    2.3078596518719534,
-    8.144836453365363
+    2.3078596518719574,
+    8.144836453365352
    ],
-   "fcf_coef": 1.4637971872065476,
+   "fcf_coef": 1.4637971872065443,
    "fcf_ci": [
-    -0.5351301644367269,
-    6.203165509682283
+    -0.5351301644367273,
+    6.20316550968228
    ],
-   "china_dummy": -0.46565530545078104,
+   "china_dummy": -0.4656553054507824,
    "china_ci": [
-    -1.285161470142378,
-    1.182505986370593
+    -1.2851614701423777,
+    1.1825059863705933
    ],
    "ci_draws": 9989,
    "layer_coefs": [
@@ -160,13 +161,13 @@
     {
      "layer": "identity",
      "n": 4,
-     "coef": -0.027411947483900658,
+     "coef": -0.027411947483901855,
      "reference": false
     },
     {
      "layer": "network_edge",
      "n": 9,
-     "coef": 0.08830826833942587,
+     "coef": 0.08830826833942229,
      "reference": false
     },
     {
@@ -178,7 +179,7 @@
     {
      "layer": "secops",
      "n": 4,
-     "coef": 0.029781380560285207,
+     "coef": 0.029781380560281567,
      "reference": false
     }
    ],
@@ -229,23 +230,23 @@
    "n_params": 8,
    "fitted": true,
    "reason": null,
-   "r2": 0.8115560615037882,
-   "adj_r2": 0.7291118384116956,
+   "r2": 0.8115560615037883,
+   "adj_r2": 0.7291118384116957,
    "adj_r2_no_layer": 0.7400945664600425,
-   "slope": 5.784288509308598,
+   "slope": 5.784288509308597,
    "slope_ci": [
-    3.0013889131124345,
-    8.150071779383216
+    3.0013889131124403,
+    8.15007177938322
    ],
-   "fcf_coef": 1.5434075470680042,
+   "fcf_coef": 1.5434075470680069,
    "fcf_ci": [
-    -0.16718639021407847,
-    5.850317832757837
+    -0.16718639021408377,
+    5.850317832757835
    ],
-   "china_dummy": -0.3385672717369948,
+   "china_dummy": -0.3385672717369945,
    "china_ci": [
-    -1.0814384021935952,
-    1.20486072927774
+    -1.0814384021935932,
+    1.2048607292777382
    ],
    "ci_draws": 9990,
    "layer_coefs": [
@@ -258,25 +259,25 @@
     {
      "layer": "identity",
      "n": 4,
-     "coef": 0.11484777367401369,
+     "coef": 0.11484777367401211,
      "reference": false
     },
     {
      "layer": "network_edge",
      "n": 9,
-     "coef": 0.23169388336920863,
+     "coef": 0.23169388336920926,
      "reference": false
     },
     {
      "layer": "other",
      "n": 3,
-     "coef": -0.23693261259836987,
+     "coef": -0.23693261259837062,
      "reference": false
     },
     {
      "layer": "secops",
      "n": 4,
-     "coef": 0.23654595949102533,
+     "coef": 0.23654595949102442,
      "reference": false
     }
    ],
@@ -317,23 +318,23 @@
    "n_params": 8,
    "fitted": true,
    "reason": null,
-   "r2": 0.7726801706279226,
-   "adj_r2": 0.6732277452776387,
+   "r2": 0.7726801706279225,
+   "adj_r2": 0.6732277452776385,
    "adj_r2_no_layer": 0.7114431168812178,
-   "slope": 5.844496836785429,
+   "slope": 5.844496836785439,
    "slope_ci": [
-    3.1439231197535293,
-    8.112371489903175
+    3.143923119753527,
+    8.112371489903177
    ],
-   "fcf_coef": 0.12048121492485972,
+   "fcf_coef": 0.12048121492485753,
    "fcf_ci": [
-    -1.1260087734801068,
-    4.697787129169346
+    -1.1260087734801043,
+    4.69778712916935
    ],
    "china_dummy": -0.9025360203700261,
    "china_ci": [
-    -1.690956161054491,
-    0.6798874688336527
+    -1.6909561610544914,
+    0.6798874688336534
    ],
    "ci_draws": 9990,
    "layer_coefs": [
@@ -346,25 +347,25 @@
     {
      "layer": "identity",
      "n": 4,
-     "coef": 0.1533776411492836,
+     "coef": 0.1533776411492842,
      "reference": false
     },
     {
      "layer": "network_edge",
      "n": 9,
-     "coef": 0.22602349744841474,
+     "coef": 0.226023497448415,
      "reference": false
     },
     {
      "layer": "other",
      "n": 3,
-     "coef": 0.015971604217464446,
+     "coef": 0.015971604217465796,
      "reference": false
     },
     {
      "layer": "secops",
      "n": 4,
-     "coef": 0.36770358917983664,
+     "coef": 0.36770358917983814,
      "reference": false
     }
    ],
@@ -407,21 +408,21 @@
    "reason": null,
    "r2": 0.7637472338562591,
    "adj_r2": 0.6603866486683725,
-   "adj_r2_no_layer": 0.6989486135533344,
-   "slope": 5.720232862131254,
+   "adj_r2_no_layer": 0.6989486135533343,
+   "slope": 5.72023286213126,
    "slope_ci": [
-    2.828106876294306,
-    7.8094925084025455
+    2.828106876294305,
+    7.809492508402549
    ],
-   "fcf_coef": 0.27621984143196254,
+   "fcf_coef": 0.27621984143195855,
    "fcf_ci": [
-    -1.1581204290550198,
-    4.655815504929795
+    -1.1581204290550193,
+    4.65581550492979
    ],
-   "china_dummy": -0.6905501728015808,
+   "china_dummy": -0.6905501728015806,
    "china_ci": [
-    -1.5211007480216976,
-    0.8106733885703479
+    -1.521100748021698,
+    0.810673388570351
    ],
    "ci_draws": 9990,
    "layer_coefs": [
@@ -434,25 +435,25 @@
     {
      "layer": "identity",
      "n": 4,
-     "coef": 0.14389446589228505,
+     "coef": 0.1438944658922876,
      "reference": false
     },
     {
      "layer": "network_edge",
      "n": 9,
-     "coef": 0.2778083747281914,
+     "coef": 0.2778083747281923,
      "reference": false
     },
     {
      "layer": "other",
      "n": 3,
-     "coef": 0.033261403865186515,
+     "coef": 0.03326140386518661,
      "reference": false
     },
     {
      "layer": "secops",
      "n": 4,
-     "coef": 0.32244672560833154,
+     "coef": 0.32244672560833365,
      "reference": false
     }
    ],
@@ -483,305 +484,406 @@
     "ZS"
    ],
    "dropped": []
+  },
+  {
+   "as_of": "2026-11-16",
+   "run_ts": "2026-11-16T17:31:18+00:00",
+   "n": 25,
+   "n_us": 19,
+   "n_cn": 6,
+   "n_params": 8,
+   "fitted": true,
+   "reason": null,
+   "r2": 0.7973663254557786,
+   "adj_r2": 0.7139289300552167,
+   "adj_r2_no_layer": 0.74686780699228,
+   "slope": 5.481970896347075,
+   "slope_ci": [
+    2.7906185573984326,
+    7.049665006863571
+   ],
+   "fcf_coef": 0.5232152419679112,
+   "fcf_ci": [
+    -0.5217628657679434,
+    5.262583387402487
+   ],
+   "china_dummy": -0.6488573185333197,
+   "china_ci": [
+    -1.3523933502995693,
+    0.9214544182247855
+   ],
+   "ci_draws": 9982,
+   "layer_coefs": [
+    {
+     "layer": "endpoint",
+     "n": 4,
+     "coef": 0.0,
+     "reference": true
+    },
+    {
+     "layer": "identity",
+     "n": 5,
+     "coef": 0.1511047236105536,
+     "reference": false
+    },
+    {
+     "layer": "network_edge",
+     "n": 9,
+     "coef": 0.29396513426216986,
+     "reference": false
+    },
+    {
+     "layer": "other",
+     "n": 3,
+     "coef": 0.08632872696992977,
+     "reference": false
+    },
+    {
+     "layer": "secops",
+     "n": 4,
+     "coef": 0.2748733482296186,
+     "reference": false
+    }
+   ],
+   "population": [
+    "002212.SZ",
+    "002439.SZ",
+    "300188.SZ",
+    "300369.SZ",
+    "688489.SS",
+    "688561.SS",
+    "CHKP",
+    "CRWD",
+    "FTNT",
+    "GEN",
+    "IDN",
+    "MITK",
+    "NET",
+    "NTSK",
+    "OKTA",
+    "OSPN",
+    "PANW",
+    "QLYS",
+    "RBRK",
+    "RPD",
+    "S",
+    "SAIL",
+    "TENB",
+    "TLS",
+    "ZS"
+   ],
+   "dropped": []
   }
  ],
  "residuals": [
   {
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-16",
    "ticker": "CRWD",
    "name": "CrowdStrike",
    "layer": "endpoint",
    "group": "endpoint",
    "market": "us",
-   "ev_ntm": 30.82701455600344,
-   "fitted": 12.752440166603732,
-   "residual": 0.8826687626212371,
+   "ev_ntm": 32.11363768784818,
+   "fitted": 13.109981665888093,
+   "residual": 0.8959068907098056,
    "top5": true
   },
   {
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-16",
    "ticker": "NTSK",
    "name": "Netskope",
    "layer": "network_edge",
    "group": "network_edge",
    "market": "us",
-   "ev_ntm": 8.07636800046455,
-   "fitted": 15.017006317281313,
-   "residual": -0.620241046790984,
+   "ev_ntm": 8.225788473600797,
+   "fitted": 15.66257858162089,
+   "residual": -0.644000182283464,
    "top5": true
   },
   {
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-16",
    "ticker": "S",
    "name": "SentinelOne",
    "layer": "endpoint",
    "group": "endpoint",
    "market": "us",
-   "ev_ntm": 5.048699036540637,
-   "fitted": 8.687704877023045,
-   "residual": -0.5427782000076935,
+   "ev_ntm": 5.142371647012662,
+   "fitted": 8.790175140336343,
+   "residual": -0.5361202534766363,
    "top5": true
   },
   {
-   "as_of": "2026-11-09",
-   "ticker": "688561.SS",
-   "name": "QI-ANXIN Technology Group",
-   "layer": "endpoint",
-   "group": "endpoint",
-   "market": "china",
-   "ev_ntm": 3.6739657192777178,
-   "fitted": 6.272145914629941,
-   "residual": -0.5348468911046589,
-   "top5": true
-  },
-  {
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-16",
    "ticker": "RPD",
    "name": "Rapid7",
    "layer": "secops",
    "group": "secops",
    "market": "us",
-   "ev_ntm": 1.480122545295513,
-   "fitted": 2.503115201358072,
-   "residual": -0.5254111514797914,
+   "ev_ntm": 1.458267642169995,
+   "fitted": 2.453547841785071,
+   "residual": -0.5202858910028842,
    "top5": true
   },
   {
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-16",
+   "ticker": "688561.SS",
+   "name": "QI-ANXIN Technology Group",
+   "layer": "endpoint",
+   "group": "endpoint",
+   "market": "china",
+   "ev_ntm": 3.542263561129637,
+   "fitted": 5.917214136236924,
+   "residual": -0.5130998061917345,
+   "top5": true
+  },
+  {
+   "as_of": "2026-11-16",
    "ticker": "OKTA",
    "name": "Okta",
    "layer": "identity",
    "group": "identity",
    "market": "us",
-   "ev_ntm": 7.8417950976298325,
-   "fitted": 5.2262921213234295,
-   "residual": 0.40576571146255747,
+   "ev_ntm": 8.540040999395965,
+   "fitted": 5.516343632180299,
+   "residual": 0.4370505533147533,
    "top5": false
   },
   {
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-16",
    "ticker": "FTNT",
    "name": "Fortinet",
    "layer": "network_edge",
    "group": "network_edge",
    "market": "us",
-   "ev_ntm": 9.252338416491387,
-   "fitted": 6.242928048123104,
-   "residual": 0.3934270105535458,
+   "ev_ntm": 9.918180476239213,
+   "fitted": 6.608328442511452,
+   "residual": 0.4060387459859962,
    "top5": false
   },
   {
-   "as_of": "2026-11-09",
-   "ticker": "300188.SZ",
-   "name": "SDIC Intelligence (ex-Meiya Pico)",
-   "layer": "secops",
-   "group": "secops",
-   "market": "china",
-   "ev_ntm": 5.197619590999085,
-   "fitted": 3.6503427887874556,
-   "residual": 0.35337967189557706,
-   "top5": false
-  },
-  {
-   "as_of": "2026-11-09",
-   "ticker": "SAIL",
-   "name": "SailPoint",
-   "layer": "identity",
-   "group": "identity",
-   "market": "us",
-   "ev_ntm": 7.341190797370769,
-   "fitted": 10.169024970809186,
-   "residual": -0.32584526894543986,
-   "top5": false
-  },
-  {
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-16",
    "ticker": "ZS",
    "name": "Zscaler",
    "layer": "network_edge",
    "group": "network_edge",
    "market": "us",
-   "ev_ntm": 7.449786444867523,
-   "fitted": 10.272375869429775,
-   "residual": -0.32127297106607955,
+   "ev_ntm": 7.222093390200396,
+   "fitted": 10.747496523607976,
+   "residual": -0.3975279918073509,
    "top5": false
   },
   {
-   "as_of": "2026-11-09",
-   "ticker": "CHKP",
-   "name": "Check Point Software Technologies",
-   "layer": "network_edge",
-   "group": "network_edge",
-   "market": "us",
-   "ev_ntm": 4.993073358477149,
-   "fitted": 3.670996768900783,
-   "residual": 0.3075883993295103,
+   "as_of": "2026-11-16",
+   "ticker": "300188.SZ",
+   "name": "SDIC Intelligence (ex-Meiya Pico)",
+   "layer": "secops",
+   "group": "secops",
+   "market": "china",
+   "ev_ntm": 5.038122450319172,
+   "fitted": 3.445422178137332,
+   "residual": 0.3799870379405521,
    "top5": false
   },
   {
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-16",
    "ticker": "QLYS",
    "name": "Qualys",
    "layer": "secops",
    "group": "secops",
    "market": "us",
-   "ev_ntm": 7.89197135056825,
-   "fitted": 5.901641841409863,
-   "residual": 0.2906153675627561,
+   "ev_ntm": 7.008255804778014,
+   "fitted": 5.313464966788472,
+   "residual": 0.27684469622817875,
    "top5": false
   },
   {
-   "as_of": "2026-11-09",
-   "ticker": "GEN",
-   "name": "Gen Digital",
-   "layer": "endpoint",
-   "group": "endpoint",
-   "market": "us",
-   "ev_ntm": 4.416147640432794,
-   "fitted": 3.6339180288586577,
-   "residual": 0.19495632849111022,
-   "top5": false
-  },
-  {
-   "as_of": "2026-11-09",
-   "ticker": "688489.SS",
-   "name": "Sansec Technology",
-   "layer": "infra_hw",
-   "group": "other",
-   "market": "china",
-   "ev_ntm": 4.5505527430187405,
-   "fitted": 3.785225715729965,
-   "residual": 0.18414318818054243,
-   "top5": false
-  },
-  {
-   "as_of": "2026-11-09",
-   "ticker": "TLS",
-   "name": "Telos",
-   "layer": "services",
-   "group": "other",
-   "market": "us",
-   "ev_ntm": 1.6500732120486725,
-   "fitted": 1.9800468688443102,
-   "residual": -0.18230085769305937,
-   "top5": false
-  },
-  {
-   "as_of": "2026-11-09",
-   "ticker": "PANW",
-   "name": "Palo Alto Networks",
+   "as_of": "2026-11-16",
+   "ticker": "CHKP",
+   "name": "Check Point Software Technologies",
    "layer": "network_edge",
    "group": "network_edge",
    "market": "us",
-   "ev_ntm": 17.380907134750693,
-   "fitted": 14.504569264714448,
-   "residual": 0.18090859115899827,
+   "ev_ntm": 5.093675793780426,
+   "fitted": 3.8887522315367047,
+   "residual": 0.26991138673497006,
    "top5": false
   },
   {
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-16",
+   "ticker": "SAIL",
+   "name": "SailPoint",
+   "layer": "identity",
+   "group": "identity",
+   "market": "us",
+   "ev_ntm": 7.940054903437897,
+   "fitted": 10.384721301139102,
+   "residual": -0.2684154302680257,
+   "top5": false
+  },
+  {
+   "as_of": "2026-11-16",
    "ticker": "002439.SZ",
    "name": "Venustech",
    "layer": "network_edge",
    "group": "network_edge",
    "market": "china",
-   "ev_ntm": 5.135613410500308,
-   "fitted": 4.291608227467553,
-   "residual": 0.17953775212525835,
+   "ev_ntm": 4.870579154949775,
+   "fitted": 3.748988712738636,
+   "residual": 0.26172672600133895,
    "top5": false
   },
   {
-   "as_of": "2026-11-09",
-   "ticker": "TENB",
-   "name": "Tenable Holdings",
-   "layer": "secops",
-   "group": "secops",
-   "market": "us",
-   "ev_ntm": 4.110140826229202,
-   "fitted": 4.627612980512238,
-   "residual": -0.11858388797854769,
-   "top5": false
-  },
-  {
-   "as_of": "2026-11-09",
-   "ticker": "MITK",
-   "name": "Mitek Systems",
-   "layer": "identity",
-   "group": "identity",
-   "market": "us",
-   "ev_ntm": 3.4373267835808408,
-   "fitted": 3.8165949489301623,
-   "residual": -0.10466457899024095,
-   "top5": false
-  },
-  {
-   "as_of": "2026-11-09",
-   "ticker": "300369.SZ",
-   "name": "NSFOCUS Technologies",
-   "layer": "network_edge",
-   "group": "network_edge",
-   "market": "china",
-   "ev_ntm": 2.9072457730815713,
-   "fitted": 3.204000633597335,
-   "residual": -0.09719406369138262,
-   "top5": false
-  },
-  {
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-16",
    "ticker": "002212.SZ",
    "name": "Topsec Technologies",
    "layer": "network_edge",
    "group": "network_edge",
    "market": "china",
-   "ev_ntm": 2.699179322481991,
-   "fitted": 2.938700361121982,
-   "residual": -0.08501965740534656,
+   "ev_ntm": 2.633499728551914,
+   "fitted": 3.349411806780254,
+   "residual": -0.24047109348912132,
    "top5": false
   },
   {
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-16",
+   "ticker": "PANW",
+   "name": "Palo Alto Networks",
+   "layer": "network_edge",
+   "group": "network_edge",
+   "market": "us",
+   "ev_ntm": 17.80029311226085,
+   "fitted": 15.120993713494949,
+   "residual": 0.16313083375960824,
+   "top5": false
+  },
+  {
+   "as_of": "2026-11-16",
+   "ticker": "GEN",
+   "name": "Gen Digital",
+   "layer": "endpoint",
+   "group": "endpoint",
+   "market": "us",
+   "ev_ntm": 4.473937389920382,
+   "fitted": 3.8380165119539518,
+   "residual": 0.15331316895857072,
+   "top5": false
+  },
+  {
+   "as_of": "2026-11-16",
+   "ticker": "TENB",
+   "name": "Tenable Holdings",
+   "layer": "secops",
+   "group": "secops",
+   "market": "us",
+   "ev_ntm": 3.9808515643146514,
+   "fitted": 4.563279713690652,
+   "residual": -0.13654584316584262,
+   "top5": false
+  },
+  {
+   "as_of": "2026-11-16",
+   "ticker": "IDN",
+   "name": "Intellicheck",
+   "layer": "identity",
+   "group": "identity",
+   "market": "us",
+   "ev_ntm": 1.1727663436570928,
+   "fitted": 1.319084815223899,
+   "residual": -0.1175728200284677,
+   "top5": false
+  },
+  {
+   "as_of": "2026-11-16",
    "ticker": "NET",
    "name": "Cloudflare",
    "layer": "network_edge",
    "group": "network_edge",
    "market": "us",
-   "ev_ntm": 25.50968119976958,
-   "fitted": 23.969736349999287,
-   "residual": 0.0622659857864738,
+   "ev_ntm": 28.71432390560071,
+   "fitted": 25.67731643797831,
+   "residual": 0.11178811576615333,
    "top5": false
   },
   {
-   "as_of": "2026-11-09",
-   "ticker": "OSPN",
-   "name": "OneSpan",
+   "as_of": "2026-11-16",
+   "ticker": "MITK",
+   "name": "Mitek Systems",
    "layer": "identity",
    "group": "identity",
    "market": "us",
-   "ev_ntm": 2.9022128663431763,
-   "fitted": 2.8312813043121277,
-   "residual": 0.024744136473123568,
+   "ev_ntm": 3.6274077279434387,
+   "fitted": 3.9524599101147695,
+   "residual": -0.08581987849669903,
    "top5": false
   },
   {
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-16",
+   "ticker": "300369.SZ",
+   "name": "NSFOCUS Technologies",
+   "layer": "network_edge",
+   "group": "network_edge",
+   "market": "china",
+   "ev_ntm": 2.6062247466767303,
+   "fitted": 2.4314778899845058,
+   "residual": 0.06940345933190173,
+   "top5": false
+  },
+  {
+   "as_of": "2026-11-16",
+   "ticker": "688489.SS",
+   "name": "Sansec Technology",
+   "layer": "infra_hw",
+   "group": "other",
+   "market": "china",
+   "ev_ntm": 4.258287710098471,
+   "fitted": 4.081291396505779,
+   "residual": 0.04245367640706954,
+   "top5": false
+  },
+  {
+   "as_of": "2026-11-16",
    "ticker": "RBRK",
    "name": "Rubrik",
    "layer": "data_privacy",
    "group": "other",
    "market": "us",
-   "ev_ntm": 10.814148861532775,
-   "fitted": 10.834090461544994,
-   "residual": -0.001842330487487942,
+   "ev_ntm": 11.208647297592112,
+   "fitted": 11.640286080207488,
+   "residual": -0.03778645879603282,
+   "top5": false
+  },
+  {
+   "as_of": "2026-11-16",
+   "ticker": "OSPN",
+   "name": "OneSpan",
+   "layer": "identity",
+   "group": "identity",
+   "market": "us",
+   "ev_ntm": 3.002471264004121,
+   "fitted": 2.8999054376620252,
+   "residual": 0.034757575478448155,
+   "top5": false
+  },
+  {
+   "as_of": "2026-11-16",
+   "ticker": "TLS",
+   "name": "Telos",
+   "layer": "services",
+   "group": "other",
+   "market": "us",
+   "ev_ntm": 2.4595330139037546,
+   "fitted": 2.471039019330556,
+   "residual": -0.004667217611034946,
    "top5": false
   }
  ],
  "premium": {
-  "as_of": "2026-11-09",
-  "ai_trio_median": 25.509681199769584,
-  "rest_median": 5.048699036540638,
-  "ratio": 5.052723684881954,
+  "as_of": "2026-11-16",
+  "ai_trio_median": 28.71432390560071,
+  "rest_median": 5.118023720396543,
+  "ratio": 5.610431970287142,
   "n_trio": 3,
-  "n_rest": 15,
+  "n_rest": 16,
   "reason": null
  },
  "premium_series": [
@@ -810,6 +912,15 @@
    "ratio": 5.052723684881954,
    "n_trio": 3,
    "n_rest": 15,
+   "reason": null
+  },
+  {
+   "as_of": "2026-11-16",
+   "ai_trio_median": 28.71432390560071,
+   "rest_median": 5.118023720396543,
+   "ratio": 5.610431970287142,
+   "n_trio": 3,
+   "n_rest": 16,
    "reason": null
   }
  ]
