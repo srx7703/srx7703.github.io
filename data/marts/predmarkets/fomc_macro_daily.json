@@ -8109,14 +8109,28 @@
   "date": "2026-11-21",
   "panel": "rate",
   "series": "implied_polymarket",
-  "value": 4.3362,
+  "value": 4.345,
   "segment": "2026-12"
  },
  {
   "date": "2026-11-21",
   "panel": "rate",
   "series": "implied_kalshi",
-  "value": 4.3525,
+  "value": 4.3425,
+  "segment": "2026-12"
+ },
+ {
+  "date": "2026-11-22",
+  "panel": "rate",
+  "series": "implied_polymarket",
+  "value": 4.3489,
+  "segment": "2026-12"
+ },
+ {
+  "date": "2026-11-22",
+  "panel": "rate",
+  "series": "implied_kalshi",
+  "value": 4.3512,
   "segment": "2026-12"
  },
  {
@@ -12944,6 +12958,13 @@
  },
  {
   "date": "2026-11-21",
+  "panel": "rate",
+  "series": "target",
+  "value": 4.0,
+  "segment": null
+ },
+ {
+  "date": "2026-11-22",
   "panel": "rate",
   "series": "target",
   "value": 4.0,
