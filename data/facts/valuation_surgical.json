@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-23T18:47:48.620535+00:00",
+ "generated_at": "2026-11-23T19:40:25.004582+00:00",
  "track": "surgical",
  "label": "Surgical robots",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-11-23T18:45:47+00:00",
- "as_of_estimates": "2026-11-16T17:30:37+00:00",
+ "as_of_price": "2026-11-23T19:29:14+00:00",
+ "as_of_estimates": "2026-11-23T19:32:45+00:00",
  "as_of_fx": "2026-11-13",
  "n_listings": 8,
  "n_issuers": 8,
@@ -16,11 +16,11 @@
  "n_thin": 0,
  "n_nm": 2,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 30.57478168019368,
- "median_fwd_pe_next": 28.253128899249045,
- "p25_fwd_pe_this": 19.048672221578773,
- "p75_fwd_pe_this": 105.28459143946247,
- "iqr_fwd_pe_this": 86.2359192178837,
+ "median_fwd_pe_this": 30.715081176016177,
+ "median_fwd_pe_next": 28.391957417859395,
+ "p25_fwd_pe_this": 19.1359708164872,
+ "p75_fwd_pe_this": 113.5599576305575,
+ "iqr_fwd_pe_this": 94.4239868140703,
  "median_growth": 0.09141410273797024,
  "median_trailing_pe": 30.525003229518045,
  "cheapest": {

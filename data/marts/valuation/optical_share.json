@@ -12,7 +12,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.33109034275665233
+    "share": 0.3309987571059142
    },
    {
     "ticker": "300502.SZ",
@@ -25,7 +25,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.16072918279317155
+    "share": 0.16068472215842103
    },
    {
     "ticker": "COHR",
@@ -38,7 +38,7 @@
     "basis": "disclosed segment",
     "note": "Segment Revenues, Datacenter & Communications segment, fiscal year ended 2026-06-30 (earnings release Table 5; audited equivalent in FY2026 Form 10-K Note 20)",
     "period_end": "FY2026",
-    "share": 0.14073109274815607
+    "share": 0.14069216395125697
    },
    {
     "ticker": "5803.T",
@@ -51,7 +51,7 @@
     "basis": "disclosed segment",
     "note": "reportable segment information, 情報通信事業部門 (Information and Telecommunications), sales to external customers, year ended 2026-03-31",
     "period_end": "FY2026",
-    "share": 0.10893526054603908
+    "share": 0.10890512705847681
    },
    {
     "ticker": "CIEN",
@@ -64,7 +64,7 @@
     "basis": "disclosed segment",
     "note": "Revenue by Segment, Optical Networking product line within Networking Platforms, fiscal year ended 2025-11-01",
     "period_end": "FY2025",
-    "share": 0.086614216507098
+    "share": 0.0865902574289928
    },
    {
     "ticker": "002281.SZ",
@@ -77,7 +77,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.06031357939310366
+    "share": 0.06029689555276246
    },
    {
     "ticker": "603083.SS",
@@ -90,7 +90,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.025534323511335784
+    "share": 0.025527260249944728
    },
    {
     "ticker": "300394.SZ",
@@ -103,7 +103,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.023981733668299348
+    "share": 0.02397509988168524
    },
    {
     "ticker": "AAOI",
@@ -116,7 +116,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.019936371187922013
+    "share": 0.0199308564226365
    },
    {
     "ticker": "688313.SS",
@@ -129,7 +129,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.013162350492836384
+    "share": 0.013158709545700645
    },
    {
     "ticker": "300570.SZ",
@@ -142,7 +142,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.009361161488029344
+    "share": 0.009358572019368289
    },
    {
     "ticker": "301205.SZ",
@@ -155,7 +155,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.0067418052131863
+    "share": 0.00673994030642865
    },
    {
     "ticker": "688205.SS",
@@ -168,7 +168,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.004298152424175763
+    "share": 0.004296963476520381
    },
    {
     "ticker": "4979.TWO",
@@ -181,7 +181,7 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.004274758811906255
+    "share": 0.00427357633535234
    },
    {
     "ticker": "3081.TWO",
@@ -194,20 +194,20 @@
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
     "period_end": "2026-09-30",
-    "share": 0.003514835222426105
+    "share": 0.003513862954650479
    },
    {
     "ticker": "4977.TW",
     "name": "PCL Technologies",
     "name_cn": "眾達光電",
     "purity": "high",
-    "revenue_usd": 29265622.14785519,
-    "revenue_native": 961961000.0,
+    "revenue_usd": 39636142.37906906,
+    "revenue_native": 1302840000.0,
     "currency": "TWD",
     "basis": "total revenue",
     "note": "the company's whole revenue competes in this market",
-    "period_end": "2026-06-30",
-    "share": 0.0007808332356619078
+    "period_end": "2026-09-30",
+    "share": 0.0010572355518885504
    }
   ],
   "excluded": [
@@ -331,7 +331,7 @@
     "reason_class": "not_recorded"
    }
   ],
-  "pool_revenue_usd": 37479990363.17516,
+  "pool_revenue_usd": 37490360883.40637,
   "n_members": 16,
   "basis_counts": {
    "disclosed segment": 3,
@@ -343,9 +343,9 @@
    "not_recorded": 10,
    "no_data": 0
   },
-  "top3_share": 0.63255061829798,
-  "top5_share": 0.8281000953511171,
-  "hhi": 1802.4719340458776
+  "top3_share": 0.6323756432155923,
+  "top5_share": 0.8278710277030619,
+  "hhi": 1801.4799623273714
  },
  "cited": [
   {

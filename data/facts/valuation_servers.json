@@ -1,32 +1,32 @@
 {
- "generated_at": "2026-11-23T18:47:48.620535+00:00",
+ "generated_at": "2026-11-23T19:40:25.004582+00:00",
  "track": "servers",
  "label": "AI server makers",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-11-23T18:45:47+00:00",
- "as_of_estimates": "2026-11-16T17:30:37+00:00",
+ "as_of_price": "2026-11-23T19:29:14+00:00",
+ "as_of_estimates": "2026-11-23T19:32:45+00:00",
  "as_of_fx": "2026-11-13",
  "n_listings": 23,
  "n_issuers": 23,
  "n_priced": 23,
  "n_with_consensus": 23,
- "n_thin": 0,
+ "n_thin": 1,
  "n_nm": 0,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 12.002988817052163,
- "median_fwd_pe_next": 9.369940711020273,
- "p25_fwd_pe_this": 9.818960499661006,
- "p75_fwd_pe_this": 14.763172618140427,
- "iqr_fwd_pe_this": 4.94421211847942,
- "median_growth": 0.3324104885768311,
- "median_trailing_pe": 14.243391257647483,
+ "median_fwd_pe_this": 12.03450659482451,
+ "median_fwd_pe_next": 9.208720379146918,
+ "p25_fwd_pe_this": 9.412896172918849,
+ "p75_fwd_pe_this": 15.309655030961512,
+ "iqr_fwd_pe_this": 5.896758858042663,
+ "median_growth": 0.3265329038739988,
+ "median_trailing_pe": 14.28966786177541,
  "cheapest": {
   "ticker": "SMCI",
   "name": "Super Micro Computer",
-  "fwd_pe_2026": 4.858997468553923,
+  "fwd_pe_2026": 4.848162485348148,
   "growth": 0.3265329038739988,
   "coverage": "covered"
  },
@@ -100,7 +100,7 @@
   {
    "name": "Analyst depth",
    "status": "pass",
-   "detail": "0 of 23 listings are covered by fewer than three analysts"
+   "detail": "1 of 23 listings are covered by fewer than three analysts"
   },
   {
    "name": "Trailing basis",

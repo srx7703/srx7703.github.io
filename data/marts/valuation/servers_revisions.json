@@ -9,6 +9,13 @@
  {
   "ticker": "DELL",
   "name": "Dell Technologies",
+  "as_of": "2026-08-25",
+  "year": 2027,
+  "eps": 19.365301666666664
+ },
+ {
+  "ticker": "DELL",
+  "name": "Dell Technologies",
   "as_of": "2026-09-17",
   "year": 2027,
   "eps": 24.765325833333332
@@ -16,7 +23,21 @@
  {
   "ticker": "DELL",
   "name": "Dell Technologies",
+  "as_of": "2026-09-24",
+  "year": 2027,
+  "eps": 24.765379999999997
+ },
+ {
+  "ticker": "DELL",
+  "name": "Dell Technologies",
   "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 24.766391666666664
+ },
+ {
+  "ticker": "DELL",
+  "name": "Dell Technologies",
+  "as_of": "2026-10-24",
   "year": 2027,
   "eps": 24.766391666666664
  },
@@ -32,19 +53,33 @@
   "name": "Dell Technologies",
   "as_of": "2026-11-16",
   "year": 2026,
-  "eps": 24.68250916666667
+  "eps": 24.615720833333334
  },
  {
   "ticker": "DELL",
   "name": "Dell Technologies",
   "as_of": "2026-11-16",
   "year": 2027,
-  "eps": 28.27548
+  "eps": 28.021129166666665
+ },
+ {
+  "ticker": "DELL",
+  "name": "Dell Technologies",
+  "as_of": "2026-11-23",
+  "year": 2027,
+  "eps": 28.264846666666667
  },
  {
   "ticker": "HPE",
   "name": "Hewlett Packard Enterprise",
   "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 3.5395383333333337
+ },
+ {
+  "ticker": "HPE",
+  "name": "Hewlett Packard Enterprise",
+  "as_of": "2026-08-25",
   "year": 2026,
   "eps": 3.5395383333333337
  },
@@ -58,7 +93,21 @@
  {
   "ticker": "HPE",
   "name": "Hewlett Packard Enterprise",
+  "as_of": "2026-09-24",
+  "year": 2026,
+  "eps": 3.951443333333333
+ },
+ {
+  "ticker": "HPE",
+  "name": "Hewlett Packard Enterprise",
   "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 3.9732216666666664
+ },
+ {
+  "ticker": "HPE",
+  "name": "Hewlett Packard Enterprise",
+  "as_of": "2026-10-24",
   "year": 2026,
   "eps": 3.9732216666666664
  },
@@ -77,11 +126,25 @@
   "eps": 3.9815083333333336
  },
  {
+  "ticker": "HPE",
+  "name": "Hewlett Packard Enterprise",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 3.9951783333333335
+ },
+ {
   "ticker": "SMCI",
   "name": "Super Micro Computer",
   "as_of": "2026-08-18",
   "year": 2027,
   "eps": 3.6031000000000004
+ },
+ {
+  "ticker": "SMCI",
+  "name": "Super Micro Computer",
+  "as_of": "2026-08-25",
+  "year": 2027,
+  "eps": 4.81848
  },
  {
   "ticker": "SMCI",
@@ -93,7 +156,21 @@
  {
   "ticker": "SMCI",
   "name": "Super Micro Computer",
+  "as_of": "2026-09-24",
+  "year": 2027,
+  "eps": 4.818185
+ },
+ {
+  "ticker": "SMCI",
+  "name": "Super Micro Computer",
   "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 4.818185
+ },
+ {
+  "ticker": "SMCI",
+  "name": "Super Micro Computer",
+  "as_of": "2026-10-24",
   "year": 2027,
   "eps": 4.818185
  },
@@ -109,12 +186,19 @@
   "name": "Super Micro Computer",
   "as_of": "2026-11-16",
   "year": 2026,
-  "eps": 5.07615
+  "eps": 4.9830950000000005
  },
  {
   "ticker": "SMCI",
   "name": "Super Micro Computer",
   "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 6.54896
+ },
+ {
+  "ticker": "SMCI",
+  "name": "Super Micro Computer",
+  "as_of": "2026-11-23",
   "year": 2027,
   "eps": 6.73368
  },
@@ -128,7 +212,21 @@
  {
   "ticker": "0992.HK",
   "name": "Lenovo Group",
+  "as_of": "2026-08-25",
+  "year": 2027,
+  "eps": 0.3596825
+ },
+ {
+  "ticker": "0992.HK",
+  "name": "Lenovo Group",
   "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 0.3596825
+ },
+ {
+  "ticker": "0992.HK",
+  "name": "Lenovo Group",
+  "as_of": "2026-09-24",
   "year": 2027,
   "eps": 0.3596825
  },
@@ -138,6 +236,13 @@
   "as_of": "2026-10-17",
   "year": 2027,
   "eps": 0.3596825
+ },
+ {
+  "ticker": "0992.HK",
+  "name": "Lenovo Group",
+  "as_of": "2026-10-24",
+  "year": 2027,
+  "eps": 0.33609000000000006
  },
  {
   "ticker": "0992.HK",
@@ -161,9 +266,23 @@
   "eps": 0.33609000000000006
  },
  {
+  "ticker": "0992.HK",
+  "name": "Lenovo Group",
+  "as_of": "2026-11-23",
+  "year": 2027,
+  "eps": 0.3636975
+ },
+ {
   "ticker": "PENG",
   "name": "Penguin Solutions",
   "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 3.5412799999999995
+ },
+ {
+  "ticker": "PENG",
+  "name": "Penguin Solutions",
+  "as_of": "2026-08-25",
   "year": 2027,
   "eps": 3.5412799999999995
  },
@@ -177,7 +296,21 @@
  {
   "ticker": "PENG",
   "name": "Penguin Solutions",
+  "as_of": "2026-09-24",
+  "year": 2027,
+  "eps": 3.5412799999999995
+ },
+ {
+  "ticker": "PENG",
+  "name": "Penguin Solutions",
   "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 4.791
+ },
+ {
+  "ticker": "PENG",
+  "name": "Penguin Solutions",
+  "as_of": "2026-10-24",
   "year": 2027,
   "eps": 4.791
  },
@@ -203,6 +336,13 @@
   "eps": 4.791
  },
  {
+  "ticker": "PENG",
+  "name": "Penguin Solutions",
+  "as_of": "2026-11-23",
+  "year": 2027,
+  "eps": 4.791
+ },
+ {
   "ticker": "2382.TW",
   "name": "Quanta Computer",
   "as_of": "2026-08-18",
@@ -219,6 +359,20 @@
  {
   "ticker": "2382.TW",
   "name": "Quanta Computer",
+  "as_of": "2026-08-25",
+  "year": 2026,
+  "eps": 26.63546
+ },
+ {
+  "ticker": "2382.TW",
+  "name": "Quanta Computer",
+  "as_of": "2026-08-25",
+  "year": 2027,
+  "eps": 31.93112
+ },
+ {
+  "ticker": "2382.TW",
+  "name": "Quanta Computer",
   "as_of": "2026-09-17",
   "year": 2026,
   "eps": 26.63546
@@ -227,6 +381,20 @@
   "ticker": "2382.TW",
   "name": "Quanta Computer",
   "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 31.93112
+ },
+ {
+  "ticker": "2382.TW",
+  "name": "Quanta Computer",
+  "as_of": "2026-09-24",
+  "year": 2026,
+  "eps": 26.63546
+ },
+ {
+  "ticker": "2382.TW",
+  "name": "Quanta Computer",
+  "as_of": "2026-09-24",
   "year": 2027,
   "eps": 31.93112
  },
@@ -247,6 +415,20 @@
  {
   "ticker": "2382.TW",
   "name": "Quanta Computer",
+  "as_of": "2026-10-24",
+  "year": 2026,
+  "eps": 26.70046
+ },
+ {
+  "ticker": "2382.TW",
+  "name": "Quanta Computer",
+  "as_of": "2026-10-24",
+  "year": 2027,
+  "eps": 31.98556
+ },
+ {
+  "ticker": "2382.TW",
+  "name": "Quanta Computer",
   "as_of": "2026-11-09",
   "year": 2026,
   "eps": 26.89157
@@ -263,14 +445,28 @@
   "name": "Quanta Computer",
   "as_of": "2026-11-16",
   "year": 2026,
-  "eps": 26.45137
+  "eps": 26.82561
  },
  {
   "ticker": "2382.TW",
   "name": "Quanta Computer",
   "as_of": "2026-11-16",
   "year": 2027,
-  "eps": 31.87095
+  "eps": 32.63859
+ },
+ {
+  "ticker": "2382.TW",
+  "name": "Quanta Computer",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 26.3747
+ },
+ {
+  "ticker": "2382.TW",
+  "name": "Quanta Computer",
+  "as_of": "2026-11-23",
+  "year": 2027,
+  "eps": 31.70253
  },
  {
   "ticker": "6669.TW",
@@ -289,6 +485,20 @@
  {
   "ticker": "6669.TW",
   "name": "Wiwynn",
+  "as_of": "2026-08-25",
+  "year": 2026,
+  "eps": 121.32711
+ },
+ {
+  "ticker": "6669.TW",
+  "name": "Wiwynn",
+  "as_of": "2026-08-25",
+  "year": 2027,
+  "eps": 178.55547
+ },
+ {
+  "ticker": "6669.TW",
+  "name": "Wiwynn",
   "as_of": "2026-09-17",
   "year": 2026,
   "eps": 120.34275
@@ -303,6 +513,20 @@
  {
   "ticker": "6669.TW",
   "name": "Wiwynn",
+  "as_of": "2026-09-24",
+  "year": 2026,
+  "eps": 120.34269
+ },
+ {
+  "ticker": "6669.TW",
+  "name": "Wiwynn",
+  "as_of": "2026-09-24",
+  "year": 2027,
+  "eps": 178.55545
+ },
+ {
+  "ticker": "6669.TW",
+  "name": "Wiwynn",
   "as_of": "2026-10-17",
   "year": 2026,
   "eps": 122.09263
@@ -313,6 +537,20 @@
   "as_of": "2026-10-17",
   "year": 2027,
   "eps": 182.41412
+ },
+ {
+  "ticker": "6669.TW",
+  "name": "Wiwynn",
+  "as_of": "2026-10-24",
+  "year": 2026,
+  "eps": 129.5355
+ },
+ {
+  "ticker": "6669.TW",
+  "name": "Wiwynn",
+  "as_of": "2026-10-24",
+  "year": 2027,
+  "eps": 187.02715
  },
  {
   "ticker": "6669.TW",
@@ -340,6 +578,20 @@
   "name": "Wiwynn",
   "as_of": "2026-11-16",
   "year": 2027,
+  "eps": 195.01456
+ },
+ {
+  "ticker": "6669.TW",
+  "name": "Wiwynn",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 133.9032
+ },
+ {
+  "ticker": "6669.TW",
+  "name": "Wiwynn",
+  "as_of": "2026-11-23",
+  "year": 2027,
   "eps": 195.66345
  },
  {
@@ -353,6 +605,20 @@
   "ticker": "3231.TW",
   "name": "Wistron",
   "as_of": "2026-08-18",
+  "year": 2027,
+  "eps": 23.46078
+ },
+ {
+  "ticker": "3231.TW",
+  "name": "Wistron",
+  "as_of": "2026-08-25",
+  "year": 2026,
+  "eps": 17.10425
+ },
+ {
+  "ticker": "3231.TW",
+  "name": "Wistron",
+  "as_of": "2026-08-25",
   "year": 2027,
   "eps": 23.46078
  },
@@ -373,6 +639,20 @@
  {
   "ticker": "3231.TW",
   "name": "Wistron",
+  "as_of": "2026-09-24",
+  "year": 2026,
+  "eps": 17.08918
+ },
+ {
+  "ticker": "3231.TW",
+  "name": "Wistron",
+  "as_of": "2026-09-24",
+  "year": 2027,
+  "eps": 23.72633
+ },
+ {
+  "ticker": "3231.TW",
+  "name": "Wistron",
   "as_of": "2026-10-17",
   "year": 2026,
   "eps": 17.2788
@@ -381,6 +661,20 @@
   "ticker": "3231.TW",
   "name": "Wistron",
   "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 24.66192
+ },
+ {
+  "ticker": "3231.TW",
+  "name": "Wistron",
+  "as_of": "2026-10-24",
+  "year": 2026,
+  "eps": 17.2788
+ },
+ {
+  "ticker": "3231.TW",
+  "name": "Wistron",
+  "as_of": "2026-10-24",
   "year": 2027,
   "eps": 24.66192
  },
@@ -403,12 +697,26 @@
   "name": "Wistron",
   "as_of": "2026-11-16",
   "year": 2026,
-  "eps": 18.95558
+  "eps": 17.74863
  },
  {
   "ticker": "3231.TW",
   "name": "Wistron",
   "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 25.20203
+ },
+ {
+  "ticker": "3231.TW",
+  "name": "Wistron",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 18.95558
+ },
+ {
+  "ticker": "3231.TW",
+  "name": "Wistron",
+  "as_of": "2026-11-23",
   "year": 2027,
   "eps": 28.41102
  },
@@ -429,6 +737,20 @@
  {
   "ticker": "2356.TW",
   "name": "Inventec",
+  "as_of": "2026-08-25",
+  "year": 2026,
+  "eps": 3.71581
+ },
+ {
+  "ticker": "2356.TW",
+  "name": "Inventec",
+  "as_of": "2026-08-25",
+  "year": 2027,
+  "eps": 4.37652
+ },
+ {
+  "ticker": "2356.TW",
+  "name": "Inventec",
   "as_of": "2026-09-17",
   "year": 2026,
   "eps": 3.41323
@@ -443,6 +765,20 @@
  {
   "ticker": "2356.TW",
   "name": "Inventec",
+  "as_of": "2026-09-24",
+  "year": 2026,
+  "eps": 3.41323
+ },
+ {
+  "ticker": "2356.TW",
+  "name": "Inventec",
+  "as_of": "2026-09-24",
+  "year": 2027,
+  "eps": 4.34527
+ },
+ {
+  "ticker": "2356.TW",
+  "name": "Inventec",
   "as_of": "2026-10-17",
   "year": 2026,
   "eps": 3.62318
@@ -451,6 +787,20 @@
   "ticker": "2356.TW",
   "name": "Inventec",
   "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 4.36402
+ },
+ {
+  "ticker": "2356.TW",
+  "name": "Inventec",
+  "as_of": "2026-10-24",
+  "year": 2026,
+  "eps": 3.62318
+ },
+ {
+  "ticker": "2356.TW",
+  "name": "Inventec",
+  "as_of": "2026-10-24",
   "year": 2027,
   "eps": 4.36402
  },
@@ -473,12 +823,26 @@
   "name": "Inventec",
   "as_of": "2026-11-16",
   "year": 2026,
-  "eps": 3.23684
+  "eps": 3.6645
  },
  {
   "ticker": "2356.TW",
   "name": "Inventec",
   "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 4.39192
+ },
+ {
+  "ticker": "2356.TW",
+  "name": "Inventec",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 3.23684
+ },
+ {
+  "ticker": "2356.TW",
+  "name": "Inventec",
+  "as_of": "2026-11-23",
   "year": 2027,
   "eps": 4.10023
  },
@@ -499,6 +863,20 @@
  {
   "ticker": "2317.TW",
   "name": "Hon Hai Precision (Foxconn)",
+  "as_of": "2026-08-25",
+  "year": 2026,
+  "eps": 18.59104
+ },
+ {
+  "ticker": "2317.TW",
+  "name": "Hon Hai Precision (Foxconn)",
+  "as_of": "2026-08-25",
+  "year": 2027,
+  "eps": 23.12685
+ },
+ {
+  "ticker": "2317.TW",
+  "name": "Hon Hai Precision (Foxconn)",
   "as_of": "2026-09-17",
   "year": 2026,
   "eps": 18.58457
@@ -513,6 +891,20 @@
  {
   "ticker": "2317.TW",
   "name": "Hon Hai Precision (Foxconn)",
+  "as_of": "2026-09-24",
+  "year": 2026,
+  "eps": 18.58457
+ },
+ {
+  "ticker": "2317.TW",
+  "name": "Hon Hai Precision (Foxconn)",
+  "as_of": "2026-09-24",
+  "year": 2027,
+  "eps": 23.12527
+ },
+ {
+  "ticker": "2317.TW",
+  "name": "Hon Hai Precision (Foxconn)",
   "as_of": "2026-10-17",
   "year": 2026,
   "eps": 18.60986
@@ -521,6 +913,20 @@
   "ticker": "2317.TW",
   "name": "Hon Hai Precision (Foxconn)",
   "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 23.12632
+ },
+ {
+  "ticker": "2317.TW",
+  "name": "Hon Hai Precision (Foxconn)",
+  "as_of": "2026-10-24",
+  "year": 2026,
+  "eps": 18.60986
+ },
+ {
+  "ticker": "2317.TW",
+  "name": "Hon Hai Precision (Foxconn)",
+  "as_of": "2026-10-24",
   "year": 2027,
   "eps": 23.12632
  },
@@ -543,14 +949,28 @@
   "name": "Hon Hai Precision (Foxconn)",
   "as_of": "2026-11-16",
   "year": 2026,
-  "eps": 19.35568
+  "eps": 18.39356
  },
  {
   "ticker": "2317.TW",
   "name": "Hon Hai Precision (Foxconn)",
   "as_of": "2026-11-16",
   "year": 2027,
-  "eps": 24.23554
+  "eps": 23.22106
+ },
+ {
+  "ticker": "2317.TW",
+  "name": "Hon Hai Precision (Foxconn)",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 19.34063
+ },
+ {
+  "ticker": "2317.TW",
+  "name": "Hon Hai Precision (Foxconn)",
+  "as_of": "2026-11-23",
+  "year": 2027,
+  "eps": 24.35659
  },
  {
   "ticker": "2376.TW",
@@ -569,6 +989,20 @@
  {
   "ticker": "2376.TW",
   "name": "Gigabyte",
+  "as_of": "2026-08-25",
+  "year": 2026,
+  "eps": 33.85612
+ },
+ {
+  "ticker": "2376.TW",
+  "name": "Gigabyte",
+  "as_of": "2026-08-25",
+  "year": 2027,
+  "eps": 37.25418
+ },
+ {
+  "ticker": "2376.TW",
+  "name": "Gigabyte",
   "as_of": "2026-09-17",
   "year": 2026,
   "eps": 33.85612
@@ -577,6 +1011,20 @@
   "ticker": "2376.TW",
   "name": "Gigabyte",
   "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 37.25418
+ },
+ {
+  "ticker": "2376.TW",
+  "name": "Gigabyte",
+  "as_of": "2026-09-24",
+  "year": 2026,
+  "eps": 33.85612
+ },
+ {
+  "ticker": "2376.TW",
+  "name": "Gigabyte",
+  "as_of": "2026-09-24",
   "year": 2027,
   "eps": 37.25418
  },
@@ -591,6 +1039,20 @@
   "ticker": "2376.TW",
   "name": "Gigabyte",
   "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 37.33618
+ },
+ {
+  "ticker": "2376.TW",
+  "name": "Gigabyte",
+  "as_of": "2026-10-24",
+  "year": 2026,
+  "eps": 34.6216
+ },
+ {
+  "ticker": "2376.TW",
+  "name": "Gigabyte",
+  "as_of": "2026-10-24",
   "year": 2027,
   "eps": 37.33618
  },
@@ -613,14 +1075,28 @@
   "name": "Gigabyte",
   "as_of": "2026-11-16",
   "year": 2026,
-  "eps": 41.73667
+  "eps": 34.6841
  },
  {
   "ticker": "2376.TW",
   "name": "Gigabyte",
   "as_of": "2026-11-16",
   "year": 2027,
-  "eps": 39.02835
+  "eps": 37.34818
+ },
+ {
+  "ticker": "2376.TW",
+  "name": "Gigabyte",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 42.31818
+ },
+ {
+  "ticker": "2376.TW",
+  "name": "Gigabyte",
+  "as_of": "2026-11-23",
+  "year": 2027,
+  "eps": 39.55
  },
  {
   "ticker": "2357.TW",
@@ -639,6 +1115,20 @@
  {
   "ticker": "2357.TW",
   "name": "ASUS",
+  "as_of": "2026-08-25",
+  "year": 2026,
+  "eps": 78.07672
+ },
+ {
+  "ticker": "2357.TW",
+  "name": "ASUS",
+  "as_of": "2026-08-25",
+  "year": 2027,
+  "eps": 73.69217
+ },
+ {
+  "ticker": "2357.TW",
+  "name": "ASUS",
   "as_of": "2026-09-17",
   "year": 2026,
   "eps": 76.6964
@@ -647,6 +1137,20 @@
   "ticker": "2357.TW",
   "name": "ASUS",
   "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 74.913
+ },
+ {
+  "ticker": "2357.TW",
+  "name": "ASUS",
+  "as_of": "2026-09-24",
+  "year": 2026,
+  "eps": 76.6964
+ },
+ {
+  "ticker": "2357.TW",
+  "name": "ASUS",
+  "as_of": "2026-09-24",
   "year": 2027,
   "eps": 74.913
  },
@@ -667,6 +1171,20 @@
  {
   "ticker": "2357.TW",
   "name": "ASUS",
+  "as_of": "2026-10-24",
+  "year": 2026,
+  "eps": 77.48095
+ },
+ {
+  "ticker": "2357.TW",
+  "name": "ASUS",
+  "as_of": "2026-10-24",
+  "year": 2027,
+  "eps": 76.08717
+ },
+ {
+  "ticker": "2357.TW",
+  "name": "ASUS",
   "as_of": "2026-11-09",
   "year": 2026,
   "eps": 77.4755
@@ -683,14 +1201,28 @@
   "name": "ASUS",
   "as_of": "2026-11-16",
   "year": 2026,
-  "eps": 90.99309
+  "eps": 77.4755
  },
  {
   "ticker": "2357.TW",
   "name": "ASUS",
   "as_of": "2026-11-16",
   "year": 2027,
-  "eps": 80.89699
+  "eps": 76.08883
+ },
+ {
+  "ticker": "2357.TW",
+  "name": "ASUS",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 89.04745
+ },
+ {
+  "ticker": "2357.TW",
+  "name": "ASUS",
+  "as_of": "2026-11-23",
+  "year": 2027,
+  "eps": 80.62929
  },
  {
   "ticker": "3706.TW",
@@ -709,6 +1241,20 @@
  {
   "ticker": "3706.TW",
   "name": "MiTAC Holdings",
+  "as_of": "2026-08-25",
+  "year": 2026,
+  "eps": 5.73939
+ },
+ {
+  "ticker": "3706.TW",
+  "name": "MiTAC Holdings",
+  "as_of": "2026-08-25",
+  "year": 2027,
+  "eps": 8.00909
+ },
+ {
+  "ticker": "3706.TW",
+  "name": "MiTAC Holdings",
   "as_of": "2026-09-17",
   "year": 2026,
   "eps": 5.73939
@@ -717,6 +1263,20 @@
   "ticker": "3706.TW",
   "name": "MiTAC Holdings",
   "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 8.00909
+ },
+ {
+  "ticker": "3706.TW",
+  "name": "MiTAC Holdings",
+  "as_of": "2026-09-24",
+  "year": 2026,
+  "eps": 5.73939
+ },
+ {
+  "ticker": "3706.TW",
+  "name": "MiTAC Holdings",
+  "as_of": "2026-09-24",
   "year": 2027,
   "eps": 8.00909
  },
@@ -731,6 +1291,20 @@
   "ticker": "3706.TW",
   "name": "MiTAC Holdings",
   "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 7.86364
+ },
+ {
+  "ticker": "3706.TW",
+  "name": "MiTAC Holdings",
+  "as_of": "2026-10-24",
+  "year": 2026,
+  "eps": 5.90227
+ },
+ {
+  "ticker": "3706.TW",
+  "name": "MiTAC Holdings",
+  "as_of": "2026-10-24",
   "year": 2027,
   "eps": 7.86364
  },
@@ -752,13 +1326,27 @@
   "ticker": "3706.TW",
   "name": "MiTAC Holdings",
   "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 5.90227
+ },
+ {
+  "ticker": "3706.TW",
+  "name": "MiTAC Holdings",
+  "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 7.86364
+ },
+ {
+  "ticker": "3706.TW",
+  "name": "MiTAC Holdings",
+  "as_of": "2026-11-23",
   "year": 2026,
   "eps": 5.90204
  },
  {
   "ticker": "3706.TW",
   "name": "MiTAC Holdings",
-  "as_of": "2026-11-16",
+  "as_of": "2026-11-23",
   "year": 2027,
   "eps": 7.86394
  },
@@ -779,6 +1367,20 @@
  {
   "ticker": "4938.TW",
   "name": "Pegatron",
+  "as_of": "2026-08-25",
+  "year": 2026,
+  "eps": 5.57863
+ },
+ {
+  "ticker": "4938.TW",
+  "name": "Pegatron",
+  "as_of": "2026-08-25",
+  "year": 2027,
+  "eps": 7.15794
+ },
+ {
+  "ticker": "4938.TW",
+  "name": "Pegatron",
   "as_of": "2026-09-17",
   "year": 2026,
   "eps": 5.65238
@@ -793,6 +1395,20 @@
  {
   "ticker": "4938.TW",
   "name": "Pegatron",
+  "as_of": "2026-09-24",
+  "year": 2026,
+  "eps": 5.65238
+ },
+ {
+  "ticker": "4938.TW",
+  "name": "Pegatron",
+  "as_of": "2026-09-24",
+  "year": 2027,
+  "eps": 7.22044
+ },
+ {
+  "ticker": "4938.TW",
+  "name": "Pegatron",
   "as_of": "2026-10-17",
   "year": 2026,
   "eps": 5.78988
@@ -801,6 +1417,20 @@
   "ticker": "4938.TW",
   "name": "Pegatron",
   "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 7.43919
+ },
+ {
+  "ticker": "4938.TW",
+  "name": "Pegatron",
+  "as_of": "2026-10-24",
+  "year": 2026,
+  "eps": 5.78988
+ },
+ {
+  "ticker": "4938.TW",
+  "name": "Pegatron",
+  "as_of": "2026-10-24",
   "year": 2027,
   "eps": 7.43919
  },
@@ -823,14 +1453,28 @@
   "name": "Pegatron",
   "as_of": "2026-11-16",
   "year": 2026,
-  "eps": 5.89227
+  "eps": 5.8084
  },
  {
   "ticker": "4938.TW",
   "name": "Pegatron",
   "as_of": "2026-11-16",
   "year": 2027,
-  "eps": 8.30358
+  "eps": 7.63268
+ },
+ {
+  "ticker": "4938.TW",
+  "name": "Pegatron",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 5.38
+ },
+ {
+  "ticker": "4938.TW",
+  "name": "Pegatron",
+  "as_of": "2026-11-23",
+  "year": 2027,
+  "eps": 8.3558
  },
  {
   "ticker": "601138.SS",
@@ -851,112 +1495,112 @@
   "name": "Foxconn Industrial Internet",
   "as_of": "2026-08-12",
   "year": 2026,
-  "eps": 2.9166666666666665
+  "eps": 2.865
  },
  {
   "ticker": "601138.SS",
   "name": "Foxconn Industrial Internet",
   "as_of": "2026-08-12",
   "year": 2027,
-  "eps": 3.9066666666666667
+  "eps": 3.67
  },
  {
   "ticker": "601138.SS",
   "name": "Foxconn Industrial Internet",
   "as_of": "2026-08-14",
   "year": 2026,
-  "eps": 3.016
+  "eps": 3.015
  },
  {
   "ticker": "601138.SS",
   "name": "Foxconn Industrial Internet",
   "as_of": "2026-08-14",
   "year": 2027,
-  "eps": 4.0520000000000005
+  "eps": 3.97
  },
  {
   "ticker": "601138.SS",
   "name": "Foxconn Industrial Internet",
   "as_of": "2026-08-17",
   "year": 2026,
-  "eps": 3.06
+  "eps": 3.0666666666666664
  },
  {
   "ticker": "601138.SS",
   "name": "Foxconn Industrial Internet",
   "as_of": "2026-08-17",
   "year": 2027,
-  "eps": 4.15
+  "eps": 4.111666666666667
  },
  {
   "ticker": "601138.SS",
   "name": "Foxconn Industrial Internet",
   "as_of": "2026-09-21",
   "year": 2026,
-  "eps": 3.06875
+  "eps": 3.075714285714286
  },
  {
   "ticker": "601138.SS",
   "name": "Foxconn Industrial Internet",
   "as_of": "2026-09-21",
   "year": 2027,
-  "eps": 4.165
+  "eps": 4.134285714285714
  },
  {
   "ticker": "601138.SS",
   "name": "Foxconn Industrial Internet",
   "as_of": "2026-10-31",
   "year": 2026,
-  "eps": 3.0622727272727275
+  "eps": 3.0665
  },
  {
   "ticker": "601138.SS",
   "name": "Foxconn Industrial Internet",
   "as_of": "2026-10-31",
   "year": 2027,
-  "eps": 4.173727272727273
+  "eps": 4.1531
  },
  {
   "ticker": "601138.SS",
   "name": "Foxconn Industrial Internet",
   "as_of": "2026-11-02",
   "year": 2026,
-  "eps": 3.082692307692308
+  "eps": 3.0879166666666666
  },
  {
   "ticker": "601138.SS",
   "name": "Foxconn Industrial Internet",
   "as_of": "2026-11-02",
   "year": 2027,
-  "eps": 4.234692307692308
+  "eps": 4.222583333333334
  },
  {
   "ticker": "601138.SS",
   "name": "Foxconn Industrial Internet",
   "as_of": "2026-11-05",
   "year": 2026,
-  "eps": 3.080357142857143
+  "eps": 3.085
  },
  {
   "ticker": "601138.SS",
   "name": "Foxconn Industrial Internet",
   "as_of": "2026-11-05",
   "year": 2027,
-  "eps": 4.219357142857143
+  "eps": 4.207
  },
  {
   "ticker": "601138.SS",
   "name": "Foxconn Industrial Internet",
   "as_of": "2026-11-06",
   "year": 2026,
-  "eps": 3.077
+  "eps": 3.0810714285714282
  },
  {
   "ticker": "601138.SS",
   "name": "Foxconn Industrial Internet",
   "as_of": "2026-11-06",
   "year": 2027,
-  "eps": 4.204066666666667
+  "eps": 4.1915
  },
  {
   "ticker": "601138.SS",
@@ -989,6 +1633,20 @@
  {
   "ticker": "CLS",
   "name": "Celestica",
+  "as_of": "2026-08-25",
+  "year": 2026,
+  "eps": 11.23804
+ },
+ {
+  "ticker": "CLS",
+  "name": "Celestica",
+  "as_of": "2026-08-25",
+  "year": 2027,
+  "eps": 19.53008
+ },
+ {
+  "ticker": "CLS",
+  "name": "Celestica",
   "as_of": "2026-09-17",
   "year": 2026,
   "eps": 11.21741
@@ -1003,6 +1661,20 @@
  {
   "ticker": "CLS",
   "name": "Celestica",
+  "as_of": "2026-09-24",
+  "year": 2026,
+  "eps": 11.21741
+ },
+ {
+  "ticker": "CLS",
+  "name": "Celestica",
+  "as_of": "2026-09-24",
+  "year": 2027,
+  "eps": 19.36053
+ },
+ {
+  "ticker": "CLS",
+  "name": "Celestica",
   "as_of": "2026-10-17",
   "year": 2026,
   "eps": 11.18019
@@ -1011,6 +1683,20 @@
   "ticker": "CLS",
   "name": "Celestica",
   "as_of": "2026-10-17",
+  "year": 2027,
+  "eps": 19.36053
+ },
+ {
+  "ticker": "CLS",
+  "name": "Celestica",
+  "as_of": "2026-10-24",
+  "year": 2026,
+  "eps": 11.18019
+ },
+ {
+  "ticker": "CLS",
+  "name": "Celestica",
+  "as_of": "2026-10-24",
   "year": 2027,
   "eps": 19.36053
  },
@@ -1033,12 +1719,26 @@
   "name": "Celestica",
   "as_of": "2026-11-16",
   "year": 2026,
-  "eps": 11.57139
+  "eps": 11.55574
  },
  {
   "ticker": "CLS",
   "name": "Celestica",
   "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 21.69422
+ },
+ {
+  "ticker": "CLS",
+  "name": "Celestica",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 11.57139
+ },
+ {
+  "ticker": "CLS",
+  "name": "Celestica",
+  "as_of": "2026-11-23",
   "year": 2027,
   "eps": 21.77264
  },
@@ -1052,7 +1752,21 @@
  {
   "ticker": "FLEX",
   "name": "Flex",
+  "as_of": "2026-08-25",
+  "year": 2027,
+  "eps": 6.514415
+ },
+ {
+  "ticker": "FLEX",
+  "name": "Flex",
   "as_of": "2026-09-17",
+  "year": 2027,
+  "eps": 6.514415
+ },
+ {
+  "ticker": "FLEX",
+  "name": "Flex",
+  "as_of": "2026-09-24",
   "year": 2027,
   "eps": 6.514415
  },
@@ -1062,6 +1776,13 @@
   "as_of": "2026-10-17",
   "year": 2027,
   "eps": 6.4710125000000005
+ },
+ {
+  "ticker": "FLEX",
+  "name": "Flex",
+  "as_of": "2026-10-24",
+  "year": 2027,
+  "eps": 6.7875
  },
  {
   "ticker": "FLEX",
@@ -1082,12 +1803,26 @@
   "name": "Flex",
   "as_of": "2026-11-16",
   "year": 2027,
-  "eps": 7.141520000000001
+  "eps": 7.098020000000001
+ },
+ {
+  "ticker": "FLEX",
+  "name": "Flex",
+  "as_of": "2026-11-23",
+  "year": 2027,
+  "eps": 7.1470199999999995
  },
  {
   "ticker": "SANM",
   "name": "Sanmina",
   "as_of": "2026-08-18",
+  "year": 2026,
+  "eps": 13.361267499999999
+ },
+ {
+  "ticker": "SANM",
+  "name": "Sanmina",
+  "as_of": "2026-08-25",
   "year": 2026,
   "eps": 13.361267499999999
  },
@@ -1101,7 +1836,21 @@
  {
   "ticker": "SANM",
   "name": "Sanmina",
+  "as_of": "2026-09-24",
+  "year": 2026,
+  "eps": 13.361267499999999
+ },
+ {
+  "ticker": "SANM",
+  "name": "Sanmina",
   "as_of": "2026-10-17",
+  "year": 2026,
+  "eps": 13.511875
+ },
+ {
+  "ticker": "SANM",
+  "name": "Sanmina",
+  "as_of": "2026-10-24",
   "year": 2026,
   "eps": 13.511875
  },
@@ -1116,6 +1865,13 @@
   "ticker": "SANM",
   "name": "Sanmina",
   "as_of": "2026-11-16",
+  "year": 2026,
+  "eps": 13.512489999999998
+ },
+ {
+  "ticker": "SANM",
+  "name": "Sanmina",
+  "as_of": "2026-11-23",
   "year": 2026,
   "eps": 15.58409
  },
@@ -1138,112 +1894,112 @@
   "name": "Inspur Electronic Information",
   "as_of": "2026-08-31",
   "year": 2026,
-  "eps": 3.0475
+  "eps": 3.293333333333333
  },
  {
   "ticker": "000977.SZ",
   "name": "Inspur Electronic Information",
   "as_of": "2026-08-31",
   "year": 2027,
-  "eps": 3.8375
+  "eps": 4.113333333333333
  },
  {
   "ticker": "000977.SZ",
   "name": "Inspur Electronic Information",
   "as_of": "2026-09-04",
   "year": 2026,
-  "eps": 3.1740000000000004
+  "eps": 3.39
  },
  {
   "ticker": "000977.SZ",
   "name": "Inspur Electronic Information",
   "as_of": "2026-09-04",
   "year": 2027,
-  "eps": 4.064
+  "eps": 4.3275
  },
  {
   "ticker": "000977.SZ",
   "name": "Inspur Electronic Information",
   "as_of": "2026-10-17",
   "year": 2026,
-  "eps": 3.2816666666666667
+  "eps": 3.476
  },
  {
   "ticker": "000977.SZ",
   "name": "Inspur Electronic Information",
   "as_of": "2026-10-17",
   "year": 2027,
-  "eps": 4.489999999999999
+  "eps": 4.786
  },
  {
   "ticker": "000977.SZ",
   "name": "Inspur Electronic Information",
   "as_of": "2026-10-29",
   "year": 2026,
-  "eps": 3.358571428571428
+  "eps": 3.533333333333333
  },
  {
   "ticker": "000977.SZ",
   "name": "Inspur Electronic Information",
   "as_of": "2026-10-29",
   "year": 2027,
-  "eps": 4.5
+  "eps": 4.748333333333333
  },
  {
   "ticker": "000977.SZ",
   "name": "Inspur Electronic Information",
   "as_of": "2026-10-30",
   "year": 2026,
-  "eps": 3.40125
+  "eps": 3.557142857142857
  },
  {
   "ticker": "000977.SZ",
   "name": "Inspur Electronic Information",
   "as_of": "2026-10-30",
   "year": 2027,
-  "eps": 4.4475
+  "eps": 4.652857142857143
  },
  {
   "ticker": "000977.SZ",
   "name": "Inspur Electronic Information",
   "as_of": "2026-11-01",
   "year": 2026,
-  "eps": 3.471
+  "eps": 3.5999999999999996
  },
  {
   "ticker": "000977.SZ",
   "name": "Inspur Electronic Information",
   "as_of": "2026-11-01",
   "year": 2027,
-  "eps": 4.5729999999999995
+  "eps": 4.746666666666666
  },
  {
   "ticker": "000977.SZ",
   "name": "Inspur Electronic Information",
   "as_of": "2026-11-03",
   "year": 2026,
-  "eps": 3.540909090909091
+  "eps": 3.664
  },
  {
   "ticker": "000977.SZ",
   "name": "Inspur Electronic Information",
   "as_of": "2026-11-03",
   "year": 2027,
-  "eps": 4.6454545454545455
+  "eps": 4.809
  },
  {
   "ticker": "000977.SZ",
   "name": "Inspur Electronic Information",
   "as_of": "2026-11-06",
   "year": 2026,
-  "eps": 3.5391666666666666
+  "eps": 3.6509090909090904
  },
  {
   "ticker": "000977.SZ",
   "name": "Inspur Electronic Information",
   "as_of": "2026-11-06",
   "year": 2027,
-  "eps": 4.6466666666666665
+  "eps": 4.795454545454546
  },
  {
   "ticker": "000977.SZ",
@@ -1384,6 +2140,20 @@
   "as_of": "2026-11-16",
   "year": 2027,
   "eps": 1.6695
+ },
+ {
+  "ticker": "000938.SZ",
+  "name": "Unisplendour (H3C)",
+  "as_of": "2026-11-20",
+  "year": 2026,
+  "eps": 1.2269230769230768
+ },
+ {
+  "ticker": "000938.SZ",
+  "name": "Unisplendour (H3C)",
+  "as_of": "2026-11-20",
+  "year": 2027,
+  "eps": 1.6795384615384614
  },
  {
   "ticker": "603019.SS",
