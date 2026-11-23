@@ -39,10 +39,10 @@
   {
    "name": "Freshness",
    "status": "pass",
-   "detail": "latest snapshot 0.0 h ago (limit 14 h)"
+   "detail": "latest snapshot 0.9 h ago (limit 14 h)"
   }
  ],
- "generated_at": "2026-11-23T18:27:40+00:00",
+ "generated_at": "2026-11-23T19:22:09+00:00",
  "first_snapshot_ts": "2026-09-16T02:27:56+00:00",
  "last_snapshot_ts": "2026-11-23T18:26:24+00:00",
  "n_snapshots": 142,
@@ -246,8 +246,8 @@
   }
  ],
  "markets_tracked": {
-  "kalshi": 541,
-  "polymarket": 334
+  "polymarket": 334,
+  "kalshi": 541
  },
  "decision_markets": 90,
  "next_meeting": {

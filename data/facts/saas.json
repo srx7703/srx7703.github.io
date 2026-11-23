@@ -1,20 +1,20 @@
 {
  "project": "saas-benchmark",
- "generated_at": "2026-11-16T17:02:22+00:00",
+ "generated_at": "2026-11-23T19:15:20+00:00",
  "first_refresh": "2026-09-16T06:34:15+00:00",
- "last_refresh": "2026-11-16T17:02:20+00:00",
- "n_refreshes": 10,
+ "last_refresh": "2026-11-23T19:15:18+00:00",
+ "n_refreshes": 11,
  "rule_of_40_p25": 42.5,
  "rule_of_40_p75": 52.6,
  "companies": 29,
  "companies_scored": 27,
- "latest_quarter_end_max": "2026-09-30",
+ "latest_quarter_end_max": "2026-10-31",
  "latest_quarter_end_min": "2026-07-31",
  "median_rev_growth": 0.2006,
  "median_gross_margin": 0.7729,
  "median_op_margin": 0.0755,
  "median_fcf_margin": 0.2593,
- "median_sbc_pct": 0.1581,
+ "median_sbc_pct": 0.1621,
  "rule_of_40_pass": 21,
  "leaders": [
   {
@@ -27,11 +27,11 @@
   },
   {
    "ticker": "PANW",
-   "name": "Palo Alto Networks, Inc.",
-   "quarter_end": "2026-07-31",
-   "rule_of_40": 60.3,
-   "rev_growth": 0.245,
-   "fcf_margin": 0.3583
+   "name": "PALO ALTO NETWORKS, INC",
+   "quarter_end": "2026-10-31",
+   "rule_of_40": 64.6,
+   "rev_growth": 0.303,
+   "fcf_margin": 0.3428
   },
   {
    "ticker": "DDOG",
@@ -44,10 +44,10 @@
   {
    "ticker": "INTU",
    "name": "INTUIT INC.",
-   "quarter_end": "2026-07-31",
-   "rule_of_40": 54.3,
-   "rev_growth": 0.139,
-   "fcf_margin": 0.4039
+   "quarter_end": "2026-10-31",
+   "rule_of_40": 54.1,
+   "rev_growth": 0.1278,
+   "fcf_margin": 0.413
   },
   {
    "ticker": "SNOW",
@@ -60,12 +60,12 @@
  ],
  "laggards": [
   {
-   "ticker": "ESTC",
-   "name": "ELASTIC N.V.",
-   "quarter_end": "2026-07-31",
-   "rule_of_40": 35.5,
-   "rev_growth": 0.1618,
-   "fcf_margin": 0.1937
+   "ticker": "BILL",
+   "name": "BILL HOLDINGS, INC.",
+   "quarter_end": "2026-09-30",
+   "rule_of_40": 35.6,
+   "rev_growth": 0.1358,
+   "fcf_margin": 0.2205
   },
   {
    "ticker": "TTD",
@@ -85,9 +85,9 @@
   }
  ],
  "reconciliation": {
-  "pairs": 5601,
-  "agree": 5473,
-  "rate": 0.9771,
+  "pairs": 5610,
+  "agree": 5482,
+  "rate": 0.9772,
   "tolerance": "0.5%"
  },
  "checks": [
@@ -109,7 +109,7 @@
   {
    "name": "Reconciliation",
    "status": "pass",
-   "detail": "5,473 of 5,601 direct-vs-derived quarters agree within 0.5%"
+   "detail": "5,482 of 5,610 direct-vs-derived quarters agree within 0.5%"
   },
   {
    "name": "Freshness",
@@ -117,7 +117,7 @@
    "detail": "latest refresh 0.0 h ago (limit 192 h)"
   }
  ],
- "quarters_total": 1201,
+ "quarters_total": 1204,
  "missing_metrics": {},
  "missing_latest": {
   "INTU": [

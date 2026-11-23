@@ -767,7 +767,7 @@
   }
  },
  "ESTC": {
-  "name": "ELASTIC N.V.",
+  "name": "Elastic N.V.",
   "tags": {
    "revenue": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
@@ -812,56 +812,56 @@
    ]
   },
   "quarters": {
-   "revenue": 36,
-   "cogs": 36,
-   "gross_profit": 36,
-   "op_income": 36,
-   "net_income": 36,
-   "ocf": 35,
-   "capex": 35,
+   "revenue": 37,
+   "cogs": 37,
+   "gross_profit": 37,
+   "op_income": 37,
+   "net_income": 37,
+   "ocf": 36,
+   "capex": 36,
    "cap_software": 10,
-   "sbc": 36,
-   "rnd": 36,
-   "snm": 36,
-   "gna": 36,
-   "diluted_shares": 13
+   "sbc": 37,
+   "rnd": 37,
+   "snm": 37,
+   "gna": 37,
+   "diluted_shares": 14
   },
   "reconciliation": {
    "revenue": {
-    "pairs": 17,
-    "agree": 17
+    "pairs": 18,
+    "agree": 18
    },
    "cogs": {
-    "pairs": 17,
-    "agree": 17
+    "pairs": 18,
+    "agree": 18
    },
    "gross_profit": {
-    "pairs": 17,
-    "agree": 17
+    "pairs": 18,
+    "agree": 18
    },
    "op_income": {
-    "pairs": 17,
-    "agree": 17
+    "pairs": 18,
+    "agree": 18
    },
    "net_income": {
-    "pairs": 17,
-    "agree": 17
+    "pairs": 18,
+    "agree": 18
    },
    "sbc": {
-    "pairs": 17,
-    "agree": 15
+    "pairs": 18,
+    "agree": 16
    },
    "rnd": {
-    "pairs": 17,
-    "agree": 17
+    "pairs": 18,
+    "agree": 18
    },
    "snm": {
-    "pairs": 17,
-    "agree": 17
+    "pairs": 18,
+    "agree": 18
    },
    "gna": {
-    "pairs": 17,
-    "agree": 17
+    "pairs": 18,
+    "agree": 18
    }
   }
  },
@@ -1108,18 +1108,18 @@
    ]
   },
   "quarters": {
-   "revenue": 72,
+   "revenue": 73,
    "cogs": 48,
-   "op_income": 72,
-   "net_income": 72,
-   "ocf": 72,
-   "capex": 72,
+   "op_income": 73,
+   "net_income": 73,
+   "ocf": 73,
+   "capex": 73,
    "cap_software": 0,
-   "sbc": 72,
-   "rnd": 72,
-   "snm": 72,
-   "gna": 72,
-   "diluted_shares": 54,
+   "sbc": 73,
+   "rnd": 73,
+   "snm": 73,
+   "gna": 73,
+   "diluted_shares": 55,
    "gross_profit": 48
   },
   "reconciliation": {
@@ -1551,7 +1551,7 @@
   }
  },
  "PANW": {
-  "name": "Palo Alto Networks, Inc.",
+  "name": "PALO ALTO NETWORKS, INC",
   "tags": {
    "revenue": [
     "RevenueFromContractWithCustomerExcludingAssessedTax",
@@ -1596,18 +1596,18 @@
    ]
   },
   "quarters": {
-   "revenue": 60,
-   "cogs": 60,
-   "gross_profit": 60,
-   "op_income": 60,
-   "net_income": 60,
-   "ocf": 60,
-   "capex": 60,
-   "sbc": 60,
-   "rnd": 60,
-   "snm": 60,
-   "gna": 60,
-   "diluted_shares": 18
+   "revenue": 61,
+   "cogs": 61,
+   "gross_profit": 61,
+   "op_income": 61,
+   "net_income": 61,
+   "ocf": 61,
+   "capex": 61,
+   "sbc": 61,
+   "rnd": 61,
+   "snm": 61,
+   "gna": 61,
+   "diluted_shares": 19
   },
   "reconciliation": {
    "revenue": {
