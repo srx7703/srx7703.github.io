@@ -66,6 +66,13 @@
   "ticker": "DELL",
   "name": "Dell Technologies",
   "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 24.5655425
+ },
+ {
+  "ticker": "DELL",
+  "name": "Dell Technologies",
+  "as_of": "2026-11-23",
   "year": 2027,
   "eps": 28.264846666666667
  },
@@ -199,6 +206,13 @@
   "ticker": "SMCI",
   "name": "Super Micro Computer",
   "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 5.07615
+ },
+ {
+  "ticker": "SMCI",
+  "name": "Super Micro Computer",
+  "as_of": "2026-11-23",
   "year": 2027,
   "eps": 6.73368
  },
@@ -269,6 +283,13 @@
   "ticker": "0992.HK",
   "name": "Lenovo Group",
   "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 0.2831925
+ },
+ {
+  "ticker": "0992.HK",
+  "name": "Lenovo Group",
+  "as_of": "2026-11-23",
   "year": 2027,
   "eps": 0.3636975
  },
@@ -334,6 +355,13 @@
   "as_of": "2026-11-16",
   "year": 2027,
   "eps": 4.791
+ },
+ {
+  "ticker": "PENG",
+  "name": "Penguin Solutions",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 3.4328333333333334
  },
  {
   "ticker": "PENG",
@@ -1617,6 +1645,20 @@
   "eps": 4.204066666666667
  },
  {
+  "ticker": "601138.SS",
+  "name": "Foxconn Industrial Internet",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 3.0810714285714282
+ },
+ {
+  "ticker": "601138.SS",
+  "name": "Foxconn Industrial Internet",
+  "as_of": "2026-11-23",
+  "year": 2027,
+  "eps": 4.1915
+ },
+ {
   "ticker": "CLS",
   "name": "Celestica",
   "as_of": "2026-08-18",
@@ -1804,6 +1846,13 @@
   "as_of": "2026-11-16",
   "year": 2027,
   "eps": 7.098020000000001
+ },
+ {
+  "ticker": "FLEX",
+  "name": "Flex",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 4.6186575
  },
  {
   "ticker": "FLEX",
@@ -2016,6 +2065,20 @@
   "eps": 4.6466666666666665
  },
  {
+  "ticker": "000977.SZ",
+  "name": "Inspur Electronic Information",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 3.6509090909090904
+ },
+ {
+  "ticker": "000977.SZ",
+  "name": "Inspur Electronic Information",
+  "as_of": "2026-11-23",
+  "year": 2027,
+  "eps": 4.795454545454546
+ },
+ {
   "ticker": "000938.SZ",
   "name": "Unisplendour (H3C)",
   "as_of": "2026-09-04",
@@ -2156,6 +2219,20 @@
   "eps": 1.6795384615384614
  },
  {
+  "ticker": "000938.SZ",
+  "name": "Unisplendour (H3C)",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 1.2269230769230768
+ },
+ {
+  "ticker": "000938.SZ",
+  "name": "Unisplendour (H3C)",
+  "as_of": "2026-11-23",
+  "year": 2027,
+  "eps": 1.6795384615384614
+ },
+ {
   "ticker": "603019.SS",
   "name": "Sugon",
   "as_of": "2026-08-27",
@@ -2264,6 +2341,20 @@
   "ticker": "603019.SS",
   "name": "Sugon",
   "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 2.95
+ },
+ {
+  "ticker": "603019.SS",
+  "name": "Sugon",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 2.1672727272727275
+ },
+ {
+  "ticker": "603019.SS",
+  "name": "Sugon",
+  "as_of": "2026-11-23",
   "year": 2027,
   "eps": 2.95
  },
@@ -2408,6 +2499,20 @@
   "eps": 4.5620714285714286
  },
  {
+  "ticker": "603296.SS",
+  "name": "Huaqin Technology",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 3.759571428571429
+ },
+ {
+  "ticker": "603296.SS",
+  "name": "Huaqin Technology",
+  "as_of": "2026-11-23",
+  "year": 2027,
+  "eps": 4.5620714285714286
+ },
+ {
   "ticker": "000066.SZ",
   "name": "China Greatwall Technology",
   "as_of": "2026-09-11",
@@ -2446,6 +2551,20 @@
   "ticker": "000066.SZ",
   "name": "China Greatwall Technology",
   "as_of": "2026-11-16",
+  "year": 2027,
+  "eps": 0.10333333333333333
+ },
+ {
+  "ticker": "000066.SZ",
+  "name": "China Greatwall Technology",
+  "as_of": "2026-11-23",
+  "year": 2026,
+  "eps": 0.13
+ },
+ {
+  "ticker": "000066.SZ",
+  "name": "China Greatwall Technology",
+  "as_of": "2026-11-23",
   "year": 2027,
   "eps": 0.10333333333333333
  }
