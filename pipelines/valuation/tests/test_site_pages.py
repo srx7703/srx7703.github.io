@@ -84,10 +84,19 @@ def test_ssb_pure_play_earnings_sentence_is_derived_from_the_data():
     assert "pure_plays_with_earnings" in text and "trailing_pe != null" in text, (
         "the profitable pure plays must be counted from facts or the mart, not asserted in prose"
     )
-    # And the derivation has to have something to find: at least one pure play does report a profit today.
+    # The count moves with the data (Microvast earned a trailing profit through Q2 2026 and lost money on the
+    # Q3 TTM), so the page must carry a sentence for every count rather than this test pinning one of them.
+    # Asserting "at least one pure play is profitable" against the live mart failed every deploy from
+    # 2026-11-16 on; the guard is about the template, not about which way the world went.
+    for branch in ("pureEarners.length === 0", "pureEarners.length === 1", "of them earn a trailing profit"):
+        assert branch in text, f"the earnings sentence has no branch for {branch!r}"
     pure = {p["ticker"] for p in (facts("ssb").get("pure_plays") or facts("ssb").get("preprofit") or [])}
-    earners = [r for r in mart("ssb") if r["ticker"] in pure and r["trailing_pe"] is not None]
-    assert earners, "fixture drift: no pure play reports a trailing profit, so this guard proves nothing"
+    earners = {r["ticker"] for r in mart("ssb") if r["ticker"] in pure and r["trailing_pe"] is not None}
+    published = facts("ssb").get("pure_plays_with_earnings")
+    if published is not None:
+        assert {p["ticker"] if isinstance(p, dict) else p for p in published} == earners, (
+            "facts.pure_plays_with_earnings disagrees with the mart"
+        )
 
 
 def test_dumbbell_subtitles_give_the_real_reason_a_listing_is_absent():
