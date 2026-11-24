@@ -11,8 +11,8 @@
    "year": 2026,
    "family": "gas_steam",
    "family_label": "Gas steam",
-   "mw": 3419.4,
-   "units": 9
+   "mw": 2115.0,
+   "units": 6
   },
   {
    "year": 2026,
@@ -32,8 +32,8 @@
    "year": 2027,
    "family": "biomass",
    "family_label": "Biomass",
-   "mw": 12.1,
-   "units": 15
+   "mw": 18.5,
+   "units": 19
   },
   {
    "year": 2027,
@@ -800,16 +800,16 @@
   }
  ],
  "deferred": {
-  "units": 103,
-  "mw": 13738.3,
-  "withdrawn_units": 37,
-  "withdrawn_mw": 5417.5,
-  "median_years": 2.0,
+  "units": 89,
+  "mw": 11439.6,
+  "withdrawn_units": 36,
+  "withdrawn_mw": 4687.6,
+  "median_years": 4.0,
   "by_family": [
    {
     "family": "coal",
-    "mw": 8689.7,
-    "units": 19,
+    "mw": 6399.0,
+    "units": 15,
     "family_label": "Coal"
    },
    {
@@ -844,8 +844,8 @@
    },
    {
     "family": "biomass",
-    "mw": 58.1,
-    "units": 15,
+    "mw": 50.1,
+    "units": 5,
     "family_label": "Biomass"
    },
    {
@@ -861,8 +861,8 @@
     "family_label": "Solar"
    }
   ],
-  "from_vintage": "2025-09",
-  "to_vintage": "2026-09"
+  "from_vintage": "2025-10",
+  "to_vintage": "2026-10"
  },
  "deferred_rows": [
   {
@@ -874,26 +874,6 @@
    "year_before": 2026,
    "year_after": 2034,
    "deferred_years": 8.0
-  },
-  {
-   "plant_name": "J H Campbell",
-   "state": "MI",
-   "technology": "Conventional Steam Coal",
-   "family": "coal",
-   "nameplate_mw": 916.8,
-   "year_before": 2025,
-   "year_after": 2026,
-   "deferred_years": 1.0
-  },
-  {
-   "plant_name": "Transalta Centralia Generation",
-   "state": "WA",
-   "technology": "Conventional Steam Coal",
-   "family": "coal",
-   "nameplate_mw": 729.9,
-   "year_before": 2025,
-   "year_after": null,
-   "deferred_years": null
   },
   {
    "plant_name": "GREC",
@@ -996,16 +976,6 @@
    "deferred_years": 1.0
   },
   {
-   "plant_name": "J H Campbell",
-   "state": "MI",
-   "technology": "Conventional Steam Coal",
-   "family": "coal",
-   "nameplate_mw": 378.8,
-   "year_before": 2025,
-   "year_after": 2026,
-   "deferred_years": 1.0
-  },
-  {
    "plant_name": "Mill Creek (KY)",
    "state": "KY",
    "technology": "Conventional Steam Coal",
@@ -1033,16 +1003,6 @@
    "nameplate_mw": 317.6,
    "year_before": 2026,
    "year_after": 2027,
-   "deferred_years": 1.0
-  },
-  {
-   "plant_name": "J H Campbell",
-   "state": "MI",
-   "technology": "Conventional Steam Coal",
-   "family": "coal",
-   "nameplate_mw": 265.2,
-   "year_before": 2025,
-   "year_after": 2026,
    "deferred_years": 1.0
   },
   {
@@ -1264,6 +1224,46 @@
    "year_before": 2027,
    "year_after": 2032,
    "deferred_years": 5.0
+  },
+  {
+   "plant_name": "North Omaha",
+   "state": "NE",
+   "technology": "Natural Gas Steam Turbine",
+   "family": "gas_steam",
+   "nameplate_mw": 73.5,
+   "year_before": 2026,
+   "year_after": 2028,
+   "deferred_years": 2.0
+  },
+  {
+   "plant_name": "Gadsby",
+   "state": "UT",
+   "technology": "Natural Gas Steam Turbine",
+   "family": "gas_steam",
+   "nameplate_mw": 69.0,
+   "year_before": 2032,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Gadsby",
+   "state": "UT",
+   "technology": "Natural Gas Steam Turbine",
+   "family": "gas_steam",
+   "nameplate_mw": 69.0,
+   "year_before": 2032,
+   "year_after": null,
+   "deferred_years": null
+  },
+  {
+   "plant_name": "Solano Wind",
+   "state": "CA",
+   "technology": "Onshore Wind Turbine",
+   "family": "wind",
+   "nameplate_mw": 63.0,
+   "year_before": 2028,
+   "year_after": 2031,
+   "deferred_years": 3.0
   }
  ]
 }

@@ -1,52 +1,52 @@
 {
- "generated_at": "2026-11-17T17:41:23.955932+00:00",
- "inventory_vintage": "2026-09",
+ "generated_at": "2026-11-24T19:33:55.483856+00:00",
+ "inventory_vintage": "2026-10",
  "headline": {
-  "commercial_share_of_us_growth": 0.712,
-  "us_growth_twh": 73.1,
-  "gas_share_of_planned_additions": 0.1967,
-  "planned_additions_gw": 248.3,
+  "commercial_share_of_us_growth": 0.6123,
+  "us_growth_twh": 99.5,
+  "gas_share_of_planned_additions": 0.1931,
+  "planned_additions_gw": 246.3,
   "pjm_large_load_share_of_growth": 1.0151541392448908,
   "pjm_window": [
    2026,
    2031
   ],
-  "deferred_gw": 13.7
+  "deferred_gw": 11.4
  },
  "demand": {
   "national": {
    "status": "ok",
-   "window_end": "2026-08",
-   "window_start": "2025-09",
-   "prior_window_end": "2025-08",
+   "window_end": "2026-09",
+   "window_start": "2025-10",
+   "prior_window_end": "2025-09",
    "ttm_twh": {
-    "commercial": 1536.9,
-    "industrial": 1052.4,
-    "residential": 1526.4,
-    "total": 4122.9,
+    "commercial": 1549.3,
+    "industrial": 1053.4,
+    "residential": 1544.4,
+    "total": 4154.3,
     "transportation": 7.2
    },
    "ttm_growth_twh": {
-    "commercial": 52.0,
-    "industrial": 5.2,
-    "residential": 15.9,
-    "total": 73.1,
-    "transportation": -0.0
+    "commercial": 60.9,
+    "industrial": 4.3,
+    "residential": 34.3,
+    "total": 99.5,
+    "transportation": -0.1
    },
    "ttm_growth_pct": {
-    "commercial": 0.035,
-    "industrial": 0.005,
-    "residential": 0.0105,
-    "total": 0.018,
-    "transportation": -0.0045
+    "commercial": 0.0409,
+    "industrial": 0.0041,
+    "residential": 0.0227,
+    "total": 0.0245,
+    "transportation": -0.01
    },
    "share_of_growth": {
-    "commercial": 0.712,
-    "industrial": 0.0714,
-    "residential": 0.217,
-    "transportation": -0.0004
+    "commercial": 0.6123,
+    "industrial": 0.0437,
+    "residential": 0.3448,
+    "transportation": -0.0007
    },
-   "total_growth_twh": 73.1
+   "total_growth_twh": 99.5
   },
   "by_state": [
    {
@@ -164,8 +164,8 @@
    {
     "state": "AZ",
     "year": 2026,
-    "twh": 28.62,
-    "months": 8,
+    "twh": 32.64,
+    "months": 9,
     "complete_year": false
    },
    {
@@ -283,8 +283,8 @@
    {
     "state": "GA",
     "year": 2026,
-    "twh": 40.96,
-    "months": 8,
+    "twh": 46.71,
+    "months": 9,
     "complete_year": false
    },
    {
@@ -402,8 +402,8 @@
    {
     "state": "IL",
     "year": 2026,
-    "twh": 30.78,
-    "months": 8,
+    "twh": 35.18,
+    "months": 9,
     "complete_year": false
    },
    {
@@ -521,8 +521,8 @@
    {
     "state": "LA",
     "year": 2026,
-    "twh": 16.04,
-    "months": 8,
+    "twh": 18.52,
+    "months": 9,
     "complete_year": false
    },
    {
@@ -640,8 +640,8 @@
    {
     "state": "OH",
     "year": 2026,
-    "twh": 43.41,
-    "months": 8,
+    "twh": 49.2,
+    "months": 9,
     "complete_year": false
    },
    {
@@ -759,8 +759,8 @@
    {
     "state": "TX",
     "year": 2026,
-    "twh": 124.99,
-    "months": 8,
+    "twh": 142.67,
+    "months": 9,
     "complete_year": false
    },
    {
@@ -878,8 +878,8 @@
    {
     "state": "VA",
     "year": 2026,
-    "twh": 59.59,
-    "months": 8,
+    "twh": 67.87,
+    "months": 9,
     "complete_year": false
    }
   ],
@@ -982,8 +982,8 @@
    },
    {
     "year": 2026,
-    "twh": 1041.1,
-    "months": 8,
+    "twh": 1184.25,
+    "months": 9,
     "complete_year": false
    }
   ],
@@ -1789,14 +1789,14 @@
     2026,
     2029
    ],
-   "total_mw": 248317.4,
-   "units": 2086,
+   "total_mw": 246299.5,
+   "units": 2051,
    "by_family_mw": {
-    "solar": 116177.9,
-    "storage": 63433.7,
-    "gas_cc": 25384.1,
-    "gas_ct": 22504.7,
-    "wind": 18916.0,
+    "solar": 116306.5,
+    "storage": 63665.9,
+    "gas_cc": 24078.1,
+    "gas_ct": 22510.5,
+    "wind": 17837.5,
     "gas_engine": 952.0,
     "hydro": 323.4,
     "biomass": 190.0,
@@ -1807,34 +1807,34 @@
    },
    "share_by_family": {
     "biomass": 0.0008,
-    "gas_cc": 0.1022,
-    "gas_ct": 0.0906,
-    "gas_engine": 0.0038,
-    "gas_steam": 0.0,
+    "gas_cc": 0.0978,
+    "gas_ct": 0.0914,
+    "gas_engine": 0.0039,
     "hydro": 0.0013,
     "oil": 0.0007,
     "other": 0.0006,
-    "solar": 0.4679,
-    "storage": 0.2555,
-    "wind": 0.0762,
+    "solar": 0.4722,
+    "storage": 0.2585,
+    "wind": 0.0724,
+    "gas_steam": 0.0,
     "geothermal": 0.0005
    },
    "by_stage_mw": {
-    "announced": 130812.4,
-    "permitted": 24827.5,
-    "under_construction": 74957.3,
-    "commissioning": 17720.2
+    "announced": 128460.7,
+    "permitted": 24455.5,
+    "under_construction": 75800.0,
+    "commissioning": 17383.3
    },
-   "gas_mw": 48849.8,
-   "gas_share": 0.1967,
-   "under_construction_mw": 92677.5,
-   "under_construction_share": 0.3732,
+   "gas_mw": 47549.6,
+   "gas_share": 0.1931,
+   "under_construction_mw": 93183.3,
+   "under_construction_share": 0.3783,
    "under_construction_by_family_mw": {
-    "solar": 46104.7,
-    "storage": 23048.6,
-    "wind": 10893.0,
-    "gas_cc": 6770.3,
-    "gas_ct": 5305.7,
+    "solar": 46973.1,
+    "storage": 25064.7,
+    "wind": 9814.5,
+    "gas_cc": 5464.3,
+    "gas_ct": 5311.5,
     "gas_engine": 283.0,
     "geothermal": 87.8,
     "biomass": 75.6,
@@ -1843,7 +1843,7 @@
     "hydro": 17.5,
     "gas_steam": 9.0
    },
-   "gas_share_under_construction": 0.1335
+   "gas_share_under_construction": 0.1188
   },
   "additions": [
    {
@@ -1859,8 +1859,8 @@
     "family": "gas_cc",
     "stage": "commissioning",
     "family_label": "Gas, combined cycle",
-    "mw": 1918.0,
-    "units": 4
+    "mw": 612.0,
+    "units": 1
    },
    {
     "year": 2026,
@@ -1891,16 +1891,8 @@
     "family": "gas_engine",
     "stage": "under_construction",
     "family_label": "Gas engines",
-    "mw": 112.2,
-    "units": 11
-   },
-   {
-    "year": 2026,
-    "family": "gas_steam",
-    "stage": "under_construction",
-    "family_label": "Gas steam",
-    "mw": 9.0,
-    "units": 1
+    "mw": 109.7,
+    "units": 10
    },
    {
     "year": 2026,
@@ -1912,27 +1904,19 @@
    },
    {
     "year": 2026,
-    "family": "hydro",
-    "stage": "under_construction",
-    "family_label": "Hydro",
-    "mw": 4.3,
-    "units": 1
-   },
-   {
-    "year": 2026,
     "family": "oil",
     "stage": "commissioning",
     "family_label": "Oil",
-    "mw": 1.5,
-    "units": 1
+    "mw": 2.5,
+    "units": 2
    },
    {
     "year": 2026,
     "family": "oil",
     "stage": "under_construction",
     "family_label": "Oil",
-    "mw": 15.6,
-    "units": 8
+    "mw": 14.6,
+    "units": 7
    },
    {
     "year": 2026,
@@ -1945,26 +1929,42 @@
    {
     "year": 2026,
     "family": "solar",
+    "stage": null,
+    "family_label": "Solar",
+    "mw": 100.0,
+    "units": 1
+   },
+   {
+    "year": 2026,
+    "family": "solar",
     "stage": "announced",
     "family_label": "Solar",
-    "mw": 67.0,
-    "units": 12
+    "mw": 52.0,
+    "units": 9
    },
    {
     "year": 2026,
     "family": "solar",
     "stage": "commissioning",
     "family_label": "Solar",
-    "mw": 10287.1,
-    "units": 93
+    "mw": 9975.9,
+    "units": 96
    },
    {
     "year": 2026,
     "family": "solar",
     "stage": "under_construction",
     "family_label": "Solar",
-    "mw": 13341.0,
-    "units": 252
+    "mw": 10264.3,
+    "units": 180
+   },
+   {
+    "year": 2026,
+    "family": "storage",
+    "stage": null,
+    "family_label": "Storage",
+    "mw": 100.0,
+    "units": 1
    },
    {
     "year": 2026,
@@ -1979,40 +1979,32 @@
     "family": "storage",
     "stage": "commissioning",
     "family_label": "Storage",
-    "mw": 2172.8,
-    "units": 24
-   },
-   {
-    "year": 2026,
-    "family": "storage",
-    "stage": "permitted",
-    "family_label": "Storage",
-    "mw": 5.0,
-    "units": 1
+    "mw": 2232.8,
+    "units": 28
    },
    {
     "year": 2026,
     "family": "storage",
     "stage": "under_construction",
     "family_label": "Storage",
-    "mw": 7402.2,
-    "units": 98
+    "mw": 5504.4,
+    "units": 69
    },
    {
     "year": 2026,
     "family": "wind",
     "stage": "commissioning",
     "family_label": "Wind",
-    "mw": 1363.6,
-    "units": 6
+    "mw": 1225.7,
+    "units": 5
    },
    {
     "year": 2026,
     "family": "wind",
     "stage": "under_construction",
     "family_label": "Wind",
-    "mw": 1830.6,
-    "units": 6
+    "mw": 890.0,
+    "units": 4
    },
    {
     "year": 2027,
@@ -2091,8 +2083,8 @@
     "family": "gas_ct",
     "stage": "under_construction",
     "family_label": "Gas, combustion turbine",
-    "mw": 3779.5,
-    "units": 31
+    "mw": 3785.3,
+    "units": 32
    },
    {
     "year": 2027,
@@ -2107,8 +2099,16 @@
     "family": "gas_engine",
     "stage": "under_construction",
     "family_label": "Gas engines",
-    "mw": 109.4,
-    "units": 11
+    "mw": 111.9,
+    "units": 12
+   },
+   {
+    "year": 2027,
+    "family": "gas_steam",
+    "stage": "under_construction",
+    "family_label": "Gas steam",
+    "mw": 9.0,
+    "units": 1
    },
    {
     "year": 2027,
@@ -2123,16 +2123,8 @@
     "family": "geothermal",
     "stage": "commissioning",
     "family_label": "Geothermal",
-    "mw": 43.0,
-    "units": 1
-   },
-   {
-    "year": 2027,
-    "family": "geothermal",
-    "stage": "under_construction",
-    "family_label": "Geothermal",
-    "mw": 43.0,
-    "units": 1
+    "mw": 86.0,
+    "units": 2
    },
    {
     "year": 2027,
@@ -2155,8 +2147,8 @@
     "family": "hydro",
     "stage": "under_construction",
     "family_label": "Hydro",
-    "mw": 10.4,
-    "units": 4
+    "mw": 14.7,
+    "units": 5
    },
    {
     "year": 2027,
@@ -2187,64 +2179,64 @@
     "family": "solar",
     "stage": "announced",
     "family_label": "Solar",
-    "mw": 20238.6,
-    "units": 144
+    "mw": 17930.5,
+    "units": 128
    },
    {
     "year": 2027,
     "family": "solar",
     "stage": "commissioning",
     "family_label": "Solar",
-    "mw": 534.7,
-    "units": 5
+    "mw": 1331.5,
+    "units": 9
    },
    {
     "year": 2027,
     "family": "solar",
     "stage": "permitted",
     "family_label": "Solar",
-    "mw": 6385.7,
-    "units": 81
+    "mw": 5972.7,
+    "units": 75
    },
    {
     "year": 2027,
     "family": "solar",
     "stage": "under_construction",
     "family_label": "Solar",
-    "mw": 16913.2,
-    "units": 236
+    "mw": 20054.7,
+    "units": 286
    },
    {
     "year": 2027,
     "family": "storage",
     "stage": "announced",
     "family_label": "Storage",
-    "mw": 13819.9,
-    "units": 87
+    "mw": 11150.9,
+    "units": 76
    },
    {
     "year": 2027,
     "family": "storage",
     "stage": "commissioning",
     "family_label": "Storage",
-    "mw": 810.0,
-    "units": 5
+    "mw": 1327.4,
+    "units": 14
    },
    {
     "year": 2027,
     "family": "storage",
     "stage": "permitted",
     "family_label": "Storage",
-    "mw": 1395.0,
-    "units": 18
+    "mw": 1155.0,
+    "units": 16
    },
    {
     "year": 2027,
     "family": "storage",
     "stage": "under_construction",
     "family_label": "Storage",
-    "mw": 11422.6,
-    "units": 105
+    "mw": 14359.1,
+    "units": 123
    },
    {
     "year": 2027,
@@ -2387,48 +2379,48 @@
     "family": "solar",
     "stage": "announced",
     "family_label": "Solar",
-    "mw": 21604.2,
-    "units": 118
+    "mw": 23184.5,
+    "units": 126
    },
    {
     "year": 2028,
     "family": "solar",
     "stage": "permitted",
     "family_label": "Solar",
-    "mw": 6486.0,
-    "units": 48
+    "mw": 6502.0,
+    "units": 49
    },
    {
     "year": 2028,
     "family": "solar",
     "stage": "under_construction",
     "family_label": "Solar",
-    "mw": 4128.7,
-    "units": 22
+    "mw": 4446.7,
+    "units": 24
    },
    {
     "year": 2028,
     "family": "storage",
     "stage": "announced",
     "family_label": "Storage",
-    "mw": 12781.9,
-    "units": 70
+    "mw": 13242.0,
+    "units": 74
    },
    {
     "year": 2028,
     "family": "storage",
     "stage": "permitted",
     "family_label": "Storage",
-    "mw": 3562.4,
-    "units": 20
+    "mw": 3832.4,
+    "units": 22
    },
    {
     "year": 2028,
     "family": "storage",
     "stage": "under_construction",
     "family_label": "Storage",
-    "mw": 891.0,
-    "units": 5
+    "mw": 1291.0,
+    "units": 6
    },
    {
     "year": 2028,
@@ -2531,8 +2523,8 @@
     "family": "solar",
     "stage": "announced",
     "family_label": "Solar",
-    "mw": 13995.6,
-    "units": 52
+    "mw": 14295.6,
+    "units": 53
    },
    {
     "year": 2029,
@@ -2555,8 +2547,8 @@
     "family": "storage",
     "stage": "announced",
     "family_label": "Storage",
-    "mw": 8550.9,
-    "units": 37
+    "mw": 8850.9,
+    "units": 38
    },
    {
     "year": 2029,
@@ -2604,8 +2596,8 @@
      "year": 2026,
      "family": "gas_steam",
      "family_label": "Gas steam",
-     "mw": 3419.4,
-     "units": 9
+     "mw": 2115.0,
+     "units": 6
     },
     {
      "year": 2026,
@@ -2625,8 +2617,8 @@
      "year": 2027,
      "family": "biomass",
      "family_label": "Biomass",
-     "mw": 12.1,
-     "units": 15
+     "mw": 18.5,
+     "units": 19
     },
     {
      "year": 2027,
@@ -3393,16 +3385,16 @@
     }
    ],
    "deferred": {
-    "units": 103,
-    "mw": 13738.3,
-    "withdrawn_units": 37,
-    "withdrawn_mw": 5417.5,
-    "median_years": 2.0,
+    "units": 89,
+    "mw": 11439.6,
+    "withdrawn_units": 36,
+    "withdrawn_mw": 4687.6,
+    "median_years": 4.0,
     "by_family": [
      {
       "family": "coal",
-      "mw": 8689.7,
-      "units": 19,
+      "mw": 6399.0,
+      "units": 15,
       "family_label": "Coal"
      },
      {
@@ -3437,8 +3429,8 @@
      },
      {
       "family": "biomass",
-      "mw": 58.1,
-      "units": 15,
+      "mw": 50.1,
+      "units": 5,
       "family_label": "Biomass"
      },
      {
@@ -3454,8 +3446,8 @@
       "family_label": "Solar"
      }
     ],
-    "from_vintage": "2025-09",
-    "to_vintage": "2026-09"
+    "from_vintage": "2025-10",
+    "to_vintage": "2026-10"
    },
    "deferred_rows": [
     {
@@ -3467,26 +3459,6 @@
      "year_before": 2026,
      "year_after": 2034,
      "deferred_years": 8.0
-    },
-    {
-     "plant_name": "J H Campbell",
-     "state": "MI",
-     "technology": "Conventional Steam Coal",
-     "family": "coal",
-     "nameplate_mw": 916.8,
-     "year_before": 2025,
-     "year_after": 2026,
-     "deferred_years": 1.0
-    },
-    {
-     "plant_name": "Transalta Centralia Generation",
-     "state": "WA",
-     "technology": "Conventional Steam Coal",
-     "family": "coal",
-     "nameplate_mw": 729.9,
-     "year_before": 2025,
-     "year_after": null,
-     "deferred_years": null
     },
     {
      "plant_name": "GREC",
@@ -3589,16 +3561,6 @@
      "deferred_years": 1.0
     },
     {
-     "plant_name": "J H Campbell",
-     "state": "MI",
-     "technology": "Conventional Steam Coal",
-     "family": "coal",
-     "nameplate_mw": 378.8,
-     "year_before": 2025,
-     "year_after": 2026,
-     "deferred_years": 1.0
-    },
-    {
      "plant_name": "Mill Creek (KY)",
      "state": "KY",
      "technology": "Conventional Steam Coal",
@@ -3626,16 +3588,6 @@
      "nameplate_mw": 317.6,
      "year_before": 2026,
      "year_after": 2027,
-     "deferred_years": 1.0
-    },
-    {
-     "plant_name": "J H Campbell",
-     "state": "MI",
-     "technology": "Conventional Steam Coal",
-     "family": "coal",
-     "nameplate_mw": 265.2,
-     "year_before": 2025,
-     "year_after": 2026,
      "deferred_years": 1.0
     },
     {
@@ -3857,6 +3809,46 @@
      "year_before": 2027,
      "year_after": 2032,
      "deferred_years": 5.0
+    },
+    {
+     "plant_name": "North Omaha",
+     "state": "NE",
+     "technology": "Natural Gas Steam Turbine",
+     "family": "gas_steam",
+     "nameplate_mw": 73.5,
+     "year_before": 2026,
+     "year_after": 2028,
+     "deferred_years": 2.0
+    },
+    {
+     "plant_name": "Gadsby",
+     "state": "UT",
+     "technology": "Natural Gas Steam Turbine",
+     "family": "gas_steam",
+     "nameplate_mw": 69.0,
+     "year_before": 2032,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Gadsby",
+     "state": "UT",
+     "technology": "Natural Gas Steam Turbine",
+     "family": "gas_steam",
+     "nameplate_mw": 69.0,
+     "year_before": 2032,
+     "year_after": null,
+     "deferred_years": null
+    },
+    {
+     "plant_name": "Solano Wind",
+     "state": "CA",
+     "technology": "Onshore Wind Turbine",
+     "family": "wind",
+     "nameplate_mw": 63.0,
+     "year_before": 2028,
+     "year_after": 2031,
+     "deferred_years": 3.0
     }
    ]
   }
@@ -6020,12 +6012,12 @@
   {
    "name": "Generator inventory",
    "status": "pass",
-   "detail": "32,818 units in the 2026-09 EIA-860M edition"
+   "detail": "32,858 units in the 2026-10 EIA-860M edition"
   },
   {
    "name": "Retail sales",
    "status": "pass",
-   "detail": "52,000 state-month-sector rows through 2026-08"
+   "detail": "52,260 state-month-sector rows through 2026-09"
   },
   {
    "name": "EIA forecast",
@@ -6040,7 +6032,7 @@
   {
    "name": "Retirement deferrals",
    "status": "pass",
-   "detail": "103 units, 13,738 MW moved later between 2025-09 and 2026-09"
+   "detail": "89 units, 11,440 MW moved later between 2025-10 and 2026-10"
   },
   {
    "name": "Contracted deals",

@@ -12,8 +12,8 @@
   "family": "gas_cc",
   "stage": "commissioning",
   "family_label": "Gas, combined cycle",
-  "mw": 1918.0,
-  "units": 4
+  "mw": 612.0,
+  "units": 1
  },
  {
   "year": 2026,
@@ -44,16 +44,8 @@
   "family": "gas_engine",
   "stage": "under_construction",
   "family_label": "Gas engines",
-  "mw": 112.2,
-  "units": 11
- },
- {
-  "year": 2026,
-  "family": "gas_steam",
-  "stage": "under_construction",
-  "family_label": "Gas steam",
-  "mw": 9.0,
-  "units": 1
+  "mw": 109.7,
+  "units": 10
  },
  {
   "year": 2026,
@@ -65,27 +57,19 @@
  },
  {
   "year": 2026,
-  "family": "hydro",
-  "stage": "under_construction",
-  "family_label": "Hydro",
-  "mw": 4.3,
-  "units": 1
- },
- {
-  "year": 2026,
   "family": "oil",
   "stage": "commissioning",
   "family_label": "Oil",
-  "mw": 1.5,
-  "units": 1
+  "mw": 2.5,
+  "units": 2
  },
  {
   "year": 2026,
   "family": "oil",
   "stage": "under_construction",
   "family_label": "Oil",
-  "mw": 15.6,
-  "units": 8
+  "mw": 14.6,
+  "units": 7
  },
  {
   "year": 2026,
@@ -98,26 +82,42 @@
  {
   "year": 2026,
   "family": "solar",
+  "stage": null,
+  "family_label": "Solar",
+  "mw": 100.0,
+  "units": 1
+ },
+ {
+  "year": 2026,
+  "family": "solar",
   "stage": "announced",
   "family_label": "Solar",
-  "mw": 67.0,
-  "units": 12
+  "mw": 52.0,
+  "units": 9
  },
  {
   "year": 2026,
   "family": "solar",
   "stage": "commissioning",
   "family_label": "Solar",
-  "mw": 10287.1,
-  "units": 93
+  "mw": 9975.9,
+  "units": 96
  },
  {
   "year": 2026,
   "family": "solar",
   "stage": "under_construction",
   "family_label": "Solar",
-  "mw": 13341.0,
-  "units": 252
+  "mw": 10264.3,
+  "units": 180
+ },
+ {
+  "year": 2026,
+  "family": "storage",
+  "stage": null,
+  "family_label": "Storage",
+  "mw": 100.0,
+  "units": 1
  },
  {
   "year": 2026,
@@ -132,40 +132,32 @@
   "family": "storage",
   "stage": "commissioning",
   "family_label": "Storage",
-  "mw": 2172.8,
-  "units": 24
- },
- {
-  "year": 2026,
-  "family": "storage",
-  "stage": "permitted",
-  "family_label": "Storage",
-  "mw": 5.0,
-  "units": 1
+  "mw": 2232.8,
+  "units": 28
  },
  {
   "year": 2026,
   "family": "storage",
   "stage": "under_construction",
   "family_label": "Storage",
-  "mw": 7402.2,
-  "units": 98
+  "mw": 5504.4,
+  "units": 69
  },
  {
   "year": 2026,
   "family": "wind",
   "stage": "commissioning",
   "family_label": "Wind",
-  "mw": 1363.6,
-  "units": 6
+  "mw": 1225.7,
+  "units": 5
  },
  {
   "year": 2026,
   "family": "wind",
   "stage": "under_construction",
   "family_label": "Wind",
-  "mw": 1830.6,
-  "units": 6
+  "mw": 890.0,
+  "units": 4
  },
  {
   "year": 2027,
@@ -244,8 +236,8 @@
   "family": "gas_ct",
   "stage": "under_construction",
   "family_label": "Gas, combustion turbine",
-  "mw": 3779.5,
-  "units": 31
+  "mw": 3785.3,
+  "units": 32
  },
  {
   "year": 2027,
@@ -260,8 +252,16 @@
   "family": "gas_engine",
   "stage": "under_construction",
   "family_label": "Gas engines",
-  "mw": 109.4,
-  "units": 11
+  "mw": 111.9,
+  "units": 12
+ },
+ {
+  "year": 2027,
+  "family": "gas_steam",
+  "stage": "under_construction",
+  "family_label": "Gas steam",
+  "mw": 9.0,
+  "units": 1
  },
  {
   "year": 2027,
@@ -276,16 +276,8 @@
   "family": "geothermal",
   "stage": "commissioning",
   "family_label": "Geothermal",
-  "mw": 43.0,
-  "units": 1
- },
- {
-  "year": 2027,
-  "family": "geothermal",
-  "stage": "under_construction",
-  "family_label": "Geothermal",
-  "mw": 43.0,
-  "units": 1
+  "mw": 86.0,
+  "units": 2
  },
  {
   "year": 2027,
@@ -308,8 +300,8 @@
   "family": "hydro",
   "stage": "under_construction",
   "family_label": "Hydro",
-  "mw": 10.4,
-  "units": 4
+  "mw": 14.7,
+  "units": 5
  },
  {
   "year": 2027,
@@ -340,64 +332,64 @@
   "family": "solar",
   "stage": "announced",
   "family_label": "Solar",
-  "mw": 20238.6,
-  "units": 144
+  "mw": 17930.5,
+  "units": 128
  },
  {
   "year": 2027,
   "family": "solar",
   "stage": "commissioning",
   "family_label": "Solar",
-  "mw": 534.7,
-  "units": 5
+  "mw": 1331.5,
+  "units": 9
  },
  {
   "year": 2027,
   "family": "solar",
   "stage": "permitted",
   "family_label": "Solar",
-  "mw": 6385.7,
-  "units": 81
+  "mw": 5972.7,
+  "units": 75
  },
  {
   "year": 2027,
   "family": "solar",
   "stage": "under_construction",
   "family_label": "Solar",
-  "mw": 16913.2,
-  "units": 236
+  "mw": 20054.7,
+  "units": 286
  },
  {
   "year": 2027,
   "family": "storage",
   "stage": "announced",
   "family_label": "Storage",
-  "mw": 13819.9,
-  "units": 87
+  "mw": 11150.9,
+  "units": 76
  },
  {
   "year": 2027,
   "family": "storage",
   "stage": "commissioning",
   "family_label": "Storage",
-  "mw": 810.0,
-  "units": 5
+  "mw": 1327.4,
+  "units": 14
  },
  {
   "year": 2027,
   "family": "storage",
   "stage": "permitted",
   "family_label": "Storage",
-  "mw": 1395.0,
-  "units": 18
+  "mw": 1155.0,
+  "units": 16
  },
  {
   "year": 2027,
   "family": "storage",
   "stage": "under_construction",
   "family_label": "Storage",
-  "mw": 11422.6,
-  "units": 105
+  "mw": 14359.1,
+  "units": 123
  },
  {
   "year": 2027,
@@ -540,48 +532,48 @@
   "family": "solar",
   "stage": "announced",
   "family_label": "Solar",
-  "mw": 21604.2,
-  "units": 118
+  "mw": 23184.5,
+  "units": 126
  },
  {
   "year": 2028,
   "family": "solar",
   "stage": "permitted",
   "family_label": "Solar",
-  "mw": 6486.0,
-  "units": 48
+  "mw": 6502.0,
+  "units": 49
  },
  {
   "year": 2028,
   "family": "solar",
   "stage": "under_construction",
   "family_label": "Solar",
-  "mw": 4128.7,
-  "units": 22
+  "mw": 4446.7,
+  "units": 24
  },
  {
   "year": 2028,
   "family": "storage",
   "stage": "announced",
   "family_label": "Storage",
-  "mw": 12781.9,
-  "units": 70
+  "mw": 13242.0,
+  "units": 74
  },
  {
   "year": 2028,
   "family": "storage",
   "stage": "permitted",
   "family_label": "Storage",
-  "mw": 3562.4,
-  "units": 20
+  "mw": 3832.4,
+  "units": 22
  },
  {
   "year": 2028,
   "family": "storage",
   "stage": "under_construction",
   "family_label": "Storage",
-  "mw": 891.0,
-  "units": 5
+  "mw": 1291.0,
+  "units": 6
  },
  {
   "year": 2028,
@@ -684,8 +676,8 @@
   "family": "solar",
   "stage": "announced",
   "family_label": "Solar",
-  "mw": 13995.6,
-  "units": 52
+  "mw": 14295.6,
+  "units": 53
  },
  {
   "year": 2029,
@@ -708,8 +700,8 @@
   "family": "storage",
   "stage": "announced",
   "family_label": "Storage",
-  "mw": 8550.9,
-  "units": 37
+  "mw": 8850.9,
+  "units": 38
  },
  {
   "year": 2029,
