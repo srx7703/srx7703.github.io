@@ -644,16 +644,16 @@
   "series": "Adyen",
   "company": "Adyen",
   "period": "2026-09-01",
-  "downloads": 2342265,
-  "index": 206.10293069495117
+  "downloads": 2659496,
+  "index": 234.0170389650615
  },
  {
   "side": "client",
   "series": "Adyen",
   "company": "Adyen",
   "period": "2026-10-01",
-  "downloads": 2636115,
-  "index": 231.95967456667844
+  "downloads": 2782974,
+  "index": 244.88223896435755
  },
  {
   "side": "client",
@@ -1300,16 +1300,16 @@
   "series": "Stripe",
   "company": "Stripe",
   "period": "2026-09-01",
-  "downloads": 55857859,
-  "index": 672.6432859775593
+  "downloads": 62472601,
+  "index": 752.2983582346928
  },
  {
   "side": "client",
   "series": "Stripe",
   "company": "Stripe",
   "period": "2026-10-01",
-  "downloads": 65019409,
-  "index": 782.967154578533
+  "downloads": 68149586,
+  "index": 820.660911207683
  },
  {
   "side": "server",
@@ -1956,16 +1956,16 @@
   "series": "@adyen/api-library",
   "company": "Adyen",
   "period": "2026-09-01",
-  "downloads": 1141350,
-  "index": 383.8509191436124
+  "downloads": 1308135,
+  "index": 439.9428940412051
  },
  {
   "side": "server",
   "series": "@adyen/api-library",
   "company": "Adyen",
   "period": "2026-10-01",
-  "downloads": 1161124,
-  "index": 390.50117373260423
+  "downloads": 1230716,
+  "index": 413.9058726987779
  },
  {
   "side": "server",
@@ -2612,16 +2612,16 @@
   "series": "braintree",
   "company": "PayPal",
   "period": "2026-09-01",
-  "downloads": 830435,
-  "index": 224.30791338146676
+  "downloads": 946269,
+  "index": 255.59571175054901
  },
  {
   "side": "server",
   "series": "braintree",
   "company": "PayPal",
   "period": "2026-10-01",
-  "downloads": 853297,
-  "index": 230.4831438519155
+  "downloads": 913409,
+  "index": 246.71993214863554
  },
  {
   "side": "server",
@@ -3268,15 +3268,15 @@
   "series": "stripe",
   "company": "Stripe",
   "period": "2026-09-01",
-  "downloads": 89557526,
-  "index": 835.5925808226765
+  "downloads": 99877887,
+  "index": 931.8839531749196
  },
  {
   "side": "server",
   "series": "stripe",
   "company": "Stripe",
   "period": "2026-10-01",
-  "downloads": 109086643,
-  "index": 1017.8037919186373
+  "downloads": 114051836,
+  "index": 1064.130199295642
  }
 ]
