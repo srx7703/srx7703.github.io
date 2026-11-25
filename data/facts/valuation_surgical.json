@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-24T18:22:19.039292+00:00",
+ "generated_at": "2026-11-25T17:40:40.393954+00:00",
  "track": "surgical",
  "label": "Surgical robots",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-11-24T18:20:17+00:00",
+ "as_of_price": "2026-11-25T17:38:39+00:00",
  "as_of_estimates": "2026-11-23T19:32:45+00:00",
  "as_of_fx": "2026-11-20",
  "n_listings": 8,
@@ -16,17 +16,17 @@
  "n_thin": 0,
  "n_nm": 2,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 31.627226627585532,
- "median_fwd_pe_next": 29.224603088502164,
- "p25_fwd_pe_this": 18.864006640753946,
- "p75_fwd_pe_this": 113.00339953518426,
- "iqr_fwd_pe_this": 94.13939289443032,
+ "median_fwd_pe_this": 31.305839320916558,
+ "median_fwd_pe_next": 28.934190801318408,
+ "p25_fwd_pe_this": 18.860633847235466,
+ "p75_fwd_pe_this": 105.04819798757619,
+ "iqr_fwd_pe_this": 86.18756414034073,
  "median_growth": 0.09141410273797024,
  "median_trailing_pe": 30.55966860258717,
  "cheapest": {
   "ticker": "MDT",
   "name": "Medtronic",
-  "fwd_pe_2026": 16.554597908278673,
+  "fwd_pe_2026": 16.48766557172229,
   "growth": 0.07475312265093237,
   "coverage": "covered"
  },
