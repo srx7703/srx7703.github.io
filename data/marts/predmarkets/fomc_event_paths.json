@@ -1460,8 +1460,8 @@
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -30,
-  "d_bps": 0.04,
-  "n": 31
+  "d_bps": 0.03,
+  "n": 32
  },
  {
   "release": "all",
@@ -1469,47 +1469,47 @@
   "platform": "kalshi",
   "minute": -29,
   "d_bps": 0.02,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -28,
-  "d_bps": 0.02,
-  "n": 31
+  "d_bps": 0.01,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -27,
-  "d_bps": 0.01,
-  "n": 31
+  "d_bps": 0.0,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -26,
-  "d_bps": 0.01,
-  "n": 31
+  "d_bps": 0.0,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -25,
-  "d_bps": -0.04,
-  "n": 31
+  "d_bps": -0.05,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -24,
-  "d_bps": -0.04,
-  "n": 31
+  "d_bps": -0.05,
+  "n": 32
  },
  {
   "release": "all",
@@ -1517,23 +1517,23 @@
   "platform": "kalshi",
   "minute": -23,
   "d_bps": -0.05,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -22,
-  "d_bps": -0.02,
-  "n": 31
+  "d_bps": -0.03,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -21,
-  "d_bps": 0.03,
-  "n": 31
+  "d_bps": 0.04,
+  "n": 32
  },
  {
   "release": "all",
@@ -1541,7 +1541,7 @@
   "platform": "kalshi",
   "minute": -20,
   "d_bps": 0.01,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1549,7 +1549,7 @@
   "platform": "kalshi",
   "minute": -19,
   "d_bps": 0.02,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1557,7 +1557,7 @@
   "platform": "kalshi",
   "minute": -18,
   "d_bps": -0.01,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1565,7 +1565,7 @@
   "platform": "kalshi",
   "minute": -17,
   "d_bps": 0.0,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1573,7 +1573,7 @@
   "platform": "kalshi",
   "minute": -16,
   "d_bps": -0.0,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1581,7 +1581,7 @@
   "platform": "kalshi",
   "minute": -15,
   "d_bps": 0.0,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1589,7 +1589,7 @@
   "platform": "kalshi",
   "minute": -14,
   "d_bps": 0.01,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1597,7 +1597,7 @@
   "platform": "kalshi",
   "minute": -13,
   "d_bps": 0.01,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1605,7 +1605,7 @@
   "platform": "kalshi",
   "minute": -12,
   "d_bps": -0.01,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1613,7 +1613,7 @@
   "platform": "kalshi",
   "minute": -11,
   "d_bps": -0.01,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1621,7 +1621,7 @@
   "platform": "kalshi",
   "minute": -10,
   "d_bps": 0.0,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1629,7 +1629,7 @@
   "platform": "kalshi",
   "minute": -9,
   "d_bps": 0.02,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1637,7 +1637,7 @@
   "platform": "kalshi",
   "minute": -8,
   "d_bps": 0.01,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1645,7 +1645,7 @@
   "platform": "kalshi",
   "minute": -7,
   "d_bps": -0.02,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1653,7 +1653,7 @@
   "platform": "kalshi",
   "minute": -6,
   "d_bps": -0.01,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1661,7 +1661,7 @@
   "platform": "kalshi",
   "minute": -5,
   "d_bps": -0.01,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1669,7 +1669,7 @@
   "platform": "kalshi",
   "minute": -4,
   "d_bps": -0.02,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1677,7 +1677,7 @@
   "platform": "kalshi",
   "minute": -3,
   "d_bps": -0.04,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1685,7 +1685,7 @@
   "platform": "kalshi",
   "minute": -2,
   "d_bps": -0.04,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1693,7 +1693,7 @@
   "platform": "kalshi",
   "minute": -1,
   "d_bps": -0.02,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -1701,487 +1701,487 @@
   "platform": "kalshi",
   "minute": 0,
   "d_bps": -0.0,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 1,
-  "d_bps": 0.58,
-  "n": 31
+  "d_bps": 0.56,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 2,
-  "d_bps": 0.85,
-  "n": 31
+  "d_bps": 0.82,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 3,
-  "d_bps": 0.87,
-  "n": 31
+  "d_bps": 0.84,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 4,
-  "d_bps": 0.93,
-  "n": 31
+  "d_bps": 0.9,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 5,
-  "d_bps": 1.06,
-  "n": 31
+  "d_bps": 1.03,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 6,
-  "d_bps": 1.07,
-  "n": 31
+  "d_bps": 1.03,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 7,
-  "d_bps": 1.13,
-  "n": 31
+  "d_bps": 1.1,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 8,
-  "d_bps": 1.11,
-  "n": 31
+  "d_bps": 1.08,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 9,
-  "d_bps": 1.15,
-  "n": 31
+  "d_bps": 1.12,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 10,
-  "d_bps": 1.18,
-  "n": 31
+  "d_bps": 1.14,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 11,
-  "d_bps": 1.18,
-  "n": 31
+  "d_bps": 1.15,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 12,
-  "d_bps": 1.17,
-  "n": 31
+  "d_bps": 1.13,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 13,
-  "d_bps": 1.16,
-  "n": 31
+  "d_bps": 1.12,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 14,
-  "d_bps": 1.17,
-  "n": 31
+  "d_bps": 1.13,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 15,
-  "d_bps": 1.15,
-  "n": 31
+  "d_bps": 1.11,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 16,
-  "d_bps": 1.21,
-  "n": 31
+  "d_bps": 1.17,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 17,
-  "d_bps": 1.22,
-  "n": 31
+  "d_bps": 1.17,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 18,
-  "d_bps": 1.26,
-  "n": 31
+  "d_bps": 1.21,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 19,
-  "d_bps": 1.27,
-  "n": 31
+  "d_bps": 1.23,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 20,
-  "d_bps": 1.26,
-  "n": 31
+  "d_bps": 1.22,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 21,
-  "d_bps": 1.28,
-  "n": 31
+  "d_bps": 1.23,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 22,
-  "d_bps": 1.26,
-  "n": 31
+  "d_bps": 1.22,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 23,
-  "d_bps": 1.25,
-  "n": 31
+  "d_bps": 1.2,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 24,
-  "d_bps": 1.27,
-  "n": 31
+  "d_bps": 1.22,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 25,
-  "d_bps": 1.27,
-  "n": 31
+  "d_bps": 1.22,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 26,
-  "d_bps": 1.26,
-  "n": 31
+  "d_bps": 1.21,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 27,
-  "d_bps": 1.27,
-  "n": 31
+  "d_bps": 1.22,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 28,
-  "d_bps": 1.26,
-  "n": 31
+  "d_bps": 1.2,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 29,
-  "d_bps": 1.28,
-  "n": 31
+  "d_bps": 1.23,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 30,
-  "d_bps": 1.3,
-  "n": 31
+  "d_bps": 1.25,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 31,
-  "d_bps": 1.3,
-  "n": 31
+  "d_bps": 1.24,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 32,
-  "d_bps": 1.3,
-  "n": 31
+  "d_bps": 1.24,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 33,
-  "d_bps": 1.3,
-  "n": 31
+  "d_bps": 1.24,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 34,
-  "d_bps": 1.32,
-  "n": 31
+  "d_bps": 1.26,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 35,
-  "d_bps": 1.36,
-  "n": 31
+  "d_bps": 1.29,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 36,
-  "d_bps": 1.34,
-  "n": 31
+  "d_bps": 1.28,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 37,
-  "d_bps": 1.38,
-  "n": 31
+  "d_bps": 1.32,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 38,
-  "d_bps": 1.39,
-  "n": 31
+  "d_bps": 1.32,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 39,
-  "d_bps": 1.39,
-  "n": 31
+  "d_bps": 1.32,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 40,
-  "d_bps": 1.4,
-  "n": 31
+  "d_bps": 1.33,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 41,
-  "d_bps": 1.43,
-  "n": 31
+  "d_bps": 1.36,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 42,
-  "d_bps": 1.3,
-  "n": 31
+  "d_bps": 1.24,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 43,
-  "d_bps": 1.29,
-  "n": 31
+  "d_bps": 1.22,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 44,
-  "d_bps": 1.3,
-  "n": 31
+  "d_bps": 1.22,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 45,
-  "d_bps": 1.3,
-  "n": 31
+  "d_bps": 1.22,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 46,
-  "d_bps": 1.31,
-  "n": 31
+  "d_bps": 1.23,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 47,
-  "d_bps": 1.3,
-  "n": 31
+  "d_bps": 1.22,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 48,
-  "d_bps": 1.27,
-  "n": 31
+  "d_bps": 1.19,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 49,
-  "d_bps": 1.24,
-  "n": 31
+  "d_bps": 1.16,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 50,
-  "d_bps": 1.26,
-  "n": 31
+  "d_bps": 1.18,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 51,
-  "d_bps": 1.25,
-  "n": 31
+  "d_bps": 1.17,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 52,
-  "d_bps": 1.27,
-  "n": 31
+  "d_bps": 1.19,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 53,
-  "d_bps": 1.24,
-  "n": 31
+  "d_bps": 1.17,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 54,
-  "d_bps": 1.24,
-  "n": 31
+  "d_bps": 1.17,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 55,
-  "d_bps": 1.24,
-  "n": 31
+  "d_bps": 1.18,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 56,
-  "d_bps": 1.24,
-  "n": 31
+  "d_bps": 1.18,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 57,
-  "d_bps": 1.25,
-  "n": 31
+  "d_bps": 1.18,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 58,
-  "d_bps": 1.27,
-  "n": 31
+  "d_bps": 1.21,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 59,
-  "d_bps": 1.26,
-  "n": 31
+  "d_bps": 1.2,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 60,
-  "d_bps": 1.27,
-  "n": 31
+  "d_bps": 1.2,
+  "n": 32
  },
  {
   "release": "all",
@@ -2189,7 +2189,7 @@
   "platform": "polymarket",
   "minute": -30,
   "d_bps": 0.07,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -2197,7 +2197,7 @@
   "platform": "polymarket",
   "minute": -29,
   "d_bps": 0.06,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -2205,7 +2205,7 @@
   "platform": "polymarket",
   "minute": -28,
   "d_bps": 0.08,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -2213,7 +2213,7 @@
   "platform": "polymarket",
   "minute": -27,
   "d_bps": 0.06,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -2221,15 +2221,15 @@
   "platform": "polymarket",
   "minute": -26,
   "d_bps": 0.08,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -25,
-  "d_bps": 0.09,
-  "n": 31
+  "d_bps": 0.08,
+  "n": 32
  },
  {
   "release": "all",
@@ -2237,7 +2237,7 @@
   "platform": "polymarket",
   "minute": -24,
   "d_bps": 0.09,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -2245,7 +2245,7 @@
   "platform": "polymarket",
   "minute": -23,
   "d_bps": 0.07,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -2253,71 +2253,71 @@
   "platform": "polymarket",
   "minute": -22,
   "d_bps": 0.05,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -21,
-  "d_bps": 0.03,
-  "n": 31
+  "d_bps": 0.04,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -20,
-  "d_bps": 0.03,
-  "n": 31
+  "d_bps": 0.04,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -19,
-  "d_bps": 0.02,
-  "n": 31
+  "d_bps": 0.03,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -18,
-  "d_bps": 0.01,
-  "n": 31
+  "d_bps": 0.02,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -17,
-  "d_bps": 0.01,
-  "n": 31
+  "d_bps": 0.02,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -16,
-  "d_bps": -0.0,
-  "n": 31
+  "d_bps": 0.0,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -15,
-  "d_bps": 0.0,
-  "n": 31
+  "d_bps": 0.01,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -14,
-  "d_bps": 0.02,
-  "n": 31
+  "d_bps": 0.03,
+  "n": 32
  },
  {
   "release": "all",
@@ -2325,7 +2325,7 @@
   "platform": "polymarket",
   "minute": -13,
   "d_bps": 0.02,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -2333,7 +2333,7 @@
   "platform": "polymarket",
   "minute": -12,
   "d_bps": 0.01,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -2341,7 +2341,7 @@
   "platform": "polymarket",
   "minute": -11,
   "d_bps": 0.01,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -2349,7 +2349,7 @@
   "platform": "polymarket",
   "minute": -10,
   "d_bps": 0.0,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -2357,7 +2357,7 @@
   "platform": "polymarket",
   "minute": -9,
   "d_bps": 0.02,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -2365,7 +2365,7 @@
   "platform": "polymarket",
   "minute": -8,
   "d_bps": 0.03,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -2373,7 +2373,7 @@
   "platform": "polymarket",
   "minute": -7,
   "d_bps": 0.02,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -2381,7 +2381,7 @@
   "platform": "polymarket",
   "minute": -6,
   "d_bps": 0.03,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -2389,7 +2389,7 @@
   "platform": "polymarket",
   "minute": -5,
   "d_bps": 0.05,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -2397,15 +2397,15 @@
   "platform": "polymarket",
   "minute": -4,
   "d_bps": 0.02,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -3,
-  "d_bps": 0.02,
-  "n": 31
+  "d_bps": 0.01,
+  "n": 32
  },
  {
   "release": "all",
@@ -2413,15 +2413,15 @@
   "platform": "polymarket",
   "minute": -2,
   "d_bps": 0.01,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -1,
-  "d_bps": 0.01,
-  "n": 31
+  "d_bps": 0.02,
+  "n": 32
  },
  {
   "release": "all",
@@ -2429,7 +2429,7 @@
   "platform": "polymarket",
   "minute": 0,
   "d_bps": 0.06,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
@@ -2437,479 +2437,479 @@
   "platform": "polymarket",
   "minute": 1,
   "d_bps": 0.17,
-  "n": 31
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 2,
-  "d_bps": 0.89,
-  "n": 31
+  "d_bps": 0.86,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 3,
-  "d_bps": 1.12,
-  "n": 31
+  "d_bps": 1.09,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 4,
-  "d_bps": 1.24,
-  "n": 31
+  "d_bps": 1.2,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 5,
-  "d_bps": 1.24,
-  "n": 31
+  "d_bps": 1.2,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 6,
-  "d_bps": 1.36,
-  "n": 31
+  "d_bps": 1.32,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 7,
-  "d_bps": 1.4,
-  "n": 31
+  "d_bps": 1.36,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 8,
-  "d_bps": 1.41,
-  "n": 31
+  "d_bps": 1.37,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 9,
-  "d_bps": 1.47,
-  "n": 31
+  "d_bps": 1.42,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 10,
-  "d_bps": 1.5,
-  "n": 31
+  "d_bps": 1.45,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 11,
-  "d_bps": 1.52,
-  "n": 31
+  "d_bps": 1.48,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 12,
-  "d_bps": 1.61,
-  "n": 31
+  "d_bps": 1.57,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 13,
-  "d_bps": 1.68,
-  "n": 31
+  "d_bps": 1.63,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 14,
-  "d_bps": 1.67,
-  "n": 31
+  "d_bps": 1.62,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 15,
-  "d_bps": 1.62,
-  "n": 31
+  "d_bps": 1.58,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 16,
-  "d_bps": 1.65,
-  "n": 31
+  "d_bps": 1.61,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 17,
-  "d_bps": 1.6,
-  "n": 31
+  "d_bps": 1.56,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 18,
-  "d_bps": 1.6,
-  "n": 31
+  "d_bps": 1.55,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 19,
-  "d_bps": 1.55,
-  "n": 31
+  "d_bps": 1.51,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 20,
-  "d_bps": 1.56,
-  "n": 31
+  "d_bps": 1.52,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 21,
-  "d_bps": 1.54,
-  "n": 31
+  "d_bps": 1.5,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 22,
-  "d_bps": 1.57,
-  "n": 31
+  "d_bps": 1.53,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 23,
-  "d_bps": 1.58,
-  "n": 31
+  "d_bps": 1.54,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 24,
-  "d_bps": 1.59,
-  "n": 31
+  "d_bps": 1.55,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 25,
-  "d_bps": 1.61,
-  "n": 31
+  "d_bps": 1.56,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 26,
-  "d_bps": 1.66,
-  "n": 31
+  "d_bps": 1.62,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 27,
-  "d_bps": 1.68,
-  "n": 31
+  "d_bps": 1.63,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 28,
-  "d_bps": 1.7,
-  "n": 31
+  "d_bps": 1.65,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 29,
-  "d_bps": 1.67,
-  "n": 31
+  "d_bps": 1.63,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 30,
-  "d_bps": 1.62,
-  "n": 31
+  "d_bps": 1.58,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 31,
-  "d_bps": 1.61,
-  "n": 31
+  "d_bps": 1.57,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 32,
-  "d_bps": 1.61,
-  "n": 31
+  "d_bps": 1.56,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 33,
-  "d_bps": 1.59,
-  "n": 31
+  "d_bps": 1.54,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 34,
-  "d_bps": 1.62,
-  "n": 31
+  "d_bps": 1.58,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 35,
-  "d_bps": 1.6,
-  "n": 31
+  "d_bps": 1.55,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 36,
-  "d_bps": 1.62,
-  "n": 31
+  "d_bps": 1.58,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 37,
-  "d_bps": 1.68,
-  "n": 31
+  "d_bps": 1.63,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 38,
-  "d_bps": 1.71,
-  "n": 31
+  "d_bps": 1.66,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 39,
-  "d_bps": 1.72,
-  "n": 31
+  "d_bps": 1.67,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 40,
-  "d_bps": 1.7,
-  "n": 31
+  "d_bps": 1.66,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 41,
-  "d_bps": 1.68,
-  "n": 31
+  "d_bps": 1.64,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 42,
-  "d_bps": 1.69,
-  "n": 31
+  "d_bps": 1.65,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 43,
-  "d_bps": 1.69,
-  "n": 31
+  "d_bps": 1.64,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 44,
-  "d_bps": 1.67,
-  "n": 31
+  "d_bps": 1.63,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 45,
-  "d_bps": 1.67,
-  "n": 31
+  "d_bps": 1.63,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 46,
-  "d_bps": 1.68,
-  "n": 31
+  "d_bps": 1.64,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 47,
-  "d_bps": 1.68,
-  "n": 31
+  "d_bps": 1.64,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 48,
-  "d_bps": 1.69,
-  "n": 31
+  "d_bps": 1.65,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 49,
-  "d_bps": 1.67,
-  "n": 31
+  "d_bps": 1.62,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 50,
-  "d_bps": 1.66,
-  "n": 31
+  "d_bps": 1.61,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 51,
-  "d_bps": 1.65,
-  "n": 31
+  "d_bps": 1.61,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 52,
-  "d_bps": 1.65,
-  "n": 31
+  "d_bps": 1.6,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 53,
-  "d_bps": 1.66,
-  "n": 31
+  "d_bps": 1.62,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 54,
-  "d_bps": 1.66,
-  "n": 31
+  "d_bps": 1.62,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 55,
-  "d_bps": 1.66,
-  "n": 31
+  "d_bps": 1.61,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 56,
-  "d_bps": 1.65,
-  "n": 31
+  "d_bps": 1.61,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 57,
-  "d_bps": 1.63,
-  "n": 31
+  "d_bps": 1.59,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 58,
-  "d_bps": 1.69,
-  "n": 31
+  "d_bps": 1.65,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 59,
-  "d_bps": 1.65,
-  "n": 31
+  "d_bps": 1.61,
+  "n": 32
  },
  {
   "release": "all",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 60,
-  "d_bps": 1.68,
-  "n": 31
+  "d_bps": 1.64,
+  "n": 32
  },
  {
   "release": "cpi",
@@ -10196,80 +10196,80 @@
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -30,
-  "d_bps": -0.08,
-  "n": 8
+  "d_bps": -0.1,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -29,
-  "d_bps": -0.08,
-  "n": 8
+  "d_bps": -0.1,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -28,
-  "d_bps": -0.08,
-  "n": 8
+  "d_bps": -0.1,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -27,
-  "d_bps": -0.08,
-  "n": 8
+  "d_bps": -0.1,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -26,
-  "d_bps": -0.08,
-  "n": 8
+  "d_bps": -0.1,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -25,
-  "d_bps": -0.06,
-  "n": 8
+  "d_bps": -0.08,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -24,
-  "d_bps": -0.06,
-  "n": 8
+  "d_bps": -0.08,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -23,
-  "d_bps": -0.09,
-  "n": 8
+  "d_bps": -0.11,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -22,
-  "d_bps": -0.06,
-  "n": 8
+  "d_bps": -0.08,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -21,
-  "d_bps": -0.05,
-  "n": 8
+  "d_bps": -0.01,
+  "n": 9
  },
  {
   "release": "pce",
@@ -10277,7 +10277,7 @@
   "platform": "kalshi",
   "minute": -20,
   "d_bps": -0.03,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -10285,7 +10285,7 @@
   "platform": "kalshi",
   "minute": -19,
   "d_bps": 0.0,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -10293,23 +10293,23 @@
   "platform": "kalshi",
   "minute": -18,
   "d_bps": 0.0,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -17,
-  "d_bps": 0.02,
-  "n": 8
+  "d_bps": 0.01,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -16,
-  "d_bps": -0.02,
-  "n": 8
+  "d_bps": -0.01,
+  "n": 9
  },
  {
   "release": "pce",
@@ -10317,7 +10317,7 @@
   "platform": "kalshi",
   "minute": -15,
   "d_bps": 0.0,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -10325,15 +10325,15 @@
   "platform": "kalshi",
   "minute": -14,
   "d_bps": 0.0,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -13,
-  "d_bps": 0.02,
-  "n": 8
+  "d_bps": 0.01,
+  "n": 9
  },
  {
   "release": "pce",
@@ -10341,7 +10341,7 @@
   "platform": "kalshi",
   "minute": -12,
   "d_bps": 0.0,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -10349,7 +10349,7 @@
   "platform": "kalshi",
   "minute": -11,
   "d_bps": 0.0,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -10357,7 +10357,7 @@
   "platform": "kalshi",
   "minute": -10,
   "d_bps": 0.0,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -10365,7 +10365,7 @@
   "platform": "kalshi",
   "minute": -9,
   "d_bps": 0.06,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -10373,7 +10373,7 @@
   "platform": "kalshi",
   "minute": -8,
   "d_bps": 0.06,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -10381,23 +10381,23 @@
   "platform": "kalshi",
   "minute": -7,
   "d_bps": 0.03,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -6,
-  "d_bps": 0.05,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -5,
-  "d_bps": 0.05,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
@@ -10405,23 +10405,23 @@
   "platform": "kalshi",
   "minute": -4,
   "d_bps": 0.03,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -3,
-  "d_bps": 0.05,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": -2,
-  "d_bps": 0.05,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
@@ -10429,39 +10429,39 @@
   "platform": "kalshi",
   "minute": -1,
   "d_bps": 0.06,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 0,
-  "d_bps": 0.08,
-  "n": 8
+  "d_bps": 0.07,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 1,
-  "d_bps": 0.05,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 2,
-  "d_bps": 0.05,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 3,
-  "d_bps": 0.02,
-  "n": 8
+  "d_bps": 0.01,
+  "n": 9
  },
  {
   "release": "pce",
@@ -10469,7 +10469,7 @@
   "platform": "kalshi",
   "minute": 4,
   "d_bps": -0.03,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -10477,15 +10477,15 @@
   "platform": "kalshi",
   "minute": 5,
   "d_bps": -0.03,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 6,
-  "d_bps": -0.06,
-  "n": 8
+  "d_bps": -0.05,
+  "n": 9
  },
  {
   "release": "pce",
@@ -10493,47 +10493,47 @@
   "platform": "kalshi",
   "minute": 7,
   "d_bps": -0.03,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 8,
-  "d_bps": -0.02,
-  "n": 8
+  "d_bps": -0.01,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 9,
-  "d_bps": -0.11,
-  "n": 8
+  "d_bps": -0.1,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 10,
-  "d_bps": -0.09,
-  "n": 8
+  "d_bps": -0.1,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 11,
-  "d_bps": -0.09,
-  "n": 8
+  "d_bps": -0.08,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 12,
-  "d_bps": -0.09,
-  "n": 8
+  "d_bps": -0.1,
+  "n": 9
  },
  {
   "release": "pce",
@@ -10541,7 +10541,7 @@
   "platform": "kalshi",
   "minute": 13,
   "d_bps": -0.08,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -10549,375 +10549,375 @@
   "platform": "kalshi",
   "minute": 14,
   "d_bps": -0.08,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 15,
-  "d_bps": -0.06,
-  "n": 8
+  "d_bps": -0.07,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 16,
-  "d_bps": -0.05,
-  "n": 8
+  "d_bps": -0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 17,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": -0.08,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 18,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": -0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 19,
-  "d_bps": -0.03,
-  "n": 8
+  "d_bps": -0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 20,
-  "d_bps": -0.03,
-  "n": 8
+  "d_bps": -0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 21,
-  "d_bps": -0.06,
-  "n": 8
+  "d_bps": -0.07,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 22,
-  "d_bps": -0.04,
-  "n": 8
+  "d_bps": -0.05,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 23,
-  "d_bps": -0.03,
-  "n": 8
+  "d_bps": -0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 24,
-  "d_bps": -0.04,
-  "n": 8
+  "d_bps": -0.05,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 25,
-  "d_bps": -0.04,
-  "n": 8
+  "d_bps": -0.08,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 26,
-  "d_bps": -0.08,
-  "n": 8
+  "d_bps": -0.11,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 27,
-  "d_bps": -0.08,
-  "n": 8
+  "d_bps": -0.11,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 28,
-  "d_bps": -0.08,
-  "n": 8
+  "d_bps": -0.11,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 29,
-  "d_bps": -0.08,
-  "n": 8
+  "d_bps": -0.11,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 30,
-  "d_bps": -0.06,
-  "n": 8
+  "d_bps": -0.1,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 31,
-  "d_bps": -0.06,
-  "n": 8
+  "d_bps": -0.1,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 32,
-  "d_bps": -0.06,
-  "n": 8
+  "d_bps": -0.12,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 33,
-  "d_bps": -0.06,
-  "n": 8
+  "d_bps": -0.12,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 34,
-  "d_bps": -0.08,
-  "n": 8
+  "d_bps": -0.14,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 35,
-  "d_bps": -0.04,
-  "n": 8
+  "d_bps": -0.11,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 36,
-  "d_bps": -0.06,
-  "n": 8
+  "d_bps": -0.12,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 37,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": -0.08,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 38,
-  "d_bps": 0.0,
-  "n": 8
+  "d_bps": -0.08,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 39,
-  "d_bps": 0.0,
-  "n": 8
+  "d_bps": -0.08,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 40,
-  "d_bps": 0.0,
-  "n": 8
+  "d_bps": -0.08,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 41,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": -0.1,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 42,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": -0.1,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 43,
-  "d_bps": -0.06,
-  "n": 8
+  "d_bps": -0.14,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 44,
-  "d_bps": -0.04,
-  "n": 8
+  "d_bps": -0.18,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 45,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": -0.15,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 46,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": -0.15,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 47,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": -0.15,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 48,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": -0.15,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 49,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": -0.15,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 50,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": -0.15,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 51,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": -0.15,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 52,
-  "d_bps": 0.02,
-  "n": 8
+  "d_bps": -0.12,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 53,
-  "d_bps": 0.02,
-  "n": 8
+  "d_bps": -0.12,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 54,
-  "d_bps": 0.03,
-  "n": 8
+  "d_bps": -0.07,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 55,
-  "d_bps": 0.02,
-  "n": 8
+  "d_bps": -0.07,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 56,
-  "d_bps": 0.03,
-  "n": 8
+  "d_bps": -0.07,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 57,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": -0.11,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 58,
-  "d_bps": -0.03,
-  "n": 8
+  "d_bps": -0.11,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 59,
-  "d_bps": -0.03,
-  "n": 8
+  "d_bps": -0.11,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "kalshi",
   "minute": 60,
-  "d_bps": 0.0,
-  "n": 8
+  "d_bps": -0.1,
+  "n": 9
  },
  {
   "release": "pce",
@@ -10925,7 +10925,7 @@
   "platform": "polymarket",
   "minute": -30,
   "d_bps": 0.02,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -10933,7 +10933,7 @@
   "platform": "polymarket",
   "minute": -29,
   "d_bps": 0.01,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -10941,7 +10941,7 @@
   "platform": "polymarket",
   "minute": -28,
   "d_bps": 0.02,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -10949,7 +10949,7 @@
   "platform": "polymarket",
   "minute": -27,
   "d_bps": 0.02,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -10957,15 +10957,15 @@
   "platform": "polymarket",
   "minute": -26,
   "d_bps": 0.01,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -25,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.02,
+  "n": 9
  },
  {
   "release": "pce",
@@ -10973,87 +10973,87 @@
   "platform": "polymarket",
   "minute": -24,
   "d_bps": 0.03,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -23,
-  "d_bps": 0.03,
-  "n": 8
+  "d_bps": 0.02,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -22,
-  "d_bps": 0.04,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -21,
-  "d_bps": 0.03,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -20,
-  "d_bps": 0.02,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -19,
-  "d_bps": 0.02,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -18,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.02,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -17,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.02,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -16,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.0,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -15,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.0,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -14,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.02,
+  "n": 9
  },
  {
   "release": "pce",
@@ -11061,7 +11061,7 @@
   "platform": "polymarket",
   "minute": -13,
   "d_bps": 0.02,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -11069,7 +11069,7 @@
   "platform": "polymarket",
   "minute": -12,
   "d_bps": 0.0,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -11077,7 +11077,7 @@
   "platform": "polymarket",
   "minute": -11,
   "d_bps": 0.0,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -11085,7 +11085,7 @@
   "platform": "polymarket",
   "minute": -10,
   "d_bps": 0.0,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -11093,15 +11093,15 @@
   "platform": "polymarket",
   "minute": -9,
   "d_bps": -0.0,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -8,
-  "d_bps": 0.02,
-  "n": 8
+  "d_bps": 0.01,
+  "n": 9
  },
  {
   "release": "pce",
@@ -11109,7 +11109,7 @@
   "platform": "polymarket",
   "minute": -7,
   "d_bps": 0.02,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -11117,7 +11117,7 @@
   "platform": "polymarket",
   "minute": -6,
   "d_bps": 0.02,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -11125,7 +11125,7 @@
   "platform": "polymarket",
   "minute": -5,
   "d_bps": 0.02,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -11133,7 +11133,7 @@
   "platform": "polymarket",
   "minute": -4,
   "d_bps": 0.02,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
@@ -11141,39 +11141,39 @@
   "platform": "polymarket",
   "minute": -3,
   "d_bps": 0.02,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -2,
-  "d_bps": 0.02,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": -1,
-  "d_bps": 0.02,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 0,
-  "d_bps": 0.02,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 1,
-  "d_bps": 0.0,
-  "n": 8
+  "d_bps": 0.01,
+  "n": 9
  },
  {
   "release": "pce",
@@ -11181,31 +11181,31 @@
   "platform": "polymarket",
   "minute": 2,
   "d_bps": 0.06,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 3,
-  "d_bps": 0.08,
-  "n": 8
+  "d_bps": 0.09,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 4,
-  "d_bps": 0.08,
-  "n": 8
+  "d_bps": 0.09,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 5,
-  "d_bps": 0.18,
-  "n": 8
+  "d_bps": 0.16,
+  "n": 9
  },
  {
   "release": "pce",
@@ -11213,23 +11213,23 @@
   "platform": "polymarket",
   "minute": 6,
   "d_bps": 0.13,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 7,
-  "d_bps": 0.08,
-  "n": 8
+  "d_bps": 0.07,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 8,
-  "d_bps": 0.1,
-  "n": 8
+  "d_bps": 0.09,
+  "n": 9
  },
  {
   "release": "pce",
@@ -11237,414 +11237,414 @@
   "platform": "polymarket",
   "minute": 9,
   "d_bps": 0.07,
-  "n": 8
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 10,
-  "d_bps": 0.06,
-  "n": 8
+  "d_bps": 0.05,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 11,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 12,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.02,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 13,
-  "d_bps": 0.0,
-  "n": 8
+  "d_bps": 0.02,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 14,
-  "d_bps": 0.0,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 15,
-  "d_bps": 0.0,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 16,
-  "d_bps": 0.02,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 17,
-  "d_bps": 0.02,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 18,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 19,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 20,
-  "d_bps": 0.06,
-  "n": 8
+  "d_bps": 0.08,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 21,
-  "d_bps": 0.02,
-  "n": 8
+  "d_bps": 0.05,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 22,
-  "d_bps": 0.0,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 23,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 24,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 25,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 26,
-  "d_bps": 0.0,
-  "n": 8
+  "d_bps": 0.02,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 27,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.01,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 28,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.0,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 29,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.01,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 30,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.01,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 31,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.02,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 32,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 33,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.01,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 34,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.01,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 35,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.01,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 36,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.01,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 37,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 38,
-  "d_bps": 0.0,
-  "n": 8
+  "d_bps": 0.02,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 39,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.02,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 40,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.01,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 41,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 42,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 43,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 44,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 45,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 46,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 47,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.02,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 48,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.02,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 49,
-  "d_bps": 0.0,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 50,
-  "d_bps": 0.0,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 51,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.02,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 52,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 53,
-  "d_bps": -0.0,
-  "n": 8
+  "d_bps": 0.03,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 54,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 55,
-  "d_bps": 0.03,
-  "n": 8
+  "d_bps": 0.06,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 56,
-  "d_bps": 0.03,
-  "n": 8
+  "d_bps": 0.05,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 57,
-  "d_bps": 0.06,
-  "n": 8
+  "d_bps": 0.08,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 58,
-  "d_bps": 0.06,
-  "n": 8
+  "d_bps": 0.08,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 59,
-  "d_bps": 0.01,
-  "n": 8
+  "d_bps": 0.04,
+  "n": 9
  },
  {
   "release": "pce",
   "sign": "hawkish",
   "platform": "polymarket",
   "minute": 60,
-  "d_bps": -0.01,
-  "n": 8
+  "d_bps": 0.02,
+  "n": 9
  }
 ]

@@ -9998,7 +9998,18 @@
    "result": "yes",
    "settled_ts": "2026-11-13 22:48:10.082265+00",
    "recorded_at": "2026-11-14T13:39:51+00:00"
+  },
+  "polymarket:6071546": {
+   "platform": "polymarket",
+   "market_id": "6071546",
+   "event_id": "956930",
+   "event_slug": "how-low-will-30-year-treasury-yield-get-before-2027",
+   "outcome_yes": null,
+   "question": "Will the 30-year Treasury yield dip below 5.25% before 2027?",
+   "result": "yes",
+   "settled_ts": "2026-11-25 23:13:27.142651+00",
+   "recorded_at": "2026-11-26T17:04:05+00:00"
   }
  },
- "updated_at": "2026-11-25T17:23:53+00:00"
+ "updated_at": "2026-11-26T17:04:05+00:00"
 }

@@ -5671,5 +5671,43 @@
     "p": 0.01
    }
   ]
+ },
+ "pce_2026-11-25:KXPCECORE": {
+  "series": "KXPCECORE",
+  "event": "KXPCECORE-26OCT",
+  "n_strikes": 5,
+  "n_markets": 5,
+  "consensus": 0.299,
+  "actual": 0.3,
+  "actual_from": "expiration_value",
+  "surprise": 0.001,
+  "hawkish_surprise": 0.001,
+  "quotes": [
+   {
+    "ticker": "KXPCECORE-26OCT-T0.0",
+    "strike": 0.0,
+    "p": 0.99
+   },
+   {
+    "ticker": "KXPCECORE-26OCT-T0.1",
+    "strike": 0.1,
+    "p": 0.995
+   },
+   {
+    "ticker": "KXPCECORE-26OCT-T0.2",
+    "strike": 0.2,
+    "p": 0.8500000000000001
+   },
+   {
+    "ticker": "KXPCECORE-26OCT-T0.3",
+    "strike": 0.3,
+    "p": 0.15
+   },
+   {
+    "ticker": "KXPCECORE-26OCT-T0.4",
+    "strike": 0.4,
+    "p": 0.005
+   }
+  ]
  }
 }
