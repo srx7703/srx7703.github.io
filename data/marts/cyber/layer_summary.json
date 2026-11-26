@@ -32,7 +32,7 @@
   ],
   "n_population": 6,
   "n_population_with_multiple": 6,
-  "population_median_ev_ntm": 9.071984474920004
+  "population_median_ev_ntm": 9.357342514202418
  },
  {
   "layer": "endpoint",
@@ -63,7 +63,7 @@
   ],
   "n_population": 3,
   "n_population_with_multiple": 3,
-  "population_median_ev_ntm": 5.142371647012662
+  "population_median_ev_ntm": 5.306139647912699
  },
  {
   "layer": "identity",
@@ -102,7 +102,7 @@
   ],
   "n_population": 5,
   "n_population_with_multiple": 5,
-  "population_median_ev_ntm": 3.627407727943439
+  "population_median_ev_ntm": 3.0297093309399745
  },
  {
   "layer": "cloud_appsec",
@@ -172,7 +172,7 @@
   ],
   "n_population": 1,
   "n_population_with_multiple": 1,
-  "population_median_ev_ntm": 11.208647297592114
+  "population_median_ev_ntm": 10.823169313775274
  },
  {
   "layer": "secops",
@@ -215,7 +215,7 @@
   ],
   "n_population": 3,
   "n_population_with_multiple": 3,
-  "population_median_ev_ntm": 3.9808515643146514
+  "population_median_ev_ntm": 4.086456895679489
  },
  {
   "layer": "email_human",
@@ -347,7 +347,7 @@
   ],
   "n_population": 1,
   "n_population_with_multiple": 1,
-  "population_median_ev_ntm": 2.4595330139037546
+  "population_median_ev_ntm": 2.4262465220271157
  },
  {
   "layer": "ai_security",

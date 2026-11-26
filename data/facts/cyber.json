@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-19T17:39:13+00:00",
+ "generated_at": "2026-11-26T18:39:22+00:00",
  "slug": "cybersecurity-landscape",
- "as_of": "2026-11-16",
+ "as_of": "2026-11-23",
  "registered": "2026-10-17",
  "scope": {
   "n_layers": 12,
@@ -340,8 +340,8 @@
   ]
  },
  "regression": {
-  "as_of": "2026-11-16",
-  "run_ts": "2026-11-16T17:31:18+00:00",
+  "as_of": "2026-11-23",
+  "run_ts": "2026-11-23T19:33:31+00:00",
   "fitted": true,
   "reason": null,
   "n": 25,
@@ -350,68 +350,68 @@
   "n_params": 8,
   "ci_draws": 9982,
   "r2": {
-   "value": 0.797366,
+   "value": 0.793666,
    "qualifier": "=",
    "unit": "share of variance",
-   "period": "one run, read at 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "one run, read at 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/"
   },
   "adj_r2": {
-   "value": 0.713929,
+   "value": 0.708705,
    "qualifier": "=",
    "unit": "share of variance, adjusted",
-   "period": "one run, read at 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "one run, read at 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/"
   },
   "adj_r2_no_layer": {
-   "value": 0.746868,
+   "value": 0.729064,
    "qualifier": "=",
    "unit": "share of variance, adjusted, without the layer groups",
-   "period": "one run, read at 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "one run, read at 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/"
   },
   "layer_gain": {
-   "value": -0.032939,
+   "value": -0.02036,
    "qualifier": "=",
    "unit": "adjusted R squared gained by the layer groups in this model",
-   "period": "one run, read at 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "one run, read at 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/"
   },
   "slope": {
-   "value": 5.481971,
+   "value": 5.438819,
    "qualifier": "=",
    "unit": "change in ln(EV/NTM revenue) per 1.00 of growth (1.00 = 100% growth)",
-   "period": "one run, read at 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "one run, read at 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/",
-   "lo": 2.790619,
-   "hi": 7.049665,
+   "lo": 2.755911,
+   "hi": 7.075254,
    "level": "95%"
   },
   "fcf_coef": {
-   "value": 0.523215,
+   "value": 0.70368,
    "qualifier": "=",
    "unit": "change in ln(EV/NTM revenue) per 1.00 of FCF margin",
-   "period": "one run, read at 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "one run, read at 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/",
-   "lo": -0.521763,
-   "hi": 5.262583,
+   "lo": -0.352621,
+   "hi": 6.068779,
    "level": "95%"
   },
   "china_dummy": {
-   "value": -0.648857,
+   "value": -0.677171,
    "qualifier": "=",
    "unit": "ln(EV/NTM revenue) of an A-share company relative to a US one, same growth, FCF margin and layer",
-   "period": "one run, read at 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "one run, read at 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/",
-   "lo": -1.352393,
-   "hi": 0.921454,
+   "lo": -1.373006,
+   "hi": 1.011886,
    "level": "95%"
   },
   "layer_coefs": [
@@ -423,8 +423,8 @@
      "value": 0.0,
      "qualifier": "=",
      "unit": "ln(EV/NTM revenue) relative to the reference group, same growth, FCF margin and listing market",
-     "period": "one run, read at 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "one run, read at 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -433,11 +433,11 @@
     "n": 5,
     "reference": false,
     "coef": {
-     "value": 0.151105,
+     "value": 0.091255,
      "qualifier": "=",
      "unit": "ln(EV/NTM revenue) relative to the reference group, same growth, FCF margin and listing market",
-     "period": "one run, read at 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "one run, read at 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -446,11 +446,11 @@
     "n": 9,
     "reference": false,
     "coef": {
-     "value": 0.293965,
+     "value": 0.355104,
      "qualifier": "=",
      "unit": "ln(EV/NTM revenue) relative to the reference group, same growth, FCF margin and listing market",
-     "period": "one run, read at 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "one run, read at 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -459,11 +459,11 @@
     "n": 3,
     "reference": false,
     "coef": {
-     "value": 0.086329,
+     "value": 0.059189,
      "qualifier": "=",
      "unit": "ln(EV/NTM revenue) relative to the reference group, same growth, FCF margin and listing market",
-     "period": "one run, read at 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "one run, read at 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -472,11 +472,11 @@
     "n": 4,
     "reference": false,
     "coef": {
-     "value": 0.274873,
+     "value": 0.301994,
      "qualifier": "=",
      "unit": "ln(EV/NTM revenue) relative to the reference group, same growth, FCF margin and listing market",
-     "period": "one run, read at 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "one run, read at 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    }
@@ -511,27 +511,27 @@
   "dropped": [],
   "premium": {
    "ai_trio_median": {
-    "value": 28.714324,
+    "value": 25.68277,
     "qualifier": "=",
     "unit": "EV/NTM revenue, a multiple (x)",
-    "period": "one run, read at 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "one run, read at 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    },
    "rest_median": {
-    "value": 5.118024,
+    "value": 5.332122,
     "qualifier": "=",
     "unit": "EV/NTM revenue, a multiple (x)",
-    "period": "one run, read at 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "one run, read at 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    },
    "ratio": {
-    "value": 5.610432,
+    "value": 4.816613,
     "qualifier": "=",
     "unit": "median EV/NTM revenue of the trio over the median of the rest of the population, a ratio",
-    "period": "one run, read at 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "one run, read at 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    },
    "n_trio": 3,
@@ -544,7 +544,7 @@
   "draws": 10000,
   "seed": 20261026,
   "age_days": 3,
-  "n_series": 4,
+  "n_series": 5,
   "series_from": "2026-10-26",
   "baseline": {
    "as_of": "2026-10-16",
@@ -761,7 +761,7 @@
   "note": "this is the page's own model (growth, FCF margin, China and layer groups); it is not one of the registered readings, and its layer gain is not Q1's uplift"
  },
  "ev_sales": {
-  "as_of": "2026-11-16",
+  "as_of": "2026-11-23",
   "n_ring_a": 73,
   "n_with": 63,
   "n_refused": 10,
@@ -796,233 +796,233 @@
    }
   ],
   "median": {
-   "value": 3.768562,
+   "value": 3.577626,
    "qualifier": "=",
    "unit": "times next-twelve-month revenue",
-   "period": "snapshot of 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "snapshot of 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/",
    "n": 63,
    "p25": {
-    "value": 2.231765,
+    "value": 2.16234,
     "qualifier": "=",
     "unit": "times next-twelve-month revenue",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    },
    "p75": {
-    "value": 5.194022,
+    "value": 5.298809,
     "qualifier": "=",
     "unit": "times next-twelve-month revenue",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    }
   },
   "p25": {
-   "value": 2.231765,
+   "value": 2.16234,
    "qualifier": "=",
    "unit": "times next-twelve-month revenue",
-   "period": "snapshot of 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "snapshot of 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/"
   },
   "p75": {
-   "value": 5.194022,
+   "value": 5.298809,
    "qualifier": "=",
    "unit": "times next-twelve-month revenue",
-   "period": "snapshot of 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "snapshot of 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/"
   },
   "by_layer": {
    "network_edge": {
     "n": 19,
     "median": {
-     "value": 4.870579,
+     "value": 4.541405,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p25": {
-     "value": 3.409164,
+     "value": 3.493288,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p75": {
-     "value": 6.349623,
+     "value": 6.373036,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
    "endpoint": {
     "n": 8,
     "median": {
-     "value": 4.808155,
+     "value": 4.824512,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p25": {
-     "value": 3.27926,
+     "value": 3.158588,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p75": {
-     "value": 7.987771,
+     "value": 7.056853,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
    "identity": {
     "n": 13,
     "median": {
-     "value": 3.313746,
+     "value": 2.946095,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p25": {
-     "value": 1.496925,
+     "value": 1.366883,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p75": {
-     "value": 5.245672,
+     "value": 4.684288,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
    "cloud_appsec": {
     "n": 1,
     "median": {
-     "value": 3.492117,
+     "value": 3.473418,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p25": {
      "value": null,
      "qualifier": null,
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p75": {
      "value": null,
      "qualifier": null,
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
    "data_privacy": {
     "n": 3,
     "median": {
-     "value": 6.426366,
+     "value": 6.442669,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p25": {
      "value": null,
      "qualifier": null,
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p75": {
      "value": null,
      "qualifier": null,
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
    "secops": {
     "n": 6,
     "median": {
-     "value": 2.92536,
+     "value": 3.178827,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p25": {
-     "value": 1.561168,
+     "value": 1.654984,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p75": {
-     "value": 4.773805,
+     "value": 4.470108,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
    "email_human": {
     "n": 1,
     "median": {
-     "value": 3.253893,
+     "value": 3.577626,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p25": {
      "value": null,
      "qualifier": null,
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p75": {
      "value": null,
      "qualifier": null,
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -1032,24 +1032,24 @@
      "value": null,
      "qualifier": null,
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p25": {
      "value": null,
      "qualifier": null,
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p75": {
      "value": null,
      "qualifier": null,
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -1059,51 +1059,51 @@
      "value": null,
      "qualifier": null,
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p25": {
      "value": null,
      "qualifier": null,
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p75": {
      "value": null,
      "qualifier": null,
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
    "services": {
     "n": 8,
     "median": {
-     "value": 1.225606,
+     "value": 0.929288,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p25": {
-     "value": 0.328897,
+     "value": 0.324439,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p75": {
-     "value": 2.250978,
+     "value": 2.008749,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -1113,136 +1113,136 @@
      "value": null,
      "qualifier": null,
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p25": {
      "value": null,
      "qualifier": null,
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p75": {
      "value": null,
      "qualifier": null,
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
    "infra_hw": {
     "n": 4,
     "median": {
-     "value": 2.422969,
+     "value": 2.326003,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p25": {
-     "value": 1.923855,
+     "value": 1.778492,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "p75": {
-     "value": 3.026955,
+     "value": 2.917399,
      "qualifier": "=",
      "unit": "times next-twelve-month revenue",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    }
   },
   "pure_play_median": {
-   "value": 3.584836,
+   "value": 3.467254,
    "qualifier": "=",
    "unit": "times next-twelve-month revenue",
-   "period": "snapshot of 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "snapshot of 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/",
    "n": 50,
    "p25": {
-    "value": 2.245608,
+    "value": 2.30561,
     "qualifier": "=",
     "unit": "times next-twelve-month revenue",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    },
    "p75": {
-    "value": 5.250091,
+    "value": 5.302474,
     "qualifier": "=",
     "unit": "times next-twelve-month revenue",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    }
   },
   "us_pure_play_median": {
-   "value": 4.473937,
+   "value": 4.342885,
    "qualifier": "=",
    "unit": "times next-twelve-month revenue",
-   "period": "snapshot of 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "snapshot of 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/",
    "n": 27,
    "p25": {
-    "value": 1.9589,
+    "value": 1.937913,
     "qualifier": "=",
     "unit": "times next-twelve-month revenue",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    },
    "p75": {
-    "value": 8.082922,
+    "value": 8.533926,
     "qualifier": "=",
     "unit": "times next-twelve-month revenue",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    }
   },
   "us_population_median": {
-   "value": 7.008256,
+   "value": 7.295248,
    "qualifier": "=",
    "unit": "times next-twelve-month revenue",
-   "period": "snapshot of 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "snapshot of 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/",
    "n": 19,
    "p25": {
-    "value": 3.80413,
+    "value": 3.558083,
     "qualifier": "=",
     "unit": "times next-twelve-month revenue",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    },
    "p75": {
-    "value": 9.229111,
+    "value": 9.357343,
     "qualifier": "=",
     "unit": "times next-twelve-month revenue",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    }
   },
   "cn_median": {
-   "value": 3.900276,
+   "value": 3.635474,
    "qualifier": "=",
    "unit": "times next-twelve-month revenue",
-   "period": "snapshot of 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "snapshot of 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://emweb.securities.eastmoney.com/",
    "n": 6,
    "n_needed": 5,
@@ -1251,11 +1251,11 @@
    "note": "enterprise value from Yahoo, revenue consensus from East Money"
   },
   "cn_us_ratio": {
-   "value": 0.556526,
+   "value": 0.498335,
    "qualifier": "=",
    "unit": "ratio of the A-share median to the median of the Q1 and Q2 population",
-   "period": "snapshot of 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "snapshot of 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://emweb.securities.eastmoney.com/"
   },
   "ev_source": "Yahoo enterpriseValue",
@@ -1263,181 +1263,181 @@
   "definition": "enterprise value over next-twelve-month revenue; a multiple is computed only where the quote currency and the revenue currency agree"
  },
  "rule_of_40": {
-  "as_of": "2026-11-16",
+  "as_of": "2026-11-23",
   "n_ring_a": 73,
   "n_scored": 62,
   "n_pass": 21,
   "cut": 40.0,
   "median_score": {
-   "value": 31.469431,
+   "value": 31.088507,
    "qualifier": "=",
    "unit": "points (growth plus FCF margin, in percent)",
-   "period": "snapshot of 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "snapshot of 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/"
   },
   "leaders": [
    {
-    "value": 149.506912,
+    "value": 141.497448,
     "qualifier": "=",
     "unit": "points (growth plus FCF margin, in percent)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
-    "source_url": "https://finance.yahoo.com/",
-    "ticker": "IDAI",
-    "name": "T Stamp (Trust Stamp)",
-    "layer": "identity",
-    "growth": {
-     "value": 3.007295,
-     "qualifier": "=",
-     "unit": "fraction",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
-     "source_url": "https://finance.yahoo.com/"
-    },
-    "fcf_margin": {
-     "value": -1.512226,
-     "qualifier": "=",
-     "unit": "fraction",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
-     "source_url": "https://finance.yahoo.com/"
-    }
-   },
-   {
-    "value": 141.121627,
-    "qualifier": "=",
-    "unit": "points (growth plus FCF margin, in percent)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/",
     "ticker": "688168.SS",
     "name": "ABT Networks",
     "layer": "network_edge",
     "growth": {
-     "value": 1.42757,
+     "value": 1.431328,
      "qualifier": "=",
      "unit": "fraction",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "fcf_margin": {
      "value": -0.016354,
      "qualifier": "=",
      "unit": "fraction",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
    {
-    "value": 113.314314,
+    "value": 113.808439,
     "qualifier": "=",
     "unit": "points (growth plus FCF margin, in percent)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/",
     "ticker": "603232.SS",
     "name": "Koal Software",
     "layer": "identity",
     "growth": {
-     "value": 0.462338,
+     "value": 0.467279,
      "qualifier": "=",
      "unit": "fraction",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "fcf_margin": {
      "value": 0.670805,
      "qualifier": "=",
      "unit": "fraction",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
+     "source_url": "https://finance.yahoo.com/"
+    }
+   },
+   {
+    "value": 110.90208,
+    "qualifier": "=",
+    "unit": "points (growth plus FCF margin, in percent)",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
+    "source_url": "https://finance.yahoo.com/",
+    "ticker": "IDAI",
+    "name": "T Stamp (Trust Stamp)",
+    "layer": "identity",
+    "growth": {
+     "value": 2.700197,
+     "qualifier": "=",
+     "unit": "fraction",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
+     "source_url": "https://finance.yahoo.com/"
+    },
+    "fcf_margin": {
+     "value": -1.591176,
+     "qualifier": "=",
+     "unit": "fraction",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    }
   ],
   "laggards": [
    {
-    "value": -69.989867,
+    "value": -69.037908,
     "qualifier": "=",
     "unit": "points (growth plus FCF margin, in percent)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/",
     "ticker": "LAES",
     "name": "SEALSQ",
     "layer": "infra_hw",
     "growth": {
-     "value": 0.619167,
+     "value": 0.628687,
      "qualifier": "=",
      "unit": "fraction",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "fcf_margin": {
      "value": -1.319066,
      "qualifier": "=",
      "unit": "fraction",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
    {
-    "value": -31.946678,
+    "value": -31.615353,
     "qualifier": "=",
     "unit": "points (growth plus FCF margin, in percent)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/",
     "ticker": "002439.SZ",
     "name": "Venustech",
     "layer": "network_edge",
     "growth": {
-     "value": 0.240082,
+     "value": 0.243395,
      "qualifier": "=",
      "unit": "fraction",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "fcf_margin": {
      "value": -0.559549,
      "qualifier": "=",
      "unit": "fraction",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
    {
-    "value": -8.729657,
+    "value": -12.865916,
     "qualifier": "=",
     "unit": "points (growth plus FCF margin, in percent)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/",
     "ticker": "KUD.SW",
     "name": "Kudelski",
     "layer": "services",
     "growth": {
-     "value": -0.080786,
+     "value": -0.122148,
      "qualifier": "=",
      "unit": "fraction",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "fcf_margin": {
      "value": -0.006511,
      "qualifier": "=",
      "unit": "fraction",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    }
@@ -1445,36 +1445,36 @@
   "definition": "Rule of 40 = 100 x (growth + FCF margin)"
  },
  "targets": {
-  "as_of": "2026-11-16",
+  "as_of": "2026-11-23",
   "n_ring_a_outside_china": 58,
   "n_with_target": 57,
   "n_without": 1,
-  "n_above_price": 52,
-  "n_below_price": 5,
+  "n_above_price": 50,
+  "n_below_price": 7,
   "n_thin": 22,
   "thin_below": 3,
   "median_upside": {
-   "value": 0.23754,
+   "value": 0.236785,
    "qualifier": "=",
    "unit": "fraction (0.10 is 10% above the price)",
-   "period": "snapshot of 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "snapshot of 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/"
   },
   "p25_upside": {
-   "value": 0.114487,
+   "value": 0.060075,
    "qualifier": "=",
    "unit": "fraction (0.10 is 10% above the price)",
-   "period": "snapshot of 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "snapshot of 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/"
   },
   "p75_upside": {
-   "value": 0.611007,
+   "value": 0.639897,
    "qualifier": "=",
    "unit": "fraction (0.10 is 10% above the price)",
-   "period": "snapshot of 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "snapshot of 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/"
   },
   "by_layer": {
@@ -1482,11 +1482,11 @@
     "n": 14,
     "n_thin": 4,
     "median_upside": {
-     "value": 0.297833,
+     "value": 0.203035,
      "qualifier": "=",
      "unit": "fraction (0.10 is 10% above the price)",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -1494,11 +1494,11 @@
     "n": 7,
     "n_thin": 0,
     "median_upside": {
-     "value": 0.134752,
+     "value": 0.162791,
      "qualifier": "=",
      "unit": "fraction (0.10 is 10% above the price)",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -1506,11 +1506,11 @@
     "n": 12,
     "n_thin": 5,
     "median_upside": {
-     "value": 0.26149,
+     "value": 0.318923,
      "qualifier": "=",
      "unit": "fraction (0.10 is 10% above the price)",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -1518,11 +1518,11 @@
     "n": 1,
     "n_thin": 0,
     "median_upside": {
-     "value": 0.535456,
+     "value": 0.425252,
      "qualifier": "=",
      "unit": "fraction (0.10 is 10% above the price)",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -1530,11 +1530,11 @@
     "n": 3,
     "n_thin": 0,
     "median_upside": {
-     "value": 0.159375,
+     "value": 0.086672,
      "qualifier": "=",
      "unit": "fraction (0.10 is 10% above the price)",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -1542,11 +1542,11 @@
     "n": 5,
     "n_thin": 1,
     "median_upside": {
-     "value": 0.114487,
+     "value": 0.014866,
      "qualifier": "=",
      "unit": "fraction (0.10 is 10% above the price)",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -1554,11 +1554,11 @@
     "n": 1,
     "n_thin": 1,
     "median_upside": {
-     "value": 0.423221,
+     "value": 0.338028,
      "qualifier": "=",
      "unit": "fraction (0.10 is 10% above the price)",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -1569,8 +1569,8 @@
      "value": null,
      "qualifier": null,
      "unit": "fraction (0.10 is 10% above the price)",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -1581,8 +1581,8 @@
      "value": null,
      "qualifier": null,
      "unit": "fraction (0.10 is 10% above the price)",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -1590,11 +1590,11 @@
     "n": 9,
     "n_thin": 7,
     "median_upside": {
-     "value": 0.245211,
+     "value": 0.322931,
      "qualifier": "=",
      "unit": "fraction (0.10 is 10% above the price)",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -1605,8 +1605,8 @@
      "value": null,
      "qualifier": null,
      "unit": "fraction (0.10 is 10% above the price)",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -1614,11 +1614,11 @@
     "n": 5,
     "n_thin": 4,
     "median_upside": {
-     "value": 1.403734,
+     "value": 1.395912,
      "qualifier": "=",
      "unit": "fraction (0.10 is 10% above the price)",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    }
@@ -1628,11 +1628,11 @@
     "n": 39,
     "n_thin": 10,
     "median_upside": {
-     "value": 0.23754,
+     "value": 0.227085,
      "qualifier": "=",
      "unit": "fraction (0.10 is 10% above the price)",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -1640,21 +1640,21 @@
     "n": 18,
     "n_thin": 12,
     "median_upside": {
-     "value": 0.240059,
+     "value": 0.291006,
      "qualifier": "=",
      "unit": "fraction (0.10 is 10% above the price)",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    }
   },
   "most_upside": {
-   "value": 1.614381,
+   "value": 1.753198,
    "qualifier": "=",
    "unit": "fraction (0.10 is 10% above the price)",
-   "period": "snapshot of 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "snapshot of 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/",
    "ticker": "IDN",
    "name": "Intellicheck",
@@ -1662,11 +1662,11 @@
    "currency": "USD"
   },
   "least_upside": {
-   "value": -0.174419,
+   "value": -0.247881,
    "qualifier": "=",
    "unit": "fraction (0.10 is 10% above the price)",
-   "period": "snapshot of 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "snapshot of 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/",
    "ticker": "YUBICO.ST",
    "name": "Yubico",
@@ -1676,24 +1676,11 @@
   "extremes_among": "companies with 3 or more analysts",
   "thin_extremes": [
    {
-    "value": 23.888889,
+    "value": 34.856574,
     "qualifier": "=",
     "unit": "fraction (0.10 is 10% above the price)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
-    "source_url": "https://finance.yahoo.com/",
-    "ticker": "CYCU",
-    "name": "Cycurion",
-    "n_opinions": 1,
-    "currency": "USD",
-    "thin": true
-   },
-   {
-    "value": 21.900763,
-    "qualifier": "=",
-    "unit": "fraction (0.10 is 10% above the price)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/",
     "ticker": "INTZ",
     "name": "Intrusion",
@@ -1702,15 +1689,28 @@
     "thin": true
    },
    {
-    "value": 8.433962,
+    "value": 9.10101,
     "qualifier": "=",
     "unit": "fraction (0.10 is 10% above the price)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/",
     "ticker": "BKYI",
     "name": "BIO-key International",
     "n_opinions": 1,
+    "currency": "USD",
+    "thin": true
+   },
+   {
+    "value": 4.62201,
+    "qualifier": "=",
+    "unit": "fraction (0.10 is 10% above the price)",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
+    "source_url": "https://finance.yahoo.com/",
+    "ticker": "LAES",
+    "name": "SEALSQ",
+    "n_opinions": 2,
     "currency": "USD",
     "thin": true
    }
@@ -1718,35 +1718,35 @@
   "covered": {
    "n": 35,
    "median_upside": {
-    "value": 0.176845,
+    "value": 0.119808,
     "qualifier": "=",
     "unit": "fraction (0.10 is 10% above the price)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    },
    "p25_upside": {
-    "value": 0.095423,
+    "value": 0.025853,
     "qualifier": "=",
     "unit": "fraction (0.10 is 10% above the price)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    },
    "p75_upside": {
-    "value": 0.282698,
+    "value": 0.309221,
     "qualifier": "=",
     "unit": "fraction (0.10 is 10% above the price)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    },
    "most_upside": {
-    "value": 1.614381,
+    "value": 1.753198,
     "qualifier": "=",
     "unit": "fraction (0.10 is 10% above the price)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/",
     "ticker": "IDN",
     "name": "Intellicheck",
@@ -1754,11 +1754,11 @@
     "currency": "USD"
    },
    "least_upside": {
-    "value": -0.174419,
+    "value": -0.247881,
     "qualifier": "=",
     "unit": "fraction (0.10 is 10% above the price)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/",
     "ticker": "YUBICO.ST",
     "name": "Yubico",
@@ -1770,35 +1770,35 @@
    "n_registered": 34,
    "n": 34,
    "median_upside": {
-    "value": 0.179498,
+    "value": 0.14013,
     "qualifier": "=",
     "unit": "fraction (0.10 is 10% above the price)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    },
    "p25_upside": {
-    "value": 0.113498,
+    "value": 0.032407,
     "qualifier": "=",
     "unit": "fraction (0.10 is 10% above the price)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    },
    "p75_upside": {
-    "value": 0.285385,
+    "value": 0.316076,
     "qualifier": "=",
     "unit": "fraction (0.10 is 10% above the price)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/"
    },
    "most_upside": {
-    "value": 1.614381,
+    "value": 1.753198,
     "qualifier": "=",
     "unit": "fraction (0.10 is 10% above the price)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/",
     "ticker": "IDN",
     "name": "Intellicheck",
@@ -1806,11 +1806,11 @@
     "currency": "USD"
    },
    "least_upside": {
-    "value": -0.174419,
+    "value": -0.247881,
     "qualifier": "=",
     "unit": "fraction (0.10 is 10% above the price)",
-    "period": "snapshot of 2026-11-16",
-    "as_of": "2026-11-16",
+    "period": "snapshot of 2026-11-23",
+    "as_of": "2026-11-23",
     "source_url": "https://finance.yahoo.com/",
     "ticker": "YUBICO.ST",
     "name": "Yubico",
@@ -1819,11 +1819,11 @@
    }
   },
   "median_dispersion": {
-   "value": 0.551594,
+   "value": 0.544138,
    "qualifier": "=",
    "unit": "fraction of the target mean (high minus low over mean)",
-   "period": "snapshot of 2026-11-16",
-   "as_of": "2026-11-16",
+   "period": "snapshot of 2026-11-23",
+   "as_of": "2026-11-23",
    "source_url": "https://finance.yahoo.com/",
    "n": 35
   },
@@ -1834,60 +1834,60 @@
   "a_shares": "left out by design: East Money's report-list target is empty for cybersecurity and Yahoo's rests on very few analysts (see cn.n_opinions_min and cn.n_opinions_max), so the two sources are not comparable"
  },
  "recommendations": {
-  "as_of": "2026-11-16",
+  "as_of": "2026-11-23",
   "yahoo": {
    "window": "current distribution",
    "scope": "ring A outside China",
    "n_listings": 58,
    "n_listings_printing": 57,
    "n_listings_with_ratings": 54,
-   "n_ratings": 770,
+   "n_ratings": 769,
    "counts": {
-    "strong_buy": 109,
+    "strong_buy": 110,
     "buy": 360,
-    "hold": 274,
+    "hold": 272,
     "sell": 15,
     "strong_sell": 12
    },
    "shares": {
     "strong_buy": {
-     "value": 0.141558,
+     "value": 0.143043,
      "qualifier": "=",
      "unit": "share of ratings",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "buy": {
-     "value": 0.467532,
+     "value": 0.46814,
      "qualifier": "=",
      "unit": "share of ratings",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "hold": {
-     "value": 0.355844,
+     "value": 0.353706,
      "qualifier": "=",
      "unit": "share of ratings",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "sell": {
-     "value": 0.019481,
+     "value": 0.019506,
      "qualifier": "=",
      "unit": "share of ratings",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     },
     "strong_sell": {
-     "value": 0.015584,
+     "value": 0.015605,
      "qualifier": "=",
      "unit": "share of ratings",
-     "period": "snapshot of 2026-11-16",
-     "as_of": "2026-11-16",
+     "period": "snapshot of 2026-11-23",
+     "as_of": "2026-11-23",
      "source_url": "https://finance.yahoo.com/"
     }
    },
@@ -1920,7 +1920,7 @@
    "null_means": "East Money printed none: a null count is read as zero only where the page says so",
    "vocabulary": "buy, add, neutral, reduce, sell",
    "source_url": "https://emweb.securities.eastmoney.com/",
-   "as_of": "2026-11-16"
+   "as_of": "2026-11-23"
   },
   "note": "the two vocabularies are shown side by side and never merged or added"
  },
@@ -1930,27 +1930,26 @@
   "n_with_percentile": 31,
   "n_with_revenue_yoy": 31,
   "n_flag_assessable": 31,
-  "n_flagged": 2,
-  "n_top_quartile": 3,
+  "n_flagged": 1,
+  "n_top_quartile": 2,
   "n_revenue_falling": 18,
   "flagged": [
-   "688168.SS",
    "300229.SZ"
   ],
   "median_ps_ttm": {
-   "value": 6.006751,
+   "value": 5.555417,
    "qualifier": "=",
    "unit": "times trailing-12-month revenue",
    "period": "latest day",
-   "as_of": "2026-11-19",
+   "as_of": "2026-11-26",
    "source_url": "https://data.eastmoney.com/gzfx/"
   },
   "median_ps_percentile": {
-   "value": 0.19545,
+   "value": 0.140909,
    "qualifier": "=",
    "unit": "share of days since 2018 at or below the latest",
    "period": "since 2018-01-01",
-   "as_of": "2026-11-19",
+   "as_of": "2026-11-26",
    "source_url": "https://data.eastmoney.com/gzfx/"
   },
   "median_revenue_yoy": {
@@ -1958,30 +1957,30 @@
    "qualifier": "=",
    "unit": "fraction, cumulative year on year",
    "period": "latest report of each listing",
-   "as_of": "2026-11-19",
+   "as_of": "2026-11-26",
    "source_url": "https://data.eastmoney.com/bbsj/"
   },
-  "as_of": "2026-11-19",
+  "as_of": "2026-11-26",
   "n_ring_a": 15,
   "n_ring_b": 16,
   "n_panel_rows": 31,
   "ps_percentile": {
    "002212.SZ": {
-    "value": 0.297586,
+    "value": 0.177397,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Topsec Technologies",
     "ring": "A",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
-     "value": 2.959384,
+     "value": 2.608721,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -1989,27 +1988,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "002268.SZ": {
-    "value": 0.04689,
+    "value": 0.03057,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "CETC Cyberspace Security (ex-Westone)",
     "ring": "A",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
-     "value": 4.866438,
+     "value": 4.407636,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2017,27 +2016,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "002439.SZ": {
-    "value": 0.367224,
+    "value": 0.275591,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Venustech",
     "ring": "A",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
-     "value": 6.223386,
+     "value": 5.667213,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2045,27 +2044,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "002912.SZ": {
-    "value": 0.02507,
+    "value": 0.0088,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Sinovatio",
     "ring": "A",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
-     "value": 4.448734,
+     "value": 4.089856,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2073,27 +2072,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300188.SZ": {
-    "value": 0.266481,
+    "value": 0.201945,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "SDIC Intelligence (ex-Meiya Pico)",
     "ring": "A",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
-     "value": 5.855608,
+     "value": 5.394918,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2101,27 +2100,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300369.SZ": {
-    "value": 0.19545,
+    "value": 0.196387,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "NSFOCUS Technologies",
     "ring": "A",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
      "value": 2.757631,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2129,27 +2128,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300454.SZ": {
-    "value": 0.149976,
+    "value": 0.13417,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-05-16",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Sangfor Technologies",
     "ring": "A",
-    "n_days": 2067,
+    "n_days": 2072,
     "ps_ttm": {
-     "value": 4.788684,
+     "value": 4.540348,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2157,27 +2156,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300768.SZ": {
-    "value": 0.023848,
+    "value": 0.001081,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2019-04-12",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "DPtech",
     "ring": "A",
-    "n_days": 1845,
+    "n_days": 1850,
     "ps_ttm": {
-     "value": 6.968486,
+     "value": 6.350047,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2185,27 +2184,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "603232.SS": {
-    "value": 0.544104,
+    "value": 0.527096,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Koal Software",
     "ring": "A",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
-     "value": 7.862669,
+     "value": 7.694276,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2213,27 +2212,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688023.SS": {
-    "value": 0.06089,
+    "value": 0.042032,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2019-11-05",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "DBAPPSecurity",
     "ring": "A",
-    "n_days": 1708,
+    "n_days": 1713,
     "ps_ttm": {
-     "value": 1.74459,
+     "value": 1.616644,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2241,27 +2240,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688168.SS": {
-    "value": 0.75344,
+    "value": 0.72327,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2019-09-06",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "ABT Networks",
     "ring": "A",
-    "n_days": 1744,
+    "n_days": 1749,
     "ps_ttm": {
-     "value": 12.592481,
+     "value": 10.893719,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2269,27 +2268,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
-    "flagged": true
+    "flagged": false
    },
    "688201.SS": {
-    "value": 0.04065,
+    "value": 0.005891,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2021-04-21",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Infosec Technologies",
     "ring": "A",
-    "n_days": 1353,
+    "n_days": 1358,
     "ps_ttm": {
-     "value": 3.949689,
+     "value": 3.624136,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2297,27 +2296,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688489.SS": {
-    "value": 0.001042,
+    "value": 0.002073,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2022-12-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Sansec Technology",
     "ring": "A",
-    "n_days": 960,
+    "n_days": 965,
     "ps_ttm": {
-     "value": 5.98082,
+     "value": 5.555417,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2325,27 +2324,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688561.SS": {
-    "value": 0.213681,
+    "value": 0.140909,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2020-07-22",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "QI-ANXIN Technology Group",
     "ring": "A",
-    "n_days": 1535,
+    "n_days": 1540,
     "ps_ttm": {
-     "value": 4.180184,
+     "value": 3.749661,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2353,27 +2352,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688651.SS": {
-    "value": 0.033582,
+    "value": 0.001236,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2023-07-26",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "WebRAY",
     "ring": "A",
-    "n_days": 804,
+    "n_days": 809,
     "ps_ttm": {
-     "value": 6.37995,
+     "value": 5.556389,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2381,27 +2380,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "002368.SZ": {
-    "value": 0.12442,
+    "value": 0.100046,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Taiji Computer",
     "ring": "B",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
-     "value": 1.306141,
+     "value": 1.183838,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2409,27 +2408,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "003029.SZ": {
-    "value": 0.355944,
+    "value": 0.291289,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2020-12-24",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "JIT",
     "ring": "B",
-    "n_days": 1430,
+    "n_days": 1435,
     "ps_ttm": {
-     "value": 7.338479,
+     "value": 6.847939,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2437,27 +2436,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300017.SZ": {
-    "value": 0.918756,
+    "value": 0.908754,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Wangsu Science & Technology",
     "ring": "B",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
-     "value": 7.419087,
+     "value": 7.024786,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2465,27 +2464,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300229.SZ": {
-    "value": 0.842618,
+    "value": 0.817508,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "TRS Information Technology",
     "ring": "B",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
-     "value": 26.172267,
+     "value": 24.240395,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2493,27 +2492,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": true
    },
    "300311.SZ": {
-    "value": 0.621634,
+    "value": 0.347846,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Surfilter",
     "ring": "B",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
-     "value": 6.773969,
+     "value": 5.631036,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2521,27 +2520,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300352.SZ": {
-    "value": 0.085422,
+    "value": 0.037981,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "VRV Software",
     "ring": "B",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
-     "value": 9.076626,
+     "value": 8.545311,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2549,27 +2548,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300386.SZ": {
-    "value": 0.539926,
+    "value": 0.474757,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Feitian Technologies",
     "ring": "B",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
-     "value": 6.805794,
+     "value": 6.351112,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2577,27 +2576,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300579.SZ": {
-    "value": 0.222841,
+    "value": 0.163965,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "BJCA",
     "ring": "B",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
-     "value": 6.287045,
+     "value": 5.951778,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2605,27 +2604,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "300659.SZ": {
-    "value": 0.117456,
+    "value": 0.047707,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Zhongfu Information",
     "ring": "B",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
-     "value": 3.953998,
+     "value": 3.510272,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2633,27 +2632,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "601360.SS": {
-    "value": 0.138812,
+    "value": 0.100509,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "360 Security Technology",
     "ring": "B",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
-     "value": 6.006751,
+     "value": 5.592223,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2661,27 +2660,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "603496.SS": {
-    "value": 0.248839,
+    "value": 0.182955,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2018-01-02",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Embedway Technologies",
     "ring": "B",
-    "n_days": 2154,
+    "n_days": 2159,
     "ps_ttm": {
-     "value": 6.158207,
+     "value": 5.458049,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2689,27 +2688,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688027.SS": {
-    "value": 0.706606,
+    "value": 0.556488,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2020-07-09",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "QuantumCTek",
     "ring": "B",
-    "n_days": 1544,
+    "n_days": 1549,
     "ps_ttm": {
-     "value": 109.845905,
+     "value": 97.165558,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2717,27 +2716,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688030.SS": {
-    "value": 0.065356,
+    "value": 0.042676,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2019-09-30",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Hillstone Networks",
     "ring": "B",
-    "n_days": 1729,
+    "n_days": 1734,
     "ps_ttm": {
-     "value": 2.466533,
+     "value": 2.172253,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2745,27 +2744,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688225.SS": {
-    "value": 0.041379,
+    "value": 0.0103,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2022-02-09",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "AsiaInfo Security",
     "ring": "B",
-    "n_days": 1160,
+    "n_days": 1165,
     "ps_ttm": {
-     "value": 0.686274,
+     "value": 0.622657,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2773,27 +2772,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688244.SS": {
-    "value": 0.492944,
+    "value": 0.27683,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2022-10-19",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Integrity Technology",
     "ring": "B",
-    "n_days": 992,
+    "n_days": 997,
     "ps_ttm": {
-     "value": 9.806825,
+     "value": 8.368014,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2801,27 +2800,27 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
    },
    "688292.SS": {
-    "value": 0.181553,
+    "value": 0.11401,
     "qualifier": "=",
     "unit": "share of days since 2018 at or below the latest",
     "period": "since 2022-08-18",
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-26",
     "source_url": "https://data.eastmoney.com/gzfx/",
     "name": "Haohan Data Technology",
     "ring": "B",
-    "n_days": 1030,
+    "n_days": 1035,
     "ps_ttm": {
-     "value": 6.005518,
+     "value": 5.36493,
      "qualifier": "=",
      "unit": "times trailing-12-month revenue",
      "period": "latest day",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/gzfx/"
     },
     "revenue_yoy": {
@@ -2829,7 +2828,7 @@
      "qualifier": "=",
      "unit": "fraction, cumulative year on year",
      "period": "2026Q1-Q3",
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "source_url": "https://data.eastmoney.com/bbsj/"
     },
     "flagged": false
@@ -2905,7 +2904,7 @@
     "caveat": "Valuation as NinjaOne announces it for Series C extensions that its release summary calls secondary funding, with no pre- or post-money label."
    }
   },
-  "multiples_as_of": "2026-11-16",
+  "multiples_as_of": "2026-11-23",
   "n_china_rows": 38,
   "n_china_headline_rounds": 0,
   "n_comparable_layers": 4,
@@ -2969,7 +2968,7 @@
      "n_comparables": 3,
      "thin": false,
      "arr_as_of": "2025-04-23",
-     "arr_months_old": 18,
+     "arr_months_old": 19,
      "arr_old": true
     },
     {
@@ -3082,14 +3081,14 @@
    "none": 0
   },
   "acquisitions_not_charted_12m": 6,
-  "acquisitions_closed_12m": 50,
-  "acquisitions_closed_12m_announced_earlier": 8,
+  "acquisitions_closed_12m": 49,
+  "acquisitions_closed_12m_announced_earlier": 7,
   "n_sec_priced": 23,
   "n_sec_priced_deals": 23,
   "n_sec_priced_deals_12m": 11,
-  "window_from": "2025-11-19",
-  "window_to": "2026-11-19",
-  "window_end": "2026-11-19",
+  "window_from": "2025-11-26",
+  "window_to": "2026-11-26",
+  "window_end": "2026-11-26",
   "latest": {
    "company": "Varonis Systems",
    "event_kind": "take_private",
@@ -3118,24 +3117,24 @@
   {
    "id": "pure_play_ev_ntm",
    "label": "Median EV / next-twelve-month revenue, the 19 US-listed pure-play companies in the registered group",
-   "value": 7.008256,
+   "value": 7.295248,
    "qualifier": "=",
    "unit": "times next-twelve-month revenue",
-   "period": "snapshot of 2026-11-16",
+   "period": "snapshot of 2026-11-23",
    "source_url": "https://finance.yahoo.com/",
-   "as_of": "2026-11-16",
+   "as_of": "2026-11-23",
    "tag": "C",
    "note": "US-listed companies whose whole business is security and that at least 3 revenue analysts cover, the group the registered claims are about; enterprise value over next-twelve-month revenue. The median over every US-listed pure play with a multiple is lower and is given with the valuation figures"
   },
   {
    "id": "median_target_upside",
    "label": "Median analyst target upside, companies outside China with three or more analysts",
-   "value": 0.176845,
+   "value": 0.119808,
    "qualifier": "=",
    "unit": "fraction (0.10 is 10% above the price)",
-   "period": "snapshot of 2026-11-16",
+   "period": "snapshot of 2026-11-23",
    "source_url": "https://finance.yahoo.com/",
-   "as_of": "2026-11-16",
+   "as_of": "2026-11-23",
    "tag": "C",
    "note": "ring A outside China, 35 companies with 3 or more target-price analysts"
   },
@@ -3157,21 +3156,21 @@
    "id": "Q1",
    "title": "Layer explains the multiple beyond growth",
    "status": "collecting",
-   "reason": "Collecting: 4 of 12 Monday snapshots (2026-10-26 to 2027-01-11) so far. Graded 2027-01-15; no reading is made before then (section I, Q1).",
+   "reason": "Collecting: 5 of 12 Monday snapshots (2026-10-26 to 2027-01-11) so far. Graded 2027-01-15; no reading is made before then (section I, Q1).",
    "graded": "2027-01-15",
    "next_grading": "2027-01-15",
    "already_seen": "17 companies in the groups network_edge 6, other 4, identity 4, secops 3; other is CRWD, RBRK, S, TLS. Growth alone has an adjusted R² of 0.75. Adding the layers changes it by -0.05, the permutation p is 0.94, and the 90% bootstrap interval for the uplift is -0.06 to +0.12. Applied to the baseline, the rule reads undecidable.",
    "evidence": [
     {
      "label": "Monday snapshots collected",
-     "value": 4.0,
+     "value": 5.0,
      "lo": null,
      "hi": null,
      "level": null,
      "qualifier": "=",
      "unit": "snapshots",
      "period": null,
-     "as_of": "2026-11-16",
+     "as_of": "2026-11-23",
      "ref": "Section I, Q1",
      "note": "of 12 in the window; a reading needs at least 10",
      "source_url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
@@ -3185,7 +3184,7 @@
      "qualifier": "=",
      "unit": "companies",
      "period": null,
-     "as_of": "2026-11-16",
+     "as_of": "2026-11-23",
      "ref": "Section I, Q1",
      "note": null,
      "source_url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
@@ -3196,21 +3195,21 @@
    "id": "Q2",
    "title": "Growth explains more of the multiple than free cash flow does",
    "status": "collecting",
-   "reason": "Collecting: 4 of 12 Monday snapshots (2026-10-26 to 2027-01-11) so far. Graded 2027-01-15; no reading is made before then (section I, Q2).",
+   "reason": "Collecting: 5 of 12 Monday snapshots (2026-10-26 to 2027-01-11) so far. Graded 2027-01-15; no reading is made before then (section I, Q2).",
    "graded": "2027-01-15",
    "next_grading": "2027-01-15",
    "already_seen": "R² 0.84. The interval for b is 1.1 to 6.1. The standardised coefficients are 0.60 for growth and 0.39 for FCF margin, a difference of +0.21 with an interval of -0.65 to +0.67. The first two parts of Holds are met and the third is not, so the rule reads undecidable on the baseline.",
    "evidence": [
     {
      "label": "Monday snapshots collected",
-     "value": 4.0,
+     "value": 5.0,
      "lo": null,
      "hi": null,
      "level": null,
      "qualifier": "=",
      "unit": "snapshots",
      "period": null,
-     "as_of": "2026-11-16",
+     "as_of": "2026-11-23",
      "ref": "Section I, Q2",
      "note": "of 12 in the window; a reading needs at least 10",
      "source_url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
@@ -3224,7 +3223,7 @@
      "qualifier": "=",
      "unit": "companies",
      "period": null,
-     "as_of": "2026-11-16",
+     "as_of": "2026-11-23",
      "ref": "Section I, Q2",
      "note": null,
      "source_url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
@@ -3235,21 +3234,21 @@
    "id": "Q3",
    "title": "The market pays for Rule of 40",
    "status": "collecting",
-   "reason": "Collecting: 4 of 12 Monday snapshots (2026-10-26 to 2027-01-11) so far. Graded 2027-01-15; no reading is made before then (section I, Q3).",
+   "reason": "Collecting: 5 of 12 Monday snapshots (2026-10-26 to 2027-01-11) so far. Graded 2027-01-15; no reading is made before then (section I, Q3).",
    "graded": "2027-01-15",
    "next_grading": "2027-01-15",
    "already_seen": "11 companies at or above 40 with a median of 8.8x and 6 below with a median of 2.8x, a ratio of 3.2. The 95% interval is 2.0 to 10.2. The group below 40 is CHKP, MITK, OSPN, RPD, TENB, TLS. The rule reads holds on the baseline.",
    "evidence": [
     {
      "label": "Monday snapshots collected",
-     "value": 4.0,
+     "value": 5.0,
      "lo": null,
      "hi": null,
      "level": null,
      "qualifier": "=",
      "unit": "snapshots",
      "period": null,
-     "as_of": "2026-11-16",
+     "as_of": "2026-11-23",
      "ref": "Section I, Q3",
      "note": "of 12 in the window; a reading needs at least 10",
      "source_url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
@@ -3263,7 +3262,7 @@
      "qualifier": "=",
      "unit": "companies",
      "period": null,
-     "as_of": "2026-11-16",
+     "as_of": "2026-11-23",
      "ref": "Section I, Q3",
      "note": null,
      "source_url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
@@ -3394,7 +3393,7 @@
      "qualifier": "=",
      "unit": "companies",
      "period": null,
-     "as_of": "2026-11-19",
+     "as_of": "2026-11-26",
      "ref": "Section I, Q6",
      "note": "not the scored set: that is fixed by the ledger frozen on 2026-12-31",
      "source_url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
@@ -3405,21 +3404,21 @@
    "id": "Q7",
    "title": "China's discount is not explained by growth",
    "status": "collecting",
-   "reason": "Collecting: 4 of 12 Monday snapshots (2026-10-26 to 2027-01-11) so far. Graded 2027-01-15; no reading is made before then (section I, Q7).",
+   "reason": "Collecting: 5 of 12 Monday snapshots (2026-10-26 to 2027-01-11) so far. Graded 2027-01-15; no reading is made before then (section I, Q7).",
    "graded": "2027-01-15",
    "next_grading": "2027-01-15",
    "already_seen": "The 6 A-share companies have EV/NTM revenue of 2.8x to 5.2x and a median of 4.4x, against 7.3x for the 17, a ratio of 0.60 with a 95% interval of 0.35 to 1.10. Their growth is 18% to 31% against a median of 17% for the 17. The China coefficient is -0.98 with an interval of -1.34 to -0.67, so the rule reads holds on the baseline.",
    "evidence": [
     {
      "label": "Monday snapshots collected",
-     "value": 4.0,
+     "value": 5.0,
      "lo": null,
      "hi": null,
      "level": null,
      "qualifier": "=",
      "unit": "snapshots",
      "period": null,
-     "as_of": "2026-11-16",
+     "as_of": "2026-11-23",
      "ref": "Section I, Q7",
      "note": "of 12 in the window; a reading needs at least 10",
      "source_url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
@@ -3433,7 +3432,7 @@
      "qualifier": "=",
      "unit": "companies",
      "period": null,
-     "as_of": "2026-11-16",
+     "as_of": "2026-11-23",
      "ref": "Section I, Q7",
      "note": null,
      "source_url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
@@ -3447,7 +3446,7 @@
      "qualifier": "=",
      "unit": "companies",
      "period": null,
-     "as_of": "2026-11-16",
+     "as_of": "2026-11-23",
      "ref": "Section I, Q7",
      "note": null,
      "source_url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
@@ -3546,14 +3545,14 @@
     },
     {
      "label": "Premium on the latest Monday snapshot",
-     "value": 5.610431970287142,
+     "value": 4.816613443875527,
      "lo": null,
      "hi": null,
      "level": null,
      "qualifier": "=",
      "unit": "ratio",
      "period": null,
-     "as_of": "2026-11-16",
+     "as_of": "2026-11-23",
      "ref": "Section I, Q9",
      "note": "a weekly reading, not the end value",
      "source_url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
@@ -3571,14 +3570,14 @@
    "evidence": [
     {
      "label": "Monday snapshots collected",
-     "value": 4.0,
+     "value": 5.0,
      "lo": null,
      "hi": null,
      "level": null,
      "qualifier": "=",
      "unit": "snapshots",
      "period": null,
-     "as_of": "2026-11-16",
+     "as_of": "2026-11-23",
      "ref": "Section I, Q10",
      "note": null,
      "source_url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
@@ -3592,7 +3591,7 @@
      "qualifier": "=",
      "unit": "pairs",
      "period": null,
-     "as_of": "2026-11-16",
+     "as_of": "2026-11-23",
      "ref": "Section I, Q10",
      "note": "US-listed ring A companies",
      "source_url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
@@ -3606,7 +3605,7 @@
      "qualifier": "=",
      "unit": "pairs",
      "period": null,
-     "as_of": "2026-11-16",
+     "as_of": "2026-11-23",
      "ref": "Section I, Q10",
      "note": "both moves of at least 0.5%; 30 are needed",
      "source_url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
@@ -3633,7 +3632,7 @@
    "metric_dictionary": 15,
    "kpis": 3
   },
-  "regression_series_points": 4,
+  "regression_series_points": 5,
   "scoreboard": {
    "collecting": 10,
    "holds": 0,
@@ -3642,13 +3641,14 @@
   },
   "checks": {
    "n": 53,
-   "n_pass": 48,
-   "n_warn": 5,
+   "n_pass": 47,
+   "n_warn": 6,
    "n_fail": 0,
-   "n_warn_waiting": 2,
+   "n_warn_waiting": 3,
    "n_warn_data": 3,
    "warn_waiting": [
     "Target mean week on week",
+    "Analyst count week on week",
     "Q6 inputs"
    ],
    "warn_data": [
@@ -3664,17 +3664,17 @@
   "n_priced": 73,
   "n_with_multiple": 63,
   "n_with_enterprise_value_usd": 73,
-  "fx_as_of": "2026-11-13",
+  "fx_as_of": "2026-11-20",
   "fx_rate_dates": {
-   "AUD": "2026-11-13",
-   "CHF": "2026-11-13",
-   "CNY": "2026-11-13",
-   "EUR": "2026-11-13",
-   "GBP": "2026-11-13",
-   "JPY": "2026-11-13",
-   "SEK": "2026-11-13",
-   "TWD": "2026-11-13",
-   "USD": "2026-11-13"
+   "AUD": "2026-11-20",
+   "CHF": "2026-11-20",
+   "CNY": "2026-11-20",
+   "EUR": "2026-11-20",
+   "GBP": "2026-11-20",
+   "JPY": "2026-11-20",
+   "SEK": "2026-11-20",
+   "TWD": "2026-11-20",
+   "USD": "2026-11-20"
   },
   "priced": [
    "002212.SZ",
@@ -3801,7 +3801,7 @@
    "url": "https://github.com/srx7703/srx7703.github.io/blob/main/docs/EVALUATION_PLAN.md"
   },
   {
-   "name": "FRED daily exchange rates (units of a currency per US dollar), the newest rate on file per currency, newest 2026-11-13: enterprise value in dollars",
+   "name": "FRED daily exchange rates (units of a currency per US dollar), the newest rate on file per currency, newest 2026-11-20: enterprise value in dollars",
    "url": "https://fred.stlouisfed.org/"
   }
  ],
@@ -3869,7 +3869,7 @@
   {
    "name": "Consensus freshness",
    "status": "pass",
-   "detail": "newest usable run 2026-11-16, 3 days before 2026-11-19 (weekly capture; limit 9)"
+   "detail": "newest usable run 2026-11-23, 3 days before 2026-11-26 (weekly capture; limit 9)"
   },
   {
    "name": "Consensus coverage",
@@ -3884,22 +3884,22 @@
   {
    "name": "Target price and quote currency agree",
    "status": "warn",
-   "detail": "57 targets against prices; 5 quoted in pence (GBp), where the ratio cancels the unit; no ratio near 100 or 1/100; target more than 10x or under 0.1x the price: CYCU (24.9x), INTZ (22.9x)"
+   "detail": "57 targets against prices; 5 quoted in pence (GBp), where the ratio cancels the unit; no ratio near 100 or 1/100; target more than 10x or under 0.1x the price: BKYI (10.1x), INTZ (35.9x)"
   },
   {
    "name": "Target analyst count",
    "status": "pass",
-   "detail": "57 targets use Yahoo's target-analyst count (n_opinions), which differs from the revenue-estimate analyst count for 25 of them; the two are never mixed"
+   "detail": "57 targets use Yahoo's target-analyst count (n_opinions), which differs from the revenue-estimate analyst count for 26 of them; the two are never mixed"
   },
   {
    "name": "Target mean week on week",
    "status": "warn",
-   "detail": "2026-11-09 to 2026-11-16: target mean moved more than 30% for TLS (+36%)"
+   "detail": "2026-11-16 to 2026-11-23: target mean moved more than 30% for CYCU (-88%)"
   },
   {
    "name": "Analyst count week on week",
-   "status": "pass",
-   "detail": "2026-11-09 to 2026-11-16: analyst count at least halved for no listing"
+   "status": "warn",
+   "detail": "2026-11-16 to 2026-11-23: analyst count at least halved for BTQ (2 to 1)"
   },
   {
    "name": "East Money rating rows",
@@ -3909,7 +3909,7 @@
   {
    "name": "Exchange rates",
    "status": "pass",
-   "detail": "73 of 73 listings with an enterprise value have it in dollars, at the newest rate on file for each of 9 currencies (rate day 2026-11-13)"
+   "detail": "73 of 73 listings with an enterprise value have it in dollars, at the newest rate on file for each of 9 currencies (rate day 2026-11-20)"
   },
   {
    "name": "Listing values are parsed capture fields",
@@ -3919,12 +3919,12 @@
   {
    "name": "Weekly series",
    "status": "pass",
-   "detail": "4 Monday snapshot(s) since 2026-10-26, the start of the formal series"
+   "detail": "5 Monday snapshot(s) since 2026-10-26, the start of the formal series"
   },
   {
    "name": "Regression point",
    "status": "pass",
-   "detail": "2026-11-16: 25 companies (19 US, 6 A-share), 8 parameters, 9982 bootstrap draws"
+   "detail": "2026-11-23: 25 companies (19 US, 6 A-share), 8 parameters, 9982 bootstrap draws"
   },
   {
    "name": "Regression population equals the registered population",
@@ -3949,7 +3949,7 @@
   {
    "name": "China panel freshness",
    "status": "pass",
-   "detail": "newest trading day 2026-11-19, 0 days before 2026-11-19 (limit 10)"
+   "detail": "newest trading day 2026-11-26, 0 days before 2026-11-26 (limit 10)"
   },
   {
    "name": "China panel revenue growth",
@@ -4049,7 +4049,7 @@
   {
    "name": "Deal count matches the events mart",
    "status": "pass",
-   "detail": "63 deal-opening events in the events mart between 2025-11-19 (not included) and 2026-11-19; acquisitions_12m is 63"
+   "detail": "63 deal-opening events in the events mart between 2025-11-26 (not included) and 2026-11-26; acquisitions_12m is 63"
   },
   {
    "name": "Qualifiers on every published number",
