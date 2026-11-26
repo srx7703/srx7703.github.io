@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-25T17:40:40.393954+00:00",
+ "generated_at": "2026-11-26T17:22:26.945436+00:00",
  "track": "power",
  "label": "Data-center power",
  "years": [
   2026,
   2027
  ],
- "as_of_price": "2026-11-25T17:38:39+00:00",
+ "as_of_price": "2026-11-26T17:20:25+00:00",
  "as_of_estimates": "2026-11-23T19:32:45+00:00",
  "as_of_fx": "2026-11-20",
  "n_listings": 30,
@@ -16,24 +16,24 @@
  "n_thin": 0,
  "n_nm": 3,
  "n_stale_prices": 0,
- "median_fwd_pe_this": 20.22795317629088,
- "median_fwd_pe_next": 17.807580724557234,
- "p25_fwd_pe_this": 17.13566516040439,
- "p75_fwd_pe_this": 22.967677088992403,
- "iqr_fwd_pe_this": 5.832011928588013,
+ "median_fwd_pe_this": 20.410180168179885,
+ "median_fwd_pe_next": 17.80234397092554,
+ "p25_fwd_pe_this": 17.485466563382793,
+ "p75_fwd_pe_this": 23.457789795830294,
+ "iqr_fwd_pe_this": 5.972323232447501,
  "median_growth": 0.1831620377969465,
- "median_trailing_pe": 25.293795036743326,
+ "median_trailing_pe": 26.314904124768702,
  "cheapest": {
   "ticker": "EOSE",
   "name": "Eos Energy",
-  "fwd_pe_2026": 1.9247944319546673,
+  "fwd_pe_2026": 1.955591142865942,
   "growth": null,
   "coverage": "covered"
  },
  "priciest": {
   "ticker": "TSLA",
   "name": "Tesla",
-  "fwd_pe_2026": 212.78586507678745,
+  "fwd_pe_2026": 220.46814828562148,
   "growth": 0.2522734654108476,
   "coverage": "covered"
  },
