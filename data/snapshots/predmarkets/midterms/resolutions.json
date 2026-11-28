@@ -13067,7 +13067,29 @@
    "result": "no",
    "settled_ts": "2026-11-26T15:24:50.902686Z",
    "recorded_at": "2026-11-26T17:03:12+00:00"
+  },
+  "kalshi:KXDSENATESEATSH-27-A57": {
+   "platform": "kalshi",
+   "market_id": "KXDSENATESEATSH-27-A57",
+   "event_id": "KXDSENATESEATSH-27",
+   "event_slug": "KXDSENATESEATSH-27",
+   "outcome_yes": "Above 57",
+   "question": "Will the Democratic party hold more than 57 Senate seats in the 120th Congress?",
+   "result": "no",
+   "settled_ts": "2026-11-27T19:53:30.850958Z",
+   "recorded_at": "2026-11-28T15:39:53+00:00"
+  },
+  "kalshi:RSENATESEATS-27-E46": {
+   "platform": "kalshi",
+   "market_id": "RSENATESEATS-27-E46",
+   "event_id": "RSENATESEATS-27",
+   "event_slug": "RSENATESEATS-27",
+   "outcome_yes": "46",
+   "question": "Will the Republican party hold exactly 46 Senate seats in the 120th Congress?",
+   "result": "no",
+   "settled_ts": "2026-11-27T19:53:45.858974Z",
+   "recorded_at": "2026-11-28T15:39:53+00:00"
   }
  },
- "updated_at": "2026-11-27T16:48:02+00:00"
+ "updated_at": "2026-11-28T15:39:53+00:00"
 }
