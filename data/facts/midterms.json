@@ -1,11 +1,11 @@
 {
  "project": "midterms-2026",
- "generated_at": "2026-11-27T16:49:51+00:00",
+ "generated_at": "2026-11-28T01:27:59+00:00",
  "election_day": "2026-11-03",
  "first_snapshot_ts": "2026-09-16T02:26:10+00:00",
- "last_snapshot_ts": "2026-11-27T16:48:02+00:00",
- "n_snapshots": 149,
- "n_days": 73,
+ "last_snapshot_ts": "2026-11-28T01:26:57+00:00",
+ "n_snapshots": 150,
+ "n_days": 74,
  "markets_tracked": {
   "kalshi": 13769,
   "polymarket": 4536
@@ -16,13 +16,13 @@
  },
  "quoted_definition": "both sides quoted, spread <= 10 cents, any volume",
  "last_full_snapshot_ts": "2026-11-27T16:48:02+00:00",
- "order_books_captured": 49662,
- "tier1_books_latest": 21,
+ "order_books_captured": 49667,
+ "tier1_books_latest": 5,
  "checks": [
   {
    "name": "Schema",
    "status": "pass",
-   "detail": "pandera schemas validated before every write (149 runs)"
+   "detail": "pandera schemas validated before every write (150 runs)"
   },
   {
    "name": "Probability range",
